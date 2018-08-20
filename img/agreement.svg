@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1601px" height="1319px" viewBox="0 0 1601 1319" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M1068,436 L1247.99996,436 L1247.99996,436 C1252.41823,436 1255.99996,439.581722 1255.99996,444 L1255.99996,483.999487 L1255.99996,483.999487 C1255.99996,488.417765 1252.41823,491.999487 1247.99996,491.999487 L1068,491.999487 L1068,491.999487 C1063.58172,491.999487 1060,488.417765 1060,483.999487 L1060,444 L1060,444 C1060,439.581722 1063.58172,436 1068,436 Z" id="path-1"></path>
+        <path d="M8,647.000513 L187.999956,647.000513 L187.999956,647.000513 C192.418234,647.000513 195.999956,650.582235 195.999956,655.000513 L195.999956,695 L195.999956,695 C195.999956,699.418278 192.418234,703 187.999956,703 L8,703 L8,703 C3.581722,703 4.46530217e-15,699.418278 0,695 L0,655.000513 L0,655.000513 C-5.41083001e-16,650.582235 3.581722,647.000513 8,647.000513 Z" id="path-2"></path>
+        <path d="M472,416 L651.999956,416 L651.999956,416 C656.418234,416 659.999956,419.581722 659.999956,424 L659.999956,463.999487 L659.999956,463.999487 C659.999956,468.417765 656.418234,471.999487 651.999956,471.999487 L472,471.999487 L472,471.999487 C467.581722,471.999487 464,468.417765 464,463.999487 L464,424 L464,424 C464,419.581722 467.581722,416 472,416 Z" id="path-3"></path>
+        <path d="M9,898 L188.999956,898 L188.999956,898 C193.418234,898 196.999956,901.581722 196.999956,906 L196.999956,945.999487 L196.999956,945.999487 C196.999956,950.417765 193.418234,953.999487 188.999956,953.999487 L9,953.999487 L9,953.999487 C4.581722,953.999487 1,950.417765 1,945.999487 L1,906 L1,906 C1,901.581722 4.581722,898 9,898 Z" id="path-4"></path>
+        <path d="M9,1014 L188.999956,1014 L188.999956,1014 C193.418234,1014 196.999956,1017.58172 196.999956,1022 L196.999956,1061.99949 L196.999956,1061.99949 C196.999956,1066.41777 193.418234,1069.99949 188.999956,1069.99949 L9,1069.99949 L9,1069.99949 C4.581722,1069.99949 1,1066.41777 1,1061.99949 L1,1022 L1,1022 C1,1017.58172 4.581722,1014 9,1014 Z" id="path-5"></path>
+        <path d="M8,765 L187.999956,765 L187.999956,765 C192.418234,765 195.999956,768.581722 195.999956,773 L195.999956,812.999487 L195.999956,812.999487 C195.999956,817.417765 192.418234,820.999487 187.999956,820.999487 L8,820.999487 L8,820.999487 C3.581722,820.999487 4.46530217e-15,817.417765 0,812.999487 L0,773 L0,773 C-5.41083001e-16,768.581722 3.581722,765 8,765 Z" id="path-6"></path>
+        <path d="M472,14 L651.999956,14 L651.999956,14 C656.418234,14 659.999956,17.581722 659.999956,22 L659.999956,61.9994874 L659.999956,61.9994874 C659.999956,66.4177654 656.418234,69.9994874 651.999956,69.9994874 L472,69.9994874 L472,69.9994874 C467.581722,69.9994874 464,66.4177654 464,61.9994874 L464,22 L464,22 C464,17.581722 467.581722,14 472,14 Z" id="path-7"></path>
+        <path d="M1064,14 L1243.99996,14 L1243.99996,14 C1248.41823,14 1251.99996,17.581722 1251.99996,22 L1251.99996,61.9994874 L1251.99996,61.9994874 C1251.99996,66.4177654 1248.41823,69.9994874 1243.99996,69.9994874 L1064,69.9994874 L1064,69.9994874 C1059.58172,69.9994874 1056,66.4177654 1056,61.9994874 L1056,22 L1056,22 C1056,17.581722 1059.58172,14 1064,14 Z" id="path-8"></path>
+        <path d="M1313,433 L1492.99996,433 L1492.99996,433 C1497.41823,433 1500.99996,436.581722 1500.99996,441 L1500.99996,480.999487 L1500.99996,480.999487 C1500.99996,485.417765 1497.41823,488.999487 1492.99996,488.999487 L1313,488.999487 L1313,488.999487 C1308.58172,488.999487 1305,485.417765 1305,480.999487 L1305,441 L1305,441 C1305,436.581722 1308.58172,433 1313,433 Z" id="path-9"></path>
+        <path d="M1413,922 L1592.99996,922 L1592.99996,922 C1597.41823,922 1600.99996,925.581722 1600.99996,930 L1600.99996,969.999487 L1600.99996,969.999487 C1600.99996,974.417765 1597.41823,977.999487 1592.99996,977.999487 L1413,977.999487 L1413,977.999487 C1408.58172,977.999487 1405,974.417765 1405,969.999487 L1405,930 L1405,930 C1405,925.581722 1408.58172,922 1413,922 Z" id="path-10"></path>
+        <path d="M771,1261 L950.999956,1261 L950.999956,1261 C955.418234,1261 958.999956,1264.58172 958.999956,1269 L958.999956,1308.99949 L958.999956,1308.99949 C958.999956,1313.41777 955.418234,1316.99949 950.999956,1316.99949 L771,1316.99949 L771,1316.99949 C766.581722,1316.99949 763,1313.41777 763,1308.99949 L763,1269 L763,1269 C763,1264.58172 766.581722,1261 771,1261 Z" id="path-11"></path>
+        <path d="M1413,1097 L1592.99996,1097 L1592.99996,1097 C1597.41823,1097 1600.99996,1100.58172 1600.99996,1105 L1600.99996,1144.99949 L1600.99996,1144.99949 C1600.99996,1149.41777 1597.41823,1152.99949 1592.99996,1152.99949 L1413,1152.99949 L1413,1152.99949 C1408.58172,1152.99949 1405,1149.41777 1405,1144.99949 L1405,1105 L1405,1105 C1405,1100.58172 1408.58172,1097 1413,1097 Z" id="path-12"></path>
+        <path d="M1097,1262 L1276.99996,1262 L1276.99996,1262 C1281.41823,1262 1284.99996,1265.58172 1284.99996,1270 L1284.99996,1309.99949 L1284.99996,1309.99949 C1284.99996,1314.41777 1281.41823,1317.99949 1276.99996,1317.99949 L1097,1317.99949 L1097,1317.99949 C1092.58172,1317.99949 1089,1314.41777 1089,1309.99949 L1089,1270 L1089,1270 C1089,1265.58172 1092.58172,1262 1097,1262 Z" id="path-13"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(0.000000, 1.000000)">
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <path stroke="#000000" stroke-width="2" d="M1068,437 C1064.13401,437 1061,440.134007 1061,444 L1061,483.999487 C1061,487.865481 1064.13401,490.999487 1068,490.999487 L1247.99996,490.999487 C1251.86595,490.999487 1254.99996,487.865481 1254.99996,483.999487 L1254.99996,444 C1254.99996,440.134007 1251.86595,437 1247.99996,437 L1068,437 Z"></path>
+            </g>
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <path stroke="#000000" stroke-width="2" d="M8,648.000513 C4.13400675,648.000513 1,651.134519 1,655.000513 L1,695 C1,698.865993 4.13400675,702 8,702 L187.999956,702 C191.865949,702 194.999956,698.865993 194.999956,695 L194.999956,655.000513 C194.999956,651.134519 191.865949,648.000513 187.999956,648.000513 L8,648.000513 Z"></path>
+            </g>
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <path stroke="#000000" stroke-width="2" d="M472,417 C468.134007,417 465,420.134007 465,424 L465,463.999487 C465,467.865481 468.134007,470.999487 472,470.999487 L651.999956,470.999487 C655.865949,470.999487 658.999956,467.865481 658.999956,463.999487 L658.999956,424 C658.999956,420.134007 655.865949,417 651.999956,417 L472,417 Z"></path>
+            </g>
+            <text id="LGPL" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="69" y="682">LGPL</tspan>
+            </text>
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-4"></use>
+                <path stroke="#000000" stroke-width="2" d="M9,899 C5.13400675,899 2,902.134007 2,906 L2,945.999487 C2,949.865481 5.13400675,952.999487 9,952.999487 L188.999956,952.999487 C192.865949,952.999487 195.999956,949.865481 195.999956,945.999487 L195.999956,906 C195.999956,902.134007 192.865949,899 188.999956,899 L9,899 Z"></path>
+            </g>
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-5"></use>
+                <path stroke="#000000" stroke-width="2" d="M9,1015 C5.13400675,1015 2,1018.13401 2,1022 L2,1061.99949 C2,1065.86548 5.13400675,1068.99949 9,1068.99949 L188.999956,1068.99949 C192.865949,1068.99949 195.999956,1065.86548 195.999956,1061.99949 L195.999956,1022 C195.999956,1018.13401 192.865949,1015 188.999956,1015 L9,1015 Z"></path>
+            </g>
+            <text id="AGPL" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="65" y="1047">AGPL</tspan>
+            </text>
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-6"></use>
+                <path stroke="#000000" stroke-width="2" d="M8,766 C4.13400675,766 1,769.134007 1,773 L1,812.999487 C1,816.865481 4.13400675,819.999487 8,819.999487 L187.999956,819.999487 C191.865949,819.999487 194.999956,816.865481 194.999956,812.999487 L194.999956,773 C194.999956,769.134007 191.865949,766 187.999956,766 L8,766 Z"></path>
+            </g>
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-7"></use>
+                <path stroke="#000000" stroke-width="2" d="M472,15 C468.134007,15 465,18.1340068 465,22 L465,61.9994874 C465,65.8654806 468.134007,68.9994874 472,68.9994874 L651.999956,68.9994874 C655.865949,68.9994874 658.999956,65.8654806 658.999956,61.9994874 L658.999956,22 C658.999956,18.1340068 655.865949,15 651.999956,15 L472,15 Z"></path>
+            </g>
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-8"></use>
+                <path stroke="#000000" stroke-width="2" d="M1064,15 C1060.13401,15 1057,18.1340068 1057,22 L1057,61.9994874 C1057,65.8654806 1060.13401,68.9994874 1064,68.9994874 L1243.99996,68.9994874 C1247.86595,68.9994874 1250.99996,65.8654806 1250.99996,61.9994874 L1250.99996,22 C1250.99996,18.1340068 1247.86595,15 1243.99996,15 L1064,15 Z"></path>
+            </g>
+            <text id="WTFPL" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="531" y="47">WTFPL</tspan>
+            </text>
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-9"></use>
+                <path stroke="#000000" stroke-width="2" d="M1313,434 C1309.13401,434 1306,437.134007 1306,441 L1306,480.999487 C1306,484.865481 1309.13401,487.999487 1313,487.999487 L1492.99996,487.999487 C1496.86595,487.999487 1499.99996,484.865481 1499.99996,480.999487 L1499.99996,441 C1499.99996,437.134007 1496.86595,434 1492.99996,434 L1313,434 Z"></path>
+            </g>
+            <path d="M771,1262 C767.134007,1262 764,1265.13401 764,1269 L764,1308.99949 C764,1312.86548 767.134007,1315.99949 771,1315.99949 L950.999956,1315.99949 C954.865949,1315.99949 957.999956,1312.86548 957.999956,1308.99949 L957.999956,1269 C957.999956,1265.13401 954.865949,1262 950.999956,1262 L771,1262 Z" id="Rectangle-2" stroke="#000000" stroke-width="2"></path>
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-10"></use>
+                <path stroke="#000000" stroke-width="2" d="M1413,923 C1409.13401,923 1406,926.134007 1406,930 L1406,969.999487 C1406,973.865481 1409.13401,976.999487 1413,976.999487 L1592.99996,976.999487 C1596.86595,976.999487 1599.99996,973.865481 1599.99996,969.999487 L1599.99996,930 C1599.99996,926.134007 1596.86595,923 1592.99996,923 L1413,923 Z"></path>
+            </g>
+            <path d="M799,588 L570,751" id="Line-10" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-10-decoration-1" d="M570,751 L580.538368,747.181256 L577.05902,742.293093 L570,751 Z" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M586,479 L793,536" id="Line-10" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <path id="Line-10-decoration-1" d="M793,536 L783.383991,530.240455 L781.791103,536.025151 L793,536 Z" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <path d="M856,364 L856,510" id="Line-10" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <path id="Line-10-decoration-1" d="M856,510 L859,499.2 L853,499.2 L856,510 Z" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <path d="M790,326 L591,408" id="Line-10" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-10-decoration-1" d="M591,408 L602.128434,406.659124 L599.842534,401.111633 L591,408 Z" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M856.666667,608 L856.666667,751" id="Line-10" stroke="#7ED321" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-10-decoration-1" d="M856.666667,751 L859.666667,740.2 L853.666667,740.2 L856.666667,751 Z" stroke="#7ED321" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M859.666667,849 L859.666667,918" id="Line-10" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-10-decoration-1" d="M859.666667,918 L862.666667,907.2 L856.666667,907.2 L859.666667,918 Z" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M860.666667,1020 L860.666667,1089" id="Line-10" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-10-decoration-1" d="M860.666667,1089 L863.666667,1078.2 L857.666667,1078.2 L860.666667,1089 Z" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M1297,952 L1404,952" id="Line-10" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-10-decoration-1" d="M1404,952 L1393.2,949 L1393.2,955 L1404,952 Z" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M1296,1127 L1403,1127" id="Line-10" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-10-decoration-1" d="M1403,1127 L1392.2,1124 L1392.2,1130 L1403,1127 Z" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M1185.66667,1177 L1185.66667,1258" id="Line-10" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-10-decoration-1" d="M1185.66667,1258 L1188.66667,1247.2 L1182.66667,1247.2 L1185.66667,1258 Z" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M1187,999 L1187,1079" id="Line-10" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-10-decoration-1" d="M1187,1079 L1190,1068.2 L1184,1068.2 L1187,1079 Z" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M861.666667,1185 L861.666667,1254" id="Line-10" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-10-decoration-1" d="M861.666667,1254 L864.666667,1243.2 L858.666667,1243.2 L861.666667,1254 Z" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <polyline id="Line-10" stroke="#4A90E2" stroke-width="4" stroke-linecap="square" points="961 800 1190 800 1190 888"></polyline>
+            <path id="Line-10-decoration-1" d="M1190,888 L1193,877.2 L1187,877.2 L1190,888 Z" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <ellipse id="Oval" stroke="#000000" stroke-width="2" fill="#7ED321" cx="859.5" cy="38" rx="107.5" ry="38"></ellipse>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" points="858.5 265 966 308.417133 858.5 353 751 308.417133"></polygon>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" points="858.5 265 966 308.417133 858.5 353 751 308.417133"></polygon>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" fill="#F8E71C" points="858.5 265 966 308.417133 858.5 353 751 308.417133"></polygon>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" fill="#7ED321" points="557.5 752 665 795.417133 557.5 840 450 795.417133"></polygon>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" fill="#F8E71C" points="856.5 756 964 799.417133 856.5 844 749 799.417133"></polygon>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" fill="#F8E71C" points="860.5 926 968 969.417133 860.5 1014 753 969.417133"></polygon>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" fill="#F8E71C" points="1184.5 1083 1292 1126.41713 1184.5 1171 1077 1126.41713"></polygon>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" fill="#F8E71C" points="1184.5 908 1292 951.417133 1184.5 996 1077 951.417133"></polygon>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" fill="#F8E71C" points="860.5 1093 968 1136.41713 860.5 1181 753 1136.41713"></polygon>
+            <path d="M551.5,942.5 L553,944" id="Line-9" stroke="#979797" stroke-width="2" stroke-linecap="square"></path>
+            <text id="GPL" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="532" y="800">GPL</tspan>
+            </text>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" fill="#F8E71C" points="275.5 265 383 308.417133 275.5 353 168 308.417133"></polygon>
+            <text id="你是在逗我吗？" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="212" y="313">你是在逗我吗？</tspan>
+            </text>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" fill="#F8E71C" points="563.5 265 671 308.417133 563.5 353 456 308.417133"></polygon>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" fill="#F8E71C" points="859.5 135 967 178.417133 859.5 223 752 178.417133"></polygon>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" fill="#F8E71C" points="1157.5 267 1265 310.417133 1157.5 355 1050 310.417133"></polygon>
+            <text id="他人可以修改、-商用、发表？" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="1107" y="307">他人可以修改、</tspan>
+                <tspan x="1107" y="332">商用、发表？</tspan>
+            </text>
+            <polyline id="Line" stroke="#7ED321" stroke-width="4" stroke-linecap="square" points="974.496094 178.5 1158 178.5 1158 263.804688"></polyline>
+            <path id="Line-decoration-1" d="M1158,263.804688 L1161,253.004687 L1155,253.004687 L1158,263.804688 Z" stroke="#7ED321" stroke-width="4" stroke-linecap="square"></path>
+            <text id="文档：HTML、Markdown,-…" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="978" y="171">文档：HTML、Markdown, …</tspan>
+            </text>
+            <text id="Creative-Common" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="1082" y="468">Creative Common</tspan>
+            </text>
+            <text id="GFDL" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="1379" y="465">GFDL</tspan>
+            </text>
+            <polyline id="Line-2" stroke="#7ED321" stroke-width="4" stroke-linecap="square" points="1268 311 1403 311 1403 432"></polyline>
+            <path id="Line-2-decoration-1" d="M1403,432 L1406,421.2 L1400,421.2 L1403,432 Z" stroke="#7ED321" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M1159,359.5 L1159,433.5" id="Line-3" stroke="#7ED321" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-3-decoration-1" d="M1159,433.5 L1162,422.7 L1156,422.7 L1159,433.5 Z" stroke="#7ED321" stroke-width="4" stroke-linecap="square"></path>
+            <text id="看情况" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="1165" y="398">看情况</tspan>
+            </text>
+            <text id="可以，但要标注版权" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="1274" y="302">可以，但要标注版权</tspan>
+            </text>
+            <text id="你要开源的是代码？" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="781" y="184">你要开源的是代码？</tspan>
+            </text>
+            <text id="你关心代码的死活吗？" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="770" y="43">你关心代码的死活吗？</tspan>
+            </text>
+            <path d="M749.5,42 L666,42" id="Line-4" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-4-decoration-1" d="M666,42 L676.8,45 L676.8,39 L666,42 Z" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M970,41 L1050,41" id="Line-4" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-4-decoration-1" d="M1050,41 L1039.2,38 L1039.2,44 L1050,41 Z" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M860,78 L860,131" id="Line-5" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-5-decoration-1" d="M860,131 L863,120.2 L857,120.2 L860,131 Z" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path d="M859,223 L859,261" id="Line-5" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <path id="Line-5-decoration-1" d="M859,261 L862,250.2 L856,250.2 L859,261 Z" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <text id="不关心" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="683" y="34">不关心</tspan>
+            </text>
+            <text id="不关心" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="981" y="31">不关心</tspan>
+            </text>
+            <text id="关心" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="872" y="111">关心</tspan>
+            </text>
+            <text id="脚本型语言" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="620" y="171">脚本型语言</tspan>
+            </text>
+            <text id="编译型语言" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="753" y="244">编译型语言</tspan>
+            </text>
+            <polyline id="Line-6" stroke="#7ED321" stroke-width="4" stroke-linecap="square" points="747.487438 178.5 563.983532 178.5 563.983532 254.5"></polyline>
+            <path id="Line-6-decoration-1" d="M563.983532,254.5 L566.983532,243.7 L560.983532,243.7 L563.983532,254.5 Z" stroke="#7ED321" stroke-width="4" stroke-linecap="square"></path>
+            <text id="申请了专利？" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="500" y="315">申请了专利？</tspan>
+            </text>
+            <path d="M671.5,309 L746.5,309" id="Line-7" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-7-decoration-1" d="M746.5,309 L735.7,306 L735.7,312 L746.5,309 Z" stroke="#D0021B" stroke-width="4" stroke-linecap="square"></path>
+            <text id="否" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="700" y="302">否</tspan>
+            </text>
+            <path d="M454,309 L385,309" id="Line-8" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-8-decoration-1" d="M385,309 L395.8,312 L395.8,306 L385,309 Z" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <text id="是" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="410" y="295">是</tspan>
+            </text>
+            <text id="想直接通过-开源软件赚钱？" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="798" y="303">想直接通过</tspan>
+                <tspan x="798" y="331">开源软件赚钱？</tspan>
+            </text>
+            <polygon id="Triangle" stroke="#000000" stroke-width="2" fill="#F8E71C" points="855.5 516 963 559.417133 855.5 604 748 559.417133"></polygon>
+            <text id="你是开源狂热粉？" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="795" y="566">你是开源狂热粉？</tspan>
+            </text>
+            <text id="是的，让全世界开源" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="626" y="735">是的，让全世界开源</tspan>
+            </text>
+            <text id="不确定，我再想想" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="864" y="678">不确定，我再想想</tspan>
+            </text>
+            <path d="M449,793 L200,673" id="Line-11" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <path id="Line-11-decoration-1" d="M200,673 L208.426695,680.391266 L211.031546,674.986199 L200,673 Z" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <path d="M450,805 L203,930" id="Line-11" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <path id="Line-11-decoration-1" d="M203,930 L213.990922,927.800082 L211.281663,922.446586 L203,930 Z" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <path d="M506,822 L198,1042" id="Line-11" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <path id="Line-11-decoration-1" d="M198,1042 L208.532036,1038.16383 L205.044607,1033.28143 L198,1042 Z" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <path d="M446,796 L202,796" id="Line-11" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <path id="Line-11-decoration-1" d="M202,796 L212.8,799 L212.8,793 L202,796 Z" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+            <text id="只引用库不修改" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="269" y="692">只引用库不修改</tspan>
+            </text>
+            <g id="Group-2" transform="translate(269.000000, 805.000000)" font-size="18" font-family="PingFangSC-Regular, PingFang SC" fill="#040404" font-weight="normal">
+                <text id="需要开源硬件、DRM、专利等">
+                    <tspan x="0" y="19">需要开源硬件、DRM、专利等</tspan>
+                </text>
+            </g>
+            <text id="需要开源硬件、DRM、专利等" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="270" y="920">需要开源硬件、DRM、专利等</tspan>
+            </text>
+            <text id="需要开源服务器源码" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="269" y="1019">需要开源服务器源码</tspan>
+            </text>
+            <text id="GPLv2" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="65" y="799">GPLv2</tspan>
+            </text>
+            <text id="GPLv3" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="64" y="931">GPLv3</tspan>
+            </text>
+            <text id="（所有相关组件都开源）" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="493" y="664">（所有相关组件都开源）</tspan>
+            </text>
+            <text id="他人修改代码后-是否可以闭源" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="801" y="795">他人修改代码后</tspan>
+                <tspan x="801" y="820">是否可以闭源</tspan>
+            </text>
+            <text id="否" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="870" y="886">否</tspan>
+            </text>
+            <text id="是" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="866" y="1058">是</tspan>
+            </text>
+            <text id="否" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="868" y="1225">否</tspan>
+            </text>
+            <text id="是" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="1025" y="794">是</tspan>
+            </text>
+            <polyline id="Line-12" stroke="#4A90E2" stroke-width="4" stroke-linecap="square" points="753.999956 1137 558 1137 558 844"></polyline>
+            <path id="Line-12-decoration-1" d="M558,844 L555,854.8 L561,854.8 L558,844 Z" stroke="#4A90E2" stroke-width="4" stroke-linecap="square"></path>
+            <text id="新增代码是否-采用相同许可" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="810" y="963">新增代码是否</tspan>
+                <tspan x="810" y="988">采用相同许可</tspan>
+            </text>
+            <text id="是的，相关代码必须开源" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="564" y="1128">是的，相关代码必须开源</tspan>
+            </text>
+            <text id="Public-Domain" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="1098" y="48">Public Domain</tspan>
+            </text>
+            <text id="修改源码后-上下游是否开源" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="803" y="1128">修改源码后</tspan>
+                <tspan x="803" y="1153">上下游是否开源</tspan>
+            </text>
+            <text id="MPL" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="840" y="1294">MPL</tspan>
+            </text>
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-11"></use>
+                <path stroke="#000000" stroke-width="2" d="M771,1262 C767.134007,1262 764,1265.13401 764,1269 L764,1308.99949 C764,1312.86548 767.134007,1315.99949 771,1315.99949 L950.999956,1315.99949 C954.865949,1315.99949 957.999956,1312.86548 957.999956,1308.99949 L957.999956,1269 C957.999956,1265.13401 954.865949,1262 950.999956,1262 L771,1262 Z"></path>
+            </g>
+            <text id="MPL" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="840" y="1294">MPL</tspan>
+            </text>
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-12"></use>
+                <path stroke="#000000" stroke-width="2" d="M1413,1098 C1409.13401,1098 1406,1101.13401 1406,1105 L1406,1144.99949 C1406,1148.86548 1409.13401,1151.99949 1413,1151.99949 L1592.99996,1151.99949 C1596.86595,1151.99949 1599.99996,1148.86548 1599.99996,1144.99949 L1599.99996,1105 C1599.99996,1101.13401 1596.86595,1098 1592.99996,1098 L1413,1098 Z"></path>
+            </g>
+            <text id="MIT" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="1487" y="1132">MIT</tspan>
+            </text>
+            <g id="Rectangle-2">
+                <use fill="#4A90E2" fill-rule="evenodd" xlink:href="#path-13"></use>
+                <path stroke="#000000" stroke-width="2" d="M1097,1263 C1093.13401,1263 1090,1266.13401 1090,1270 L1090,1309.99949 C1090,1313.86548 1093.13401,1316.99949 1097,1316.99949 L1276.99996,1316.99949 C1280.86595,1316.99949 1283.99996,1313.86548 1283.99996,1309.99949 L1283.99996,1270 C1283.99996,1266.13401 1280.86595,1263 1276.99996,1263 L1097,1263 Z"></path>
+            </g>
+            <text id="BSD" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="1166" y="1295">BSD</tspan>
+            </text>
+            <text id="每个修改的文件-是否要版权声明" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="1133" y="943">每个修改的文件</tspan>
+                <tspan x="1133" y="968">是否要版权声明</tspan>
+            </text>
+            <text id="Apache" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="1471" y="956">Apache</tspan>
+            </text>
+            <text id="是的，并能新增协议" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="1254" y="1000">是的，并能新增协议</tspan>
+            </text>
+            <text id="否" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="1196" y="1044">否</tspan>
+            </text>
+            <text id="是否能使用-原名用于宣传" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="1134" y="1118">是否能使用</tspan>
+                <tspan x="1134" y="1143">原名用于宣传</tspan>
+            </text>
+            <text id="是" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="1332" y="1117">是</tspan>
+            </text>
+            <text id="否" font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="1196" y="1226">否</tspan>
+            </text>
+            <text id="多重授权" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="518" y="451">多重授权</tspan>
+            </text>
+            <text id="是的" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="618" y="375">是的</tspan>
+            </text>
+            <text id="不。我还可以间接赚钱" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="831" y="466">不。我还可以间接赚钱</tspan>
+            </text>
+            <text id="@Phodal-https://gith" font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#000000">
+                <tspan x="0" y="1227">@Phodal</tspan>
+                <tspan x="0" y="1255">https://github.com/phodal/licenses</tspan>
+                <tspan x="0" y="1283">CC-BY-ND</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
