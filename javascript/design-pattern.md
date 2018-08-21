@@ -258,5 +258,141 @@ alert(person.getName());
 
 <br>
 
-### 1.4 能用于开发的ES6环境
-1. more...
+### 1.4 完善配置
+> 经过上面的努力，终于可以在多终端（电脑+手机）实时查看自己编写的ES6代码了。然而，还是有点小瑕疵。例如：无法将代码打包应用于生产。所以，Let's Go! 再搞个生产环境，让我们完美结束这份Webpack配置吧~
+1. 新增webpack.prod.config.js，用作打包生产：
+> webpack.prod.config.js
+```
+const path = require('path'); // 加载node中的path模块
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // 加载插件html-webpack-plugin
+
+module.exports = {
+    mode: 'production', // 生产模式
+    entry: './src/index.js', // 入口文件
+    output: { // 出口文件
+        path: __dirname,
+        filename: './dist/js/index.js'
+    },
+    module: { // 加载模块
+        rules: [{ 
+            test: /\.js$/, // .js文件加载loader
+            include: path.resolve(__dirname, "./src"), // 检查的文件夹
+            exclude: path.resolve(__dirname, "./node_modules"), // 不检查的文件夹
+            loader: 'babel-loader' // 使用的loader
+        }]
+    },
+    plugins: [ 
+        new HtmlWebpackPlugin({ // HTML加载插件
+            template: './dist/index.html'
+        })
+    ]
+}
+```
+2. 修改下package.json，使其能使用命令行`npm run build`：
+> package.json
+```
+{
+  "name": "design-pattern",
+  "version": "1.0.0",
+  "description": "design pattern for javascript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config ./webpack.dev.config.js",
+    "build": "webpack --config ./webpack.dev.config.js"
+  },
+  "keywords": [
+    "javascript",
+    "design pattern"
+  ],
+  "author": "jsliang",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  }
+}
+```
+3. 完善下webpack.dev.config.js：
+> wepbakc.dev.config.js
+```
+const path = require('path'); // 加载node中的path模块
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // 加载插件html-webpack-plugin
+
+module.exports = {
+    mode: 'development', // 开发模式
+    entry: './src/index.js', // 入口文件
+    output: { // 出口文件
+        path: __dirname,
+        filename: './dist/js/index.js'
+    },
+    module: { // 加载模块
+        rules: [{ 
+            test: /\.js$/, // .js文件加载loader
+            include: path.resolve(__dirname, "./src"), // 检查的文件夹
+            exclude: path.resolve(__dirname, "./node_modules"), // 不检查的文件夹
+            loader: 'babel-loader' // 使用的loader
+        }]
+    },
+    plugins: [ 
+        new HtmlWebpackPlugin({ // HTML加载插件
+            template: './dist/index.html'
+        })
+    ],
+    devServer: { // 开发服务
+        contentBase: path.join(__dirname, './dist'), // 监控的目录
+        open: true, // 自动打开浏览器
+        port: 9000, // 端口
+        host: "192.168.1.107" // WiFi IPV4地址，打开可共享到手机
+    }
+}
+```
+4. 检查下其他文件，看看是否与jsliang一致：
+> src/index.js
+```
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    getName() {
+        return this.name;
+    }
+}
+
+let person = new Person("jsliang");
+alert(person.getName());
+```
+> .babelrc
+```
+{
+    "presets": [
+        "env"
+    ],
+    "plugins": [
+        
+    ]
+}
+```
+> index.html
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jsliang的设计模式</title>
+</head>
+<body>
+    <p>jsliang的设计模式</p>
+    
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+</body>
+</html>
+```
+5. 执行命令行`npm run dev`或者`npm run build`，OK，都能成功运行，生产环境部署完毕，接下来我们愉快地玩耍设计模式吧！
