@@ -15,7 +15,7 @@
 
 ## 一. 部署开发环境
 
-> ### 1.1 打包JavaScript
+### 1.1 打包JavaScript
 > 首先部署个能打包JavaScript的环境：
 1. 执行命令行：`npm init -y`，初始化package.json文件。
 2. 执行命令行：`cnpm i webpack webpack-cli -D`，安装webpack及其命令行工具webpack-cli。
@@ -74,7 +74,7 @@ module.exports = {
 
 <br>
 
-> ### 1.2 动态打包JavaScript
+### 1.2 动态打包JavaScript
 
 1. 执行命令行：`cnpm i webpack-dev-server html-webpack-plugin -D`，安装Webpack的devServer，这个能启动开发模式实时监控代码的webpack配置。同时，安装html-webpack-plugin，这个能解析HTML的插件。
 
@@ -158,7 +158,7 @@ module.exports = {
 
 <br>
 
-> ### 1.3 自动打包ES6
+### 1.3 自动打包ES6
 1. 执行命令行：`cnpm i babel-core babel-loader babel-polyfill babel-preset-env -D`，安装ES6对应的解析配置，执行完毕后package.json会自动新增依赖包：
 > package.json
 ```
@@ -258,5 +258,5 @@ alert(person.getName());
 
 <br>
 
-> ### 1.4 能用于开发的ES6环境
+### 1.4 能用于开发的ES6环境
 1. more...
