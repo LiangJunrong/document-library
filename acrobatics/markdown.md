@@ -42,7 +42,7 @@ ___
 > * 如果是网络图片，则可以使用http://**来引入
 > * 如果是base64，怎么使用参考[markdown引用base64](https://blog.csdn.net/slaughterdevil/article/details/79255933)
 
-![图片](./img/markdown-logo.jpg)
+![图片](../img/acrobatics-markdown-logo.jpg)
 
 # 代码框
 ## 单行用``
