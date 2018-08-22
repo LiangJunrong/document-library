@@ -9,11 +9,11 @@ Markdown使用语法
 > # 预览主题
 > 在这里，介绍下VS Code的MarkDown预览如何更换为GitHub主题。
 > 1. 使用 Ctrl + Shift + P 打开设置面板，或者点 **文件\>首选项\>设置** 打开设置面板。
-> 2. 设置 "markdown.styles"为引用本地CSS（只能绝对路径），或者引用网上的第三方文件。这里引用了acrobatics\/css下的markdown-github.css文件。
+> 2. 设置 "markdown.styles"为引用本地CSS（只能绝对路径），或者引用网上的第三方文件。这里引用了Public-Repertory\/css下的markdown-github.css文件。
 > 3. 配置为：
 > ```
 > "markdown.styles": [
-> "E:\\MyWeb\\jsliang-study\\Document-Library\\acrobatics\\css\\markdown-github.css"
+> "E:\\MyWeb\\jsliang-study\\Document-Library\\Public-Repertory\\css\\markdown-github.css"
 >]
 > ```
 
@@ -103,7 +103,7 @@ ___
 > 
 > 展示：  
 
-![图片](../img/acrobatics-markdown-logo.jpg)
+![图片](../../public-repertory/img/other-markdown-logo.jpg)
 
 <br>
 

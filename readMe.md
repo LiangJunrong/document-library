@@ -6,10 +6,10 @@
 > Agreement - 关于协议 
 * 由于担心自己的知识产品被无良厂商/个人拿去非法盈利，所以jsliang特意去查了下关于协议的知识，下面是查询结果，分享给想了解协议的小伙伴们。
 * 阮一峰关于协议的见解 [查看详情](http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html)
-![阮一峰](./img/index-agreement-ruanyifeng.png)
+![阮一峰](./public-repertory/img/index-agreement-ruanyifeng.png)
 
-* phodal关于协议的见解 [查看详情](https://www.sohu.com/a/193996518_385076)
-![phodal](./img/index-agreement-phodal.svg)
+* Phodal关于协议的见解 [查看详情](https://www.sohu.com/a/193996518_385076)
+![phodal](./public-repertory//img/index-agreement-phodal.svg)
 
 > 事实上，我们大多数时候仅仅“了解”这些协议有大概有什么用，却很少把它使用到我们的项目中。就好比在这里我使用了一种保护markdown文档的许可证，但是，实际上我也不知道它究竟有没有作用。
 

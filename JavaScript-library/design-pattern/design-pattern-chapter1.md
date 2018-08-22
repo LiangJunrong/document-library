@@ -68,7 +68,7 @@ module.exports = {
 
 6. 执行命令行：`npm run dev`，可以查看到在根目录中生成了个dist文件夹，该文件夹下存有一个src文件夹，里面包含了个index.js。`本处有点小瑕疵，这里是src文件夹，但是到了后面变成了js文件夹，因为这是打包后的js存放的地方，当然这里是不影响使用的，下面我们会提到。`
 7. 此时目前目录如下：  
-![目录](../../img/js-design-pattern-picture1.png)
+![目录](../../public-repertory/img/js-design-pattern-picture1.png)
 
 <br>
 
@@ -150,10 +150,10 @@ module.exports = {
 }
 ```
 5. 执行命令行：`npm run dev`，发现浏览器自动打开`http://localhost:8080`(启动WiFi的情况下应该是打开类似于`http://192.168.1.107:8080/`)的网址：  
-![网址](../../img/js-design-pattern-picture2.png)
+![网址](../../public-repertory/img/js-design-pattern-picture2.png)
 
 6. 此时文件目录为：  
-![目录](../../img/js-design-pattern-picture3.png)
+![目录](../../public-repertory/img/js-design-pattern-picture3.png)
 
 <br>
 
@@ -397,5 +397,5 @@ alert(person.getName());
 </html>
 ```
 5. 执行命令行`npm run dev`或者`npm run build`,然后查看目录：  
-   ![目录](../../img/js-design-pattern-picture4.png)  
+   ![目录](../../public-repertory/img/js-design-pattern-picture4.png)  
    OK，都能成功运行，生产环境部署完毕，接下来我们愉快地玩耍设计模式吧！
