@@ -4,6 +4,8 @@ Markdown使用语法
 > Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本具有一定的格式。Markdown文件的后缀为 \.md  
 > 在jsliang看来，Markdown就是HTML的简化版、TXT文本的格式版。如果你在编写中存在难点，你可以直接在Markdown中使用HTML标记语言（包括使用行内样式）。 
 
+<br>
+
 > # 预览主题
 > 在这里，介绍下VS Code的MarkDown预览如何更换为GitHub主题。
 > 1. 使用 Ctrl + Shift + P 打开设置面板，或者点 **文件\>首选项\>设置** 打开设置面板。
@@ -14,6 +16,8 @@ Markdown使用语法
 > "E:\\MyWeb\\jsliang-study\\Document-Library\\acrobatics\\css\\markdown-github.css"
 >]
 > ```
+
+<br>
 
 > 下面介绍Markdown常用语法：
 

@@ -1,22 +1,20 @@
-# 设计模式手册
-> create by **jsliang** on **2018年8月21日11:30:00**  
-
-<br>
-
-> 知识普及：  
-> 1. Webpack
-> * **babel-core**：把es6中的新语法（箭头函数、rest参数等）解析成ast这种形式，然后配合各个插件分析语法进行相应的处理。
-> * **babel-loader**：一种loader解析器，配合Webpack解析ES6编写的js文件。
-> * **babel-preset-\***：babel-reset-2015包含了es6对应的新语法，如果配置了babel-reset-latest，则包含了es2015、es2016、es2017的插件（之后可能包括es2018等）。`注：在安装过程中jsliang发现，官方已不推荐使用babel-preset-*系列了，推荐使用下面介绍的babel-preset-env包。`
-> * **babel-polyfill**：实现浏览器对不支持API的兼容（兼容旧环境、填补）。
-> * **babel-preset-env**：如果不做任何配置，该loader等同于bable-preset-latest，如果你需要根据不同浏览器或者node版本进行配置，推荐使用babel-preset-env进行配置使用 [详情介绍](https://segmentfault.com/a/1190000011639765)
-
-<br>
+# 设计模式手册 - 1 - 部署开发环境
+> create by **jsliang** on **2018年8月22日11:19:00**  
 
 ## 一. 部署开发环境
+&emsp;为什么要部署个开发环境呢？我就不能直接将es6转成es5直接使用吗？回答是：可以啊！[链接拿去](https://www.cnblogs.com/yuanbo88/p/6389299.html)，里面告诉你怎么配置babel，将es6转es5。如果你觉得还要配置babel，也是挺麻烦的，[链接拿去](https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015,react,stage-2&targets=&browsers=&builtIns=false&debug=false&code=)，里面已经设置好了，直接在线将es8、es7、es6转es5，去吧少年~  
+&emsp;但是，怎么说呢，工欲善其事，必先利其器。一切的编程就是为了偷懒，所以jsliang配置个Webpack的es6环境，就是想：  
+
+* 偷懒。每次写完代码按Ctrl+C，就可以在另一个显示屏（jsliang两个显示屏的）直接看到编译结果了，而不是用命令行将ES6转为ES5.
+* 还是偷懒。有时候写个小项目，用原生搞的话，ES5有时候写起来不爽啊，能耍耍ES6就好了，到时候还要搞事情，转ES5、手机查看啥的，还不如直接配置好，到时候直接用啦。
+* 还是还是偷懒。要知道有些个玩意，叫vue-cli、react-cli、angular-cli，而且目前jsliang所知的，就是vue-cli是单页面SPA配置，到时候你要去搞多页面，还是需要学Webpack，所以事先学学，到时候就不用焦头烂额，又学react又搞Webpack啦~对了，顺带打个广告，Webpack的多页面配置jsliang已经配置好了，[链接拿去](https://github.com/LiangJunrong/webpack-study)、[链接拿去](https://github.com/LiangJunrong/webpack-MPA-config)。  
+
+&emsp;好嘞，jsliang强行解释一通，不管你接不接受，反正我是接受了，部署开发环境走起~
+
+<br>
 
 ### 1.1 打包JavaScript
-> 首先部署个能打包JavaScript的环境：
+&emsp;**本节实现目的**：部署个能打包JavaScript的环境：
 1. 执行命令行：`npm init -y`，初始化package.json文件。
 2. 执行命令行：`cnpm i webpack webpack-cli -D`，安装webpack及其命令行工具webpack-cli。
 3. 在根目录下新建src文件夹，并在里面新建index.js文件，该文件打印了个100。
@@ -66,15 +64,16 @@ module.exports = {
 }
 
 ```
-> 在这里，我们修改了`"scripts"`部分，告知npm在`npm run dev`的时候，记得是使用webpack命令，用开发模式来解析配置文件webpack.dev.config.js。
+> 在这里，我们修改了`"scripts"`部分，告知npm在`npm run dev`的时候，记得使用webpack命令，用开发模式来解析配置文件webpack.dev.config.js。
 
-6. 执行命令行：`npm run dev`，可以查看到在根目录中生成了个dist文件夹，该文件夹下存有一个src文件夹，里面包含了个index.js。
+6. 执行命令行：`npm run dev`，可以查看到在根目录中生成了个dist文件夹，该文件夹下存有一个src文件夹，里面包含了个index.js。`本处有点小瑕疵，这里是src文件夹，但是到了后面变成了js文件夹，因为这是打包后的js存放的地方，当然这里是不影响使用的，下面我们会提到。`
 7. 此时目前目录如下：  
-![目录](../img/js-design-pattern-picture1.png)
+![目录](../../img/js-design-pattern-picture1.png)
 
 <br>
 
 ### 1.2 动态打包JavaScript
+&emsp;**本节实现目的**：部署个能按Ctrl+C，就能自动更新代码的Webpack环境。
 
 1. 执行命令行：`cnpm i webpack-dev-server html-webpack-plugin -D`，安装Webpack的devServer，这个能启动开发模式实时监控代码的webpack配置。同时，安装html-webpack-plugin，这个能解析HTML的插件。
 
@@ -151,14 +150,15 @@ module.exports = {
 }
 ```
 5. 执行命令行：`npm run dev`，发现浏览器自动打开`http://localhost:8080`(启动WiFi的情况下应该是打开类似于`http://192.168.1.107:8080/`)的网址：  
-![网址](../img/js-design-pattern-picture2.png)
+![网址](../../img/js-design-pattern-picture2.png)
 
 6. 此时文件目录为：  
-![目录](../img/js-design-pattern-picture3.png)
+![目录](../../img/js-design-pattern-picture3.png)
 
 <br>
 
 ### 1.3 自动打包ES6
+&emsp;**本节实现目的**：部署个能按Ctrl+C，就能自动打包ES6为ES5，并且能自动更新代码的Webpack环境。  
 1. 执行命令行：`cnpm i babel-core babel-loader babel-polyfill babel-preset-env -D`，安装ES6对应的解析配置，执行完毕后package.json会自动新增依赖包：
 > package.json
 ```
@@ -259,7 +259,8 @@ alert(person.getName());
 <br>
 
 ### 1.4 完善配置
-> 经过上面的努力，终于可以在多终端（电脑+手机）实时查看自己编写的ES6代码了。然而，还是有点小瑕疵。例如：无法将代码打包应用于生产。所以，Let's Go! 再搞个生产环境，让我们完美结束这份Webpack配置吧~
+&emsp;**本节实现目的**：`npm run dev`命令下，部署个能按Ctrl+C，就能自动打包ES6为ES5，并且能自动更新代码的Webpack环境。`npm run build`命令下，能打包文件到dist目录。  
+&emsp;经过上面的努力，终于可以在多终端（电脑+手机）实时查看自己编写的ES6代码了。然而，还是有点小瑕疵。例如：无法将代码打包应用于生产；打包js的目录名称叫src……。所以，Let's Go! 再搞个生产环境，让我们完美结束这份Webpack配置吧~
 1. 新增webpack.prod.config.js，用作打包生产：
 > webpack.prod.config.js
 ```
@@ -270,8 +271,8 @@ module.exports = {
     mode: 'production', // 生产模式
     entry: './src/index.js', // 入口文件
     output: { // 出口文件
-        path: __dirname,
-        filename: './dist/js/index.js'
+        path: __dirname + '/dist',
+        filename: './js/index.js'
     },
     module: { // 加载模块
         rules: [{ 
@@ -328,8 +329,8 @@ module.exports = {
     mode: 'development', // 开发模式
     entry: './src/index.js', // 入口文件
     output: { // 出口文件
-        path: __dirname,
-        filename: './dist/js/index.js'
+        path: __dirname + '/dist',
+        filename: './js/index.js'
     },
     module: { // 加载模块
         rules: [{ 
@@ -395,4 +396,6 @@ alert(person.getName());
 </body>
 </html>
 ```
-5. 执行命令行`npm run dev`或者`npm run build`，OK，都能成功运行，生产环境部署完毕，接下来我们愉快地玩耍设计模式吧！
+5. 执行命令行`npm run dev`或者`npm run build`,然后查看目录：  
+   ![目录](../../img/js-design-pattern-picture4.png)  
+   OK，都能成功运行，生产环境部署完毕，接下来我们愉快地玩耍设计模式吧！
