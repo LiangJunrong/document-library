@@ -3,7 +3,7 @@
 
 ## 目录
 1. [部署开发环境](./design-pattern-chapter1.md)
-2. more...
+2. [面向对象与设计模式初探](./design-pattern-chapter2.md)
 3. more...
 
 <br>
