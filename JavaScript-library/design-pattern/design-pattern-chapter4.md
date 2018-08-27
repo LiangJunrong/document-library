@@ -6,6 +6,8 @@
 * 一个类只有一个实例
 * 单例模式中需要用到private，而ES6中没有private，所以需要TypeScript
 
+<br>
+
 ### 4.1 代码实现
 ```
 class SingleObject {
@@ -30,6 +32,8 @@ let obj2 = SingleObject.getInstance();
 obj2.login(); // login...
 console.log(obj1 == obj2); // true （两者必须完全相等）
 ```
+
+<br>
 
 ### 4.2 使用场景
 * jQuery 只有一个 `$` ，这就是单例模式的一个例子
@@ -90,6 +94,8 @@ login2.hide();
 console.log("login1 === login2", login1 === login2); // login1 === login2 true
 ```
 
-### 设计原则验证
+<br>
+
+### 4.3 设计原则验证
 * 符合单一职责原则，只实例化唯一的对象
 * 没法具体开放封闭原则，但是绝对不违反开放封闭原则
