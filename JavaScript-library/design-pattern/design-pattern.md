@@ -2,10 +2,20 @@
 > create by **jsliang** on **2018年8月21日11:30:00** 
 
 ## 目录
-1. [部署开发环境](./design-pattern-chapter1.md)
-2. [面向对象与设计模式初探](./design-pattern-chapter2.md)
-3. [工厂模式](./design-pattern-chapter3.md)
-4. More...
+| 章节名  | 导航                                                   |
+| ------- | ------------------------------------------------------ |
+| 第一章  | [部署开发环境](./design-pattern-chapter1.md)           |
+| 第二章  | [面向对象与设计模式初探](./design-pattern-chapter2.md) |
+| 第三章  | [工厂模式](./design-pattern-chapter3.md)               |
+| 第四章  | [单例模式](./design-pattern-chapter4.md)               |
+| 第五章  | [适配器模式](./design-pattern-chapter5.md)             |
+| More... | 正在学习中……                                           |
+
+<br>
+
+## 使用场景
+* 如果是业务性很强的，压根没时间写点好的JavaScript。一般来说，直接用面向对象写法，怎么方便怎么来。所以就有了“活动说明直接整张图丢上去，文字都也不弄出来”“能上图的就上图，写个文字都是罪”
+* 然后，如果是长久使用的，要考虑维护的，还是用面向对象思路封装好来，随时调用。
 
 <br>
 
