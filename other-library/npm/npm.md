@@ -11,3 +11,4 @@
 | babel-polyfill | [博客](https://www.cnblogs.com/princesong/p/6728250.html)-[npmjs介绍](https://www.npmjs.com/package/babel-polyfill) | 实现浏览器对不支持API的兼容（兼容旧环境、填补）。 |
 | babel-preset-env | [博客](https://segmentfault.com/a/1190000011639765)-[npmjs介绍](https://www.npmjs.com/package/babel-preset-env) | 如果不做任何配置，该loader等同于bable-preset-latest，如果你需要根据不同浏览器或者node版本进行配置，推荐使用babel-preset-env进行配置使用 |
 | babel-plugin-transform-decorators-legacy | [博客](https://www.jb51.net/article/119230.htm)-[npmjs介绍](https://www.npmjs.com/package/babel-plugin-transform-decorators-legacy) | 该插件能使ES7的装饰器能被解析成ES5语法并被使用。 |
+| core-decorators | [Github](https://github.com/jayphelps/core-decorators)-[npmjs介绍](https://www.npmjs.com/package/core-decorators) | 该插件能使ES7的装饰器能被解析成ES5语法并被使用。 |

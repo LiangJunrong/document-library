@@ -7,9 +7,12 @@
 
 > 手机壳可以简单的看做是一个装饰器模式
 
+<br>
+
 ### 6.1 UML类图
 ![图](../../public-repertory/img/js-design-pattern-chapter6-1.png)
 
+<br>
 
 ### 6.2 代码实现
 ```
@@ -42,11 +45,12 @@ dec.draw();
 // 设置红色边框
 ```
 
+<br>
+
 ### 6.3 使用场景
-* ES7 装饰器： core-decorators
+* ES7 装饰器：
 
 &emsp;ES7装饰器的三个步骤：
-* 配置环境：
 1. `npm install babel-plugin-transform-decorators-legacy -D`
 2. 设置.babelrc配置
 ```
@@ -59,7 +63,7 @@ dec.draw();
     ]
 }
 ```
-&emsp;然后测试该配置是否生效：
+3. 然后测试该配置是否生效：
 ```
 // 一个简单的 demo
 // @testDec 对 Demo 这个 class 的装饰，装饰的方法就是使用 testDec() 这个函数
@@ -173,7 +177,7 @@ function log(target, name, descriptor) {
 
     descriptor.value = function() {
         console.log(`Calling ${name} with`, arguments);
-        return oldValue.apply(this.arguments);
+        return oldValue.apply(this, arguments);
     };
 
     return descriptor;
@@ -184,6 +188,66 @@ const result = math.add(2, 4); // 执行 add 时，会自动打印日志，因�
 console.log("result", result);
 /**
  * Calling add with Arguments(2) [2, 4, callee: (...), Symbol(Symbol.iterator): ƒ]
- * result NaN
+ * result 6
  */
 ```
+
+* 其实，上面的方法，都封装到第三方插件里面去了： core-decorators。这个是第三方开源的lib，提供了常用的装饰器。感兴趣的还可以拜读下官方说明：[查看详情](https://github.com/jayphelps/core-decorators)
+
+&emsp;使用 core-decorators 的方式
+1. 安装 core-decorators ： npm i core-decorators -S
+2. 然后开始编码：
+> readonly： 只读
+```
+import { readonly } from 'core-decorators';
+
+class Person {
+    @readonly
+    name() {
+        return 'zhang';
+    }
+}
+
+let p = new Person();
+alert(p.name()); // zhang
+```
+
+<br>
+
+> depercate： 废弃的警告
+```
+// 废弃的 API
+import { deprecate } from 'core-decorators';
+
+class Person {
+    @deprecate
+    faceplam() {
+
+    }
+
+    @deprecate("We stopped faceplaming")
+    faceplamHard() {
+
+    }
+
+    @deprecate("We stopped faceplaming", {url: "http://jsliang.top"})
+    faceplamHarder() {
+
+    }
+}
+
+let person = new Person();
+person.faceplam(); // deprecate.js:31 DEPRECATION Person#faceplam: This function will be removed in future versions.
+
+person.faceplamHard(); // DEPRECATION Person#faceplamHard: We stopped faceplaming
+
+person.faceplamHarder(); 
+// deprecate.js:31 DEPRECATION Person#faceplamHarder: We stopped faceplaming
+// See http://jsliang.top for more details.****
+```
+
+<br>
+
+### 6.4 设计原则验证
+* 将现有对象和装饰器进行分离，两者独立存在
+* 符合开放封闭原则
