@@ -9,6 +9,7 @@
 | 第三章  | [工厂模式](./design-pattern-chapter3.md)               |
 | 第四章  | [单例模式](./design-pattern-chapter4.md)               |
 | 第五章  | [适配器模式](./design-pattern-chapter5.md)             |
+| 第五章  | [装饰器模式](./design-pattern-chapter6.md)             |
 | More... | 正在学习中……                                           |
 
 <br>
