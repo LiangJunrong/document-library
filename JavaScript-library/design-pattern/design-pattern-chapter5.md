@@ -10,7 +10,7 @@
 ### 5.1 UML类图
 ![图](../../public-repertory/img/js-design-pattern-chapter5-1.png)
 
-<br>
+<br> 
 
 ### 5.2 代码实现
 ```
