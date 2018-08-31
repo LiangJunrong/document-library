@@ -13,6 +13,7 @@
 | 第七章  | [代理模式](./design-pattern-chapter7.md)             |
 | 第八章  | [外观模式](./design-pattern-chapter8.md)             |
 | 第九章  | [观察者模式](./design-pattern-chapter9.md)             |
+| 第十章  | [迭代器模式](./design-pattern-chapter10.md)             |
 | More... | 正在学习中……                                           |
 
 <br>
