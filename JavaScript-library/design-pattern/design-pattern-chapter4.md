@@ -93,7 +93,7 @@ login2.hide();
 
 console.log("login1 === login2", login1 === login2); // login1 === login2 true
 ```
-
+ 
 <br>
 
 ### 4.3 设计原则验证
