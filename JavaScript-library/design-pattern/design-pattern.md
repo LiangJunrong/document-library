@@ -14,6 +14,8 @@
 | 第八章  | [外观模式](./design-pattern-chapter8.md)             |
 | 第九章  | [观察者模式](./design-pattern-chapter9.md)             |
 | 第十章  | [迭代器模式](./design-pattern-chapter10.md)             |
+| 第十一章  | [状态模式](./design-pattern-chapter11.md)             |
+| 第十二章  | [其他模式](./design-pattern-chapter12.md)             |
 | More... | 正在学习中……                                           |
 
 <br>
