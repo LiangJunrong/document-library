@@ -244,14 +244,132 @@ u3.buy(); // vip 用户购买
 <br>
 
 ### 12.6 模板方法模式
+```
+class Action {
+    handle() {
+        handle1();
+        handle2();
+        handle3();
+    }
+    handle1() {
+        console.log("1");
+    }
+    handle2() {
+        console.log("2");
+    }
+    handle3() {
+        console.log("3");
+    }
+}
+
+let action = new Action();
+action.handle();
+```
 
 <br>
 
 ### 12.7 职责连模式
+* 一步操作可能分为多个职责来完成
+* 把这些角色都分开，然后用一个链串起来
+* 将发起者和各个处理者进行隔离
+
+```
+// 请假审批，需要组长审批、经理审批、最后总监审批
+class Action {
+    constructor(name) {
+        this.name = name;
+        this.nextAction = null;
+    }
+    setNextAction(action) {
+        this.nextAction = action;
+    }
+    handle() {
+        console.log(`${this.name} 审批`);
+        if(this.nextAction != null) {
+            this.nextAction.handle();
+        }
+    }
+}
+
+let a1 = new Action("组长");
+let a2 = new Action("经理");
+let a3 = new Action("总监");
+a1.setNextAction(a2); 
+a2.setNextAction(a3); 
+a1.handle(); 
+// 组长 审批
+// 经理 审批
+// 总监 审批
+```
+
+* 使用场景
+1. 职责链模式和业务结合较多，JS 中能联想到链式操作
+2. jQuery 的链式操作， Promise.then 的链式操作
+
+* 设计原则验证
+1. 发起者于各个处理者进行隔离
+2. 符合开放封闭原则
 
 <br>
 
 ### 12.8 命令模式模式
+* 执行命令时，发布者和执行者分开
+* 中间加入命令对象，作为中转站
+
+> 将军发布命令，先告诉副官，由副官进行传达，而不是将军一个一个告诉军队
+> 董事长实施战略，先告诉经理，至于各部门如何协调，让经理进行排期。
+
+```
+// 接受者
+class Receiver {
+    exec() {
+        console.log("执行");
+    }
+}
+
+// 命令者
+class Command {
+    constructor(receiver) {
+        this.receiver = receiver;
+    }
+    cmd() {
+        console.log("触发命令");
+        this.receiver.exec();
+    }
+}
+
+// 触发者
+class Invoker {
+    constructor(command) {
+        this.command = command;
+    }
+    invoke() {
+        console.log("开始");
+        this.command.cmd();
+    }
+}
+
+// 士兵
+let soldier = new Receiver();
+// 小号手
+let trumpeter = new Command(soldier);
+// 将军
+let general = new Invoker(trumpeter);
+general.invoke();
+
+// 开始
+// 触发命令
+// 执行
+```
+
+* JS 中的应用
+1. 网页富文本编辑器操作，浏览器封装了一个命令对象
+2. document.execCommand("bold")
+3. document.execCommand("undo")
+
+* 设计原则验证
+1. 命令对象于执行对象分开，解耦
+2. 符合开放封闭原则
 
 <br>
 
