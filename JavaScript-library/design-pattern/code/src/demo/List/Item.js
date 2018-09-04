@@ -2,6 +2,7 @@ import $ from 'jquery';
 import getCart from '../ShoppingCart/GetCart.js';
 // 引用第三方插件实现状态模式
 import StateMachine from 'javascript-state-machine';
+import { log } from '../util/log.js'
 
 export default class Item {
     constructor(list, data) {
@@ -67,11 +68,13 @@ export default class Item {
     }
 
     // 添加到购物车
+    @log('add') // 装饰器模式
     addToCartHandle() {
         this.cart.add(this.data);
     }
 
     // 从购物车删除
+    @log('del')
     deleteFromCartHandle() {
         this.cart.del(this.data.id);
     }

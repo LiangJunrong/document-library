@@ -772,6 +772,164 @@ export default class ShoppingCart {
     }
 }
 ```
+![图](../../public-repertory/img/js-design-pattern-chapter13-12.png) 
+
+#### 步骤13
+> CreateItem.js
+```
+import Item from './Item.js'
+
+function createDiscount(itemData) {
+    // 用代理做折扣显示
+    return new Proxy(itemData, {
+        get: function(target, key, receiver) {
+            if(key === 'name') {
+                return `${target[key]} 【折扣】`;
+            }
+            if(key === 'price') {
+                return target[key] * 0.8;
+            }
+            return target[key];
+        }
+    })
+}
+
+// 工厂函数
+export default function(list, itemData) {
+    if(itemData.discount) {
+        itemData = createDiscount(itemData);
+    }
+    return new Item(list, itemData);
+}
+```
+
+#### 步骤14
+![图](../../public-repertory/img/js-design-pattern-chapter13-13.png) 
+
+> log.js
+```
+export function log(type) {
+    return function(target, name, descriptor) {
+        let oldValue = descriptor.value;
+
+        descriptor.value = function() {
+            // 在此统一打印日志
+            console.log(`日志上报 ${type}`);
+            // 执行原有的方法
+            return oldValue.apply(this, arguments);
+        }
+
+        return descriptor;
+    }
+}
+```
+
+> Item.js
+```
+import $ from 'jquery';
+import getCart from '../ShoppingCart/GetCart.js';
+// 引用第三方插件实现状态模式
+import StateMachine from 'javascript-state-machine';
+import { log } from '../util/log.js'
+
+export default class Item {
+    constructor(list, data) {
+        this.list = list;
+        this.data = data;
+        this.$el = $('<div>');
+        this.cart = getCart();
+    }
+
+    initContent() {
+        let $el = this.$el;
+        let data = this.data;
+        $el.append($(`<p>名称：${data.name}</p>`));
+        $el.append($(`<p>价格：${data.price}</p>`));
+    }
+
+    initBtn() {
+        let $el = this.$el;
+        let $btn = $('<button>');
+
+        let _this = this;
+        let fsm = new StateMachine({
+            init: '加入购物车',
+            transitions: [
+                {
+                    name: 'addToCart',
+                    from: '加入购物车',
+                    to: '从购物车删除'
+                },
+                {
+                    name: 'deleteFromCart',
+                    from: '从购物车删除',
+                    to: '加入购物车'
+                }
+            ],
+            methods: {
+                // 加入购物车
+                onAddToCart: function() {
+                    _this.addToCartHandle();
+                    updateText();
+                },
+                // 从购物车删除
+                onDeleteFromCart: function() {
+                    _this.deleteFromCartHandle();
+                    updateText();
+                }
+            }
+        })
+
+        function updateText() {
+            $btn.text(fsm.state);
+        }
+
+        $btn.click(() => {
+            if(fsm.is('加入购物车')) {
+                fsm.addToCart();
+            } else {
+                fsm.deleteFromCart();
+            }
+        })
+        updateText();
+        $el.append($btn);
+    }
+
+    // 添加到购物车
+    @log('add') // 装饰器模式
+    addToCartHandle() {
+        this.cart.add(this.data);
+    }
+
+    // 从购物车删除
+    @log('del')
+    deleteFromCartHandle() {
+        this.cart.del(this.data.id);
+    }
+
+    render() {
+        this.list.$el.append(this.$el);
+    }
+
+    init() {
+        this.initContent();
+        this.initBtn();
+        this.render();
+    }
+}
+```
+
+<br>
+
+### 13.4 总结
+&emsp;项目中使用到的模式：
+* 工厂模式：$('×××')，创建商品
+* 单例模式：购物车
+* 装饰器模式：打点统计
+* 观察者模式：网页事件，Promise
+* 状态模式：添加到购物车 & 从购物车删除
+* 模板方法模式：渲染有统一的方法，内部包含了各模块渲染
+* 代理模式：打折商品信息处理
 
 <br>
 
