@@ -2,7 +2,7 @@
 # 在我们使用Git的过程中，有时候喜欢建一些文件给自己查看使用，或者说像是 node_modules 这些文件不希望上传到代码仓库的，这时候就需要设置响应的忽略规则，来忽略这些文件的提交
 
 # 定义全局 .gitignore 文件，将其放在任意位置即可生效
-# git config --global core.excludesfile ~/.gitignore
+git config --global core.excludesfile ~/.gitignore
 
 # VS Code 隐藏工作区中的 node_modules 文件夹： 主菜单 -> 文件 -> 首选项 -> 用户设置
 # "file.exclude": {
@@ -13,7 +13,7 @@
 # test.html
 
 # 忽略掉 node_modules 文件夹
-node_modules
+**/node_modules/
 
 # 忽略掉所有生成的备份文件
 # *.*~
