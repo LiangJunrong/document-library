@@ -1,13 +1,4 @@
-# 以'#' 开始的行为注释
-# 在我们使用Git的过程中，有时候喜欢建一些文件给自己查看使用，或者说像是 node_modules 这些文件不希望上传到代码仓库的，这时候就需要设置响应的忽略规则，来忽略这些文件的提交
-
-# 定义全局 .gitignore 文件，将其放在任意位置即可生效
-# git config --global core.excludesfile ~/.gitignore
-
-# VS Code 隐藏工作区中的 node_modules 文件夹： 主菜单 -> 文件 -> 首选项 -> 用户设置
-# "file.exclude": {
-#   "node_modules/": true
-# }
+# 注：该文件未生效，只是给大家展示 .gitignore 的用法
 
 # 忽略掉所有文件名是 test.html 的文件
 # test.html
@@ -20,5 +11,3 @@
 
 # 忽略所有 .o 和 .a 文件
 # *.[oa]
-
-# 详细用法看文档：https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gitignore.html
