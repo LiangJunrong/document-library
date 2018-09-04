@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/demo/App.js":
+/*!*************************!*\
+  !*** ./src/demo/App.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar App = function () {\n    function App(id) {\n        _classCallCheck(this, App);\n    }\n\n    _createClass(App, [{\n        key: \"init\",\n        value: function init() {\n            console.log(\"初始化成功！\");\n        }\n    }]);\n\n    return App;\n}();\n\nexports.default = App;\n\n//# sourceURL=webpack:///./src/demo/App.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -94,7 +106,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar Person = function () {\n    function Person(name) {\n        _classCallCheck(this, Person);\n\n        this.name = name;\n    }\n\n    _createClass(Person, [{\n        key: \"getName\",\n        value: function getName() {\n            return this.name;\n        }\n    }]);\n\n    return Person;\n}();\n\nvar person = new Person(\"jsliang\");\nalert(person.getName());\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("\n\nvar _App = __webpack_require__(/*! ./demo/App.js */ \"./src/demo/App.js\");\n\nvar _App2 = _interopRequireDefault(_App);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar app = new _App2.default('app');\napp.init();\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
