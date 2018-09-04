@@ -374,18 +374,154 @@ general.invoke();
 <br>
 
 ### 12.9 备忘录模式
+* 随时记录一个对象的状态变化
+* 随时可以恢复之前的某个状态（如撤销功能）
+
+```
+// 状态备忘
+class Memento {
+    constructor(content) {
+        this.content = content;
+    }
+    getContent() {
+        return this.content;
+    }
+}
+
+// 备忘列表
+class CareTaker {
+    constructor() {
+        this.list = [];
+    }
+    add(memento) {
+        this.list.push(memento);
+    }
+    get(index) {
+        return this.list[index];
+    }
+}
+
+// 编辑器
+class Editor {
+    constructor() {
+        this.content = null;
+    }
+    setContent(content) {
+        this.content = content;
+    }
+    getContent() {
+        return this.content;
+    }
+    saveContentToMemento() {
+        return new Memento(this.content);
+    }
+    getContentFromMemento(memento) {
+        this.content = memento.getContent();
+    }
+}
+
+// 测试代码
+let editor = new Editor();
+let careTaker = new CareTaker();
+editor.setContent("111");
+editor.setContent("222");
+careTaker.add(editor.saveContentToMemento()); // 存储备忘录
+editor.setContent("333");
+careTaker.add(editor.saveContentToMemento()); // 存储备忘录
+editor.setContent("444");
+
+console.log(editor.getContent()); // 444
+editor.getContentFromMemento(careTaker.get(1)); // 撤销
+console.log(editor.getContent()); // 333
+editor.getContentFromMemento(careTaker.get(0)); // 撤销
+console.log(editor.getContent()); // 222
+
+/**
+ * 这里是预知了要撤销的步骤
+ * 假如，不知道要存储了多少条备忘录
+ * 而我们要一步步回撤，则需要怎么做？
+ * 个人想法就是还需要一个计步器
+ * 就是你存了多少备忘录，则记起来
+ * 当你需要回撤的时候，直接读取最近的备忘条数
+ * 即可回撤到最近一步操作
+ */
+```
+
+* 设计原则验证
+1. 状态对象与使用者分开，解耦
+2. 符合开放封闭原则
 
 <br>
 
 ### 12.10 中介者模式
+* 中介者原理
+![图](../../public-repertory/img/js-design-pattern-chapter12-1.png)
+
+```
+class Mediator {
+    constructor(a, b) {
+        this.a = a;
+        this.b = b;
+    }
+    setA() {
+        let number = this.b.number;
+        this.a.setNumber(number * 100);
+    }
+    setB() {
+        let number = this.a.number;
+        this.b.setNumber(number / 100);
+    }
+}
+
+class A {
+    constructor() {
+        this.number = 0;
+    }
+    setNumber(num, m) {
+        this.number = num;
+        if(m) {
+            m.setB();
+        }
+    }
+}
+
+class B {
+    constructor() {
+        this.number = 0;
+    }
+    setNumber(num, m) {
+        this.number = num;
+        if(m) {
+            m.setA();
+        }
+    }
+}
+
+// 测试
+let a = new A();
+let b = new B();
+let m = new Mediator(a, b);
+a.setNumber(100, m);
+console.log(a.number, b.number); // 100 1
+b.setNumber(100, m);
+console.log(a.number, b.number); // 10000 100
+```
+
+* 设计原则验证
+1. 将各关联对象通过中介者隔离
+2. 符合开放封闭原则
 
 <br>
 
 ### 12.11 访问者模式
+* 将数据操作和数据结构进行分离
+* 使用场景不多
 
 <br>
 
 ### 12.12 解释器模式
+* 描述语言语法如何定义，如何解释和编译
+* 用于专业场景
 
 <br>
 
