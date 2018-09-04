@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import { GET_LIST } from '../config/config.js'
+import createItem from './CreateItem.js'
 
 export default class ShoppingCart {
     constructor(app) {
@@ -17,8 +18,17 @@ export default class ShoppingCart {
 
     // 生成列表
     initItemList(data) {
-        data.map(itemData => {
+        // data.map(itemData => {
+        //     // 创建一个 Item 然后 init
+        //     let item = createItem(this, itemData);
+        //     item.init();
+        //     return item;
+        // })
+
+        data.forEach(itemData => {
             // 创建一个 Item 然后 init
+            let item = createItem(this, itemData);
+            item.init();
         })
     }
 

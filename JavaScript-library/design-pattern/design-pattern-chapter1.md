@@ -7,7 +7,7 @@
 
 * 偷懒。每次写完代码按Ctrl+C，就可以在另一个显示屏（jsliang两个显示屏的）直接看到编译结果了，而不是用命令行将ES6转为ES5.
 * 还是偷懒。有时候写个小项目，用原生搞的话，ES5有时候写起来不爽啊，能耍耍ES6就好了，到时候还要搞事情，转ES5、手机查看啥的，还不如直接配置好，到时候直接用啦。
-* 还是还是偷懒。要知道有些个玩意，叫vue-cli、react-cli、angular-cli，而且目前jsliang所知的，就是vue-cli是单页面SPA配置，到时候你要去搞多页面，还是需要学Webpack，所以事先学学，到时候就不用焦头烂额，又学react又搞Webpack啦~对了，顺带打个广告，Webpack的多页面配置jsliang已经配置好了，[链接拿去](https://github.com/LiangJunrong/webpack-study)、[链接拿去](https://github.com/LiangJunrong/webpack-MPA-config)。  
+* 还是还是偷懒。要知道有些个玩意，叫vue-cli、react-cli、angular-cli，而且目前jsliang所知的，就是vue-cli是单页面SPA配置，到时候你要去搞多页面，还是需要学Webpack，所以事先学学，到时候就不用焦头烂额，又学react又搞Webpack啦~对了，顺带打个广告，Webpack的多页面配置jsliang已经配置好了，[Webpack学习链接拿去](https://github.com/LiangJunrong/webpack-study)、[多页面配置链接拿去](https://github.com/LiangJunrong/webpack-MPA-config)。  
 
 &emsp;好嘞，jsliang强行解释一通，不管你接不接受，反正我是接受了，部署开发环境走起~
 
@@ -68,7 +68,7 @@ module.exports = {
 
 6. 执行命令行：`npm run dev`，可以查看到在根目录中生成了个dist文件夹，该文件夹下存有一个src文件夹，里面包含了个index.js。`本处有点小瑕疵，这里是src文件夹，但是到了后面变成了js文件夹，因为这是打包后的js存放的地方，当然这里是不影响使用的，下面我们会提到。`
 7. 此时目前目录如下：  
-![目录](../../public-repertory/img/js-design-pattern-picture1.png)
+![目录](../../public-repertory/img/js-design-pattern-chapter1-1.png)
 
 <br>
 
@@ -150,10 +150,10 @@ module.exports = {
 }
 ```
 5. 执行命令行：`npm run dev`，发现浏览器自动打开`http://localhost:8080`(启动WiFi的情况下应该是打开类似于`http://192.168.1.107:8080/`)的网址：  
-![网址](../../public-repertory/img/js-design-pattern-picture2.png)
+![网址](../../public-repertory/img/js-design-pattern-chapter1-2.png)
 
 6. 此时文件目录为：  
-![目录](../../public-repertory/img/js-design-pattern-picture3.png)
+![目录](../../public-repertory/img/js-design-pattern-chapter1-3.png)
 
 <br>
 
@@ -397,7 +397,7 @@ alert(person.getName());
 </html>
 ```
 5. 执行命令行`npm run dev`或者`npm run build`,然后查看目录：  
-   ![目录](../../public-repertory/img/js-design-pattern-picture4.png)  
+   ![目录](../../public-repertory/img/js-design-pattern-chapter1-4.png)  
    OK，都能成功运行，生产环境部署完毕，接下来我们愉快地玩耍设计模式吧！
 
 <br>

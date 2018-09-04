@@ -515,12 +515,224 @@ export default getCart;
 ```
 
 #### 步骤8
-![图](../../public-repertory/img/js-design-pattern-chapter13-8.png) 
+![图](../../public-repertory/img/js-design-pattern-chapter13-9.png) 
 
 > Item.js
 ```
+import $ from 'jquery';
+import getCart from '../ShoppingCart/GetCart.js';
 
+export default class Item {
+    constructor(list, data) {
+        this.list = list;
+        this.data = data;
+        this.$el = $('<div>');
+        this.cart = getCart();
+    }
+
+    initContent() {
+        let $el = this.$el;
+        let data = this.data;
+        $el.append($(`<p>名称：${data.name}</p>`));
+        $el.append($(`<p>价格：${data.name}</p>`));
+    }
+
+    initBtn() {
+        let $el = this.$el;
+        let $btn = $('<button>test</button>');
+
+        $btn.click(() => {
+            // 添加到购物车
+            // 从购物车移除
+        })
+
+        $el.append($btn);
+    }
+
+    // 添加到购物车
+    addToCartHandle() {
+        this.cart.add(this.data);
+    }
+
+    // 从购物车删除
+    deleteFromCartHandle() {
+        this.cart.del(this.data.id);
+    }
+
+    render() {
+        this.list.$el.append(this.$el);
+    }
+
+    init() {
+        this.initContent();
+        this.initBtn();
+        this.render();
+    }
+}
 ```
+
+#### 步骤9
+![图](../../public-repertory/img/js-design-pattern-chapter13-10.png) 
+
+> CreateItem.js
+```
+import Item from './Item.js'
+
+// 补充：优惠商品的处理逻辑
+
+// 工厂函数
+export default function(list, itemData) {
+    return new Item(list, itemData);
+}
+```
+
+> List.js
+```
+import $ from 'jquery'
+import { GET_LIST } from '../config/config.js'
+import createItem from './CreateItem.js'
+
+export default class ShoppingCart {
+    constructor(app) {
+        this.app = app;
+        this.$el = $('<div>');
+    }
+
+    // 获取数据
+    loadData() {
+        // 返回 Promise 实例
+        return fetch(GET_LIST).then(result => {
+            return result.json();
+        });
+    }
+
+    // 生成列表
+    initItemList(data) {
+        // data.map(itemData => {
+        //     // 创建一个 Item 然后 init
+        //     let item = createItem(this, itemData);
+        //     item.init();
+        //     return item;
+        // })
+
+        data.forEach(itemData => {
+            // 创建一个 Item 然后 init
+            let item = createItem(this, itemData);
+            item.init();
+        })
+    }
+
+    // 渲染
+    render() {
+        this.app.$el.append(this.$el);
+    }
+
+    init() {
+        this.loadData().then(data => {
+            this.initItemList(data);
+        }).then(() => {
+            // 渲染
+            this.render();
+        })
+    }
+}
+```
+
+#### 步骤10
+> Item.js
+```
+import $ from 'jquery';
+import getCart from '../ShoppingCart/GetCart.js';
+// 引用第三方插件实现状态模式
+import StateMachine from 'javascript-state-machine';
+
+export default class Item {
+    constructor(list, data) {
+        this.list = list;
+        this.data = data;
+        this.$el = $('<div>');
+        this.cart = getCart();
+    }
+
+    initContent() {
+        let $el = this.$el;
+        let data = this.data;
+        $el.append($(`<p>名称：${data.name}</p>`));
+        $el.append($(`<p>价格：${data.price}</p>`));
+    }
+
+    initBtn() {
+        let $el = this.$el;
+        let $btn = $('<button>');
+
+        let _this = this;
+        let fsm = new StateMachine({
+            init: '加入购物车',
+            transitions: [
+                {
+                    name: 'addToCart',
+                    from: '加入购物车',
+                    to: '从购物车删除'
+                },
+                {
+                    name: 'deleteFromCart',
+                    from: '从购物车删除',
+                    to: '加入购物车'
+                }
+            ],
+            methods: {
+                // 加入购物车
+                onAddToCart: function() {
+                    _this.addToCartHandle();
+                    updateText();
+                },
+                // 从购物车删除
+                onDeleteFromCart: function() {
+                    _this.deleteFromCartHandle();
+                    updateText();
+                }
+            }
+        })
+
+        function updateText() {
+            $btn.text(fsm.state);
+        }
+
+        $btn.click(() => {
+            if(fsm.is('加入购物车')) {
+                fsm.addToCart();
+            } else {
+                fsm.deleteFromCart();
+            }
+        })
+        updateText();
+        $el.append($btn);
+    }
+
+    // 添加到购物车
+    addToCartHandle() {
+        this.cart.add(this.data);
+    }
+
+    // 从购物车删除
+    deleteFromCartHandle() {
+        this.cart.del(this.data.id);
+    }
+
+    render() {
+        this.list.$el.append(this.$el);
+    }
+
+    init() {
+        this.initContent();
+        this.initBtn();
+        this.render();
+    }
+}
+```
+
+#### 步骤11
+![图](../../public-repertory/img/js-design-pattern-chapter13-11.png) 
 
 <br>
 
