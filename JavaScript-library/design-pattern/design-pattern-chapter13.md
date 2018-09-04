@@ -231,13 +231,27 @@ export default class App {
 [
     {
         "id": 1,
-        "name": "《JS 面试题》",
-        "price": 149
+        "name": "《JS 基础面试题》",
+        "price": 149,
+        "discount": 1
     },
     {
         "id": 2,
         "name": "《JS 高级面试题》",
-        "price": 166
+        "price": 366,
+        "discount": 1
+    },
+    {
+        "id": 3,
+        "name": "《React 模拟大众点评 webapp》",
+        "price": 248,
+        "discount": 0
+    },
+    {
+        "id": 4,
+        "name": "《zepto 设计与源码解读》",
+        "price": 0,
+        "discount": 0
     }
 ]
 ```
@@ -369,6 +383,89 @@ export default class App {
     init() {
         this.initShoppingCart();
         this.initList();
+    }
+}
+```
+
+#### 步骤4
+> List.js
+```
+import $ from 'jquery'
+
+export default class ShoppingCart {
+    constructor(app) {
+        this.app = app;
+        this.$el = $('<div>');
+    }
+
+    // 获取数据
+    loadData() {
+        
+    }
+
+    // 生成列表
+    initItemList(data) {
+
+    }
+
+    // 渲染
+    render() {
+
+    }
+
+    init() {
+        
+    }
+}
+```
+
+#### 步骤5
+![图](../../public-repertory/img/js-design-pattern-chapter13-7.png) 
+
+> config.js
+```
+export const GET_LIST = '/api/list.json'
+```
+
+#### 步骤6
+> List.js
+```
+import $ from 'jquery'
+import { GET_LIST } from '../config/config.js'
+
+export default class ShoppingCart {
+    constructor(app) {
+        this.app = app;
+        this.$el = $('<div>');
+    }
+
+    // 获取数据
+    loadData() {
+        // 返回 Promise 实例
+        return fetch(GET_LIST).then(result => {
+            return result.json();
+        });
+    }
+
+    // 生成列表
+    initItemList(data) {
+        data.map(itemData => {
+            // 创建一个 Item 然后 init
+        })
+    }
+
+    // 渲染
+    render() {
+        this.app.$el.append(this.$el);
+    }
+
+    init() {
+        this.loadData().then(data => {
+            this.initItemList(data);
+        }).then(() => {
+            // 渲染
+            this.render();
+        })
     }
 }
 ```
