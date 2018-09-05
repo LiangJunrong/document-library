@@ -1,5 +1,5 @@
 # Angular 介绍
-> create by **jsliang** on **2018年9月5日11:33:18** 
+> create by **jsliang** on **2018年9月5日11:56:07** 
 
 ## 前言
 &emsp;
@@ -9,7 +9,20 @@
 ## 目录
 | 章节名 | 导航                                |
 | ------ | ----------------------------------- |
-| Demo1  | [企业开发平台](./taskmgr-readMe.md) |
+| 第一章 | [环境搭建](./taskmgr-chapter1.md) |
+| 第二章 | [Material UI](./taskmgr-chapter2.md) |
+| 第三章 | [动画](./taskmgr-chapter3.md) |
+| 第四章 | [Angular中的响应式编程](./taskmgr-chapter4.md) |
+| 第五章 | [RxJS操作符](./taskmgr-chapter5.md) |
+| 第六章 | [Angular核心概念](./taskmgr-chapter6.md) |
+| 第七章 | [Redux](./taskmgr-chapter7.md) |
+| 第八章 | [自动化测试](./taskmgr-chapter8.md) |
+| 第九章 | [总结与回顾](./taskmgr-chapter9.md) |
+
+<br>
+
+## 案例结构
+![目录](../../public-repertory/img/js-angular-taskmgr-readMe-1.png)
 
 <br>
 
