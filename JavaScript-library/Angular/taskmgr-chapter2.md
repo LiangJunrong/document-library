@@ -1,7 +1,7 @@
-# Angular开发手册 - 1 - 环境搭建
+# Angular开发手册 - 2 - 项目工程结构介绍
 > create by **jsliang** on **2018年9月5日12:28:37**  
  
-## 第一章 环境搭建
+## 第二章 项目工程结构介绍
 
 **1. 安装 Angular：**  
 `npm i @angular/cli -g`
