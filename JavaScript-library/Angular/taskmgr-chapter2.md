@@ -22,6 +22,8 @@ ng g m shared —— 创建分享模块
 ```
 ![图](../../public-repertory/img/js-angular-taskmgr-chapter2-2.png)
 
+![图](../../public-repertory/img/js-angular-taskmgr-chapter2-3.png)
+
 
 ### 2.4 添加代码
 > taskmgr/src/app/core/core.module.ts
@@ -96,11 +98,45 @@ export class SharedModule { }
 > taskmgr/src/app/app.module.ts
 ```
 // 原代码
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 ```
 // 更新后代码
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { CoreModule } from './core/core.module';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    CoreModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 <br>
