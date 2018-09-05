@@ -43,14 +43,46 @@ We suggest that you begin by typing:
 
 Happy hacking!
 ```
-> 步骤 3 结果，返回界面：
+> 步骤 3 结果，返回界面（注意，需要 cd 到 todolist 目录）：
 
 ![目录](../../public-repertory/img/js-react-chapter1-1.png)
 
 <br>
 
 ### 1.2 项目文件介绍
+> 未展开
 
+![目录](../../public-repertory/img/js-react-chapter1-2.png)
+
+> 展开
+ 
+![目录](../../public-repertory/img/js-react-chapter1-3.png)
+
+&emsp;如上，该项目有目录
+```
++ node_modules —— node 依赖安装包
+    - ... —— 详细安装包文件目录
++ public —— 共用的文件夹
+    - favicon.ico —— 网站标签页上的图标
+    - index.html —— 网站首页的 html 模板
+    - mainfest.json —— 定义缓存的文件，配合 registerServiceWorker.js
++ src —— 存放项目源代码
+    - App.css —— 被嵌入到 App.js 中的 css 文件
+    - App.js —— 网站的首页组件
+    - App.test.js —— 做自动化测试的时候使用的文件
+    - index.css —— 被嵌入到 index.js 中的 css 文件
+    - index.js —— 项目的入口文件
+    - logo.svg —— App.js 中引用的 svg 文件
+    - registerServiceWorker.js ——
+- .gitignore —— git 忽略提交配置
+- package.json —— 定义项目所需要的各种模块，以及项目的配置信息
+- README.md —— 类似于“公告”的文件，下载别人项目时首先需要了解该文件
+```
+
+&emsp;值得注意的是：
+* .gitignore 文件介绍：[jsliang见解](https://github.com/LiangJunrong/document-library/blob/master/other-library/git/git.md)
+* package.json 文件介绍： [阮一峰见解](http://javascript.ruanyifeng.com/nodejs/packagejson.html)
+* README .md 文件介绍： [jsliang见解](https://github.com/LiangJunrong/document-library/blob/master/other-library/markdown/markdown.md)
 
 <br>
 
