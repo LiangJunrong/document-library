@@ -2,7 +2,7 @@
 > create by **jsliang** on **2018年9月5日12:28:37**  
  
 ## 第二章 项目工程结构介绍
-![目录](../../public-repertory/img/js-angular-taskmgr-chapter2-1.png)
+![图](../../public-repertory/img/js-angular-taskmgr-chapter2-1.png)
 
 ### 2.1 文件组织约定
 * 目录结构按相对独立的功能划分
@@ -20,6 +20,8 @@ cnpm i —— 安装依赖
 ng g m core —— 创建核心模块
 ng g m shared —— 创建分享模块
 ```
+![图](../../public-repertory/img/js-angular-taskmgr-chapter2-2.png)
+
 
 ### 2.4 添加代码
 > taskmgr/src/app/core/core.module.ts
@@ -35,9 +37,10 @@ import { CommonModule } from '@angular/common';
   declarations: []
 })
 export class CoreModule { }
+```
 
 ```
-```
+// 更新后代码
 import { NgModule, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -54,7 +57,50 @@ export class CoreModule {
     }
   }
 }
+```
 
+> taskmgr/src/app/shared/shared.module.ts
+```
+// 原代码
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@NgModule({
+  imports: [
+    CommonModule
+  ],
+  declarations: []
+})
+export class SharedModule { }
+
+```
+
+```
+// 更新后代码
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@NgModule({
+  imports: [
+    CommonModule
+  ],
+  exports: [
+    CommonModule
+  ],
+  declarations: []
+})
+export class SharedModule { }
+
+```
+
+> taskmgr/src/app/app.module.ts
+```
+// 原代码
+
+```
+
+```
+// 更新后代码
 ```
 
 <br>
