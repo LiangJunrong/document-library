@@ -1,7 +1,7 @@
-# React - 1 - React 基础环境搭建
+# React - 1 - 基础环境搭建
 > create by **jsliang** on **2018年9月5日08:59:31** 
 
-## 第一章 React 基础环境搭建
+## 第一章 基础环境搭建
 &emsp;工欲善其事，必先利其器。  
 &emsp;在这里，我们将进行 React 的基础环境的搭建，从而大大增加我们的开发进度。
 
@@ -10,7 +10,7 @@
 2. 安装 React 项目：`create-react-app todolist`
 3. 运行 React 项目：`npm run start`
 
-> 步骤 1 结果：返回create-react-app 版本：1.5.2  
+> 步骤 1 结果：返回create-react-app 版本为1.5.2  
 > 步骤 2 结果：返回：
 ```
 + react-dom@16.4.2
@@ -50,6 +50,8 @@ Happy hacking!
 <br>
 
 ### 1.2 项目文件介绍
+&emsp;在这里，我们对前面生成的 todolist 项目的目录进行简要讲解。
+
 > 未展开
 
 ![目录](../../public-repertory/img/js-react-chapter1-2.png)
@@ -82,6 +84,8 @@ Happy hacking!
 <br>
 
 ### 1.3 简化项目目录
+&emsp;在这里，我们将简化下 todolist 的目录，并对其进行详细讲解：
+
 ![目录](../../public-repertory/img/js-react-chapter1-4.png)
 
 * React 运行顺序：
@@ -155,10 +159,18 @@ export default App;
 "test": "react-scripts test --env=jsdom",
 "eject": "react-scripts eject"
 ```
-&emsp;这四个命令，进行相关操作，我们使用 `npm run start`，看到改版后的界面变成：
+&emsp;这四个命令，进行相关操作。我们使用 `npm run start`，看到改版后的界面变成：
 
 ![目录](../../public-repertory/img/js-react-chapter1-5.png)
 
 <br>
 
+###  目录
+| 章节名 | 导航                                |
+| ------ | ----------------------------------- |
+| 第一章 | [基础环境搭建](./react-chapter1.md) |
+| 第二章 | [组件](./react-chapter2.md)         |
+| 第三章 | [JSX 语法](./react-chapter3.md)     |
+
+<br>
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
