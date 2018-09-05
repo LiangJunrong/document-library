@@ -1,4 +1,4 @@
-import { NgModule, SkipSelf } from '@angular/core';
+import { NgModule, SkipSelf } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -8,7 +8,16 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   imports: [
     CommonModule
   ],
-  declarations: [HeaderComponent, FooterComponent, SidebarComponent]
+  declarations: [
+    HeaderComponent, 
+    FooterComponent, 
+    SidebarComponent
+  ],
+  exports: [
+    HeaderComponent, 
+    FooterComponent, 
+    SidebarComponent
+  ]
 })
 export class CoreModule { 
   constructor(parent: CoreModule) {
