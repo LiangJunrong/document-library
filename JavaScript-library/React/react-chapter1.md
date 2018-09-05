@@ -58,14 +58,14 @@ Happy hacking!
  
 ![目录](../../public-repertory/img/js-react-chapter1-3.png)
 
-&emsp;如上，该项目有目录
+&emsp;该项目目录介绍：
 ```
 + node_modules —— node 依赖安装包
     - ... —— 详细安装包文件目录
 + public —— 共用的文件夹
     - favicon.ico —— 网站标签页上的图标
     - index.html —— 网站首页的 html 模板
-    - mainfest.json —— 定义缓存的文件，配合 registerServiceWorker.js
+    - mainfest.json —— 定义缓存的文件，配合 registerServiceWorker.js 来使用
 + src —— 存放项目源代码
     - App.css —— 被嵌入到 App.js 中的 css 文件
     - App.js —— 网站的首页组件
@@ -73,16 +73,91 @@ Happy hacking!
     - index.css —— 被嵌入到 index.js 中的 css 文件
     - index.js —— 项目的入口文件
     - logo.svg —— App.js 中引用的 svg 文件
-    - registerServiceWorker.js ——
+    - registerServiceWorker.js —— 通过网页形式写手机应用，具有缓存效果
 - .gitignore —— git 忽略提交配置
 - package.json —— 定义项目所需要的各种模块，以及项目的配置信息
 - README.md —— 类似于“公告”的文件，下载别人项目时首先需要了解该文件
 ```
 
-&emsp;值得注意的是：
-* .gitignore 文件介绍：[jsliang见解](https://github.com/LiangJunrong/document-library/blob/master/other-library/git/git.md)
-* package.json 文件介绍： [阮一峰见解](http://javascript.ruanyifeng.com/nodejs/packagejson.html)
-* README .md 文件介绍： [jsliang见解](https://github.com/LiangJunrong/document-library/blob/master/other-library/markdown/markdown.md)
+<br>
+
+### 1.3 简化项目目录
+![目录](../../public-repertory/img/js-react-chapter1-4.png)
+
+* React 运行顺序：
+  
+**1. 访问 index.js ：**
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+&emsp;在这里，index.js 引用了 `react`、`react-dom` ，其中 `react` 是 react 的核心代码， 而 react 的核心思想是虚拟 dom，所以在操作 dom 的方法上，还需要引用 `react-dom`，从而去打包解压 dom 节点。  
+&emsp;然后，还引用了 App.js 文件，该文件在下面会有介绍。  
+&emsp;最后，使用 `react-dom` 渲染从 App.js 中加载过来的 dom 节点，放到 id 为 root 的 节点上。  
+
+**2. 访问 App.js ：**
+```
+import React, { Component } from 'react';
+
+class App extends Component {
+  render() {
+    return (
+      <h3>Hello React!</h3>
+    );
+  }
+}
+
+export default App;
+```
+&emsp;在这里，App.js 引用了 `react` 及其组件 react.Component。  
+&emsp;然后，继承 react 的组件类，渲染了一个组件 \<h3\>  
+&emsp;最后，将 App 这个类，导出给引用它的 index.js。  
+
+**3. index.html 介绍：**
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>
+```
+&emsp;在这里，提供了 SPA(single page web application) 的渲染界面，index.js 将把渲染的 dom 节点加载到该文件。
+
+**4. favicon.ico 介绍：**[百度百科](https://baike.baidu.com/item/favicon.ico/8944811?fr=aladdin)
+
+
+**5. .gitignore 文件介绍：**[jsliang见解](https://github.com/LiangJunrong/document-library/blob/master/other-library/git/git.md)
+
+**6. package.json 文件介绍：** [阮一峰见解](http://javascript.ruanyifeng.com/nodejs/packagejson.html)
+
+**7. README.md 文件介绍：** [jsliang见解](https://github.com/LiangJunrong/document-library/blob/master/other-library/markdown/markdown.md)
+
+<br>
+
+&emsp;最后的最后，通过
+```
+"start": "react-scripts start",
+"build": "react-scripts build",
+"test": "react-scripts test --env=jsdom",
+"eject": "react-scripts eject"
+```
+&emsp;这四个命令，进行相关操作，我们使用 `npm run start`，看到改版后的界面变成：
+
+![目录](../../public-repertory/img/js-react-chapter1-5.png)
 
 <br>
 
