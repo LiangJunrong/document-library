@@ -9,7 +9,7 @@
 ## 目录
 | 章节名 | 导航                                |
 | ------ | ----------------------------------- |
-| 第一章 | [介绍与环境搭建](./stock-management-platform-chapter1.md) |
+| 第一章 | [介绍](./stock-management-platform-chapter1.md) |
 | 第二章 | [开始 Angular 开发](./stock-management-platform-chapter2.md) |
 | 第三章 | [路由和导航](./stock-management-platform-chapter3.md) |
 | 第四章 | [依赖注入](./stock-management-platform-chapter4.md) |

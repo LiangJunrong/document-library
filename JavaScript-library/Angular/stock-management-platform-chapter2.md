@@ -3,10 +3,16 @@
 
 ## 开始 Angular 开发
 
-## 2.1 本节内容
+### 2.1 本节内容
 * 搭建 angular 开发环境
 * 编写并运行第一个 angular 应用
 * 开发在线竞拍程序的第一个版本
+
+### 2.2 安装 Angular
+* 安装 Angular-cli ：`npm i @angular/cli -g`
+* 新建 Angular 项目：`ng new auction`
+* 安装 Node 依赖：`npm i`
+* 运行 Angular 项目：`npm run start`
 
 <br>
 

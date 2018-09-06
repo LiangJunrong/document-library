@@ -1,12 +1,12 @@
-# Angular开发手册 - 1 - 介绍与环境搭建
+# Angular开发手册 - 1 - 介绍
 > create by **jsliang** on **2018年9月5日17:48:55**   
 > Recently revised in **2018年9月6日09:35:21**
 
-## 介绍与环境搭建
+## 介绍
 
 <br>
 
-## 1.1 本节内容
+### 1.1 本节内容
 * 课程内容介绍
 * 案例介绍
 * angularJS 和 angular 的架构介绍和对比
@@ -55,6 +55,11 @@
 ![图](../../public-repertory/img/js-angular-stock-management-platform-chapter1-1.png)
 
 ![图](../../public-repertory/img/js-angular-stock-management-platform-chapter1-2.png)
+
+* 组件（ Component ）：是 Angular 应用的基本构建块，可以把一个组件理解为一段带有业务逻辑和数据的HTML
+* 服务（  ）：用来封装可重用的业务逻辑
+* 指令：允许你向 HTML 元素添加自定义行为
+* 模块：将应用中不同部分组织成一个 Angular 框架可以理解的单页。
 
 <br>
 
