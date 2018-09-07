@@ -1,7 +1,17 @@
-<div style="text-align:center">
-  <h1>
-    <!-- 下面使用了 app.component.ts 中控制器返回的值，这里使用插值表达式进行了数据绑定 -->
-    欢迎来到{{ title }}!
-  </h1>
-  <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536217929828&di=687f6a047fbba49ac0769bc3d61f0687&imgtype=0&src=http%3A%2F%2Fimg1.cache.netease.com%2Fcatchpic%2FB%2FBF%2FBFFD21296D0B362BAA138BB579A4CBE1.jpg">
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <app-search></app-search>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <app-carousel></app-carousel>
+      </div>
+      <div class="row">
+        <app-product></app-product>
+      </div>
+    </div>
+  </div>
 </div>
+<app-footer></app-footer>

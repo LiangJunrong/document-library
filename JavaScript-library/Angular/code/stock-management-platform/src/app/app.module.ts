@@ -4,11 +4,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { SearchComponent } from './search/search.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { ProductComponent } from './product/product.component';
+import { StarsComponent } from './stars/stars.component';
 
 @NgModule({
   // 声明模块、指令以及管道
   declarations: [
-    // 模块组件： AppComponent
+    //,
+    NavbarComponent,
+    FooterComponent,
+    SearchComponent,
+    CarouselComponent,
+    ProductComponent,
+    StarsComponent,
     AppComponent
   ],
   // 导入的模块
