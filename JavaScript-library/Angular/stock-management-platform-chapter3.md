@@ -88,12 +88,8 @@ export class AppModule { }
       <app-search></app-search>
     </div>
     <div class="col-md-9">
-      <div class="row">
-        <app-carousel></app-carousel>
-      </div>
-      <div class="row">
-        <app-product></app-product>
-      </div>
+      <app-carousel></app-carousel>
+      <app-product></app-product>
     </div>
   </div>
 </div>
@@ -171,76 +167,78 @@ export class AppModule { }
 
 > carousel.component.html
 ```
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" preserveAspectRatio="none">
-        <defs>
-          <style type="text/css">
-            #holder_165b232526b text {
-              fill: #555;
-              font-weight: normal;
-              font-family: Helvetica, monospace;
-              font-size: 40pt
-            }
-          </style>
-        </defs>
-        <g id="holder_165b232526b">
-          <rect width="800" height="400" fill="#777"></rect>
-          <g><text x="285.921875" y="217.7">First slide</text></g>
-        </g>
-      </svg>
+<div class="row">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" preserveAspectRatio="none">
+          <defs>
+            <style type="text/css">
+              #holder_165b232526b text {
+                fill: #555;
+                font-weight: normal;
+                font-family: Helvetica, monospace;
+                font-size: 40pt
+              }
+            </style>
+          </defs>
+          <g id="holder_165b232526b">
+            <rect width="800" height="400" fill="#777"></rect>
+            <g><text x="285.921875" y="217.7">First slide</text></g>
+          </g>
+        </svg>
+      </div>
+      <div class="carousel-item">
+        <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" preserveAspectRatio="none">
+          <defs>
+            <style type="text/css">
+              #holder_165b2325267 text {
+                fill: #444;
+                font-weight: normal;
+                font-family: Helvetica, monospace;
+                font-size: 40pt
+              }
+            </style>
+          </defs>
+          <g id="holder_165b2325267">
+            <rect width="800" height="400" fill="#666"></rect>
+            <g><text x="247.3203125" y="217.7">Second slide</text></g>
+          </g>
+        </svg>
+      </div>
+      <div class="carousel-item">
+        <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" preserveAspectRatio="none">
+          <defs>
+            <style type="text/css">
+              #holder_165b232526d text {
+                fill: #333;
+                font-weight: normal;
+                font-family: Helvetica, monospace;
+                font-size: 40pt
+              }
+            </style>
+          </defs>
+          <g id="holder_165b232526d">
+            <rect width="800" height="400" fill="#555"></rect>
+            <g><text x="277" y="217.7">Third slide</text></g>
+          </g>
+        </svg>
+      </div>
     </div>
-    <div class="carousel-item">
-      <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" preserveAspectRatio="none">
-        <defs>
-          <style type="text/css">
-            #holder_165b2325267 text {
-              fill: #444;
-              font-weight: normal;
-              font-family: Helvetica, monospace;
-              font-size: 40pt
-            }
-          </style>
-        </defs>
-        <g id="holder_165b2325267">
-          <rect width="800" height="400" fill="#666"></rect>
-          <g><text x="247.3203125" y="217.7">Second slide</text></g>
-        </g>
-      </svg>
-    </div>
-    <div class="carousel-item">
-      <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" preserveAspectRatio="none">
-        <defs>
-          <style type="text/css">
-            #holder_165b232526d text {
-              fill: #333;
-              font-weight: normal;
-              font-family: Helvetica, monospace;
-              font-size: 40pt
-            }
-          </style>
-        </defs>
-        <g id="holder_165b232526d">
-          <rect width="800" height="400" fill="#555"></rect>
-          <g><text x="277" y="217.7">Third slide</text></g>
-        </g>
-      </svg>
-    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
 ```
 
@@ -269,7 +267,6 @@ export class ProductComponent implements OnInit {
       new Product(1, "第六个商品", 6.99, 1.5, "这是第六个商品，这是 jsliang 学习 Angular入门实战时创建的", ["图书", "前端"])
     ]
   }
-
 }
 
 export class Product {
@@ -286,6 +283,41 @@ export class Product {
 }
 ```
 
+> product.component.html
+```
+<div class="row">
+  <div *ngFor="let product of products" class="col-sm-4 col-md-4 col-lg-4">
+    <div class="thumbnail">
+      <svg width="200" height="120" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" preserveAspectRatio="none">
+        <defs>
+          <style type="text/css">
+            #holder_165b232526d text {
+              fill: #333;
+              font-weight: normal;
+              font-family: Helvetica, monospace;
+              font-size: 40pt
+            }
+          </style>
+        </defs>
+        <g id="holder_165b232526d">
+          <rect width="800" height="400" fill="#555"></rect>
+          <g><text x="277" y="217.7">Third slide</text></g>
+        </g>
+      </svg>
+      <div class="caption">
+        <h4 class="pull-right">{{ product.price }}元</h4>
+        <h4 class="pull-right">
+          <a href="">{{ product.title }}</a>
+        </h4>
+        <p> {{ product.desc }} </p>
+      </div>
+      <div>
+        <app-stars></app-stars>
+      </div>
+    </div>
+  </div>
+</div>
+```
 
 
 <br>

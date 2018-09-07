@@ -1,3 +1,32 @@
-<p>
-  product works!
-</p>
+<div class="row">
+  <div *ngFor="let product of products" class="col-sm-4 col-md-4 col-lg-4">
+    <div class="thumbnail">
+      <svg width="200" height="120" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" preserveAspectRatio="none">
+        <defs>
+          <style type="text/css">
+            #holder_165b232526d text {
+              fill: #333;
+              font-weight: normal;
+              font-family: Helvetica, monospace;
+              font-size: 40pt
+            }
+          </style>
+        </defs>
+        <g id="holder_165b232526d">
+          <rect width="800" height="400" fill="#555"></rect>
+          <g><text x="277" y="217.7">Third slide</text></g>
+        </g>
+      </svg>
+      <div class="caption">
+        <h4 class="pull-right">{{ product.price }}元</h4>
+        <h4 class="pull-right">
+          <a href="">{{ product.title }}</a>
+        </h4>
+        <p> {{ product.desc }} </p>
+      </div>
+      <div>
+        <app-stars></app-stars>
+      </div>
+    </div>
+  </div>
+</div>
