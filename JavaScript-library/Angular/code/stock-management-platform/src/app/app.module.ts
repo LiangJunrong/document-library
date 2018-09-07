@@ -14,7 +14,6 @@ import { StarsComponent } from './stars/stars.component';
 @NgModule({
   // 声明模块、指令以及管道
   declarations: [
-    //,
     NavbarComponent,
     FooterComponent,
     SearchComponent,
