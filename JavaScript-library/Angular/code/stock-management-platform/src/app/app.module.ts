@@ -20,7 +20,7 @@ import { StarsComponent } from './stars/stars.component';
     CarouselComponent,
     ProductComponent,
     StarsComponent,
-    AppComponent
+    AppComponent 
   ],
   // 导入的模块
   imports: [

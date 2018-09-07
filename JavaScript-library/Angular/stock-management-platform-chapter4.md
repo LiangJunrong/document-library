@@ -59,6 +59,8 @@
 {path:'', redirectTo:'/home', pathMatch:'full'}
 ```
 
+<br>
+
 ### 6.6 子路由
 ```
 {
@@ -76,6 +78,36 @@
     ]
 }
 ```
+
+<br>
+
+### 6.7 辅助路由
+```
+<router-outlet></router-outlet>
+<router-outlet name="aux"></router-outlet>
+
+{
+    path: 'xxx',
+    component: XxxComponent,
+    outlet: "aux"
+}
+{
+    path: 'yyy',
+    component: YyyComponent,
+    outlet: "aux"
+}
+
+<a [routerLink] = "['/home', {outlets: {aux: 'xxx'}}]">Xxx</a>
+<a [routerLink] = "['/product', {outlets: {aux: 'yyy'}}]">Yyy</a>
+```
+
+<br>
+
+### 6.8 辅助路由实现
+&emsp;辅助路由案例整体思路
+* 在 app 组件的模板上再定义一个插座来显示聊天面板
+* 单独开发一个聊天室插件，只显示在新定义的插座上。
+* 通过路路由参数控制新电脑是否显示聊天面板。
 
 <br>
 
