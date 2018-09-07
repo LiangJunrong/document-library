@@ -1,12 +1,22 @@
-# Angular开发手册 - 4 - 依赖注入
+# Angular开发手册 - 4 - 路由
 > create by **jsliang** on **2018年9月5日17:38:19** 
+> Recently revised in **2018年2018年9月7日15:49:52**
 
-## 依赖注入
+## 路由
 
-## 4.1 本节内容
-* 依赖注入模式介绍
-* Angular 对依赖注入的实现方式
-* Angular 的提供器和注入器
+## 6.1 Route
+| 名称 | 简介                                |
+| ------ | ----------------------------------- |
+| Routes | 路由配置，保存着哪个 URL 对应展示哪个组件，以及在哪个 RouterOutlet 中展示组件 |
+| RouterOutlet | 在 HTML 中标记路由内容呈现位置的占位符指令 |
+| Router | 负责在运行时执行路由的对象，可以通过调用其 navigate() 和 navigateByUrl() 方法来导航到一个指定的路由。 |
+| RouterLink | 在 HTML 中声明路由导航用的指令 |
+| ActivatedRoute | 当前激活的路由对象，保存着当前路由的信息，如路由地址，路由参数等。 |
+
+<br>
+
+### 6.2 解析图
+![图](../../public-repertory/img/js-angular-stock-management-platform-chapter4-1.png)
 
 <br>
 

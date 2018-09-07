@@ -1,6 +1,6 @@
 # Angular开发手册 - 3 - 开发准备
 > create by **jsliang** on **2018年9月5日17:37:31**  
-> Recently revised in **2018年9月7日10:18:32**
+> Recently revised in **2018年9月7日15:49:33**
 
 ## 开发准备
 
@@ -78,7 +78,7 @@ import { StarsComponent } from './stars/stars.component';
 export class AppModule { }
 ```
 
-### 开始开发
+### 3.3 开始开发
 > app.component.html
 ```
 <app-navbar></app-navbar>
