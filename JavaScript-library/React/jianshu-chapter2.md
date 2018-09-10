@@ -1,10 +1,34 @@
-# React - 1 - 基础环境搭建
-> create by **jsliang** on **2018-9-10 14:35:03**  
-> Recently revised in **2018-9-10 14:35:07**
+# 仿简书项目 - 2 - 标题没想好
+> create by **jsliang** on **2018-9-10 16:17:24**  
+> Recently revised in **2018-9-10 16:17:10**
 
-## 第一章 基础环境搭建
+<br>
 
-### 1.1 搭建 React 脚手架
+## 第二章 标题没想好
+
+<br>
+
+### 1.1 创建公共组件
+
+![图](../../public-repertory/img/js-react-jianshu-chapter2-1.png)
+
+1. 新建 `common` 文件夹
+2. 新建 `header` 文件夹
+3. 新建 `index.js` 文件
+> **index.js**
+```
+import React, { Component } from 'react';
+
+class Header extends Component {
+    render() {
+        return (
+            <div>header</div>
+        )
+    }
+}
+
+export default Header;
+```
 
 
 <br>

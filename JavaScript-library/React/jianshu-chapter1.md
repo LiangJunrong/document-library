@@ -2,7 +2,11 @@
 > create by **jsliang** on **2018-9-10 14:35:03**  
 > Recently revised in **2018-9-10 14:41:12**
 
+<br>
+
 ## 第一章 基础环境搭建
+
+<br>
 
 ### 1.1 搭建 React 脚手架
 * 安装 React 脚手架：`npm i create-react-app -g`
@@ -119,6 +123,8 @@ yarn-error.log*
 ## 在线运行：`npm start`
 ## 打包部署：`npm build`
 ```
+
+<br>
 
 ### 1.3 编写样式
 * 安装 styled-components ：`npm i styled-components`
@@ -286,13 +292,10 @@ injectGlobal`
   input::-webkit-input-placeholder { color: #727272; } /* Webkit browsers */
   input::-moz-placeholder { color: #727272; } /* Mozilla Firefox */
   input::-ms-input-placeholder { color: #727272; } /* Internet Explorer */
-
-  
-  .jsliang {
-    background: red;
-  }
 `
 ```
+
+&emsp;至此，基础环境搭建完毕。
 
 <br>
 
