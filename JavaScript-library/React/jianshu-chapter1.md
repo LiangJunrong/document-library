@@ -17,7 +17,108 @@
 
 ### 1.2 精支简干
 &emsp;删除项目文件至如下图：
+
 ![图](../../public-repertory/img/js-react-jianshu-chapter1-2.png)
+
+> **index.html**
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+> **App.js**
+```
+import React, { Component } from 'react';
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        Hello World!
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+> **index.css**
+```
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+```
+
+> **.gitignore**
+```
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+```
+
+> **package.json**
+```
+{
+  "name": "jianshu",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "react-scripts": "1.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
+
+> **README.md**
+```
+# 仿简书项目
+
+<br>
+
+## 安装依赖：`npm i`
+## 在线运行：`npm start`
+## 打包部署：`npm build`
+```
 
 <br>
 
