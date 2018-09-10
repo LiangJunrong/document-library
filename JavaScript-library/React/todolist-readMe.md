@@ -6,11 +6,37 @@
 
 <br>
 
+## 引用
+1. 引用 .js 文件来使用 React
+2. 通过脚手架工具来编程
+
+&emsp; 这里通过官方提供的脚手架工具： create-react-app
+```
+    npm i create-react-app -g
+    create-react-app my-app
+
+    cd my-app
+    npm start
+```
+
+> 此刻， **jsliang** 的 `node` 等版本为：  
+> `node` : 8.11.2  
+> `npm` : 6.3.0  
+> `cnpm` : 6.0.0  
+
+<br>
+
+## demo
+&emsp;请 download code 这个文件夹进行编译。
+
+<br>
+
 ## 目录
 | 章节名 | 导航                                |
 | ------ | ----------------------------------- |
-| Demo1  | [todolist](./todolist-readMe.md) |
-| Demo2  | [仿简书项目](./jianshu-readMe.md) |
+| 第一章 | [基础环境搭建](./react-chapter1.md) |
+| 第二章 | [组件](./react-chapter2.md)         |
+| 第三章 | [JSX 语法](./react-chapter3.md)     |
 
 <br>
 
