@@ -29,7 +29,34 @@ class Header extends Component {
 
 export default Header;
 ```
+4. 新建 `style.js`：
+```
+import styled from 'styled-components';
 
+export const HeaderWrapper = styled.div`
+    height: 58px;
+    border-bottom: 1px solid #f0f0f0;
+`
+```
+5. 修改 `index.js`：
+```
+import React, { Component } from 'react';
+import {
+    HeaderWrapper
+} from './style'
+
+class Header extends Component {
+    render() {
+        return (
+            <HeaderWrapper>header</HeaderWrapper>
+        )
+    }
+}
+
+export default Header;
+```
+6. 下载 logo：
+![图](./code/jianshu/src/static/logo.png)
 
 <br>
 
