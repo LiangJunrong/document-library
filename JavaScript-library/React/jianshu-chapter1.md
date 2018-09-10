@@ -16,7 +16,8 @@
 <br>
 
 ### 1.2 精支简干
-
+&emsp;删除项目文件至如下图：
+![图](../../public-repertory/img/js-react-jianshu-chapter1-2.png)
 
 <br>
 
