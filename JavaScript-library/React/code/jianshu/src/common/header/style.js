@@ -81,4 +81,4 @@ export const Button = styled.div`
         color: #fff;
         background: #ec6149;
     }
-`
+`;
