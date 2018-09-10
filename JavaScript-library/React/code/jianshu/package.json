@@ -12,5 +12,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "styled-components": "^3.4.5"
   }
 }
