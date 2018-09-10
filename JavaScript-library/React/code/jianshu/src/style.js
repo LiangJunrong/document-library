@@ -19,7 +19,7 @@ injectGlobal`
 
   /** 设置默认字体 - setting the default font **/
   body, button, input, select, textarea {
-      font: 18px/1.5 '楷体', Helvetica, sans-serif;
+      font: 18px/1.5 '宋体', Helvetica, sans-serif;
   }
   h1, h2, h3, h4, h5, h6, button, input, select, textarea { font-size: 100%; }
 
