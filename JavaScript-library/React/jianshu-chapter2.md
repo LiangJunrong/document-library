@@ -15,11 +15,6 @@
 1. 新建 `common` 文件夹
 2. 新建 `header` 文件夹
 3. 新建 `index.js` 文件
-4. 下载 logo：
-
-![图](./code/jianshu/src/static/logo.png)
-
-5. 新建 `style.js` 文件
 
 > **index.js**
 ```
@@ -51,7 +46,11 @@ class Header extends Component {
 
 export default Header;
 ```
+4. 下载 logo：
 
+![图](./code/jianshu/src/static/logo.png)
+
+5. 新建 `style.js` 文件
 > **style.js**
 ```
 import styled from 'styled-components';
