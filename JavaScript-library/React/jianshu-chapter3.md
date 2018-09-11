@@ -313,7 +313,83 @@ const reducer = combineReducers({
 export default reducer;
 ```
 
-12. 
+12. 新建 common/header/store/`actionCreators.js`：
+> actionCreators.js
+```
+export const searchFocus = () => ({
+    type: 'search_focus'
+});
+
+export const searchBlur = () => ({
+    type: 'search_blur'
+});
+```
+13. 修改 common/header/index.js：
+```
+import * as actionCreators from './store/actionCreators';
+
+const mapDispathToProps = (dispatch) => {
+    return {
+        handleInputFocus() {
+            dispatch(actionCreators.searchFocus());
+        },
+        handleInputBlur() {
+            dispatch(actionCreators.searchBlur())
+        }
+    }
+}
+```
+14. 新建 common/header/store/`actionTypes.js`：
+```
+export const SEARCH_FOCUS = 'header/SEARCH_FOCUS';
+export const SEARCH_BLUR = 'header/SEARCH_BLUR';
+```
+15. 在 `actionCreators.js` 中引用该常量拆分组件：
+```
+import * as actionTypes from './actionTypes';
+
+export const searchFocus = () => ({
+    type: actionTypes.SEARCH_FOCUS
+});
+
+export const searchBlur = () => ({
+    type: actionTypes.SEARCH_BLUR
+});
+```
+16. 修改 header/store/`reducer.js`：
+```
+import * as actionTypes from './actionTypes';
+
+const defaultState = {
+    focused: false
+};
+
+export default (state = defaultState, action) => {
+    if(action.type === actionTypes.SEARCH_FOCUS) {
+        return {
+            focused: true
+        }
+    }
+    if(action.type === actionTypes.SEARCH_BLUR) {
+        return {
+            focused: false
+        }
+    }
+    return state;
+}
+```
+17. 修改 common/header/store/`index.js`：
+```
+import reducer from './reducer';
+import * as actionCreators from './actionCreators';
+import * as actionTypes from './actionTypes';
+
+export { reducer, actionCreators, actionTypes };
+```
+18. 修改 common/header/`index.js`：
+```
+import { actionCreators } from './store';
+```
 
 <br>
 
