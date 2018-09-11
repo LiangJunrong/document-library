@@ -240,7 +240,7 @@ const mapDispathToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispathToProps)(Header);
 ```
 
-src/store/reducer.js
+> src/store/reducer.js
 ```
 const defaultState = {
     focused: false
@@ -260,7 +260,50 @@ export default (state = defaultState, action) => {
     return state;
 }
 ```
-8. 如此，完成了数据存放到 redux 中。
+8. 新建 `store` 文件夹
+9. 新建 `reducer.js` 文件
+10. 对 redux 进行拆分：
+> common/header/index.js
+```
+const mapStateToProps = (state) => {
+    return {
+        focused: state.header.focused
+    }
+}
+```
+
+> common/header/store/reducer.js
+```
+const defaultState = {
+    focused: false
+};
+
+export default (state = defaultState, action) => {
+    if(action.type === 'search_focus') {
+        return {
+            focused: true
+        }
+    }
+    if(action.type === 'search_blur') {
+        return {
+            focused: false
+        }
+    }
+    return state;
+}
+```
+
+> src/store/reducer.js
+```
+import { combineReducers } from 'redux';
+import headerReducer from '../common/header/store/reducer';
+
+export default combineReducers({
+    header: headerReducer
+})
+```
+
+
 
 <br>
 
