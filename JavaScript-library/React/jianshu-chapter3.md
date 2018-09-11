@@ -325,6 +325,7 @@ export const searchBlur = () => ({
 });
 ```
 13. 修改 common/header/index.js：
+> index.js
 ```
 import * as actionCreators from './store/actionCreators';
 
@@ -340,11 +341,13 @@ const mapDispathToProps = (dispatch) => {
 }
 ```
 14. 新建 common/header/store/`actionTypes.js`：
+> actionTypes.js
 ```
 export const SEARCH_FOCUS = 'header/SEARCH_FOCUS';
 export const SEARCH_BLUR = 'header/SEARCH_BLUR';
 ```
 15. 在 `actionCreators.js` 中引用该常量拆分组件：
+> actionCreators.js
 ```
 import * as actionTypes from './actionTypes';
 
@@ -357,6 +360,7 @@ export const searchBlur = () => ({
 });
 ```
 16. 修改 header/store/`reducer.js`：
+> reducer.js
 ```
 import * as actionTypes from './actionTypes';
 
@@ -379,6 +383,7 @@ export default (state = defaultState, action) => {
 }
 ```
 17. 修改 common/header/store/`index.js`：
+> index.js
 ```
 import reducer from './reducer';
 import * as actionCreators from './actionCreators';
@@ -389,6 +394,37 @@ export { reducer, actionCreators, actionTypes };
 18. 修改 common/header/`index.js`：
 ```
 import { actionCreators } from './store';
+```
+19. 安装 `immutable`：`npm i immutable -D`
+20. 修改 common/header/store/`reducer.js`：
+> reducer.js
+```
+import * as actionTypes from './actionTypes';
+import { fromJS } from 'immutable';
+
+const defaultState = fromJS({
+    focused: false
+});
+
+export default (state = defaultState, action) => {
+    if(action.type === actionTypes.SEARCH_FOCUS) {
+        return state.set('focused', true);
+    }
+    if(action.type === actionTypes.SEARCH_BLUR) {
+        return state.set('focused', false);
+    }
+    return state;
+}
+```
+21. 修改 common/header/`index.js`：
+> index.js
+```
+const mapStateToProps = (state) => {
+    return {
+        focused: state.header.get('focused')
+    }
+}
+
 ```
 
 <br>
