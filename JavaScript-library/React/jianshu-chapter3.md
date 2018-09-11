@@ -261,15 +261,14 @@ export default (state = defaultState, action) => {
 }
 ```
 8. 新建 `store` 文件夹
-9. 新建 `reducer.js` 文件
-10. 对 redux 进行拆分：
-> common/header/index.js
+9. 新建 `index.js` 文件
+10. 新建 `reducer.js` 文件
+11. 以此对 redux 进行拆分：
+> common/header/store/index.js
 ```
-const mapStateToProps = (state) => {
-    return {
-        focused: state.header.focused
-    }
-}
+import reducer from './reducer';
+
+export { reducer };
 ```
 
 > common/header/store/reducer.js
@@ -293,17 +292,28 @@ export default (state = defaultState, action) => {
 }
 ```
 
+> common/header/index.js
+```
+const mapStateToProps = (state) => {
+    return {
+        focused: state.header.focused
+    }
+}
+```
+
 > src/store/reducer.js
 ```
 import { combineReducers } from 'redux';
-import headerReducer from '../common/header/store/reducer';
+import { reducer as headerReducer } from '../common/header/store';
 
-export default combineReducers({
+const reducer = combineReducers({
     header: headerReducer
-})
+});
+
+export default reducer;
 ```
 
-
+12. 
 
 <br>
 
