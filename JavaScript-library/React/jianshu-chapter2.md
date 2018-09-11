@@ -1,10 +1,10 @@
-# 仿简书项目 - 2 - 标题没想好
+# 仿简书项目 - 2 - 导航栏编写
 > create by **jsliang** on **2018-9-10 16:17:24**  
-> Recently revised in **2018-9-10 16:17:10**
+> Recently revised in **2018-9-11 09:39:01**
 
 <br>
 
-## 第二章 标题没想好
+## 第二章 导航栏编写
 
 <br>
 
@@ -324,6 +324,17 @@ export const Button = styled.div`
     }
 `;
 ```
+6. 此刻项目样子为：  
+&emsp;浏览器：
+
+![图](../../public-repertory/img/js-react-jianshu-chapter2-3.png)
+
+&emsp;项目目录：
+
+![图](../../public-repertory/img/js-react-jianshu-chapter2-4.png)
+
+### 2.3 搜索框动画
+
 
 <br>
 
