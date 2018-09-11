@@ -60,4 +60,13 @@ injectGlobal`
   input::-webkit-input-placeholder { color: #727272; } /* Webkit browsers */
   input::-moz-placeholder { color: #727272; } /* Mozilla Firefox */
   input::-ms-input-placeholder { color: #727272; } /* Internet Explorer */
+
+  /** 引入 iconfont **/
+  .icon {
+      width: 1em;
+      height: 1em;
+      vertical-alian: -.15em;
+      fill: currentColor;
+      overflow: hidden;
+  }
 `

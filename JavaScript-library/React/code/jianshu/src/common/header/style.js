@@ -24,6 +24,7 @@ export const Nav = styled.div`
     width: 960px;
     height: 100%;
     margin: 0 auto;
+    font-size: 17px;
 `;
 
 export const NavItem = styled.div`
@@ -43,12 +44,27 @@ export const NavItem = styled.div`
     }
 `;
 
+export const SearchWrapper = styled.div`
+    position: relative;
+    float: left;
+    .icon-search {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        width: 24px;
+        line-height: 24px;
+        border-radius: 13px;
+        text-align: center;
+    }
+`;
+
 export const NavSearch = styled.input.attrs({
     placeholder: '搜索'
 })`
-    width: 160px;
+    float: left;
+    width: 240px;
     height: 38px;
-    padding: 0 20px;
+    padding: 0 35px 0 20px;
     margin-top: 9px;
     margin-left: 20px;
     border: none;
