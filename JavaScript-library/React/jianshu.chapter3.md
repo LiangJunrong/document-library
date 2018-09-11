@@ -8,7 +8,12 @@
 
 <br>
 
-### 3.1 创建公共组件
+### 3.1 Redux
+1. 安装 `redux`： `npm i redux -D`
+2. 安装 `react-redux`：`npm i react-redux -D`
+3. 创建 `store` 文件夹
+4. 创建 `index.js` 文件
+5. 此时目录如下
 
 ![图](../../public-repertory/img/js-react-jianshu-chapter2-1.png)
 
