@@ -1,6 +1,6 @@
 # 仿简书项目 - 0 - 总述
 > create by **jsliang** on **2018-9-10 14:35:03**  
-> Recently revised in **2018-9-10 14:35:07**
+> Recently revised in **2018-9-11 12:19:59**
 
 <br>
 
@@ -9,7 +9,7 @@
 | ------ | ----------------------------------- |
 | 第一章 | [基础环境搭建](./jianshu-chapter1.md) |
 | 第二章 | [导航栏编写](./jianshu-chapter2.md) |
-| 第二章 | [Redux 数据管理](./jianshu-chapter3.md) |
+| 第三章 | [Redux 数据管理](./jianshu-chapter3.md) |
 
 <br>
 
