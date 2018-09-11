@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import {
     HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper
@@ -7,9 +8,6 @@ import {
 class Header extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            focused: false
-        }
         this.handleInputFocus = this.handleInputFocus.bind(this);
         this.handleInputBlur = this.handleInputBlur.bind(this);
     }
@@ -35,17 +33,17 @@ class Header extends Component {
                     <NavItem className="right">Aa</NavItem>
                     <SearchWrapper>
                         <CSSTransition
-                            in={this.state.focused}
+                            in={this.props.focused}
                             timeout={500}
                             classNames="slide"
                         >
                         <NavSearch
-                            className={this.state.focused ? 'focused' : ''} 
-                            onFocus={this.handleInputFocus}
-                            onBlur={this.handleInputBlur}
+                            className={this.props.focused ? 'focused' : ''} 
+                            onFocus={this.props.handleInputFocus}
+                            onBlur={this.props.handleInputBlur}
                         ></NavSearch>
                         </CSSTransition>
-                        <div className={this.state.focused ? 'focused icon-search' : 'icon-search'}>
+                        <div className={this.props.focused ? 'focused icon-search' : 'icon-search'}>
                             <svg className="icon" aria-hidden="true">
                                 <use xlinkHref="#icon-icon_search"></use>
                             </svg>
@@ -78,4 +76,18 @@ class Header extends Component {
     }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+        focused: state.focused
+    }
+}
+
+const mapDispathToProps = (dispatch) => {
+    return {
+        handleInputFocus() {
+            console.log("123");
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);

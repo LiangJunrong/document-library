@@ -13,9 +13,146 @@
 2. 安装 `react-redux`：`npm i react-redux -D`
 3. 创建 `store` 文件夹
 4. 创建 `index.js` 文件
-5. 此时目录如下
+5. 此时目录如下：
 
 ![图](../../public-repertory/img/js-react-jianshu-chapter3-1.png)
+
+6. 修改下面的文件：
+> App.js
+```
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import Header from './common/header';
+import store from './store';
+
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Header />
+      </Provider>
+    );
+  }
+}
+
+export default App;
+```
+
+> store/index.js
+```
+import { createStore } from 'redux';
+import reducer from './reducer';
+
+const store = createStore(reducer);
+
+export default store;
+```
+
+> store/reducer.js
+```
+const defaultState = {
+    focused: false
+};
+
+export default (state = defaultState, action) => {
+    return state;
+}
+```
+
+> common/header/index.js
+```
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+import {
+    HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper
+} from './style'
+
+class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.handleInputFocus = this.handleInputFocus.bind(this);
+        this.handleInputBlur = this.handleInputBlur.bind(this);
+    }
+
+    render() {
+        return (
+            <HeaderWrapper>
+                <Logo/>
+                <Nav>
+                    <NavItem className="left active">
+                        <svg className="icon" aria-hidden="true">
+                            <use xlinkHref="#icon-shouye"></use>
+                        </svg>
+                        <span> 首页</span>
+                    </NavItem>
+                    <NavItem className="left">
+                        <svg className="icon" aria-hidden="true">
+                            <use xlinkHref="#icon-xiazaiAPP"></use>
+                        </svg>
+                        <span> 下载App</span>
+                    </NavItem>
+                    <NavItem className="right">登录</NavItem>
+                    <NavItem className="right">Aa</NavItem>
+                    <SearchWrapper>
+                        <CSSTransition
+                            in={this.props.focused}
+                            timeout={500}
+                            classNames="slide"
+                        >
+                        <NavSearch
+                            className={this.props.focused ? 'focused' : ''} 
+                            onFocus={this.handleInputFocus}
+                            onBlur={this.handleInputBlur}
+                        ></NavSearch>
+                        </CSSTransition>
+                        <div className={this.props.focused ? 'focused icon-search' : 'icon-search'}>
+                            <svg className="icon" aria-hidden="true">
+                                <use xlinkHref="#icon-icon_search"></use>
+                            </svg>
+                        </div>
+                    </SearchWrapper>
+                </Nav>
+                <Addition>
+                    <Button className="writting">
+                        <svg className="icon" aria-hidden="true">
+                            <use xlinkHref="#icon-yumao"></use>
+                        </svg>
+                        <span> 写文章</span>
+                    </Button>
+                    <Button className="reg">注册</Button>
+                </Addition>
+            </HeaderWrapper>
+        )
+    }
+
+    handleInputFocus() {
+        this.setState({
+            focused: true
+        })
+    }
+
+    handleInputBlur() {
+        this.setState({
+            focused: false
+        })
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        focused: state.focused
+    }
+}
+
+const mapDispathToProps = (dispatch) => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
+```
 
 <br>
 
