@@ -9,6 +9,7 @@
 | ------ | ----------------------------------- |
 | 第一章 | [基础环境搭建](./jianshu-chapter1.md) |
 | 第二章 | [导航栏编写](./jianshu-chapter2.md) |
+| 第二章 | [Redux 数据管理](./jianshu-chapter3.md) |
 
 <br>
 
