@@ -47,14 +47,32 @@ export const NavItem = styled.div`
 export const SearchWrapper = styled.div`
     position: relative;
     float: left;
+    .slide-enter {
+        transition: all .5s ease-out;
+    }
+    .slide-enter-active {
+        width: 300px;
+    }
+    .slide-exit {
+        transition: all .5s ease-out;
+    }
+    .slide-exit-active {
+        width: 240px;
+    }
     .icon-search {
         position: absolute;
         right: 5px;
         bottom: 5px;
         width: 24px;
         line-height: 24px;
-        border-radius: 13px;
         text-align: center;
+        &.focused {
+            background: #fff;
+            width: 30px;
+            height: 30px;
+            line-height: 35px;
+            border-radius: 15px;
+        }
     }
 `;
 
@@ -72,6 +90,9 @@ export const NavSearch = styled.input.attrs({
     border-radius: 19px;
     background: #eee;
     font-size: 14px;
+    &.focused {
+        width: 300px;
+    }
 `;
 
 export const Addition = styled.div`

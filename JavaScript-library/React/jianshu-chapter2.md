@@ -334,7 +334,167 @@ export const Button = styled.div`
 ![图](../../public-repertory/img/js-react-jianshu-chapter2-4.png)
 
 ### 2.3 搜索框动画
+1. 在 header 组件下的 `index.js` 中，添加或者修改下面代码：
+> index.js
+```
+    constructor(props) {
+        super(props);
+        this.state = {
+            focused: true
+        }
+    }
+    <SearchWrapper>
+        <NavSearch
+            className={this.state.focused ? 'focused' : ''}
+        ></NavSearch>
+        <div className={this.state.focused ? 'focused icon-search' : 'icon-search'}>
+            <svg className="icon" aria-hidden="true">
+                <use xlinkHref="#icon-icon_search"></use>
+            </svg>
+        </div>
+    </SearchWrapper>
+```
+2. 在 header 组件下的 `style.js` 中，添加或者修改下面代码：
+```
+export const SearchWrapper = styled.div`
+    position: relative;
+    float: left;
+    .icon-search {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        width: 24px;
+        line-height: 24px;
+        text-align: center;
+        &.focused {
+            background: #fff;
+            width: 30px;
+            height: 30px;
+            line-height: 35px;
+            border-radius: 15px;
+        }
+    }
+`;
 
+export const NavSearch = styled.input.attrs({
+    placeholder: '搜索'
+})`
+    float: left;
+    width: 240px;
+    height: 38px;
+    padding: 0 35px 0 20px;
+    margin-top: 9px;
+    margin-left: 20px;
+    border: none;
+    outline: none;
+    border-radius: 19px;
+    background: #eee;
+    font-size: 14px;
+    &.focused {
+        width: 300px;
+    }
+`;
+```
+3. 在这里，我们通过设置 constructor 中的 focused 状态为 true 或者 false，来设置动画前后的样式。
+4. 编写事件：
+> index.js
+```
+    constructor(props) {
+        super(props);
+        this.state = {
+            focused: false
+        }
+        this.handleInputFocus = this.handleInputFocus.bind(this);
+        this.handleInputBlur = this.handleInputBlur.bind(this);
+    }
+
+    <SearchWrapper>
+        <NavSearch
+            className={this.state.focused ? 'focused' : ''} 
+            onFocus={this.handleInputFocus}
+            onBlur={this.handleInputBlur}
+        ></NavSearch>
+        <div className={this.state.focused ? 'focused icon-search' : 'icon-search'}>
+            <svg className="icon" aria-hidden="true">
+                <use xlinkHref="#icon-icon_search"></use>
+            </svg>
+        </div>
+    </SearchWrapper>
+
+    handleInputFocus() {
+        this.setState({
+            focused: true
+        })
+    }
+
+    handleInputBlur() {
+        this.setState({
+            focused: false
+        })
+    }
+```
+5. 安装 `react-transition-group`：`npm i react-transition-group -D`
+6. 引用 `react-transition-group`：
+> index.js
+```
+import { CSSTransition } from 'react-transition-group';
+
+<SearchWrapper>
+    <CSSTransition
+        in={this.state.focused}
+        timeout={500}
+        classNames="slide"
+    >
+    <NavSearch
+        className={this.state.focused ? 'focused' : ''} 
+        onFocus={this.handleInputFocus}
+        onBlur={this.handleInputBlur}
+    ></NavSearch>
+    </CSSTransition>
+    <div className={this.state.focused ? 'focused icon-search' : 'icon-search'}>
+        <svg className="icon" aria-hidden="true">
+            <use xlinkHref="#icon-icon_search"></use>
+        </svg>
+    </div>
+</SearchWrapper>
+```
+
+&emsp;同时，往 `style.js` 添加样式：
+```
+export const SearchWrapper = styled.div`
+    position: relative;
+    float: left;
+    .slide-enter {
+        transition: all .5s ease-out;
+    }
+    .slide-enter-active {
+        width: 300px;
+    }
+    .slide-exit {
+        transition: all .5s ease-out;
+    }
+    .slide-exit-active {
+        width: 240px;
+    }
+    .icon-search {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        width: 24px;
+        line-height: 24px;
+        text-align: center;
+        &.focused {
+            background: #fff;
+            width: 30px;
+            height: 30px;
+            line-height: 35px;
+            border-radius: 15px;
+        }
+    }
+`;
+```
+7. 这时候，我们可以查看到详细效果：
+![图](../../public-repertory/img/js-react-jianshu-chapter2-5.gif)
 
 <br>
 

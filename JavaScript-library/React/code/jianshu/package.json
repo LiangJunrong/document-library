@@ -14,6 +14,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "react-transition-group": "^2.4.0",
     "styled-components": "^3.4.5"
   }
 }
