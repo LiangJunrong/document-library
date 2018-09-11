@@ -15,7 +15,7 @@
 4. 创建 `index.js` 文件
 5. 此时目录如下
 
-![图](../../public-repertory/img/js-react-jianshu-chapter2-1.png)
+![图](../../public-repertory/img/js-react-jianshu-chapter3-1.png)
 
 <br>
 
