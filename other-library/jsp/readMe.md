@@ -1,6 +1,6 @@
 # Java Server Pages
 > create by **jsliang** on **2018-9-12 11:37:01**  
-> Recently revised in **2018-9-12 14:19:02**
+> Recently revised in **2018年9月12日15:38:40**
 
 <br>
 
@@ -244,7 +244,7 @@ default:
 &emsp;什么是JSTL：[JSTL](https://www.runoob.com/jsp/jsp-jstl.html)  
 &emsp;JSP 标准标签库（JSTL）是一个 JSP 标签集合，它封装了 JSP 应用的通用核心功能。  
 &emsp;JSTL 支持通用的、结构化的任务，比如迭代，条件判断，XML 文档操作，国际化标签，SQL 标签。 除了这些，它还提供了一个框架来使用集成 JSTL 的自定义标签。  
-&emsp;由于工作的代码中引用了 JSTL 核心标签库，所以接下来新开一篇文章，专门讲解 JSTL ： [Go!](https://www.runoob.com/jsp/jsp-jstl.html)
+&emsp;由于工作的代码中引用了 JSTL 核心标签库，所以接下来新开一篇文章，专门讲解 JSTL ： [Go!](../jstl/readMe.md)
 
 <br>
 
