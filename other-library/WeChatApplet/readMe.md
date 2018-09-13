@@ -22,8 +22,9 @@
 
 <br>
 
-### 1.3 环境介绍
-* 文件类型
+## 二、环境介绍
+
+### 2.1 文件类型
 
 | 文件类型 | 作用 |
 | --- | --- |
@@ -32,9 +33,38 @@
 | .wxss | WXSS 样式文件 |
 | .js | JS 脚本逻辑文件 |
 
-* .json 文件
-1. **app.json**：小程序的全局配置 [详情](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html)
+<br>
 
+### 2.2 .json 文件
+1. **app.json**：小程序的全局配置。 [详情](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html)
+2. **project.config.json**：工具的个性化配置，例如界面颜色、编译配置等。 [详情](https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html)
+3. **page.json**：页面配置，用来设置页面的整体样式等。 [详情](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE)
+
+<br>
+
+### 2.3 WXML 模板
+
+&emsp;WXML（WeiXin Markup Language）是框架设计的一套标签语言，结合基础组件、事件系统，可以构建出页面的结构。[详情](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/index.html)
+
+<br>
+
+### 2.4 WXSS 样式
+
+&emsp;WXSS(WeiXin Style Sheets)是一套样式语言，用于描述 WXML 的组件样式。[详情](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxss.html)
+
+<br>
+
+### 2.5 小程序事件
+1. 事件是视图层到逻辑层的通讯方式。
+2. 事件可以将用户的行为反馈到逻辑层进行处理。
+3. 事件可以绑定在组件上，当达到触发事件，就会执行逻辑层中对应的事件处理函数。
+4. 事件对象可以携带额外信息，如 id, dataset, touches。
+
+<br>
+
+### 2.6 小程序 API
+
+&emsp;小程序开发框架提供丰富的微信原生 API，可以方便的调起微信提供的能力，如获取用户信息，本地存储，支付功能等。
 
 <br>
 
