@@ -16,6 +16,24 @@
 
 <br>
 
+### 1.2 授权登录
+[---地址---](https://jingyan.baidu.com/article/4dc408486e25e2c8d946f1b7.html)  
+&emsp;按上面地址配置，然后扫码登录进小程序。
+
+<br>
+
+### 1.3 环境介绍
+* 文件类型
+
+| 文件类型 | 作用 |
+| --- | --- |
+| .json | JSON 配置文件 |
+| .wxml | WXML 模板文件 |
+| .wxss | WXSS 样式文件 |
+| .js | JS 脚本逻辑文件 |
+
+* .json 文件
+1. **app.json**：小程序的全局配置 [详情](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html)
 
 
 <br>
