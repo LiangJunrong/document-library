@@ -11,7 +11,8 @@
 
 ![图](../../public-repertory//img/other-WeChatApplet-question-1.png)
 
-&emsp;当然，这并不意味着要你设计一个很 low 的产品~后期是可以进行界面优化的。当然，这也得看 **产品大佬** 怎么决定了~
+&emsp;当然，这并不意味着要你设计一个很 low 的产品~后期是可以进行界面优化的。当然，这也得看 **产品大佬** 怎么决定了~  
+&emsp;下面是小程序自带样式图的地址：
 
 [--- 地址 ---](https://developers.weixin.qq.com/miniprogram/dev/component/checkbox.html)
 
