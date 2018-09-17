@@ -82,8 +82,8 @@ Page({
 
 &emsp;好的，上面就是微信官方文档的演示代码，那么我们开始填坑：
 1. `demo.wxml` 中出现的 `<image src="{{item}}" class="slide-image" width="355" height="150"/>` 这行， `width` 和 `height` 的行内属性是忽悠老百姓的，它 **并没乱用** ！我们需要在 `slide-image` 这个 `class` 类中修改 `width` 和 `height`。
-2. 绑定值。
-![阮一峰](../../public-repertory/img/other-WechatApplet-bug-1.png)
+2. 绑定值。官网内容：
+![图](../../public-repertory/img/other-WechatApplet-bug-1.png)
 &emsp;它的属性名和属性值是这么说的，然后，用的时候，首先你需要在 `demo.wxml` 中的 `swiper` 绑定这个属性名，然后在 `demo.js` 中设置其属性值。
 3. 关于轮播图的地址跳转，在微信小程序的官网是没用提及的，也是 jsliang 去百度查看了下，才知道怎么设置（可能是我一开始就挑战的难度太高了么~），在下面 jsliang 贴出来代码~想知道怎么解决的可以去看看：首先，在 `data` 中设置 `link` ；然后，设置 `navigator` 导航遍历 `item.link` 。
 4. 关于 `wx:key` 的 `warning` ，这里也是个小坑。[点我了解](https://www.sohu.com/a/207728111_99897596)
