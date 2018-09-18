@@ -1,6 +1,6 @@
 # 微信小程序 100 个坑
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-9-17 21:07:40**
+> Recently revised in **2018-9-18 17:43:56**
 
 > 是前端就填了这 100 个 bug 清单！  
 > 如果你觉得本文还不错，记得给个 **star** ， 你的 **star** 是我学习的动力！
@@ -17,7 +17,7 @@
 &emsp;如果你开发的版本已经解决了这个 bug ，或者你觉得这个 bug 还有其他解决方法，或者你觉得这个玩意还有其他 bug ，请告诉我！QQ： 1741020489，万谢！！！  
 &emsp;后来者开心无坑开发日，天祭无忘告 jsliang ！跪谢！！！
 
-&emsp;目前已有 **9** 个坑。
+&emsp;目前已有 **10** 个坑。
 
 <br>
 
@@ -234,9 +234,11 @@ linkTo: function () {
 
 ### 3.4 flex布局
 
-> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有2个坑，有兴趣的小伙伴可以详看。
 
-&emsp;Flex布局又称弹性布局，在小程序开发中比较适用。但是由于 jsliang 之前没怎么用过 Flex 布局，所以在这里咱们特意去踩下坑，充实下自己。[链接1](https://blog.csdn.net/anda0109/article/details/72867449)
+&emsp;Flex布局又称弹性布局，在小程序开发中比较适用。但是由于 jsliang 之前没怎么用过 Flex 布局，所以在这里咱们特意去踩下坑，充实下自己。[链接1](https://blog.csdn.net/anda0109/article/details/72867449) [链接2](http://www.techug.com/post/flex-examples.html)
+1. 左右布局
+2. 混合布局
 
 <br>
 
