@@ -17,7 +17,7 @@
 &emsp;如果你开发的版本已经解决了这个 bug ，或者你觉得这个 bug 还有其他解决方法，或者你觉得这个玩意还有其他 bug ，请告诉我！QQ： 1741020489，万谢！！！  
 &emsp;后来者开心无坑开发日，天祭无忘告 jsliang ！跪谢！！！
 
-&emsp;目前已有 **5** 个坑。
+&emsp;目前已有 **9** 个坑。
 
 <br>
 
@@ -28,6 +28,7 @@
 1. 轮播图
 
 ### 2.1 swiper 轮播图
+
 > 本组件目前已有4个坑，有兴趣的小伙伴可以详看。
 
 摘选自该地址：[地址](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html)。下面是原版代码：
@@ -99,7 +100,8 @@ Page({
 ```
 <view>
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#707071" indicator-active-color="#fff" circular="true">
-    <block wx:for="{{imgUrls}}" wx:key="{{item.index}}">
+    <!-- wx:key ： 提高列表渲染效率 -->
+    <block wx:for="{{carousel}}" wx:key="{{item.index}}">
       <swiper-item>
         <navigator url="{{item.link}}" hover-class="navigator-hover">
           <image src="{{item.url}}" class="slide-image" />
@@ -146,6 +148,55 @@ Page({
 
 <br>
 
+### 2.2 API: tabBar 与 switchTab
+
+> 本组件目前已有1个坑，有兴趣的小伙伴可以详看。
+
+&emsp;tabBar ：底部菜单栏，需要在 `app.json` 中设置。使用方法：见下文。  
+&emsp;navigator ：导航切换。[使用方法](https://blog.csdn.net/u013778905/article/details/59141486)  
+&emsp;switchTab ：控制 tabBar 的切换。[使用方法](https://blog.csdn.net/liona_koukou/article/details/53930045)
+
+&emsp;在这里，我们讲下 `tabBar` 的坑，如果你在 `app.json` 中设置了 `tabBar` ：
+> app.json
+```
+"tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "./public/index_tabBar1_nor.png",
+      "selectedIconPath": "./public/index_tabBar1.png"
+    }, {
+      "pagePath": "pages/demo/demo",
+      "text": "发现",
+      "iconPath": "./public/index_tabBar2_nor.png",
+      "selectedIconPath": "./public/index_tabBar2.png"
+    }, {
+      "pagePath": "pages/logs/logs",
+      "text": "我的",
+      "iconPath": "./public/index_tabBar3_nor.png",
+      "selectedIconPath": "./public/index_tabBar3.png"
+    }]
+  }
+```
+
+&emsp;那么，我们就需要通过设置 `switchTab` 来控制底部导航的跳转，而不能通过 `navigator` 来跳转：
+> demo.wxml
+```
+<view>
+  <button bindtap="linkTo">Hello</button>
+</view>
+```
+> demo.js
+```
+linkTo: function () {
+    wx.switchTab({
+      url: '../index/index'
+    });
+  },
+```
+
+<br>
+
 ## 三、外部组件坑
 > 本坑来源于开发中产品提出的需求，代码开发中碰到的 bug 。
 
@@ -174,9 +225,18 @@ Page({
 <br>
 
 ### 3.3 组件与API
+
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
 &emsp;在微信小程序官方文档中，组件与API，是拆分的。是的，轮播图与底部导航条，一个在组件中，一个在导航条中；一个在 `wxml` 、 `wxss` 、 `js` 中要设置对应的参数，一个只需要在 `app.json` 中设置就行，可能微信小程序考虑到底部导航条不应该有太大的变化（例如让你修改样式），所以将导航条内嵌至源码中了。
+
+<br>
+
+### 3.4 flex布局
+
+> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+
+&emsp;Flex布局又称弹性布局，在小程序开发中比较适用。但是由于 jsliang 之前没怎么用过 Flex 布局，所以在这里咱们特意去踩下坑，充实下自己。[链接1](https://blog.csdn.net/anda0109/article/details/72867449)
 
 <br>
 
