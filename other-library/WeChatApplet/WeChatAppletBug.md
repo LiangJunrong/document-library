@@ -180,7 +180,7 @@ Page({
 
 &emsp;[返回目录](#1)
 
-> 本组件目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本组件目前已有2个坑，有兴趣的小伙伴可以详看。
 
 &emsp;tabBar ：底部菜单栏，需要在 `app.json` 中设置。使用方法：见下文。  
 &emsp;navigator ：导航切换。[使用方法](https://blog.csdn.net/u013778905/article/details/59141486)  
@@ -224,6 +224,11 @@ linkTo: function () {
   });
 },
 ```
+
+<br>
+
+&emsp;（问题2）那么问题又来了，当我们切换到子页面的时候，我们发现 `tabBar` 这个底部导航栏不见了，然后问了下 `Ansen江` ，他说之前是整个小程序都有的，有些页面还要调用方法去隐藏。  
+&emsp;但是现在嘛……它没了！没了啊！！！在微信小程序的文档没看到有唤起底部导航条的方法，难道我要做一个导航条了么 -_-||。
 
 <br>
 
@@ -383,7 +388,7 @@ linkTo: function () {
 ![图](../../public-repertory/img/other-WechatApplet-bug-3.png)
 
 &emsp;好吧，可能有其他的实现方式，但是如果你下次使用这种方式，注意这个坑~
-> 看了下 `WeUI` 的实现方式，发现跟我的思路是挺像的，关于 `input` 的实现方式，现在做成了：
+> 看了下 `WeUI` 的实现方式，发现跟我的思路是挺像的，关于 `input` 的实现方式，现在依据 `WeUI` ，成功实现了输入框：
 
 ![图](../../public-repertory/img/other-WechatApplet-bug-4.gif)
 
