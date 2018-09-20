@@ -26,8 +26,9 @@
 | [4.4 flex布局](#4-4) | 2 |
 | [4.5 无法设置 background-image](#4-5) | 1 |
 | [4.6 \<block\> 与 \<view\>](#4-6) | 1 |
+| [4.6 margin-top 无法上浮 ](#4-7) | 1 |
 
-&emsp;目前已有 **12** 个坑。
+&emsp;目前已有 **13** 个坑。
 
 <br>
 
@@ -313,6 +314,75 @@ linkTo: function () {
 
 &emsp;两者的区别是，`<view>` 是一个组件，会在页面上做渲染；`<block>` 不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。  
 &emsp;所以，如果你仅仅是需要包裹，而不是渲染一个层，可以使用 `<block>` 提升性能。
+
+<br>
+
+### <span id="4-7">4.7 margin-top 无法上浮 
+
+&emsp;[返回目录](#1)
+
+> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+
+&emsp;首先，我们要实现的效果是：
+
+![图](../../public-repertory/img/other-WechatApplet-bug-2.png)
+
+&emsp;然后， jsliang 的想法是：
+
+> *.wxml
+```
+<view class="search">
+  <input class="search-product-input" bindinput="bindKeyInput" auto-focus maxlength='10'></input>
+  <label class="search-placeholder">
+    <image class="search-placeholder-icon" src="../../public/index_indexProduct_icon_search.png"></image>
+    <text class="search-placeholder-text">搜索产品</text>
+  </label>
+  <view></view>
+</view>
+```
+
+<br>
+
+> *.wxss
+```
+.search {
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.search-product-input {
+  background: #f5f5f5;
+  width: 650rpx;
+  height: 65rpx;
+  border-radius: 30rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+}
+.search-placeholder {
+  font-size: 26rpx;
+  text-align: center;
+  margin-top: -65rpx;
+  z-index: 2;
+}
+.search-placeholder-icon {
+  width: 24rpx;
+  height: 24rpx;
+}
+.search-placeholder-text {
+  margin-left: 10rpx;
+}
+```
+
+<br>
+
+&emsp;你注意到了吗？在 `*.wxml` 中， jsliang 设置了个空的 `<view>` ，如果你把这个 `<view>` 去掉，你会惊奇地发现，它……下来了……
+
+![图](../../public-repertory/img/other-WechatApplet-bug-3.png)
+
+&emsp;好吧，可能有其他的实现方式，但是如果你下次使用这种方式，注意这个坑~
 
 <br>
 
