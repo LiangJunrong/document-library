@@ -383,6 +383,109 @@ linkTo: function () {
 ![图](../../public-repertory/img/other-WechatApplet-bug-3.png)
 
 &emsp;好吧，可能有其他的实现方式，但是如果你下次使用这种方式，注意这个坑~
+> 看了下 `WeUI` 的实现方式，发现跟我的思路是挺像的，关于 `input` 的实现方式，现在做成了：
+
+![图](../../public-repertory/img/other-WechatApplet-bug-4.gif)
+
+&emsp;源码奉上：
+> *.wxml
+```
+<!-- 搜索框 -->
+<view class="search">
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form {{inputShowed ? 'form-border' : ''}}">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14"></icon>
+        <view class="weui-search-bar__text">搜索</view>
+      </label>
+    </view>
+    <view wx:if="{{inputVal.length <= 0}}" class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    <view wx:if="{{inputVal.length > 0}}" class="weui-search-bar__submit-btn" hidden="{{!inputShowed}}" bindtap="searchInput">搜索</view>
+  </view>
+</view>
+```
+
+<br>
+
+> *.js
+```
+Page({
+  data: {
+    inputShowed: false,
+    inputVal: ""
+  },
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+  }
+})
+```
+
+<br>
+
+> *.wxss
+```
+.search {
+  height: 100rpx;
+  padding: 18rpx 30rpx;
+}
+.weui-search-bar {
+  padding: 0;
+  background-color: #fff;
+  border-top: none;
+  border-bottom: none;
+  height: 64rpx;
+}
+.weui-search-bar__form {
+  border: none;
+}
+.form-border {
+  border: 1rpx solid #f5f5f5;
+  background: #f5f5f5;
+}
+.weui-search-bar__label {
+  background: #f5f5f5;
+  border-radius: 30rpx;
+}
+.weui-search-bar__cancel-btn {
+ font-size: 26rpx; 
+ background: rgb(8, 202, 186);
+ color: #fff;
+ padding: 2rpx 20rpx 0 20rpx;
+ border-radius: 10rpx;
+}
+.weui-search-bar__submit-btn {
+  font-size: 26rpx; 
+  background: rgb(8, 200, 248);
+  color: #fff;
+  padding: 10rpx 20rpx 0 20rpx;
+  border-radius: 10rpx;
+}
+```
 
 <br>
 
