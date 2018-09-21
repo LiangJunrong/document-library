@@ -1,5 +1,5 @@
 # 微信小程序 100 个坑
-> create by **jsliang** on **2018-9-17 17:58:56**  
+> create by ****jsliang**** on **2018-9-17 17:58:56**  
 > Recently revised in **2018-9-21 08:20:19**
 
 &emsp;**是前端就填了这 100 个 bug 清单**！
@@ -12,23 +12,23 @@
 
 ## <span id="1">一、目录<span>
 
-| 目录 | 坑数 |
-| --- | --- |
-| [一、前言](#1) | --- |
-| [二、目录](#2) | --- |
-| [三、内部组件坑](#3) | --- |
-| [3.1 swiper 轮播图](#3-1) | 4 |
-| [3.2 API: tabBar 与 switchTab](#3-2) | 1 |
-| [四、开发自带坑](#4) | --- |
-| [4.1 rpx](#4-1) | 1 |
-| [4.2 开发工具](#4-2) | 1 |
-| [4.3 组件与API](#4-3) | 1 |
-| [4.4 flex布局](#4-4) | 2 |
-| [4.5 无法设置 background-image](#4-5) | 1 |
-| [4.6 \<block\> 与 \<view\>](#4-6) | 1 |
-| [4.6 margin-top 无法上浮 ](#4-7) | 1 |
+| 目录                                                | 坑 |
+| --------------------------------------------------- | ---- |
+| [一、前言](#1)                                      |      |
+| [二、目录](#2)                                      |      |
+| [三、文档自带坑](#3)                                |      |
+| &emsp;[3.1 swiper 轮播图](#3-1)                     | 4    |
+| &emsp;[3.2 tabBar 与 switchTab](#3-2)               | 2    |
+| [四、开发偶遇坑](#4)                                |      |
+| &emsp;[4.1 px、rem 与 rpx](#4-1)                    | 1    |
+| &emsp;[4.2 微信 web 开发者工具](#4-2)               | 1    |
+| &emsp;[4.3 组件与 API](#4-3)                         | 1    |
+| &emsp;[4.4 flex 布局](#4-4)                          | 2    |
+| &emsp;[4.5 background-image 套用本地图片无效](#4-5) | 1    |
+| &emsp;[4.6 \<block\> 与 \<view\>](#4-6)             | 1    |
+| &emsp;[4.6 margin-top 无法上浮](#4-7)              | 1    |
 
-&emsp;目前已有 **13** 个坑。
+&emsp;目前已有 **14** 个坑。
 
 <br>
 
@@ -36,12 +36,12 @@
 
 &emsp;[返回目录](#1)
 
-&emsp;微信小程序的教程，或许写出来是非常受欢迎的。但是，第一微信小程序是国内的，有 [中文文档](https://developers.weixin.qq.com/miniprogram/dev/index.html) （虽然它文档的说明有点坑）。第二，想想我带你们走了一条平坦路，之后你们碰到坑坑洼洼了，咋办？最后的锅，会不会到我背啊，可怕！  
-&emsp;所以，在这里， jsliang 结合 **“日常躺坑”** ，先为你解决小程序的 100 个坑！虽然现在可能还不够，但是第一天我就碰到 4/5 个了，我想我可以帮你们躺完 100 个的！！！  
+&emsp;微信小程序的教程，或许写出来是非常受欢迎的。但是，第一微信小程序是国内的，有 [中文文档](https://developers.weixin.qq.com/miniprogram/dev/index.html)，虽然它的文档说明有点坑，但好歹有文档，阅读理解不是问题。第二，想想我带你们走了一遍小程序开发，然后你们以为是一条平坦路，结果碰到一堆坑坑洼洼，咋办？最后的锅，会不会到我背啊，可怕！  
+&emsp;所以，在这里， ****jsliang**** 结合 **“日常躺坑”** ，先为你解决小程序的 100 个坑！虽然现在可能还不够，但是第一天我就碰到 4/5 个了，我想我可以帮你们躺完 100 个的！！！  
 &emsp;现在的微信开发者工具显示的开发版本是：`"libVersion": "2.0.4"`  
 &emsp;如果你开发的版本已经解决了这个 bug ，或者你觉得这个 bug 还有其他解决方法，或者你觉得这个玩意还有其他 bug ，请告诉我！  
 &emsp;QQ： 1741020489  
-&emsp;后来者开心无坑开发日，天祭无忘告 jsliang ！跪谢！！！
+&emsp;后来者开心无坑开发日，天祭无忘告 ****jsliang**** ！跪谢！！！
 
 <br>
 
@@ -49,7 +49,8 @@
 
 &emsp;[返回目录](#1)
 
-> 本坑来源于微信自带的开发文档：[小程序开发](https://developers.weixin.qq.com/miniprogram/dev/component/)
+> 本坑来源于微信自带的开发文档：[小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/component/)。  
+> 在文档中，你会发现很多的乐趣~毕竟，你不知道什么时候中文成为你的语言障碍~
 
 <br>
 
@@ -59,7 +60,9 @@
 
 > 本组件目前已有4个坑，有兴趣的小伙伴可以详看。
 
-摘选自该地址：[地址](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html)。下面是原版代码：
+<br>
+
+代码来源于该地址：[微信组件 swiper](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html) 。下面是原版代码：
 > demo.wxml
 ```
 <swiper indicator-dots="{{indicatorDots}}"
@@ -75,6 +78,9 @@
 <slider bindchange="intervalChange" show-value min="500" max="2000"/> interval
 <slider bindchange="durationChange" show-value min="1000" max="10000"/> duration
 ```
+
+<br>
+
 > demo.js
 ```
 Page({
@@ -113,17 +119,18 @@ Page({
 ```
 <br>
 
-&emsp;好的，上面就是微信官方文档的演示代码，那么我们开始填坑：
-1. `demo.wxml` 中出现的 `<image src="{{item}}" class="slide-image" width="355" height="150"/>` 这行， `width` 和 `height` 的行内属性是忽悠老百姓的，**它并没卵用** ！我们需要在 `slide-image` 这个 `class` 类中修改 `width` 和 `height`。
-2. 绑定值。官网内容：
+&emsp;好的，上面就是微信官方文档的演示代码，如果你跟着走了一遍碰到疑问的话，看看这里我挖的土是不是能填好你的坑：
+1. `demo.wxml` 中出现的 `<image src="{{item}}" class="slide-image" width="355" height="150"/>` 这行， `width` 和 `height` 的行内属性是忽悠老百姓的，**它并没卵用** ！我们需要在 `slide-image` 这个 `class` 类中修改 `width` 和 `height`。简而言之，行内样式都是骗人的，乖，我们还是去 `demo-wxss` 写样式吧~
+2. `swiper` 属性值。官方文档说明：
 ![图](../../public-repertory/img/other-WechatApplet-bug-1.png)
-&emsp;它的属性名和属性值是这么说的，然后，用的时候，首先你需要在 `demo.wxml` 中的 `swiper` 绑定这个属性名，然后在 `demo.js` 中设置其属性值。值得注意的是，它的绑定值，稍微不同于 `Vue`， 需要设置 `{{}}` 形式。
-3. 关于轮播图的地址跳转，在微信小程序的官网是没用提及的，也是 jsliang 去百度查看了下，才知道怎么设置（可能是我一开始就挑战的难度太高了么-_-||），在下面 jsliang 贴出来代码~想知道怎么解决的可以去看看：首先，在 `data` 中设置 `link` ；然后，设置 `navigator` 导航遍历 `item.link` 。
-4. 关于 `wx:key` ， `wx:key` 的作用是：当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率。但是，在其 `swiper` 中，小程序本身是没有写的，所以它会带有 `warning` ，这里也是个小坑， jsliang 也是百度了下也知道这件事。[点我了解](https://www.sohu.com/a/207728111_99897596)
+&emsp;虽然，它的属性名和属性值是这么说的。但是，用的时候，首先你需要在 `demo.wxml` 中的 `swiper` 绑定这个属性名，然后在 `demo.js` 中设置其属性值。值得注意的是，它的绑定值，稍微不同于 `Vue`， 需要设置 `{{}}` 形式。如果文字描述你看得不是很清楚，可以参照下面的代码进行理解。
+3. 关于轮播图的地址跳转，在微信小程序的官网是没用提及的，也是 ****jsliang**** 去百度查看了下，才知道怎么设置（可能是我一开始就挑战的难度太高了么-_-||），在下面 ****jsliang**** 贴出来代码~想知道怎么解决的可以去看看：首先，在 `data` 中设置 `link` ；然后，设置 `navigator` 导航遍历 `item.link` 。
+4. 关于 `wx:key` ， `wx:key` 的作用是：当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率。但是，在其 `swiper` 中，小程序本身是没有写的，所以它会带有 `warning` ，这里也是个小坑， **jsliang** 也是百度了下也知道这件事。[点我了解](https://www.sohu.com/a/207728111_99897596)
 
 <br>
 
-&emsp;下面给出 jsliang 的解决代码，如果不对，尽情指出：
+&emsp;下面给出 **jsliang** 的解决代码，如有不对，尽情指出：
+
 > index.wxml
 ```
 <view>
@@ -140,6 +147,8 @@ Page({
 </view>
 ```
 
+<br>
+
 > index.wxss
 ```
 .slide-image {
@@ -147,6 +156,8 @@ Page({
   height: 420rpx;
 }
 ```
+
+<br>
 
 > index.js
 ```
@@ -176,7 +187,7 @@ Page({
 
 <br>
 
-### 3.2 <span id="3-2">API: tabBar 与 switchTab</span>
+### 3.2 <span id="3-2">tabBar 与 switchTab</span>
 
 &emsp;[返回目录](#1)
 
@@ -242,7 +253,7 @@ linkTo: function () {
 
 <br>
 
-### <span id="4-1">4.1 rpx</span>
+### <span id="4-1">4.1 px、rem 与 rpx</span>
 
 &emsp;[返回目录](#1)
 
@@ -253,7 +264,7 @@ linkTo: function () {
 
 <br>
 
-### <span id="4-2">4.2 开发工具</span>
+### <span id="4-2">4.2 微信 web 开发者工具</span>
 
 &emsp;[返回目录](#1)
 
@@ -264,7 +275,7 @@ linkTo: function () {
 
 <br>
 
-### <span id="4-3">4.3 组件与API</span>
+### <span id="4-3">4.3 组件与 API</span>
 
 &emsp;[返回目录](#1)
 
@@ -274,13 +285,13 @@ linkTo: function () {
 
 <br>
 
-### <span id="4-4">4.4 flex布局</span>
+### <span id="4-4">4.4 flex 布局</span>
 
 &emsp;[返回目录](#1)
 
 > 本节目前已有2个坑，有兴趣的小伙伴可以详看。
 
-&emsp;Flex布局又称弹性布局，在小程序开发中比较适用。但是由于 jsliang 之前没怎么用过 Flex 布局，所以在这里咱们特意去踩下坑，充实下自己。[链接1](https://blog.csdn.net/anda0109/article/details/72867449) [链接2](http://www.techug.com/post/flex-examples.html)
+&emsp;Flex布局又称弹性布局，在小程序开发中比较适用。但是由于 **jsliang** 之前没怎么用过 Flex 布局，所以在这里咱们特意去踩下坑，充实下自己。[链接1](https://blog.csdn.net/anda0109/article/details/72867449) [链接2](http://www.techug.com/post/flex-examples.html)
 
 1. 左右布局
 > 图待上传
@@ -296,7 +307,7 @@ linkTo: function () {
 
 <br>
 
-### <span id="4-5">4.5 无法设置 background-image</span>
+### <span id="4-5">4.5 background-image 套用本地图片无效</span>
 
 &emsp;[返回目录](#1)
 
@@ -311,7 +322,7 @@ linkTo: function () {
 
 <br>
 
-### <span id="4-6">4.6 `<block>` 与 `<view>`</span>
+### <span id="4-6">4.6 \<block\> 与 \<view\></span>
 
 &emsp;[返回目录](#1)
 
@@ -332,7 +343,7 @@ linkTo: function () {
 
 ![图](../../public-repertory/img/other-WechatApplet-bug-2.png)
 
-&emsp;然后， jsliang 的想法是：
+&emsp;然后， **jsliang** 的想法是：
 
 > *.wxml
 ```
@@ -383,7 +394,7 @@ linkTo: function () {
 
 <br>
 
-&emsp;你注意到了吗？在 `*.wxml` 中， jsliang 设置了个空的 `<view>` ，如果你把这个 `<view>` 去掉，你会惊奇地发现，它……下来了……
+&emsp;你注意到了吗？在 `*.wxml` 中， **jsliang** 设置了个空的 `<view>` ，如果你把这个 `<view>` 去掉，你会惊奇地发现，它……下来了……
 
 ![图](../../public-repertory/img/other-WechatApplet-bug-3.png)
 
@@ -494,4 +505,4 @@ Page({
 
 <br>
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">**jsliang**的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
