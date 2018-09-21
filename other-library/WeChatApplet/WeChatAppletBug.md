@@ -1,6 +1,6 @@
 # 微信小程序 100 个坑
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-9-20 16:38:50**
+> Recently revised in **2018-9-21 08:20:19**
 
 &emsp;**是前端就填了这 100 个 bug 清单**！
   
