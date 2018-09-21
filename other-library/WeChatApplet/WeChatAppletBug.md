@@ -30,8 +30,9 @@
 | &emsp;[4.6 \<block\> 与 \<view\>](#4-6)             | 1   |
 | &emsp;[4.7 margin-top 无法上浮](#4-7)               | 1   |
 | &emsp;[4.8 微信小程序分享](#4-8)                    | 1   |
+| &emsp;[4.9 border-box 设置](#4-9)                    | 1   |
 
-&emsp;目前已有 **15** 个坑。
+&emsp;目前已有 **16** 个坑。
 
 <br>
 
@@ -514,6 +515,7 @@ Page({
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
+&emsp;官方文档：[地址](https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html#%E9%A1%B5%E9%9D%A2%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0)  
 &emsp;在这里，提醒广大小伙伴注意了，注意了，注意了！重要的事说三遍。  
 &emsp;当你新建 `page` 的时候，微信 web 开发者工具会自动帮你添加分享事件:
 
@@ -525,6 +527,22 @@ onShareAppMessage: function (res) {
 
 }
 ```
+
+<br>
+
+### <span id="4-9">4.9 border-box 设置</span>
+
+&emsp;[返回目录](#1)
+
+> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+
+&emsp;熟知盒模型的小伙伴应该知道，盒模型有两种计算方式：
+1. box-sizing: border-box;
+2. box-sizing: content-box;
+
+&emsp;在 `border-box` 中，整个 `view` 的宽、高，包括 `margin`、`padding`、`border`。  
+&emsp;而在 `content-box` 中，整个 `view` 的宽、高，则不包括上面元素。  
+&emsp;如果你在设计页面中，发现内容区被撑爆了，那么，请检查下现在的 `border-box` 是什么。
 
 <br>
 
