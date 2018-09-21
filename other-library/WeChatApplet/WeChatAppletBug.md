@@ -1,12 +1,14 @@
 # 微信小程序 100 个坑
 > create by ****jsliang**** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-9-21 08:20:19**
+> Recently revised in **2018-9-21 08:49:40**
 
 &emsp;**是前端就填了这 100 个 bug 清单**！
   
 &emsp;**如果你觉得本文还不错，记得给个 **star** ， 你的 **star** 是我学习的动力！**
 
 &emsp;本文技术支持：**Ansen江**
+
+&emsp;本文转载自 **jsliang** 的 GitHub，里面存放了 **jsliang** 的所有学习文档。如果你喜欢，欢迎去点 `Star` ：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)
 
 <br>
 
@@ -398,8 +400,8 @@ linkTo: function () {
 
 ![图](../../public-repertory/img/other-WechatApplet-bug-3.png)
 
-&emsp;好吧，可能有其他的实现方式，但是如果你下次使用这种方式，注意这个坑~
-> 看了下 `WeUI` 的实现方式，发现跟我的思路是挺像的，关于 `input` 的实现方式，现在依据 `WeUI` ，成功实现了输入框：
+&emsp;好吧，可能有其他的实现方式，但是如果你下次使用这种方式，注意这个坑~  
+&emsp;回头看了下 `WeUI` 的实现方式，发现跟我的思路是挺像的，关于 `input` 的实现方式，现在依据 `WeUI` ，成功实现了输入框：
 
 ![图](../../public-repertory/img/other-WechatApplet-bug-4.gif)
 
