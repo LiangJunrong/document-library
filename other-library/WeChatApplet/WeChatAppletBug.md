@@ -783,7 +783,39 @@ onShareAppMessage: function (res) {
 2. box-sizing: content-box;
 
 &emsp;在 `border-box` 中，整个 `view` 的宽、高，包括 `margin`、`padding`、`border`。  
-&emsp;而在 `content-box` 中，整个 `view` 的宽、高，则不包括上面元素。  
+&emsp;而在 `content-box` 中，整个 `view` 的宽、高，则不包括上面元素。 
+
+![图](../../public-repertory/img/other-WechatApplet-bug-8.jpg)
+
+&emsp;如上图，如果一个 `view` ，你的代码如下：
+```
+view {
+  box-sizing: border-box;
+  margin: 10rpx;
+  width: 100rpx;
+  height: 100rpx;
+  padding: 10rpx;
+}
+```
+
+<br>
+
+&emsp;那么，你的整个宽高还是 `100rpx`。  
+&emsp;但是，如果你的代码如下：
+```
+view {
+  box-sizing: content-box;
+  margin: 10rpx;
+  width: 100rpx;
+  height: 100rpx;
+  padding: 10rpx;
+}
+```
+
+<br>
+
+&emsp;那么，你的整个盒子宽高是 `120rpx`。
+
 &emsp;如果你在设计页面中，发现内容区被撑爆了，那么，请检查下现在的 `border-box` 是什么。
 
 <br>
