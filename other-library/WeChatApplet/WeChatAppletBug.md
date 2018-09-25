@@ -19,29 +19,38 @@
 
 ## <span id="1">一 目录<span>
 
-| 目录                                                | 坑  |
-| --------------------------------------------------- | --- |
-| [一 前言](#1)                                       |     |
-| [二 目录](#2)                                       |     |
-| [三 前端挖掘机](#3)                                 |     |
-| &emsp;[3.1 swiper 轮播图](#3-1)                     | 4   |
-| &emsp;&emsp;[3.1.1 行内样式无效](#3-1-1)                 |     |
-| &emsp;&emsp;[3.1.2 swiper 属性值设置](#3-1-2)                 |     |
-| &emsp;&emsp;[3.1.3 轮播图图片跳转](#3-1-3)                 |     |
-| &emsp;&emsp;[3.1.4 wx:key](#3-1-4)                 |     |
-| &emsp;[3.2 tabBar 与 switchTab](#3-2)               | 2   |
-| &emsp;[3.3 px、rem 与 rpx](#3-3)                    | 1   |
-| &emsp;[3.4 微信 web 开发者工具](#3-4)               | 1   |
-| &emsp;[3.5 组件与 API](#3-5)                        | 1   |
-| &emsp;[3.6 flex 布局](#3-6)                         | 2   |
-| &emsp;[3.7 background-image 套用本地图片无效](#3-7) | 1   |
-| &emsp;[3.8 \<block\> 与 \<view\>](#3-8)             | 1   |
-| &emsp;[3.9 margin-top 无法上浮](#3-9)               | 1   |
-| &emsp;[3.10 微信小程序分享](#3-10)                  | 1   |
-| &emsp;[3.11 border-box 设置](#3-11)                 | 1   |
-| &emsp;[3.12 自定义导航条](#3-12)                    | 4   |
+| 目录                                                 | 坑  |
+| ---------------------------------------------------- | --- |
+| [一 前言](#1)                                        |     |
+| [二 目录](#2)                                        |     |
+| [三 前端挖掘机](#3)                                  |     |
+| &emsp;[3.1 swiper 轮播图](#3-1)                      | 4   |
+| &emsp;&emsp;[3.1.1 行内样式无效](#3-1-1)             |     |
+| &emsp;&emsp;[3.1.2 swiper 属性值设置](#3-1-2)        |     |
+| &emsp;&emsp;[3.1.3 轮播图图片跳转](#3-1-3)           |     |
+| &emsp;&emsp;[3.1.4 wx:key](#3-1-4)                   |     |
+| &emsp;[3.2 tabBar 与 switchTab](#3-2)                | 2   |
+| &emsp;&emsp;[3.2.1 底部导航跳转](#3-2-1)             |     |
+| &emsp;&emsp;[3.2.2 自定义底部导航](#3-2-2)           |     |
+| &emsp;[3.3 px、rem 与 rpx](#3-3)                     | 1   |
+| &emsp;[3.4 微信 web 开发者工具](#3-4)                | 1   |
+| &emsp;[3.5 组件与 API](#3-5)                         | 1   |
+| &emsp;[3.6 flex 布局](#3-6)                          | 2   |
+| &emsp;&emsp;[3.6.1 左右布局](#3-6-1)                 |     |
+| &emsp;&emsp;[3.6.2 混合布局](#3-6-2)                 |     |
+| &emsp;[3.7 background-image 套用本地图片无效](#3-7)  | 1   |
+| &emsp;[3.8 \<block\> 与 \<view\>](#3-8)              | 1   |
+| &emsp;[3.9 margin-top 无法上浮](#3-9)                | 1   |
+| &emsp;[3.10 微信小程序分享](#3-10)                   | 1   |
+| &emsp;[3.11 border-box 设置](#3-11)                  | 1   |
+| &emsp;[3.12 自定义导航条](#3-12)                     | 5   |
+| &emsp;&emsp;[3.12.1 自定义选项卡效果与实现](#3-12-1) |     |
+| &emsp;&emsp;[3.12.2 绑定事件如何传递数据](#3-12-2)   |     |
+| &emsp;&emsp;[3.12.3 不允许驼峰](#3-12-3)             |     |
+| &emsp;&emsp;[3.12.4 获取 data 数据](#3-12-4)         |     |
+| &emsp;&emsp;[3.12.5 实现文字省略](#3-12-5)           |     |
 
-&emsp;目前已有 **20** 个坑。
+&emsp;目前已有 **21** 个坑。
 
 <br>
 
@@ -239,6 +248,12 @@ Page({
 &emsp;navigator ：导航切换。[使用方法](https://blog.csdn.net/u013778905/article/details/59141486)  
 &emsp;switchTab ：控制 tabBar 的切换。[使用方法](https://blog.csdn.net/liona_koukou/article/details/53930045)
 
+<br>
+
+#### <span id="3-2-1">3.2.1 底部导航跳转</span>
+
+&emsp;[返回目录](#1)
+
 &emsp;在这里，我们讲下 `tabBar` 的坑，如果你在 `app.json` 中设置了 `tabBar` ：
 > app.json
 ```
@@ -264,7 +279,7 @@ Page({
 
 <br>
 
-&emsp;（ bug 1 ）那么，我们就需要通过设置 `switchTab` 来控制底部导航的跳转，而不能通过 `navigator` 来跳转：
+&emsp;那么，我们就需要通过设置 `switchTab` 来控制底部导航的跳转，而不能通过 `navigator` 来跳转：
 > demo.wxml
 ```
 <view>
@@ -285,7 +300,11 @@ linkTo: function () {
 
 <br>
 
-&emsp;（ bug 2 ）那么问题又来了，当我们切换到子页面的时候，我们发现 `tabBar` 这个底部导航栏不见了，然后问了下 **Ansen江** ，他说之前是整个小程序都有的，有些页面还要调用方法去隐藏。  
+#### <span id="3-2-2">3.2.2 自定义底部导航</span>
+
+&emsp;[返回目录](#1)
+
+&emsp;那么问题又来了，当我们切换到子页面的时候，我们发现 `tabBar` 这个底部导航栏不见了，然后问了下 **Ansen江** ，他说之前是整个小程序都有的，有些页面还要调用方法去隐藏。  
 &emsp;但是现在嘛……它没了！没了啊！！！在微信小程序的文档没看到有唤起底部导航条的方法，难道我要做一个导航条了么 -_-|| 。  
 &emsp;回答是：yes！  
 &emsp;所以，下面给出该底部导航条 `tabBar` 的实现情况和代码片段：
@@ -439,7 +458,13 @@ goHome: function() {
 &emsp;Flex布局又称弹性布局，在小程序开发中比较适用。但是由于 **jsliang** 之前没怎么用过 Flex 布局，所以在这里咱们特意去踩下坑，充实下自己。[小程序开发之页面布局](https://blog.csdn.net/anda0109/article/details/72867449)、[阮一峰-Flex 布局教程](http://www.techug.com/post/flex-examples.html)  
 &emsp;在我们布局页面的时候，最好看看 **阮一峰** 的教程，平时遇到布局的问题的时候，我都习惯去上面 **阮一峰** 的文章看看：
 
-1. （ bug 1 ）左右布局
+<br>
+
+#### <span id="3-6-1">3.6.1 左右布局</span>
+
+&emsp;[返回目录](#1)
+
+&emsp;实现效果如下：
 
 ![图](../../public-repertory/img/other-WechatApplet-bug-6.png)
 
@@ -489,7 +514,11 @@ goHome: function() {
 
 <br>
 
-2. （ bug 2 ）混合布局
+#### <span id="3-6-2">3.6.2 混合布局</span>
+
+&emsp;[返回目录](#1)
+
+&emsp;实现效果如下：
 
 ![图](../../public-repertory/img/other-WechatApplet-bug-7.png)
 
@@ -863,7 +892,13 @@ view {
 
 > 本节目前已有4个坑，有兴趣的小伙伴可以详看。
 
-&emsp;（ bug 1 ）自定义选项卡的代码实现：   
+<br>
+
+#### <span id="3-12-1">3.12.1 自定义选项卡效果与实现</span>
+
+&emsp;[返回目录](#1)
+
+&emsp;自定义选项卡的代码实现：   
 
 &emsp;实现效果图如下：
 
@@ -1141,8 +1176,11 @@ tabs2NavClick: function(e) {
 
 <br>
 
-&emsp;代码片段解析 bug ：
-1. （ bug 2 ）绑定事件如何传递数据：  
+#### <span id="3-12-2">3.12.2 绑定事件如何传递数据</span>
+
+&emsp;[返回目录](#1)
+
+&emsp;绑定事件如何传递数据：  
 &emsp;如果学过 `Vue` 的同学，应该知道 `Vue` 的数据传递形式是： `@click='tabs2NavClick(item.id)'`  
 &emsp;那么，在微信小程序中，你千万记得，绑定时间的传递参数的方式不是这样子的，而是：
 ```
@@ -1151,13 +1189,25 @@ tabs2NavClick: function(e) {
 
 <br>
 
-&emsp;通过 `data-*="{{item}}"` 的形式传递的~然后你需要在 `js` 中，通过 `e.currentTarget.dataset.labelid` 来获取。然后，注意了，这里还有个小 bug。（ bug 3 ）我们使用的是 `data-labelId="{{item.id}}"`，而获取数据的时候，我们获取的是 `labelid`，是的，驼峰不见了~
+&emsp;通过 `data-*="{{item}}"` 的形式传递的~然后你需要在 `js` 中，通过 `e.currentTarget.dataset.labelid` 来获取。
+
+<br>
+
+#### <span id="3-12-3">3.12.3 不允许驼峰</span>
+
+&emsp;[返回目录](#1)
+
+&emsp;然后，注意了，这里还有个小 bug。（ bug 3 ）我们使用的是 `data-labelId="{{item.id}}"`，而获取数据的时候，我们获取的是 `labelid`，是的，驼峰不见了~
 
 &emsp;参考链接：[链接](https://www.jianshu.com/p/a3481a255842)
 
 <br>
 
-2. （ bug 4 ）如何在方法中获取 `data` 中定义的数据：  
+#### <span id="3-12-4">3.12.4 获取 data 数据</span>
+
+&emsp;[返回目录](#1)
+
+&emsp;如何在方法中获取 `data` 中定义的数据：  
 &emsp;如果我想在选项卡切换的方法 `tabs2NavClick` 中获取 `data` 里面的数据，那么我应该怎么做呢？  
 &emsp;是的，通过:
 ```
@@ -1174,7 +1224,11 @@ tabs2NavClick: function(e) {
 
 <br>
 
-3. （ bug 5 ）如何实现文字省略：  
+#### <span id="3-12-5">3.12.5 实现文字省略</span>
+
+&emsp;[返回目录](#1)
+
+&emsp;如何实现文字省略：  
 &emsp;加入你有一段文本，你想让页面根据自身宽度，自动省略多余长度，那么，我们可以设置下面的 `css` 代码，从而实现文字省略效果（不使用 js 的原因，是因为 js 没有 css 那么灵活）  
 ```
 text {
