@@ -23,20 +23,19 @@
 | --------------------------------------------------- | --- |
 | [一 前言](#1)                                       |     |
 | [二 目录](#2)                                       |     |
-| [三 文档自带坑](#3)                                 |     |
+| [三 前端挖掘机](#3)                                 |     |
 | &emsp;[3.1 swiper 轮播图](#3-1)                     | 4   |
 | &emsp;[3.2 tabBar 与 switchTab](#3-2)               | 2   |
-| [四 开发偶遇坑](#4)                                 |     |
-| &emsp;[4.1 px、rem 与 rpx](#4-1)                    | 1   |
-| &emsp;[4.2 微信 web 开发者工具](#4-2)               | 1   |
-| &emsp;[4.3 组件与 API](#4-3)                        | 1   |
-| &emsp;[4.4 flex 布局](#4-4)                         | 2   |
-| &emsp;[4.5 background-image 套用本地图片无效](#4-5) | 1   |
-| &emsp;[4.6 \<block\> 与 \<view\>](#4-6)             | 1   |
-| &emsp;[4.7 margin-top 无法上浮](#4-7)               | 1   |
-| &emsp;[4.8 微信小程序分享](#4-8)                    | 1   |
-| &emsp;[4.9 border-box 设置](#4-9)                   | 1   |
-| &emsp;[4.10 自定义导航条](#4-10)                   | 3   |
+| &emsp;[3.3 px、rem 与 rpx](#3-3)                    | 1   |
+| &emsp;[3.4 微信 web 开发者工具](#3-4)               | 1   |
+| &emsp;[3.5 组件与 API](#3-5)                        | 1   |
+| &emsp;[3.6 flex 布局](#3-6)                         | 2   |
+| &emsp;[3.7 background-image 套用本地图片无效](#3-7) | 1   |
+| &emsp;[3.8 \<block\> 与 \<view\>](#3-8)             | 1   |
+| &emsp;[3.9 margin-top 无法上浮](#3-9)               | 1   |
+| &emsp;[3.10 微信小程序分享](#3-10)                    | 1   |
+| &emsp;[3.11 border-box 设置](#3-11)                   | 1   |
+| &emsp;[3.12 自定义导航条](#3-12)                   | 3   |
 
 &emsp;目前已有 **19** 个坑。
 
@@ -61,7 +60,7 @@
 
 > 本坑来源于微信自带的开发文档：[小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/component/)。  
 
-> 在文档中，你会发现很多的乐趣！毕竟，你不知道什么时候中文成为你的语言障碍~
+> 在文档中，你会发现很多的乐趣！毕竟，你不知道什么时候中文成为了你的语言障碍~
 
 <br>
 
@@ -265,17 +264,7 @@ linkTo: function () {
 
 <br>
 
-## <span id="4">四 开发自带坑</span>
-
-<br>
-
-&emsp;[返回目录](#1)
-
-> 本坑来源于开发中产品提出的需求，代码开发中碰到的坑 。
-
-<br>
-
-### <span id="4-1">4.1 px、rem 与 rpx</span>
+### <span id="3-3">3.3 px、rem 与 rpx</span>
 
 &emsp;[返回目录](#1)
 
@@ -286,7 +275,7 @@ linkTo: function () {
 
 <br>
 
-### <span id="4-2">4.2 微信 web 开发者工具</span>
+### <span id="3-4">3.4 微信 web 开发者工具</span>
 
 &emsp;[返回目录](#1)
 
@@ -297,7 +286,7 @@ linkTo: function () {
 
 <br>
 
-### <span id="4-3">4.3 组件与 API</span>
+### <span id="3-5">3.5 组件与 API</span>
 
 &emsp;[返回目录](#1)
 
@@ -307,7 +296,7 @@ linkTo: function () {
 
 <br>
 
-### <span id="4-4">4.4 flex 布局</span>
+### <span id="3-6">3.6 flex 布局</span>
 
 &emsp;[返回目录](#1)
 
@@ -329,7 +318,7 @@ linkTo: function () {
 
 <br>
 
-### <span id="4-5">4.5 background-image 套用本地图片无效</span>
+### <span id="3-7">3.7 background-image 套用本地图片无效</span>
 
 &emsp;[返回目录](#1)
 
@@ -344,7 +333,7 @@ linkTo: function () {
 
 <br>
 
-### <span id="4-6">4.6 \<block\> 与 \<view\></span>
+### <span id="3-8">3.8 \<block\> 与 \<view\></span>
 
 &emsp;[返回目录](#1)
 
@@ -355,7 +344,7 @@ linkTo: function () {
 
 <br>
 
-### <span id="4-7">4.7 margin-top 无法上浮</span>
+### <span id="3-9">3.9 margin-top 无法上浮</span>
 
 &emsp;[返回目录](#1)
 
@@ -527,7 +516,7 @@ Page({
 
 <br>
 
-### <span id="4-8">4.8 微信小程序分享</span>
+### <span id="3-10">3.10 微信小程序分享</span>
 
 &emsp;[返回目录](#1)
 
@@ -553,7 +542,7 @@ onShareAppMessage: function (res) {
 
 <br>
 
-### <span id="4-9">4.9 border-box 设置</span>
+### <span id="3-11">3.11 border-box 设置</span>
 
 &emsp;[返回目录](#1)
 
@@ -569,7 +558,7 @@ onShareAppMessage: function (res) {
 
 <br>
 
-### <span id="4-10">4.10 自定义选项卡</span>
+### <span id="3-12">3.12 自定义选项卡</span>
 
 &emsp;[返回目录](#1)
 
