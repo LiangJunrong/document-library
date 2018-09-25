@@ -1,27 +1,32 @@
-# 微信小程序 100 个坑
-> create by ****jsliang**** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-9-21 08:49:40**
+# 微信小程序 100 坑
 
-&emsp;**是前端就填了这 100 个 bug 清单**！
-  
-&emsp;**如果你觉得本文还不错，记得给个 **star** ， 你的 **star** 是我学习的动力！**
-
-&emsp;本文技术支持：**Ansen江**
-
-&emsp;本文转载自 **jsliang** 的 GitHub，里面存放了 **jsliang** 的所有学习文档。如果你喜欢，欢迎去点 `Star` ：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)
+> create by **jsliang** on **2018-9-17 17:58:56**  
+> Recently revised in **2018-9-25 08:29:24**
 
 <br>
 
-## <span id="1">一、目录<span>
+## 写在前面
+
+&emsp;**这里有微信小程序开发中遇到的所有坑，以及在填坑过程中的一些个人经验。**  
+
+&emsp;**请结合 《目录》 和 《返回目录》 这两个按钮进行跳转，获得更好的阅读体验。**
+  
+&emsp;**如果你觉得本文还不错，记得给个 **star** ， 你的 **star** 是我学习的动力！[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+
+&emsp;本文技术支持：**Ansen江**
+
+<br>
+
+## <span id="1">一 目录<span>
 
 | 目录                                                | 坑  |
 | --------------------------------------------------- | --- |
-| [一、前言](#1)                                      |     |
-| [二、目录](#2)                                      |     |
-| [三、文档自带坑](#3)                                |     |
+| [一 前言](#1)                                       |     |
+| [二 目录](#2)                                       |     |
+| [三 文档自带坑](#3)                                 |     |
 | &emsp;[3.1 swiper 轮播图](#3-1)                     | 4   |
 | &emsp;[3.2 tabBar 与 switchTab](#3-2)               | 2   |
-| [四、开发偶遇坑](#4)                                |     |
+| [四 开发偶遇坑](#4)                                 |     |
 | &emsp;[4.1 px、rem 与 rpx](#4-1)                    | 1   |
 | &emsp;[4.2 微信 web 开发者工具](#4-2)               | 1   |
 | &emsp;[4.3 组件与 API](#4-3)                        | 1   |
@@ -30,13 +35,13 @@
 | &emsp;[4.6 \<block\> 与 \<view\>](#4-6)             | 1   |
 | &emsp;[4.7 margin-top 无法上浮](#4-7)               | 1   |
 | &emsp;[4.8 微信小程序分享](#4-8)                    | 1   |
-| &emsp;[4.9 border-box 设置](#4-9)                    | 1   |
+| &emsp;[4.9 border-box 设置](#4-9)                   | 1   |
 
 &emsp;目前已有 **16** 个坑。
 
 <br>
 
-## <span id="2">二、前言</span>
+## <span id="2">二 前言</span>
 
 &emsp;[返回目录](#1)
 
@@ -49,7 +54,7 @@
 
 <br>
 
-## <span id="3">三、内部组件坑</span>
+## <span id="3">三 内部组件坑</span>
 
 &emsp;[返回目录](#1)
 
@@ -247,7 +252,7 @@ linkTo: function () {
 
 <br>
 
-## <span id="4">四、开发自带坑</span>
+## <span id="4">四 开发自带坑</span>
 
 <br>
 
