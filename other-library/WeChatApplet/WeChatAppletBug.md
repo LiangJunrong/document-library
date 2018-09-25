@@ -36,8 +36,9 @@
 | &emsp;[4.7 margin-top 无法上浮](#4-7)               | 1   |
 | &emsp;[4.8 微信小程序分享](#4-8)                    | 1   |
 | &emsp;[4.9 border-box 设置](#4-9)                   | 1   |
+| &emsp;[4.10 自定义导航条](#4-10)                   | 3   |
 
-&emsp;目前已有 **16** 个坑。
+&emsp;目前已有 **19** 个坑。
 
 <br>
 
@@ -564,6 +565,18 @@ onShareAppMessage: function (res) {
 &emsp;在 `border-box` 中，整个 `view` 的宽、高，包括 `margin`、`padding`、`border`。  
 &emsp;而在 `content-box` 中，整个 `view` 的宽、高，则不包括上面元素。  
 &emsp;如果你在设计页面中，发现内容区被撑爆了，那么，请检查下现在的 `border-box` 是什么。
+
+<br>
+
+### <span id="4-10">4.10 自定义选项卡</span>
+
+&emsp;[返回目录](#1)
+
+> 本节目前已有3个坑，有兴趣的小伙伴可以详看。
+
+1. （ bug 1 ）绑定事件如何传递数据：[链接1](https://www.jianshu.com/p/a3481a255842)
+2. （ bug 2 ）自定义选项卡的代码实现：[链接1](https://blog.csdn.net/chq1988/article/details/74625741)
+3. （ bug 3 ）如何实现文字省略：[链接1](https://blog.csdn.net/hxh5801050/article/details/79540412)
 
 <br>
 
