@@ -72,7 +72,7 @@
 
 <br>
 
-代码来源于该地址：[微信组件 swiper](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html) 。下面是原版代码：
+代码来源于该地址：[微信组件 swiper](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html) 。为方便小伙伴查看，下面贴出原版代码：
 > demo.wxml
 ```
 <swiper indicator-dots="{{indicatorDots}}"
