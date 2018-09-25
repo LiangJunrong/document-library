@@ -389,7 +389,7 @@ callWaiter: function(res) {
 
 &emsp;在微信小程序官方文档中，组件与API，是拆分的。是的，轮播图与底部导航条，一个在组件中，一个在导航条中；一个在 `wxml` 、 `wxss` 、 `js` 中要设置对应的参数，一个只需要在 `app.json` 中设置就行，可能微信小程序考虑到底部导航条不应该有太大的变化（例如让你修改太多样式或者 `js` ），所以将导航条内嵌至源码中了。  
 &emsp;这时候应该会有小伙伴吐槽了，这不是 bug 啊，你发来做啥呢！  
-&emsp;……已隐藏 5000 字吵架字眼。
+&emsp;……已隐藏 5000 字吵架字眼~
 
 <br>
 
@@ -399,19 +399,152 @@ callWaiter: function(res) {
 
 > 本节目前已有2个坑，有兴趣的小伙伴可以详看。
 
-&emsp;Flex布局又称弹性布局，在小程序开发中比较适用。但是由于 **jsliang** 之前没怎么用过 Flex 布局，所以在这里咱们特意去踩下坑，充实下自己。[小程序开发之页面布局](https://blog.csdn.net/anda0109/article/details/72867449) [阮一峰-Flex 布局教程](http://www.techug.com/post/flex-examples.html)
+&emsp;Flex布局又称弹性布局，在小程序开发中比较适用。但是由于 **jsliang** 之前没怎么用过 Flex 布局，所以在这里咱们特意去踩下坑，充实下自己。[小程序开发之页面布局](https://blog.csdn.net/anda0109/article/details/72867449)、[阮一峰-Flex 布局教程](http://www.techug.com/post/flex-examples.html)  
+&emsp;在我们布局页面的时候，最好看看 **阮一峰** 的教程，平时遇到布局的问题的时候，我都习惯去上面 **阮一峰** 的文章看看：
 
-1. 左右布局
-> 图待上传
+1. （ bug 1 ）左右布局
 
-&emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
-> 代码待上传
-
-2. 混合布局
-> 图待上传
+![图](../../public-repertory/img/other-WechatApplet-bug-6.png)
 
 &emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
-> 代码待上传
+
+> *.wxml
+```
+<view class="top-recommended-headlines">
+  <view class="top-recommended-headlines-left">
+    <text>热门推荐</text>
+  </view>
+  <view>
+    <image src="../../public/index_top_recommended_headlines.png"></image>
+  </view>
+  <view class="top-recommended-headlines-right">
+    <navigator url="../indexProduct/indexProduct">查看全部 ></navigator>
+  </view>
+</view>
+```
+
+<br>
+
+> *.wxss
+```
+.top-recommended-headlines {
+  display: flex;
+  align-items: flex-end;
+  height: 31rpx;
+  line-height: 31rpx;
+  margin-bottom: 10rpx;
+}
+.top-recommended-headlines-left text {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.top-recommended-headlines image {
+  width: 366rpx;
+  height: 31rpx;
+  margin-left: 10rpx;
+}
+.top-recommended-headlines-right navigator {
+  font-size: 26rpx;
+  color: #a9a9a9;
+  margin-left: 50rpx;
+}
+```
+
+<br>
+
+2. （ bug 2 ）混合布局
+
+![图](../../public-repertory/img/other-WechatApplet-bug-7.png)
+
+&emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
+
+> *.wxml
+```
+<view class="weui-tab__content-item3" wx:for="{{tabs3Content}}" wx:key="{{item.index}}">
+  <navigator url="../indexProductArticle/indexProductArticle">
+    <view class="weui-tab__content-item3-question">
+      <image src="../../public/index_productDetail_icon_question.png"></image>
+      <text>{{item.title}}</text>
+    </view>
+    <view class="weui-tab__content-item3-answer">
+      <image src="../../public/index_productDetail_icon_answer.png"></image>
+      <text>{{item.content}}</text>
+    </view>
+    <view class="weui-tab__content-item3-detail">
+      <text class="weui-tab__content-item3-detail-datatime">{{item.datatime}}</text>
+      <text class="weui-tab__content-item3-detail-reader">{{item.reader}}阅读</text>
+      <text class="weui-tab__content-item3-detail-label">#{{item.label}}#</text>
+    </view>
+  </navigator>
+  <view class="weui-tab__content-item3-gap">
+    <image src="../../public/index_productDetail_gap.png"></image>
+  </view>
+</view>
+```
+
+<br>
+
+> *.wxss
+```
+.weui-tab__content-item3 {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  margin-top: -10rpx;
+  margin-bottom: 10rpx;
+}
+.weui-tab__content-item3:first-child {
+  padding: 40rpx 30rpx 0;
+}
+.weui-tab__content-item3-question image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.weui-tab__content-item3-question text {
+  font-size: 30rpx;
+  line-height: 46rpx;
+  font-weight: bold;
+  color: #333;
+  margin-left: 10rpx;
+}
+.weui-tab__content-item3-answer image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.weui-tab__content-item3-answer text {
+  font-size: 26rpx;
+  line-height: 42rpx;
+  color: #a9a9a9;
+  margin-left: 10rpx;
+}
+.weui-tab__content-item3-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #a9a9a9;
+}
+.weui-tab__content-item3-detail-label {
+  color: #d0a763;
+}
+.weui-tab__content-item3-gap image {
+  width: 100%;
+  height: 30rpx;
+}
+```
+
+<br>
+
+> *.js
+```
+tabs3Content: [
+  {
+    title: '员工发明创造是否属于职务发明的认证标准?',
+    content: '随着企业对知识产权在企业发展中核心竞争力的认识力提高，企业保护自身知识产权的意识不断增强，使其技术得......',
+    datatime: '2018-03-05',
+    reader: '2081',
+    label: '知识产权'
+  }
+]
+```
 
 <br>
 
