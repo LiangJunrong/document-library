@@ -33,11 +33,11 @@
 | &emsp;[3.7 background-image 套用本地图片无效](#3-7) | 1   |
 | &emsp;[3.8 \<block\> 与 \<view\>](#3-8)             | 1   |
 | &emsp;[3.9 margin-top 无法上浮](#3-9)               | 1   |
-| &emsp;[3.10 微信小程序分享](#3-10)                    | 1   |
-| &emsp;[3.11 border-box 设置](#3-11)                   | 1   |
-| &emsp;[3.12 自定义导航条](#3-12)                   | 3   |
+| &emsp;[3.10 微信小程序分享](#3-10)                  | 1   |
+| &emsp;[3.11 border-box 设置](#3-11)                 | 1   |
+| &emsp;[3.12 自定义导航条](#3-12)                    | 4   |
 
-&emsp;目前已有 **19** 个坑。
+&emsp;目前已有 **20** 个坑。
 
 <br>
 
@@ -354,7 +354,12 @@ callWaiter: function(res) {
       console.log(res);
     }
   })
-}
+},
+goHome: function() {
+  wx.switchTab({
+    url: '../index/index'
+  })
+},
 ```
 
 <br>
@@ -824,11 +829,336 @@ view {
 
 &emsp;[返回目录](#1)
 
-> 本节目前已有3个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有4个坑，有兴趣的小伙伴可以详看。
 
-1. （ bug 1 ）绑定事件如何传递数据：[链接1](https://www.jianshu.com/p/a3481a255842)
-2. （ bug 2 ）自定义选项卡的代码实现：[链接1](https://blog.csdn.net/chq1988/article/details/74625741)
-3. （ bug 3 ）如何实现文字省略：[链接1](https://blog.csdn.net/hxh5801050/article/details/79540412)
+&emsp;（ bug 1 ）自定义选项卡的代码实现：   
+
+&emsp;实现效果图如下：
+
+![图](../../public-repertory/img/other-WechatApplet-bug-9.png)
+
+&emsp;实现代码如下：
+
+> *.wxml
+```
+<view>
+  <view class="weui-tab__nav">
+    <text wx:for="{{tabs2Nav}}" wx:key="item.index" class="{{item.state == 1 ? 'weui-tab__nav-active' : ''}}" bindtap="tabs2NavClick" data-labelId="{{item.id}}">{{item.label}}</text>
+  </view>
+  <view class="weui-tab__content-item2" wx:for="{{tabs2Content}}" wx:key="{{item.index}}">
+    <view class="weui-tab__content-item-descritpion">
+      <view class="{{item.type == 1 ? 'weui-tab__content-item-icon-type' : 'hide'}}">
+        <image src="../../public/index_productDetail_icon_word.png"></image>
+      </view>
+      <view class="{{item.type == 2 ? 'weui-tab__content-item-icon-type' : 'hide'}}">
+        <image src="../../public/index_productDetail_icon_excel.png"></image>
+      </view>
+      <view class="{{item.type == 3 ? 'weui-tab__content-item-icon-type' : 'hide'}}">
+        <image src="../../public/index_productDetail_icon_ppt.png"></image>
+      </view>
+      <view class="{{item.type == 4 ? 'weui-tab__content-item-icon-type' : 'hide'}}">
+        <image src="../../public/index_productDetail_icon_pdf.png"></image>
+      </view>
+      <view class="weui-tab__content-item-descritpion-content">
+        <text class="weui-tab__content-item-descritpion-content-title">{{item.title}}</text>
+        <view class="weui-tab__content-item-descritpion-content-datatime">
+          <text class="weui-tab__content-item-descritpion-content-datatime1">发布时间：{{item.datatime}}</text>
+          <text class="{{item.effectiveTime ? 'weui-tab__content-item-descritpion-content-datatime2' : 'hide'}}">生效时间：{{item.effectiveTime}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="weui-tab__content-item-download-state" bindtap='downloadFile' data-url="{{item.url}}">
+      <image src="../../public/index_productDetail_icon_undown.png"></image>
+    </view>
+  </view>
+</view>
+```
+
+<br>
+
+> *.wxss
+```
+.weui-tab__nav {
+  background: #f5f5f5;
+  border: 1rpx 0rpx solid #e6e6e6;
+  height: 90rpx;
+  padding: 17rpx 41rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.weui-tab__nav text {
+  border-radius: 56rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  padding: 15rpx 23rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+.weui-tab__nav-active {
+  color: #fefefe;
+  background: #d0a763;
+}
+.weui-tab__content-item2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 25rpx 30rpx;
+}
+.weui-tab__content-item-descritpion {
+  display: flex;
+  justify-content: space-between;
+}
+.weui-tab__content-item-descritpion image {
+  width: 60rpx;
+  height: 70rpx;
+}
+.hide {
+  display: none;
+}
+.weui-tab__content-item-descritpion-content {
+  margin-left: 26rpx;
+}
+.weui-tab__content-item-descritpion-content-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.weui-tab__content-item-descritpion-content-datatime {
+  font-size: 22rpx;
+  color: #bbb;
+}
+.weui-tab__content-item-descritpion-content-datatime1 {
+  margin-right: 35rpx;
+}
+.weui-tab__content-item-download-state image {
+  width: 64rpx;
+  height: 64rpx;
+}
+```
+
+<br>
+
+> *.js
+```
+data: {
+  tabs2Nav: [
+    {
+      id: '1',
+      label: '法律大全',
+      state: 1
+    },
+    {
+      id: '2',
+      label: '合同模板',
+      state: 0
+    },
+    {
+      id: '3',
+      label: '民事',
+      state: 0
+    },
+    {
+      id: '4',
+      label: '行政',
+      state: 0
+    },
+    {
+      id: '5',
+      label: '执行',
+      state: 0
+    }
+  ],
+  tabs2Content: [
+    {
+      title: '中华人名共和国民用航空法(2015年...).doc',
+      url: 'https://wxmcard.imusic.cn/testfordocdownload.doc',
+      datatime: '2018-01-26',
+      effectiveTime: '2018-01-26',
+      type: '1'
+    },
+    {
+      title: '原生申诉表格.xls',
+      url: 'https://wxmcard.imusic.cn/testfordocdownload.doc',
+      datatime: '2018-01-26',
+      type: '2'
+    },
+    {
+      title: '法律常识大汇集及范例.ppt',
+      url: 'https://wxmcard.imusic.cn/testforpptdownload.pptx',
+      datatime: '2018-01-26',
+      effectiveTime: '2018-01-26',
+      type: '3'
+    },
+    {
+      title: '事业单位法律基础知识总结.pdf',
+      url: 'https://wxmcard.imusic.cn/testforpdfdownload.pdf',
+      datatime: '2018-01-26',
+      effectiveTime: '2018-01-26',
+      type: '4'
+    }
+  ],
+
+  // 选项卡第二屏分组
+  tabs2Content1: [
+    {
+      title: '中华人名共和国民用航空法(2015年...).doc',
+      datatime: '2018-01-26',
+      effectiveTime: '2018-01-26',
+      type: '1'
+    },
+    {
+      title: '原生申诉表格.xls',
+      datatime: '2018-01-26',
+      type: '2'
+    },
+    {
+      title: '法律常识大汇集及范例.ppt',
+      datatime: '2018-01-26',
+      effectiveTime: '2018-01-26',
+      type: '3'
+    },
+    {
+      title: '事业单位法律基础知识总结.pdf',
+      datatime: '2018-01-26',
+      effectiveTime: '2018-01-26',
+      type: '4'
+    }
+  ],
+  tabs2Content2: [
+    {
+      title: '合同模板.doc',
+      datatime: '2018-01-26',
+      effectiveTime: '2018-01-26',
+      type: '1'
+    }
+  ],
+  tabs2Content3: [
+    {
+      title: '民事合同模板.doc',
+      datatime: '2018-01-26',
+      effectiveTime: '2018-01-26',
+      type: '1'
+    }
+  ],
+  tabs2Content4: [
+    {
+      title: '行政合同模板.doc',
+      datatime: '2018-01-26',
+      effectiveTime: '2018-01-26',
+      type: '1'
+    }
+  ],
+  tabs2Content5: [
+    {
+      title: '执行合同模板.doc',
+      datatime: '2018-01-26',
+      effectiveTime: '2018-01-26',
+      type: '1'
+    }
+  ]
+},
+// 选项卡2切换
+tabs2NavClick: function(e) {
+  var that = this;
+  console.log("完整的数据是：");
+  console.log(that.data.tabs2Nav);
+  
+  console.log("点击的标签是：");
+  console.log(e.currentTarget.dataset.labelid);
+
+  var newTabs2Content;
+
+  console.log("正在经历的标签是：");
+  for(var i=0; i<that.data.tabs2Nav.length; i++) {
+    console.log(that.data.tabs2Nav[i].id);
+    that.data.tabs2Nav[i].state = 0;
+    if (that.data.tabs2Nav[i].id == e.currentTarget.dataset.labelid) {
+      that.data.tabs2Nav[i].state = 1;
+      console.log("将改变的标签是：");
+      console.log(that.data.tabs2Nav[i]);
+
+      // 改变内容
+      var changeContentName = "tabs2Content" + (i + 1);
+      if (changeContentName == "tabs2Content1") {
+        console.log(that.data.tabs2Content1);
+        newTabs2Content = that.data.tabs2Content1;
+      } else if (changeContentName == "tabs2Content2") {
+        newTabs2Content = that.data.tabs2Content2;
+      } else if (changeContentName == "tabs2Content3") {
+        newTabs2Content = that.data.tabs2Content3;
+      } else if (changeContentName == "tabs2Content4") {
+        newTabs2Content = that.data.tabs2Content4;
+      } else {
+        newTabs2Content = that.data.tabs2Content5;
+      }
+
+      console.log("希望转换内容到：");
+      console.log(changeContentName);
+    }
+  }
+
+  this.setData({
+    tabs2Nav: that.data.tabs2Nav,
+    tabs2Content: newTabs2Content
+  })
+},
+```
+
+<br>
+
+&emsp;代码片段解析 bug ：
+1. （ bug 2 ）绑定事件如何传递数据：  
+&emsp;如果学过 `Vue` 的同学，应该知道 `Vue` 的数据传递形式是： `@click='tabs2NavClick(item.id)'`  
+&emsp;那么，在微信小程序中，你千万记得，绑定时间的传递参数的方式不是这样子的，而是：
+```
+<text wx:for="{{tabs2Nav}}" wx:key="item.index" bindtap="tabs2NavClick" data-labelId="{{item.id}}">{{item.label}}</text>
+```  
+
+<br>
+
+&emsp;通过 `data-*="{{item}}"` 的形式传递的~然后你需要在 `js` 中，通过 `e.currentTarget.dataset.labelid` 来获取。然后，注意了，这里还有个小 bug。（ bug 3 ）我们使用的是 `data-labelId="{{item.id}}"`，而获取数据的时候，我们获取的是 `labelid`，是的，驼峰不见了~
+
+&emsp;参考链接：[链接](https://www.jianshu.com/p/a3481a255842)
+
+<br>
+
+2. （ bug 4 ）如何在方法中获取 `data` 中定义的数据：  
+&emsp;如果我想在选项卡切换的方法 `tabs2NavClick` 中获取 `data` 里面的数据，那么我应该怎么做呢？  
+&emsp;是的，通过:
+```
+tabs2NavClick: function(e) {
+  var that = this;
+  console.log(that.data.tabs2Nav);
+}
+```  
+
+<br>
+
+&emsp;这种形式，我们就可以获取到 `data` 中的数据。  
+&emsp;参考链接：[链接](https://blog.csdn.net/chq1988/article/details/74625741)
+
+<br>
+
+3. （ bug 5 ）如何实现文字省略：  
+&emsp;加入你有一段文本，你想让页面根据自身宽度，自动省略多余长度，那么，我们可以设置下面的 `css` 代码，从而实现文字省略效果（不使用 js 的原因，是因为 js 没有 css 那么灵活）  
+```
+text {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+}
+```
+
+<br>
+
+&emsp;参考链接：[链接](https://blog.csdn.net/hxh5801050/article/details/79540412)
+
+
 
 <br>
 
