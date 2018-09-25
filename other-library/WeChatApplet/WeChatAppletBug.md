@@ -130,7 +130,7 @@ Page({
 <br>
 
 &emsp;好的，上面就是微信官方文档的演示代码，如果你跟着走了一遍碰到疑问的话，看看这里我挖的土是不是能填好你的坑：
-1. （ bug 1 ）`demo.wxml` 中出现的 `<image src="{{item}}" class="slide-image" width="355" height="150"/>` 这行， `width` 和 `height` 的行内属性是忽悠老百姓的，**它并没卵用** ！我们需要在 `slide-image` 这个 `class` 类中修改 `width` 和 `height`。简而言之，行内样式都是骗人的，乖，我们还是去 `demo-wxss` 写样式吧~
+1. （ bug 1 ）`demo.wxml` 中出现的 `<image src="{{item}}" class="slide-image" width="355" height="150"/>` 这行， `width` 和 `height` 的行内属性是忽悠老百姓的，**它并没卵用** ！我们需要在 `slide-image` 这个 `class` 类中修改 `width` 和 `height`。简而言之，行内样式都是骗人的，乖，我们还是去 `demo.wxss` 写样式吧~
 2. （ bug 2 ）`swiper` 属性值。官方文档说明：
 ![图](../../public-repertory/img/other-WechatApplet-bug-1.png)
 &emsp;虽然，它的属性名和属性值是这么说的。但是，用的时候，首先你需要在 `demo.wxml` 中的 `swiper` 绑定这个属性名，然后在 `demo.js` 中设置其属性值。值得注意的是，它的绑定值，稍微不同于 `Vue`， 需要设置 `{{}}` 形式。如果文字描述你看得不是很清楚，可以参照下面的代码进行理解。
@@ -256,10 +256,105 @@ linkTo: function () {
 &emsp;（ bug 2 ）那么问题又来了，当我们切换到子页面的时候，我们发现 `tabBar` 这个底部导航栏不见了，然后问了下 **Ansen江** ，他说之前是整个小程序都有的，有些页面还要调用方法去隐藏。  
 &emsp;但是现在嘛……它没了！没了啊！！！在微信小程序的文档没看到有唤起底部导航条的方法，难道我要做一个导航条了么 -_-|| 。  
 &emsp;回答是：yes！  
-&emsp;下面给出该底部导航条 `tabBar` 的编写代码：
+&emsp;所以，下面给出该底部导航条 `tabBar` 的实现情况和代码片段：
+
+![图](../../public-repertory/img/other-WechatApplet-bug-5.png)
+
+> 注：图片宽高均为 54rpx
+
 > *.wxml
 ```
-  代码待编写
+<view class="nav">
+  <view class="nav-home" bindtap="goHome">
+    <image src="../../public/index_productDetail_icon_home.png"></image>
+    <text>首页</text>
+  </view>
+  <view class="nav-service">
+    <image src="../../public/index_productDetail_icon_service.png"></image>
+    <text>在线咨询</text>
+  </view>
+  <view class="nav-phone" bindtap="callWaiter">
+    <image src="../../public/index_productDetail_icon_phone.png"></image>
+    <text>电话咨询</text>
+  </view>
+  <navigator url="../indexPurchaseProduct/indexPurchaseProduct">
+    <view class="nav-buy">
+      <text>立即订购</text>
+    </view>
+  </navigator>
+</view>
+```
+
+<br>
+
+> *.wxss
+```
+.nav {
+  display: flex;
+  justify-content: space-around;
+  font-size: 20rpx;
+  border: 1px solid #ccc;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+}
+.nav view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav image {
+  width: 54rpx;
+  height: 54rpx;
+}
+.nav text {
+  margin-top: 7rpx;
+}
+.nav-home {
+  border-right: 1px solid #ccc;
+  width: 130rpx;
+  padding-top: 5rpx;
+}
+.nav-service {
+  border-right: 1px solid #ccc;
+  width: 130rpx;
+  padding-top: 5rpx;
+}
+.nav-phone {
+  width: 130rpx;
+  padding-top: 5rpx;
+}
+.nav-buy {
+  background: #eb333e;
+  color: #fff;
+  width: 360rpx;
+  height: 98rpx;
+  line-height: 80rpx;
+  font-size: 34rpx;
+}
+```
+
+<br>
+
+> *.js
+```
+callWaiter: function(res) {
+  wx.makePhoneCall({
+    phoneNumber: '13264862250',
+    success: function(res) {
+      console.log("拨打成功");
+      console.log(res);
+    },
+    fail: function(res) {
+      console.log("拨打失败");
+      console.log(res);
+    },
+    complete: function(res) {
+      console.log("拨打完成");
+      console.log(res);
+    }
+  })
+}
 ```
 
 <br>
