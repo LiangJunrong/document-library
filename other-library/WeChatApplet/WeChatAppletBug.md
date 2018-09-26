@@ -1256,6 +1256,8 @@ text {
 
 &emsp;[链接](https://blog.csdn.net/qq_35181466/article/details/80405248)
 
+&emsp;[链接](https://github.com/icindy/wxParse)
+
 &emsp;[链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html?search-key=modal)
 
 <br>
