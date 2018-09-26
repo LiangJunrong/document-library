@@ -1244,7 +1244,27 @@ text {
 
 &emsp;参考链接：[链接](https://blog.csdn.net/hxh5801050/article/details/79540412)
 
+<br>
 
+### <span id="3-13">3.13 黑科技：\<modal\></span>
+
+&emsp;[返回目录](#1)
+
+> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+
+&emsp;[链接](https://blog.csdn.net/qq_35181466/article/details/80405248)
+
+&emsp;[链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html?search-key=modal)
+
+<br>
+
+### <span id="3-14">3.14 小程序解析 HTML</span>
+
+&emsp;[返回目录](#1)
+
+> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+
+&emsp;[链接](https://www.qinziheng.com/xiaochengxudev/4336.htm)
 
 <br>
 
