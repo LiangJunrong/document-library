@@ -1270,6 +1270,20 @@ text {
 &emsp;[链接](https://www.qinziheng.com/xiaochengxudev/4336.htm)
 
 &emsp;如果内容无法显示，那么，恭喜你触发了 bug，这个是wxparse代码的一个bug,在一些特殊的手机里面，在wxparse/html2json.js中的第112和119行，都有一个console.dir(这个函数的使用，把这个函数注释掉，内容就可以正常显示出来了。
+```
+if (name == 'class') {
+    // console.dir(value); // 112 行
+    //  value = value.join("")
+    node.classStr = value;
+}
+// has multi attibutes
+// make it array of attribute
+if (name == 'style') {
+    // console.dir(value);  // 119行
+    //  value = value.join("")
+    node.styleStr = value;
+}
+```
 
 <br>
 
