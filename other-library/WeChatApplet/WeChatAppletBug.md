@@ -1260,6 +1260,8 @@ text {
 
 &emsp;[链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html?search-key=modal)
 
+&emsp;wx.showToast:显示消息提示框： [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showToast)
+
 <br>
 
 ### <span id="3-14">3.14 小程序解析 HTML</span>
