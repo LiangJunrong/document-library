@@ -50,11 +50,11 @@
 | &emsp;&emsp;[3.12.4 获取 data 数据](#3-12-4)          |     |
 | &emsp;&emsp;[3.12.5 实现文字省略](#3-12-5)            |     |
 | &emsp;[3.13 黑科技：\<modal\>](#3-13)                 | 1   |
-| &emsp;[3.14 小程序解析 HTML](#3-14)                   | 2   |
+| &emsp;[3.14 小程序解析 HTML](#3-14)                   | 3   |
 | &emsp;[3.15 诡异的 open-type](#3-15)                  | 1   |
 | &emsp;[3.16 \<button\>去样式及其内嵌\<image\>](#3-16) | 1   |
 
-&emsp;目前已有 **26** 个坑。
+&emsp;目前已有 **27** 个坑。
 
 <br>
 
@@ -1270,12 +1270,12 @@ text {
 
 &emsp;[返回目录](#1)
 
-> 本节目前已有2个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有3个坑，有兴趣的小伙伴可以详看。
 
 
-&emsp;[链接](https://www.qinziheng.com/xiaochengxudev/4336.htm)
+&emsp;1、[链接](https://www.qinziheng.com/xiaochengxudev/4336.htm)
 
-&emsp;如果内容无法显示，那么，恭喜你触发了 bug，这个是wxparse代码的一个bug,在一些特殊的手机里面，在wxparse/html2json.js中的第112和119行，都有一个console.dir(这个函数的使用，把这个函数注释掉，内容就可以正常显示出来了。
+&emsp;2、如果内容无法显示，那么，恭喜你触发了 bug，这个是wxparse代码的一个bug,在一些特殊的手机里面，在wxparse/html2json.js中的第112和119行，都有一个console.dir(这个函数的使用，把这个函数注释掉，内容就可以正常显示出来了。
 ```
 if (name == 'class') {
     // console.dir(value); // 112 行
@@ -1290,6 +1290,10 @@ if (name == 'style') {
     node.styleStr = value;
 }
 ```
+
+<br>
+
+&emsp;3、如果你需要引用图片：[地址](https://blog.csdn.net/jorzen1984/article/details/80492521)
 
 <br>
 
