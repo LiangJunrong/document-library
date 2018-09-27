@@ -1304,4 +1304,48 @@ if (name == 'style') {
 
 <br>
 
+
+### <span id="3-16">3.16 \<button\>去样式及其内嵌\<image\></span>
+
+&emsp;[返回目录](#1)
+
+> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+
+&emsp;就像上一章所说的，有时候，迫不得已，我们必须在 `<button>` 中内嵌个 `<image>` 或者 `<text>` 之类的，那么，一般怎么做呢？  
+&emsp;现在，假设我有一个 `42*40` 的图片，我来试试调下它的样式：
+
+> *.wxml
+```
+<button open-type='share'>
+  <image src="../../public/explore_activityDetail_icon_share.png"></image>
+</button>
+```
+
+<br>
+
+> *.wxss
+```
+.activity-user-action button {
+  width: 42rpx;
+  height: 80rpx;
+  margin: 0;
+  padding: 0;
+  margin-top: -21rpx;
+  background: #fff;
+}
+.activity-user-action button::after {
+  border: none;
+}
+.activity-user-action image:last-child {
+  width: 42rpx;
+  height: 40rpx;
+}
+```
+
+<br>
+
+&emsp;如上，我们需要设置这个按钮的高度是图片高度的 2 倍，然后还需要设置 `margin-top` 的高度为图片高度的 1/2（注意 margin 与 margin-top 的顺序，如果你不知道顺序的重要性，推荐你使用 `margin: -21rpx 0 0 0 `），同时 `margin`、`padding`、`background`、`border` 需要清空。
+
+<br>
+
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">**jsliang**的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
