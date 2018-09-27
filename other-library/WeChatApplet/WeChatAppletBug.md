@@ -1281,7 +1281,7 @@ text {
 
 &emsp;不好意思打扰了，我去百度看看：[链接](https://blog.csdn.net/qq_35181466/article/details/80405248)
 
-&emsp;咦~它这里好像有个 `<modal>` 标签？Ctrl+C、Ctrl+V 试试先~
+&emsp;咦~ 它这里好像有个 `<modal>` 标签？Ctrl+C、Ctrl+V 试试先~
 
 ![图](../../public-repertory/img/other-WechatApplet-bug-12.png)
 
