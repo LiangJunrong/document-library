@@ -49,12 +49,14 @@
 | &emsp;&emsp;[3.12.3 不允许驼峰](#3-12-3)              |     |
 | &emsp;&emsp;[3.12.4 获取 data 数据](#3-12-4)          |     |
 | &emsp;&emsp;[3.12.5 实现文字省略](#3-12-5)            |     |
-| &emsp;[3.13 黑科技：\<modal\>](#3-13)                 | 1   |
+| &emsp;[3.13 黑科技：\<modal\>](#3-13)                 | 2   |
+| &emsp;&emsp;[3.13.1 被遗弃的 \<modal\>](#3-13-1)      |     |
+| &emsp;&emsp;[3.13.2 四种弹窗写法](#3-13-2)            |     |
 | &emsp;[3.14 小程序解析 HTML](#3-14)                   | 3   |
 | &emsp;[3.15 诡异的 open-type](#3-15)                  | 1   |
 | &emsp;[3.16 \<button\>去样式及其内嵌\<image\>](#3-16) | 1   |
 
-&emsp;目前已有 **27** 个坑。
+&emsp;目前已有 **28** 个坑。
 
 <br>
 
@@ -1254,15 +1256,98 @@ text {
 
 &emsp;[返回目录](#1)
 
-> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有2个坑，有兴趣的小伙伴可以详看。
 
-&emsp;[链接](https://blog.csdn.net/qq_35181466/article/details/80405248)
+<br>
 
-&emsp;[链接](https://github.com/icindy/wxParse)
+#### <span id="3-13-1">3.13.1 被遗弃的 \<modal\></span>
 
-&emsp;[链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html?search-key=modal)
+&emsp;[返回目录](#1)
 
-&emsp;wx.showToast:显示消息提示框： [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showToast)
+&emsp;一个坑就是一个故事。  
+&emsp;故事都有四元素：时间，地点，人物，事情。  
+&emsp;前三个自不必说，我们直接讲事情经过：我们项目的负责人需要一个留言弹窗，然后里面有个文本框可以填信息，最后点击【留言】按钮将数据传到后端，点击【取消】按钮关闭弹窗。  
+&emsp;需求是不是很简单~既然微信小程序有自己的官方文档。那么，怎么方便怎么来吧，于是 **jsliang** 在微信小程序中搜索关键字 `弹窗`：
+
+![图](../../public-repertory/img/other-WechatApplet-bug-10.png)
+
+&emsp;看了下搜索记录，最匹配的就是上面这个了。enm...好像没看到放文本框的？先试试：
+
+![图](../../public-repertory/img/other-WechatApplet-bug-11.png)
+
+&emsp;额(⊙o⊙)…  
+
+![图](../../public-repertory/img/other-emoticon-doubt.png)
+
+&emsp;不好意思打扰了，我去百度看看：[链接](https://blog.csdn.net/qq_35181466/article/details/80405248)
+
+&emsp;咦~它这里好像有个 `<modal>` 标签？Ctrl+C、Ctrl+V 试试先~
+
+![图](../../public-repertory/img/other-WechatApplet-bug-12.png)
+
+&emsp;Duang~~~这不就是我要的效果么，挖槽，黑科技？于是 **jsliang** 去小程序那里搜了下 `modal` ……enm...蜜汁尴尬，好像只有上面的 `wx.showModal()` 方法……于是 **jsliang** 满头黑线……好嘛，黑科技黑科技！！！  
+&emsp;下面贴出实现代码：
+
+> *.wxml
+```
+<text class="article-message-board-head-addMessage" bindtap="modalinput">写留言</text>
+```
+
+<br>
+
+> *.js
+```
+Page({
+  data: {
+    // 弹窗
+    hiddenmodalput: true, //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框
+  },
+  //点击按钮指定的hiddenmodalput弹出框    
+  modalinput: function () {
+    this.setData({
+      hiddenmodalput: !this.data.hiddenmodalput
+    })
+  },
+  //取消按钮    
+  cancel: function () {
+    this.setData({
+      hiddenmodalput: true
+    });
+  },
+  //确认    
+  confirm: function () {
+    wx.showToast({
+      title: '留言成功！',
+    })
+    this.setData({
+      hiddenmodalput: true
+    })
+  }
+})
+```
+
+<br>
+
+&emsp;好的，上面就实现了一个简单的可填写文本的弹窗了。
+
+<br>
+
+#### <span id="3-13-2">3.13.2 四种弹窗写法</span>
+
+&emsp;[返回目录](#1)
+
+&emsp;作为一枚职业填坑人，怎么能满足于上面的两种弹窗形式呢！于是，使用百度大法又找到了一篇填坑文：[链接](https://blog.csdn.net/gao_xu_520/article/details/71084162?locationNum=1&fps=1)
+
+&emsp;所以，总结下就有了四种弹窗写法：
+| 类型      | 说明                                                                                       | 地址                                                                                                                           |
+| --------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| 模态弹窗  | 模态弹窗就是上面的第一种弹窗，它可以给你选择【取消】或者【确定】                           | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showModal)          |
+| \<modal\> | \<modal\>是上面的第二种弹窗，可以提供用户填写                                              | [链接](https://blog.csdn.net/qq_35181466/article/details/80405248)                                                             |
+| 消息弹窗  | 消息弹窗就是操作成功或者操作失败的那一刻，系统的提示弹窗，无需用户操作，可设定几秒自动关闭 | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showToast)          |
+| 操作菜单  | 操作菜单类似于弹出的下拉菜单，提供你选择其中某项或者【取消】                               | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showActionSheet.html?search-key=showActionSheet) |
+
+&emsp;在这里，就讲完了微信小程序的四种弹窗形式了。如果你改样式改的烦啊烦的，可能你需要封装一个属于自己的弹窗？嘿嘿，说不定你的产品经理会有兴趣让你开发一个 `beautiful` 弹窗的~  
+&emsp;这坑我不填，我没碰到~碰到了再说！在这里预留下这个坑，哈哈。
 
 <br>
 
@@ -1272,6 +1357,7 @@ text {
 
 > 本节目前已有3个坑，有兴趣的小伙伴可以详看。
 
+&emsp;[链接](https://github.com/icindy/wxParse)
 
 &emsp;1、[链接](https://www.qinziheng.com/xiaochengxudev/4336.htm)
 
