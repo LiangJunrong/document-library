@@ -1362,6 +1362,8 @@ Page({
 
 > 本节目前已有3个坑，有兴趣的小伙伴可以详看。
 
+&emsp;**尚未整理完成，敬请期待**
+
 &emsp;[链接](https://github.com/icindy/wxParse)
 
 &emsp;1、[链接](https://www.qinziheng.com/xiaochengxudev/4336.htm)
@@ -1393,6 +1395,8 @@ if (name == 'style') {
 &emsp;[返回目录](#1)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+
+&emsp;**尚未整理完成，敬请期待**
 
 &emsp;在小程序中，它有一些自定义的方法，例如 `open-type` ，是需要 `<button>` 来承接的。  
 &emsp;所以，如果你写好了一个 `view`，里面有很好看的样式了，你本来打算用 `bindtap` 来搞事情的。但是，突然接到信息，需要外套一层 `<button open-type="***">` ，然后发现，样式需要重新跳过……  
