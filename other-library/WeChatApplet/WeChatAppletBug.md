@@ -1362,13 +1362,35 @@ Page({
 
 > 本节目前已有3个坑，有兴趣的小伙伴可以详看。
 
-&emsp;**尚未整理完成，敬请期待**
+<br>
 
-&emsp;[链接](https://github.com/icindy/wxParse)
+#### <span id="3-14-1">3.14.1 解析 HTML 的三种方法</span>
 
-&emsp;1、[链接](https://www.qinziheng.com/xiaochengxudev/4336.htm)
+&emsp;[返回目录](#1)
 
-&emsp;2、如果内容无法显示，那么，恭喜你触发了 bug，这个是wxparse代码的一个bug,在一些特殊的手机里面，在wxparse/html2json.js中的第112和119行，都有一个console.dir(这个函数的使用，把这个函数注释掉，内容就可以正常显示出来了。
+&emsp;在小程序的文章处理中，文章的主体内容，一般来说，后端会采用富文本的形式存储数据到数据库。就是说，你要在 `view` 中展示 `html` 变迁。但是，你知道的，小程序不采用浏览器的那一套，所以，你可能需要兜圈子了：[链接](https://www.qinziheng.com/xiaochengxudev/4336.htm)
+
+&emsp;在上面这篇文章中，讲述了三种解析富文本的方法：
+* wxParse 解析富文本
+* rich-text 解析富文本
+* web-view 解析富文本
+
+<br>
+
+#### <span id="3-14-2">3.14.2 wxParse</span>
+
+&emsp;[返回目录](#1)
+
+&emsp;在百度大法的渲染下，**jsliang** 采用了 wxParse。
+
+&emsp;Github 的 wxParse 地址：[链接](https://github.com/icindy/wxParse)
+
+&emsp;使用方法很简单，照着它 GitHub 地址去撸就是了。然而，坑不是那么容易填的 o(╥﹏╥)o
+
+&emsp;（ bug1 ）wxParse 在其神秘源码中，会将你的 html+css 样式弄乱，例如：`px` 要转成 `rpx`，才能在小程序中正常显示，如果你不处理……enm...你试试~
+
+&emsp;（ bug2 ）然后，如果你突然发现，内容无法显示，那么，恭喜你又触发了 bug，这个是 wxParse 代码的一个 bug,在一些特殊的手机里面，在 wxparse/html2json.js 中的第 112 和 119行，都有一个 console.dir() 这个函数的使用，它使你的内容不能正常显示了。把这个函数注释掉，内容就可以正常显示出来了。
+
 ```
 if (name == 'class') {
     // console.dir(value); // 112 行
@@ -1386,7 +1408,9 @@ if (name == 'style') {
 
 <br>
 
-&emsp;3、如果你需要引用图片：[地址](https://blog.csdn.net/jorzen1984/article/details/80492521)
+&emsp;（ bug3 ）如果你需要引用图片，那么，你会发现引用不成功。这是因为，我们在网页后台编辑器里面上传的图片，是采用相对路径的，上传成绝对网络地址路径之后，换成域名，就没法很好的展示了。所以最好的方法，就是修改 html2json.js 这个文件，让 wxParse 自动添加域名前缀：[地址](https://blog.csdn.net/jorzen1984/article/details/80492521)
+
+&emsp;综上，**jsliang** 气得差口吐白沫了……换换换！有空要换成其他两种方式才行！！！
 
 <br>
 
