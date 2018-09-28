@@ -47,12 +47,13 @@
 | &emsp;[3.9 margin-top 无法上浮](#3-9)                 | 1   |
 | &emsp;[3.10 微信小程序分享](#3-10)                    | 1   |
 | &emsp;[3.11 border-box 设置](#3-11)                   | 1   |
-| &emsp;[3.12 自定义导航条](#3-12)                      | 5   |
-| &emsp;&emsp;[3.12.1 自定义选项卡效果与实现](#3-12-1)  |     |
-| &emsp;&emsp;[3.12.2 绑定事件如何传递数据](#3-12-2)    |     |
-| &emsp;&emsp;[3.12.3 不允许驼峰](#3-12-3)              |     |
-| &emsp;&emsp;[3.12.4 获取 data 数据](#3-12-4)          |     |
-| &emsp;&emsp;[3.12.5 实现文字省略](#3-12-5)            |     |
+| &emsp;[3.12 自定义导航条](#3-12)                      | 6   |
+| &emsp;&emsp;[3.12.1 weui的选项卡](#3-12-1)  |     |
+| &emsp;&emsp;[3.12.2 自定义选项卡效果与实现](#3-12-2)  |     |
+| &emsp;&emsp;[3.12.3 绑定事件如何传递数据](#3-12-3)    |     |
+| &emsp;&emsp;[3.12.4 不允许驼峰](#3-12-4)              |     |
+| &emsp;&emsp;[3.12.5 获取 data 数据](#3-12-5)          |     |
+| &emsp;&emsp;[3.12.6 实现文字省略](#3-12-6)            |     |
 | &emsp;[3.13 黑科技：\<modal\>](#3-13)                 | 2   |
 | &emsp;&emsp;[3.13.1 被遗弃的 \<modal\>](#3-13-1)      |     |
 | &emsp;&emsp;[3.13.2 四种弹窗写法](#3-13-2)            |     |
@@ -908,7 +909,140 @@ view {
 
 <br>
 
-#### <span id="3-12-1">3.12.1 自定义选项卡效果与实现</span>
+#### <span id="3-12-1">3.12.1 weui的选项卡</span>
+
+&emsp;[返回目录](#1)
+
+&emsp;使用 WeUI 的导航条，首先需要引用 WeUI 的 CSS 样式：[地址](https://github.com/Tencent/weui-wxss/tree/master/dist/style)
+
+&emsp;下载 `weui.wxss` 并在 `app.wxss` 中引用即可
+
+> app.wxss
+
+```
+/* 引用WeUI */
+@import 'weui.wxss';
+```
+
+<br>
+
+&emsp;然后，我们直接往页面加入它的选项卡并根据项目需求修改其样式：
+
+<br>
+
+> *.wxml
+
+```
+<view class="tab">
+  <view class="weui-tab">
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title">{{item}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <!-- 全部 -->
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <view class="weui-tab__content-item1">
+          <text>全部</text>
+        </view>
+      </view>
+      <!-- 已付款 -->
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <view class="weui-tab__content-item2">
+          <text>已付款</text>
+        </view>
+      </view>
+      <!-- 待付款 -->
+      <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+        <view class="weui-tab__content-item3">
+          <text>待付款</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+```
+
+<br>
+
+> *.wxss
+
+```
+.tab {
+  font-size: 26rpx;
+}
+.tab image {
+  width: 173rpx;
+  height: 29rpx;
+}
+.weui-navbar {
+  border-top: 1rpx solid #efefef;
+  border-bottom: 1rpx solid #efefef;
+}
+.weui-navbar__slider {
+  background: #d0a763;
+  width: 4em;
+}
+.weui-navbar__item.weui-bar__item_on {
+  color: #d0a763;
+}
+.weui-tab__content {
+  margin-bottom: 100rpx;
+}
+```
+
+<br>
+
+> *.js
+
+```
+var sliderWidth = 52; // 需要设置slider的宽度，用于计算中间位置
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    // 选项卡导航
+    tabs: ["全部", "已付款", "待付款"],
+    activeIndex: 1,
+    sliderOffset: 0,
+    sliderLeft: 0,
+  },
+  // 选项卡切换
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    // 计算搜索框活跃条
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+        });
+      }
+    });
+  }
+})
+```
+
+<br>
+
+#### <span id="3-12-2">3.12.2 自定义选项卡效果与实现</span>
 
 &emsp;[返回目录](#1)
 
@@ -1190,7 +1324,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-#### <span id="3-12-2">3.12.2 绑定事件如何传递数据</span>
+#### <span id="3-12-3">3.12.3 绑定事件如何传递数据</span>
 
 &emsp;[返回目录](#1)
 
@@ -1207,7 +1341,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-#### <span id="3-12-3">3.12.3 不允许驼峰</span>
+#### <span id="3-12-4">3.12.4 不允许驼峰</span>
 
 &emsp;[返回目录](#1)
 
@@ -1217,7 +1351,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-#### <span id="3-12-4">3.12.4 获取 data 数据</span>
+#### <span id="3-12-5">3.12.5 获取 data 数据</span>
 
 &emsp;[返回目录](#1)
 
@@ -1238,7 +1372,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-#### <span id="3-12-5">3.12.5 实现文字省略</span>
+#### <span id="3-12-6">3.12.6 实现文字省略</span>
 
 &emsp;[返回目录](#1)
 
