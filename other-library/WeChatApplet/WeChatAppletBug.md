@@ -25,7 +25,7 @@
 
 | 目录                                                  | 坑  |
 | ----------------------------------------------------- | --- |
-| [一 前言](#1)                                         |     |
+| [一 前言](#chapter1)                                         |     |
 | [二 目录](#2)                                         |     |
 | [三 前端挖掘机](#3)                                   |     |
 | &emsp;[3.1 swiper 轮播图](#3-1)                       | 4   |
@@ -71,7 +71,7 @@
 
 ## <span id="2">二 前言</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;微信小程序的开发教程，或许写出来是非常受欢迎的。  
 &emsp;但是，第一，微信小程序是国内的，有[中文文档](https://developers.weixin.qq.com/miniprogram/dev/index.html)，虽然它的文档说明有点坑，但好歹有文档，阅读理解不是问题。第二， **jsliang** 的文笔并没有想象中的那么好，想想我带你们走了一遍小程序开发，然后你们以为是一条平坦路，结果碰到一堆坑坑洼洼，咋办？最后的锅，会不会到我背啊，可怕！  
@@ -84,7 +84,7 @@
 
 ## <span id="3">三 内部组件坑</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本坑来源于微信自带的开发文档：[小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/component/)。  
 
@@ -94,7 +94,7 @@
 
 ### <span id="3-1">3.1 swiper 轮播图</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本组件目前已有4个坑，有兴趣的小伙伴可以详看。
 
@@ -163,7 +163,7 @@ Page({
 
 #### <span id="3-1-1">3.1.1 行内样式无效</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;`demo.wxml` 中出现的 `<image src="{{item}}" class="slide-image" width="355" height="150"/>` 这行， `width` 和 `height` 的行内属性是忽悠老百姓的，**它并没卵用** ！我们需要在 `slide-image` 这个 `class` 类中修改 `width` 和 `height`。简而言之，行内样式都是骗人的，乖，我们还是去 `demo.wxss` 写样式吧~
 
@@ -171,7 +171,7 @@ Page({
 
 #### <span id="3-1-2">3.1.2 swiper 属性值设置</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;`swiper` 属性值。官方文档说明：
 ![图](../../public-repertory/img/other-WechatApplet-bug-1.png)
@@ -181,7 +181,7 @@ Page({
 
 #### <span id="3-1-3">3.1.3 轮播图图片跳转</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;关于轮播图的地址跳转，在微信小程序的官网是没用提及的，也是 **jsliang** 去百度查看了下，才知道怎么设置（可能是我一开始就挑战的难度太高了么 -_-|| ），在下面 **jsliang** 贴出来代码~想知道怎么解决的可以去看看：首先，在 `data` 中设置 `link` ；然后，设置 `navigator` 导航遍历 `item.link` 。
 
@@ -189,7 +189,7 @@ Page({
 
 #### <span id="3-1-4">3.1.4 wx:key</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;关于 `wx:key` ， `wx:key` 的作用是：当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率。但是，在其 `swiper` 中，小程序本身是没有写的，所以它会带有 `warning` ，这里也是个小坑， **jsliang** 也是百度了下也知道这件事：[点我了解](https://www.sohu.com/a/207728111_99897596)。
 
@@ -255,7 +255,7 @@ Page({
 
 ### 3.2 <span id="3-2">tabBar 与 switchTab</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本组件目前已有2个坑，有兴趣的小伙伴可以详看。
 
@@ -267,7 +267,7 @@ Page({
 
 #### <span id="3-2-1">3.2.1 底部导航跳转</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;在这里，我们讲下 `tabBar` 的坑，如果你在 `app.json` 中设置了 `tabBar` ：
 > app.json
@@ -317,7 +317,7 @@ linkTo: function () {
 
 #### <span id="3-2-2">3.2.2 自定义底部导航</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;那么问题又来了，当我们切换到子页面的时候，我们发现 `tabBar` 这个底部导航栏不见了，然后问了下 **Ansen江** ，他说之前是整个小程序都有的，有些页面还要调用方法去隐藏。  
 &emsp;但是现在嘛……它没了！没了啊！！！在微信小程序的文档没看到有唤起底部导航条的方法，难道我要做一个导航条了么 -_-|| 。  
@@ -432,7 +432,7 @@ goHome: function() {
 
 ### <span id="3-3">3.3 px、rem 与 rpx</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -443,7 +443,7 @@ goHome: function() {
 
 ### <span id="3-4">3.4 微信 web 开发者工具</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -454,7 +454,7 @@ goHome: function() {
 
 ### <span id="3-5">3.5 组件与 API</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -466,7 +466,7 @@ goHome: function() {
 
 ### <span id="3-6">3.6 flex 布局</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有2个坑，有兴趣的小伙伴可以详看。
 
@@ -477,7 +477,7 @@ goHome: function() {
 
 #### <span id="3-6-1">3.6.1 左右布局</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;实现效果如下：
 
@@ -531,7 +531,7 @@ goHome: function() {
 
 #### <span id="3-6-2">3.6.2 混合布局</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;实现效果如下：
 
@@ -631,7 +631,7 @@ tabs3Content: [
 
 ### <span id="3-7">3.7 background-image 套用本地图片无效</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -646,7 +646,7 @@ tabs3Content: [
 
 ### <span id="3-8">3.8 \<block\> 与 \<view\></span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -657,7 +657,7 @@ tabs3Content: [
 
 ### <span id="3-9">3.9 margin-top 无法上浮</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -829,7 +829,7 @@ Page({
 
 ### <span id="3-10">3.10 微信小程序分享</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -855,7 +855,7 @@ onShareAppMessage: function (res) {
 
 ### <span id="3-11">3.11 border-box 设置</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -903,7 +903,7 @@ view {
 
 ### <span id="3-12">3.12 自定义选项卡</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有4个坑，有兴趣的小伙伴可以详看。
 
@@ -911,7 +911,7 @@ view {
 
 #### <span id="3-12-1">3.12.1 weui的选项卡</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;使用 WeUI 的导航条，首先需要引用 WeUI 的 CSS 样式：[地址](https://github.com/Tencent/weui-wxss/tree/master/dist/style)
 
@@ -1044,7 +1044,7 @@ Page({
 
 #### <span id="3-12-2">3.12.2 自定义选项卡效果与实现</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;自定义选项卡的代码实现：   
 
@@ -1326,7 +1326,7 @@ tabs2NavClick: function(e) {
 
 #### <span id="3-12-3">3.12.3 绑定事件如何传递数据</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;绑定事件如何传递数据：  
 &emsp;如果学过 `Vue` 的同学，应该知道 `Vue` 的数据传递形式是： `@click='tabs2NavClick(item.id)'`  
@@ -1343,7 +1343,7 @@ tabs2NavClick: function(e) {
 
 #### <span id="3-12-4">3.12.4 不允许驼峰</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;然后，注意了，这里还有个小 bug。（ bug 3 ）我们使用的是 `data-labelId="{{item.id}}"`，而获取数据的时候，我们获取的是 `labelid`，是的，驼峰不见了~
 
@@ -1353,7 +1353,7 @@ tabs2NavClick: function(e) {
 
 #### <span id="3-12-5">3.12.5 获取 data 数据</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;如何在方法中获取 `data` 中定义的数据：  
 &emsp;如果我想在选项卡切换的方法 `tabs2NavClick` 中获取 `data` 里面的数据，那么我应该怎么做呢？  
@@ -1374,7 +1374,7 @@ tabs2NavClick: function(e) {
 
 #### <span id="3-12-6">3.12.6 实现文字省略</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;如何实现文字省略：  
 &emsp;加入你有一段文本，你想让页面根据自身宽度，自动省略多余长度，那么，我们可以设置下面的 `css` 代码，从而实现文字省略效果（不使用 js 的原因，是因为 js 没有 css 那么灵活）  
@@ -1396,7 +1396,7 @@ text {
 
 ### <span id="3-13">3.13 黑科技：\<modal\></span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有2个坑，有兴趣的小伙伴可以详看。
 
@@ -1404,7 +1404,7 @@ text {
 
 #### <span id="3-13-1">3.13.1 被遗弃的 \<modal\></span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;一个坑就是一个故事。  
 &emsp;故事都有四元素：时间，地点，人物，事情。  
@@ -1476,7 +1476,7 @@ Page({
 
 #### <span id="3-13-2">3.13.2 四种弹窗写法</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;作为一枚职业填坑人，怎么能满足于上面的两种弹窗形式呢！于是，使用百度大法又找到了一篇填坑文：[链接](https://blog.csdn.net/gao_xu_520/article/details/71084162?locationNum=1&fps=1)
 
@@ -1496,7 +1496,7 @@ Page({
 
 ### <span id="3-14">3.14 小程序解析 HTML</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有3个坑，有兴趣的小伙伴可以详看。
 
@@ -1504,7 +1504,7 @@ Page({
 
 #### <span id="3-14-1">3.14.1 解析 HTML 的三种方法</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;在小程序的文章处理中，文章的主体内容，一般来说，后端会采用富文本的形式存储数据到数据库。就是说，你要在 `view` 中展示 `html` 变迁。但是，你知道的，小程序不采用浏览器的那一套，所以，你可能需要兜圈子了：[链接](https://www.qinziheng.com/xiaochengxudev/4336.htm)
 
@@ -1517,7 +1517,7 @@ Page({
 
 #### <span id="3-14-2">3.14.2 wxParse</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;在百度大法的渲染下，**jsliang** 采用了 wxParse。
 
@@ -1554,7 +1554,7 @@ if (name == 'style') {
 
 #### <span id="3-14-3">3.14.3 rich-text</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;**jsliang** 还未使用过 rich-text，这里先预留个坑。如果小伙伴们在开发 rich-text 过程中碰到过各种坑，可以跟 **jsliang** 提一下，我会写进这章节，顺带在章节尾写上你的大名，辛苦了~
 
@@ -1562,7 +1562,7 @@ if (name == 'style') {
 
 #### <span id="3-14-4">3.14.4 web-view</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 &emsp;**jsliang** 还未使用过 web-view，这里先预留个坑。如果小伙伴们在开发 web-view 过程中碰到过各种坑，可以跟 **jsliang** 提一下，我会写进这章节，顺带在章节尾写上你的大名，辛苦了~
 
@@ -1570,7 +1570,7 @@ if (name == 'style') {
 
 ### <span id="3-15">3.15 诡异的 open-type</span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -1583,7 +1583,7 @@ if (name == 'style') {
 
 ### <span id="3-16">3.16 \<button\>去样式及其内嵌\<image\></span>
 
-&emsp;[返回目录](#1)
+&emsp;[返回目录](#chapter1)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
