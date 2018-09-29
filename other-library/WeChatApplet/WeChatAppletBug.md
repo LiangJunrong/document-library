@@ -21,55 +21,55 @@
 
 <br>
 
-# <a name="chapter-one">一 目录<a>
+# <span name="chapter-one">一 目录</span>
 
-| 目录                                                  | 坑  |
-| ----------------------------------------------------- | --- |
-| [一 前言](#chapter-one)                                         |     |
-| [二 目录](#2)                                         |     |
-| [三 前端挖掘机](#3)                                   |     |
-| &emsp;[3.1 swiper 轮播图](#3-1)                       | 4   |
-| &emsp;&emsp;[3.1.1 行内样式无效](#3-1-1)              |     |
-| &emsp;&emsp;[3.1.2 swiper 属性值设置](#3-1-2)         |     |
-| &emsp;&emsp;[3.1.3 轮播图图片跳转](#3-1-3)            |     |
-| &emsp;&emsp;[3.1.4 wx:key](#3-1-4)                    |     |
-| &emsp;[3.2 tabBar 与 switchTab](#3-2)                 | 2   |
-| &emsp;&emsp;[3.2.1 底部导航跳转](#3-2-1)              |     |
-| &emsp;&emsp;[3.2.2 自定义底部导航](#3-2-2)            |     |
-| &emsp;[3.3 px、rem 与 rpx](#3-3)                      | 1   |
-| &emsp;[3.4 微信 web 开发者工具](#3-4)                 | 1   |
-| &emsp;[3.5 组件与 API](#3-5)                          | 1   |
-| &emsp;[3.6 flex 布局](#3-6)                           | 2   |
-| &emsp;&emsp;[3.6.1 左右布局](#3-6-1)                  |     |
-| &emsp;&emsp;[3.6.2 混合布局](#3-6-2)                  |     |
-| &emsp;[3.7 background-image 套用本地图片无效](#3-7)   | 1   |
-| &emsp;[3.8 \<block\> 与 \<view\>](#3-8)               | 1   |
-| &emsp;[3.9 margin-top 无法上浮](#3-9)                 | 1   |
-| &emsp;[3.10 微信小程序分享](#3-10)                    | 1   |
-| &emsp;[3.11 border-box 设置](#3-11)                   | 1   |
-| &emsp;[3.12 自定义导航条](#3-12)                      | 6   |
-| &emsp;&emsp;[3.12.1 weui的选项卡](#3-12-1)  |     |
-| &emsp;&emsp;[3.12.2 自定义选项卡效果与实现](#3-12-2)  |     |
-| &emsp;&emsp;[3.12.3 绑定事件如何传递数据](#3-12-3)    |     |
-| &emsp;&emsp;[3.12.4 不允许驼峰](#3-12-4)              |     |
-| &emsp;&emsp;[3.12.5 获取 data 数据](#3-12-5)          |     |
-| &emsp;&emsp;[3.12.6 实现文字省略](#3-12-6)            |     |
-| &emsp;[3.13 黑科技：\<modal\>](#3-13)                 | 2   |
-| &emsp;&emsp;[3.13.1 被遗弃的 \<modal\>](#3-13-1)      |     |
-| &emsp;&emsp;[3.13.2 四种弹窗写法](#3-13-2)            |     |
-| &emsp;[3.14 小程序解析 HTML](#3-14)                   | 3   |
-| &emsp;&emsp;[3.14.1 解析 HTML 的三种方法](#3-14-1)    |     |
-| &emsp;&emsp;[3.14.2 wxParse](#3-14-2)                 |     |
-| &emsp;&emsp;[3.14.3 rich-text](#3-14-3)               |     |
-| &emsp;&emsp;[3.14.4 web-view](#3-14-4)                |     |
-| &emsp;[3.15 诡异的 open-type](#3-15)                  | 1   |
-| &emsp;[3.16 \<button\>去样式及其内嵌\<image\>](#3-16) | 1   |
+| 目录                                                                | 坑  |
+| ------------------------------------------------------------------- | --- |
+| [一 前言](#chapter-one)                                             |     |
+| [二 目录](#chapter-two)                                             |     |
+| [三 前端挖掘机](#chatper-three)                                     |     |
+| &emsp;[3.1 swiper 轮播图](#chapter-three-one)                       | 4   |
+| &emsp;&emsp;[3.1.1 行内样式无效](#chapter-three-one-one)            |     |
+| &emsp;&emsp;[3.1.2 swiper 属性值设置](#chapter-three-one-two)       |     |
+| &emsp;&emsp;[3.1.3 轮播图图片跳转](#chapter-three-one-three)        |     |
+| &emsp;&emsp;[3.1.4 wx:key](#chapter-three-one-four)                 |     |
+| &emsp;[3.2 tabBar 与 switchTab](#chapter-three-two)                 | 2   |
+| &emsp;&emsp;[3.2.1 底部导航跳转](#chapter-three-two-one)            |     |
+| &emsp;&emsp;[3.2.2 自定义底部导航](#chapter-three-two-two)          |     |
+| &emsp;[3.3 px、rem 与 rpx](#chapter-three-three)                    | 1   |
+| &emsp;[3.4 微信 web 开发者工具](#chapter-three-four)                | 1   |
+| &emsp;[3.5 组件与 API](#chapter-three-five)                         | 1   |
+| &emsp;[3.6 flex 布局](#chapter-three-six)                           | 2   |
+| &emsp;&emsp;[3.6.1 左右布局](#chapter-three-six-one)                |     |
+| &emsp;&emsp;[3.6.2 混合布局](#chapter-three-six-two)                |     |
+| &emsp;[3.7 background-image 套用本地图片无效](#chapter-three-seven) | 1   |
+| &emsp;[3.8 \<block\> 与 \<view\>](#chapter-three-eight)             | 1   |
+| &emsp;[3.9 margin-top 无法上浮](#chapter-three-night)               | 1   |
+| &emsp;[3.10 微信小程序分享](#chapter-ten)                           | 1   |
+| &emsp;[3.11 border-box 设置](#chapter-eleven)                       | 1   |
+| &emsp;[3.12 自定义导航条](#chapter-twelve)                          | 6   |
+| &emsp;&emsp;[3.12.1 weui的选项卡](#chapter-twelve-one)              |     |
+| &emsp;&emsp;[3.12.2 自定义选项卡效果与实现](#chapter-twelve-two)    |     |
+| &emsp;&emsp;[3.12.3 绑定事件如何传递数据](#chapter-twelve-three)    |     |
+| &emsp;&emsp;[3.12.4 不允许驼峰](#chapter-twelve-four)               |     |
+| &emsp;&emsp;[3.12.5 获取 data 数据](#chapter-twelve-five)           |     |
+| &emsp;&emsp;[3.12.6 实现文字省略](#chapter-twelve-six)              |     |
+| &emsp;[3.13 黑科技：\<modal\>](#chapter-thirteen)                   | 2   |
+| &emsp;&emsp;[3.13.1 被遗弃的 \<modal\>](#chapter-thirteen-one)      |     |
+| &emsp;&emsp;[3.13.2 四种弹窗写法](#chapter-thirteen-two)            |     |
+| &emsp;[3.14 小程序解析 HTML](#chapter-fourteen)                     | 3   |
+| &emsp;&emsp;[3.14.1 解析 HTML 的三种方法](#chapter-fourteen-one)    |     |
+| &emsp;&emsp;[3.14.2 wxParse](#chapter-fourteen-two)                 |     |
+| &emsp;&emsp;[3.14.3 rich-text](#chapter-fourteen-three)             |     |
+| &emsp;&emsp;[3.14.4 web-view](#chapter-fourteen-four)               |     |
+| &emsp;[3.15 诡异的 open-type](#chapter-fifteen)                     | 1   |
+| &emsp;[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-sixteen)    | 1   |
 
 &emsp;目前已有 **28** 个坑。
 
 <br>
 
-# <span id="2">二 前言</span>
+# <span name="chapter-two">二 前言</span>
 
 &emsp;[返回目录](#chapter-one)
 
