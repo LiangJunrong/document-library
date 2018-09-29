@@ -5,7 +5,7 @@
 
 <br>
 
-## 写在前面
+# 写在前面
 
 &emsp;**这里有微信小程序开发中遇到的所有坑，以及在填坑过程中的一些个人经验。**  
 
@@ -21,7 +21,7 @@
 
 <br>
 
-## <span id="chapter-one">一 目录<span>
+# <span id="chapter-one">一 目录<span>
 
 | 目录                                                  | 坑  |
 | ----------------------------------------------------- | --- |
@@ -69,7 +69,7 @@
 
 <br>
 
-## <span id="2">二 前言</span>
+# <span id="2">二 前言</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -82,7 +82,7 @@
 
 <br>
 
-## <span id="3">三 内部组件坑</span>
+# <span id="3">三 内部组件坑</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -92,7 +92,7 @@
 
 <br>
 
-### <span id="3-1">3.1 swiper 轮播图</span>
+## <span id="3-1">3.1 swiper 轮播图</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -161,7 +161,7 @@ Page({
 
 <br>
 
-#### <span id="3-1-1">3.1.1 行内样式无效</span>
+### <span id="3-1-1">3.1.1 行内样式无效</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -169,7 +169,7 @@ Page({
 
 <br>
 
-#### <span id="3-1-2">3.1.2 swiper 属性值设置</span>
+### <span id="3-1-2">3.1.2 swiper 属性值设置</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -179,7 +179,7 @@ Page({
 
 <br>
 
-#### <span id="3-1-3">3.1.3 轮播图图片跳转</span>
+### <span id="3-1-3">3.1.3 轮播图图片跳转</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -187,7 +187,7 @@ Page({
 
 <br>
 
-#### <span id="3-1-4">3.1.4 wx:key</span>
+### <span id="3-1-4">3.1.4 wx:key</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -253,7 +253,7 @@ Page({
 
 <br>
 
-### 3.2 <span id="3-2">tabBar 与 switchTab</span>
+## 3.2 <span id="3-2">tabBar 与 switchTab</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -265,7 +265,7 @@ Page({
 
 <br>
 
-#### <span id="3-2-1">3.2.1 底部导航跳转</span>
+### <span id="3-2-1">3.2.1 底部导航跳转</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -315,7 +315,7 @@ linkTo: function () {
 
 <br>
 
-#### <span id="3-2-2">3.2.2 自定义底部导航</span>
+### <span id="3-2-2">3.2.2 自定义底部导航</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -430,7 +430,7 @@ goHome: function() {
 
 <br>
 
-### <span id="3-3">3.3 px、rem 与 rpx</span>
+## <span id="3-3">3.3 px、rem 与 rpx</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -441,7 +441,7 @@ goHome: function() {
 
 <br>
 
-### <span id="3-4">3.4 微信 web 开发者工具</span>
+## <span id="3-4">3.4 微信 web 开发者工具</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -452,7 +452,7 @@ goHome: function() {
 
 <br>
 
-### <span id="3-5">3.5 组件与 API</span>
+## <span id="3-5">3.5 组件与 API</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -464,7 +464,7 @@ goHome: function() {
 
 <br>
 
-### <span id="3-6">3.6 flex 布局</span>
+## <span id="3-6">3.6 flex 布局</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -475,7 +475,7 @@ goHome: function() {
 
 <br>
 
-#### <span id="3-6-1">3.6.1 左右布局</span>
+### <span id="3-6-1">3.6.1 左右布局</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -529,7 +529,7 @@ goHome: function() {
 
 <br>
 
-#### <span id="3-6-2">3.6.2 混合布局</span>
+### <span id="3-6-2">3.6.2 混合布局</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -629,7 +629,7 @@ tabs3Content: [
 
 <br>
 
-### <span id="3-7">3.7 background-image 套用本地图片无效</span>
+## <span id="3-7">3.7 background-image 套用本地图片无效</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -644,7 +644,7 @@ tabs3Content: [
 
 <br>
 
-### <span id="3-8">3.8 \<block\> 与 \<view\></span>
+## <span id="3-8">3.8 \<block\> 与 \<view\></span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -655,7 +655,7 @@ tabs3Content: [
 
 <br>
 
-### <span id="3-9">3.9 margin-top 无法上浮</span>
+## <span id="3-9">3.9 margin-top 无法上浮</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -827,7 +827,7 @@ Page({
 
 <br>
 
-### <span id="3-10">3.10 微信小程序分享</span>
+## <span id="3-10">3.10 微信小程序分享</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -853,7 +853,7 @@ onShareAppMessage: function (res) {
 
 <br>
 
-### <span id="3-11">3.11 border-box 设置</span>
+## <span id="3-11">3.11 border-box 设置</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -901,7 +901,7 @@ view {
 
 <br>
 
-### <span id="3-12">3.12 自定义选项卡</span>
+## <span id="3-12">3.12 自定义选项卡</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -909,7 +909,7 @@ view {
 
 <br>
 
-#### <span id="3-12-1">3.12.1 weui的选项卡</span>
+### <span id="3-12-1">3.12.1 weui的选项卡</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1042,7 +1042,7 @@ Page({
 
 <br>
 
-#### <span id="3-12-2">3.12.2 自定义选项卡效果与实现</span>
+### <span id="3-12-2">3.12.2 自定义选项卡效果与实现</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1324,7 +1324,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-#### <span id="3-12-3">3.12.3 绑定事件如何传递数据</span>
+### <span id="3-12-3">3.12.3 绑定事件如何传递数据</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1341,7 +1341,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-#### <span id="3-12-4">3.12.4 不允许驼峰</span>
+### <span id="3-12-4">3.12.4 不允许驼峰</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1351,7 +1351,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-#### <span id="3-12-5">3.12.5 获取 data 数据</span>
+### <span id="3-12-5">3.12.5 获取 data 数据</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1372,7 +1372,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-#### <span id="3-12-6">3.12.6 实现文字省略</span>
+### <span id="3-12-6">3.12.6 实现文字省略</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1394,7 +1394,7 @@ text {
 
 <br>
 
-### <span id="3-13">3.13 黑科技：\<modal\></span>
+## <span id="3-13">3.13 黑科技：\<modal\></span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1402,7 +1402,7 @@ text {
 
 <br>
 
-#### <span id="3-13-1">3.13.1 被遗弃的 \<modal\></span>
+### <span id="3-13-1">3.13.1 被遗弃的 \<modal\></span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1474,7 +1474,7 @@ Page({
 
 <br>
 
-#### <span id="3-13-2">3.13.2 四种弹窗写法</span>
+### <span id="3-13-2">3.13.2 四种弹窗写法</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1494,7 +1494,7 @@ Page({
 
 <br>
 
-### <span id="3-14">3.14 小程序解析 HTML</span>
+## <span id="3-14">3.14 小程序解析 HTML</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1502,7 +1502,7 @@ Page({
 
 <br>
 
-#### <span id="3-14-1">3.14.1 解析 HTML 的三种方法</span>
+### <span id="3-14-1">3.14.1 解析 HTML 的三种方法</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1515,7 +1515,7 @@ Page({
 
 <br>
 
-#### <span id="3-14-2">3.14.2 wxParse</span>
+### <span id="3-14-2">3.14.2 wxParse</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1552,7 +1552,7 @@ if (name == 'style') {
 
 <br>
 
-#### <span id="3-14-3">3.14.3 rich-text</span>
+### <span id="3-14-3">3.14.3 rich-text</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1560,7 +1560,7 @@ if (name == 'style') {
 
 <br>
 
-#### <span id="3-14-4">3.14.4 web-view</span>
+### <span id="3-14-4">3.14.4 web-view</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1568,7 +1568,7 @@ if (name == 'style') {
 
 <br>
 
-### <span id="3-15">3.15 诡异的 open-type</span>
+## <span id="3-15">3.15 诡异的 open-type</span>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1581,7 +1581,7 @@ if (name == 'style') {
 <br>
 
 
-### <span id="3-16">3.16 \<button\>去样式及其内嵌\<image\></span>
+## <span id="3-16">3.16 \<button\>去样式及其内嵌\<image\></span>
 
 &emsp;[返回目录](#chapter-one)
 
