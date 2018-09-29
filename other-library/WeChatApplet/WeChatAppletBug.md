@@ -1808,4 +1808,44 @@ if (name == 'style') {
 
 <br>
 
+## <a name="chapter-seventeen" id="chapter-seventeen">3.17 下拉刷新和上拉加载</a>
+
+&emsp;[返回目录](#chapter-one)
+
+> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+
+&emsp;在浏览器中，有 F5 刷新，有鼠标滚轮滑动加载。
+&emsp;那么，换到微信小程序，又是怎样子的呢？
+&emsp;是的，这就要说说用户下拉动作和上拉触底了：
+
+&emsp;下拉事件在小程序文档的解释：[链接](https://developers.weixin.qq.com/miniprogram/dev/api/pulldown.html?search-key=pulldown)
+
+```
+/**
+  * 页面相关事件处理函数--监听用户下拉动作
+  */
+onPullDownRefresh: function () {
+
+},
+```
+
+<br>
+
+&emsp;上拉触底在小程序文档的解释：[链接](https://blog.csdn.net/zhanxingdong/article/details/81228287)
+
+```
+/**
+  * 页面上拉触底事件的处理函数
+  */
+onReachBottom: function () {
+
+},
+```
+
+<br>
+
+&emsp;这两个事件，都是在你新建 `page` 的时候，会自动添加的，小伙伴们注意下，免得前面写了，被后面的覆盖了哦~
+
+<br>
+
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a xmlns:dct="http://purl.org/dc/terms/" property="dct:title">**jsliang**的文档库</a> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
