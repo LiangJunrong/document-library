@@ -82,7 +82,7 @@
 
 <br>
 
-# <a id="chatper-three">三 内部组件坑</a>
+# <a name="chatper-three" id="chatper-three">三 内部组件坑</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -161,7 +161,7 @@ Page({
 
 <br>
 
-### <a id="chapter-three-one-one">3.1.1 行内样式无效</a>
+### <a name="chapter-three-one-one" id="chapter-three-one-one">3.1.1 行内样式无效</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -169,7 +169,7 @@ Page({
 
 <br>
 
-### <a id="chapter-three-one-two">3.1.2 swiper 属性值设置</a>
+### <a name="chapter-three-one-two" id="chapter-three-one-two">3.1.2 swiper 属性值设置</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -179,7 +179,7 @@ Page({
 
 <br>
 
-### <a id="chapter-three-one-three">3.1.3 轮播图图片跳转</a>
+### <a name="chapter-three-one-three" id="chapter-three-one-three">3.1.3 轮播图图片跳转</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -187,7 +187,7 @@ Page({
 
 <br>
 
-### <a id="chapter-three-one-four">3.1.4 wx:key</a>
+### <a name="chapter-three-one-four" id="chapter-three-one-four">3.1.4 wx:key</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -253,7 +253,7 @@ Page({
 
 <br>
 
-## <a id="chapter-three-two">3.2 tabBar 与 switchTab</a>
+## <a name="chapter-three-two" id="chapter-three-two">3.2 tabBar 与 switchTab</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -265,7 +265,7 @@ Page({
 
 <br>
 
-### <a id="chapter-three-two-one">3.2.1 底部导航跳转</a>
+### <a name="chapter-three-two-one" id="chapter-three-two-one">3.2.1 底部导航跳转</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -315,7 +315,7 @@ linkTo: function () {
 
 <br>
 
-### <a id="chapter-three-two-two">3.2.2 自定义底部导航</a>
+### <a name="chapter-three-two-two" id="chapter-three-two-two">3.2.2 自定义底部导航</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -430,7 +430,7 @@ goHome: function() {
 
 <br>
 
-## <a id="chapter-three-three">3.3 px、rem 与 rpx</a>
+## <a name="chapter-three-three" id="chapter-three-three">3.3 px、rem 与 rpx</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -441,7 +441,7 @@ goHome: function() {
 
 <br>
 
-## <a id="chapter-three-four">3.4 微信 web 开发者工具</a>
+## <a name="chapter-three-four" id="chapter-three-four">3.4 微信 web 开发者工具</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -452,7 +452,7 @@ goHome: function() {
 
 <br>
 
-## <a id="chapter-three-five">3.5 组件与 API</a>
+## <a name="chapter-three-five" id="chapter-three-five">3.5 组件与 API</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -464,7 +464,7 @@ goHome: function() {
 
 <br>
 
-## <a id="chapter-three-six">3.6 flex 布局</a>
+## <a name="chapter-three-six" id="chapter-three-six">3.6 flex 布局</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -475,7 +475,7 @@ goHome: function() {
 
 <br>
 
-### <a id="chapter-three-six-one">3.6.1 左右布局</a>
+### <a name="chapter-three-six-one" id="chapter-three-six-one">3.6.1 左右布局</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -529,7 +529,7 @@ goHome: function() {
 
 <br>
 
-### <a id="chapter-three-six-two">3.6.2 混合布局</a>
+### <a name="chapter-three-six-two" id="chapter-three-six-two">3.6.2 混合布局</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -629,7 +629,7 @@ tabs3Content: [
 
 <br>
 
-## <a id="chapter-three-seven">3.7 background-image 套用本地图片无效</a>
+## <a name="chapter-three-seven" id="chapter-three-seven">3.7 background-image 套用本地图片无效</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -644,7 +644,7 @@ tabs3Content: [
 
 <br>
 
-## <a id="chapter-three-eight">3.8 \<block\> 与 \<view\></a>
+## <a name="chapter-three-eight" id="chapter-three-eight">3.8 \<block\> 与 \<view\></a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -655,7 +655,7 @@ tabs3Content: [
 
 <br>
 
-## <a id="chapter-three-night">3.9 margin-top 无法上浮</a>
+## <a name="chapter-three-night" id="chapter-three-night">3.9 margin-top 无法上浮</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -827,7 +827,7 @@ Page({
 
 <br>
 
-## <a id="chapter-ten">3.10 微信小程序分享</a>
+## <a name="chapter-ten" id="chapter-ten">3.10 微信小程序分享</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -853,7 +853,7 @@ onShareAppMessage: function (res) {
 
 <br>
 
-## <a id="3-11">3.11 border-box 设置</a>
+## <a name="chapter-eleven" id="chapter-eleven">3.11 border-box 设置</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -901,7 +901,7 @@ view {
 
 <br>
 
-## <a id="chapter-twelve">3.12 自定义选项卡</a>
+## <a name="chapter-twelve" id="chapter-twelve">3.12 自定义选项卡</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -909,7 +909,7 @@ view {
 
 <br>
 
-### <a id="chapter-twelve-one">3.12.1 weui的选项卡</a>
+### <a name="chapter-twelve-one" id="chapter-twelve-one">3.12.1 weui的选项卡</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1042,7 +1042,7 @@ Page({
 
 <br>
 
-### <a id="chapter-twelve-two">3.12.2 自定义选项卡效果与实现</a>
+### <a name="chapter-twelve-two" id="chapter-twelve-two">3.12.2 自定义选项卡效果与实现</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1324,7 +1324,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-### <a id="chapter-twelve-three">3.12.3 绑定事件如何传递数据</a>
+### <a name="chapter-twelve-three" id="chapter-twelve-three">3.12.3 绑定事件如何传递数据</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1341,7 +1341,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-### <a id="chapter-twelve-four">3.12.4 不允许驼峰</a>
+### <a name="chapter-twelve-four" id="chapter-twelve-four">3.12.4 不允许驼峰</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1351,7 +1351,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-### <a id="chapter-twelve-five">3.12.5 获取 data 数据</a>
+### <a name="chapter-twelve-five" id="chapter-twelve-five">3.12.5 获取 data 数据</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1372,7 +1372,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-### <a id="chapter-twelve-six">3.12.6 实现文字省略</a>
+### <a name="chapter-twelve-six" id="chapter-twelve-six">3.12.6 实现文字省略</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1394,7 +1394,7 @@ text {
 
 <br>
 
-## <a id="chapter-thirteen">3.13 黑科技：\<modal\></a>
+## <a name="chapter-thirteen" id="chapter-thirteen">3.13 黑科技：\<modal\></a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1402,7 +1402,7 @@ text {
 
 <br>
 
-### <a id="chapter-thirteen-one">3.13.1 被遗弃的 \<modal\></a>
+### <a name="chapter-thirteen-one" id="chapter-thirteen-one">3.13.1 被遗弃的 \<modal\></a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1474,7 +1474,7 @@ Page({
 
 <br>
 
-### <a id="chapter-thirteen-two">3.13.2 四种弹窗写法</a>
+### <a name="chapter-thirteen-two" id="chapter-thirteen-two">3.13.2 四种弹窗写法</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1494,7 +1494,7 @@ Page({
 
 <br>
 
-## <a id="chapter-fourteen">3.14 小程序解析 HTML</a>
+## <a name="chapter-fourteen" id="chapter-fourteen">3.14 小程序解析 HTML</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1502,7 +1502,7 @@ Page({
 
 <br>
 
-### <a id="chapter-fourteen-one">3.14.1 解析 HTML 的三种方法</a>
+### <a name="chapter-fourteen-one" id="chapter-fourteen-one">3.14.1 解析 HTML 的三种方法</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1515,7 +1515,7 @@ Page({
 
 <br>
 
-### <a id="chapter-fourteen-two">3.14.2 wxParse</a>
+### <a name="chapter-fourteen-two" id="chapter-fourteen-two">3.14.2 wxParse</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1552,7 +1552,7 @@ if (name == 'style') {
 
 <br>
 
-### <a id="chapter-fourteen-three">3.14.3 rich-text</a>
+### <a name="chapter-fourteen-three" id="chapter-fourteen-three">3.14.3 rich-text</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1560,7 +1560,7 @@ if (name == 'style') {
 
 <br>
 
-### <a id="chapter-fourteen-four">3.14.4 web-view</a>
+### <a name="chapter-fourteen-four" id="chapter-fourteen-four">3.14.4 web-view</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1568,7 +1568,7 @@ if (name == 'style') {
 
 <br>
 
-## <a id="chapter-fifteen">3.15 诡异的 open-type</a>
+## <a name="chapter-fifteen" id="chapter-fifteen">3.15 诡异的 open-type</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -1581,7 +1581,7 @@ if (name == 'style') {
 <br>
 
 
-## <a id="chapter-sixteen">3.16 \<button\>去样式及其内嵌\<image\></a>
+## <a name="chapter-sixteen" id="chapter-sixteen">3.16 \<button\>去样式及其内嵌\<image\></a>
 
 &emsp;[返回目录](#chapter-one)
 
