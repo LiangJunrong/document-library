@@ -15,9 +15,9 @@
 
 &emsp;本文技术支持：**Ansen江**
 
-&emsp;**注1：由于更新频繁，而且掘金传图有点诡异，获取最新资料请前往 GitHub：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+&emsp;**注1：由于更新频繁，有时候掘金上的版本可能没有图片，获取最新资料请前往 GitHub：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
 
-&emsp;**注2：现在有个 bug ，就是下面的目录，在 VS Code 这个软件中是可以跳转的，但是在 掘金 或者 GitHub 都没法点击了，掘金的 PC 版可以使用右下角自动生成的目录，但是 GitHub 的就有点难受了，正在寻找原因：markdown语法的页内跳转，GitHub 认准 name，VS code 认准 id，掘金说不定认准 class！**
+&emsp;**注2：如果小伙伴使用的是手机版打开，那么推荐小伙伴使用电脑打开，因为 GitHub 和 掘金 的手机端都不支持页内跳转，看起来比较费劲**
 
 <br>
 
