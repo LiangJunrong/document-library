@@ -1,7 +1,7 @@
 # 微信小程序 100 坑
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-9-29 15:08:43**
+> Recently revised in **2018-9-29 16:24:17**
 
 <br>
 
@@ -33,7 +33,7 @@
 | &emsp;&emsp;[3.1.2 swiper 属性值设置](#chapter-three-one-two)       |     |
 | &emsp;&emsp;[3.1.3 轮播图图片跳转](#chapter-three-one-three)        |     |
 | &emsp;&emsp;[3.1.4 wx:key](#chapter-three-one-four)                 |     |
-| &emsp;[3.2 tabBar 与 switchTab](#chapter-three-two)                 | 2   |
+| &emsp;[3.2 tabBar 与 switchTab](#chapter-three-two)                 | 3   |
 | &emsp;&emsp;[3.2.1 底部导航跳转](#chapter-three-two-one)            |     |
 | &emsp;&emsp;[3.2.2 自定义底部导航](#chapter-three-two-two)          |     |
 | &emsp;&emsp;[3.2.3 自定义组件](#chapter-three-two-three)          |     |
@@ -65,8 +65,9 @@
 | &emsp;&emsp;[3.14.4 web-view](#chapter-fourteen-four)               |     |
 | &emsp;[3.15 诡异的 open-type](#chapter-fifteen)                     | 1   |
 | &emsp;[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-sixteen)    | 1   |
+| &emsp;[3.16 下拉刷新和上拉加载](#chapter-seventeen)    | 1   |
 
-&emsp;目前已有 **28** 个坑。
+&emsp;目前已有 **31** 个坑。
 
 <br>
 
