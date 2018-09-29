@@ -36,6 +36,7 @@
 | &emsp;[3.2 tabBar 与 switchTab](#chapter-three-two)                 | 2   |
 | &emsp;&emsp;[3.2.1 底部导航跳转](#chapter-three-two-one)            |     |
 | &emsp;&emsp;[3.2.2 自定义底部导航](#chapter-three-two-two)          |     |
+| &emsp;&emsp;[3.2.3 自定义组件](#chapter-three-two-three)          |     |
 | &emsp;[3.3 px、rem 与 rpx](#chapter-three-three)                    | 1   |
 | &emsp;[3.4 微信 web 开发者工具](#chapter-three-four)                | 1   |
 | &emsp;[3.5 组件与 API](#chapter-three-five)                         | 1   |
@@ -429,6 +430,189 @@ goHome: function() {
 ```
 
 <br>
+
+### <a name="chapter-three-two-three" id="chapter-three-two-three">3.2.3 自定义组件</a>
+
+&emsp;[返回目录](#chapter-one)
+
+&emsp;在最近的工作中，又发现一个小问题：
+
+![图](../../public-repertory/img/other-WechatApplet-bug-13.png)
+
+&emsp;像这个导航条，它需要根据页面所在的模块，动态地展示不同位置的状态为活跃，而且它是需要在多个页面重复出现的，如果每个页面我都要复制粘贴一遍，到时候要修改起来的时候，麻烦不说，最重要的是，它可能影响我前端的性能了，能不能直接将其封装起来呢？
+
+&emsp;自定义组件：[链接](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/)
+
+&emsp;是的，发现在小程序文档中是存在这个东西的。当然，至于过程中我百度了几篇文章来辅助写出下面的代码，你猜？
+
+&emsp;子组件写法
+
+> navBar.wxml
+
+```
+<!-- 底部导航条 -->
+<view class="navBar">
+  <view class="navBar-home" bindtap='goHome'>
+    <image wx:if="{{homeActive}}" src="../../public/index_tabBar1.png"></image>
+    <image wx:if="{{!homeActive}}" src="../../public/index_tabBar1_nor.png"></image>
+    <text>首页</text>
+  </view>
+  <view class="navBar-explore" bindtap='goExplore'>
+    <image wx:if="{{exploreActive}}" src="../../public/index_tabBar2.png"></image>
+    <image wx:if="{{!exploreActive}}" src="../../public/index_tabBar2_nor.png"></image>
+    <text>发现</text>
+  </view>
+  <view class="navBar-user" bindtap='goUser'>
+    <image wx:if="{{userActive}}" src="../../public/index_tabBar3.png"></image>
+    <image wx:if="{{!userActive}}" src="../../public/index_tabBar3_nor.png"></image>
+    <text>我的</text>
+  </view>
+</view>
+```
+
+<br>
+
+> navBar.wxss
+
+```
+/* 底部导航条 */
+.navBar {
+  width: 100%;
+  padding: 18rpx 0;
+  border-top: 1rpx solid #cccccc;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+}
+.navBar image {
+  width: 55rpx;
+  height: 55rpx;
+}
+.navBar view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20rpx;
+  color: #999999;
+}
+.navBar-user text {
+  color: #d0a763;
+}
+```
+
+<br>
+
+> navBar.js
+
+```
+// pages/componentNavBar/navBar.js
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    homeActive: {
+      type: Boolean,
+      value: false
+    },
+    exploreActive: {
+      type: Boolean,
+      value: false
+    },
+    userActive: {
+      type: Boolean,
+      value: false
+    }
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    // 返回首页
+    goHome: function (e) {
+      wx.switchTab({
+        url: '../index/index',
+      })
+    },
+    // 返回发现页 
+    goExplore: function (e) {
+      wx.switchTab({
+        url: '../explore/explore',
+      })
+    },
+    // 返回我的页面
+    goUser: function (e) {
+      wx.switchTab({
+        url: '../user/user',
+      })
+    },
+    showCode: function(e) {
+      console.log(e);
+      let that = this;
+      console.log(that.data);
+    }
+  }
+})
+
+```
+
+<br>
+
+> navBar.json
+
+```
+{
+  "component": true,
+  "usingComponents": {}
+}
+```
+
+<br>
+
+&emsp;然后，在父组件的使用，只需要：
+
+> *.wxml
+
+```
+<view>
+  <navBar userActive="{{userActive}}"></navBar>
+</view>
+```
+
+<br>
+
+> *.json
+
+```
+{
+  "usingComponents": {
+    "navBar": "../componentNavBar/navBar"
+  }
+}
+```
+
+<br>
+
+> *.js
+
+```
+data: {
+  userActive: true
+},
+```
+
+<br>
+
 
 ## <a name="chapter-three-three" id="chapter-three-three">3.3 px、rem 与 rpx</a>
 
