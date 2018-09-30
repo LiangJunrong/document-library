@@ -201,10 +201,10 @@ Page({
 
 > index.wxml
 ```
-<view>
+<view class="carousel">
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#707071" indicator-active-color="#fff" circular="true">
     <!-- wx:key ： 提高列表渲染效率 -->
-    <block wx:for="{{carousel}}" wx:key="{{item.index}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{item.index}}">
       <swiper-item>
         <navigator url="{{item.link}}" hover-class="navigator-hover">
           <image src="{{item.url}}" class="slide-image" />
@@ -219,7 +219,7 @@ Page({
 
 > index.wxss
 ```
-.slide-image {
+.carousel .slide-image {
   width: 100%;
   height: 420rpx;
 }
