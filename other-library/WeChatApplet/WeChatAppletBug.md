@@ -28,7 +28,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **33** 个坑。  
+&emsp;目前已有 **34** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个大部分。  
@@ -56,7 +56,9 @@
 | &emsp;[3.4 微信 web 开发者工具](#chapter-three-four)                | 2   |
 | &emsp;&emsp;[3.4.1 无法输入中文](#chapter-three-four-one)           |     |
 | &emsp;&emsp;[3.4.2 无法滑动滚轮](#chapter-three-four-two)           |
-| &emsp;[3.5 组件与 API](#chapter-three-five)                         | 1   |
+| &emsp;[3.5 组件与 API](#chapter-three-five)                         | 2   |
+| &emsp;&emsp;[3.5.1 概念混淆：组件 VS API](#chapter-three-five-one)           |     |
+| &emsp;&emsp;[3.5.2 API 查询不到对应的方法](#chapter-three-five-two)           |
 | &emsp;[3.6 flex 布局](#chapter-three-six)                           | 2   |
 | &emsp;&emsp;[3.6.1 左右布局](#chapter-three-six-one)                |     |
 | &emsp;&emsp;[3.6.2 混合布局](#chapter-three-six-two)                |     |
@@ -694,11 +696,33 @@ data: {
 
 &emsp;[返回目录](#chapter-one)
 
-> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
-&emsp;在微信小程序官方文档中，组件与API，是拆分的。是的，轮播图与底部导航条，一个在组件中，一个在导航条中；一个在 `wxml` 、 `wxss` 、 `js` 中要设置对应的参数，一个只需要在 `app.json` 中设置就行，可能微信小程序考虑到底部导航条不应该有太大的变化（例如让你修改太多样式或者 `js` ），所以将导航条内嵌至源码中了。  
-&emsp;这时候应该会有小伙伴吐槽了，这不是 bug 啊，你发来做啥呢！  
-&emsp;……已隐藏 5000 字吵架字眼~
+### <a name="chapter-three-five-one" id="chapter-three-five-one">3.5.1 概念混淆：组件 VS API</a>
+
+&emsp;[返回目录](#chapter-one)
+
+&emsp;首先，科普下 组件 与 API 是什么：  
+* 组件：对数据和方法的封装，使用组件可以实现拖放式编程、快速的属性处理以及真正的面向对象的设计[【百度百科】](https://baike.baidu.com/item/%E7%BB%84%E4%BB%B6/6902128?fr=aladdin)。那么，可以理解为：开发中常用的一些部件，我们都可以封装起来，然后在需要的时候拿来用，即为组件。
+* API：预先定义的函数，提供应用程序与开发人员无需访问源码，基于某软件或硬件得以访问一组例程的能力[【百度百科】](https://baike.baidu.com/item/api/10154)。就是说已经写好的一些 `Function` 或者后端接口，前端直接调用就行了。
+
+&emsp;但是，在微信小程序官方文档中，组件与API，拆分地有点不科学。  
+&emsp;例如：**轮播图**与**底部导航条**  
+* 一个在组件中，一个在 API 中；  
+* 一个在 `wxml` 、 `wxss` 、 `js` 中要设置对应的参数，一个只需要在 `app.json` 中设置就行。  
+
+&emsp;可能微信小程序考虑到**底部导航条**不应该有太大的变化（例如让你修改太多样式或者 `js` ），所以将导航条内嵌至源码中了。  
+&emsp;但是，这可能导致什么重要影响吗？是的，如果**底部导航条**需要进行修改呢？例如：[3.2.3 自定义组件](#chapter-three-two-three)。这样的情况下，我们的开发时间就有所增加了。
+
+<br>
+
+### <a name="chapter-three-five-two" id="chapter-three-five-two">3.5.2 API 查询不到对应的方法</a>
+
+&emsp;[返回目录](#chapter-one)
+
+&emsp;如果小伙伴你经常有去看微信小程序官方文档的话，那么你一定会有一件事需要吐槽，那就是：  
+&emsp;明明上次我见到过某个 API 实现了我需要做的功能，但是改天我回去查找的时候，它却提示我没有这个玩意，这是什么鬼？！  
+&emsp;是的，跟我们 [3.13 黑科技：\<modal\>](#chapter-thirteen) 这一章中讲到的 `<modal>` 这个黑科技一样，有时候官方文档也不是万能的，它总会有这样那样的毛病，导致我们找不到需要的东西，只能去百度了 -_-||
 
 <br>
 
