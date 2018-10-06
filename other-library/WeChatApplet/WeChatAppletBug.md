@@ -1,11 +1,13 @@
 # 微信小程序 100 坑
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-9-29 17:02:34**
+> Recently revised in **2018-10-6 11:02:06**
 
 <br>
 
 # 写在前面
+
+&emsp;**<span style="color:red">这篇教程教不了你什么，但能省下你百度的功夫。</span>**
 
 &emsp;**jsliang** 微信小程序实践记录:  
 &emsp;工作量: PSD 18 张 (导出的JPG 30 张)  
