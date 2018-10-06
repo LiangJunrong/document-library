@@ -28,7 +28,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **31** 个坑。  
+&emsp;目前已有 **32** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个大部分。  
@@ -43,10 +43,11 @@
 | [三 填坑实战](#chatper-three)                                       |     |
 | &emsp;[3.1 swiper 轮播图](#chapter-three-one)                       | 4   |
 | &emsp;&emsp;[3.1.1 行内样式无效](#chapter-three-one-one)            |     |
-| &emsp;&emsp;[3.1.2 swiper 属性值设置](#chapter-three-one-two)       |     |
-| &emsp;&emsp;[3.1.3 轮播图图片跳转](#chapter-three-one-three)        |     |
-| &emsp;&emsp;[3.1.4 wx:key](#chapter-three-one-four)                 |     |
-| &emsp;&emsp;[3.1.5 实战代码](#chapter-three-one-five)                 |     |
+| &emsp;&emsp;[3.1.2 图片样式修改不了](#chapter-three-one-two)       |     |
+| &emsp;&emsp;[3.1.3 swiper 属性值设置](#chapter-three-one-three)        |     |
+| &emsp;&emsp;[3.1.4 轮播图图片跳转](#chapter-three-one-four)                 |     |
+| &emsp;&emsp;[3.1.5 wx:key](#chapter-three-one-five)                 |     |
+| &emsp;&emsp;[3.1.6 实战代码](#chapter-three-one-six)                 |     |
 | &emsp;[3.2 tabBar 与 switchTab](#chapter-three-two)                 | 3   |
 | &emsp;&emsp;[3.2.1 底部导航跳转](#chapter-three-two-one)            |     |
 | &emsp;&emsp;[3.2.2 自定义底部导航](#chapter-three-two-two)          |     |
@@ -190,7 +191,15 @@ Page({
 
 <br>
 
-### <a name="chapter-three-one-two" id="chapter-three-one-two">3.1.2 swiper 属性值设置</a>
+### <a name="chapter-three-one-two" id="chapter-three-one-two">3.1.2 图片样式修改不了</a>
+
+&emsp;[返回目录](#chapter-one)
+
+&emsp;在任何出现图片的地方（包括但不限于轮播图），如果你发现不仅行内写法无效之外，还发现单纯地给图片加 `class`，去 `*.wxss` 写样式也无效的话。那么，我建议小伙伴最好采用样式加重法，即 `.image-wrap .image` 这种写法格式，来确保图片样式能进行修改。详细用法可看下文。
+
+<br>
+
+### <a name="chapter-three-one-three" id="chapter-three-one-three">3.1.3 swiper 属性值设置</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -202,7 +211,7 @@ Page({
 
 <br>
 
-### <a name="chapter-three-one-three" id="chapter-three-one-three">3.1.3 轮播图图片跳转</a>
+### <a name="chapter-three-one-four" id="chapter-three-one-four">3.1.4 轮播图图片跳转</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -210,7 +219,7 @@ Page({
 
 <br>
 
-### <a name="chapter-three-one-four" id="chapter-three-one-four">3.1.4 wx:key</a>
+### <a name="chapter-three-one-five" id="chapter-three-one-five">3.1.5 wx:key</a>
 
 &emsp;[返回目录](#chapter-one)
 
@@ -218,7 +227,7 @@ Page({
 
 <br>
 
-### <a name="chapter-three-one-five" id="chapter-three-one-five">3.1.5 实战代码</a>
+### <a name="chapter-three-one-six" id="chapter-three-one-six">3.1.6 实战代码</a>
 
 &emsp;[返回目录](#chapter-one)
 
