@@ -41,7 +41,7 @@
 | [一 目录](#chapter-one)                                             |     |
 | [二 前言](#chapter-two)                                             |     |
 | [三 填坑实战](#chatper-three)                                       |     |
-| &emsp;[3.1 swiper 轮播图](#chapter-three-one)                       | 4   |
+| &emsp;[3.1 swiper 轮播图](#chapter-three-one)                       | 5   |
 | &emsp;&emsp;[3.1.1 行内样式无效](#chapter-three-one-one)            |     |
 | &emsp;&emsp;[3.1.2 图片样式修改不了](#chapter-three-one-two)       |     |
 | &emsp;&emsp;[3.1.3 swiper 属性值设置](#chapter-three-one-three)        |     |
