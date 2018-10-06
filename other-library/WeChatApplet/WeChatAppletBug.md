@@ -194,7 +194,9 @@ Page({
 &emsp;[返回目录](#chapter-one)
 
 &emsp;`swiper` 属性值。官方文档说明：
+
 ![图](../../public-repertory/img/other-WechatApplet-bug-1.png)
+
 &emsp;虽然，它的属性名和属性值是这么说的。但是，用的时候，首先你需要在 `demo.wxml` 中的 `swiper` 绑定这个属性名，然后在 `demo.js` 中设置其属性值。值得注意的是，它的绑定值，稍微不同于 `Vue`， 需要设置 `{{}}` 形式。如果文字描述你看得不是很清楚，可以参照下面的代码进行理解。
 
 <br>
