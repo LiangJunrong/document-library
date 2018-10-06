@@ -658,7 +658,7 @@ data: {
 
 ## <a name="chapter-three-three" id="chapter-three-three">3.3 px、rem 与 rpx</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-three)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -670,7 +670,7 @@ data: {
 
 ## <a name="chapter-three-four" id="chapter-three-four">3.4 微信 web 开发者工具</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-four)
 
 > 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
@@ -678,7 +678,7 @@ data: {
 
 ### <a name="chapter-three-four-one" id="chapter-three-four-one">3.4.1 无法输入中文</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-four)
 
 &emsp;如果你在开发过程中，发现只能写英文了，而中文无法输入了，千万别急，也别怪输入法出 bug 了，你只需要：重启开发工具。
 
@@ -686,7 +686,7 @@ data: {
 
 ### <a name="chapter-three-four-two" id="chapter-three-four-two">3.4.2 无法滑动滚轮</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-four)
 
 &emsp;如果你某时刻，突然发现你没法滚动代码进行查看，而是需要拖动滚动条才行，请别怪你的鼠标，你可以去浏览器打开一篇文章看看，enm...你的鼠标还是好的~所以，请：重启开发工具。
 
@@ -694,13 +694,13 @@ data: {
 
 ## <a name="chapter-three-five" id="chapter-three-five">3.5 组件与 API</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-five)
 
 > 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
 ### <a name="chapter-three-five-one" id="chapter-three-five-one">3.5.1 概念混淆：组件 VS API</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-five)
 
 &emsp;首先，科普下 组件 与 API 是什么：  
 * 组件：对数据和方法的封装，使用组件可以实现拖放式编程、快速的属性处理以及真正的面向对象的设计[【百度百科】](https://baike.baidu.com/item/%E7%BB%84%E4%BB%B6/6902128?fr=aladdin)。那么，可以理解为：开发中常用的一些部件，我们都可以封装起来，然后在需要的时候拿来用，即为组件。
@@ -718,7 +718,7 @@ data: {
 
 ### <a name="chapter-three-five-two" id="chapter-three-five-two">3.5.2 API 查询不到对应的方法</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-five)
 
 &emsp;如果小伙伴你经常有去看微信小程序官方文档的话，那么你一定会有一件事需要吐槽，那就是：  
 &emsp;明明上次我见到过某个 API 实现了我需要做的功能，但是改天我回去查找的时候，它却提示我没有这个玩意，这是什么鬼？！  
@@ -728,7 +728,7 @@ data: {
 
 ## <a name="chapter-three-six" id="chapter-three-six">3.6 flex 布局</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-six)
 
 > 本节目前已有2个坑，有兴趣的小伙伴可以详看。
 
@@ -739,7 +739,7 @@ data: {
 
 ### <a name="chapter-three-six-one" id="chapter-three-six-one">3.6.1 左右布局</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-six)
 
 &emsp;实现效果如下：
 
@@ -793,7 +793,7 @@ data: {
 
 ### <a name="chapter-three-six-two" id="chapter-three-six-two">3.6.2 混合布局</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-six)
 
 &emsp;实现效果如下：
 
@@ -893,7 +893,7 @@ tabs3Content: [
 
 ## <a name="chapter-three-seven" id="chapter-three-seven">3.7 background-image 套用本地图片无效</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-seven)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -908,7 +908,7 @@ tabs3Content: [
 
 ## <a name="chapter-three-eight" id="chapter-three-eight">3.8 \<block\> 与 \<view\></a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-eight)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -919,7 +919,7 @@ tabs3Content: [
 
 ## <a name="chapter-three-night" id="chapter-three-night">3.9 margin-top 无法上浮</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-night)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -1091,7 +1091,7 @@ Page({
 
 ## <a name="chapter-ten" id="chapter-ten">3.10 微信小程序分享</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-ten)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -1117,7 +1117,7 @@ onShareAppMessage: function (res) {
 
 ## <a name="chapter-eleven" id="chapter-eleven">3.11 border-box 设置</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-eleven)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -1165,7 +1165,7 @@ view {
 
 ## <a name="chapter-twelve" id="chapter-twelve">3.12 自定义选项卡</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-twelve)
 
 > 本节目前已有4个坑，有兴趣的小伙伴可以详看。
 
@@ -1173,7 +1173,7 @@ view {
 
 ### <a name="chapter-twelve-one" id="chapter-twelve-one">3.12.1 weui的选项卡</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-twelve)
 
 &emsp;使用 WeUI 的导航条，首先需要引用 WeUI 的 CSS 样式：[地址](https://github.com/Tencent/weui-wxss/tree/master/dist/style)
 
@@ -1306,7 +1306,7 @@ Page({
 
 ### <a name="chapter-twelve-two" id="chapter-twelve-two">3.12.2 自定义选项卡效果与实现</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-twelve)
 
 &emsp;自定义选项卡的代码实现：   
 
@@ -1588,7 +1588,7 @@ tabs2NavClick: function(e) {
 
 ### <a name="chapter-twelve-three" id="chapter-twelve-three">3.12.3 绑定事件如何传递数据</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-twelve)
 
 &emsp;绑定事件如何传递数据：  
 &emsp;如果学过 `Vue` 的同学，应该知道 `Vue` 的数据传递形式是： `@click='tabs2NavClick(item.id)'`  
@@ -1605,7 +1605,7 @@ tabs2NavClick: function(e) {
 
 ### <a name="chapter-twelve-four" id="chapter-twelve-four">3.12.4 不允许驼峰</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-twelve)
 
 &emsp;然后，注意了，这里还有个小 bug。（ bug 3 ）我们使用的是 `data-labelId="{{item.id}}"`，而获取数据的时候，我们获取的是 `labelid`，是的，驼峰不见了~
 
@@ -1615,7 +1615,7 @@ tabs2NavClick: function(e) {
 
 ### <a name="chapter-twelve-five" id="chapter-twelve-five">3.12.5 获取 data 数据</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-twelve)
 
 &emsp;如何在方法中获取 `data` 中定义的数据：  
 &emsp;如果我想在选项卡切换的方法 `tabs2NavClick` 中获取 `data` 里面的数据，那么我应该怎么做呢？  
@@ -1636,7 +1636,7 @@ tabs2NavClick: function(e) {
 
 ### <a name="chapter-twelve-six" id="chapter-twelve-six">3.12.6 实现文字省略</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-twelve)
 
 &emsp;如何实现文字省略：  
 &emsp;加入你有一段文本，你想让页面根据自身宽度，自动省略多余长度，那么，我们可以设置下面的 `css` 代码，从而实现文字省略效果（不使用 js 的原因，是因为 js 没有 css 那么灵活）  
@@ -1658,7 +1658,7 @@ text {
 
 ## <a name="chapter-thirteen" id="chapter-thirteen">3.13 黑科技：\<modal\></a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-thirteen)
 
 > 本节目前已有2个坑，有兴趣的小伙伴可以详看。
 
@@ -1666,7 +1666,7 @@ text {
 
 ### <a name="chapter-thirteen-one" id="chapter-thirteen-one">3.13.1 被遗弃的 \<modal\></a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-thirteen)
 
 &emsp;一个坑就是一个故事。  
 &emsp;故事都有四元素：时间，地点，人物，事情。  
@@ -1738,7 +1738,7 @@ Page({
 
 ### <a name="chapter-thirteen-two" id="chapter-thirteen-two">3.13.2 四种弹窗写法</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-thirteen)
 
 &emsp;作为一枚职业填坑人，怎么能满足于上面的两种弹窗形式呢！于是，使用百度大法又找到了一篇填坑文：[链接](https://blog.csdn.net/gao_xu_520/article/details/71084162?locationNum=1&fps=1)
 
@@ -1758,7 +1758,7 @@ Page({
 
 ## <a name="chapter-fourteen" id="chapter-fourteen">3.14 小程序解析 HTML</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-fourteen)
 
 > 本节目前已有3个坑，有兴趣的小伙伴可以详看。
 
@@ -1766,7 +1766,7 @@ Page({
 
 ### <a name="chapter-fourteen-one" id="chapter-fourteen-one">3.14.1 解析 HTML 的三种方法</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-fourteen)
 
 &emsp;在小程序的文章处理中，文章的主体内容，一般来说，后端会采用富文本的形式存储数据到数据库。就是说，你要在 `view` 中展示 `html` 变迁。但是，你知道的，小程序不采用浏览器的那一套，所以，你可能需要兜圈子了：[链接](https://www.qinziheng.com/xiaochengxudev/4336.htm)
 
@@ -1779,7 +1779,7 @@ Page({
 
 ### <a name="chapter-fourteen-two" id="chapter-fourteen-two">3.14.2 wxParse</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-fourteen)
 
 &emsp;在百度大法的渲染下，**jsliang** 采用了 wxParse。
 
@@ -1816,7 +1816,7 @@ if (name == 'style') {
 
 ### <a name="chapter-fourteen-three" id="chapter-fourteen-three">3.14.3 rich-text</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-fourteen)
 
 &emsp;**jsliang** 还未使用过 rich-text，这里先预留个坑。如果小伙伴们在开发 rich-text 过程中碰到过各种坑，可以跟 **jsliang** 提一下，我会写进这章节，顺带在章节尾写上你的大名，辛苦了~
 
@@ -1824,7 +1824,7 @@ if (name == 'style') {
 
 ### <a name="chapter-fourteen-four" id="chapter-fourteen-four">3.14.4 web-view</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-fourteen)
 
 &emsp;**jsliang** 还未使用过 web-view，这里先预留个坑。如果小伙伴们在开发 web-view 过程中碰到过各种坑，可以跟 **jsliang** 提一下，我会写进这章节，顺带在章节尾写上你的大名，辛苦了~
 
@@ -1832,7 +1832,7 @@ if (name == 'style') {
 
 ## <a name="chapter-fifteen" id="chapter-fifteen">3.15 诡异的 open-type</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-fifteen)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -1845,7 +1845,7 @@ if (name == 'style') {
 
 ## <a name="chapter-sixteen" id="chapter-sixteen">3.16 \<button\>去样式及其内嵌\<image\></a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-sixteen)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -1888,7 +1888,7 @@ if (name == 'style') {
 
 ## <a name="chapter-seventeen" id="chapter-seventeen">3.17 下拉刷新和上拉加载</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-seventeen)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
