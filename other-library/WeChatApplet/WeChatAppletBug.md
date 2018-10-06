@@ -60,8 +60,9 @@
 | &emsp;&emsp;[3.5.1 概念混淆：组件 VS API](#chapter-three-five-one)                                                                              |     |
 | &emsp;&emsp;[3.5.2 API 查询不到对应的方法](#chapter-three-five-two)                                                                             |
 | &emsp;<a name="catalog-chapter-three-six" id="catalog-chapter-three-six"></a>[3.6 flex 布局](#chapter-three-six)                                | 2   |
-| &emsp;&emsp;[3.6.1 左右布局](#chapter-three-six-one)                                                                                            |     |
-| &emsp;&emsp;[3.6.2 混合布局](#chapter-three-six-two)                                                                                            |     |
+| &emsp;&emsp;[3.6.1 基础概念](#chapter-three-six-one)                                                                                            |     |
+| &emsp;&emsp;[3.6.2 左右布局](#chapter-three-six-two)                                                                                            |     |
+| &emsp;&emsp;[3.6.3 混合布局](#chapter-three-six-three)                                                                                          |     |
 | &emsp;<a name="catalog-chapter-three-seven" id="catalog-chapter-three-seven"></a>[3.7 background-image 套用本地图片无效](#chapter-three-seven)  | 1   |
 | &emsp;<a name="catalog-chapter-three-eight" id="catalog-chapter-three-eight"></a>[3.8 \<block\> 与 \<view\>](#chapter-three-eight)              | 1   |
 | &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 margin-top 无法上浮](#chapter-three-night)                | 1   |
@@ -730,14 +731,81 @@ data: {
 
 &emsp;[返回目录](#catalog-chapter-three-six)
 
-> 本节目前已有2个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 3 个坑，有兴趣的小伙伴可以详看。
 
-&emsp;Flex布局又称弹性布局，在小程序开发中比较适用。但是由于 **jsliang** 之前没怎么用过 Flex 布局，所以在这里咱们特意去踩下坑，充实下自己。[小程序开发之页面布局](https://blog.csdn.net/anda0109/article/details/72867449)、[阮一峰-Flex 布局教程](http://www.techug.com/post/flex-examples.html)  
+&emsp;Flex布局又称弹性布局，在小程序开发中比较适用。但是由于 **jsliang** 之前没怎么用过 Flex 布局，所以在这里咱们特意去踩下坑，充实下自己。[【小程序开发之页面布局】](https://blog.csdn.net/anda0109/article/details/72867449)[【阮一峰-Flex 布局教程】](http://www.techug.com/post/flex-examples.html)  
 &emsp;在我们布局页面的时候，最好看看 **阮一峰** 的教程，平时遇到布局的问题的时候，我都习惯去上面 **阮一峰** 的文章看看：
 
 <br>
 
-### <a name="chapter-three-six-one" id="chapter-three-six-one">3.6.1 左右布局</a>
+### <a name="chapter-three-six-one" id="chapter-three-six-one">3.6.1 基础概念</a>
+
+&emsp;[返回目录](#catalog-chapter-three-six)
+
+&emsp;基础概念：[地址](https://www.runoob.com/w3cnote/flex-grammar.html)
+
+```
+  <!-- 设置 flex 布局 -->
+  display: flex;
+
+  <!-- 
+    1、决定主轴的方向
+    row - （默认）水平方向，起点在左端
+    row-reverse - 水平方向，起点在右端
+    column - 垂直方向，起点在上沿
+    column-reverse - 垂直方向，起点在下沿
+   -->
+  flex-direction: row | row-reverse | column | column-reverse;
+  
+  <!-- 
+    2、一条轴线（一行）排不下时如何解决
+    nowrap - （默认）不换行
+    warp - 换行，第一行在上方
+    wrap-reverse - 换行，第一行在下方
+   -->
+  flex-wrap: nowrap | wrap | wrap-reverse;
+  
+  <!-- 
+    3、flex-flow = flex-direction + flex-wrap。即 flex-flow 是这两个属性的合集
+    row nowrap - （默认）水平方向，起点在左端，不换行
+   -->
+  flex-flow: <flex-direction> || <flex-wrap>;
+  
+  <!-- 
+    4、justify-content 定义项目在主轴上的对齐方式
+    flex-start - 左边对齐
+    flex-end - 右边对齐
+    center - 居中对齐
+    space-between - 两端对齐，空格在中间
+    space-around - 空格环绕
+   -->
+  justify-content: flex-start | flex-end | center | space-between | space-around;
+  
+  <!-- 
+    5、align-items 定义项目在交叉轴上如何对齐
+    flex-start - 顶部对齐，即文字图片等顶部同一条线上
+    flex-end - 底部对其，即文字图片等底部在同一条线上
+    center - 中间对其，即文字图片不管多高，都拿它们的中间放在同一条线上
+    stretch - 将文字图片充满整个容器的高度，强制统一
+    baseline - 将每项的第一行文字做统一在一条线上对齐
+   -->
+  align-items: flex-start | flex-end | center | stretch | baseline;
+  
+  <!-- 
+    6、align-content 定义多根轴线的对齐方式。如果只有一根轴线（只有一行），该属性不起作用
+    flex-start - 这几行顶部对齐
+    flex-end - 这几行底部对齐
+    center - 这几行居中对齐
+    stretch - 这几行进行扩展或者缩放，从而填满容器高
+    space-between - 这几行中间使用空格进行填充
+    space-around - 这几行两边及中间进行填充
+   -->
+  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+```
+
+<br>
+
+### <a name="chapter-three-six-two" id="chapter-three-six-two">3.6.2 左右布局</a>
 
 &emsp;[返回目录](#catalog-chapter-three-six)
 
@@ -791,7 +859,7 @@ data: {
 
 <br>
 
-### <a name="chapter-three-six-two" id="chapter-three-six-two">3.6.2 混合布局</a>
+### <a name="chapter-three-six-three" id="chapter-three-six-three">3.6.3 混合布局</a>
 
 &emsp;[返回目录](#catalog-chapter-three-six)
 
