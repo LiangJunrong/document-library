@@ -98,13 +98,15 @@
 
 <br>
 
-# <a name="chatper-three" id="chatper-three">三 内部组件坑</a>
+# <a name="chatper-three" id="chatper-three">三 填坑实战</a>
 
 &emsp;[返回目录](#chapter-one)
 
-> 本坑来源于微信自带的开发文档：[小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/component/)。  
+&emsp; 这里的坑：
+* 有的来源于微信自带的开发文档：[小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/component/)。在文档中，你会发现很多的乐趣！毕竟，你不知道什么时候中文成为了你的语言障碍~  
+* 有的是开发中遇到的，然后结合大量的百度结果，进行的有效性总结。
 
-> 在文档中，你会发现很多的乐趣！毕竟，你不知道什么时候中文成为了你的语言障碍~
+&emsp;希望小伙伴在百度中或者无意看到这篇文章，请熟练使用 `Ctrl + F`，查找需要的问题答案。
 
 <br>
 
