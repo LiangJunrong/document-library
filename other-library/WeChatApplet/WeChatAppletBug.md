@@ -30,9 +30,9 @@
 
 | 目录                                                                | 坑  |
 | ------------------------------------------------------------------- | --- |
-| [一 前言](#chapter-one)                                             |     |
-| [二 目录](#chapter-two)                                             |     |
-| [三 前端挖掘机](#chatper-three)                                     |     |
+| [一 目录](#chapter-one)                                             |     |
+| [二 前言](#chapter-two)                                             |     |
+| [三 填坑实战](#chatper-three)                                     |     |
 | &emsp;[3.1 swiper 轮播图](#chapter-three-one)                       | 4   |
 | &emsp;&emsp;[3.1.1 行内样式无效](#chapter-three-one-one)            |     |
 | &emsp;&emsp;[3.1.2 swiper 属性值设置](#chapter-three-one-two)       |     |
