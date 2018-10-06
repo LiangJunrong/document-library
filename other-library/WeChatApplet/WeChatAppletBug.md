@@ -46,6 +46,7 @@
 | &emsp;&emsp;[3.1.2 swiper 属性值设置](#chapter-three-one-two)       |     |
 | &emsp;&emsp;[3.1.3 轮播图图片跳转](#chapter-three-one-three)        |     |
 | &emsp;&emsp;[3.1.4 wx:key](#chapter-three-one-four)                 |     |
+| &emsp;&emsp;[3.1.5 实战代码](#chapter-three-one-five)                 |     |
 | &emsp;[3.2 tabBar 与 switchTab](#chapter-three-two)                 | 3   |
 | &emsp;&emsp;[3.2.1 底部导航跳转](#chapter-three-two-one)            |     |
 | &emsp;&emsp;[3.2.2 自定义底部导航](#chapter-three-two-two)          |     |
@@ -216,6 +217,10 @@ Page({
 &emsp;关于 `wx:key` ， `wx:key` 的作用是：当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率。但是，在其 `swiper` 中，小程序本身是没有写的，所以它会带有 `warning` ，这里也是个小坑， **jsliang** 也是百度了下也知道这件事：[点我了解](https://www.sohu.com/a/207728111_99897596)。
 
 <br>
+
+### <a name="chapter-three-one-five" id="chapter-three-one-five">3.1.5 实战代码</a>
+
+&emsp;[返回目录](#chapter-one)
 
 &emsp;下面给出这 4 个坑 **jsliang** 的解决代码，如有不对，尽情指出：
 
