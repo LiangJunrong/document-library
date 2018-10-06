@@ -28,7 +28,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **32** 个坑。  
+&emsp;目前已有 **33** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个大部分。  
@@ -43,17 +43,19 @@
 | [三 填坑实战](#chatper-three)                                       |     |
 | &emsp;[3.1 swiper 轮播图](#chapter-three-one)                       | 5   |
 | &emsp;&emsp;[3.1.1 行内样式无效](#chapter-three-one-one)            |     |
-| &emsp;&emsp;[3.1.2 图片样式修改不了](#chapter-three-one-two)       |     |
-| &emsp;&emsp;[3.1.3 swiper 属性值设置](#chapter-three-one-three)        |     |
-| &emsp;&emsp;[3.1.4 轮播图图片跳转](#chapter-three-one-four)                 |     |
+| &emsp;&emsp;[3.1.2 图片样式修改不了](#chapter-three-one-two)        |     |
+| &emsp;&emsp;[3.1.3 swiper 属性值设置](#chapter-three-one-three)     |     |
+| &emsp;&emsp;[3.1.4 轮播图图片跳转](#chapter-three-one-four)         |     |
 | &emsp;&emsp;[3.1.5 wx:key](#chapter-three-one-five)                 |     |
-| &emsp;&emsp;[3.1.6 实战代码](#chapter-three-one-six)                 |     |
+| &emsp;&emsp;[3.1.6 实战代码](#chapter-three-one-six)                |     |
 | &emsp;[3.2 tabBar 与 switchTab](#chapter-three-two)                 | 3   |
 | &emsp;&emsp;[3.2.1 底部导航跳转](#chapter-three-two-one)            |     |
 | &emsp;&emsp;[3.2.2 自定义底部导航](#chapter-three-two-two)          |     |
 | &emsp;&emsp;[3.2.3 自定义组件](#chapter-three-two-three)            |     |
 | &emsp;[3.3 px、rem 与 rpx](#chapter-three-three)                    | 1   |
-| &emsp;[3.4 微信 web 开发者工具](#chapter-three-four)                | 1   |
+| &emsp;[3.4 微信 web 开发者工具](#chapter-three-four)                | 2   |
+| &emsp;&emsp;[3.4.1 无法输入中文](#chapter-three-four-one)           |     |
+| &emsp;&emsp;[3.4.2 无法滑动滚轮](#chapter-three-four-two)           |
 | &emsp;[3.5 组件与 API](#chapter-three-five)                         | 1   |
 | &emsp;[3.6 flex 布局](#chapter-three-six)                           | 2   |
 | &emsp;&emsp;[3.6.1 左右布局](#chapter-three-six-one)                |     |
@@ -668,10 +670,23 @@ data: {
 
 &emsp;[返回目录](#chapter-one)
 
-> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
-&emsp;（ bug 1 ）开发工具无法输入中文。  
-&emsp;解决方式：重启开发工具。
+<br>
+
+### <a name="chapter-three-four-one" id="chapter-three-four-one">3.4.1 无法输入中文</a>
+
+&emsp;[返回目录](#chapter-one)
+
+&emsp;如果你在开发过程中，发现只能写英文了，而中文无法输入了，千万别急，也别怪输入法出 bug 了，你只需要：重启开发工具。
+
+<br>
+
+### <a name="chapter-three-four-two" id="chapter-three-four-two">3.4.2 无法滑动滚轮</a>
+
+&emsp;[返回目录](#chapter-one)
+
+&emsp;如果你某时刻，突然发现你没法滚动代码进行查看，而是需要拖动滚动条才行，请别怪你的鼠标，你可以去浏览器打开一篇文章看看，enm...你的鼠标还是好的~所以，请：重启开发工具。
 
 <br>
 
