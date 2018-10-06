@@ -7,18 +7,18 @@
 
 # 写在前面
 
-&emsp;**<span style="color:red">这篇教程教不了你什么，但能省下你百度的功夫。</span>**
-
 &emsp;微信小程序实践记录:  
 &emsp;工作量: PSD 18 张 (导出的JPG 30 张)  
 &emsp;耗时：12 个工作日  
 &emsp;总结: 理性上，需要 3 周工作日（工作 15 天）搞定，前后端对接口另计。12 个工作日可以搞定所有页面，但是应该往前铺 1.5D 熟悉框架，往后铺 1.5D 整理代码。当然每个人的耗时可能不同的，可根据个人时机情况进行调整。  
 
+&emsp;**<span style="color:red">这篇教程教不了你什么，但能省下你百度的功夫。</span>**
+
 &emsp;**这里有微信小程序开发中遇到的所有坑，以及在填坑过程中的一些个人经验。**  
 
-&emsp;**请结合 《目录》 和 《返回目录》 这两个按钮进行跳转，获得更好的阅读体验。**
+&emsp;**请结合 《目录》 和 《返回目录》 来进行跳转，获得更好的阅读体验。**
   
-&emsp;**如果你觉得本文还不错，记得给个 **star** ， 你的 **star** 是我学习的动力！[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+&emsp;**如果你觉得本文还不错，记得给个 **star** ， 你的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
 
 &emsp;本文技术支持：**Ansen江**
 
