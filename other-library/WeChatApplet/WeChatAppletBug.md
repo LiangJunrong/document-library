@@ -28,7 +28,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **34** 个坑。  
+&emsp;目前已有 **38** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个大部分。  
@@ -65,11 +65,13 @@
 | &emsp;&emsp;[3.6.3 混合布局](#chapter-three-six-three)                                                                                          |     |
 | &emsp;<a name="catalog-chapter-three-seven" id="catalog-chapter-three-seven"></a>[3.7 background-image 套用本地图片无效](#chapter-three-seven)  | 1   |
 | &emsp;<a name="catalog-chapter-three-eight" id="catalog-chapter-three-eight"></a>[3.8 \<block\> 与 \<view\>](#chapter-three-eight)              | 1   |
-| &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 margin-top 无法上浮](#chapter-three-night)                | 1   |
+| &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 搜索框](#chapter-three-night)                             | 2   |
+| &emsp;&emsp;[3.9.1 margin-top 无法上浮](#chapter-three-night-one)                                                                               |     |
+| &emsp;&emsp;[3.9.2 改造 WeUI 搜索框](#chapter-three-night-two)                                                                                  |     |
 | &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 微信小程序分享](#chapter-ten)                                | 1   |
 | &emsp;<a name="catalog-chapter-three-eleven" id="catalog-chapter-three-eleven"></a>[3.11 border-box 设置](#chapter-eleven)                      | 1   |
 | &emsp;<a name="catalog-chapter-three-twelve" id="catalog-chapter-three-twelve"></a>[3.12 自定义导航条](#chapter-twelve)                         | 6   |
-| &emsp;&emsp;[3.12.1 weui的选项卡](#chapter-twelve-one)                                                                                          |     |
+| &emsp;&emsp;[3.12.1 WeUI 选项卡](#chapter-twelve-one)                                                                                          |     |
 | &emsp;&emsp;[3.12.2 自定义选项卡效果与实现](#chapter-twelve-two)                                                                                |     |
 | &emsp;&emsp;[3.12.3 绑定事件如何传递数据](#chapter-twelve-three)                                                                                |     |
 | &emsp;&emsp;[3.12.4 不允许驼峰](#chapter-twelve-four)                                                                                           |     |
@@ -78,14 +80,14 @@
 | &emsp;<a name="catalog-chapter-three-thirteen" id="catalog-chapter-three-thirteen"></a>[3.13 黑科技：\<modal\>](#chapter-thirteen)              | 2   |
 | &emsp;&emsp;[3.13.1 被遗弃的 \<modal\>](#chapter-thirteen-one)                                                                                  |     |
 | &emsp;&emsp;[3.13.2 四种弹窗写法](#chapter-thirteen-two)                                                                                        |     |
-| &emsp;<a name="catalog-chapter-three-fourteen" id="catalog-chapter-three-fourteen"></a>[3.14 小程序解析 HTML](#chapter-fourteen)                | 3   |
+| &emsp;<a name="catalog-chapter-three-fourteen" id="catalog-chapter-three-fourteen"></a>[3.14 小程序解析 HTML](#chapter-fourteen)                | 5   |
 | &emsp;&emsp;[3.14.1 解析 HTML 的三种方法](#chapter-fourteen-one)                                                                                |     |
 | &emsp;&emsp;[3.14.2 wxParse](#chapter-fourteen-two)                                                                                             |     |
 | &emsp;&emsp;[3.14.3 rich-text](#chapter-fourteen-three)                                                                                         |     |
 | &emsp;&emsp;[3.14.4 web-view](#chapter-fourteen-four)                                                                                           |     |
 | &emsp;<a name="catalog-chapter-three-fifteen" id="catalog-chapter-three-fifteen"></a>[3.15 诡异的 open-type](#chapter-fifteen)                  | 1   |
 | &emsp;<a name="catalog-chapter-three-sixteen" id="catalog-chapter-three-sixteen"></a>[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-sixteen) | 1   |
-| &emsp;<a name="catalog-chapter-three-seventeen" id="catalog-chapter-three-seventeen"></a>[3.17 下拉刷新和上拉加载](#chapter-seventeen)          | 1   |
+| &emsp;<a name="catalog-chapter-three-seventeen" id="catalog-chapter-three-seventeen"></a>[3.17 下拉刷新和上拉加载](#chapter-seventeen)          | 2   |
 
 <br>
 
@@ -963,7 +965,7 @@ tabs3Content: [
 
 &emsp;[返回目录](#catalog-chapter-three-seven)
 
-> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
 &emsp;在小程序中，如果你使用 wxss，你是可以发现有 `background-image` 的提示的。但是，如果你设置它的背景图是本地图片，你会发现，它是不生效的。  
 &emsp;解决方案：  
@@ -978,18 +980,24 @@ tabs3Content: [
 
 &emsp;[返回目录](#catalog-chapter-three-eight)
 
-> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
 &emsp;两者的区别是，`<view>` 是一个组件，会在页面上做渲染；`<block>` 不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。  
 &emsp;所以，如果你仅仅是需要包裹，而不是渲染一个层，可以使用 `<block>` 提升性能。
 
 <br>
 
-## <a name="chapter-three-night" id="chapter-three-night">3.9 margin-top 无法上浮</a>
+## <a name="chapter-three-night" id="chapter-three-night">3.9 搜索框</a>
 
 &emsp;[返回目录](#catalog-chapter-three-night)
 
-> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
+
+<br>
+
+### <a name="chapter-three-night-one" id="chapter-three-night-one">3.9.1 margin-top 无法上浮</a>
+
+&emsp;[返回目录](#catalog-chapter-three-night)
 
 &emsp;首先，我们要实现的效果是：
 
@@ -1050,7 +1058,14 @@ tabs3Content: [
 
 ![图](../../public-repertory/img/other-WechatApplet-bug-3.png)
 
-&emsp;好吧，可能有其他的实现方式，但是如果你下次使用这种方式，注意这个坑~  
+&emsp;好吧，可能有其他的实现方式，但是如果你下次使用这种方式，注意上面这个坑~  
+
+<br>
+
+### <a name="chapter-three-night-two" id="chapter-three-night-two">3.9.1 改造 WeUI 搜索框</a>
+
+&emsp;[返回目录](#catalog-chapter-three-night)
+
 &emsp;回头看了下 `WeUI` 的实现方式，发现跟我的思路是挺像的，关于 `input` 的实现方式，现在依据 `WeUI` ，成功实现了输入框：
 
 ![图](../../public-repertory/img/other-WechatApplet-bug-4.gif)
@@ -1161,7 +1176,7 @@ Page({
 
 &emsp;[返回目录](#catalog-chapter-three-ten)
 
-> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
 &emsp;官方文档：[地址](https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html#%E9%A1%B5%E9%9D%A2%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0)  
 &emsp;在这里，提醒广大小伙伴注意了，注意了，注意了！重要的事说三遍。  
@@ -1187,7 +1202,7 @@ onShareAppMessage: function (res) {
 
 &emsp;[返回目录](#catalog-chapter-three-eleven)
 
-> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
 &emsp;熟知盒模型的小伙伴应该知道，盒模型有两种计算方式：
 1. box-sizing: border-box;
@@ -1235,11 +1250,11 @@ view {
 
 &emsp;[返回目录](#catalog-chapter-three-twelve)
 
-> 本节目前已有4个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 6 个坑，有兴趣的小伙伴可以详看。
 
 <br>
 
-### <a name="chapter-twelve-one" id="chapter-twelve-one">3.12.1 weui的选项卡</a>
+### <a name="chapter-twelve-one" id="chapter-twelve-one">3.12.1 WeUI 选项卡</a>
 
 &emsp;[返回目录](#catalog-chapter-three-twelve)
 
@@ -1675,7 +1690,7 @@ tabs2NavClick: function(e) {
 
 &emsp;[返回目录](#catalog-chapter-three-twelve)
 
-&emsp;然后，注意了，这里还有个小 bug。（ bug 3 ）我们使用的是 `data-labelId="{{item.id}}"`，而获取数据的时候，我们获取的是 `labelid`，是的，驼峰不见了~
+&emsp;然后，注意了，这里还有个小 bug。在代码中，我们使用的是 `data-labelId="{{item.id}}"`，而获取数据的时候，我们获取的是 `labelid`，是的，驼峰不见了~
 
 &emsp;参考链接：[链接](https://www.jianshu.com/p/a3481a255842)
 
@@ -1728,7 +1743,7 @@ text {
 
 &emsp;[返回目录](#catalog-chapter-three-thirteen)
 
-> 本节目前已有2个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
 <br>
 
@@ -1828,7 +1843,7 @@ Page({
 
 &emsp;[返回目录](#catalog-chapter-three-fourteen)
 
-> 本节目前已有3个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 5 个坑，有兴趣的小伙伴可以详看。
 
 <br>
 
@@ -1902,11 +1917,11 @@ if (name == 'style') {
 
 &emsp;[返回目录](#catalog-chapter-three-fifteen)
 
-> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
 &emsp;在小程序中，它有一些自定义的方法，例如 `open-type` ，是需要 `<button>` 来承接的。  
 &emsp;所以，如果你写好了一个 `view`，里面有很好看的样式了，你本来打算用 `bindtap` 来搞事情的。但是，突然接到信息，需要外套一层 `<button open-type="***">` ，然后发现，样式需要重新跳过……  
-&emsp;enm...加油不哭~
+&emsp;enm...加油不哭，重新写过样式吧~
 
 <br>
 
@@ -1915,7 +1930,7 @@ if (name == 'style') {
 
 &emsp;[返回目录](#catalog-chapter-three-sixteen)
 
-> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
 &emsp;就像上一章所说的，有时候，迫不得已，我们必须在 `<button>` 中内嵌个 `<image>` 或者 `<text>` 之类的，那么，一般怎么做呢？  
 &emsp;现在，假设我有一个 `42*40` 的图片，我来试试调下它的样式：
@@ -1958,11 +1973,11 @@ if (name == 'style') {
 
 &emsp;[返回目录](#catalog-chapter-three-seventeen)
 
-> 本节目前已有1个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
-&emsp;在浏览器中，有 F5 刷新，有鼠标滚轮滑动加载。
-&emsp;那么，换到微信小程序，又是怎样子的呢？
-&emsp;是的，这就要说说用户下拉动作和上拉触底了：
+&emsp;在浏览器中，有 F5 刷新，有鼠标滚轮滑动加载。  
+&emsp;那么，换到微信小程序，又是怎样子的呢？  
+&emsp;是的，这就要说说用户下拉动作和上拉触底了：  
 
 &emsp;下拉事件在小程序文档的解释：[链接](https://developers.weixin.qq.com/miniprogram/dev/api/pulldown.html?search-key=pulldown)
 
