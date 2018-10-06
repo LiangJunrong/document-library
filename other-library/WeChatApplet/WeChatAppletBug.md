@@ -36,61 +36,61 @@
 
 <br>
 
-| 目录                                                                | 坑  |
-| ------------------------------------------------------------------- | --- |
-| [一 目录](#chapter-one)                                             |     |
-| [二 前言](#chapter-two)                                             |     |
-| [三 填坑实战](#chatper-three)                                       |     |
-| &emsp;[3.1 swiper 轮播图](#chapter-three-one)                       | 5   |
-| &emsp;&emsp;[3.1.1 行内样式无效](#chapter-three-one-one)            |     |
-| &emsp;&emsp;[3.1.2 图片样式修改不了](#chapter-three-one-two)        |     |
-| &emsp;&emsp;[3.1.3 swiper 属性值设置](#chapter-three-one-three)     |     |
-| &emsp;&emsp;[3.1.4 轮播图图片跳转](#chapter-three-one-four)         |     |
-| &emsp;&emsp;[3.1.5 wx:key](#chapter-three-one-five)                 |     |
-| &emsp;&emsp;[3.1.6 实战代码](#chapter-three-one-six)                |     |
-| &emsp;[3.2 tabBar 与 switchTab](#chapter-three-two)                 | 3   |
-| &emsp;&emsp;[3.2.1 底部导航跳转](#chapter-three-two-one)            |     |
-| &emsp;&emsp;[3.2.2 自定义底部导航](#chapter-three-two-two)          |     |
-| &emsp;&emsp;[3.2.3 自定义组件](#chapter-three-two-three)            |     |
-| &emsp;[3.3 px、rem 与 rpx](#chapter-three-three)                    | 1   |
-| &emsp;[3.4 微信 web 开发者工具](#chapter-three-four)                | 2   |
-| &emsp;&emsp;[3.4.1 无法输入中文](#chapter-three-four-one)           |     |
-| &emsp;&emsp;[3.4.2 无法滑动滚轮](#chapter-three-four-two)           |
-| &emsp;[3.5 组件与 API](#chapter-three-five)                         | 2   |
-| &emsp;&emsp;[3.5.1 概念混淆：组件 VS API](#chapter-three-five-one)           |     |
-| &emsp;&emsp;[3.5.2 API 查询不到对应的方法](#chapter-three-five-two)           |
-| &emsp;[3.6 flex 布局](#chapter-three-six)                           | 2   |
-| &emsp;&emsp;[3.6.1 左右布局](#chapter-three-six-one)                |     |
-| &emsp;&emsp;[3.6.2 混合布局](#chapter-three-six-two)                |     |
-| &emsp;[3.7 background-image 套用本地图片无效](#chapter-three-seven) | 1   |
-| &emsp;[3.8 \<block\> 与 \<view\>](#chapter-three-eight)             | 1   |
-| &emsp;[3.9 margin-top 无法上浮](#chapter-three-night)               | 1   |
-| &emsp;[3.10 微信小程序分享](#chapter-ten)                           | 1   |
-| &emsp;[3.11 border-box 设置](#chapter-eleven)                       | 1   |
-| &emsp;[3.12 自定义导航条](#chapter-twelve)                          | 6   |
-| &emsp;&emsp;[3.12.1 weui的选项卡](#chapter-twelve-one)              |     |
-| &emsp;&emsp;[3.12.2 自定义选项卡效果与实现](#chapter-twelve-two)    |     |
-| &emsp;&emsp;[3.12.3 绑定事件如何传递数据](#chapter-twelve-three)    |     |
-| &emsp;&emsp;[3.12.4 不允许驼峰](#chapter-twelve-four)               |     |
-| &emsp;&emsp;[3.12.5 获取 data 数据](#chapter-twelve-five)           |     |
-| &emsp;&emsp;[3.12.6 实现文字省略](#chapter-twelve-six)              |     |
-| &emsp;[3.13 黑科技：\<modal\>](#chapter-thirteen)                   | 2   |
-| &emsp;&emsp;[3.13.1 被遗弃的 \<modal\>](#chapter-thirteen-one)      |     |
-| &emsp;&emsp;[3.13.2 四种弹窗写法](#chapter-thirteen-two)            |     |
-| &emsp;[3.14 小程序解析 HTML](#chapter-fourteen)                     | 3   |
-| &emsp;&emsp;[3.14.1 解析 HTML 的三种方法](#chapter-fourteen-one)    |     |
-| &emsp;&emsp;[3.14.2 wxParse](#chapter-fourteen-two)                 |     |
-| &emsp;&emsp;[3.14.3 rich-text](#chapter-fourteen-three)             |     |
-| &emsp;&emsp;[3.14.4 web-view](#chapter-fourteen-four)               |     |
-| &emsp;[3.15 诡异的 open-type](#chapter-fifteen)                     | 1   |
-| &emsp;[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-sixteen)    | 1   |
-| &emsp;[3.16 下拉刷新和上拉加载](#chapter-seventeen)                 | 1   |
+| 目录                                                                                                                                            | 坑  |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| [一 目录](#chapter-one)                                                                                                                         |     |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two)                                                              |     |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 填坑实战](#chatper-three)                                                    |     |
+| &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 swiper 轮播图](#chapter-three-one)                            | 5   |
+| &emsp;&emsp;[3.1.1 行内样式无效](#chapter-three-one-one)                                                                                        |     |
+| &emsp;&emsp;[3.1.2 图片样式修改不了](#chapter-three-one-two)                                                                                    |     |
+| &emsp;&emsp;[3.1.3 swiper 属性值设置](#chapter-three-one-three)                                                                                 |     |
+| &emsp;&emsp;[3.1.4 轮播图图片跳转](#chapter-three-one-four)                                                                                     |     |
+| &emsp;&emsp;[3.1.5 wx:key](#chapter-three-one-five)                                                                                             |     |
+| &emsp;&emsp;[3.1.6 实战代码](#chapter-three-one-six)                                                                                            |     |
+| &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 tabBar 与 switchTab](#chapter-three-two)                      | 3   |
+| &emsp;&emsp;[3.2.1 底部导航跳转](#chapter-three-two-one)                                                                                        |     |
+| &emsp;&emsp;[3.2.2 自定义底部导航](#chapter-three-two-two)                                                                                      |     |
+| &emsp;&emsp;[3.2.3 自定义组件](#chapter-three-two-three)                                                                                        |     |
+| &emsp;<a name="catalog-chapter-three-three" id="catalog-chapter-three-three"></a>[3.3 px、rem 与 rpx](#chapter-three-three)                     | 1   |
+| &emsp;<a name="catalog-chapter-three-four" id="catalog-chapter-three-four"></a>[3.4 微信 web 开发者工具](#chapter-three-four)                   | 2   |
+| &emsp;&emsp;[3.4.1 无法输入中文](#chapter-three-four-one)                                                                                       |     |
+| &emsp;&emsp;[3.4.2 无法滑动滚轮](#chapter-three-four-two)                                                                                       |
+| &emsp;<a name="catalog-chapter-three-five" id="catalog-chapter-three-five"></a>[3.5 组件与 API](#chapter-three-five)                            | 2   |
+| &emsp;&emsp;[3.5.1 概念混淆：组件 VS API](#chapter-three-five-one)                                                                              |     |
+| &emsp;&emsp;[3.5.2 API 查询不到对应的方法](#chapter-three-five-two)                                                                             |
+| &emsp;<a name="catalog-chapter-three-six" id="catalog-chapter-three-six"></a>[3.6 flex 布局](#chapter-three-six)                                | 2   |
+| &emsp;&emsp;[3.6.1 左右布局](#chapter-three-six-one)                                                                                            |     |
+| &emsp;&emsp;[3.6.2 混合布局](#chapter-three-six-two)                                                                                            |     |
+| &emsp;<a name="catalog-chapter-three-seven" id="catalog-chapter-three-seven"></a>[3.7 background-image 套用本地图片无效](#chapter-three-seven)  | 1   |
+| &emsp;<a name="catalog-chapter-three-eight" id="catalog-chapter-three-eight"></a>[3.8 \<block\> 与 \<view\>](#chapter-three-eight)              | 1   |
+| &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 margin-top 无法上浮](#chapter-three-night)                | 1   |
+| &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 微信小程序分享](#chapter-ten)                                | 1   |
+| &emsp;<a name="catalog-chapter-three-eleven" id="catalog-chapter-three-eleven"></a>[3.11 border-box 设置](#chapter-eleven)                      | 1   |
+| &emsp;<a name="catalog-chapter-three-twelve" id="catalog-chapter-three-twelve"></a>[3.12 自定义导航条](#chapter-twelve)                         | 6   |
+| &emsp;&emsp;[3.12.1 weui的选项卡](#chapter-twelve-one)                                                                                          |     |
+| &emsp;&emsp;[3.12.2 自定义选项卡效果与实现](#chapter-twelve-two)                                                                                |     |
+| &emsp;&emsp;[3.12.3 绑定事件如何传递数据](#chapter-twelve-three)                                                                                |     |
+| &emsp;&emsp;[3.12.4 不允许驼峰](#chapter-twelve-four)                                                                                           |     |
+| &emsp;&emsp;[3.12.5 获取 data 数据](#chapter-twelve-five)                                                                                       |     |
+| &emsp;&emsp;[3.12.6 实现文字省略](#chapter-twelve-six)                                                                                          |     |
+| &emsp;<a name="catalog-chapter-three-thirteen" id="catalog-chapter-three-thirteen"></a>[3.13 黑科技：\<modal\>](#chapter-thirteen)              | 2   |
+| &emsp;&emsp;[3.13.1 被遗弃的 \<modal\>](#chapter-thirteen-one)                                                                                  |     |
+| &emsp;&emsp;[3.13.2 四种弹窗写法](#chapter-thirteen-two)                                                                                        |     |
+| &emsp;<a name="catalog-chapter-three-fourteen" id="catalog-chapter-three-fourteen"></a>[3.14 小程序解析 HTML](#chapter-fourteen)                | 3   |
+| &emsp;&emsp;[3.14.1 解析 HTML 的三种方法](#chapter-fourteen-one)                                                                                |     |
+| &emsp;&emsp;[3.14.2 wxParse](#chapter-fourteen-two)                                                                                             |     |
+| &emsp;&emsp;[3.14.3 rich-text](#chapter-fourteen-three)                                                                                         |     |
+| &emsp;&emsp;[3.14.4 web-view](#chapter-fourteen-four)                                                                                           |     |
+| &emsp;<a name="catalog-chapter-three-fifteen" id="catalog-chapter-three-fifteen"></a>[3.15 诡异的 open-type](#chapter-fifteen)                  | 1   |
+| &emsp;<a name="catalog-chapter-three-sixteen" id="catalog-chapter-three-sixteen"></a>[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-sixteen) | 1   |
+| &emsp;<a name="catalog-chapter-three-seventeen" id="catalog-chapter-three-seventeen"></a>[3.17 下拉刷新和上拉加载](#chapter-seventeen)          | 1   |
 
 <br>
 
 # <a name="chapter-two" id="chapter-two">二 前言</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-two)
 
 &emsp;微信小程序的开发教程，或许写出来是非常受欢迎的。  
 &emsp;但是：
@@ -106,7 +106,7 @@
 
 # <a name="chatper-three" id="chatper-three">三 填坑实战</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three)
 
 &emsp; 这里的坑：
 * 有的来源于微信自带的开发文档：[小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/component/)。在文档中，你会发现很多的乐趣！毕竟，你不知道什么时候中文成为了你的语言障碍~  
@@ -116,9 +116,9 @@
 
 <br>
 
-## <a id="chapter-three-one">3.1 swiper 轮播图</a>
+## <a name="chapter-three-one" id="chapter-three-one">3.1 swiper 轮播图</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-one)
 
 > 本组件目前已有 5 个坑，有兴趣的小伙伴可以详看。
 
@@ -189,7 +189,7 @@ Page({
 
 ### <a name="chapter-three-one-one" id="chapter-three-one-one">3.1.1 行内样式无效</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-one)
 
 &emsp;`demo.wxml` 中出现的 `<image src="{{item}}" class="slide-image" width="355" height="150"/>` 这行， `width` 和 `height` 的行内属性是忽悠老百姓的，**它并没卵用** ！我们需要在 `slide-image` 这个 `class` 类中修改 `width` 和 `height`。简而言之，行内样式都是骗人的，乖，我们还是去 `demo.wxss` 写样式吧~
 
@@ -197,7 +197,7 @@ Page({
 
 ### <a name="chapter-three-one-two" id="chapter-three-one-two">3.1.2 图片样式修改不了</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-one)
 
 &emsp;在任何出现图片的地方（包括但不限于轮播图），如果你发现不仅行内写法无效之外，还发现单纯地给图片加 `class`，去 `*.wxss` 写样式也无效的话。那么，我建议小伙伴最好采用样式加重法，即 `.image-wrap .image` 这种写法格式，来确保图片样式能进行修改。详细用法可看下文。
 
@@ -205,7 +205,7 @@ Page({
 
 ### <a name="chapter-three-one-three" id="chapter-three-one-three">3.1.3 swiper 属性值设置</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-one)
 
 &emsp;`swiper` 属性值。官方文档说明：
 
@@ -217,7 +217,7 @@ Page({
 
 ### <a name="chapter-three-one-four" id="chapter-three-one-four">3.1.4 轮播图图片跳转</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-one)
 
 &emsp;关于轮播图的地址跳转，在微信小程序的官网是没用提及的，也是 **jsliang** 去百度查看了下，才知道怎么设置（可能是我一开始就挑战的难度太高了么 -_-|| ），在下面 **jsliang** 贴出来代码~想知道怎么解决的可以去看看：首先，在 `data` 中设置 `link` ；然后，设置 `navigator` 导航遍历 `item.link` 。
 
@@ -225,7 +225,7 @@ Page({
 
 ### <a name="chapter-three-one-five" id="chapter-three-one-five">3.1.5 wx:key</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-one)
 
 &emsp;关于 `wx:key` ， `wx:key` 的作用是：当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率。但是，在其 `swiper` 中，小程序本身是没有写的，所以它会带有 `warning` ，这里也是个小坑， **jsliang** 也是百度了下也知道这件事：[点我了解](https://www.sohu.com/a/207728111_99897596)。
 
@@ -233,7 +233,7 @@ Page({
 
 ### <a name="chapter-three-one-six" id="chapter-three-one-six">3.1.6 实战代码</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-one)
 
 &emsp;下面给出这 5 个坑的解决代码，如有不对，尽情指出：
 
@@ -295,7 +295,7 @@ Page({
 
 ## <a name="chapter-three-two" id="chapter-three-two">3.2 tabBar 与 switchTab</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-two)
 
 > 本组件目前已有 3 个坑，有兴趣的小伙伴可以详看。
 
@@ -307,7 +307,7 @@ Page({
 
 ### <a name="chapter-three-two-one" id="chapter-three-two-one">3.2.1 底部导航跳转</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-two)
 
 &emsp;在这里，我们讲下 `tabBar` 的坑，如果你在 `app.json` 中设置了 `tabBar` ：
 > app.json
@@ -357,7 +357,7 @@ linkTo: function () {
 
 ### <a name="chapter-three-two-two" id="chapter-three-two-two">3.2.2 自定义底部导航</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-two)
 
 &emsp;那么问题又来了，当我们切换到子页面的时候，我们发现 `tabBar` 这个底部导航栏不见了，然后问了下 **Ansen江** ，他说之前是整个小程序都有的，有些页面还要想方设法去隐藏。  
 &emsp;但是现在嘛……它没了！没了啊！！！在微信小程序的文档没看到有唤起底部导航条的方法，难道我要做一个导航条了么 -_-||   
@@ -472,7 +472,7 @@ goHome: function() {
 
 ### <a name="chapter-three-two-three" id="chapter-three-two-three">3.2.3 自定义组件</a>
 
-&emsp;[返回目录](#chapter-one)
+&emsp;[返回目录](#catalog-chapter-three-two)
 
 &emsp;在最近的工作中，又发现一个小问题：
 
