@@ -5,6 +5,8 @@
 
 <br>
 
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+
 # 写在前面
 
 &emsp;微信小程序实践记录:  
@@ -12,19 +14,15 @@
 &emsp;耗时：12 个工作日  
 &emsp;总结: 理性上，需要 3 周工作日（工作 15 天）搞定，前后端对接口另计。12 个工作日可以搞定所有页面，但是应该往前铺 1.5D 熟悉框架，往后铺 1.5D 整理代码。当然每个人的耗时可能不同的，可根据个人时机情况进行调整。  
 
-&emsp;**<span style="color:red">这篇教程教不了你什么，但能省下你百度的功夫。</span>**
+&emsp;**这里有微信小程序开发中遇到的所有坑，以及在填坑过程中的一些个人经验。jsliang 利用这篇教程存储一些常用的微信小程序开发技巧，方便查找。<span style="color:red">它可能教不了你什么，但至少能省下你百度的功夫。</span>**  
 
-&emsp;**这里有微信小程序开发中遇到的所有坑，以及在填坑过程中的一些个人经验。**  
-
-&emsp;**请结合 《目录》 和 《返回目录》 来进行跳转，获得更好的阅读体验。**
-  
-&emsp;**如果你觉得本文还不错，记得给个 **star** ， 你的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+&emsp;**请结合 《目录》 和 《返回目录》 来进行跳转，获得更好的阅读体验。**  
 
 &emsp;本文技术支持：**Ansen江**
 
-&emsp;**注1：由于更新频繁，有时候掘金上的版本可能没有图片，获取最新资料请前往 GitHub：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+&emsp;**注1：由于更新频繁，有时候平台上的文章版本可能没有图片，获取最新资料请前往 GitHub：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
 
-&emsp;**注2：如果小伙伴使用的是手机版打开，那么推荐小伙伴使用电脑打开，因为 GitHub 和 掘金 的手机端都不支持页内跳转，看起来比较费劲**
+&emsp;**注2：如果小伙伴使用的是手机版打开，那么推荐小伙伴使用电脑打开，因为各平台的手机端大都不支持页内跳转，看起来比较费劲**
 
 <br>
 
