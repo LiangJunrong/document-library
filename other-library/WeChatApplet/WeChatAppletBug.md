@@ -118,7 +118,9 @@
 
 <br>
 
-代码来源于该地址：[微信组件 swiper](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html) 。为方便小伙伴查看，下面贴出原版代码：
+&emsp; 代码来源于该地址：[微信组件 swiper](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html) 。  
+
+&emsp;为方便小伙伴查看，下面贴出原版代码：
 > demo.wxml
 ```
 <swiper indicator-dots="{{indicatorDots}}"
@@ -175,7 +177,7 @@ Page({
 ```
 <br>
 
-&emsp;好的，上面就是微信官方文档的演示代码，如果你跟着走了一遍碰到疑问的话，看看这里我挖的土是不是能填好你的坑：
+&emsp;好的，上面就是微信官方文档的演示代码，如果你跟着演示代码走了一遍碰到疑问的话，看看这里我挖的土是不是能填好你的坑：
 
 <br>
 
