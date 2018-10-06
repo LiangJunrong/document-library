@@ -28,11 +28,17 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
+&emsp;目前已有 **31** 个坑。  
+
+> 请各位按目录检索时注意：  
+> 3.1、3.2、3.3…… 等二级目录对应着一个大部分。  
+> 3.1.1、3.1.2…… 等三级目录将该二级目录这个大块详细拆分成诸多小坑，方便查看。  
+
 | 目录                                                                | 坑  |
 | ------------------------------------------------------------------- | --- |
 | [一 目录](#chapter-one)                                             |     |
 | [二 前言](#chapter-two)                                             |     |
-| [三 填坑实战](#chatper-three)                                     |     |
+| [三 填坑实战](#chatper-three)                                       |     |
 | &emsp;[3.1 swiper 轮播图](#chapter-three-one)                       | 4   |
 | &emsp;&emsp;[3.1.1 行内样式无效](#chapter-three-one-one)            |     |
 | &emsp;&emsp;[3.1.2 swiper 属性值设置](#chapter-three-one-two)       |     |
@@ -41,7 +47,7 @@
 | &emsp;[3.2 tabBar 与 switchTab](#chapter-three-two)                 | 3   |
 | &emsp;&emsp;[3.2.1 底部导航跳转](#chapter-three-two-one)            |     |
 | &emsp;&emsp;[3.2.2 自定义底部导航](#chapter-three-two-two)          |     |
-| &emsp;&emsp;[3.2.3 自定义组件](#chapter-three-two-three)          |     |
+| &emsp;&emsp;[3.2.3 自定义组件](#chapter-three-two-three)            |     |
 | &emsp;[3.3 px、rem 与 rpx](#chapter-three-three)                    | 1   |
 | &emsp;[3.4 微信 web 开发者工具](#chapter-three-four)                | 1   |
 | &emsp;[3.5 组件与 API](#chapter-three-five)                         | 1   |
@@ -70,9 +76,7 @@
 | &emsp;&emsp;[3.14.4 web-view](#chapter-fourteen-four)               |     |
 | &emsp;[3.15 诡异的 open-type](#chapter-fifteen)                     | 1   |
 | &emsp;[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-sixteen)    | 1   |
-| &emsp;[3.16 下拉刷新和上拉加载](#chapter-seventeen)    | 1   |
-
-&emsp;目前已有 **31** 个坑。
+| &emsp;[3.16 下拉刷新和上拉加载](#chapter-seventeen)                 | 1   |
 
 <br>
 
