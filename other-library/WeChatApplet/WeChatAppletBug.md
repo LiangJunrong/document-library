@@ -1062,7 +1062,7 @@ tabs3Content: [
 
 <br>
 
-### <a name="chapter-three-night-two" id="chapter-three-night-two">3.9.1 改造 WeUI 搜索框</a>
+### <a name="chapter-three-night-two" id="chapter-three-night-two">3.9.2 改造 WeUI 搜索框</a>
 
 &emsp;[返回目录](#catalog-chapter-three-night)
 
