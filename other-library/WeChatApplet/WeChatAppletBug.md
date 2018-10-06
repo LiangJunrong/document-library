@@ -106,7 +106,7 @@
 * 有的来源于微信自带的开发文档：[小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/component/)。在文档中，你会发现很多的乐趣！毕竟，你不知道什么时候中文成为了你的语言障碍~  
 * 有的是开发中遇到的，然后结合大量的百度结果，进行的有效性总结。
 
-&emsp;希望小伙伴在百度中或者无意看到这篇文章，请熟练使用 `Ctrl + F`，查找需要的问题答案。
+&emsp;希望小伙伴在百度中或者无意看到这篇文章，请熟练使用浏览器的 `Ctrl + F`，查找需要的问题答案。
 
 <br>
 
@@ -217,7 +217,7 @@ Page({
 
 <br>
 
-&emsp;下面给出 **jsliang** 的解决代码，如有不对，尽情指出：
+&emsp;下面给出这 4 个坑 **jsliang** 的解决代码，如有不对，尽情指出：
 
 > index.wxml
 ```
@@ -282,8 +282,8 @@ Page({
 > 本组件目前已有2个坑，有兴趣的小伙伴可以详看。
 
 &emsp;tabBar ：底部菜单栏，需要在 `app.json` 中设置。使用方法：见下文。  
-&emsp;navigator ：导航切换。[使用方法](https://blog.csdn.net/u013778905/article/details/59141486)  
-&emsp;switchTab ：控制 tabBar 的切换。[使用方法](https://blog.csdn.net/liona_koukou/article/details/53930045)
+&emsp;navigator ：导航切换。使用方法：[地址](https://blog.csdn.net/u013778905/article/details/59141486)  
+&emsp;switchTab ：控制 tabBar 的切换。使用方法：[地址](https://blog.csdn.net/liona_koukou/article/details/53930045)
 
 <br>
 
