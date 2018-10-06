@@ -22,7 +22,7 @@
 
 &emsp;**注1：由于更新频繁，有时候平台上的文章版本可能没有图片，获取最新资料请前往 GitHub：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
 
-&emsp;**注2：如果小伙伴使用的是手机版打开，那么推荐小伙伴使用电脑打开，因为各平台的手机端大都不支持页内跳转，看起来比较费劲**
+&emsp;**注2：如果小伙伴使用的是手机版打开，那么推荐小伙伴使用电脑打开，因为各平台的手机端大都不支持页内跳转，看起来比较费劲。**
 
 <br>
 
