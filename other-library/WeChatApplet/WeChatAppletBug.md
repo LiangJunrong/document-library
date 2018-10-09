@@ -28,7 +28,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **38** 个坑。  
+&emsp;目前已有 **39** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个大部分。  
@@ -88,7 +88,7 @@
 | &emsp;<a name="catalog-chapter-three-fifteen" id="catalog-chapter-three-fifteen"></a>[3.15 诡异的 open-type](#chapter-fifteen)                  | 1   |
 | &emsp;<a name="catalog-chapter-three-sixteen" id="catalog-chapter-three-sixteen"></a>[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-sixteen) | 1   |
 | &emsp;<a name="catalog-chapter-three-seventeen" id="catalog-chapter-three-seventeen"></a>[3.17 下拉刷新和上拉加载](#chapter-seventeen)          | 2   |
-| &emsp;<a name="catalog-chapter-three-eighteen" id="catalog-chapter-three-eighteen"></a>[3.18 获取 input 的值](#chapter-eighteen)          | 2   |
+| &emsp;<a name="catalog-chapter-three-eighteen" id="catalog-chapter-three-eighteen"></a>[3.18 获取 input 的值](#chapter-eighteen)          | 1   |
 
 <br>
 
@@ -2016,6 +2016,52 @@ onReachBottom: function () {
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
+&emsp;`<input class="phone-number"></input>`  
+&emsp;`<button>获取电话号码</button`
+
+&emsp;现在，假设我们在小程序中输入了一个 `class` 为 `phone-number` 的`input` 框，并且有一个 `<button>` 。那么，我们在微信小程序中，需要如何获取该 `phone-number` 的值呢？
+1. 先在 `<input>` 中设置 `name` 为 `phoneNumber`
+2. 然后 `data` 中设置 `phoneNumber: ''`
+3. 接着 `bindinput="phoneCodeInput'`
+4. 再来设置 `phoneCodeInput` 方法来修改 `this.data.phoneNumber`
+5. 最后在 `<button>` 的绑定事件中获取 `phoneNumber`
+
+&emsp;步骤繁杂，下面贴出实现代码：
+
+> *.wxml
+```
+<input maxlength='11' placeholder='请输入手机号码' placeholder-class="phone-number" name="phoneNumber" bindinput='phoneNumberInput'></input>
+
+<button class="get-phone-number" bindtap="getPhoneNumber">获取验证码</button>
+```
+
+<br>
+
+> *.js
+```
+Page({
+  data: {
+    // 输入的手机号码
+    phonenumber: '',
+  },
+  // 获取手机号码
+  phoneNumberInput: function(e) {
+    this.setData({
+      phonenumber: e.detail.value
+    })
+  },
+  // 点击获取验证码
+  getPhoneNumber: function (e) {
+    var phoneNumber = this.data.phonenumber
+    console.log(phoneNumber);
+  }
+})
+```
+
+<br>
+
+&emsp;看到这里，如果有习惯 `jQuery` ，习惯操作 `dom` 节点的小伙伴可能会抱有很大疑惑：“它就不能像 `jQuery` 一样直接获取 `dom` 的内容么？”  
+&emsp;答案是，有的：[地址](https://developers.weixin.qq.com/miniprogram/dev/api/wxml/NodesRef.html)。但是，在这里， **jsliang** 并不推荐小伙伴这么做，想要学好一门新的技术，就不能因为旧的技术而限制了自己的观念。时代在进步，科技在发展，我们不学更多的知识，只能被淘汰在前端的潮流中。
 
 <br>
 
