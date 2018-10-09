@@ -88,6 +88,7 @@
 | &emsp;<a name="catalog-chapter-three-fifteen" id="catalog-chapter-three-fifteen"></a>[3.15 诡异的 open-type](#chapter-fifteen)                  | 1   |
 | &emsp;<a name="catalog-chapter-three-sixteen" id="catalog-chapter-three-sixteen"></a>[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-sixteen) | 1   |
 | &emsp;<a name="catalog-chapter-three-seventeen" id="catalog-chapter-three-seventeen"></a>[3.17 下拉刷新和上拉加载](#chapter-seventeen)          | 2   |
+| &emsp;<a name="catalog-chapter-three-eighteen" id="catalog-chapter-three-eighteen"></a>[3.18 获取 input 的值](#chapter-eighteen)          | 2   |
 
 <br>
 
@@ -2006,6 +2007,15 @@ onReachBottom: function () {
 <br>
 
 &emsp;这两个事件，都是在你新建 `page` 的时候，会自动添加的，小伙伴们注意下，免得前面写了，被后面的覆盖了哦~
+
+<br>
+
+## <a name="chapter-eighteen" id="chapter-eighteen">3.18 获取 input 的值</a>
+
+&emsp;[返回目录](#catalog-chapter-three-eighteen)
+
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
+
 
 <br>
 
