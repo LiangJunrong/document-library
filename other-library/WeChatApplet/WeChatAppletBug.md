@@ -1,7 +1,7 @@
 # 微信小程序 100 坑
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-10-6 11:02:06**
+> Recently revised in **2018-10-10 09:25:41**
 
 <br>
 
@@ -28,7 +28,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **39** 个坑。  
+&emsp;目前已有 **40** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个大部分。  
@@ -89,6 +89,7 @@
 | &emsp;<a name="catalog-chapter-three-sixteen" id="catalog-chapter-three-sixteen"></a>[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-sixteen) | 1   |
 | &emsp;<a name="catalog-chapter-three-seventeen" id="catalog-chapter-three-seventeen"></a>[3.17 下拉刷新和上拉加载](#chapter-seventeen)          | 2   |
 | &emsp;<a name="catalog-chapter-three-eighteen" id="catalog-chapter-three-eighteen"></a>[3.18 获取 input 的值](#chapter-eighteen)          | 1   |
+| &emsp;<a name="catalog-chapter-three-nighteen" id="catalog-chapter-three-nighteen"></a>[3.19 onLaunch 加载问题](#chapter-nighteen)          | 1   |
 
 <br>
 
@@ -1830,10 +1831,10 @@ Page({
 
 | 类型      | 说明                                                                                       | 地址                                                                                                                           |
 | --------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| 模态弹窗  | 模态弹窗就是上面的第一种弹窗，它可以给你选择【取消】或者【确定】                           | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showModal)          |
+| 模态弹窗  | wx.showModal(Object) - 模态弹窗就是上面的第一种弹窗，它可以给你选择【取消】或者【确定】                           | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showModal)          |
 | \<modal\> | \<modal\>是上面的第二种弹窗，可以提供用户填写                                              | [链接](https://blog.csdn.net/qq_35181466/article/details/80405248)                                                             |
-| 消息弹窗  | 消息弹窗就是操作成功或者操作失败的那一刻，系统的提示弹窗，无需用户操作，可设定几秒自动关闭 | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showToast)          |
-| 操作菜单  | 操作菜单类似于弹出的下拉菜单，提供你选择其中某项或者【取消】                               | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showActionSheet.html?search-key=showActionSheet) |
+| 消息弹窗  | wx.showToast(Object) - 消息弹窗就是操作成功或者操作失败的那一刻，系统的提示弹窗，无需用户操作，可设定几秒自动关闭 | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showToast)          |
+| 操作菜单  | wx.showActionSheet(Object) - 操作菜单类似于弹出的下拉菜单，提供你选择其中某项或者【取消】                               | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showActionSheet.html?search-key=showActionSheet) |
 
 &emsp;在这里，就讲完了微信小程序的四种弹窗形式了。如果你改样式改的烦啊烦的，可能你需要封装一个属于自己的弹窗？嘿嘿，说不定你的产品经理会有兴趣让你开发一个 `beautiful` 弹窗的~  
 &emsp;这坑我不填，我没碰到~碰到了再说！在这里预留下这个坑，哈哈。
@@ -2062,6 +2063,16 @@ Page({
 
 &emsp;看到这里，如果有习惯 `jQuery` ，习惯操作 `dom` 节点的小伙伴可能会抱有很大疑惑：“它就不能像 `jQuery` 一样直接获取 `dom` 的内容么？”  
 &emsp;答案是，有的：[地址](https://developers.weixin.qq.com/miniprogram/dev/api/wxml/NodesRef.html)。但是，在这里， **jsliang** 并不推荐小伙伴这么做，想要学好一门新的技术，就不能因为旧的技术而限制了自己的观念。时代在进步，科技在发展，我们不学更多的知识，只能被淘汰在前端的潮流中。
+
+<br>
+
+## <a name="chapter-nighteen" id="chapter-nighteen">3.18 onLaunch 加载问题</a>
+
+&emsp;[返回目录](#catalog-chapter-three-nighteen)
+
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
+
+&emsp;微信小程序 app onLaunch异步请求，在没有请求执行完就加载首页了的问题：[地址](https://blog.csdn.net/qq_35860064/article/details/82590573)
 
 <br>
 
