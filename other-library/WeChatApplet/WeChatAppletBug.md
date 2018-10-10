@@ -1,7 +1,7 @@
 # 微信小程序 100 坑
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-10-10 09:25:41**
+> Recently revised in **2018-10-10 14:48:16**
 
 <br>
 
@@ -28,7 +28,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **40** 个坑。  
+&emsp;目前已有 **41** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个大部分。  
@@ -71,7 +71,7 @@
 | &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 微信小程序分享](#chapter-ten)                                | 1   |
 | &emsp;<a name="catalog-chapter-three-eleven" id="catalog-chapter-three-eleven"></a>[3.11 border-box 设置](#chapter-eleven)                      | 1   |
 | &emsp;<a name="catalog-chapter-three-twelve" id="catalog-chapter-three-twelve"></a>[3.12 自定义导航条](#chapter-twelve)                         | 6   |
-| &emsp;&emsp;[3.12.1 WeUI 选项卡](#chapter-twelve-one)                                                                                          |     |
+| &emsp;&emsp;[3.12.1 WeUI 选项卡](#chapter-twelve-one)                                                                                           |     |
 | &emsp;&emsp;[3.12.2 自定义选项卡效果与实现](#chapter-twelve-two)                                                                                |     |
 | &emsp;&emsp;[3.12.3 绑定事件如何传递数据](#chapter-twelve-three)                                                                                |     |
 | &emsp;&emsp;[3.12.4 不允许驼峰](#chapter-twelve-four)                                                                                           |     |
@@ -88,8 +88,10 @@
 | &emsp;<a name="catalog-chapter-three-fifteen" id="catalog-chapter-three-fifteen"></a>[3.15 诡异的 open-type](#chapter-fifteen)                  | 1   |
 | &emsp;<a name="catalog-chapter-three-sixteen" id="catalog-chapter-three-sixteen"></a>[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-sixteen) | 1   |
 | &emsp;<a name="catalog-chapter-three-seventeen" id="catalog-chapter-three-seventeen"></a>[3.17 下拉刷新和上拉加载](#chapter-seventeen)          | 2   |
-| &emsp;<a name="catalog-chapter-three-eighteen" id="catalog-chapter-three-eighteen"></a>[3.18 获取 input 的值](#chapter-eighteen)          | 1   |
-| &emsp;<a name="catalog-chapter-three-nighteen" id="catalog-chapter-three-nighteen"></a>[3.19 onLaunch 加载问题](#chapter-nighteen)          | 1   |
+| &emsp;<a name="catalog-chapter-three-eighteen" id="catalog-chapter-three-eighteen"></a>[3.18 获取 input 的值](#chapter-eighteen)                | 1   |
+| &emsp;<a name="catalog-chapter-three-nighteen" id="catalog-chapter-three-nighteen"></a>[3.19 onLaunch 加载问题](#chapter-nighteen)              | 1   |
+| &emsp;&emsp;[3.19.1 小程序执行顺序](#chapter-nighteen-one)                                                                                |     |
+| &emsp;&emsp;[3.19.2 路由守卫](#chapter-nighteen-two)                                                                                             |     |
 
 <br>
 
@@ -1829,12 +1831,12 @@ Page({
 
 &emsp;所以，总结下就有了四种弹窗写法：
 
-| 类型      | 说明                                                                                       | 地址                                                                                                                           |
-| --------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| 类型      | 说明                                                                                                              | 地址                                                                                                                           |
+| --------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | 模态弹窗  | wx.showModal(Object) - 模态弹窗就是上面的第一种弹窗，它可以给你选择【取消】或者【确定】                           | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showModal)          |
-| \<modal\> | \<modal\>是上面的第二种弹窗，可以提供用户填写                                              | [链接](https://blog.csdn.net/qq_35181466/article/details/80405248)                                                             |
+| \<modal\> | \<modal\>是上面的第二种弹窗，可以提供用户填写                                                                     | [链接](https://blog.csdn.net/qq_35181466/article/details/80405248)                                                             |
 | 消息弹窗  | wx.showToast(Object) - 消息弹窗就是操作成功或者操作失败的那一刻，系统的提示弹窗，无需用户操作，可设定几秒自动关闭 | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showToast)          |
-| 操作菜单  | wx.showActionSheet(Object) - 操作菜单类似于弹出的下拉菜单，提供你选择其中某项或者【取消】                               | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showActionSheet.html?search-key=showActionSheet) |
+| 操作菜单  | wx.showActionSheet(Object) - 操作菜单类似于弹出的下拉菜单，提供你选择其中某项或者【取消】                         | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showActionSheet.html?search-key=showActionSheet) |
 
 &emsp;在这里，就讲完了微信小程序的四种弹窗形式了。如果你改样式改的烦啊烦的，可能你需要封装一个属于自己的弹窗？嘿嘿，说不定你的产品经理会有兴趣让你开发一个 `beautiful` 弹窗的~  
 &emsp;这坑我不填，我没碰到~碰到了再说！在这里预留下这个坑，哈哈。
@@ -2066,13 +2068,30 @@ Page({
 
 <br>
 
-## <a name="chapter-nighteen" id="chapter-nighteen">3.18 onLaunch 加载问题</a>
+## <a name="chapter-nighteen" id="chapter-nighteen">3.19 onLaunch 加载问题与路由守卫</a>
 
 &emsp;[返回目录](#catalog-chapter-three-nighteen)
 
-> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
+
+### <a name="chapter-nighteen-one" id="chapter-nighteen-one">3.19.1 小程序执行顺序</a>
+
+&emsp;[返回目录](#catalog-chapter-three-nighteen)
 
 &emsp;微信小程序 app onLaunch异步请求，在没有请求执行完就加载首页了的问题：[地址](https://blog.csdn.net/qq_35860064/article/details/82590573)
+1. 先加载 `import` 导入
+2. 再执行 `index.js` 的 `onload`
+3. 最后才执行 `app.js` 中的 `onLaunch`
+
+<br>
+
+### <a name="chapter-nighteen-two" id="chapter-nighteen-two">3.19.2 路由守卫</a>
+
+&emsp;[返回目录](#catalog-chapter-three-nighteen)
+
+&emsp;设置 `onLogin` 的 `Storage`，在 `index.js` 中的 `onload` 进行判断，如果用户未进行登录，则跳转到登录页面；如果用户进行了登录，在登录时设置 `onLogin` 为 `true`。
+
+<br>
 
 <br>
 
