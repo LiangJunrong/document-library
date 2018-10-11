@@ -32,8 +32,8 @@
 &emsp;目前已有 **43** 个坑。  
 
 > 请各位按目录检索时注意：  
-> 3.1、3.2、3.3…… 等二级目录对应着一个大部分。  
-> 3.1.1、3.1.2…… 等三级目录将该二级目录这个大块详细拆分成诸多小坑，方便查看。  
+> 3.1、3.2、3.3…… 等二级目录对应着一个章节。  
+> 3.1.1、3.1.2、3.1.3…… 等三级目录将该二级目录这个大章节详细拆分成诸多小坑，方便查看。  
 
 <br>
 
@@ -2285,27 +2285,27 @@ wx.login({
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
-&emsp;在页面布局中，我们经常使用列表展示，然后在列表展示上，会看到最后一条数据下面没有长横杠或者没有点虚线。
-&emsp;那么，当数据读取到最后一条的时候，如何判断已经到了最后一条，不再展示点虚线呢？
+&emsp;在页面布局中，我们经常使用列表展示，然后在列表展示上，有时候该列表的最后一条数据下面是没有下划线或者虚线的。  
+&emsp;那么，当数据读取到最后一条的时候，如何判断已经到了最后一条，不再展示下划线或者虚线呢？
 
 > *.wxml
 ```
-<view class="top-recommended-content">
+<view class="content">
   <view wx:for="{{topRecommended}}" wx:key="{{item.recommendId}}" wx:for-index="index">
     <navigator url="../indexProduct/indexProduct">
-      <view class="top-recommended-content-item">
+      <view class="content-item">
         <image src="{{item.coverImage}}"></image>
-        <view class="top-recommended-content-item-text">
-          <text class="top-recommended-content-item-text-title">{{item.recommendTitle}}</text>
-          <text class="top-recommended-content-item-text-content">{{item.recommendDescription}}</text>
-          <view class="top-recommended-content-item-text-row">
-            <text class="top-recommended-content-item-text-user">{{item.userCount}}人在用</text>
-            <text class="top-recommended-content-item-text-price">￥{{item.productPrice}}</text>
+        <view class="content-item-text">
+          <text class="content-item-text-title">{{item.recommendTitle}}</text>
+          <text class="content-item-text-content">{{item.recommendDescription}}</text>
+          <view class="content-item-text-row">
+            <text class="content-item-text-user">{{item.userCount}}人在用</text>
+            <text class="content-item-text-price">￥{{item.productPrice}}</text>
           </view>
         </view>
       </view>
     </navigator>
-    <view class="{{(index+1) == topRecommended.length ? 'top-recommended-content-item-gap-hide' : 'top-recommended-content-item-gap'}}">
+    <view class="{{(index+1) == topRecommended.length ? 'content-item-gap-hide' : 'content-item-gap'}}">
       <image src="../../public/index_top_recommended_content_item_gap.png"></image>
     </view>
   </view>
@@ -2314,7 +2314,19 @@ wx.login({
 
 <br>
 
-&emsp;在这里，我们对要循环的对象使用 `wx:for-index="index` ，然后，我们在下划线/点虚线位置进行 `class` 判断，如果 `index+1 == topRecommended.length`，那么我们就换一个样式：`class="{{(index+1) == topRecommended.length ? 'class1' : 'class2'}}"`
+&emsp;在这里，我们对要循环的对象使用 `wx:for-index="index` ，即：
+
+```
+<view wx:for="{{topRecommended}}" wx:key="{{item.recommendId}}" wx:for-index="index">
+```
+
+&emsp;然后，我们在下划线/点虚线位置进行 `class` 判断，如果 `index+1 == topRecommended.length`，那么我们就换一个样式：`class="{{(index+1) == topRecommended.length ? 'class1' : 'class2'}}"`，即：
+
+```
+<view class="{{(index+1) == topRecommended.length ? 'content-item-gap-hide' : 'content-item-gap'}}">
+```
+
+&emsp;这样，我们就做到了判断是否处于最后一条数据，从而通过 `class` 来隐藏下划线或者虚线。
 
 <br>
 
