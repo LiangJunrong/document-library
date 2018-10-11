@@ -1,4 +1,4 @@
-# 微信小程序 100 坑
+# 微信小程序 bug 集中营
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
 > Recently revised in **2018-10-11 20:54:40**
@@ -100,6 +100,8 @@
 # <a name="chapter-two" id="chapter-two">二 前言</a>
 
 &emsp;[返回目录](#catalog-chapter-two)
+
+> 本文章原名【微信小程序 100 坑】
 
 &emsp;微信小程序的开发教程，或许写出来是非常受欢迎的。  
 &emsp;但是：
