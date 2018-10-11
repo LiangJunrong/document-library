@@ -1,7 +1,7 @@
 # 微信小程序 100 坑
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-10-11 16:36:10**
+> Recently revised in **2018-10-11 20:54:40**
 
 <br>
 
@@ -9,7 +9,7 @@
 
 # 写在前面
 
-&emsp;微信小程序新手实践记录:  
+&emsp;首个微信小程序实践记录:  
 &emsp;工作量: PSD 18 张 (导出的 JPG 30 张)  
 &emsp;耗时：12 个工作日  
 &emsp;总结: 理性上，需要 3 周工作日（工作 15 天）搞定，前后端对接口另计。实际上，12 个工作日可以搞定所有页面，但是应该往前铺 1.5D 熟悉框架，往后铺 1.5D 整理代码。当然每个人的耗时可能不同，可根据个人实际情况进行调整。  
@@ -92,7 +92,7 @@
 | &emsp;<a name="catalog-chapter-three-nighteen" id="catalog-chapter-three-nighteen"></a>[3.19 onLaunch 加载问题](#chapter-nighteen)              | 2   |
 | &emsp;&emsp;[3.19.1 小程序执行顺序](#chapter-nighteen-one)                                                                                      |     |
 | &emsp;&emsp;[3.19.2 路由守卫](#chapter-nighteen-two)                                                                                            |     |
-| &emsp;<a name="catalog-chapter-three-twenty" id="catalog-chapter-three-twenty"></a>[3.20 api.js 封装](#chapter-twenty)                          | 1   |
+| &emsp;<a name="catalog-chapter-three-twenty" id="catalog-chapter-three-twenty"></a>[3.20 request 封装与 api 抽离](#chapter-twenty)                          | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-one" id="catalog-chapter-three-twenty-one"></a>[3.21 判断数据是否读取完](#chapter-twenty-one)                          | 1   |
 
 <br>
@@ -2131,7 +2131,7 @@ loginSubmit: function(e) {
 
 <br>
 
-## <a name="chapter-twenty" id="chapter-twenty">3.20 api.js 封装</a>
+## <a name="chapter-twenty" id="chapter-twenty">3.20 request 封装与 api 抽离</a>
 
 &emsp;[返回目录](#catalog-chapter-three-twenty)
 
