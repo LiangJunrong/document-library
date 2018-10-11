@@ -1,7 +1,7 @@
 # 微信小程序 100 坑
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-10-11 15:32:28**
+> Recently revised in **2018-10-11 16:36:10**
 
 <br>
 
@@ -28,7 +28,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **42** 个坑。  
+&emsp;目前已有 **43** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个大部分。  
@@ -93,6 +93,7 @@
 | &emsp;&emsp;[3.19.1 小程序执行顺序](#chapter-nighteen-one)                                                                                      |     |
 | &emsp;&emsp;[3.19.2 路由守卫](#chapter-nighteen-two)                                                                                            |     |
 | &emsp;<a name="catalog-chapter-three-twenty" id="catalog-chapter-three-twenty"></a>[3.20 api.js 封装](#chapter-twenty)                          | 1   |
+| &emsp;<a name="catalog-chapter-three-twenty-one" id="catalog-chapter-three-twenty-one"></a>[3.21 判断数据是否读取完](#chapter-twenty-one)                          | 1   |
 
 <br>
 
@@ -2272,6 +2273,45 @@ wx.login({
 ![图](../../public-repertory/img/other-WechatApplet-bug-14.png)
 
 &emsp;这样，我们就成功做了 `request` 的封装，并通过调用 `api.js` 的形式，分离了代码，从而更方便地进行编程。
+
+<br>
+
+## <a name="chapter-twenty-one" id="chapter-twenty-one">3.21 判断数据是否读取完</a>
+
+&emsp;[返回目录](#catalog-chapter-three-twenty-one)
+
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
+
+&emsp;在页面布局中，我们经常使用列表展示，然后在列表展示上，会看到最后一条数据下面没有长横杠或者没有点虚线。
+&emsp;那么，当数据读取到最后一条的时候，如何判断已经到了最后一条，不再展示点虚线呢？
+
+> *.wxml
+```
+<view class="top-recommended-content">
+  <view wx:for="{{topRecommended}}" wx:key="{{item.recommendId}}" wx:for-index="index">
+    <navigator url="../indexProduct/indexProduct">
+      <view class="top-recommended-content-item">
+        <image src="{{item.coverImage}}"></image>
+        <view class="top-recommended-content-item-text">
+          <text class="top-recommended-content-item-text-title">{{item.recommendTitle}}</text>
+          <text class="top-recommended-content-item-text-content">{{item.recommendDescription}}</text>
+          <view class="top-recommended-content-item-text-row">
+            <text class="top-recommended-content-item-text-user">{{item.userCount}}人在用</text>
+            <text class="top-recommended-content-item-text-price">￥{{item.productPrice}}</text>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <view class="{{(index+1) == topRecommended.length ? 'top-recommended-content-item-gap-hide' : 'top-recommended-content-item-gap'}}">
+      <image src="../../public/index_top_recommended_content_item_gap.png"></image>
+    </view>
+  </view>
+</view>
+```
+
+<br>
+
+&emsp;在这里，我们对要循环的对象使用 `wx:for-index="index` ，然后，我们在下划线/点虚线位置进行 `class` 判断，如果 `index+1 == topRecommended.length`，那么我们就换一个样式：`class="{{(index+1) == topRecommended.length ? 'class1' : 'class2'}}"`
 
 <br>
 
