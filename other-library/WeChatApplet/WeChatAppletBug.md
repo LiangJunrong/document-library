@@ -1,7 +1,7 @@
 # 微信小程序 100 坑
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-10-10 14:48:16**
+> Recently revised in **2018-10-11 12:04:17**
 
 <br>
 
@@ -28,7 +28,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **41** 个坑。  
+&emsp;目前已有 **42** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个大部分。  
@@ -89,9 +89,10 @@
 | &emsp;<a name="catalog-chapter-three-sixteen" id="catalog-chapter-three-sixteen"></a>[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-sixteen) | 1   |
 | &emsp;<a name="catalog-chapter-three-seventeen" id="catalog-chapter-three-seventeen"></a>[3.17 下拉刷新和上拉加载](#chapter-seventeen)          | 2   |
 | &emsp;<a name="catalog-chapter-three-eighteen" id="catalog-chapter-three-eighteen"></a>[3.18 获取 input 的值](#chapter-eighteen)                | 1   |
-| &emsp;<a name="catalog-chapter-three-nighteen" id="catalog-chapter-three-nighteen"></a>[3.19 onLaunch 加载问题](#chapter-nighteen)              | 1   |
-| &emsp;&emsp;[3.19.1 小程序执行顺序](#chapter-nighteen-one)                                                                                |     |
-| &emsp;&emsp;[3.19.2 路由守卫](#chapter-nighteen-two)                                                                                             |     |
+| &emsp;<a name="catalog-chapter-three-nighteen" id="catalog-chapter-three-nighteen"></a>[3.19 onLaunch 加载问题](#chapter-nighteen)              | 2   |
+| &emsp;&emsp;[3.19.1 小程序执行顺序](#chapter-nighteen-one)                                                                                      |     |
+| &emsp;&emsp;[3.19.2 路由守卫](#chapter-nighteen-two)                                                                                            |     |
+| &emsp;<a name="catalog-chapter-three-twenty" id="catalog-chapter-three-twenty"></a>[3.20 api.js 封装](#chapter-twenty)                          | 1   |
 
 <br>
 
@@ -2092,6 +2093,148 @@ Page({
 &emsp;设置 `onLogin` 的 `Storage`，在 `index.js` 中的 `onload` 进行判断，如果用户未进行登录，则跳转到登录页面；如果用户进行了登录，在登录时设置 `onLogin` 为 `true`。
 
 <br>
+
+## <a name="chapter-twenty" id="chapter-twenty">3.20 api.js 封装</a>
+
+&emsp;[返回目录](#catalog-chapter-three-twenty)
+
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
+
+&emsp;在这里，**jsliang** 在 **Ansen江** 的推荐下，尝试对接口 `request` 进行了 `promise` 封装，并做了 `api.js` 的分离。  
+
+> api.js
+```
+/*
+ * @Author: jsliang
+ * @Date: 2018-10-11 09:11:26
+ * @LastEditors: jsliang
+ * @LastEditTime: 2018-10-11 09:11:29
+ * @Description: 企业宝接口文件
+ */
+
+// 引入请求头文件
+import header from './header.js';
+
+// 加载中
+const Loading = {
+  show() {
+    wx.showLoading({
+      title: '加载中'
+    });
+  },
+  hide() {
+    wx.hideLoading()
+  }
+};
+
+// 加载中白名单
+const loadingWhite = [
+  'index/index'
+]
+
+// 将请求进行 Promise 封装
+const fetch = ({url, data, header}) => {
+  // 白名单地址会显示加载中状态
+  if(loadingWhite.includes(url)) {
+    Loading.show();
+  }
+  
+  // 打印接口请求的信息
+  console.log(`【step1】API接口：${url}`);
+  console.log("【step2】header请求头：");
+  console.log(header);
+  console.log("【step3】data传参：");
+  console.log(data);
+
+  // 返回 Promise
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: getApp().globalData.api + url,
+      header: header,
+      data: data,
+      success: res => {
+        Loading.hide();
+        
+        // 成功时的处理 
+        if (res.data.code == 0) {
+          console.log("【step4】请求成功：");
+          console.log(res.data);
+          return resolve(res.data);
+        } else {
+          wx.showModal({
+            title: '请求失败',
+            content: res.data.message,
+            showCancel: false
+          });
+        }
+      },
+      fail: err => {
+        Loading.hide();
+
+        // 失败时的处理
+        console.log(err);
+        return reject(err);
+      }
+    })
+  })
+
+}
+
+/**
+ * code 换取 openId
+ * @data {
+ *   jsCode - wx.login() 返回的 code
+ * }
+ */
+export const wxLogin = data => {
+  return fetch({
+    url: "tbcUser/getWechatOpenId",
+    header: header.newHeader(),
+    data: data
+  })
+}
+```
+
+<br>
+
+&emsp;在上面进行了分离 `api.js` 后，接着调用 `api.js`：
+
+> login.js
+```
+import {
+  wxLogin
+} from "../../utils/api.js"
+
+// 登录
+wx.login({
+  success: res => {
+
+    // 发送 code ，获取 openId
+    console.log("\n【API：获取 openId】");
+
+    wxLogin({
+      jsCode: res.code
+    }).then(
+      res => {
+        console.log("【step5】返回成功处理：");
+        console.log(res);
+      },
+      err => {
+        console.log("【step5】返回失败处理：");
+        console.log(err);
+      }
+    )
+  }
+})
+```
+
+<br>
+
+&emsp;输出结果：
+
+![图](../../public-repertory/img/other-WechatApplet-bug-14.png)
+
+&emsp;这样，我们就成功做了 `request` 的封装，并通过调用 `api.js` 的形式，分离了代码，从而更方便地进行编程。
 
 <br>
 
