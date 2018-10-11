@@ -2079,10 +2079,18 @@ Page({
 
 &emsp;[返回目录](#catalog-chapter-three-nighteen)
 
-&emsp;微信小程序 app onLaunch异步请求，在没有请求执行完就加载首页了的问题：[地址](https://blog.csdn.net/qq_35860064/article/details/82590573)
-1. 先加载 `import` 导入
-2. 再执行 `index.js` 的 `onload`
-3. 最后才执行 `app.js` 中的 `onLaunch`
+&emsp;这次的需求是：判断用户是否登录，如果登录了就跳转到首页，如果没登录就跳转到登录页。  
+&emsp;我们都知道，在微信小程序中，有个 `onLaunch` 方法，微信小程序官方文档对其描述就是：每个页面进来需要先加载 `onLaunch` 方法，再去执行其他方法。然后，在 **jsliang** 尝试设置在 `onLaunch` 中调用 `wx.login()`，却发现，`index.js` 的 `onLoad` 方法是先于 `onLaunch` 执行的，这导致我们没法预先获取到需要的信息：    
+
+1. 先执行 `index.js` 的 `onload`
+2. 再才执行 `app.js` 中的 `onLaunch`
+
+&emsp;迫于无奈，**jsliang** 对其进行了百度：[地址](https://blog.csdn.net/qq_35860064/article/details/82590573) 。通过百度这篇文章发现，有两个解决方案：
+
+1. 设置启动页，成功再返回首页
+2. 使用 `Promise` 来进行进程管理
+
+&emsp;但是，由于 **jsliang** 对于 `Promise` 的做法，觉得其太过复杂，故新增了一个 `page/login`。
 
 <br>
 
@@ -2090,7 +2098,35 @@ Page({
 
 &emsp;[返回目录](#catalog-chapter-three-nighteen)
 
-&emsp;设置 `onLogin` 的 `Storage`，在 `index.js` 中的 `onload` 进行判断，如果用户未进行登录，则跳转到登录页面；如果用户进行了登录，在登录时设置 `onLogin` 为 `true`。
+&emsp;那么，如何在用户进入首页阅读文章、查看产品之前，先对用户进行微信授权、账号登录呢？
+1. 设置 `onLogin` 的 `Storage`，在 `index.js` 中的 `onload` 进行判断，如果用户未进行登录，则使用 `wx.redirectTo()` 跳转到登录页面：
+
+> index.js
+
+```
+onLoad: function (options) {
+  if (!wx.getStorageSync('isLogin')) {
+    wx.redirectTo({
+      url: '../login/login',
+    })
+  }
+}
+```
+
+<br>
+
+2. 如果用户进行了登录，在登录时设置 `onLogin` 为 `true`。
+
+> login.js
+
+```
+loginSubmit: function(e) {
+  wx.setStorageSync('isLogin', true);
+}
+```
+<br>
+
+&emsp;这样，我们就做到了路由守卫，即你不登录，不给跳转到首页。
 
 <br>
 
