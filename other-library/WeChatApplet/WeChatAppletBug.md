@@ -1,7 +1,7 @@
 # 微信小程序 100 坑
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-10-11 13:26:57**
+> Recently revised in **2018-10-11 15:32:28**
 
 <br>
 
@@ -2260,6 +2260,7 @@ wx.login({
         console.log(err);
       }
     )
+
   }
 })
 ```
