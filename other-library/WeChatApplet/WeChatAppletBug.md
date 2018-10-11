@@ -2100,7 +2100,7 @@ Page({
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
-&emsp;在这里，**jsliang** 在 **Ansen江** 的推荐下，尝试对接口 `request` 进行了 `promise` 封装，并做了 `api.js` 的分离。  
+&emsp;在 **Ansen江** 的推荐下，参照 **Ansen江** 的 `api.js`，对我这边的小程序接口 `request` 进行了 `promise` 封装，并做了 `api.js` 的分离。  
 
 > api.js
 ```
@@ -2109,7 +2109,7 @@ Page({
  * @Date: 2018-10-11 09:11:26
  * @LastEditors: jsliang
  * @LastEditTime: 2018-10-11 09:11:29
- * @Description: 企业宝接口文件
+ * @Description: 接口文件
  */
 
 // 引入请求头文件
@@ -2197,7 +2197,7 @@ export const wxLogin = data => {
 
 <br>
 
-&emsp;在上面进行了分离 `api.js` 后，接着调用 `api.js`：
+&emsp;在上面进行了分离 `api.js` 后，接着在其他地方调用 `api.js`：
 
 > login.js
 ```
