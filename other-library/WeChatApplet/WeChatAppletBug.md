@@ -2355,7 +2355,7 @@ wx.login({
 
 &emsp;问题提出者：掘金 [史前图腾](https://juejin.im/user/5a311af051882554bd510dd0)。  
 &emsp;问题反馈：`wx.getFileSystemManager().readdir` 文件夹读取 `api` 报错，但仍会返回结果。  
-&emsp;问题解决：已联系大佬，等待回复。
+&emsp;问题解决：这个 api 作用是读取某个目录下的文件名，正常会返回文件名数组，但是现在 IDE 在返回数据之前会报 'indexOf' 未定义的错误，并不影响api 使用。我看官方论坛上月就有人反应了，至今未修复
 
 ## <a name="chapter-four-two" id="chapter-four-two">4.2 textarea问题多多</a>
 
