@@ -1,7 +1,7 @@
 # 微信小程序 bug 集中营
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-10-11 20:54:40**
+> Recently revised in **2018-10-13 11:15:16**
 
 <br>
 
@@ -69,32 +69,35 @@
 | &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 搜索框](#chapter-three-night)                             | 2   |
 | &emsp;&emsp;[3.9.1 margin-top 无法上浮](#chapter-three-night-one)                                                                               |     |
 | &emsp;&emsp;[3.9.2 改造 WeUI 搜索框](#chapter-three-night-two)                                                                                  |     |
-| &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 微信小程序分享](#chapter-ten)                                | 1   |
-| &emsp;<a name="catalog-chapter-three-eleven" id="catalog-chapter-three-eleven"></a>[3.11 border-box 设置](#chapter-eleven)                      | 1   |
-| &emsp;<a name="catalog-chapter-three-twelve" id="catalog-chapter-three-twelve"></a>[3.12 自定义导航条](#chapter-twelve)                         | 6   |
-| &emsp;&emsp;[3.12.1 WeUI 选项卡](#chapter-twelve-one)                                                                                           |     |
-| &emsp;&emsp;[3.12.2 自定义选项卡效果与实现](#chapter-twelve-two)                                                                                |     |
-| &emsp;&emsp;[3.12.3 绑定事件如何传递数据](#chapter-twelve-three)                                                                                |     |
-| &emsp;&emsp;[3.12.4 不允许驼峰](#chapter-twelve-four)                                                                                           |     |
-| &emsp;&emsp;[3.12.5 获取 data 数据](#chapter-twelve-five)                                                                                       |     |
-| &emsp;&emsp;[3.12.6 实现文字省略](#chapter-twelve-six)                                                                                          |     |
-| &emsp;<a name="catalog-chapter-three-thirteen" id="catalog-chapter-three-thirteen"></a>[3.13 黑科技：\<modal\>](#chapter-thirteen)              | 2   |
-| &emsp;&emsp;[3.13.1 被遗弃的 \<modal\>](#chapter-thirteen-one)                                                                                  |     |
-| &emsp;&emsp;[3.13.2 四种弹窗写法](#chapter-thirteen-two)                                                                                        |     |
-| &emsp;<a name="catalog-chapter-three-fourteen" id="catalog-chapter-three-fourteen"></a>[3.14 小程序解析 HTML](#chapter-fourteen)                | 5   |
-| &emsp;&emsp;[3.14.1 解析 HTML 的三种方法](#chapter-fourteen-one)                                                                                |     |
-| &emsp;&emsp;[3.14.2 wxParse](#chapter-fourteen-two)                                                                                             |     |
-| &emsp;&emsp;[3.14.3 rich-text](#chapter-fourteen-three)                                                                                         |     |
-| &emsp;&emsp;[3.14.4 web-view](#chapter-fourteen-four)                                                                                           |     |
-| &emsp;<a name="catalog-chapter-three-fifteen" id="catalog-chapter-three-fifteen"></a>[3.15 诡异的 open-type](#chapter-fifteen)                  | 1   |
-| &emsp;<a name="catalog-chapter-three-sixteen" id="catalog-chapter-three-sixteen"></a>[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-sixteen) | 1   |
-| &emsp;<a name="catalog-chapter-three-seventeen" id="catalog-chapter-three-seventeen"></a>[3.17 下拉刷新和上拉加载](#chapter-seventeen)          | 2   |
-| &emsp;<a name="catalog-chapter-three-eighteen" id="catalog-chapter-three-eighteen"></a>[3.18 获取 input 的值](#chapter-eighteen)                | 1   |
-| &emsp;<a name="catalog-chapter-three-nighteen" id="catalog-chapter-three-nighteen"></a>[3.19 onLaunch 加载问题](#chapter-nighteen)              | 2   |
-| &emsp;&emsp;[3.19.1 小程序执行顺序](#chapter-nighteen-one)                                                                                      |     |
-| &emsp;&emsp;[3.19.2 路由守卫](#chapter-nighteen-two)                                                                                            |     |
-| &emsp;<a name="catalog-chapter-three-twenty" id="catalog-chapter-three-twenty"></a>[3.20 request 封装与 api 抽离](#chapter-twenty)                          | 1   |
-| &emsp;<a name="catalog-chapter-three-twenty-one" id="catalog-chapter-three-twenty-one"></a>[3.21 判断数据是否读取完](#chapter-twenty-one)                          | 1   |
+| &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 微信小程序分享](#chapter-three-ten)                                | 1   |
+| &emsp;<a name="catalog-chapter-three-eleven" id="catalog-chapter-three-eleven"></a>[3.11 border-box 设置](#chapter-three-eleven)                      | 1   |
+| &emsp;<a name="catalog-chapter-three-twelve" id="catalog-chapter-three-twelve"></a>[3.12 自定义导航条](#chapter-three-twelve)                         | 6   |
+| &emsp;&emsp;[3.12.1 WeUI 选项卡](#chapter-three-twelve-one)                                                                                           |     |
+| &emsp;&emsp;[3.12.2 自定义选项卡效果与实现](#chapter-three-twelve-two)                                                                                |     |
+| &emsp;&emsp;[3.12.3 绑定事件如何传递数据](#chapter-three-twelve-three)                                                                                |     |
+| &emsp;&emsp;[3.12.4 不允许驼峰](#chapter-three-twelve-four)                                                                                           |     |
+| &emsp;&emsp;[3.12.5 获取 data 数据](#chapter-three-twelve-five)                                                                                       |     |
+| &emsp;&emsp;[3.12.6 实现文字省略](#chapter-three-twelve-six)                                                                                          |     |
+| &emsp;<a name="catalog-chapter-three-thirteen" id="catalog-chapter-three-thirteen"></a>[3.13 黑科技：\<modal\>](#chapter-three-thirteen)              | 2   |
+| &emsp;&emsp;[3.13.1 被遗弃的 \<modal\>](#chapter-three-thirteen-one)                                                                                  |     |
+| &emsp;&emsp;[3.13.2 四种弹窗写法](#chapter-three-thirteen-two)                                                                                        |     |
+| &emsp;<a name="catalog-chapter-three-fourteen" id="catalog-chapter-three-fourteen"></a>[3.14 小程序解析 HTML](#chapter-three-fourteen)                | 5   |
+| &emsp;&emsp;[3.14.1 解析 HTML 的三种方法](#chapter-three-fourteen-one)                                                                                |     |
+| &emsp;&emsp;[3.14.2 wxParse](#chapter-three-fourteen-two)                                                                                             |     |
+| &emsp;&emsp;[3.14.3 rich-text](#chapter-three-fourteen-three)                                                                                         |     |
+| &emsp;&emsp;[3.14.4 web-view](#chapter-three-fourteen-four)                                                                                           |     |
+| &emsp;<a name="catalog-chapter-three-fifteen" id="catalog-chapter-three-fifteen"></a>[3.15 诡异的 open-type](#chapter-three-fifteen)                  | 1   |
+| &emsp;<a name="catalog-chapter-three-sixteen" id="catalog-chapter-three-sixteen"></a>[3.16 \<button\>去样式及其内嵌\<image\>](#chapter-three-sixteen) | 1   |
+| &emsp;<a name="catalog-chapter-three-seventeen" id="catalog-chapter-three-seventeen"></a>[3.17 下拉刷新和上拉加载](#chapter-three-seventeen)          | 2   |
+| &emsp;<a name="catalog-chapter-three-eighteen" id="catalog-chapter-three-eighteen"></a>[3.18 获取 input 的值](#chapter-three-eighteen)                | 1   |
+| &emsp;<a name="catalog-chapter-three-nighteen" id="catalog-chapter-three-nighteen"></a>[3.19 onLaunch 加载问题](#chapter-three-nighteen)              | 2   |
+| &emsp;&emsp;[3.19.1 小程序执行顺序](#chapter-three-nighteen-one)                                                                                      |     |
+| &emsp;&emsp;[3.19.2 路由守卫](#chapter-three-nighteen-two)                                                                                            |     |
+| &emsp;<a name="catalog-chapter-three-twenty" id="catalog-chapter-three-twenty"></a>[3.20 request 封装与 api 抽离](#chapter-three-twenty)              | 1   |
+| &emsp;<a name="catalog-chapter-three-twenty-one" id="catalog-chapter-three-twenty-one"></a>[3.21 判断数据是否读取完](#chapter-three-twenty-one)       | 1   |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 网友补充](#chatper-four)                                                       |     |
+| &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 文件夹读取报错](#chapter-four-one)       | 1   |
+| &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 textarea问题多多](#chapter-four-two)       | 1   |
 
 <br>
 
@@ -120,7 +123,7 @@
 
 &emsp;[返回目录](#catalog-chapter-three)
 
-&emsp; 这里的坑：
+&emsp;这里的坑：
 * 有的来源于微信自带的开发文档：[小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/component/)。在文档中，你会发现很多的乐趣！毕竟，你不知道什么时候中文成为了你的语言障碍~  
 * 有的是开发中遇到的，然后结合大量的百度结果，进行的有效性总结。
 
@@ -1181,7 +1184,7 @@ Page({
 
 <br>
 
-## <a name="chapter-ten" id="chapter-ten">3.10 微信小程序分享</a>
+## <a name="chapter-three-ten" id="chapter-three-ten">3.10 微信小程序分享</a>
 
 &emsp;[返回目录](#catalog-chapter-three-ten)
 
@@ -1207,7 +1210,7 @@ onShareAppMessage: function (res) {
 
 <br>
 
-## <a name="chapter-eleven" id="chapter-eleven">3.11 border-box 设置</a>
+## <a name="chapter-three-eleven" id="chapter-three-eleven">3.11 border-box 设置</a>
 
 &emsp;[返回目录](#catalog-chapter-three-eleven)
 
@@ -1255,7 +1258,7 @@ view {
 
 <br>
 
-## <a name="chapter-twelve" id="chapter-twelve">3.12 自定义选项卡</a>
+## <a name="chapter-three-twelve" id="chapter-three-twelve">3.12 自定义选项卡</a>
 
 &emsp;[返回目录](#catalog-chapter-three-twelve)
 
@@ -1263,7 +1266,7 @@ view {
 
 <br>
 
-### <a name="chapter-twelve-one" id="chapter-twelve-one">3.12.1 WeUI 选项卡</a>
+### <a name="chapter-three-twelve-one" id="chapter-three-twelve-one">3.12.1 WeUI 选项卡</a>
 
 &emsp;[返回目录](#catalog-chapter-three-twelve)
 
@@ -1396,7 +1399,7 @@ Page({
 
 <br>
 
-### <a name="chapter-twelve-two" id="chapter-twelve-two">3.12.2 自定义选项卡效果与实现</a>
+### <a name="chapter-three-twelve-two" id="chapter-three-twelve-two">3.12.2 自定义选项卡效果与实现</a>
 
 &emsp;[返回目录](#catalog-chapter-three-twelve)
 
@@ -1678,7 +1681,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-### <a name="chapter-twelve-three" id="chapter-twelve-three">3.12.3 绑定事件如何传递数据</a>
+### <a name="chapter-three-twelve-three" id="chapter-three-twelve-three">3.12.3 绑定事件如何传递数据</a>
 
 &emsp;[返回目录](#catalog-chapter-three-twelve)
 
@@ -1695,7 +1698,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-### <a name="chapter-twelve-four" id="chapter-twelve-four">3.12.4 不允许驼峰</a>
+### <a name="chapter-three-twelve-four" id="chapter-three-twelve-four">3.12.4 不允许驼峰</a>
 
 &emsp;[返回目录](#catalog-chapter-three-twelve)
 
@@ -1705,7 +1708,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-### <a name="chapter-twelve-five" id="chapter-twelve-five">3.12.5 获取 data 数据</a>
+### <a name="chapter-three-twelve-five" id="chapter-three-twelve-five">3.12.5 获取 data 数据</a>
 
 &emsp;[返回目录](#catalog-chapter-three-twelve)
 
@@ -1726,7 +1729,7 @@ tabs2NavClick: function(e) {
 
 <br>
 
-### <a name="chapter-twelve-six" id="chapter-twelve-six">3.12.6 实现文字省略</a>
+### <a name="chapter-three-twelve-six" id="chapter-three-twelve-six">3.12.6 实现文字省略</a>
 
 &emsp;[返回目录](#catalog-chapter-three-twelve)
 
@@ -1748,7 +1751,7 @@ text {
 
 <br>
 
-## <a name="chapter-thirteen" id="chapter-thirteen">3.13 黑科技：\<modal\></a>
+## <a name="chapter-three-thirteen" id="chapter-three-thirteen">3.13 黑科技：\<modal\></a>
 
 &emsp;[返回目录](#catalog-chapter-three-thirteen)
 
@@ -1756,7 +1759,7 @@ text {
 
 <br>
 
-### <a name="chapter-thirteen-one" id="chapter-thirteen-one">3.13.1 被遗弃的 \<modal\></a>
+### <a name="chapter-three-thirteen-one" id="chapter-three-thirteen-one">3.13.1 被遗弃的 \<modal\></a>
 
 &emsp;[返回目录](#catalog-chapter-three-thirteen)
 
@@ -1828,7 +1831,7 @@ Page({
 
 <br>
 
-### <a name="chapter-thirteen-two" id="chapter-thirteen-two">3.13.2 四种弹窗写法</a>
+### <a name="chapter-three-thirteen-two" id="chapter-three-thirteen-two">3.13.2 四种弹窗写法</a>
 
 &emsp;[返回目录](#catalog-chapter-three-thirteen)
 
@@ -1848,7 +1851,7 @@ Page({
 
 <br>
 
-## <a name="chapter-fourteen" id="chapter-fourteen">3.14 小程序解析 HTML</a>
+## <a name="chapter-three-fourteen" id="chapter-three-fourteen">3.14 小程序解析 HTML</a>
 
 &emsp;[返回目录](#catalog-chapter-three-fourteen)
 
@@ -1856,7 +1859,7 @@ Page({
 
 <br>
 
-### <a name="chapter-fourteen-one" id="chapter-fourteen-one">3.14.1 解析 HTML 的三种方法</a>
+### <a name="chapter-three-fourteen-one" id="chapter-three-fourteen-one">3.14.1 解析 HTML 的三种方法</a>
 
 &emsp;[返回目录](#catalog-chapter-three-fourteen)
 
@@ -1869,7 +1872,7 @@ Page({
 
 <br>
 
-### <a name="chapter-fourteen-two" id="chapter-fourteen-two">3.14.2 wxParse</a>
+### <a name="chapter-three-fourteen-two" id="chapter-three-fourteen-two">3.14.2 wxParse</a>
 
 &emsp;[返回目录](#catalog-chapter-three-fourteen)
 
@@ -1906,7 +1909,7 @@ if (name == 'style') {
 
 <br>
 
-### <a name="chapter-fourteen-three" id="chapter-fourteen-three">3.14.3 rich-text</a>
+### <a name="chapter-three-fourteen-three" id="chapter-three-fourteen-three">3.14.3 rich-text</a>
 
 &emsp;[返回目录](#catalog-chapter-three-fourteen)
 
@@ -1914,7 +1917,7 @@ if (name == 'style') {
 
 <br>
 
-### <a name="chapter-fourteen-four" id="chapter-fourteen-four">3.14.4 web-view</a>
+### <a name="chapter-three-fourteen-four" id="chapter-three-fourteen-four">3.14.4 web-view</a>
 
 &emsp;[返回目录](#catalog-chapter-three-fourteen)
 
@@ -1922,7 +1925,7 @@ if (name == 'style') {
 
 <br>
 
-## <a name="chapter-fifteen" id="chapter-fifteen">3.15 诡异的 open-type</a>
+## <a name="chapter-three-fifteen" id="chapter-three-fifteen">3.15 诡异的 open-type</a>
 
 &emsp;[返回目录](#catalog-chapter-three-fifteen)
 
@@ -1935,7 +1938,7 @@ if (name == 'style') {
 <br>
 
 
-## <a name="chapter-sixteen" id="chapter-sixteen">3.16 \<button\>去样式及其内嵌\<image\></a>
+## <a name="chapter-three-sixteen" id="chapter-three-sixteen">3.16 \<button\>去样式及其内嵌\<image\></a>
 
 &emsp;[返回目录](#catalog-chapter-three-sixteen)
 
@@ -1978,7 +1981,7 @@ if (name == 'style') {
 
 <br>
 
-## <a name="chapter-seventeen" id="chapter-seventeen">3.17 下拉刷新和上拉加载</a>
+## <a name="chapter-three-seventeen" id="chapter-three-seventeen">3.17 下拉刷新和上拉加载</a>
 
 &emsp;[返回目录](#catalog-chapter-three-seventeen)
 
@@ -2018,7 +2021,7 @@ onReachBottom: function () {
 
 <br>
 
-## <a name="chapter-eighteen" id="chapter-eighteen">3.18 获取 input 的值</a>
+## <a name="chapter-three-eighteen" id="chapter-three-eighteen">3.18 获取 input 的值</a>
 
 &emsp;[返回目录](#catalog-chapter-three-eighteen)
 
@@ -2073,13 +2076,13 @@ Page({
 
 <br>
 
-## <a name="chapter-nighteen" id="chapter-nighteen">3.19 onLaunch 加载问题与路由守卫</a>
+## <a name="chapter-three-nighteen" id="chapter-three-nighteen">3.19 onLaunch 加载问题与路由守卫</a>
 
 &emsp;[返回目录](#catalog-chapter-three-nighteen)
 
 > 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
-### <a name="chapter-nighteen-one" id="chapter-nighteen-one">3.19.1 小程序执行顺序</a>
+### <a name="chapter-three-nighteen-one" id="chapter-three-nighteen-one">3.19.1 小程序执行顺序</a>
 
 &emsp;[返回目录](#catalog-chapter-three-nighteen)
 
@@ -2098,7 +2101,7 @@ Page({
 
 <br>
 
-### <a name="chapter-nighteen-two" id="chapter-nighteen-two">3.19.2 路由守卫</a>
+### <a name="chapter-three-nighteen-two" id="chapter-three-nighteen-two">3.19.2 路由守卫</a>
 
 &emsp;[返回目录](#catalog-chapter-three-nighteen)
 
@@ -2134,7 +2137,7 @@ loginSubmit: function(e) {
 
 <br>
 
-## <a name="chapter-twenty" id="chapter-twenty">3.20 request 封装与 api 抽离</a>
+## <a name="chapter-three-twenty" id="chapter-three-twenty">3.20 request 封装与 api 抽离</a>
 
 &emsp;[返回目录](#catalog-chapter-three-twenty)
 
@@ -2279,7 +2282,7 @@ wx.login({
 
 <br>
 
-## <a name="chapter-twenty-one" id="chapter-twenty-one">3.21 判断数据是否读取完</a>
+## <a name="chapter-three-twenty-one" id="chapter-three-twenty-one">3.21 判断数据是否读取完</a>
 
 &emsp;[返回目录](#catalog-chapter-three-twenty-one)
 
@@ -2327,6 +2330,42 @@ wx.login({
 ```
 
 &emsp;这样，我们就做到了判断是否处于最后一条数据，从而通过 `class` 来隐藏下划线或者虚线。
+
+<br>
+
+# <a name="chatper-four" id="chatper-four">四 网友补充</a>
+
+&emsp;[返回目录](#catalog-chapter-four)
+
+&emsp;这章主要讲解小伙伴们发现的 **bug** 及其解决思路，有兴趣的小伙伴可以私我QQ：1741020489，我将把你提出的 **bug** 写进这篇文章并附上你的大名（看个人意愿），谢谢小伙伴们的支持~
+
+> 注：小伙伴们提出的 **bug**，如果包含详细的问题描述和解决方案，我会统计进该文章的 **bug** 清单。
+
+<br>
+
+## <a name="chapter-four-one" id="chapter-four-one">4.1 文件夹读取报错</a>
+
+&emsp;[返回目录](#catalog-chapter-four)
+
+> 本组件目前已有 ? 个坑，有经验的小伙伴可以进行补充。
+
+<br>
+
+&emsp;问题提出者：掘金 [史前图腾](https://juejin.im/user/5a311af051882554bd510dd0)。  
+&emsp;问题反馈：`wx.getFileSystemManager().readdir` 文件夹读取 `api` 报错，但仍会返回结果。  
+&emsp;问题解决：已联系大佬，等待回复。
+
+## <a name="chapter-four-two" id="chapter-four-two">4.2 textarea问题多多</a>
+
+&emsp;[返回目录](#catalog-chapter-four)
+
+> 本组件目前已有 ? 个坑，有经验的小伙伴可以进行补充。
+
+&emsp;问题提出者：掘金 [jilaokang](https://juejin.im/user/5b32742ce51d4558c91bb884)。  
+&emsp;问题反馈：textare问题非常多，补一个。  
+&emsp;问题解决：已联系大佬，等待回复。
+
+<br>
 
 <br>
 
