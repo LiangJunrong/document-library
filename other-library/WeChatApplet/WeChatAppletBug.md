@@ -19,6 +19,8 @@
 
 &emsp;**请结合 《目录》 和 《返回目录》 来进行跳转，获得更好的阅读体验。**  
 
+![图](../../public-repertory/img/other-WechatApplet-bug-15.gif)
+
 &emsp;本文技术支持：**Ansen江**
 
 &emsp;**注1：由于更新频繁，有时候平台上的文章版本可能没有图片或者目录无法跳转，所以小伙伴需要获取最新资料的，请前往 GitHub：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
