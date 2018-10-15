@@ -51,7 +51,7 @@
 </body>
 </html>
 ```
-![图](../../public-repertory//img/other-jsp-readMe-1.jpg)
+![图](../../../public-repertory//img/other-jsp-readMe-1.jpg)
 
 <br>
 
@@ -203,7 +203,7 @@ default:
 ```
 &emsp;在这里，`${ctx}` 有两种解读，一种是寻找文件：
 
-![图](../../public-repertory//img/other-jsp-readMe-2.png)
+![图](../../../public-repertory//img/other-jsp-readMe-2.png)
 
 &emsp;另一种就是寻找对应的方法，这些是由后端管理的，例如：
 ```
