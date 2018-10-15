@@ -2293,6 +2293,8 @@ wx.login({
 &emsp;在页面布局中，我们经常使用列表展示，然后在列表展示上，有时候该列表的最后一条数据下面是没有下划线或者虚线的。  
 &emsp;那么，当数据读取到最后一条的时候，如何判断已经到了最后一条，不再展示下划线或者虚线呢？
 
+* 方法一
+
 > *.wxml
 ```
 <view class="content">
@@ -2332,6 +2334,22 @@ wx.login({
 ```
 
 &emsp;这样，我们就做到了判断是否处于最后一条数据，从而通过 `class` 来隐藏下划线或者虚线。
+
+<br>
+
+* 方法二
+
+&emsp;通过 `CSS` 的 `last-child { ... }`，可以直接修改最后的 `view`样式：
+
+> *.wxss
+```
+.content-item-gap:last-child {
+  display: none;
+}
+```
+
+&emsp;这样，就不需要复杂的 `JS` 逻辑，从而实现最后一个下划线的显示影藏。  
+&emsp;如果你想了解下 `last-child` 为何物：[链接](http://www.w3school.com.cn/cssref/selector_last-child.asp)
 
 <br>
 
