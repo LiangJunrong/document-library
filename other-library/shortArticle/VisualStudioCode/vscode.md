@@ -1,7 +1,9 @@
 # VSCode 常用操作和配置
 
+> create by **jsliang** on **2018-09-04 11:26:11**  
+> Recently revised in **2018-10-15 21:57:06**
+
 ## 第一节 VSCode配置
-> create by **jsliang** on **2018年9月4日11:26:11**  
 
 &emsp;配置方式： 主菜单 -> 文件 -> 首选项 -> 用户设置：
 ```
