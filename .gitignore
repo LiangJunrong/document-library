@@ -21,4 +21,4 @@
 # 忽略所有 .o 和 .a 文件
 # *.[oa]
 
-# 详细用法看文档：https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gitignore.html
+# 详细用法看文档：https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gitignore.html 
