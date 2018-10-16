@@ -6,7 +6,7 @@ Vue + Node + MongoDB 学习笔记
 
 <br>
 
-# 第一章
+# 第一章 印象
 
 * Vue 是一个灵活的、渐进式框架：声明式渲染 -> 组件系统 -> 客户端路由 -> 大规模状态管理 -> 构建工具  
 
@@ -19,6 +19,40 @@ Vue + Node + MongoDB 学习笔记
 2. 组件化。在 jQuery 中，一些业务逻辑不能更好的提取出来。而 Vue 可以对一些常用的功能模块进行抽取，形成组件：例如购物车、登录。
 
 * Vue 如何实现双向数据绑定的关键： Object.defineProperty 的 get 和 set 方法。案例可以找： `E:\学习资料\实战\Vue+Node+Mongodb\第1章课程介绍\1.3vue概括核心思想.wmv`
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 双向数据绑定实现</title>
+</head>
+<body>
+    <input type="text" id="userName">
+    <br>
+    <span id="uName"></span>
+
+    <script>
+        var obj = {};
+        Object.defineProperty(obj, "userName", {
+            get: function() {
+                console.log("get init");
+            },
+            set: function(val) {
+                console.log("set init");
+                document.getElementById("uName").innerText = val;
+                document.getElementById("userName").value = val;
+            }
+        });
+        document.getElementById("userName").addEventListener("keyup", function(event){
+            obj.userName = event.target.value;
+        })
+    </script>
+</body>
+</html>
+```
 
 <br>
 
