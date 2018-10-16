@@ -31,7 +31,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **44** 个坑。  
+&emsp;目前已有 **46** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个章节。  
@@ -98,6 +98,7 @@
 | &emsp;<a name="catalog-chapter-three-twenty" id="catalog-chapter-three-twenty"></a>[3.20 request 封装与 api 抽离](#chapter-three-twenty)              | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-one" id="catalog-chapter-three-twenty-one"></a>[3.21 判断数据是否读取完](#chapter-three-twenty-one)       | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-two" id="catalog-chapter-three-twenty-two"></a>[3.22 客服系统研究](#chapter-three-twenty-two)             | 1   |
+| &emsp;<a name="catalog-chapter-three-twenty-three" id="catalog-chapter-three-twenty-three"></a>[3.23 文件在线预览](#chapter-three-twenty-three)             | 2   |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 网友补充](#chatper-four)                                                             |     |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 文件夹读取报错](#chapter-four-one)                                    | 1   |
 | &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 textarea问题多多](#chapter-four-two)                                  | 1   |
@@ -2417,6 +2418,72 @@ wx.login({
 2. 暂时无法验证是否能实现客服点击用户分享的产品卡片，跳转到小程序对应的产品页面上。
 
 &emsp;这些，都需要我们的小程序发布后进行验证。
+
+<br>
+
+## <a name="chapter-three-twenty-three" id="chapter-three-twenty-three">3.23 文件在线预览</a>
+
+&emsp;[返回目录](#catalog-chapter-three-twenty-three)
+
+> 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
+
+&emsp;话不多说，先丢出实现代码：
+
+> *.wxml
+
+```
+<view class="container" bindtap='downloadFile' data-url="{{downloadUrl}}">
+  <button>点我下载</button>
+</view>
+```
+
+<br>
+
+> *.js
+
+```
+Page({
+  data: {
+    downloadUrl: '网上随便找一个下载地址'
+  },
+  downloadFile: function(e) {
+    // 获取传递过来的下载地址
+    var url = e.currentTarget.dataset.url;
+    // 调用下载 API
+    wx.downloadFile({
+      url: url,
+      success: function (res) {
+        console.log("下载文件成功");
+        console.log(res);
+        
+        var tempFilePath = res.tempFilePath;
+
+        // 在线预览文档
+        wx.openDocument({
+          filePath: tempFilePath,
+          success: res => {
+            console.log("打开成功");
+          },
+          fail: res => {
+            console.log(res);
+          },
+          complete: res => {
+            console.log(res);
+          }
+        })
+
+      },
+      fail: function () {
+        console.log("下载失败");
+      }
+    })
+  }
+})
+```
+
+<br>
+
+&emsp;然后，在下载的时候，后端小伙伴偷懒，上传的是没有数据的 Word、PPT，这时候，小程序会报：`openDocument:fail filetype not supported` 的 error，所以小伙伴们要注意下。
 
 <br>
 
