@@ -31,7 +31,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **43** 个坑。  
+&emsp;目前已有 **44** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个章节。  
@@ -39,38 +39,38 @@
 
 <br>
 
-| 目录                                                                                                                                            | 坑  |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| [一 目录](#chapter-one)                                                                                                                         |     |
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two)                                                              |     |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 填坑实战](#chatper-three)                                                    |     |
-| &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 swiper 轮播图](#chapter-three-one)                            | 5   |
-| &emsp;&emsp;[3.1.1 行内样式无效](#chapter-three-one-one)                                                                                        |     |
-| &emsp;&emsp;[3.1.2 图片样式修改不了](#chapter-three-one-two)                                                                                    |     |
-| &emsp;&emsp;[3.1.3 swiper 属性值设置](#chapter-three-one-three)                                                                                 |     |
-| &emsp;&emsp;[3.1.4 轮播图图片跳转](#chapter-three-one-four)                                                                                     |     |
-| &emsp;&emsp;[3.1.5 wx:key](#chapter-three-one-five)                                                                                             |     |
-| &emsp;&emsp;[3.1.6 实战代码](#chapter-three-one-six)                                                                                            |     |
-| &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 tabBar 与 switchTab](#chapter-three-two)                      | 3   |
-| &emsp;&emsp;[3.2.1 底部导航跳转](#chapter-three-two-one)                                                                                        |     |
-| &emsp;&emsp;[3.2.2 自定义底部导航](#chapter-three-two-two)                                                                                      |     |
-| &emsp;&emsp;[3.2.3 自定义组件](#chapter-three-two-three)                                                                                        |     |
-| &emsp;<a name="catalog-chapter-three-three" id="catalog-chapter-three-three"></a>[3.3 px、rem 与 rpx](#chapter-three-three)                     | 1   |
-| &emsp;<a name="catalog-chapter-three-four" id="catalog-chapter-three-four"></a>[3.4 微信 web 开发者工具](#chapter-three-four)                   | 2   |
-| &emsp;&emsp;[3.4.1 无法输入中文](#chapter-three-four-one)                                                                                       |     |
-| &emsp;&emsp;[3.4.2 无法滑动滚轮](#chapter-three-four-two)                                                                                       |
-| &emsp;<a name="catalog-chapter-three-five" id="catalog-chapter-three-five"></a>[3.5 组件与 API](#chapter-three-five)                            | 2   |
-| &emsp;&emsp;[3.5.1 概念混淆：组件 VS API](#chapter-three-five-one)                                                                              |     |
-| &emsp;&emsp;[3.5.2 API 查询不到对应的方法](#chapter-three-five-two)                                                                             |
-| &emsp;<a name="catalog-chapter-three-six" id="catalog-chapter-three-six"></a>[3.6 flex 布局](#chapter-three-six)                                | 2   |
-| &emsp;&emsp;[3.6.1 基础概念](#chapter-three-six-one)                                                                                            |     |
-| &emsp;&emsp;[3.6.2 左右布局](#chapter-three-six-two)                                                                                            |     |
-| &emsp;&emsp;[3.6.3 混合布局](#chapter-three-six-three)                                                                                          |     |
-| &emsp;<a name="catalog-chapter-three-seven" id="catalog-chapter-three-seven"></a>[3.7 background-image 套用本地图片无效](#chapter-three-seven)  | 1   |
-| &emsp;<a name="catalog-chapter-three-eight" id="catalog-chapter-three-eight"></a>[3.8 \<block\> 与 \<view\>](#chapter-three-eight)              | 1   |
-| &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 搜索框](#chapter-three-night)                             | 2   |
-| &emsp;&emsp;[3.9.1 margin-top 无法上浮](#chapter-three-night-one)                                                                               |     |
-| &emsp;&emsp;[3.9.2 改造 WeUI 搜索框](#chapter-three-night-two)                                                                                  |     |
+| 目录                                                                                                                                                  | 坑  |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| [一 目录](#chapter-one)                                                                                                                               |     |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two)                                                                    |     |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 填坑实战](#chatper-three)                                                          |     |
+| &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 swiper 轮播图](#chapter-three-one)                                  | 5   |
+| &emsp;&emsp;[3.1.1 行内样式无效](#chapter-three-one-one)                                                                                              |     |
+| &emsp;&emsp;[3.1.2 图片样式修改不了](#chapter-three-one-two)                                                                                          |     |
+| &emsp;&emsp;[3.1.3 swiper 属性值设置](#chapter-three-one-three)                                                                                       |     |
+| &emsp;&emsp;[3.1.4 轮播图图片跳转](#chapter-three-one-four)                                                                                           |     |
+| &emsp;&emsp;[3.1.5 wx:key](#chapter-three-one-five)                                                                                                   |     |
+| &emsp;&emsp;[3.1.6 实战代码](#chapter-three-one-six)                                                                                                  |     |
+| &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 tabBar 与 switchTab](#chapter-three-two)                            | 3   |
+| &emsp;&emsp;[3.2.1 底部导航跳转](#chapter-three-two-one)                                                                                              |     |
+| &emsp;&emsp;[3.2.2 自定义底部导航](#chapter-three-two-two)                                                                                            |     |
+| &emsp;&emsp;[3.2.3 自定义组件](#chapter-three-two-three)                                                                                              |     |
+| &emsp;<a name="catalog-chapter-three-three" id="catalog-chapter-three-three"></a>[3.3 px、rem 与 rpx](#chapter-three-three)                           | 1   |
+| &emsp;<a name="catalog-chapter-three-four" id="catalog-chapter-three-four"></a>[3.4 微信 web 开发者工具](#chapter-three-four)                         | 2   |
+| &emsp;&emsp;[3.4.1 无法输入中文](#chapter-three-four-one)                                                                                             |     |
+| &emsp;&emsp;[3.4.2 无法滑动滚轮](#chapter-three-four-two)                                                                                             |
+| &emsp;<a name="catalog-chapter-three-five" id="catalog-chapter-three-five"></a>[3.5 组件与 API](#chapter-three-five)                                  | 2   |
+| &emsp;&emsp;[3.5.1 概念混淆：组件 VS API](#chapter-three-five-one)                                                                                    |     |
+| &emsp;&emsp;[3.5.2 API 查询不到对应的方法](#chapter-three-five-two)                                                                                   |
+| &emsp;<a name="catalog-chapter-three-six" id="catalog-chapter-three-six"></a>[3.6 flex 布局](#chapter-three-six)                                      | 2   |
+| &emsp;&emsp;[3.6.1 基础概念](#chapter-three-six-one)                                                                                                  |     |
+| &emsp;&emsp;[3.6.2 左右布局](#chapter-three-six-two)                                                                                                  |     |
+| &emsp;&emsp;[3.6.3 混合布局](#chapter-three-six-three)                                                                                                |     |
+| &emsp;<a name="catalog-chapter-three-seven" id="catalog-chapter-three-seven"></a>[3.7 background-image 套用本地图片无效](#chapter-three-seven)        | 1   |
+| &emsp;<a name="catalog-chapter-three-eight" id="catalog-chapter-three-eight"></a>[3.8 \<block\> 与 \<view\>](#chapter-three-eight)                    | 1   |
+| &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 搜索框](#chapter-three-night)                                   | 2   |
+| &emsp;&emsp;[3.9.1 margin-top 无法上浮](#chapter-three-night-one)                                                                                     |     |
+| &emsp;&emsp;[3.9.2 改造 WeUI 搜索框](#chapter-three-night-two)                                                                                        |     |
 | &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 微信小程序分享](#chapter-three-ten)                                | 1   |
 | &emsp;<a name="catalog-chapter-three-eleven" id="catalog-chapter-three-eleven"></a>[3.11 border-box 设置](#chapter-three-eleven)                      | 1   |
 | &emsp;<a name="catalog-chapter-three-twelve" id="catalog-chapter-three-twelve"></a>[3.12 自定义导航条](#chapter-three-twelve)                         | 6   |
@@ -97,9 +97,10 @@
 | &emsp;&emsp;[3.19.2 路由守卫](#chapter-three-nighteen-two)                                                                                            |     |
 | &emsp;<a name="catalog-chapter-three-twenty" id="catalog-chapter-three-twenty"></a>[3.20 request 封装与 api 抽离](#chapter-three-twenty)              | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-one" id="catalog-chapter-three-twenty-one"></a>[3.21 判断数据是否读取完](#chapter-three-twenty-one)       | 1   |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 网友补充](#chatper-four)                                                       |     |
-| &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 文件夹读取报错](#chapter-four-one)       | 1   |
-| &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 textarea问题多多](#chapter-four-two)       | 1   |
+| &emsp;<a name="catalog-chapter-three-twenty-two" id="catalog-chapter-three-twenty-two"></a>[3.22 客服系统研究](#chapter-three-twenty-two)             | 1   |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 网友补充](#chatper-four)                                                             |     |
+| &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 文件夹读取报错](#chapter-four-one)                                    | 1   |
+| &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 textarea问题多多](#chapter-four-two)                                  | 1   |
 
 <br>
 
@@ -2386,6 +2387,36 @@ wx.login({
 &emsp;问题解决：已联系大佬，等待回复。
 
 <br>
+
+## <a name="chapter-three-twenty-two" id="chapter-three-twenty-two">3.22 客服系统研究</a>
+
+&emsp;[返回目录](#catalog-chapter-three-twenty-two)
+
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
+
+&emsp;在微信小程序中，客服系统也是个相当诡异的玩意。  
+&emsp;目前实现：
+
+> *.wxml
+
+```
+<button open-type="contact" send-message-title='{{productName}}' send-message-img='{{videoImageSrc}}' send-message-path='../indexProductDetail/indexProductDetail?productId={{productId}}' show-message-card='true'>
+  <view class="nav-service">
+    <image src="../../public/index_productDetail_icon_service.png"></image>
+    <text>在线咨询</text>
+  </view>
+</button>
+```
+
+1. 能够进行正常的通讯
+2. 能够发送产品信息给客服
+
+&emsp;但是，这不能满足我的要求：
+
+1. 不能修改对话框的标题（查的资料标明需要进行小程序配置后后端返回？[来源地址](https://www.jianshu.com/p/3d59ae5e69ab?mType=Group)）
+2. 暂时无法验证是否能实现客服点击用户分享的产品卡片，跳转到小程序对应的产品页面上。
+
+&emsp;这些，都需要我们的小程序发布后进行验证。
 
 <br>
 
