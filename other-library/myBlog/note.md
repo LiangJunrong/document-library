@@ -55,7 +55,12 @@ Vue + Node + MongoDB 学习笔记
 ```
 
 * 通过 Vue-cli 搭建的环境，是 SPA 单页应用。
-* 如果需要使用 Vue 搭建多页面应用，需要通过 `<script>` 标签引用 Vue，或者配置 Vue-cli 来开发 Vue 的多页面应用。
+* 如果需要使用 Vue 搭建多页面应用，需要通过 `<script>` 标签引用 Vue，或者配置 Webpack 来开发 Vue 的多页面应用。
+
+* 通过 Vue-cli 构建 SPA 应用：
+1. 全局安装 vue-cli ：`npm i vue-cli -g`
+2. 简洁生成：`vue init webpack-simple demo`
+3. 完整生成：`vue init webpack demo2`
 
 <br>
 
