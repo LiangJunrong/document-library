@@ -2,11 +2,22 @@ Vue + Node + MongoDB 学习笔记
 ===
 
 > create by **jsliang** on **2018-10-16 21:48:25**  
-> Recently revised in **2018-10-16 21:48:29**
+> Recently revised in **2018-10-17 22:11:36**
 
 <br>
 
-# 第一章 印象
+# <a name="catalog" id="catalog">目录</a>
+| 章节  |
+| ---  |
+| [第一章 印象](#chapter-one) |
+| [第二章 基础语法](#chapter-two) |
+| [第一章 路由](#chapter-three) |
+
+<br>
+
+# <a name="chapter-one" id="chapter-one">第一章 印象</a>
+
+> [返回目录]
 
 * Vue 是一个灵活的、渐进式框架：声明式渲染 -> 组件系统 -> 客户端路由 -> 大规模状态管理 -> 构建工具  
 
@@ -64,7 +75,9 @@ Vue + Node + MongoDB 学习笔记
 
 <br>
 
-# 基础语法：
+# <a name="chapter-two" id="chapter-two">第二章 基础语法</a>
+
+> [返回目录](#catalog)
 
 1. 模板语法
 
@@ -120,6 +133,21 @@ data: {
 * 全局组件和局部组件
 * 父子组件通讯-数据传递
 * Slot
+
+<br>
+
+# <a name="chapter-three" id="chapter-three">第三章 路由</a>
+
+> [返回目录](#catalog)
+
+* 什么是前端路由？它有什么作用？  
+
+&emsp;路由时根据不同 url 地址 展示不同的内容或页面。  
+&emsp;前端路由就是把不同路由对应的不同内容或页面的任务交给前端来做，之前是通过服务端根据 url 的不同返回不同的页面实现的。
+
+* 什么时候使用前端路由？
+
+&emsp;在单页面应用，大部分页面结构不变，只改变部分内容的使用。
 
 <br>
 
