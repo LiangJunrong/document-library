@@ -1,11 +1,13 @@
 # 微信小程序 bug 集中营
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-10-15 14:17:55**
+> Recently revised in **2018-10-17 13:35:54**
 
 <br>
 
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+
+&emsp;GitHub 最新更新：2018-10-17 13:34:11。追求最新文章的小伙伴可前往下载，掘金上的文章每周六、日更新。
 
 # 写在前面
 
