@@ -54,10 +54,10 @@ Vue + Node + MongoDB 学习笔记
 </html>
 ```
 
-* 通过 Vue-cli 搭建的环境，是 SPA 单页应用。
+* 通过 vue-cli 搭建的环境，是 SPA 单页应用。
 * 如果需要使用 Vue 搭建多页面应用，需要通过 `<script>` 标签引用 Vue，或者配置 Webpack 来开发 Vue 的多页面应用。
 
-* 通过 Vue-cli 构建 SPA 应用：
+* 通过 vue-cli 构建 SPA 应用：
 1. 全局安装 vue-cli ：`npm i vue-cli -g`
 2. 简洁生成：`vue init webpack-simple demo` || 完整生成：`vue init webpack demo2`
 3. 安装依赖：`cnpm i`
@@ -76,6 +76,8 @@ Vue + Node + MongoDB 学习笔记
 * 指令：v-if = ""
 * 过滤器： {{ message || capitalize }} 和 v-bind:id = " rawId | fromatId "
 
+<br>
+
 2. Class 和 Style 绑定
 
 * 对象语法：v-bind:class="{ 'active':isActive, 'text-danger':hasError }"
@@ -93,6 +95,8 @@ data: {
 
 * style 绑定-对象语法：v-bind:style = "{ color: activeColor, fontSize: fontSize + 'px' }"
 
+<br>
+
 3. 条件渲染
 
 * v-if：`v-if` 判断，如果否，则连 DOM 节点都不产出。
@@ -100,6 +104,22 @@ data: {
 * v-else-if：`v-if` 的多种判断情况。
 * v-show：不同于 `v-if`，该条件渲染产生了 DOM 节点，它只是控制 DOM 的显示隐藏，有则 `display: block`，无则 `display: none`。
 * v-cloak：
+
+<br>
+
+4. Vue 事件处理器
+
+* v-on:click = "greet" 或者 @click = "greet"
+* v-on:click.stop、v-on:click.stop.prevent、v-on:click.self、v-on:click.once
+* v-on:keyup.enter
+
+<br>
+
+5. Vue 组件
+
+* 全局组件和局部组件
+* 父子组件通讯-数据传递
+* Slot
 
 <br>
 
