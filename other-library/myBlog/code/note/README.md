@@ -2,6 +2,11 @@
 
 > a note for jsliang study vue
 
+## 简介
+
+&emsp;这是简略版的 vue-cli 生成的项目
+
+
 ## Build Setup
 
 ``` bash

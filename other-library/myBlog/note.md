@@ -59,8 +59,8 @@ Vue + Node + MongoDB 学习笔记
 
 * 通过 Vue-cli 构建 SPA 应用：
 1. 全局安装 vue-cli ：`npm i vue-cli -g`
-2. 简洁生成：`vue init webpack-simple demo`
-3. 完整生成：`vue init webpack demo2`
+2. 简洁生成：`vue init webpack-simple demo` || 完整生成：`vue init webpack demo2`
+3. 安装依赖：`cnpm i`
 
 <br>
 
