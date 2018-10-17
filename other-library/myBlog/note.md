@@ -149,6 +149,21 @@ data: {
 
 &emsp;在单页面应用，大部分页面结构不变，只改变部分内容的使用。
 
+* 前端路由有什么优缺点？
+
+&emsp;优点：  
+&emsp;用户体验好，不需要每次都从服务器全部获取，可以快速展现给用户
+
+&emsp;缺点：  
+&emsp;不利于 SEO  
+&emsp;使用浏览器的前进，后退键会重新发送请求，没有合理地利用缓存  
+&emsp;单页面无法记住之前滚动的位置，无法在前进，后退的时候记住滚动的位置
+
+* vue 使用 vue-router 来构建 SPA
+
+1. 使用 `<router-link></router-link>` 或者 `this.$router.push({path: ''})`  
+2. 使用 `<router-view></router-view>`
+
 <br>
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a xmlns:dct="http://purl.org/dc/terms/" property="dct:title">**jsliang** 的文档库</a> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
