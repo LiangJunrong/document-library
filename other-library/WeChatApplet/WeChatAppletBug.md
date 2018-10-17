@@ -31,7 +31,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **46** 个坑。  
+&emsp;目前已有 **47** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个章节。  
@@ -83,7 +83,7 @@
 | &emsp;<a name="catalog-chapter-three-thirteen" id="catalog-chapter-three-thirteen"></a>[3.13 黑科技：\<modal\>](#chapter-three-thirteen)              | 2   |
 | &emsp;&emsp;[3.13.1 被遗弃的 \<modal\>](#chapter-three-thirteen-one)                                                                                  |     |
 | &emsp;&emsp;[3.13.2 四种弹窗写法](#chapter-three-thirteen-two)                                                                                        |     |
-| &emsp;<a name="catalog-chapter-three-fourteen" id="catalog-chapter-three-fourteen"></a>[3.14 小程序解析 HTML](#chapter-three-fourteen)                | 5   |
+| &emsp;<a name="catalog-chapter-three-fourteen" id="catalog-chapter-three-fourteen"></a>[3.14 小程序解析 HTML](#chapter-three-fourteen)                | 6   |
 | &emsp;&emsp;[3.14.1 解析 HTML 的三种方法](#chapter-three-fourteen-one)                                                                                |     |
 | &emsp;&emsp;[3.14.2 wxParse](#chapter-three-fourteen-two)                                                                                             |     |
 | &emsp;&emsp;[3.14.3 rich-text](#chapter-three-fourteen-three)                                                                                         |     |
@@ -98,7 +98,7 @@
 | &emsp;<a name="catalog-chapter-three-twenty" id="catalog-chapter-three-twenty"></a>[3.20 request 封装与 api 抽离](#chapter-three-twenty)              | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-one" id="catalog-chapter-three-twenty-one"></a>[3.21 判断数据是否读取完](#chapter-three-twenty-one)       | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-two" id="catalog-chapter-three-twenty-two"></a>[3.22 客服系统研究](#chapter-three-twenty-two)             | 1   |
-| &emsp;<a name="catalog-chapter-three-twenty-three" id="catalog-chapter-three-twenty-three"></a>[3.23 文件在线预览](#chapter-three-twenty-three)             | 2   |
+| &emsp;<a name="catalog-chapter-three-twenty-three" id="catalog-chapter-three-twenty-three"></a>[3.23 文件在线预览](#chapter-three-twenty-three)       | 2   |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 网友补充](#chatper-four)                                                             |     |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 文件夹读取报错](#chapter-four-one)                                    | 1   |
 | &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 textarea问题多多](#chapter-four-two)                                  | 1   |
@@ -1859,7 +1859,7 @@ Page({
 
 &emsp;[返回目录](#catalog-chapter-three-fourteen)
 
-> 本节目前已有 5 个坑，有兴趣的小伙伴可以详看。
+> 本节目前已有 6 个坑，有兴趣的小伙伴可以详看。
 
 <br>
 
@@ -1908,6 +1908,14 @@ if (name == 'style') {
 <br>
 
 &emsp;（ bug3 ）如果你需要引用图片，那么，你会发现引用不成功。这是因为，我们在网页后台编辑器里面上传的图片，是采用相对路径的，上传成绝对网络地址路径之后，换成域名，就没法很好的展示了。所以最好的方法，就是修改 html2json.js 这个文件，让 wxParse 自动添加域名前缀：[地址](https://blog.csdn.net/jorzen1984/article/details/80492521)
+
+&emsp;（ bug4 ）空格没法被正确替换，需要修改 `wxDiscode.js` 中的 `strcharacterDiscode` ：
+
+```
+// 将原语句注释掉，替换为下面的语句
+// str = str.replace(/&nbsp;/g, ' ');
+  str = str.replace(/&nbsp;/g, '\xa0');
+```
 
 &emsp;综上，**jsliang** 气得差口吐白沫了……换换换！有空要换成其他两种方式才行！！！
 
