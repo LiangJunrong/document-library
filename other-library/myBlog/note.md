@@ -14,6 +14,7 @@ Vue + Node + MongoDB 学习笔记
 | [第三章 路由](#chapter-three) |
 | [第四章 Axios](#chapter-four) |
 | [第五章 ES6 奇技淫巧](#chapter-five) |
+| [第六章 杂碎](#chapter-six) |
 
 <br>
 
@@ -440,6 +441,18 @@ import * as a from './a.js';
 console.log(a.sum1);
 console.log(a.sum2);
 ```
+
+<br>
+
+# <a name="chapter-six" id="chapter-six">第六章 杂碎</a>
+
+> [返回目录](#catalog)
+
+<br>
+
+&emsp;npm 工具
+
+1. vue-lazyload 
 
 <br>
 
