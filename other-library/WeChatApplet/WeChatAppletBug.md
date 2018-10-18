@@ -1205,7 +1205,18 @@ Page({
   * 用户点击右上角分享
   */
 onShareAppMessage: function (res) {
-
+  // 实现分享功能
+  return {
+    title: this.data.productName,
+    path: '/pages/indexProductDetail.js?productId=' + this.data.productId,
+    imageUrl: this.data.videoImageSrc,
+    success: (res) => {
+      console.log("分享成功~");
+    },
+    fail: (res) => {
+      console.log("分享失败~");
+    }
+  }
 }
 ```
 
