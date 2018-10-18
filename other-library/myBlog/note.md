@@ -13,6 +13,7 @@ Vue + Node + MongoDB 学习笔记
 | [第二章 基础语法](#chapter-two) |
 | [第三章 路由](#chapter-three) |
 | [第四章 Axios](#chapter-four) |
+| [第五章 ES6 奇技淫巧](#chapter-five) |
 
 <br>
 
@@ -226,7 +227,7 @@ data: {
 
 <br>
 
-* Rest 参数和扩展
+* 函数与循环
 
 &emsp;旧姿势
 
@@ -261,6 +262,48 @@ function sum(...m) {
     console.log(total);
 }
 sum(4, 8, 9, 10);
+```
+
+<br>
+
+&emsp;更新姿势
+
+```
+let sum = (...m) => {
+    let total = 0;
+    for(var i of m) {
+        total += i;
+    }
+    console.log(total);
+}
+sum(1, 3, 5, 7);
+```
+
+<br>
+
+* 数组
+
+&emsp;数组添加数组
+
+```
+let arr1 = [{
+    name: jsliang,
+    age: 23
+}, {
+    name: JavaScriptLiang,
+    age: 23
+}]
+
+let arr2 = [{
+    name: JavaLiang,
+    age: 23
+}, {
+    name: LiangJs,
+    age: 23
+}]
+
+arr1.push(...arr2);
+console.log(arr1);
 ```
 
 <br>
