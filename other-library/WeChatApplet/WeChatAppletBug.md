@@ -101,6 +101,7 @@
 | &emsp;<a name="catalog-chapter-three-twenty-one" id="catalog-chapter-three-twenty-one"></a>[3.21 判断数据是否读取完](#chapter-three-twenty-one)       | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-two" id="catalog-chapter-three-twenty-two"></a>[3.22 客服系统研究](#chapter-three-twenty-two)             | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-three" id="catalog-chapter-three-twenty-three"></a>[3.23 文件在线预览](#chapter-three-twenty-three)       | 2   |
+| &emsp;<a name="catalog-chapter-three-twenty-four" id="catalog-chapter-three-twenty-four"></a>[3.24 尽量使用 ES6](#chapter-three-twenty-four)       | 1   |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 网友补充](#chatper-four)                                                             |     |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 文件夹读取报错](#chapter-four-one)                                    | 1   |
 | &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 textarea问题多多](#chapter-four-two)                                  | 1   |
@@ -2516,6 +2517,56 @@ Page({
 <br>
 
 &emsp;然后，在下载的时候，后端小伙伴偷懒，上传的是没有数据的 Word、PPT，这时候，小程序会报：`openDocument:fail filetype not supported` 的 error，所以小伙伴们要注意下。
+
+<br>
+
+## <a name="chapter-three-twenty-four" id="chapter-three-twenty-four">3.24 尽量使用 ES6</a>
+
+&emsp;[返回目录](#catalog-chapter-three-twenty-four)
+
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
+
+&emsp;由于 **jsliang** 平时都是使用 ES5 ，一直口嚷嚷说要步入 ES6 大堂，但是一直就是没入门，所以乘着有功夫，尽量使用 ES6 ，用熟了才能进步。
+
+&emsp;绑定方法写法修改：
+
+* 原写法：
+
+```
+getUserPhone: function(e) {
+  console.log(e);
+}
+```
+
+<br>
+
+* 现写法：
+
+```
+getUserPhone(e) {
+  console.log(e);
+}
+```
+
+<br>
+
+&emsp;循环写法：
+
+* 原写法
+
+```
+for(var i = 0; i <= array.length; i++) {
+  console.log(array[i]);
+}
+```
+
+* 新写法
+
+```
+for (let i of array) {
+  console.log(i);
+}
+```
 
 <br>
 
