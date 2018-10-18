@@ -2,7 +2,7 @@ Vue + Node + MongoDB 学习笔记
 ===
 
 > create by **jsliang** on **2018-10-16 21:48:25**  
-> Recently revised in **2018-10-17 22:11:36**
+> Recently revised in **2018-10-18 08:31:41**
 
 <br>
 
@@ -12,6 +12,7 @@ Vue + Node + MongoDB 学习笔记
 | [第一章 印象](#chapter-one) |
 | [第二章 基础语法](#chapter-two) |
 | [第一章 路由](#chapter-three) |
+| [第四章 Axios](#chapter-four) |
 
 <br>
 
@@ -188,6 +189,28 @@ data: {
 
 &emsp;给路由定义不同的名字，根据名字进行匹配。  
 &emsp;给不同的 router-view 定义名字，通过名字进行对应组件的渲染。
+
+<br>
+
+# <a name="chapter-four" id="chapter-four">第四章 Axios</a>
+
+> [返回目录](#catalog)
+
+&emsp;安装方式：
+
+1. `npm i axios`
+2. `<script src="https://unpkg.com/axios/dist/axios.min.js"></script>`
+
+&emsp;方法：
+
+1. `axios.request(config)`
+2. `axios.get(url[,config])`
+3. `axios.delete(url[,config])`
+4. `axios.head(url[,config])`
+5. `axios.options(url[,config])`
+6. `axios.post(url[,config])`
+7. `axios.put(url[,config])`
+8. `axios.patch(url[,config])`
 
 <br>
 
