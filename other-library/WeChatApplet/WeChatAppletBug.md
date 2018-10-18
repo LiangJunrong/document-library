@@ -1,7 +1,7 @@
 # 微信小程序 bug 集中营
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-10-17 13:35:54**
+> Recently revised in **2018-10-18 09:38:15**
 
 <br>
 
@@ -1917,6 +1917,17 @@ if (name == 'style') {
 // 将原语句注释掉，替换为下面的语句
 // str = str.replace(/&nbsp;/g, ' ');
   str = str.replace(/&nbsp;/g, '\xa0');
+```
+
+&emsp;（ bug5 ）如何干掉控制台 console 中 wxParse 的一大串输出：
+
+> wxParse.js
+
+```
+// 36行注释掉
+console.log(JSON.stringify(transData, ' ', ' '));
+// 41行注释掉
+console.log(JSON.stringify(transData, ' ', ' '));
 ```
 
 &emsp;综上，**jsliang** 气得差口吐白沫了……换换换！有空要换成其他两种方式才行！！！
