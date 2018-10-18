@@ -11,14 +11,16 @@ Vue + Node + MongoDB 学习笔记
 | ---  |
 | [第一章 印象](#chapter-one) |
 | [第二章 基础语法](#chapter-two) |
-| [第一章 路由](#chapter-three) |
+| [第三章 路由](#chapter-three) |
 | [第四章 Axios](#chapter-four) |
 
 <br>
 
 # <a name="chapter-one" id="chapter-one">第一章 印象</a>
 
-> [返回目录]
+> [返回目录](#catalog)
+
+<br>
 
 * Vue 是一个灵活的、渐进式框架：声明式渲染 -> 组件系统 -> 客户端路由 -> 大规模状态管理 -> 构建工具  
 
@@ -80,6 +82,8 @@ Vue + Node + MongoDB 学习笔记
 
 > [返回目录](#catalog)
 
+<br>
+
 1. 模板语法
 
 * Mustache 语法： {{ msg }}
@@ -140,6 +144,8 @@ data: {
 # <a name="chapter-three" id="chapter-three">第三章 路由</a>
 
 > [返回目录](#catalog)
+
+<br>
 
 * 什么是前端路由？它有什么作用？  
 
@@ -211,6 +217,51 @@ data: {
 6. `axios.post(url[,config])`
 7. `axios.put(url[,config])`
 8. `axios.patch(url[,config])`
+
+<br>
+
+# <a name="chapter-five" id="chapter-five">第五章 ES6 奇技淫巧</a>
+
+> [返回目录](#catalog)
+
+<br>
+
+* Rest 参数和扩展
+
+&emsp;旧姿势
+
+```
+function sum(x, y, z) {
+    var total = 0;
+    if(x) { 
+        total += x;
+    }
+    if(y) {
+        total += y;
+    }
+    if(z) {
+        total += z;
+    }
+    console.log(total);
+}
+
+sum(1, 3, 5);
+```
+
+<br>
+
+&emsp;新姿势
+
+```
+function sum(...m) {
+    let total = 0;
+    for(var i of m) {
+        total += i;
+    }
+    console.log(total);
+}
+sum(4, 8, 9, 10);
+```
 
 <br>
 
