@@ -285,6 +285,21 @@ sum(1, 3, 5, 7);
 
 &emsp;数组添加数组
 
+&emsp;旧姿势
+
+```
+```
+let arr1 = [4, 8];
+
+let arr2 = [1, 3];
+
+arr1.concat(...arr2);
+console.log(arr1);
+```
+```
+
+&emsp;新姿势
+
 ```
 let arr1 = [{
     name: jsliang,
@@ -292,7 +307,7 @@ let arr1 = [{
 }, {
     name: JavaScriptLiang,
     age: 23
-}]
+}];
 
 let arr2 = [{
     name: JavaLiang,
@@ -300,10 +315,130 @@ let arr2 = [{
 }, {
     name: LiangJs,
     age: 23
-}]
+}];
 
 arr1.push(...arr2);
 console.log(arr1);
+```
+
+&emsp;更新姿势
+
+```
+let arr1 = [{
+    name: jsliang,
+    age: 23
+}, {
+    name: JavaScriptLiang,
+    age: 23
+}];
+
+let arr2 = [{
+    name: JavaLiang,
+    age: 23
+}, {
+    name: LiangJs,
+    age: 23
+}];
+
+let arr3 = [...arr1, ...arr2];
+console.log(arr3);
+```
+
+* 数组
+
+&emsp;如果有一个数组，开头固定，其他不固定：
+
+```
+var [x, ...y] = [4, 5, 6, 7];
+console.log(y); // 5, 6, 7
+
+let [a, b, c] = "ES6"; // a=E, b=S, c=6
+
+let xyz = [...'es6']; // xyz=['e', 's', '6']
+```
+
+<br>
+
+* Promise
+
+```
+// api.js
+const fetch = ({ url, data, header }) => {
+    return new Promise((resolve, reject) => {
+        axios.post({
+            ...
+            success: res => {
+
+            },
+            error: res => {
+
+            }
+        })
+    })
+};
+
+export const login = data => {
+    return fetch({
+        url: '...',
+        data: data
+    })
+};
+
+// 调用 api.js
+import {
+    login
+} from './api.js';
+
+login({
+    userName: '',
+    userPhone: ''
+}).then( (res) => {
+
+})
+```
+
+
+&emsp;如果有多个 Promise ，则：
+
+```
+Promise.all([checkLogin(), getUserInfo()]).then( ([loginres, getinfores]) => {
+
+})
+```
+
+<br>
+
+* export 与 import
+
+> a.js
+
+```
+export let sum1 = (x, y) => {
+    return x + y;
+}
+export let sum2 = (x, y, z) => {
+    return x + y + z;
+}
+```
+
+<br>
+
+> b.js
+
+```
+import {
+    sum1,
+    sum2
+} from './a.js';
+
+console.log(sum1(1, 2));
+console.log(sum2(1, 2, 3));
+
+// 或者
+
+import * as a from './a.js';
+console.log(a.sum1);
+console.log(a.sum2);
 ```
 
 <br>
