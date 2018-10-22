@@ -1,7 +1,7 @@
 # 微信小程序 bug 集中营
 
 > create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-10-18 09:38:15**
+> Recently revised in **2018-10-22 09:58:07**
 
 <br>
 
@@ -2567,7 +2567,6 @@ for (let i of array) {
   console.log(i);
 }
 ```
-
 
 <br>
 
