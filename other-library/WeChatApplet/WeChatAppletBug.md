@@ -101,8 +101,8 @@
 | &emsp;<a name="catalog-chapter-three-twenty-one" id="catalog-chapter-three-twenty-one"></a>[3.21 判断数据是否读取完](#chapter-three-twenty-one)       | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-two" id="catalog-chapter-three-twenty-two"></a>[3.22 客服系统研究](#chapter-three-twenty-two)             | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-three" id="catalog-chapter-three-twenty-three"></a>[3.23 文件在线预览](#chapter-three-twenty-three)       | 2   |
-| &emsp;<a name="catalog-chapter-three-twenty-four" id="catalog-chapter-three-twenty-four"></a>[3.24 尽量使用 ES6](#chapter-three-twenty-four)       | 1   |
-| &emsp;<a name="catalog-chapter-three-twenty-five" id="catalog-chapter-three-twenty-five"></a>[3.25 视频功能实现](#chapter-three-twenty-five)       | 1   |
+| &emsp;<a name="catalog-chapter-three-twenty-four" id="catalog-chapter-three-twenty-four"></a>[3.24 尽量使用 ES6](#chapter-three-twenty-four)          | 1   |
+| &emsp;<a name="catalog-chapter-three-twenty-five" id="catalog-chapter-three-twenty-five"></a>[3.25 视频功能实现](#chapter-three-twenty-five)          | 1   |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 网友补充](#chatper-four)                                                             |     |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 文件夹读取报错](#chapter-four-one)                                    | 1   |
 | &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 textarea问题多多](#chapter-four-two)                                  | 1   |
@@ -2560,6 +2560,116 @@ for (let i of array) {
 2. 调整 HTML+CSS，使图片覆盖住视频。
 
 3. 编写 JS，使图片点击时，隐藏图片，播放视频。
+
+> *.wxml
+
+```
+<view class="video">
+
+  <!-- 
+    1. 绑定接口视频路径
+    2. controls - 可控制播放暂停
+    3. show-fullscreen-btn - 显示全屏按钮
+  -->
+  <video id="video" src="{{videoSrc}}" controls show-fullscreen-btn></video>
+
+  <!-- 通过 playVideo 这个方法来控制 showVideo 这个属性，从而控制遮罩的产品图片是否隐藏 -->
+  <cover-view class="{{showVideo ? 'video-mask' : 'hide-video-mask'}}" bindtap='playVideo'>
+    <cover-image class="video-image" src="{{videoImageSrc}}"></cover-image>
+  </cover-view>
+
+  <!-- 通过 playVideo 这个方法来控制 showVideo 这个属性，从而控制遮罩的播放按钮是否隐藏 -->
+  <cover-view class="{{showVideo ? 'video-mask' : 'hide-video-mask'}}" bindtap='playVideo'>
+    <cover-image class="video-button" src="../../public/index_productDetail_video_button.png"></cover-image>
+  </cover-view>
+
+</view>
+```
+
+<br>
+
+> *.wxss
+
+```
+/* 设置视频宽高 */
+video {
+  width: 100%;
+  height: 420rpx;
+}
+/* 隐藏遮罩层 */
+.hide-video-mask {
+  display: none;
+}
+/* 遮罩层 */
+.video-mask {
+  width: 100%;
+  height: 420rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 8;
+}
+/* 遮罩层图片 */
+.video-image {
+  width: 100%;
+  height: 420rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+/* 遮罩层播放按钮 */
+.video-button {
+  width: 98rpx;
+  height: 98rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -49rpx;
+  margin-left: -49rpx;
+  z-index: 99;
+}
+```
+
+<br>
+
+*.js
+
+```
+Page({
+  data: {
+    // 视频字段
+    // videoSrc: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
+    videoSrc: '',
+    videoImageSrc: '',
+    showVideo: true,
+  },
+
+  /**
+   * 播放视频
+   */
+  playVideo: function () {
+    var that = this;
+    that.setData({
+      showVideo: false
+    });
+    // videoContext 的定义在 onReady 上
+    this.videoContext.play();
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    this.videoContext = wx.createVideoContext("video")
+  },
+
+})
+```
+
+<br>
+
+&emsp;如上，实现了视频播放。
 
 <br>
 
