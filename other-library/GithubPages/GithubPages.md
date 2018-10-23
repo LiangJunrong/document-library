@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-10-20 10:34:39**  
-> Recently revised in **2018-10-23 08:06:35**
+> Recently revised in **2018-10-23 13:30:53**
 
 <br>
 
@@ -10,7 +10,7 @@
 
 <br>
 
-# <a name="chapter-one" id="chapter-one">前端：写在前面</a>
+# <a name="chapter-one" id="chapter-one">一、写在前面</a>
 
 &emsp;**最终效果：**
 
@@ -53,13 +53,11 @@
 
 <br>
 
-# <a name="chapter-two" id="chapter-two">老手：五分钟速成</a>
-
-> [返回目录](#chapter-one)
+# <a name="chapter-two" id="chapter-two">二、老手：五分钟速成</a>
 
 <br>
 
-## <a name="chapter-two-one" id="chapter-two-one">搭建 GitHub Pages</a>
+## <a name="chapter-two-one" id="chapter-two-one">2.1 搭建 GitHub Pages</a>
 
 > [返回目录](#chapter-one)
 
@@ -137,7 +135,7 @@ git push
 
 <br>
 
-## <a name="chapter-two-two" id="chapter-two-two">搭建 VuePages</a>
+## <a name="chapter-two-two" id="chapter-two-two">2.2 搭建 VuePages</a>
 
 > [返回目录](#chapter-one)
 
@@ -192,9 +190,27 @@ Hello VuePress
 
 3. 完善配置
 
+* 配置导航条
+
+&emsp;首先，搭建目录如下：
+
+![图](../../public-repertory/img/other-GithubPages-11.png)
+
+&emsp;其中，.vuepress 是 VuePress 的配置文件，其架构为：
+
+```
+- .vuepress             - VuePress 配置目录
+ - public               - 共用文件存储目录
+  - img                 - 共用图片
+   - banner.png         - 首页 banner
+   - logo.ico           - 网页小图标
+ - config.js            - 配置 js 文件
+```
+
+
 <br>
 
-# <a name="chapter-three" id="chapter-three">菜鸟：最完美攻略</a>
+# <a name="chapter-three" id="chapter-three">三、菜鸟：最完美攻略</a>
 
 > [返回目录](#chapter-one)
 
