@@ -55,35 +55,35 @@
 
 # <a name="chapter-two" id="chapter-two">老手：五分钟速成</a>
 
-<br>
-
-# <a name="chapter-three" id="chapter-three">菜鸟：最完美攻略</a>
+> [返回目录](#chapter-one)
 
 <br>
 
-# <a name="chapter-one" id="chapter-one">GitHub Pages</a>
+## <a name="chapter-two-one" id="chapter-two-one">搭建 GitHub Pages</a>
 
-&emsp;参考文章：[地址1-GitHub Pages]()  
-
-
-
-1. 新建仓库( New repository )，在仓库名( Repository name )中输入 `用户名.github.io`，然后点击 Create repository 即可创建一个部署好的环境。（如果你观察力很好，你会发现左边的 Owner 名字就是你的用户名）
-
-![新建仓库](../.vuepress/public/img/about-1.png)
+> [返回目录](#chapter-one)
 
 <br>
 
-2. Clone 你的 GitHub Pages 仓库地址
+1. 新建仓库( New repository )，在仓库名( Repository name )中输入 `用户名.github.io`，例如我的就是：`LiangJunrong.github.io`，然后点击 Create repository 即可创建一个部署好的环境。
 
-![Clone 地址](../.vuepress/public/img/about-2.png)
-
-![Clone 地址](../.vuepress/public/img/about-3.png)
+![图](../../public-repertory/img/other-GithubPages-3.png)
 
 <br>
 
-3. 新建 README.md 和 index.html，内容如下：
+2. Clone 项目至电脑，并新增 `README.md` 和 `index.html`：
 
-![目录](../.vuepress/public/img/about-4.png)
+![图](../../public-repertory/img/other-GithubPages-4.png)
+
+<br>
+
+![图](../../public-repertory/img/other-GithubPages-5.png)
+
+<br>
+
+![图](../../public-repertory/img/other-GithubPages-6.png)
+
+<br>
 
 > README.md
 
@@ -121,43 +121,41 @@ Hello Github Pages
 
 <br>
 
-4. 在终端执行 
+3. 上传到 GitHub：
 
 ```
 git add .
-git commit -m "第一次提交"
+git commit -m "Github Pages"
 git push
 ```
 
 <br>
 
-5. 查看 `LiangJunrong.github.io`，这里用户名替换为个人的用户名（注意：用户名.github.io 这个仓库虽然更新了。但是，因为 GitHub 本身存在点缓存，所以最好在自己检查页面显示无误后，再提交到 用户名.github.io）
+4. 打开 `用户名.github.io`：
 
-![最终显示](../.vuepress/public/img/about-5.png)
-
-<br>
-
-# <a name="chapter-one" id="chapter-one">VuePress</a>
-
-&emsp;参考地址：[地址1-使用vuepress搭建静态博客](https://blog.csdn.net/weixin_38318244/article/details/80162782)
-
-
+![图](../../public-repertory/img/other-GithubPages-7.png)
 
 <br>
 
-## <a name="chapter-one" id="chapter-one">step1-安装 VuePress</a>
+## <a name="chapter-two-two" id="chapter-two-two">搭建 VuePages</a>
+
+> [返回目录](#chapter-one)
+
+<br>
+
+1. 安装 VuePress
 
 &emsp;在你需要存放的目录中，通过终端命令行安装 VuePress：`npm i vuepress -D`
 
-![安装 VuePress](../.vuepress/public/img/about-6.png)
+![图](../../public-repertory/img/other-GithubPages-8.png)
 
 <br>
 
-## <a name="chapter-one" id="chapter-one">step2-创建目录及部署代码</a>
+2. 创建目录及部署代码
 
-![目录结构](../.vuepress/public/img/about-7.png)
+![图](../../public-repertory/img/other-GithubPages-9.png)
 
-1. 编辑 `package.json`：
+&emsp;编辑 `package.json`：
 
 > package.json
 
@@ -175,7 +173,7 @@ git push
 
 <br>
 
-2. 然后创建 docs 文件夹，并在 docs 文件夹下创建 README.md 文件
+&emsp;然后创建 docs 文件夹，并在 docs 文件夹下创建 README.md 文件
 
 > README.md
 
@@ -186,11 +184,27 @@ Hello VuePress
 
 <br>
 
-3. 在终端执行命令 `npm run dev`，并打开 `http://localhost:8080`，得到初步配置界面如下：
+&emsp;最后在终端执行命令 `npm run dev`，并打开 `http://localhost:8080`，得到初步配置界面如下：
 
-![界面显示](../.vuepress/public/img/about-8.png)
+![图](../../public-repertory/img/other-GithubPages-10.png)
 
-## <a name="chapter-one" id="chapter-one">step3-进一步配置及优化代码</a>
+<br>
+
+3. 完善配置
+
+<br>
+
+# <a name="chapter-three" id="chapter-three">菜鸟：最完美攻略</a>
+
+> [返回目录](#chapter-one)
+
+<br>
+
+&emsp;菜鸟攻略尚在准备，请拭目以待~
+
+&emsp;参考文章：[地址1-GitHub Pages]()  
+
+&emsp;参考地址：[地址1-使用vuepress搭建静态博客](https://blog.csdn.net/weixin_38318244/article/details/80162782)
 
 <br>
 
