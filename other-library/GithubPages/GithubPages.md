@@ -11,7 +11,7 @@
 <br>
 
 &emsp;如果，你的目的仅仅是想了解如何配置。那么，你应该在看完 `第三章 基础配置` 后，就可以自己去写自己的博客/文档库，遇到不懂的问题，可以自己翻阅 VuePress 文档，解决你所需要解决的问题。  
-&emsp;如果，你的目的是具体查找某组件：例如导航条、例如侧边栏的配置。那么，你可以直接跳到对应章节进行阅读。  
+&emsp;如果，你的目的是具体查找某组件：例如导航条、例如侧边栏的配置。那么，你可以直接查找目录，跳到对应章节进行阅读。  
 
 &emsp;**参考文档：**
 
@@ -23,6 +23,7 @@
 
 ![图](../../public-repertory/img/other-GithubPages-1.png)
 
+![图](../../public-repertory/img/other-GithubPages-2.png)
 
 <br>
 
@@ -33,7 +34,14 @@
 | <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 基础配置](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 配置进阶](#chapter-four) |
+| &emsp;[3.1 搭建 GitHub Pages](#chapter-three-one) |
+| &emsp;[3.2 搭建 VuePages](#chapter-three-two) |
+| &emsp;&emsp;[3.2.1 目录讲解](#chapter-three-two-one) |
+| &emsp;&emsp;[3.2.2 导航栏](#chapter-three-two-two) |
+| &emsp;&emsp;[3.2.3 侧边栏](#chapter-three-two-three) |
+| &emsp;&emsp;[3.2.4 默认首页](#chapter-three-two-four) |
+| &emsp;&emsp;[3.2.5 修改样式](#chapter-three-two-five) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 VuePress 进阶](#chapter-four) |
 
 <br>
 
@@ -60,13 +68,8 @@
 * Git
 * Markdown
 
-&emsp;如果你不是很熟悉上面的技术，**jsliang** 推荐你去百度下资料，先学习下这些技术，其中 GitHub 和 Git 的文章 **jsliang** 尚未整理，这里我提供一篇自己写的 Markdown文章：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/shortArticle/markdown/markdown.md)。其他的小伙伴只能百度获取资料了。  
-&emsp;如果你熟悉且了解上面的技术，请点击下面的目录前往 → [老手：五分钟速成](#chapter-two)。  
-
-&emsp;快速前往：
-
-* [老手：五分钟速成](#chapter-two) 
-* [菜鸟：最完美攻略](#chapter-three) 
+&emsp;如果你不是很熟悉上面的技术，**jsliang** 推荐你去百度下资料，先学习下这些技术，再回来继续学习。其中 GitHub 和 Git 的文章 **jsliang** 尚未整理，小伙伴只能去百度获取资料了，这里我提供一篇自己写的 Markdown文章：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/shortArticle/markdown/markdown.md)。  
+&emsp;如果你熟悉且了解上面的技术，那么，让我们愉快地继续往下去折腾吧！
 
 <br>
 
@@ -74,7 +77,7 @@
 
 <br>
 
-## <a name="chapter-two-one" id="chapter-two-one">2.1 搭建 GitHub Pages</a>
+## <a name="chapter-three-one" id="chapter-three-one">3.1 搭建 GitHub Pages</a>
 
 > [返回目录](#chapter-one)
 
@@ -152,7 +155,7 @@ git push
 
 <br>
 
-## <a name="chapter-two-two" id="chapter-two-two">2.2 搭建 VuePages</a>
+## <a name="chapter-three-two" id="chapter-three-two">3.2 搭建 VuePages</a>
 
 > [返回目录](#chapter-one)
 
