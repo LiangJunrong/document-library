@@ -12,12 +12,30 @@
 
 # <a name="chapter-one" id="chapter-one">前端：写在前面</a>
 
-&emsp;本文成效：
+&emsp;**最终效果：**
+
+&emsp;**效果1：**
 
 ![图](../../public-repertory/img/other-GithubPages-1.png)
 
-&emsp;不折腾的前端，跟咸鱼有什么区别！  
-&emsp;如果这只是一篇关于如何入门 GitHub Pages 和 VuePress 的文档，我会觉得毫无意义。但是，如果这篇文章能够整合网上的 GitHub Pages 和 VuePress 资料，并且比它们丰富一丢丢，让小伙伴们看完无需翻阅大量文章，我就心满意足了。
+<br>
+
+&emsp;**效果2：**
+
+![图](../../public-repertory/img/other-GithubPages-2.png)
+
+<br>
+
+&emsp;一般的网站，大体由三部分组成：域名、服务器部署环境以及部署代码。  
+
+* GitHub Pages，由 GitHub 网站服务，为众多 GitHub 用户提供了良好的服务器部署环境以及域名的好工具。[【Github Pages 官网】](https://pages.github.com/)  
+* VuePress，是以 Vue 为驱动的主题系统的简约静态网站生成工具 balabala……它是咱尤雨溪大神折腾出来的一个工具，初始目的是为了方便他使用 Markdown 语法来写文档，然后生成 HTML 代码，部署到服务器上即可。在众多网友的修改下，它可以拿来写静态网站，也就是可以拿来发布我们编写的博文。[【VuePress 官网】](http://caibaojian.com/vuepress/)  
+
+&emsp;说到这里，小伙伴们大概懂了我们要讲什么了~  
+&emsp;但是，如果这只是一篇关于如何入门 GitHub Pages 和 VuePress 的文档，我会觉得毫无意义。所以，**jsliang** 希望这篇文章能够整合网上的 GitHub Pages 和 VuePress 资料，并且比它们丰富一丢丢，加入 **jsliang** 使用心得，让小伙伴们看完无需翻阅大量文章也能快速做好自己的个人文档库/博客。那样，我就心满意足了。因为……  
+
+&emsp;**不折腾的前端，跟咸鱼有什么区别！**  
+
 
 &emsp;本文涉及的技术点：
 
@@ -25,12 +43,13 @@
 * Git
 * Markdown
 
-&emsp;如果你熟悉且了解上面的技术，请点击下面的目录前往 [老手：五分钟速成](#chapter-two)，如果你不是很了解，请前往 [菜鸟：最完美攻略](#chapter-three)，里面有最全攻略，带你搞定自己的文档库~
+&emsp;如果你熟悉且了解上面的技术，请点击下面的目录前往 → [老手：五分钟速成](#chapter-two)。  
+&emsp;如果你不是很了解，请前往 → [菜鸟：最完美攻略](#chapter-three)，**jsliang** 在里面写了最全攻略，带你搞定自己的文档库~
 
-| 前往目录 |
-| --- | 
-| [老手：五分钟速成](#chapter-two) |
-| [菜鸟：最完美攻略](#chapter-three) |
+&emsp;快速前往：
+
+* [老手：五分钟速成](#chapter-two) 
+* [菜鸟：最完美攻略](#chapter-three) 
 
 <br>
 
@@ -44,10 +63,9 @@
 
 # <a name="chapter-one" id="chapter-one">GitHub Pages</a>
 
-&emsp;参考文章：[地址1-GitHub Pages](https://pages.github.com/)  
+&emsp;参考文章：[地址1-GitHub Pages]()  
 
-&emsp;一般的网站，大体由三部分组成：域名、服务器、部署环境及代码。  
-&emsp;GitHub Pages，就给众多 GitHub 用户提供了一个快捷方便的部署环境。那么，我们要如何做，才能将我们通过 jQuery、Vue 写好的静态代码部署上去呢？
+
 
 1. 新建仓库( New repository )，在仓库名( Repository name )中输入 `用户名.github.io`，然后点击 Create repository 即可创建一个部署好的环境。（如果你观察力很好，你会发现左边的 Owner 名字就是你的用户名）
 
@@ -123,10 +141,7 @@ git push
 
 &emsp;参考地址：[地址1-使用vuepress搭建静态博客](https://blog.csdn.net/weixin_38318244/article/details/80162782)
 
-&emsp;VuePress 是什么？  
-&emsp;VuePress 是以 Vue 为驱动的主题系统的简约静态网站生成工具 balabalabala……好了不复制太多了，讲白点：  
-&emsp;VuePress 是咱尤雨溪大佬折腾出来的一个玩意，为了方便他使用 Markdown 语法来写文档用的~  
-&emsp;讲到这里。首先，你需要了解丢丢 Vue 是啥；其次，你需要知道 Markdown 是嘛玩意。如果上面两个玩意你都OK了，那好，我们继续。
+
 
 <br>
 
