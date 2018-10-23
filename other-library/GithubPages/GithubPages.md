@@ -2,11 +2,27 @@
 ===
 
 > Create by **jsliang** on **2018-10-20 10:34:39**  
-> Recently revised in **2018-10-23 21:56:00**
+> Recently revised in **2018-10-23 22:34:10**
 
 <br>
 
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/GithubPages/GithubPages.md)**
+
+<br>
+
+&emsp;如果，你的目的仅仅是想了解如何配置。那么，你应该在看完 `第三章 基础配置` 后，就可以自己去写自己的博客/文档库，遇到不懂的问题，可以自己翻阅 VuePress 文档，解决你所需要解决的问题。  
+&emsp;如果，你的目的是具体查找某组件：例如导航条、例如侧边栏的配置。那么，你可以直接跳到对应章节进行阅读。  
+
+&emsp;**参考文档：**
+
+* 参考地址：[GitHub Pages](https://pages.github.com/)  
+
+* 参考地址：[VuePress 中文网](http://caibaojian.com/vuepress/)
+
+&emsp;**目前效果：**
+
+![图](../../public-repertory/img/other-GithubPages-1.png)
+
 
 <br>
 
@@ -17,15 +33,13 @@
 | <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 基础配置](#chapter-three) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[四 配置进阶](#chapter-four) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 配置进阶](#chapter-four) |
 
 <br>
 
-# <a name="chapter-one" id="chapter-one">二 前言</a>
+# <a name="chapter-two" id="chapter-two">二 前言</a>
 
-&emsp;**目前效果：**
-
-![图](../../public-repertory/img/other-GithubPages-1.png)
+> [返回目录](#chapter-one)
 
 <br>
 
@@ -46,8 +60,8 @@
 * Git
 * Markdown
 
+&emsp;如果你不是很熟悉上面的技术，**jsliang** 推荐你去百度下资料，先学习下这些技术，其中 GitHub 和 Git 的文章 **jsliang** 尚未整理，这里我提供一篇自己写的 Markdown文章：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/shortArticle/markdown/markdown.md)。其他的小伙伴只能百度获取资料了。  
 &emsp;如果你熟悉且了解上面的技术，请点击下面的目录前往 → [老手：五分钟速成](#chapter-two)。  
-&emsp;如果你不是很了解，请前往 → [菜鸟：最完美攻略](#chapter-three)，**jsliang** 在里面写了最全攻略，带你搞定自己的文档库~
 
 &emsp;快速前往：
 
@@ -56,13 +70,7 @@
 
 <br>
 
-# <a name="chapter-two" id="chapter-two">二、老手：五分钟速成</a>
-
-&emsp;菜鸟攻略尚在准备，请拭目以待~
-
-&emsp;参考文章：[地址1-GitHub Pages](https://pages.github.com/)  
-
-&emsp;参考地址：[地址1-使用vuepress搭建静态博客](https://blog.csdn.net/weixin_38318244/article/details/80162782)
+# <a name="chapter-three" id="chapter-three">三 基础配置</a>
 
 <br>
 
