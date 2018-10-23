@@ -33,7 +33,7 @@
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;目前已有 **47** 个坑。  
+&emsp;目前已有 **48** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个章节。  
@@ -102,6 +102,7 @@
 | &emsp;<a name="catalog-chapter-three-twenty-two" id="catalog-chapter-three-twenty-two"></a>[3.22 客服系统研究](#chapter-three-twenty-two)             | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-three" id="catalog-chapter-three-twenty-three"></a>[3.23 文件在线预览](#chapter-three-twenty-three)       | 2   |
 | &emsp;<a name="catalog-chapter-three-twenty-four" id="catalog-chapter-three-twenty-four"></a>[3.24 尽量使用 ES6](#chapter-three-twenty-four)       | 1   |
+| &emsp;<a name="catalog-chapter-three-twenty-five" id="catalog-chapter-three-twenty-five"></a>[3.25 视频功能实现](#chapter-three-twenty-five)       | 1   |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 网友补充](#chatper-four)                                                             |     |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 文件夹读取报错](#chapter-four-one)                                    | 1   |
 | &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 textarea问题多多](#chapter-four-two)                                  | 1   |
@@ -2388,40 +2389,6 @@ wx.login({
 
 <br>
 
-# <a name="chatper-four" id="chatper-four">四 网友补充</a>
-
-&emsp;[返回目录](#catalog-chapter-four)
-
-&emsp;这章主要讲解小伙伴们发现的 **bug** 及其解决思路，有兴趣的小伙伴可以私我QQ：1741020489，我将把你提出的 **bug** 写进这篇文章并附上你的大名（看个人意愿），谢谢小伙伴们的支持~
-
-> 注：小伙伴们提出的 **bug**，如果包含详细的问题描述和解决方案，我会统计进该文章的 **bug** 清单。
-
-<br>
-
-## <a name="chapter-four-one" id="chapter-four-one">4.1 文件夹读取报错</a>
-
-&emsp;[返回目录](#catalog-chapter-four)
-
-> 本组件目前已有 ? 个坑，有经验的小伙伴可以进行补充。
-
-<br>
-
-&emsp;问题提出者：掘金 [史前图腾](https://juejin.im/user/5a311af051882554bd510dd0)。  
-&emsp;问题反馈：`wx.getFileSystemManager().readdir` 文件夹读取 `api` 报错，但仍会返回结果。  
-&emsp;问题解决：这个 api 作用是读取某个目录下的文件名，正常会返回文件名数组，但是现在 IDE 在返回数据之前会报 'indexOf' 未定义的错误，并不影响api 使用。我看官方论坛上月就有人反应了，至今未修复。
-
-## <a name="chapter-four-two" id="chapter-four-two">4.2 textarea问题多多</a>
-
-&emsp;[返回目录](#catalog-chapter-four)
-
-> 本组件目前已有 ? 个坑，有经验的小伙伴可以进行补充。
-
-&emsp;问题提出者：掘金 [jilaokang](https://juejin.im/user/5b32742ce51d4558c91bb884)。  
-&emsp;问题反馈：textare问题非常多，补一个。  
-&emsp;问题解决：已联系大佬，等待回复。
-
-<br>
-
 ## <a name="chapter-three-twenty-two" id="chapter-three-twenty-two">3.22 客服系统研究</a>
 
 &emsp;[返回目录](#catalog-chapter-three-twenty-two)
@@ -2567,6 +2534,66 @@ for (let i of array) {
   console.log(i);
 }
 ```
+
+<br>
+
+## <a name="chapter-three-twenty-five" id="chapter-three-twenty-five">3.25 视频功能实现</a>
+
+&emsp;[返回目录](#catalog-chapter-three-twenty-five)
+
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
+
+&emsp;官方地址：[地址](https://developers.weixin.qq.com/miniprogram/dev/component/video.html)
+
+&emsp;官方实现效果：
+
+![图](../../public-repertory/img/other-WechatApplet-bug-16.png)
+
+&emsp;项目实现效果：
+
+![图](../../public-repertory/img/other-WechatApplet-bug-17.png)
+
+&emsp;从图中可以看出，我们大概要实现3个步骤：
+
+1. 调整 CSS，使 Video 占满 100% 的宽，并且居顶。
+
+2. 调整 HTML+CSS，使图片覆盖住视频。
+
+3. 编写 JS，使图片点击时，隐藏图片，播放视频。
+
+<br>
+
+# <a name="chatper-four" id="chatper-four">四 网友补充</a>
+
+&emsp;[返回目录](#catalog-chapter-four)
+
+&emsp;这章主要讲解小伙伴们发现的 **bug** 及其解决思路，有兴趣的小伙伴可以私我QQ：1741020489，我将把你提出的 **bug** 写进这篇文章并附上你的大名（看个人意愿），谢谢小伙伴们的支持~
+
+> 注：小伙伴们提出的 **bug**，如果包含详细的问题描述和解决方案，我会统计进该文章的 **bug** 清单。
+
+<br>
+
+## <a name="chapter-four-one" id="chapter-four-one">4.1 文件夹读取报错</a>
+
+&emsp;[返回目录](#catalog-chapter-four)
+
+> 本组件目前已有 ? 个坑，有经验的小伙伴可以进行补充。
+
+<br>
+
+&emsp;问题提出者：掘金 [史前图腾](https://juejin.im/user/5a311af051882554bd510dd0)。  
+&emsp;问题反馈：`wx.getFileSystemManager().readdir` 文件夹读取 `api` 报错，但仍会返回结果。  
+&emsp;问题解决：这个 api 作用是读取某个目录下的文件名，正常会返回文件名数组，但是现在 IDE 在返回数据之前会报 'indexOf' 未定义的错误，并不影响api 使用。我看官方论坛上月就有人反应了，至今未修复。
+
+## <a name="chapter-four-two" id="chapter-four-two">4.2 textarea问题多多</a>
+
+&emsp;[返回目录](#catalog-chapter-four)
+
+> 本组件目前已有 ? 个坑，有经验的小伙伴可以进行补充。
+
+&emsp;问题提出者：掘金 [jilaokang](https://juejin.im/user/5b32742ce51d4558c91bb884)。  
+&emsp;问题反馈：textare问题非常多，补一个。  
+&emsp;问题解决：已联系大佬，等待回复。
 
 <br>
 
