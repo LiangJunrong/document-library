@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-10-20 10:34:39**  
-> Recently revised in **2018-10-23 13:30:53**
+> Recently revised in **2018-10-23 21:56:00**
 
 <br>
 
@@ -10,19 +10,22 @@
 
 <br>
 
-# <a name="chapter-one" id="chapter-one">一、写在前面</a>
+# <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;**最终效果：**
-
-&emsp;**效果1：**
-
-![图](../../public-repertory/img/other-GithubPages-1.png)
+| 目录名 |
+| --- |
+| <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 基础配置](#chapter-three) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[四 配置进阶](#chapter-four) |
 
 <br>
 
-&emsp;**效果2：**
+# <a name="chapter-one" id="chapter-one">二 前言</a>
 
-![图](../../public-repertory/img/other-GithubPages-2.png)
+&emsp;**目前效果：**
+
+![图](../../public-repertory/img/other-GithubPages-1.png)
 
 <br>
 
