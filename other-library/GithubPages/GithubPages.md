@@ -55,6 +55,12 @@
 
 # <a name="chapter-two" id="chapter-two">二、老手：五分钟速成</a>
 
+&emsp;菜鸟攻略尚在准备，请拭目以待~
+
+&emsp;参考文章：[地址1-GitHub Pages](https://pages.github.com/)  
+
+&emsp;参考地址：[地址1-使用vuepress搭建静态博客](https://blog.csdn.net/weixin_38318244/article/details/80162782)
+
 <br>
 
 ## <a name="chapter-two-one" id="chapter-two-one">2.1 搭建 GitHub Pages</a>
@@ -207,20 +213,212 @@ Hello VuePress
  - config.js            - 配置 js 文件
 ```
 
+<br>
+
+&emsp;然后，填写 `config.js` 中的配置代码：
+
+> config.js
+
+```
+module.exports = {
+    // 左上角标题
+    title: 'jsliang 的文档库',
+    // 描述
+    description: '前端工程师 jsliang 的文档库',
+    // 头部部署，右上角小图标
+    head: [
+        // ico 配置
+        ['link', {
+            rel: 'icon',
+            href: '/img/logo.ico'
+        }]
+    ],
+    // 主题部署
+    themeConfig: {
+        /** 
+         * 右侧导航条
+         * text - 显示字段
+         * link - 链接：注意前后带 / 符号
+         */
+        nav: [
+            {
+                text: '主页',
+                link: '/'
+            },
+            /**
+             * 多级菜单
+             * 开头 text 为一级标题
+             * 数组内 text 为二级标题
+             * link 为链接，注意带 /
+             */
+            {
+                text: '博文',
+                items: [
+                    {
+                        text: '微信小程序 bug 集中营',
+                        link: 'https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md'
+                    },
+                    {
+                        text: '使用 GitHub Pages 和 VuePress 搭建网站',
+                        link: 'https://github.com/LiangJunrong/document-library/blob/master/other-library/GithubPages/GithubPages.md'
+                    }
+                ]
+            },
+            {
+                text: '关于',
+                link: '/about/'
+            },
+            // 链接到网站
+            {
+                text: 'Github',
+                link: 'https://www.github.com/LiangJunrong'
+            },
+        ]
+    }
+}
+```
+
+&emsp;最后，参照代码注释和下面的成果图，小伙伴应该懂得一些基本部署了。
+
+![图](../../public-repertory/img/other-GithubPages-12.png)
 
 <br>
 
-# <a name="chapter-three" id="chapter-three">三、菜鸟：最完美攻略</a>
+* 配置简单侧边栏
 
-> [返回目录](#chapter-one)
+&emsp;首先，目录结构如下：
+
+![图](../../public-repertory/img/other-GithubPages-13.png)
 
 <br>
 
-&emsp;菜鸟攻略尚在准备，请拭目以待~
+&emsp;然后，配置我们的代码：
 
-&emsp;参考文章：[地址1-GitHub Pages]()  
+> .vuepress/config.js
 
-&emsp;参考地址：[地址1-使用vuepress搭建静态博客](https://blog.csdn.net/weixin_38318244/article/details/80162782)
+```
+module.exports = {
+    title: 'jsliang 的文档库',
+    description: '前端工程师 jsliang 的文档库',
+    head: [
+        // ...省略，可参考上面    
+    ],
+    // 主题部署
+    themeConfig: {
+        nav: [
+            // ...省略，可参考上面
+        ],
+        /**
+         * 侧边栏配置：数组形式
+         */ 
+        sidebar: [
+            
+            // 这种写法会跳转至首页
+            ['/', '首页'],
+
+            // 这种写法会跳转至该目录下的 README.md
+            ['/about/', '关于'],
+            
+            ['/index/', '导航页']
+        ],
+        // 这是嵌套标题链接，自动显示当前激活（导航）页面标题的链接，即显示深度（h1-h6的深度）
+        sidebarDepth: 1
+    }
+}
+```
+
+<br>
+
+&emsp;最后，生成目录如下：
+
+![图](../../public-repertory/img/other-GithubPages-14.png)
+
+<br>
+
+* 配置侧边栏组
+
+&emsp;首先，目录结构如下：
+
+![图](../../public-repertory/img/other-GithubPages-13.png)
+
+> .vuepress/config.js
+
+```
+module.exports = {
+    title: 'jsliang 的文档库',
+    description: '前端工程师 jsliang 的文档库',
+    head: [
+        // ... 省略，配置可参考上面
+    ],
+    // 主题部署
+    themeConfig: {
+        nav: [
+            // ...省略，配置可参考上面
+        ],
+        /**
+         * 侧边栏配置：侧边栏组
+         */
+        sidebar: [
+            {
+                title: '导航组',
+                children: [
+                    ['/index/', '导航首页'],
+                    ['/index/indexTwo', '导航第二页']
+                ]
+            },
+            {
+                title: '关于组',
+                children: [ 
+                    '/about/',
+                    '/about/GithubPages',
+                ]
+            }
+        ]
+    }
+}
+```
+
+<br>
+
+* 配置分页侧边栏
+
+&emsp;有些时候，我们想根据不同的目录，配置不同的侧边栏，这时候，我们只需要在 `config.js` 中设置一下，即可完美搞定：
+
+> .vuepress/config.js
+
+```
+module.exports = {
+    title: 'jsliang 的文档库',
+    description: '前端工程师 jsliang 的文档库',
+    head: [
+        // ... 省略，配置可参考上面
+    ],
+    // 主题部署
+    themeConfig: {
+        nav: [
+            // ...省略，配置可参考上面
+        ],
+        /**
+         * 侧边栏配置：侧边栏组
+         */
+        sidebar: {
+
+            // 侧边栏在 /index/ 【主页】目录上
+            '/index/': [
+                ['', 'README'],
+                ['indexTwo', '导航第二页']
+            ],
+
+            // 侧边栏在 /about/ 【关于】目录上
+            '/about/': [
+                ['', 'README'],
+                ['GithubPages', 'GithubPages'],
+                ['VuePress', 'VuePress']
+            ]
+        }
+    }
+}
+```
 
 <br>
 
