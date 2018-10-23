@@ -6,26 +6,43 @@
 
 <br>
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/GithubPages/GithubPages.md)**
 
 <br>
 
-# 目录
+# <a name="chapter-one" id="chapter-one">前端：写在前面</a>
 
-| 标题 | 链接 |
-| --- | --- |
-| 前言 | [前往]() |
+&emsp;本文成效：
+
+![图](../../public-repertory/img/other-GithubPages-1.png)
+
+&emsp;不折腾的前端，跟咸鱼有什么区别！  
+&emsp;如果这只是一篇关于如何入门 GitHub Pages 和 VuePress 的文档，我会觉得毫无意义。但是，如果这篇文章能够整合网上的 GitHub Pages 和 VuePress 资料，并且比它们丰富一丢丢，让小伙伴们看完无需翻阅大量文章，我就心满意足了。
+
+&emsp;本文涉及的技术点：
+
+* GitHub
+* Git
+* Markdown
+
+&emsp;如果你熟悉且了解上面的技术，请点击下面的目录前往 [老手：五分钟速成](#chapter-two)，如果你不是很了解，请前往 [菜鸟：最完美攻略](#chapter-three)，里面有最全攻略，带你搞定自己的文档库~
+
+| 前往目录 |
+| --- | 
+| [老手：五分钟速成](#chapter-two) |
+| [菜鸟：最完美攻略](#chapter-three) |
 
 <br>
 
-# 前言
-
-&emsp;如果这只是一篇关于如何入门 GitHub Pages 和 VuePress 的文档，我会觉得毫无意义。  
-&emsp;但是，如果这篇文章能够整合 GitHub Pages 和 VuePress，并且比百度上的参考资料还丰富，那么我就觉得我成功挑战了前辈的经验，为互联网的发展提供了一丁点的贡献~
+# <a name="chapter-two" id="chapter-two">老手：五分钟速成</a>
 
 <br>
 
-# GitHub Pages
+# <a name="chapter-three" id="chapter-three">菜鸟：最完美攻略</a>
+
+<br>
+
+# <a name="chapter-one" id="chapter-one">GitHub Pages</a>
 
 &emsp;参考文章：[地址1-GitHub Pages](https://pages.github.com/)  
 
@@ -102,7 +119,7 @@ git push
 
 <br>
 
-# VuePress
+# <a name="chapter-one" id="chapter-one">VuePress</a>
 
 &emsp;参考地址：[地址1-使用vuepress搭建静态博客](https://blog.csdn.net/weixin_38318244/article/details/80162782)
 
@@ -113,7 +130,7 @@ git push
 
 <br>
 
-## step1-安装 VuePress
+## <a name="chapter-one" id="chapter-one">step1-安装 VuePress</a>
 
 &emsp;在你需要存放的目录中，通过终端命令行安装 VuePress：`npm i vuepress -D`
 
@@ -121,7 +138,7 @@ git push
 
 <br>
 
-## step2-创建目录及部署代码
+## <a name="chapter-one" id="chapter-one">step2-创建目录及部署代码</a>
 
 ![目录结构](../.vuepress/public/img/about-7.png)
 
@@ -158,7 +175,7 @@ Hello VuePress
 
 ![界面显示](../.vuepress/public/img/about-8.png)
 
-## step3-进一步配置及优化代码
+## <a name="chapter-one" id="chapter-one">step3-进一步配置及优化代码</a>
 
 <br>
 
