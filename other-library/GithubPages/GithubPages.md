@@ -41,8 +41,8 @@
 | &emsp;&emsp;[3.2.2 导航栏](#chapter-three-two-two) |
 | &emsp;&emsp;[3.2.3 侧边栏](#chapter-three-two-three) |
 | &emsp;&emsp;[3.2.4 默认首页](#chapter-three-two-four) |
-| &emsp;&emsp;[3.2.5 修改样式](#chapter-three-two-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 VuePress 进阶](#chapter-four) |
+| &emsp;[4.1 修改样式](#chapter-four-one) |
 
 <br>
 
@@ -393,6 +393,44 @@ module.exports = {
 ![图](../../public-repertory/img/other-GithubPages-15.png)
 
 &emsp;可以看出，我们已经成功配置了分页形式的侧边栏。
+
+<br>
+
+## <a name="chapter-three-two-four" id="chapter-three-two-four">3.2.4 默认首页</a>
+
+> [返回目录](#chapter-one)
+
+<br>
+
+&emsp;VuePress 为我们设置了一套默认的首页，我们直接拿来用，看看它长什么样子吧！
+
+&emsp;首先，我们找一张 banner.png 图，放到 `public/img/banner.png` 上。  
+&emsp;然后，我们修改下 `docs/README.md` 文件：
+
+> docs/README.md
+
+```
+---
+home: true
+heroImage: ./img/banner.png
+actionText: 皮皮虾 我们走 →
+actionLink: /index/
+features:
+- title: 装逼
+  details: 在这里，你可以看到 jsliang 在这里无限装逼，所以你可以尽情打脸。就算你懂，没关系，打了脸再说~
+- title: 搞笑
+  details: 在这里，你可以获得各种学习欢乐，轻松进击前端编程。点滴进步，成就不一样的你。
+- title: 深沉
+  details: 在这里，你可以收获一个广州自身漂泊的人的情怀，感受在这个烦躁的社会 jsliang 如何安身立命。
+footer: jsliang 的文档库 | Copyright © 2018 不折腾的前端，和咸鱼有什么区别
+---
+```
+
+&emsp;OK，由于我们重新修改了首页（即 docs/README.md），所以我们重新重启下，`Ctrl+C` -> `y` -> `npm run dev`，重新打开 `http://localhost:8080`：
+
+![图](../../public-repertory/img/other-GithubPages-1.png)
+
+&emsp;完美！这样，我们就完成了基础的配置了！！！
 
 <br>
 
