@@ -156,7 +156,7 @@ git push
 
 <br>
 
-&emsp;如上，完成 GitHub Pages 的搭建，现在我们已经拥有了一个部署静态页面的免费平台了。那么，下面我们将讲解如何通过 Markdown 来编写博客。
+&emsp;如上，完成 GitHub Pages 的搭建，现在我们已经拥有了一个免费部署静态页面的平台了。那么，下面我们将讲解如何通过 Markdown + VuePress 来编写博客。
 
 <br>
 
@@ -194,6 +194,11 @@ git push
 }
 ```
 
+> 注：
+
+* `npm run dev` 即可开始实时编辑模式
+* `npm run build` 即可对代码进行压缩打包，打包后的文件夹在 `.vuepress/dist` 上。
+
 <br>
 
 &emsp;然后创建 docs 文件夹，并在 docs 文件夹下创建 README.md 文件
@@ -211,6 +216,9 @@ Hello VuePress
 
 ![图](../../public-repertory/img/other-GithubPages-10.png)
 
+&emsp;值得注意的是。在这里，我们是通过 `npm run dev` 即时获取我们修改的页面显示。  
+&emsp;然后，我们可以通过 `npm run build` 打包我们的代码，你可以在 `.vuepress` 中找到一个 `dist` 文件夹，然后将 `dist` 中的文件夹上传至 `用户名.github.io`，即可完成 VuePress 的部署。
+
 <br>
 
 ## <a name="chapter-three-two-one" id="chapter-three-two-one">3.2.1 目录讲解</a>
@@ -219,6 +227,7 @@ Hello VuePress
 
 <br>
 
+&emsp;在前面，我们讲解了如何设置 VuePress 并启动
 &emsp;现在，我们来个基配的目录，进行讲解：
 
 ![图](../../public-repertory/img/other-GithubPages-11.png)
@@ -257,8 +266,8 @@ Hello VuePress
 
 <br>
 
-&emsp;在这里，我们进行顶部导航栏的配置。  
-&emsp;首先，我们填写 `config.js` 中的配置代码：
+&emsp;在这里，我们开始进行顶部导航栏的配置。  
+&emsp;首先，我们填写下 `config.js` 中的配置代码：
 
 > config.js
 
@@ -333,132 +342,38 @@ module.exports = {
 
 <br>
 
-* 配置简单侧边栏
+&emsp;VuePress 中的侧边栏配置，一共有三种方式：简单配置，按组配置，分页配置，有兴趣的小伙伴可以去：[地址](http://caibaojian.com/vuepress/default-theme-config/#%E4%BE%A7%E8%BE%B9%E6%A0%8F-sidebar) 直接查看，这里我们单纯讲下我们部署我们的文档库用到的分页配置。
 
-&emsp;首先，目录结构如下：
-
-![图](../../public-repertory/img/other-GithubPages-13.png)
-
-<br>
-
-&emsp;然后，配置我们的代码：
-
-> .vuepress/config.js
-
-```
-module.exports = {
-    title: 'jsliang 的文档库',
-    description: '前端工程师 jsliang 的文档库',
-    head: [
-        // ...省略，可参考上面    
-    ],
-    // 主题部署
-    themeConfig: {
-        nav: [
-            // ...省略，可参考上面
-        ],
-        /**
-         * 侧边栏配置：数组形式
-         */ 
-        sidebar: [
-            
-            // 这种写法会跳转至首页
-            ['/', '首页'],
-
-            // 这种写法会跳转至该目录下的 README.md
-            ['/about/', '关于'],
-            
-            ['/index/', '导航页']
-        ],
-        // 这是嵌套标题链接，自动显示当前激活（导航）页面标题的链接，即显示深度（h1-h6的深度）
-        sidebarDepth: 1
-    }
-}
-```
-
-<br>
-
-&emsp;最后，生成目录如下：
-
-![图](../../public-repertory/img/other-GithubPages-14.png)
-
-<br>
-
-* 配置侧边栏组
-
-&emsp;首先，目录结构如下：
+&emsp;目录如下：
 
 ![图](../../public-repertory/img/other-GithubPages-13.png)
 
-> .vuepress/config.js
+&emsp;然后，我们修改下 `config.js`：
+
+> config.js
 
 ```
 module.exports = {
     title: 'jsliang 的文档库',
     description: '前端工程师 jsliang 的文档库',
     head: [
-        // ... 省略，配置可参考上面
+        // ...省略，配置代码同 3.2.2    
     ],
-    // 主题部署
     themeConfig: {
+
         nav: [
-            // ...省略，配置可参考上面
-        ],
-        /**
-         * 侧边栏配置：侧边栏组
-         */
-        sidebar: [
-            {
-                title: '导航组',
-                children: [
-                    ['/index/', '导航首页'],
-                    ['/index/indexTwo', '导航第二页']
-                ]
-            },
-            {
-                title: '关于组',
-                children: [ 
-                    '/about/',
-                    '/about/GithubPages',
-                ]
-            }
-        ]
-    }
-}
-```
-
-<br>
-
-* 配置分页侧边栏
-
-&emsp;有些时候，我们想根据不同的目录，配置不同的侧边栏，这时候，我们只需要在 `config.js` 中设置一下，即可完美搞定：
-
-> .vuepress/config.js
-
-```
-module.exports = {
-    title: 'jsliang 的文档库',
-    description: '前端工程师 jsliang 的文档库',
-    head: [
-        // ... 省略，配置可参考上面
-    ],
-    // 主题部署
-    themeConfig: {
-        nav: [
-            // ...省略，配置可参考上面
+            // ...省略，配置代码同 3.2.2   
         ],
         /**
          * 侧边栏配置：侧边栏组
          */
         sidebar: {
-
-            // 侧边栏在 /index/ 【主页】目录上
+            // 侧边栏在 /index/ 目录上
             '/index/': [
                 ['', 'README'],
                 ['indexTwo', '导航第二页']
             ],
-
-            // 侧边栏在 /about/ 【关于】目录上
+            // 侧边栏在 /about/ 目录上
             '/about/': [
                 ['', 'README'],
                 ['GithubPages', 'GithubPages'],
@@ -468,6 +383,16 @@ module.exports = {
     }
 }
 ```
+
+&emsp;最后，我们运行 `npm run dev`，查看 `http://localhost:8080` 所示如下：
+
+![图](../../public-repertory/img/other-GithubPages-14.png)
+
+<br>
+
+![图](../../public-repertory/img/other-GithubPages-15.png)
+
+&emsp;可以看出，我们已经成功配置了分页形式的侧边栏。
 
 <br>
 
