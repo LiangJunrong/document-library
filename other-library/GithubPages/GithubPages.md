@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-10-20 10:34:39**  
-> Recently revised in **2018-10-24 13:41:15**
+> Recently revised in **2018-10-24 13:54:52**
 
 <br>
 
@@ -431,6 +431,22 @@ footer: jsliang 的文档库 | Copyright © 2018 不折腾的前端，和咸鱼�
 ![图](../../public-repertory/img/other-GithubPages-1.png)
 
 &emsp;完美！这样，我们就完成了基础的配置了！！！
+
+<br>
+
+# <a name="chapter-four" id="chapter-four">四 VuePress 进阶</a>
+
+<br>
+
+## <a name="chapter-four-one" id="chapter-four-one">4.1 修改样式</a>
+
+> [返回目录](#chapter-one)
+
+<br>
+
+&emsp;正在逐步完善。
+
+&emsp;**如果你觉得该篇文章对你非常有用，请给我在 GitHub 上的文档库一个 **star**，你的 **star** 是我不断折腾的动力~ [【Github 地址】](https://github.com/LiangJunrong/document-library/blob/master/other-library/GithubPages/GithubPages.md)**
 
 <br>
 
