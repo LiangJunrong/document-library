@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-10-20 10:34:39**  
-> Recently revised in **2018-10-23 23:00:57**
+> Recently revised in **2018-10-24 09:11:03**
 
 <br>
 
@@ -10,6 +10,7 @@
 
 <br>
 
+&emsp;本文教你如何利用 GitHub 平台搭建自己的博客/文档库。  
 &emsp;如果，你的目的仅仅是想了解如何配置。那么，你应该在看完 `第三章 基础配置` 后，就可以自己去写自己的博客/文档库，遇到不懂的问题，可以自己翻阅 VuePress 文档，解决你所需要解决的问题。  
 &emsp;如果，你的目的是具体查找某组件：例如导航条、例如侧边栏的配置。那么，你可以直接查找目录，跳到对应章节进行阅读。  
 
@@ -35,7 +36,7 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 基础配置](#chapter-three) |
 | &emsp;[3.1 搭建 GitHub Pages](#chapter-three-one) |
-| &emsp;[3.2 搭建 VuePages](#chapter-three-two) |
+| &emsp;[3.2 搭建 VuePress](#chapter-three-two) |
 | &emsp;&emsp;[3.2.1 目录讲解](#chapter-three-two-one) |
 | &emsp;&emsp;[3.2.2 导航栏](#chapter-three-two-two) |
 | &emsp;&emsp;[3.2.3 侧边栏](#chapter-three-two-three) |
@@ -155,7 +156,11 @@ git push
 
 <br>
 
-## <a name="chapter-three-two" id="chapter-three-two">3.2 搭建 VuePages</a>
+&emsp;如上，完成 GitHub Pages 的搭建，现在我们已经拥有了一个部署静态页面的免费平台了。那么，下面我们将讲解如何通过 Markdown 来编写博客。
+
+<br>
+
+## <a name="chapter-three-two" id="chapter-three-two">3.2 搭建 VuePress</a>
 
 > [返回目录](#chapter-one)
 
@@ -208,28 +213,52 @@ Hello VuePress
 
 <br>
 
-3. 完善配置
+## <a name="chapter-three-two-one" id="chapter-three-two-one">3.2.1 目录讲解</a>
 
-* 配置导航条
+> [返回目录](#chapter-one)
 
-&emsp;首先，搭建目录如下：
+<br>
+
+&emsp;现在，我们来个基配的目录，进行讲解：
 
 ![图](../../public-repertory/img/other-GithubPages-11.png)
 
-&emsp;其中，.vuepress 是 VuePress 的配置文件，其架构为：
+<br>
 
 ```
-- .vuepress             - VuePress 配置目录
- - public               - 共用文件存储目录
-  - img                 - 共用图片
-   - banner.png         - 首页 banner
-   - logo.ico           - 网页小图标
- - config.js            - 配置 js 文件
+- docs                   - VuePress 存放目录
+ - .vuepress             - VuePress 配置目录
+  - public               - 共用文件存储目录
+   - img                 - 共用图片目录
+    - banner.png         - 图片-首页 banner
+    - logo.ico           - 图片-网站右上角小图标
+  - config.js            - VuePress 的 js 配置文件
+ - listOne               - 侧边栏项目组1
+  - pageOne.md           - 项目组1页面1
+  - README.md            - 项目组1默认页面
+ - listTwo               - 侧边栏项目组2
+  - pageThree.md         - 项目组2页面3
+  - pageTwo.md           - 项目组2页面2
+  - README.md            - 项目组2默认页面
+ - README.md             - 网站默认首页
++ node_modules           - node 依赖包
+- package.json           - webpack 配置文件
 ```
 
 <br>
 
-&emsp;然后，填写 `config.js` 中的配置代码：
+&emsp;其中，`.vuepress` 存放 VuePress 的配置目录，`public` 中存放共有的文件，`config.js` 为 VuePress 的配置文件，`listOne`、`listTwo` 是侧边栏组，对页面进行个分类。
+
+<br>
+
+## <a name="chapter-three-two-two" id="chapter-three-two-two">3.2.2 导航栏</a>
+
+> [返回目录](#chapter-one)
+
+<br>
+
+&emsp;在这里，我们进行顶部导航栏的配置。  
+&emsp;首先，我们填写 `config.js` 中的配置代码：
 
 > config.js
 
@@ -292,9 +321,15 @@ module.exports = {
 }
 ```
 
-&emsp;最后，参照代码注释和下面的成果图，小伙伴应该懂得一些基本部署了。
+&emsp;然后，启动 `npm run dev`，打开 `http://localhost:8080`，你可以看到导航栏部署完毕了。
 
 ![图](../../public-repertory/img/other-GithubPages-12.png)
+
+<br>
+
+## <a name="chapter-three-two-three" id="chapter-three-two-three">3.2.3 侧边栏</a>
+
+> [返回目录](#chapter-one)
 
 <br>
 
