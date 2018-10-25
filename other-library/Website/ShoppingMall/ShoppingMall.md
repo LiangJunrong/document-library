@@ -14,12 +14,25 @@ Vue + Koa2 + MongoDB 搭建商城
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
-
 | 目录名 |
 | --- |
 | <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 
-## 运行机制
+<br>
+
+# <a name="chapter-two" id="chapter-two">二 前言</a>
+
+> [返回目录](#catalog-chapter-two)
+
+## 下载并运行代码
+
+&emsp;下载代码：代码在 GitHub 文档库中文章的同级 `code` 目录上，如果嫌 download 全部文档太麻烦，不想去 download 全部文档，那就点击链接加 QQ 群拿资料吧：[798961601](https://jq.qq.com/?_wv=1027&k=5bSk4rs)。  
+&emsp;我是 **jsliang**，想要资料就来砍我，哦不是……  
+&emsp;我是 **jsliang**，我在天书世界等你，噢不是……  
+&emsp;我是 **jsliang**，我在 **jsliang** 资料群等你~  
+
+&emsp;运行代码：
 
 ```
 # 安装依赖
