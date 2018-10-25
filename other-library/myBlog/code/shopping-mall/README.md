@@ -71,3 +71,14 @@ Vue.use(Button)
 ```
 
 ## 移动端屏幕适配基础
+
+> 知识普及
+ 
+* 常见的移动端 web 布局适配方法
+1. 固定高度，宽度百分比（过时，不推荐）
+2. Media Query（媒体查询）：Bootstrap
+3. Flex 布局：主流布局模式，采用 Flex + rem 进行移动端适配
+4. rem：相对单位长度，相对于根元素( html )的 `font-size` 计算值的倍数
+
+<br>
+
