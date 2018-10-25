@@ -1,4 +1,4 @@
-Vue + Koa + MongoDB 搭建商城
+Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
