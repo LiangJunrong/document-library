@@ -6,7 +6,7 @@
 
 <br>
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/GithubPages/GithubPages.md)**
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/GithubPages/DocumentLibrary.md)**
 
 <br>
 
@@ -446,7 +446,7 @@ footer: jsliang 的文档库 | Copyright © 2018 不折腾的前端，和咸鱼�
 
 &emsp;正在逐步完善。
 
-&emsp;**如果你觉得该篇文章对你非常有用，请给我在 GitHub 上的文档库一个 **star**，你的 **star** 是我不断折腾的动力~ [【Github 地址】](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/GithubPages/GithubPages.md)**
+&emsp;**如果你觉得该篇文章对你非常有用，请给我在 GitHub 上的文档库一个 **star**，你的 **star** 是我不断折腾的动力~ [【Github 地址】](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/GithubPages/DocumentLibrary.md)**
 
 <br>
 
