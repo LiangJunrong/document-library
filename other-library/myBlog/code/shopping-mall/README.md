@@ -16,6 +16,14 @@ npm run dev
 npm run build
 ```
 
+## 实现的功能
+- [×] 功能1
+- [×] 功能2
+
+## 未实现的功能
+- [] 功能3
+- [] 功能4
+
 # VS Code 插件
 
 * vue VSCode Snippets：该插件可以方便编写 Vue 代码。例如，安装后，在页面中敲 `vbase` 并回车可以得到一个空模板，敲 `vdata` 可以获得一个 `data()` 方法。
