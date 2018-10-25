@@ -2,7 +2,7 @@ Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2018-10-25 20:56:42**
+> Recently revised in **2018-10-25 23:03:27**
 
 <br>
 
@@ -33,6 +33,7 @@ Vue + Koa2 + MongoDB 搭建商城
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 奇技淫巧](#chapter-three) |
 | &emsp;[3.1 VS Code 插件](#chapter-three-one) |
 | &emsp;[3.2 Iconfont-阿里巴巴矢量图标库](#chapter-three-two) |
+| &emsp;[3.3 Vant-Vue 的组件库](#chapter-three-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 前端开发](#chapter-four) |
 
 <br>
@@ -69,8 +70,9 @@ npm run build
 
 <br>
 
-&emsp;在这个章节中，你可以看到 VS Code 的一些插件的妙用；可以看到 Iconfont 这个图标库的使用……  
-&emsp;通过这些小技巧，提高你的开发效率。
+&emsp;在这个章节中，你可以看到 VS Code 的一些插件的妙用；可以看到 Iconfont 这个图标库的使用；可以看到一些比较实用的组件库例如Vant的介绍……  
+&emsp;通过这些小技巧，提高你的开发效率。  
+&emsp;如果这些小技巧你都用得非常熟练，请通过目录跳转至第四章，开启部署开发前端。
 
 <br>
 
@@ -101,32 +103,28 @@ npm run build
 
 <br>
 
-# <a name="chapter-four" id="chapter-four">四 前端开发</a>
+## <a name="chapter-three-three" id="chapter-three-three">3.3 Vant-Vue的组件库</a>
 
 > [返回目录](#catalog-chapter-three)
 
 <br>
 
-&emsp;
+&emsp;Vant 是轻量、可靠的移动端 Vue 组件库：[Vant 官网](https://youzan.github.io/vant/#/zh-CN/intro)
 
-## vue-cli 的安装及使用
+&emsp;这里我们基础讲一下 Vant 的引用，下面涉及 Vant 的代码，我们将尽可能少讲。
 
-* 安装 `vue-cli`：`npm i vue-cli -g`
-* 初始化 Vue 项目：`vue init webpack`
-* 开启开发模式：`npm run dev`
-* 打开浏览器，查看网页： `http://localhost:8080`
+&emsp;在通过 Vue-cli 安装了 Vue 项目的情况下，Vant 的安装及使用技巧：
 
-<br>
+1. 安装 Vant：`npm i vant -S`
+2. 通过安装 `babel-plugin-import` 按需引用组件模块：`npm i babel-plugin-import -D`
+3. 在 `.babelrc` 文件中配置 `plugins`：
 
-## Vant 引用
-* 安装 Vant：`npm i vant -S`
-* 通过安装 `babel-plugin-import` 按需引用组件模块：`npm i babel-plugin-import -D`
-* 在 `.babelrc` 文件中配置 `plugins`：
+> .babelrc
 
 ```
 {
   "presets": [
-      ... 省略，详情在 .babelrc 中有，复制下面的 plugins 就行
+      ... 省略，详情在 .babelrc 中有，复制下面的 plugins 至代码中即可
   ],
   "plugins": [
     "transform-vue-jsx", 
@@ -145,7 +143,7 @@ npm run build
 
 <br>
 
-* 页面中引用 Vant 组件：
+&emsp;页面中引用 Vant 组件：
 
 > src/main.js
 
@@ -156,7 +154,7 @@ Vue.use(Button)
 
 <br>
 
-> App.vue
+> src/App.vue
 
 ```
 <van-button type="primary">主要按钮</van-button>
@@ -164,9 +162,54 @@ Vue.use(Button)
 
 <br>
 
-## 移动端屏幕适配基础
+&emsp;这样，我们可以通过引用组件的形式，引用 Vant，做到按需引用，对我们的项目是比较友好的。如果你想采用其他的引用技巧或者更进一步了解 Vant，请点击上面提及的 Vant 链接，直接访问即可。
 
-> 知识普及
+<br>
+
+# <a name="chapter-four" id="chapter-four">四 前端开发</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;在这个章节，我们开始部署前端环境，开发静态页面，Mock 数据等等。
+
+<br>
+
+## <a name="chapter-four-one" id="chapter-four-one">4.1 vue-cli 的安装及使用</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;步骤：
+
+1. 安装 `vue-cli`：`npm i vue-cli -g`
+2. 初始化 Vue 项目：`vue init webpack`
+3. 开启开发模式：`npm run dev`
+4. 打开浏览器，查看网页： `http://localhost:8080`
+
+<br>
+
+## <a name="chapter-four-two" id="chapter-four-two">4.2 Vant 引用</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;Vant 是一个轻量、可靠的移动端 Vue 组件库。  
+&emsp;如果你有使用过 ElementUI 等组件库就知道，Vant 的引用只是为了让你更快地部署项目。  
+&emsp;所以，在这里，我们在第三章中大略讲了 Vant 的使用方式，组件库的使用，只有你去尝试过，才知道里面的坑要怎么躺：[返回第三章 Vant 介绍](chapter-three-three)
+
+<br>
+
+## <a name="chapter-four-three" id="chapter-four-three">4.2 移动端屏幕适配基础</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;知识普及：
  
 * 常见的移动端 web 布局适配方法
 1. 固定高度，宽度百分比（过时，不推荐）
@@ -176,7 +219,7 @@ Vue.use(Button)
 
 <br>
 
-* js 控制适配屏幕
+&emsp;js 控制适配屏幕方式1：
 
 > index.html
 
@@ -212,7 +255,9 @@ Vue.use(Button)
 </html>
 ```
 
-* jsliang 的 rem 适配
+<br>
+
+&emsp;jsliang 的 rem 适配方式
 
 ```
 /*
@@ -251,7 +296,9 @@ Vue.use(Button)
 }(750, 750);
 ```
 
-* jsliang 的移动端 html 模板
+<br>
+
+&emsp;jsliang 的移动端 html 模板
 
 ```
 <!DOCTYPE html>
@@ -272,7 +319,11 @@ Vue.use(Button)
 
 <br>
 
-## 路由配置
+## <a name="chapter-four-four" id="chapter-four-four">4.2 路由配置</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
 
 &emsp;我们项目的目录一般放在 `src/components/pages` 中，现在我们删除掉 `src/components/HelloWorld.js` 这个文件，然后往里面新建 `ShoppingMall.vue` 文件，并在 `src/router/index.js` 中配置我们的路由：
 
@@ -318,9 +369,22 @@ export default new Router({
 })
 ```
 
-## Vant 布局
+<br>
 
-&emsp;我们在 `/src/main.js` 中引用 Vant 的 `Row` 和 `Col` 组件：
+
+## <a name="chapter-four-five" id="chapter-four-five">Vant 布局讲解</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;如果你使用过 bootstrap，你可能还记得它的 12 格栅格化布局，在 Vant 中，它不同于 bootstrap，它使用了 24 格布局：[Vant Layout 布局](https://youzan.github.io/vant/#/zh-CN/col)。  
+
+&emsp;下面我们讲解它的使用：
+
+&emsp;我们在 `src/main.js` 中引用 Vant 的 `Row` 和 `Col` 组件：
+
+> src/main.js
 
 ```
 // The Vue build version to load with the `import` command
@@ -351,6 +415,8 @@ new Vue({
 
 &emsp;然后，我们在 `ShopingMall.vue` 中使用布局
 
+> ShoppingMall.vue
+
 ```
 <template>
     <div>
@@ -374,7 +440,7 @@ new Vue({
 </style>
 ```
 
-&emsp;这样，我们就搞定了布局的引用。
+&emsp;这样，我们就搞定了 Vant Layout 布局的引用。
 
 
 <br>
