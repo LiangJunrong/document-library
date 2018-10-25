@@ -22,12 +22,18 @@ Vue + Koa2 + MongoDB 搭建商城
 
 &emsp;文章篇幅非常详细，推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。
 
+<br>
+
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
 | 目录名 |
 | --- |
 | <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 奇技淫巧](#chapter-three) |
+| &emsp;[3.1 VS Code 插件](#chapter-three-one) |
+| &emsp;[3.2 Iconfont-阿里巴巴矢量图标库](#chapter-three-two) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 前端开发](#chapter-four) |
 
 <br>
 
@@ -35,7 +41,7 @@ Vue + Koa2 + MongoDB 搭建商城
 
 > [返回目录](#catalog-chapter-two)
 
-## 下载并运行代码
+<br>
 
 &emsp;下载代码：代码在 GitHub 文档库中文章的同级 `code` 目录上，如果嫌 download 全部文档太麻烦，不想去 download 全部文档，那就点击链接加 QQ 群拿资料吧：[798961601](https://jq.qq.com/?_wv=1027&k=5bSk4rs)。  
 &emsp;我是 **jsliang**，我在天书世界等你，噢不是……  
@@ -55,41 +61,56 @@ npm run dev
 npm run build
 ```
 
-## 实现的功能
-- [x] 功能1
-- [x] 功能2
+<br>
 
-## 未实现的功能
-- [ ] 功能3
-- [ ] 功能4
+# <a name="chapter-three" id="chapter-three">三 奇技淫巧</a>
 
-# 额外技巧
-
-## VS Code 插件
-
-* vue VSCode Snippets：该插件可以方便编写 Vue 代码。例如，安装后，在页面中敲 `vbase` 并回车可以得到一个空模板，敲 `vdata` 可以获得一个 `data()` 方法。
-
-## icon 图标
-
-* [阿里巴巴图标库](http://www.iconfont.cn/)
-
-* 推荐前往上面的阿里巴巴图标库下载图标 `http://www.iconfont.cn/`
-
-&emsp;使用方法举例：
-
-1. 搜索 `首页`，鼠标移动到图标上，点击添加入库
-
-
-
-2. 
+> [返回目录](#catalog-chapter-three)
 
 <br>
 
-# 学习笔记
+&emsp;在这个章节中，你可以看到 VS Code 的一些插件的妙用；可以看到 Iconfont 这个图标库的使用……  
+&emsp;通过这些小技巧，提高你的开发效率。
 
 <br>
 
-## 前端开发环境
+## <a name="chapter-three-one" id="chapter-three-one">3.1 VS Code 插件</a>
+
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;使用方法：Visio Studio Code 软件 -> 扩展 --> 搜索关键字 -> 安装 -> 重启 VS Code
+
+* Vue VSCode Snippets：该插件可以方便编写 Vue 代码。通过安装后，在页面中敲 `vbase` 并回车可以得到一个空模板，敲 `vdata` 可以获得一个 `data()` 方法。
+
+<br>
+
+## <a name="chapter-three-two" id="chapter-three-two">3.2 Iconfont-阿里巴巴矢量图标库</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;在阿里巴巴图标库，设计师将图标上传到Iconfont平台，用户可以自定义下载多种格式的icon，平台也可将图标转换为字体，便于前端工程师自由调整与调用。  
+
+&emsp;地址：[阿里巴巴图标库](http://www.iconfont.cn/)
+
+&emsp;使用方法，通过加入购入车的形式，将需要的图标一起打包下载。如果实在是不看攻略就搞不懂，可参考文档：[链接-如何使用iconfont下载图标？](https://www.cnblogs.com/hjvsdr/p/6639649.html)
+
+<br>
+
+# <a name="chapter-four" id="chapter-four">四 前端开发</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;
+
+## vue-cli 的安装及使用
+
 * 安装 `vue-cli`：`npm i vue-cli -g`
 * 初始化 Vue 项目：`vue init webpack`
 * 开启开发模式：`npm run dev`
