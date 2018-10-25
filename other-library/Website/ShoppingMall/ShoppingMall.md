@@ -1,10 +1,23 @@
-商城
+Vue + Koa + MongoDB 搭建商城
 ===
-
-> 使用 Vue 搭建的商城
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
 > Recently revised in **2018-10-25 15:13:56**
+
+<br>
+
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/GithubPages/GithubPages.md)**
+
+<br>
+
+&emsp;本文通过 Vue + Koa2 + MongoDB 搭建一个过年的商城。
+
+# <a name="chapter-one" id="chapter-one">一 目录</a>
+
+
+| 目录名 |
+| --- |
+| <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
 
 ## 运行机制
 
