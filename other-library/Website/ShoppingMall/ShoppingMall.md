@@ -40,6 +40,7 @@ Vue + Koa2 + MongoDB 搭建商城
 | &emsp;[4.3 移动端屏幕适配基础](#chapter-four-three) |
 | &emsp;[4.4 路由配置](#chapter-four-four) |
 | &emsp;[4.5 Vant 布局讲解](#chapter-four-five) |
+| &emsp;[4.6 引用图片](#chapter-four-six) |
 
 <br>
 
@@ -445,6 +446,15 @@ new Vue({
 
 &emsp;这样，我们就搞定了 Vant Layout 布局的引用。
 
+<br>
+
+## <a name="chapter-four-six" id="chapter-four-six">4.6 引用图片</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;
 
 <br>
 
