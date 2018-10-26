@@ -10,12 +10,23 @@
 </template>
 
 <script>
+  import axios from 'axios';
   export default {
     data() {
       return {
         icon1: require('../../assets/img/emoticon_cool.png'), // 引用 assets 下的图片
         icon2: '/static/img/emoticon_cute.png' // 引用 static 下的图片
       }
+    },
+    created() {
+      axios({
+        url: 'https://www.easy-mock.com/mock/5bd2b50e6388c25a14965a22/index',
+        method: 'get'
+      }).then(res => {
+        console.log(res.data.data);
+      }).catch(err => {
+        console.log(err);
+      })
     }
   }
 </script>

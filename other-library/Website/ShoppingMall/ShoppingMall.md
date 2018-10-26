@@ -40,12 +40,14 @@ Vue + Koa2 + MongoDB 搭建商城
 | &emsp;&emsp;[3.3.2 Button 按钮](#chapter-three-three-two)|
 | &emsp;&emsp;[3.3.3 Layout 布局](#chapter-three-three-three)|
 | &emsp;[3.4 模拟网速缓慢 - slow 3G](#chapter-three-four) |
+| &emsp;[3.5 mock 数据 - Easy Mock](#chapter-three-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 前端开发](#chapter-four) |
 | &emsp;[4.1 vue-cli 的安装及使用](#chapter-four-one) |
 | &emsp;[4.2 Vant 引用](#chapter-four-two) |
 | &emsp;[4.3 移动端屏幕适配基础](#chapter-four-three) |
 | &emsp;[4.4 路由配置](#chapter-four-four) |
 | &emsp;[4.5 引用图片](#chapter-four-five) |
+| &emsp;[4.6 引用 Axios 获取 API](#chapter-four-six) |
 
 <br>
 
@@ -293,6 +295,18 @@ new Vue({
 
 &emsp;可以看出，在网速缓慢的情况下，我们加载 DOM 节点的内容，加载了 `10.43s`。无疑，假设我们要开发的商城也是如此，当用户在网速更差的情况下，可能会选择直接直接关闭网站。  
 &emsp;所以，通过网络缓慢的情景模拟，可以对网站做一些性能优化，从而减少我们的用户量。
+
+<br>
+
+## <a name="chapter-three-five" id="chapter-three-five">3.5 mock 数据 - Easy Mock</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>  
+
+&emsp;对于页面中最后需要调用接口渲染的数据，我们大概会使用两种方法：1. 直接在 `data` 中使用假数据，读取接口后再进行更新；2. 根据接口文档，进行 `mock`，获取 `mock` 数据。  
+&emsp;在这里，我们介绍一种比较便捷的方式：[Easy Mock](https://www.easy-mock.com)  
+&emsp;Easy Mock 是一个比较好用的图形化网站，小伙伴们点击进去会立刻 get 到它的设计意图，我们可以直接在项目中通过 `Axios` 直接调用它的链接，获取到数据。
 
 <br>
 
@@ -592,6 +606,47 @@ module.exports = {
 &emsp;通过 `npm run dev` 编译后，浏览器 `localhost:8080` 展示为：
 
 ![图](../../../public-repertory/img/other-website-ShoppingMall-1.png)
+
+<br>
+
+## <a name="chapter-four-six" id="chapter-four-six">4.6 引用 Axios 获取 API</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;步骤
+
+1. 安装 `axios`：`npm i axios -S`
+2. 在 `src/components/pages/ShoppingMall.vue` 的 `<script>` 标签中引用并使用 `axios`：
+
+```
+<script>
+  import axios from 'axios';
+  export default {
+    data() {
+      return {
+        icon1: require('../../assets/img/emoticon_cool.png'), // 引用 assets 下的图片
+        icon2: '/static/img/emoticon_cute.png' // 引用 static 下的图片
+      }
+    },
+    created() {
+      axios({
+        url: 'https://www.easy-mock.com/mock/5bd2b50e6388c25a14965a22/index',
+        method: 'get'
+      }).then(res => {
+        console.log(res.data.data);
+      }).catch(err => {
+        console.log(err);
+      })
+    }
+  }
+</script>
+```
+
+<br>
+
+&emsp;然后，我们打开 `localhost:8080`，查看控制台，可以看到它进行了正常的输出。
 
 <br>
 
