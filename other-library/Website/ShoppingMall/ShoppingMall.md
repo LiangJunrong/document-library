@@ -37,6 +37,7 @@ Vue + Koa2 + MongoDB 搭建商城
 | &emsp;&emsp;[3.3.1 引用 Vant 组件库](#chapter-three-three-one)|
 | &emsp;&emsp;[3.3.2 Button 按钮](#chapter-three-three-two)|
 | &emsp;&emsp;[3.3.3 Layout 布局](#chapter-three-three-three)|
+| &emsp;[3.4 网速缓慢 - slow 3G](#chapter-three-four) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 前端开发](#chapter-four) |
 | &emsp;[4.1 vue-cli 的安装及使用](#chapter-four-one) |
 | &emsp;[4.2 Vant 引用](#chapter-four-two) |
@@ -257,6 +258,37 @@ new Vue({
 ```
 
 &emsp;这样，我们就搞定了 Vant Layout 布局的引用。
+
+<br>
+
+## <a name="chapter-three-four" id="chapter-three-four">3.4 网速缓慢 - slow 3G</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>  
+
+&emsp;由于我们制作的是商城，到时候可能加载大量的图片。  
+&emsp;所以，我们不仅需要考虑用户在 WiFi 下的愉快体验，更需要考虑在野外等手机信号差的 3G，甚至 2G 信号下商城的加载速度，从而优化用户的浏览体验。  
+&emsp;因为我们平时在公司或者家里开发，都是 `WiFi` 网络。所以，在这里，我们使用 `Chrome` 控制台的 `slow 3G`，通过加载PC端淘宝，进行网速慢的模拟。
+
+&emsp;首先，我们通过 `Chrome` 打开淘宝首页，通过 `F12` 打开控制台，点开 `Network` 并通过按 `Ctrl + F5` 进行强制刷新，得到下面这个图：
+
+![图](../../../public-repertory/img/other-website-ShoppingMall-2.png)
+
+<br>
+
+&emsp;可以看到，我们 WiFi 情况下，DOM 节点的内容加载为 1.02s。然后，我们按下面的图点开下拉菜单，选择 Slow 3G：
+
+![图](../../../public-repertory/img/other-website-ShoppingMall-4.png)
+
+<br>
+
+&emsp;再通过 `Ctrl + F5` 进行强制刷新，模拟网速缓慢的情况：
+
+![图](../../../public-repertory/img/other-website-ShoppingMall-3.png)
+
+&emsp;可以看出，在网速缓慢的情况下，我们加载 DOM 节点的内容，加载了 `10.43s`。无疑，假设我们要开发的商城也是如此，当用户在网速更差的情况下，可能会选择直接直接关闭网站。  
+&emsp;所以，通过网络缓慢的情景模拟，可以对网站做一些性能优化，从而减少我们的用户量。
 
 <br>
 
