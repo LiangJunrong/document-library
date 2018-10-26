@@ -20,7 +20,9 @@ Vue + Koa2 + MongoDB 搭建商城
 * Koa2 - 
 * MongoDB - 
 
-&emsp;文章篇幅非常详细，推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。
+&emsp;**文章篇幅非常详细，推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。**
+
+&emsp;**如果你对文章的一些章节存在疑惑，请留言或者私聊 jsliang 提出来，因为 jsliang 在 Vue 某些方面的理解，是远远不及一些有丰富开发经验的 Vuer 的。**
 
 <br>
 
@@ -37,7 +39,7 @@ Vue + Koa2 + MongoDB 搭建商城
 | &emsp;&emsp;[3.3.1 引用 Vant 组件库](#chapter-three-three-one)|
 | &emsp;&emsp;[3.3.2 Button 按钮](#chapter-three-three-two)|
 | &emsp;&emsp;[3.3.3 Layout 布局](#chapter-three-three-three)|
-| &emsp;[3.4 网速缓慢 - slow 3G](#chapter-three-four) |
+| &emsp;[3.4 模拟网速缓慢 - slow 3G](#chapter-three-four) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 前端开发](#chapter-four) |
 | &emsp;[4.1 vue-cli 的安装及使用](#chapter-four-one) |
 | &emsp;[4.2 Vant 引用](#chapter-four-two) |
@@ -62,7 +64,7 @@ Vue + Koa2 + MongoDB 搭建商城
 
 ```
 # 安装依赖
-npm install
+npm i
 
 # 在 localhost:8080 运行
 npm run dev
@@ -81,7 +83,7 @@ npm run build
 
 &emsp;在这个章节中，你可以看到 VS Code 的一些插件的妙用；可以看到 Iconfont 这个图标库的使用；可以看到一些比较实用的组件库例如Vant的介绍……  
 &emsp;通过这些小技巧，提高你的开发效率。  
-&emsp;如果这些小技巧你都用得非常熟练，请通过目录跳转至第四章，开启部署开发前端。
+&emsp;如果这些小技巧你都用得非常熟练了，请通过目录跳转至第四章，开始编写前端代码。
 
 <br>
 
@@ -93,6 +95,8 @@ npm run build
 <br>
 
 &emsp;使用方法：Visio Studio Code 软件 -> 扩展 --> 搜索关键字 -> 安装 -> 重启 VS Code
+
+* Vetur：该插件可以使得 VS Code 能识别 `.vue` 文件，并支持 `.vue` 文件的语法高亮显示，同时，还兼顾大多数主流的前端开发和插件，例如 `Sass` 和 `TypeScript`。
 
 * Vue VSCode Snippets：该插件可以方便编写 Vue 代码。通过安装后，在页面中敲 `vbase` 并回车可以得到一个空模板，敲 `vdata` 可以获得一个 `data()` 方法。
 
@@ -261,9 +265,9 @@ new Vue({
 
 <br>
 
-## <a name="chapter-three-four" id="chapter-three-four">3.4 网速缓慢 - slow 3G</a>
+## <a name="chapter-three-four" id="chapter-three-four">3.4 模拟网速缓慢 - slow 3G</a>
 
-> [返回目录](#catalog-chapter-four)
+> [返回目录](#catalog-chapter-three)
 
 <br>  
 
@@ -324,8 +328,8 @@ new Vue({
 <br>
 
 &emsp;Vant 是一个轻量、可靠的移动端 Vue 组件库。  
-&emsp;如果你有使用过 ElementUI 等组件库就知道，Vant 的引用只是为了让你更快地部署项目。  
-&emsp;所以，在这里，我们在第三章中大略讲了 Vant 的使用方式，组件库的使用，只有你去尝试过，才知道里面的坑要怎么躺：[返回第三章 Vant 介绍](#chapter-three-three)
+&emsp;如果你有使用过 ElementUI 等组件库就知道，Vant 的引用可以让你更快地部署项目。  
+&emsp;所以，我们在第三章中大略讲了 Vant 的使用方式，组件库的使用，只有你去尝试过，才能显得更加熟练：[返回第三章 Vant 介绍](#chapter-three-three)
 
 <br>
 
@@ -502,7 +506,7 @@ export default new Router({
 
 <br>
 
-&emsp;在讲解引用图片之前，我们先讲解下 `src/assets` 及 `static` 这两个目录的区别。  
+&emsp;如果你没用过 `Vue-cli`，那么，你可能会对它的图片存放路径存在问题，因为它可以存放在 `src/assets` 及 `static` 这两个目录中。你可能对此感到疑惑，为什么它会有两个文件夹来进行存放呢？在这里，我们先讲解下 `src/assets` 及 `static` 这两个目录的区别。  
 &emsp;讲个大白话：`src/assets` 目录中的图片是会被 `webpack` 打包成 base64 的，`static` 目录中的图片是不会被打包的。  
 &emsp;那么，为什么会存在打包成 `base64` 的区别呢？因为当浏览器加载你的图片的时候，每一张图片就相当于一次 `http` 请求，当图片多了的时候，它就会损耗你的性能。所以，就像 [雪碧图](https://zhidao.baidu.com/question/646556016260409565.html) 的引用一样，在 vue-cli 的配置上：
 
@@ -552,7 +556,7 @@ module.exports = {
 }
 ```
 
-&emsp;从中，可以看出，对于 static 的资源，`vue-cli` 在开发模式（dev）以及打包模式（build）中都进行了配置，所以，在项目中引用 `src/assets` 及 `static` 下的图片资源，我们可以：
+&emsp;从中，可以看出，对于 static 的资源，`vue-cli` 在开发模式（dev）以及打包模式（build）中都进行了配置，它不会被 `webpack` 进行打包，属于 “静态资源”。所以，在项目中引用 `src/assets` 及 `static` 下的图片资源，我们可以：
 
 > ShoppingMall.vue
 ```
