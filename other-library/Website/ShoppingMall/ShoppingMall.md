@@ -2,7 +2,7 @@ Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2018-10-26 09:44:09**
+> Recently revised in **2018-10-26 11:33:52**
 
 <br>
 
@@ -456,7 +456,7 @@ new Vue({
 
 &emsp;在讲解引用图片之前，我们先讲解下 `src/assets` 及 `static` 这两个目录的区别。  
 &emsp;讲个大白话：`src/assets` 目录中的图片是会被 `webpack` 打包成 base64 的，`static` 目录中的图片是不会被打包的。  
-&emsp;那么，为什么会存在打包成 base64 的区别呢？因为当浏览器加载你的图片的时候，每一张图片就相当于一次 http 请求，当图片多了的时候，它就会损耗你的性能。所以，就像 [雪碧图](https://zhidao.baidu.com/question/646556016260409565.html) 的引用一样，在 vue-cli 的配置上：
+&emsp;那么，为什么会存在打包成 `base64` 的区别呢？因为当浏览器加载你的图片的时候，每一张图片就相当于一次 `http` 请求，当图片多了的时候，它就会损耗你的性能。所以，就像 [雪碧图](https://zhidao.baidu.com/question/646556016260409565.html) 的引用一样，在 vue-cli 的配置上：
 
 ```
 {
@@ -475,7 +475,7 @@ new Vue({
 
 <br>
 
-&emsp;讲解完 `src/assets` 及 `static` 的区别后，我们讲一下在这两个文件夹中图片的引用。  
+&emsp;讲解完 `src/assets` 及 `static` 的区别后，我们继续讲在这两个文件夹中图片的引用。  
 &emsp;由于 `src/assets` 目录中，我们存放一些比较小的，需要打包的图片，所以我们应该通过 require 的方式，将它当成模块进行引用。  
 &emsp;而在 `static` 目录的图片，`vue-cli` 已经对其进行了个解析：   
 
@@ -511,7 +511,7 @@ module.exports = {
 <template>
   <div>
       <van-row>
-        <!-- 不推荐通过下面的方式直接引用 assets 图片 -->
+        <!-- 不推荐通过下面的方式直接引用 assets 图片，因为 webpack 打包可能没法成功打包 -->
         <van-col span="8"><img src="../../assets/img/emoticon_happy.png" alt="表情包"></van-col>
         <van-col span="8"><img :src="icon1" alt="表情包"></van-col>
         <van-col span="8"><img :src="icon2" alt="表情包"></van-col>
@@ -537,7 +537,7 @@ module.exports = {
 
 <br>
 
-&emsp;`npm run dev` 编译后，浏览器 `localhost:8080` 展示为：
+&emsp;通过 `npm run dev` 编译后，浏览器 `localhost:8080` 展示为：
 
 ![图](../../../public-repertory/img/other-website-ShoppingMall-1.png)
 
