@@ -473,9 +473,73 @@ new Vue({
 
 &emsp;可以看出，它对于小于 10K(10000/1024) 的图片，会打包成 base64，从而减少了我们在浏览器加载时的性能损耗。
 
-&emsp;讲解完 `src/assets` 及 `static` 的区别后，我们讲一下在这两个文件夹中图片的引用。
+<br>
 
+&emsp;讲解完 `src/assets` 及 `static` 的区别后，我们讲一下在这两个文件夹中图片的引用。  
+&emsp;由于 `src/assets` 目录中，我们存放一些比较小的，需要打包的图片，所以我们应该通过 require 的方式，将它当成模块进行引用。  
+&emsp;而在 `static` 目录的图片，`vue-cli` 已经对其进行了个解析：   
 
+> config/index/js
+
+```
+'use strict'
+
+const path = require('path')
+
+module.exports = {
+  dev: {
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    proxyTable: {},
+    //... 省略剩下的代码
+  },
+   build: {
+    index: path.resolve(__dirname, '../dist/index.html'),
+
+    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    // ...省略剩下的代码
+   }
+}
+```
+
+&emsp;从中，可以看出，对于 static 的资源，`vue-cli` 在开发模式（dev）以及打包模式（build）中都进行了配置，所以，在项目中引用 `src/assets` 及 `static` 下的图片资源，我们可以：
+
+> ShoppingMall.vue
+```
+<template>
+  <div>
+      <van-row>
+        <!-- 不推荐通过下面的方式直接引用 assets 图片 -->
+        <van-col span="8"><img src="../../assets/img/emoticon_happy.png" alt="表情包"></van-col>
+        <van-col span="8"><img :src="icon1" alt="表情包"></van-col>
+        <van-col span="8"><img :src="icon2" alt="表情包"></van-col>
+      </van-row>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        icon1: require('../../assets/img/emoticon_cool.png'), // 引用 assets 下的图片
+        icon2: '/static/img/emoticon_cute.png' // 引用 static 下的图片
+      }
+    }
+  }
+</script>
+
+<style scoped>
+
+</style>
+```
+
+<br>
+
+&emsp;`npm run dev` 编译后，浏览器 `localhost:8080` 展示为：
+
+![图](../../../public-repertory/img/other-website-ShoppingMall-1.png)
 
 <br>
 
