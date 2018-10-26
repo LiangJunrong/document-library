@@ -2,7 +2,7 @@ Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2018-10-25 23:03:27**
+> Recently revised in **2018-10-26 09:44:09**
 
 <br>
 
@@ -203,7 +203,7 @@ Vue.use(Button)
 
 <br>
 
-## <a name="chapter-four-three" id="chapter-four-three">4.2 移动端屏幕适配基础</a>
+## <a name="chapter-four-three" id="chapter-four-three">4.3 移动端屏幕适配基础</a>
 
 > [返回目录](#catalog-chapter-four)
 
@@ -310,16 +310,14 @@ Vue.use(Button)
   <title>HelloWorld</title>
 </head>
 <body>
-  
-  
-  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+  <div>Hello World!</div>
 </body>
 </html>
 ```
 
 <br>
 
-## <a name="chapter-four-four" id="chapter-four-four">4.2 路由配置</a>
+## <a name="chapter-four-four" id="chapter-four-four">4.4 路由配置</a>
 
 > [返回目录](#catalog-chapter-four)
 
@@ -372,7 +370,7 @@ export default new Router({
 <br>
 
 
-## <a name="chapter-four-five" id="chapter-four-five">Vant 布局讲解</a>
+## <a name="chapter-four-five" id="chapter-four-five">4.5 Vant 布局讲解</a>
 
 > [返回目录](#catalog-chapter-four)
 
