@@ -454,7 +454,28 @@ new Vue({
 
 <br>
 
-&emsp;
+&emsp;在讲解引用图片之前，我们先讲解下 `src/assets` 及 `static` 这两个目录的区别。  
+&emsp;讲个大白话：`src/assets` 目录中的图片是会被 `webpack` 打包成 base64 的，`static` 目录中的图片是不会被打包的。  
+&emsp;那么，为什么会存在打包成 base64 的区别呢？因为当浏览器加载你的图片的时候，每一张图片就相当于一次 http 请求，当图片多了的时候，它就会损耗你的性能。所以，就像 [雪碧图](https://zhidao.baidu.com/question/646556016260409565.html) 的引用一样，在 vue-cli 的配置上：
+
+```
+{
+  test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+  loader: 'url-loader',
+  options: {
+    limit: 10000,
+    name: utils.assetsPath('img/[name].[hash:7].[ext]')
+  }
+},
+```
+
+<br>
+
+&emsp;可以看出，它对于小于 10K(10000/1024) 的图片，会打包成 base64，从而减少了我们在浏览器加载时的性能损耗。
+
+&emsp;讲解完 `src/assets` 及 `static` 的区别后，我们讲一下在这两个文件夹中图片的引用。
+
+
 
 <br>
 
