@@ -14,11 +14,11 @@ Vue + Koa2 + MongoDB 搭建商城
 
 &emsp;涉及技术点：
 
-* Vue
-* Vant
-* Node
-* Koa2
-* MongoDB
+* Vue - `2.5.2`
+* Vant - `1.3.8`
+* Node - `8.11.2`
+* Koa2 - 
+* MongoDB - 
 
 &emsp;文章篇幅非常详细，推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。
 
@@ -35,6 +35,11 @@ Vue + Koa2 + MongoDB 搭建商城
 | &emsp;[3.2 Iconfont-阿里巴巴矢量图标库](#chapter-three-two) |
 | &emsp;[3.3 Vant-Vue 的组件库](#chapter-three-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 前端开发](#chapter-four) |
+| &emsp;[4.1 vue-cli 的安装及使用](#chapter-four-one) |
+| &emsp;[4.2 Vant 引用](#chapter-four-two) |
+| &emsp;[4.3 移动端屏幕适配基础](#chapter-four-three) |
+| &emsp;[4.4 路由配置](#chapter-four-four) |
+| &emsp;[4.5 Vant 布局讲解](#chapter-four-five) |
 
 <br>
 
