@@ -506,7 +506,7 @@ export default new Router({
 
 <br>
 
-&emsp;如果你没用过 `Vue-cli`，那么，你可能会对它的图片存放路径存在问题，因为它可以存放在 `src/assets` 及 `static` 这两个目录中。你可能对此感到疑惑，为什么它会有两个文件夹来进行存放呢？在这里，我们先讲解下 `src/assets` 及 `static` 这两个目录的区别。  
+&emsp;如果你没用过 `Vue-cli`，那么，你可能会对它的图片存放路径存在问题，因为它可以存放在 `src/assets` 及 `static` 这两个目录中。你可能对此感到疑惑，为什么它会有两个文件夹来进行存放呢？  
 &emsp;讲个大白话：`src/assets` 目录中的图片是会被 `webpack` 打包成 base64 的，`static` 目录中的图片是不会被打包的。  
 &emsp;那么，为什么会存在打包成 `base64` 的区别呢？因为当浏览器加载你的图片的时候，每一张图片就相当于一次 `http` 请求，当图片多了的时候，它就会损耗你的性能。所以，就像 [雪碧图](https://zhidao.baidu.com/question/646556016260409565.html) 的引用一样，在 vue-cli 的配置上：
 
@@ -556,7 +556,7 @@ module.exports = {
 }
 ```
 
-&emsp;从中，可以看出，对于 static 的资源，`vue-cli` 在开发模式（dev）以及打包模式（build）中都进行了配置，它不会被 `webpack` 进行打包，属于 “静态资源”。所以，在项目中引用 `src/assets` 及 `static` 下的图片资源，我们可以：
+&emsp;从中，可以看出，对于 `static` 的资源，`vue-cli` 在开发模式 `dev` 以及打包模式 `build` 中都进行了配置，它不会被 `webpack` 进行打包，属于 “静态资源”。所以，在项目中引用 `src/assets` 及 `static` 下的图片资源，我们可以：
 
 > ShoppingMall.vue
 ```
