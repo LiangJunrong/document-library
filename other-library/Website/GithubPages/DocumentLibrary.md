@@ -22,9 +22,9 @@
 
 &emsp;**目前效果：**
 
-![图](../../public-repertory/img/other-GithubPages-1.png)
+![图](../../../public-repertory/img/other-GithubPages-1.png)
 
-![图](../../public-repertory/img/other-GithubPages-2.png)
+![图](../../../public-repertory/img/other-GithubPages-2.png)
 
 <br>
 
@@ -86,21 +86,21 @@
 
 1. 新建仓库( New repository )，在仓库名( Repository name )中输入 `用户名.github.io`，例如我的就是：`LiangJunrong.github.io`，然后点击 Create repository 即可创建一个部署好的环境。
 
-![图](../../public-repertory/img/other-GithubPages-3.png)
+![图](../../../public-repertory/img/other-GithubPages-3.png)
 
 <br>
 
 2. Clone 项目至电脑，并新增 `README.md` 和 `index.html`：
 
-![图](../../public-repertory/img/other-GithubPages-4.png)
+![图](../../../public-repertory/img/other-GithubPages-4.png)
 
 <br>
 
-![图](../../public-repertory/img/other-GithubPages-5.png)
+![图](../../../public-repertory/img/other-GithubPages-5.png)
 
 <br>
 
-![图](../../public-repertory/img/other-GithubPages-6.png)
+![图](../../../public-repertory/img/other-GithubPages-6.png)
 
 <br>
 
@@ -152,7 +152,7 @@ git push
 
 4. 打开 `用户名.github.io`：
 
-![图](../../public-repertory/img/other-GithubPages-7.png)
+![图](../../../public-repertory/img/other-GithubPages-7.png)
 
 <br>
 
@@ -170,13 +170,13 @@ git push
 
 &emsp;在你需要存放的目录中，通过终端命令行安装 VuePress：`npm i vuepress -D`
 
-![图](../../public-repertory/img/other-GithubPages-8.png)
+![图](../../../public-repertory/img/other-GithubPages-8.png)
 
 <br>
 
 2. 创建目录及部署代码
 
-![图](../../public-repertory/img/other-GithubPages-9.png)
+![图](../../../public-repertory/img/other-GithubPages-9.png)
 
 &emsp;编辑 `package.json`：
 
@@ -214,7 +214,7 @@ Hello VuePress
 
 &emsp;最后在终端执行命令 `npm run dev`，并打开 `http://localhost:8080`，得到初步配置界面如下：
 
-![图](../../public-repertory/img/other-GithubPages-10.png)
+![图](../../../public-repertory/img/other-GithubPages-10.png)
 
 &emsp;值得注意的是。在这里，我们是通过 `npm run dev` 即时获取我们修改的页面显示。  
 &emsp;然后，我们可以通过 `npm run build` 打包我们的代码，你可以在 `.vuepress` 中找到一个 `dist` 文件夹，然后将 `dist` 中的文件夹上传至 `用户名.github.io`，即可完成 VuePress 的部署。
@@ -230,7 +230,7 @@ Hello VuePress
 &emsp;在前面，我们讲解了如何设置 VuePress 并启动
 &emsp;现在，我们来个基配的目录，进行讲解：
 
-![图](../../public-repertory/img/other-GithubPages-11.png)
+![图](../../../public-repertory/img/other-GithubPages-11.png)
 
 <br>
 
@@ -332,7 +332,7 @@ module.exports = {
 
 &emsp;然后，启动 `npm run dev`，打开 `http://localhost:8080`，你可以看到导航栏部署完毕了。
 
-![图](../../public-repertory/img/other-GithubPages-12.png)
+![图](../../../public-repertory/img/other-GithubPages-12.png)
 
 <br>
 
@@ -346,7 +346,7 @@ module.exports = {
 
 &emsp;目录如下：
 
-![图](../../public-repertory/img/other-GithubPages-13.png)
+![图](../../../public-repertory/img/other-GithubPages-13.png)
 
 &emsp;然后，我们修改下 `config.js`：
 
@@ -386,11 +386,11 @@ module.exports = {
 
 &emsp;最后，我们运行 `npm run dev`，查看 `http://localhost:8080` 所示如下：
 
-![图](../../public-repertory/img/other-GithubPages-14.png)
+![图](../../../public-repertory/img/other-GithubPages-14.png)
 
 <br>
 
-![图](../../public-repertory/img/other-GithubPages-15.png)
+![图](../../../public-repertory/img/other-GithubPages-15.png)
 
 &emsp;可以看出，我们已经成功配置了分页形式的侧边栏。
 
@@ -428,7 +428,7 @@ footer: jsliang 的文档库 | Copyright © 2018 不折腾的前端，和咸鱼�
 
 &emsp;OK，由于我们重新修改了首页（即 docs/README.md），所以我们重新重启下，`Ctrl+C` -> `y` -> `npm run dev`，重新打开 `http://localhost:8080`：
 
-![图](../../public-repertory/img/other-GithubPages-1.png)
+![图](../../../public-repertory/img/other-GithubPages-1.png)
 
 &emsp;完美！这样，我们就完成了基础的配置了！！！
 
