@@ -2,7 +2,7 @@ Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2018-10-27 10:42:08**
+> Recently revised in **2018-10-27 11:29:39**
 
 <br>
 
@@ -48,6 +48,7 @@ Vue + Koa2 + MongoDB 搭建商城
 | &emsp;[3.4 模拟网速缓慢 - Slow 3G](#chapter-three-four) |
 | &emsp;[3.5 mock 数据 - Easy Mock](#chapter-three-five) |
 | &emsp;[3.6 Chrome 插件 - Vue Devtool](#chapter-three-six) |
+| &emsp;[3.7 Swiper 组件 - vue-awesome-swiper](#chapter-three-seven) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 前端开发](#chapter-four) |
 | &emsp;[4.1 vue-cli 的安装及使用](#chapter-four-one) |
 | &emsp;[4.2 引用 Vant](#chapter-four-two) |
@@ -348,6 +349,64 @@ https://github.com/vuejs/vue-devtools
 ![图](../../../public-repertory/img/other-website-ShoppingMall-6.png)
 
 &emsp;由于插件非常简洁，一看就懂，所以这里就不讲解了，这样我们又可以愉快地玩耍啦~
+
+<br>
+
+## <a name="chapter-three-seven" id="chapter-three-seven">3.7 Swiper 组件 - vue-awesome-swiper</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>  
+
+&emsp;`vue-awesome-swiper` 是关于 Vue 的一个 Swiper 组件：[GitHub：vue-awesome-swiper](https://github.com/surmon-china/vue-awesome-swiper)
+
+&emsp;它适合 `PC` 或者 `Mobile` 端，可用于 `SPA`  或者 `SSR` 页面。
+
+&emsp;它的使用技巧及 `Example` 在上面的 `GitHub` 地址存在，如果你想先了解它的作用，可以点击这里：[展示地址](https://surmon-china.github.io/vue-awesome-swiper/)
+
+* 全局引用：
+
+> main.js
+
+```
+// import 依赖
+import Vue from 'vue'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
+// 加载样式
+import 'swiper/dist/css/swiper.css'
+
+// 全局使用
+Vue.use(
+  VueAwesomeSwiper, 
+)
+
+// ...
+```
+
+<br>
+
+* 页面中组件形式引用
+
+> *.vue
+
+```
+// 以组件方式引用
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+
+// 加载样式
+import 'swiper/dist/css/swiper.css'
+
+// 引用组件
+export default {
+  components: {
+    swiper,
+    swiperSlide
+  }
+}
+```
+
+&emsp;如果你需要更多的技巧，请直接翻阅它的 `Github`。
 
 <br>
 
