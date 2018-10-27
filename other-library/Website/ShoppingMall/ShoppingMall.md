@@ -752,6 +752,16 @@ module.exports = {
 
 <br>
 
+## <a name="chapter-four-seven" id="chapter-four-seven">4.7 父子组件通讯</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;如何封装楼层的数据。未完待续。
+
+<br>
+
 # 未完待续
 
 &emsp;**如果小伙伴们觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/ShoppingMall/ShoppingMall.md)**
