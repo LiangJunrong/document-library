@@ -6,14 +6,21 @@
         <van-col span="8"><img :src="icon1" alt="表情包"></van-col>
         <van-col span="8"><img :src="icon2" alt="表情包"></van-col>
       </van-row>
+      <van-row>
+        <p>{{112 | moneyFilter}}</p>
+      </van-row>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
-  import { swiper, swiperSlide } from 'vue-awesome-swiper'
-  import 'swiper/dist/css/swiper.css'
+  import { toMoney } from '@/filter/moneyFilter.js'
   export default {
+    filters: {
+      moneyFilter(money) {
+        return toMoney(money);
+      }
+    },
     data() {
       return {
         icon1: require('../../assets/img/emoticon_cool.png'), // 引用 assets 下的图片

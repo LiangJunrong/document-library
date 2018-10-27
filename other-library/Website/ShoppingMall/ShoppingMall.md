@@ -2,7 +2,7 @@ Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2018-10-27 21:07:02**
+> Recently revised in **2018-10-27 22:02:15**
 
 <br>
 
@@ -60,6 +60,7 @@ Vue + Koa2 + MongoDB 搭建商城
 | &emsp;[4.6 引用 Axios 获取 API](#chapter-four-six) |
 | &emsp;[4.7 父子组件通讯](#chapter-four-seven) |
 | &emsp;[4.8 Filter 过滤器](#chapter-four-eight) |
+| &emsp;[4.9 Sass 的安装](#chapter-four-night) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 犯罪经过：页面布局](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 牢狱之灾：初识数据](#chapter-six) |
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 作案新招：后端基础](#chapter-seven) |
@@ -767,7 +768,8 @@ module.exports = {
 
 <br>
 
-&emsp;如何封装楼层的数据。未完待续。
+&emsp;如何通过封装组件的方式，对一些常用的（如楼层）进行封装，并对其进行父子组件之间的通讯。  
+&emsp;未完待续。
 
 <br>
 
@@ -783,16 +785,41 @@ module.exports = {
 > src/filter/moneyFilter.js
 
 ```
-
+export function toMoney(money = 0){
+  return money.toFixed(2)
+}
 ```
 
 <br>
 
 &emsp;然后，我们在页面中引入并使用这个金钱过滤器：
 
-```
+> *.vue
 
 ```
+<script>
+  import axios from 'axios';
+  import { toMoney } from '@/filter/moneyFilter.js'
+  export default {
+    filters: {
+      moneyFilter(money) {
+        return toMoney(money);
+      }
+    },
+    // ...省略下面代码
+  }
+<script>
+```
+
+<br>
+
+&emsp;最后，我们在 `template` 中实现简单过滤：
+
+```
+<p>{{112 | moneyFilter}}</p>
+```
+
+&emsp;在 `localhost:8080` 页面中可以看到，数字变成了 `112.00`
 
 <br>
 

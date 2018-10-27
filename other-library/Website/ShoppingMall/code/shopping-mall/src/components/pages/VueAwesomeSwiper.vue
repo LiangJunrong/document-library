@@ -1,19 +1,11 @@
 <template>
-  <md-card>
-    <md-card-actions>
+  <div style="width: 500px;">
+    <div>
       <div class="md-subhead">
-        <span>Thumbs Gallery With Two-way Control Loop</span>
-        <span>（</span>
         <span>缩略图控制循环</span>
-        <span>）</span>
       </div>
-      <md-button class="md-icon-button"
-                 target="_blank"
-                 href="https://github.com/surmon-china/vue-awesome-swiper/blob/master/examples/31-thumbs-gallery-loop.vue">
-        <md-icon>code</md-icon>
-      </md-button>
-    </md-card-actions>
-    <md-card-media  style="height: 500px">
+    </div>
+    <div style="height: 500px">
       <!-- swiper1 -->
       <swiper :options="swiperOptionTop" class="gallery-top" ref="swiperTop">
         <swiper-slide class="slide-1"></swiper-slide>
@@ -32,8 +24,8 @@
         <swiper-slide class="slide-4"></swiper-slide>
         <swiper-slide class="slide-5"></swiper-slide>
       </swiper>
-    </md-card-media>
-  </md-card>
+    </div>
+  </div>
 </template>
 
 
