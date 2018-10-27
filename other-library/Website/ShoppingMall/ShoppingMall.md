@@ -358,7 +358,7 @@ https://github.com/vuejs/vue-devtools
 
 <br>  
 
-&emsp;`vue-awesome-swiper` 是关于 Vue 的一个 Swiper 组件：[GitHub：vue-awesome-swiper](https://github.com/surmon-china/vue-awesome-swiper)
+&emsp;`vue-awesome-swiper` 是关于 Vue 的一个 Swiper 组件，它实现了轮播图、滑动、内容滚动等功能：[GitHub：vue-awesome-swiper](https://github.com/surmon-china/vue-awesome-swiper)
 
 &emsp;它适合 `PC` 或者 `Mobile` 端，可用于 `SPA`  或者 `SSR` 页面。
 
