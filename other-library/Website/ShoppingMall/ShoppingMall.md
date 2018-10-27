@@ -2,7 +2,7 @@ Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2018-10-27 10:03:35**
+> Recently revised in **2018-10-27 10:15:26**
 
 <br>
 
@@ -12,6 +12,8 @@ Vue + Koa2 + MongoDB 搭建商城
 
 &emsp;本文通过 Vue + Koa2 + MongoDB 搭建一个春节/新年皮肤的商城。
 
+&emsp;本文参考教程：[Vue.js+Koa2移动电商实战视频教程(文字版)](http://jspang.com/post/vue-koa.html)
+
 &emsp;涉及技术点：
 
 * Vue - `2.5.2`
@@ -20,7 +22,9 @@ Vue + Koa2 + MongoDB 搭建商城
 * Koa2 - 
 * MongoDB - 
 
-&emsp;**文章篇幅非常详细，推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。**
+&emsp;**这不是一篇手把手带你 0 基础搞定一切的文章。但文章篇幅非常详细，就好比做一件坏事一样，它提供了作案思路和作案工具，还有外援([QQ 群 798961601](https://jq.qq.com/?_wv=1027&k=5bSk4rs))，相信小伙伴们会收获不一样的精彩。**
+
+&emsp;**推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。**
 
 &emsp;**如果你对文章的一些章节存在疑惑，请留言或者私聊 jsliang 提出来，因为 jsliang 在 Vue 某些方面的理解，是远远不及一些有丰富开发经验的 Vuer 的。**
 
@@ -59,8 +63,8 @@ Vue + Koa2 + MongoDB 搭建商城
 <br>
 
 &emsp;下载代码：代码在 GitHub 文档库中文章的同级 `code` 目录上，如果嫌 download 全部文档太麻烦，不想去 download 全部文档，那就点击链接加 QQ 群拿资料吧：[798961601](https://jq.qq.com/?_wv=1027&k=5bSk4rs)。  
-&emsp;我是 **jsliang**，我在天书世界等你，噢不是……  
-&emsp;我是 **jsliang**，想要资料就来砍我，哦不是……  
+&emsp;我是 **jsliang**，我在天书世界等你，噢，不是……  
+&emsp;我是 **jsliang**，想要资料就来砍我，哦，不是……  
 &emsp;我是 **jsliang**，我在 **jsliang** 资料群等你~  
 
 &emsp;运行代码：
@@ -99,9 +103,9 @@ npm run build
 
 &emsp;使用方法：Visio Studio Code 软件 -> 扩展 --> 搜索关键字 -> 安装 -> 重启 VS Code
 
-* Vetur：该插件可以使得 VS Code 能识别 `.vue` 文件，并支持 `.vue` 文件的语法高亮显示，同时，还兼顾大多数主流的前端开发和插件，例如 `Sass` 和 `TypeScript`。
+* `Vetur`：该插件可以使得 VS Code 能识别 `.vue` 文件，并支持 `.vue` 文件的语法高亮显示，同时，还兼顾大多数主流的前端开发和插件，例如 `Sass` 和 `TypeScript`。
 
-* Vue VSCode Snippets：该插件可以方便编写 Vue 代码。通过安装后，在页面中敲 `vbase` 并回车可以得到一个空模板，敲 `vdata` 可以获得一个 `data()` 方法。
+* `Vue VSCode Snippets`：该插件可以方便编写 Vue 代码。通过安装后，在页面中敲 `vbase` 并回车可以得到一个空模板，敲 `vdata` 可以获得一个 `data()` 方法。
 
 <br>
 
@@ -111,11 +115,11 @@ npm run build
 
 <br>
 
-&emsp;在阿里巴巴图标库，设计师将图标上传到Iconfont平台，用户可以自定义下载多种格式的icon，平台也可将图标转换为字体，便于前端工程师自由调整与调用。  
+&emsp;在阿里巴巴图标库，设计师将图标上传到 Iconfont 平台，用户可以自定义下载多种格式的 icon，平台也可将图标转换为字体，便于前端工程师自由调整与调用。  
 
 &emsp;地址：[阿里巴巴图标库](http://www.iconfont.cn/)
 
-&emsp;使用方法，通过加入购物车的形式，将需要的图标一起打包下载。如果实在是不看攻略就搞不懂，可参考文档：[链接-如何使用iconfont下载图标？](https://www.cnblogs.com/hjvsdr/p/6639649.html)
+&emsp;使用方法，通过加入购物车的形式，将需要的图标一起打包下载。如果实在是不看攻略就搞不懂，可参考文档：[链接-如何使用 iconfont 下载图标？](https://www.cnblogs.com/hjvsdr/p/6639649.html)
 
 <br>
 
@@ -294,7 +298,7 @@ new Vue({
 
 ![图](../../../public-repertory/img/other-website-ShoppingMall-3.png)
 
-&emsp;可以看出，在网速缓慢的情况下，我们加载 DOM 节点的内容，加载了 `10.43s`。无疑，假设我们要开发的商城也是如此，当用户在网速更差的情况下，可能会选择直接直接关闭网站。  
+&emsp;可以看出，在网速缓慢的情况下，我们加载 DOM 节点的内容，加载了 `10.43s`。无疑，假设我们开发的商城在上线后变成这样，当用户在网速更差的情况下，可能会选择直接关闭网站。  
 &emsp;所以，通过网络缓慢的情景模拟，可以对网站做一些性能优化，从而减少我们的用户量。
 
 <br>
@@ -332,13 +336,16 @@ https://github.com/vuejs/vue-devtools
 
 <br>
 
-&emsp;所以，我们下载了个 `Vue Devtools` 的插件，并进行了安装（插件安装包和安装方式小伙伴们自行百度，这里就不贴上来了：[参考地址1-安装方式](https://segmentfault.com/a/1190000009682735)、[参考地址2-安装包](http://chromecj.com/downloadstart.html#886)）
+&emsp;所以，我们下载了个 `Vue Devtools` 的插件，并进行了安装。插件安装包和安装方式：
+
+* [参考地址1-安装方式](https://segmentfault.com/a/1190000009682735)
+* [参考地址2-安装包](http://chromecj.com/downloadstart.html#886)
 
 &emsp;安装完成后，我们可以刷新页面，可以在 Vue 项目的控制台中看到：
 
 ![图](../../../public-repertory/img/other-website-ShoppingMall-6.png)
 
-&emsp;由于插件非常简洁，一看就懂，所以这里就不讲解了，这样我们就可以愉快地玩耍啦~
+&emsp;由于插件非常简洁，一看就懂，所以这里就不讲解了，这样我们又可以愉快地玩耍啦~
 
 <br>
 
