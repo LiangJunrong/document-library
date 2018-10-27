@@ -2,7 +2,7 @@ Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2018-10-27 11:29:39**
+> Recently revised in **2018-10-27 21:07:02**
 
 <br>
 
@@ -34,11 +34,13 @@ Vue + Koa2 + MongoDB 搭建商城
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
+&emsp;**我不是想犯罪，只是，似乎证据确凿？……**
+
 | 目录名 |
 | --- |
-| <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 奇技淫巧](#chapter-three) |
+| <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录：你一定会回来的](#chapter-one) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 自白：我想做个好人](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 犯罪商城：奇技淫巧](#chapter-three) |
 | &emsp;[3.1 VS Code 插件](#chapter-three-one) |
 | &emsp;[3.2 Iconfont-阿里巴巴矢量图标库](#chapter-three-two) |
 | &emsp;[3.3 Vant——Vue的组件库](#chapter-three-three) |
@@ -49,13 +51,20 @@ Vue + Koa2 + MongoDB 搭建商城
 | &emsp;[3.5 mock 数据 - Easy Mock](#chapter-three-five) |
 | &emsp;[3.6 Chrome 插件 - Vue Devtool](#chapter-three-six) |
 | &emsp;[3.7 Swiper 组件 - vue-awesome-swiper](#chapter-three-seven) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 前端开发](#chapter-four) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 犯罪前奏：前端基础](#chapter-four) |
 | &emsp;[4.1 vue-cli 的安装及使用](#chapter-four-one) |
 | &emsp;[4.2 引用 Vant](#chapter-four-two) |
 | &emsp;[4.3 移动端屏幕适配基础](#chapter-four-three) |
 | &emsp;[4.4 路由配置](#chapter-four-four) |
 | &emsp;[4.5 引用图片](#chapter-four-five) |
 | &emsp;[4.6 引用 Axios 获取 API](#chapter-four-six) |
+| &emsp;[4.7 父子组件通讯](#chapter-four-seven) |
+| &emsp;[4.8 Filter 过滤器](#chapter-four-eight) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 犯罪经过：页面布局](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 牢狱之灾：初识数据](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 作案新招：后端基础](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 卷土重来：项目部署](#chapter-eight) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 枪决前刻：我真的是个好人](#chapter-night) |
 
 <br>
 
@@ -759,6 +768,83 @@ module.exports = {
 <br>
 
 &emsp;如何封装楼层的数据。未完待续。
+
+<br>
+
+## <a name="chapter-four-eight" id="chapter-four-eight">4.8 Filter 过滤器</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;在 Vue 中，可能经常对一些数据进行处理。例如：对后台返回的时间进行处理，对后台返回的金钱进行处理……在这里，我们就需要写过滤器，完成对这些数据的处理。  
+&emsp;下面讲解一个金钱格式过滤器。现在 `src` 文件下建立一个 `filter` 文件夹，然后 `filter` 文件夹下建立一个 `moneyFilter.js` 文件，我们用它来进行金钱格式的过滤：
+
+> src/filter/moneyFilter.js
+
+```
+
+```
+
+<br>
+
+&emsp;然后，我们在页面中引入并使用这个金钱过滤器：
+
+```
+
+```
+
+<br>
+
+## <a name="chapter-four-night" id="chapter-four-night">4.9 Sass 的安装</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;在代码中，如果我们需要在页面中使用 `sass`：
+
+```
+<style lang="scss" scoped>
+
+</style>
+```
+
+<br>
+
+&emsp;如果你在你的 `build/webpack.base.config.js` 中没找到这四行，那就证明你没有安装 `sass` 处理器：
+
+```
+{
+  test: /\.scss$/,
+  loaders: ["style", "css", "sass"]
+},
+```
+
+<br>
+
+&emsp;所以，在这里，我们讲一下在 Vue 项目中，`sass` 的安装：
+
+1. 安装对应的依赖：
+
+* `npm i node-sass -D`
+* `npm i sass-loader -D`
+
+2. 在 `build/webpack.base.config.js` 的 `rules` 中加上：
+
+```
+{
+  // ...上一个 test:...loader:...复制下面的 {} 即可
+}
+{
+  test: /\.scss$/,
+  loaders: ["style", "css", "sass"]
+},
+```
+
+<br>
+
+&emsp;如此，你在加载下 Vue 项目，会发现它能正常运行了。
 
 <br>
 

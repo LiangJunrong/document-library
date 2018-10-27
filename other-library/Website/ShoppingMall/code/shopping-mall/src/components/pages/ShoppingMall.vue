@@ -11,6 +11,8 @@
 
 <script>
   import axios from 'axios';
+  import { swiper, swiperSlide } from 'vue-awesome-swiper'
+  import 'swiper/dist/css/swiper.css'
   export default {
     data() {
       return {
