@@ -50,7 +50,7 @@ Vue + Koa2 + MongoDB 搭建商城
 | &emsp;[3.6 Chrome 插件 - Vue Devtool](#chapter-three-six) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 前端开发](#chapter-four) |
 | &emsp;[4.1 vue-cli 的安装及使用](#chapter-four-one) |
-| &emsp;[4.2 Vant 引用](#chapter-four-two) |
+| &emsp;[4.2 引用 Vant](#chapter-four-two) |
 | &emsp;[4.3 移动端屏幕适配基础](#chapter-four-three) |
 | &emsp;[4.4 路由配置](#chapter-four-four) |
 | &emsp;[4.5 引用图片](#chapter-four-five) |
@@ -376,7 +376,7 @@ https://github.com/vuejs/vue-devtools
 
 <br>
 
-## <a name="chapter-four-two" id="chapter-four-two">4.2 Vant 引用</a>
+## <a name="chapter-four-two" id="chapter-four-two">4.2 引用 Vant</a>
 
 > [返回目录](#catalog-chapter-four)
 
@@ -384,7 +384,7 @@ https://github.com/vuejs/vue-devtools
 
 &emsp;Vant 是一个轻量、可靠的移动端 Vue 组件库。  
 &emsp;如果你有使用过 ElementUI 等组件库就知道，Vant 的引用可以让你更快地部署项目。  
-&emsp;所以，我们在第三章中大略讲了 Vant 的使用方式，组件库的使用，只有你去尝试过，才能显得更加熟练：[返回第三章 Vant 介绍](#chapter-three-three)
+&emsp;所以，我们在第三章中大略讲了 Vant 的使用方式，组件库的使用，只有你去尝试过，才能显得更加熟练：[第三章 Vant 介绍](#chapter-three-three)
 
 <br>
 
