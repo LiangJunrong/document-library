@@ -23,9 +23,9 @@
         url: 'https://www.easy-mock.com/mock/5bd2b50e6388c25a14965a22/index',
         method: 'get'
       }).then(res => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
       }).catch(err => {
-        console.log(err);
+        // console.log(err);
       })
     }
   }

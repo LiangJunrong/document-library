@@ -2,7 +2,7 @@ Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2018-10-26 11:33:52**
+> Recently revised in **2018-10-27 10:03:35**
 
 <br>
 
@@ -39,8 +39,9 @@ Vue + Koa2 + MongoDB 搭建商城
 | &emsp;&emsp;[3.3.1 引用 Vant 组件库](#chapter-three-three-one)|
 | &emsp;&emsp;[3.3.2 Button 按钮](#chapter-three-three-two)|
 | &emsp;&emsp;[3.3.3 Layout 布局](#chapter-three-three-three)|
-| &emsp;[3.4 模拟网速缓慢 - slow 3G](#chapter-three-four) |
+| &emsp;[3.4 模拟网速缓慢 - Slow 3G](#chapter-three-four) |
 | &emsp;[3.5 mock 数据 - Easy Mock](#chapter-three-five) |
+| &emsp;[3.6 Chrome 插件 - Vue Devtool](#chapter-three-six) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 前端开发](#chapter-four) |
 | &emsp;[4.1 vue-cli 的安装及使用](#chapter-four-one) |
 | &emsp;[4.2 Vant 引用](#chapter-four-two) |
@@ -267,7 +268,7 @@ new Vue({
 
 <br>
 
-## <a name="chapter-three-four" id="chapter-three-four">3.4 模拟网速缓慢 - slow 3G</a>
+## <a name="chapter-three-four" id="chapter-three-four">3.4 模拟网速缓慢 - Slow 3G</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -275,7 +276,7 @@ new Vue({
 
 &emsp;由于我们制作的是商城，到时候可能加载大量的图片。  
 &emsp;所以，我们不仅需要考虑用户在 WiFi 下的愉快体验，更需要考虑在野外等手机信号差的 3G，甚至 2G 信号下商城的加载速度，从而优化用户的浏览体验。  
-&emsp;因为我们平时在公司或者家里开发，都是 `WiFi` 网络。所以，在这里，我们使用 `Chrome` 控制台的 `slow 3G`，通过加载PC端淘宝，进行网速慢的模拟。
+&emsp;因为我们平时在公司或者家里开发，都是 `WiFi` 网络。所以，在这里，我们使用 `Chrome` 控制台的 `Slow 3G`，通过加载PC端淘宝，进行网速慢的模拟。
 
 &emsp;首先，我们通过 `Chrome` 打开淘宝首页，通过 `F12` 打开控制台，点开 `Network` 并通过按 `Ctrl + F5` 进行强制刷新，得到下面这个图：
 
@@ -283,7 +284,7 @@ new Vue({
 
 <br>
 
-&emsp;可以看到，我们 WiFi 情况下，DOM 节点的内容加载为 1.02s。然后，我们按下面的图点开下拉菜单，选择 Slow 3G：
+&emsp;可以看到，我们 WiFi 情况下，DOM 节点的内容加载为 1.02s。然后，我们按下面的图点开下拉菜单，选择 `Slow 3G`：
 
 ![图](../../../public-repertory/img/other-website-ShoppingMall-4.png)
 
@@ -307,6 +308,37 @@ new Vue({
 &emsp;对于页面中最后需要调用接口渲染的数据，我们大概会使用两种方法：1. 直接在 `data` 中使用假数据，读取接口后再进行更新；2. 根据接口文档，进行 `mock`，获取 `mock` 数据。  
 &emsp;在这里，我们介绍一种比较便捷的方式：[Easy Mock](https://www.easy-mock.com)  
 &emsp;Easy Mock 是一个比较好用的图形化网站，小伙伴们点击进去会立刻 get 到它的设计意图，我们可以直接在项目中通过 `Axios` 直接调用它的链接，获取到数据。
+
+<br>
+
+## <a name="chapter-three-six" id="chapter-three-six">3.6 Vue 的 Chrome 插件 - Vue Devtool</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>  
+
+&emsp;如果你是 Vue 新手，那么，当你第一次运行 `npm run dev`，在 `localhost:8080` 中打开控制台会发现：
+
+![图](../../../public-repertory/img/other-website-ShoppingMall-5.png)
+
+<br>
+
+&emsp;它提示我们安装个 Vue Devtools 的插件，来获得更好的开发体验：
+
+```
+Download the Vue Devtools extension for a better development experience:
+https://github.com/vuejs/vue-devtools
+```
+
+<br>
+
+&emsp;所以，我们下载了个 `Vue Devtools` 的插件，并进行了安装（插件安装包和安装方式小伙伴们自行百度，这里就不贴上来了：[参考地址1-安装方式](https://segmentfault.com/a/1190000009682735)、[参考地址2-安装包](http://chromecj.com/downloadstart.html#886)）
+
+&emsp;安装完成后，我们可以刷新页面，可以在 Vue 项目的控制台中看到：
+
+![图](../../../public-repertory/img/other-website-ShoppingMall-6.png)
+
+&emsp;由于插件非常简洁，一看就懂，所以这里就不讲解了，这样我们就可以愉快地玩耍啦~
 
 <br>
 
