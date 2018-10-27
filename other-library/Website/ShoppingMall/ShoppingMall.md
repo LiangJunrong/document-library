@@ -364,6 +364,8 @@ https://github.com/vuejs/vue-devtools
 
 &emsp;它的使用技巧及 `Example` 在上面的 `GitHub` 地址存在，如果你想先了解它的作用，可以点击这里：[展示地址](https://surmon-china.github.io/vue-awesome-swiper/)
 
+&emsp;然后，上面的演示对应的代码为：[代码地址](https://github.com/surmon-china/vue-awesome-swiper/tree/master/examples)。在安装了 `vue-awesome-swiper` 的情况下，将代码地址中的任意一个 `.vue` 文件复制到我们的项目，进行稍微修改即可。
+
 * 全局引用：
 
 > main.js
