@@ -1,0 +1,13 @@
+# 注：该文件未生效，只是给大家展示 .gitignore 的用法
+
+# 忽略掉所有文件名是 test.html 的文件
+# test.html
+
+# 忽略掉 node_modules 文件夹
+# node_modules
+
+# 忽略掉所有生成的备份文件
+# *.*~
+
+# 忽略所有 .o 和 .a 文件
+# *.[oa]  
