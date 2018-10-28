@@ -1,7 +1,7 @@
 Angular 介绍
 ===
 
-> create by **jsliang** on **2018-9-5 11:33:18** 
+> create by **jsliang** on **2018-9-5 11:33:18**  
 > Recently revised in **2018-10-28 11:32:35**
 
 ## 前言
