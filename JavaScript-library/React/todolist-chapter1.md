@@ -1,7 +1,7 @@
 React - 1 - 基础环境搭建
 ===
 
-> create by **jsliang** on **2018年9月5日08:59:31** 
+> create by **jsliang** on **2018年9月5日08:59:31**  
 > Recently revised in **2018-10-28 10:54:44**
 
 ## 第一章 基础环境搭建
