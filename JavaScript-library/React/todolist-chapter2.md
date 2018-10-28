@@ -1,5 +1,8 @@
-# React - 2 - 组件
+React - 2 - 组件
+===
+
 > create by **jsliang** on **2018年9月5日10:41:14** 
+> Recently revised in **2018-10-28 10:54:44**
 
 ## 第二章 组件
 &emsp;每个网站，是由多个 html 页面组成的，而 html 页面，可以看成是多个组件组成的。  

@@ -1,5 +1,8 @@
 # React - 3 - JSX 语法
+===
+
 > create by **jsliang** on **2018年9月5日10:41:19** 
+> Recently revised in **2018-10-28 10:54:44**
 
 ## 第三章 JSX 语法
 &emsp;一般我们在 html 中，我们才会用 \<div\> 这些标签。但是，在 React 中，它通过 js ，使用了 \<div\> 这些标签，而只要 \<div\> 出现在 React 中，我们就将它叫做 JSX 。  
