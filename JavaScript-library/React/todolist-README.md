@@ -1,7 +1,7 @@
 React - 0 - React 介绍
 ===
  
-> create by **jsliang** on **2018年9月5日08:59:31** 
+> create by **jsliang** on **2018年9月5日08:59:31**  
 > Recently revised in **2018-10-28 11:37:47**
 
 ## 前言 React 介绍
