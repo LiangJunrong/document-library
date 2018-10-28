@@ -53,10 +53,19 @@ node_modules
 <br>
 
 ## 第二节 git 命令
+
 &emsp;这里讲解日常使用的 git 命令操作
+
+<br>
 
 ### 2.1 git fetch
 &emsp;从一个或多个其他存储库中获取分支和/或标签(统称为“引用”)以及完成其历史所必需的对象。 远程跟踪分支已更新(Git术语叫做commit)，需要将这些更新取回本地，这时就要用到git fetch命令。
+
+<br>
+
+### 2.2 git 取消忽略文件大小写的更改
+
+&emsp;在当前项目，输入 `git config core.ignorecase false` 即可关闭 git 忽略文件大小写的配置。
 
 <br>
 
