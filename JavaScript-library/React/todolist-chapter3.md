@@ -1,7 +1,7 @@
 # React - 3 - JSX 语法
 ===
 
-> create by **jsliang** on **2018年9月5日10:41:19** 
+> create by **jsliang** on **2018年9月5日10:41:19**  
 > Recently revised in **2018-10-28 10:54:44**
 
 ## 第三章 JSX 语法
