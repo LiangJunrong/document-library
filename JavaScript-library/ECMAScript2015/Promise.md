@@ -1,5 +1,8 @@
-# ES6学习 - 1 - Promise
+ES6学习 - 1 - Promise
+===
+
 > create by **jsliang** on **2018年8月23日14:26:38**  
+> Recently revised in **2018-10-28 10:54:44**
 
 # PS：由于工作突然来活，Promise学习暂且放下，jsliang会利用下班时间慢慢补充。
 
