@@ -2,7 +2,7 @@
 ===
 
 > create by **jsliang** on **2018年8月21日11:30:00** 
-> Recently revised in **2018-10-28 10:54:44**
+> Recently revised in **2018-10-28 11:38:26**
 
 ## 项目实例
 * [点我前往](http://es6design.jsliang.top/)
