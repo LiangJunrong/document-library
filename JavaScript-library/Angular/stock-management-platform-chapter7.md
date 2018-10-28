@@ -1,7 +1,7 @@
 Angular开发手册 - 7 - 表单处理
 ===
 
-> create by **jsliang** on **2018年9月5日17:41:44** 
+> create by **jsliang** on **2018年9月5日17:41:44**  
 > Recently revised in **2018-10-28 10:54:44**
 
 ## 表单处理

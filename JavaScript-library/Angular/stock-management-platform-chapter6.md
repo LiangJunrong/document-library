@@ -1,7 +1,7 @@
 Angular开发手册 - 6 - 组件间通讯
 ===
 
-> create by **jsliang** on **2018年9月5日17:40:50** 
+> create by **jsliang** on **2018年9月5日17:40:50**  
 > Recently revised in **2018-10-28 10:54:44**
 
 ## 组件间通讯

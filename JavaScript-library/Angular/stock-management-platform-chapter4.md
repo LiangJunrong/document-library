@@ -1,7 +1,7 @@
 Angular开发手册 - 4 - 路由
 ===
 
-> create by **jsliang** on **2018年9月5日17:38:19** 
+> create by **jsliang** on **2018年9月5日17:38:19**  
 > Recently revised in **2018年9月7日15:49:52**
 
 ## 路由
