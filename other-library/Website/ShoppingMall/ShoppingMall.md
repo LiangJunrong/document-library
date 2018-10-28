@@ -2,7 +2,7 @@ Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2018-10-28 13:14:15**
+> Recently revised in **2018-10-28 15:14:16**
 
 <br>
 
@@ -23,12 +23,16 @@ Vue + Koa2 + MongoDB 搭建商城
 * MongoDB - 
 
 &emsp;值得注意的是，你在这里看到的，不是从无到有的开发过程，即：这不是一篇手把手带你 0 基础搞定一切的文章。  
-&emsp;前端代码涉及知识点太多了。细瞧代码片刻，竟无语凝噎，唯有泪千行，妈妈我不知道怎么跟小伙伴们讲啊~  
-&emsp;但，文章篇幅非常详细，**jsliang** 会尽可能地提供相应的开发思路，如果你在使用这篇文章的过程中，发现某些无法看懂，请 `百度` 或者 `Google` 或去 `QQ 群` 艾特我。这就好比咱要做一件坏事，**jsliang** 为你提供了作案思路和作案工具，还有外援([QQ 群 798961601](https://jq.qq.com/?_wv=1027&k=5bSk4rs))，相信小伙伴们会收获不一样的精彩。
+&emsp;细瞧代码片刻，竟无语凝噎，唯有泪千行，妈妈我不知道怎么跟小伙伴们讲啊！前端代码涉及知识点太多了~  
+&emsp;但，文章篇幅会非常详细，**jsliang** 会尽可能地提供相应的开发思路，如果你在阅读这篇文章的过程中，发现某些无法看懂，请自行 `百度` 或者 `Google` 或者在 `QQ 群` @ 我。这就好比咱要做一件坏事，**jsliang** 为你提供了作案思路和作案工具，还有外援([QQ 群 798961601](https://jq.qq.com/?_wv=1027&k=5bSk4rs))，相信小伙伴们在自己的努力下，会收获不一样的精彩。
 
 &emsp;推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。
 
-&emsp;**如果你对文章的一些章节存在疑惑，请留言或者私聊 jsliang 提出来，因为 jsliang 在 Vue 某些方面的理解，是远远不及一些有丰富开发经验的 Vuer 的。**
+![图](../../../public-repertory/img/other-website-ShoppingMall-7.gif)
+
+<br>
+
+&emsp;**如果你对文章的一些章节存在疑惑，请留言或者私聊 jsliang 提出来，jsliang 在自己理解的基础上尽可能为你解答，因为 jsliang 在 Vue 某些方面的理解，是远远不及一些有丰富开发经验的 Vuer 的。**
 
 <br>
 
@@ -53,14 +57,11 @@ Vue + Koa2 + MongoDB 搭建商城
 | &emsp;[3.7 Swiper 组件 - vue-awesome-swiper](#chapter-three-seven) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 犯罪前奏：前端基础](#chapter-four) |
 | &emsp;[4.1 vue-cli 的安装及使用](#chapter-four-one) |
-| &emsp;[4.2 引用 Vant](#chapter-four-two) |
-| &emsp;[4.3 移动端屏幕适配基础](#chapter-four-three) |
-| &emsp;[4.4 路由配置](#chapter-four-four) |
-| &emsp;[4.5 引用图片](#chapter-four-five) |
-| &emsp;[4.6 引用 Axios 获取 API](#chapter-four-six) |
-| &emsp;[4.7 父子组件通讯](#chapter-four-seven) |
-| &emsp;[4.8 Filter 过滤器](#chapter-four-eight) |
-| &emsp;[4.9 Sass 的安装](#chapter-four-night) |
+| &emsp;[4.2 引用图片](#chapter-four-two) |
+| &emsp;[4.3 引用 Axios 获取 API](#chapter-four-three) |
+| &emsp;[4.4 API 接口文件配置](#chapter-four-four) |
+| &emsp;[4.5 Filter 过滤器](#chapter-four-five) |
+| &emsp;[4.6 Sass 的安装](#chapter-four-six) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 犯罪经过：页面布局](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 牢狱之灾：初识数据](#chapter-six) |
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 作案新招：后端基础](#chapter-seven) |
@@ -75,7 +76,7 @@ Vue + Koa2 + MongoDB 搭建商城
 
 <br>
 
-&emsp;下载代码：代码在 GitHub 文档库中文章的同级 `code` 目录上，如果嫌 download 全部文档太麻烦，不想去 download 全部文档，那就点击链接加 QQ 群拿资料吧：[798961601](https://jq.qq.com/?_wv=1027&k=5bSk4rs)。  
+&emsp;下载代码：代码目前在 **jsliang** 的 **unfineshed-code** 仓库中，等这篇文章完结了会单独开一个仓库以供下载，如果你想即刻拥有原始资料，那就点击链接加 QQ 群拿资料吧：[798961601](https://jq.qq.com/?_wv=1027&k=5bSk4rs)。  
 &emsp;我是 **jsliang**，我在天书世界等你，噢，不是……  
 &emsp;我是 **jsliang**，想要资料就来砍我，哦，不是……  
 &emsp;我是 **jsliang**，我在 **jsliang** 资料群等你~  
@@ -101,9 +102,9 @@ npm run build
 
 <br>
 
-&emsp;在这个章节中，你可以看到 VS Code 的一些插件的妙用；可以看到 Iconfont 这个图标库的使用；可以看到一些比较实用的组件库例如Vant的介绍……  
+&emsp;在这个章节中，你可以看到 VS Code 的一些插件的妙用；可以看到 Iconfont 这个图标库的使用；可以看到一些比较实用的组件库例如 Vant 的介绍……  
 &emsp;通过这些小技巧，提高你的开发效率。  
-&emsp;如果这些小技巧你都用得非常熟练了，请通过目录跳转至第四章，开始编写前端代码。
+&emsp;如果这些小技巧你都用得非常熟练了，请通过目录跳转至第四章或者直接前往第五章，学习其他的开发技巧。
 
 <br>
 
@@ -114,7 +115,7 @@ npm run build
 
 <br>
 
-&emsp;使用方法：Visio Studio Code 软件 -> 扩展 --> 搜索关键字 -> 安装 -> 重启 VS Code
+&emsp;使用方法：Visio Studio Code 软件 -> 扩展 -> 搜索关键字 -> 安装 -> 重启 VS Code
 
 * `Vetur`：该插件可以使得 VS Code 能识别 `.vue` 文件，并支持 `.vue` 文件的语法高亮显示，同时，还兼顾大多数主流的前端开发和插件，例如 `Sass` 和 `TypeScript`。
 
@@ -144,7 +145,7 @@ npm run build
 
 &emsp;Vant 是轻量、可靠的移动端 Vue 组件库：[Vant 官网](https://youzan.github.io/vant/#/zh-CN/intro)
 
-&emsp;这里我们讲一下 Vant 的基础引用，下面涉及到 Vant 的代码时，请小伙伴们直接查看上面的 Vant 官网。因为组件库的使用，只有自己去折腾几遍，才能玩得溜。
+&emsp;这里我们讲一下 Vant 的基础引用，下面章节涉及到 Vant 的代码时，请小伙伴们直接查看上面的 Vant 官网。因为组件库的使用，只有自己去折腾几遍，才能玩得溜。
 
 <br>
 
@@ -322,7 +323,10 @@ new Vue({
 
 <br>  
 
-&emsp;对于页面中最后需要调用接口渲染的数据，我们大概会使用两种方法：1. 直接在 `data` 中使用假数据，读取接口后再进行更新；2. 根据接口文档，进行 `mock`，获取 `mock` 数据。  
+&emsp;对于页面中最后需要调用接口渲染的数据，我们大概会使用两种方法：  
+1. 直接在 `data` 中使用假数据，读取接口后再进行更新；
+2. 根据接口文档，进行 `mock`，获取 `mock` 数据。  
+
 &emsp;在这里，我们介绍一种比较便捷的方式：[Easy Mock](https://www.easy-mock.com)  
 &emsp;Easy Mock 是一个比较好用的图形化网站，小伙伴们点击进去会立刻 get 到它的设计意图，我们可以直接在项目中通过 `Axios` 直接调用它的链接，获取到数据。
 
@@ -352,7 +356,7 @@ https://github.com/vuejs/vue-devtools
 &emsp;所以，我们下载了个 `Vue Devtools` 的插件，并进行了安装。插件安装包和安装方式：
 
 * [参考地址1-安装方式](https://segmentfault.com/a/1190000009682735)
-* [参考地址2-安装包](http://chromecj.com/downloadstart.html#886)
+* [参考地址2-安装包](http://chromecj.com/downloadstart.html#886)（加入公众号 -> 获取验证码 -> 下载资料 -> 取消关注）
 
 &emsp;安装完成后，我们可以刷新页面，可以在 Vue 项目的控制台中看到：
 
@@ -368,7 +372,7 @@ https://github.com/vuejs/vue-devtools
 
 <br>  
 
-&emsp;`vue-awesome-swiper` 是关于 Vue 的一个 Swiper 组件，它实现了轮播图、滑动、内容滚动等功能：[GitHub：vue-awesome-swiper](https://github.com/surmon-china/vue-awesome-swiper)
+&emsp;`vue-awesome-swiper` 是关于 Vue 的一个 Swiper 组件，它实现了轮播图、滑动、内容滚动等功能，GitHub 地址：[vue-awesome-swiper](https://github.com/surmon-china/vue-awesome-swiper)
 
 &emsp;它适合 `PC` 或者 `Mobile` 端，可用于 `SPA`  或者 `SSR` 页面。
 
@@ -447,186 +451,7 @@ export default {
 
 <br>
 
-## <a name="chapter-four-two" id="chapter-four-two">4.2 引用 Vant</a>
-
-> [返回目录](#catalog-chapter-four)
-
-<br>
-
-&emsp;Vant 是一个轻量、可靠的移动端 Vue 组件库。  
-&emsp;如果你有使用过 ElementUI 等组件库就知道，Vant 的引用可以让你更快地部署项目。  
-&emsp;所以，我们在第三章中大略讲了 Vant 的使用方式，组件库的使用，只有你去尝试过，才能显得更加熟练：[第三章 Vant 介绍](#chapter-three-three)
-
-<br>
-
-## <a name="chapter-four-three" id="chapter-four-three">4.3 移动端屏幕适配基础</a>
-
-> [返回目录](#catalog-chapter-four)
-
-<br>
-
-&emsp;知识普及：
- 
-* 常见的移动端 web 布局适配方法
-1. 固定高度，宽度百分比（过时，不推荐）
-2. Media Query（媒体查询）：Bootstrap
-3. Flex 布局：主流布局模式，采用 Flex + rem 进行移动端适配
-4. rem：相对单位长度，相对于根元素( html )的 `font-size` 计算值的倍数
-
-<br>
-
-&emsp;js 控制适配屏幕方式1：
-
-> index.html
-
-```
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>shopping-mall</title>
-</head>
-
-<body>
-  <div id="app"></div>
-
-  <script>
-    window.onload = function () {
-      //得到手机屏幕的宽度
-      let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
-      if (htmlWidth > 750) {
-        htmlWidth = 750
-      }
-      //得到html的Dom元素
-      let htmlDom = document.getElementsByTagName('html')[0];
-      //设置根元素字体大小
-      htmlDom.style.fontSize = htmlWidth / 20 + 'px';
-    }
-  </script>
-</body>
-
-</html>
-```
-
-<br>
-
-&emsp;jsliang 的 rem 适配方式
-
-```
-/*
- * 2018年7月25日10:38:23
- * 移动端rem适配，px:rem = 100:1
- * 该适配兼容UC竖屏转横屏出现的BUG
- * 自定义设计稿的宽度：designWidth
- * 最大宽度:maxWidth
- * 这段js的最后面有两个参数记得要设置，一个为设计稿实际宽度，一个为制作稿最大宽度，例如设计稿为750，最大宽度为750，则为(750,750)
-*/
-! function (e, t) {
-    function n() {
-        var n = l.getBoundingClientRect().width;
-        t = t || 540, n > t && (n = t);
-        var i = 100 * n / e;
-        r.innerHTML = "html{font-size:" + i + "px;}"
-    }
-    var i, d = document,
-        o = window,
-        l = d.documentElement,
-        r = document.createElement("style");
-    if (l.firstElementChild) l.firstElementChild.appendChild(r);
-    else {
-        var a = d.createElement("div");
-        a.appendChild(r), d.write(a.innerHTML), a = null
-    }
-    n(), o.addEventListener("resize", function () {
-        clearTimeout(i), i = setTimeout(n, 300)
-    }, !1), o.addEventListener("pageshow", function (e) {
-        e.persisted && (clearTimeout(i), i = setTimeout(n, 300))
-    }, !1), "complete" === d.readyState ? d.body.style.fontSize = "16px" : d.addEventListener(
-        "DOMContentLoaded",
-        function (e) {
-            d.body.style.fontSize = "16px"
-        }, !1)
-}(750, 750);
-```
-
-<br>
-
-&emsp;jsliang 的移动端 html 模板
-
-```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>HelloWorld</title>
-</head>
-<body>
-  <div>Hello World!</div>
-</body>
-</html>
-```
-
-<br>
-
-## <a name="chapter-four-four" id="chapter-four-four">4.4 路由配置</a>
-
-> [返回目录](#catalog-chapter-four)
-
-<br>
-
-&emsp;我们项目的目录一般放在 `src/components/pages` 中，现在我们删除掉 `src/components/HelloWorld.js` 这个文件，然后往里面新建 `ShoppingMall.vue` 文件，并在 `src/router/index.js` 中配置我们的路由：
-
-> ShoppingMall.vue
-
-```
-<template>
-    <div>
-        <van-button type="primary">主要按钮</van-button>
-    </div>
-</template>
-
-<script>
-    export default {
-        
-    }
-</script>
-
-<style scoped>
-
-</style>
-```
-
-<br>
-
-> src/router/index.js
-
-```
-import Vue from 'vue'
-import Router from 'vue-router'
-import ShopingMall from '@/components/ShopingMall'
-
-Vue.use(Router)
-
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'ShopingMall',
-      component: ShopingMall
-    }
-  ]
-})
-```
-
-<br>
-
-
-## <a name="chapter-four-five" id="chapter-four-five">4.5 引用图片</a>
+## <a name="chapter-four-two" id="chapter-four-two">4.2 引用图片</a>
 
 > [返回目录](#catalog-chapter-four)
 
@@ -721,13 +546,13 @@ module.exports = {
 
 <br>
 
-## <a name="chapter-four-six" id="chapter-four-six">4.6 引用 Axios 获取 API</a>
+## <a name="chapter-four-three" id="chapter-four-three">4.3 引用 Axios 获取 API</a>
 
 > [返回目录](#catalog-chapter-four)
 
 <br>
 
-&emsp;步骤
+&emsp;步骤：
 
 1. 安装 `axios`：`npm i axios -S`
 2. 在 `src/components/pages/ShoppingMall.vue` 的 `<script>` 标签中引用并使用 `axios`：
@@ -762,18 +587,17 @@ module.exports = {
 
 <br>
 
-## <a name="chapter-four-seven" id="chapter-four-seven">4.7 父子组件通讯</a>
+## <a name="chapter-four-four" id="chapter-four-four">4.4 API 接口文件配置</a>
 
 > [返回目录](#catalog-chapter-four)
 
 <br>
 
-&emsp;如何通过封装组件的方式，对一些常用的（如楼层）进行封装，并对其进行父子组件之间的通讯。  
-&emsp;未完待续。
+&emsp;
 
 <br>
 
-## <a name="chapter-four-eight" id="chapter-four-eight">4.8 Filter 过滤器</a>
+## <a name="chapter-four-five" id="chapter-four-five">4.5 Filter 过滤器</a>
 
 > [返回目录](#catalog-chapter-four)
 
@@ -823,7 +647,7 @@ export function toMoney(money = 0){
 
 <br>
 
-## <a name="chapter-four-night" id="chapter-four-night">4.9 Sass 的安装</a>
+## <a name="chapter-four-six" id="chapter-four-six">4.6 Sass 的安装</a>
 
 > [返回目录](#catalog-chapter-four)
 
