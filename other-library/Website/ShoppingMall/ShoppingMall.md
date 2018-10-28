@@ -28,7 +28,7 @@ Vue + Koa2 + MongoDB 搭建商城
 
 &emsp;推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。
 
-![图](../../../public-repertory/img/other-website-ShoppingMall-7.gif)
+![图](../../../public-repertory/img/other-website-ShoppingMall-1.gif)
 
 <br>
 
@@ -304,13 +304,13 @@ new Vue({
 
 &emsp;可以看到，我们 WiFi 情况下，DOM 节点的内容加载为 1.02s。然后，我们按下面的图点开下拉菜单，选择 `Slow 3G`：
 
-![图](../../../public-repertory/img/other-website-ShoppingMall-4.png)
+![图](../../../public-repertory/img/other-website-ShoppingMall-3.png)
 
 <br>
 
 &emsp;再通过 `Ctrl + F5` 进行强制刷新，模拟网速缓慢的情况：
 
-![图](../../../public-repertory/img/other-website-ShoppingMall-3.png)
+![图](../../../public-repertory/img/other-website-ShoppingMall-4.png)
 
 &emsp;可以看出，在网速缓慢的情况下，我们加载 DOM 节点的内容，加载了 `10.43s`。无疑，假设我们开发的商城在上线后变成这样，当用户在网速更差的情况下，可能会选择直接关闭网站。  
 &emsp;所以，通过网络缓慢的情景模拟，可以对网站做一些性能优化，从而减少我们的用户量。
@@ -542,7 +542,7 @@ module.exports = {
 
 &emsp;通过 `npm run dev` 编译后，浏览器 `localhost:8080` 展示为：
 
-![图](../../../public-repertory/img/other-website-ShoppingMall-1.png)
+![图](../../../public-repertory/img/other-website-ShoppingMall-7.png)
 
 <br>
 
