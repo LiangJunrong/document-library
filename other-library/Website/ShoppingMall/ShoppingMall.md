@@ -509,7 +509,7 @@ module.exports = {
 
 &emsp;从中，可以看出，对于 `static` 的资源，`vue-cli` 在开发模式 `dev` 以及打包模式 `build` 中都进行了配置，它不会被 `webpack` 进行打包，属于 “静态资源”。所以，在项目中引用 `src/assets` 及 `static` 下的图片资源，我们可以：
 
-> ShoppingMall.vue
+> src/components/pages/ShoppingMall.vue
 ```
 <template>
   <div>
@@ -593,7 +593,69 @@ module.exports = {
 
 <br>
 
-&emsp;
+&emsp;在 `4.3` 章节中，我们提及到了 `Axios` 对接口的调用。  
+&emsp;但是，小伙伴们有没有想到，如果某天，后端大大对你说，某台服务器过期了，你将接口地址更改一下。听到这话，你乖乖地一个一个 `.vue` 文件改一遍，当你还没有改完时，后端大大又发你一个接口地址：“确定了，咱还是用这个。”……  
+&emsp;不知道小伙伴会是什么心情吧……所以，为了预防万一，我们将 `API` 地址统一抽取到一个文件，到时候修改起来也方便。  
+&emsp;我们在 `src` 目录下新建一个 `serviceAPI.config.js` 配置文件，用来存放 `API` 接口地址：
+
+> src/serviceAPI.config.js
+
+```
+const BASEURL = "https://www.easy-mock.com/mock/5bd2b50e6388c25a14965a22/ShoppingMall/"
+
+const URL = {
+  getGoodsInfo: BASEURL + 'getGoodsInfo',
+  getUserInfo: BASEURL + 'getUserInfo',
+}
+
+module.exports = URL
+```
+
+<br>
+
+&emsp;然后，我们在 Vue 文件中获取该数据：
+
+> *.vue
+
+```
+<template>
+  <div>
+
+  </div>
+</template>
+
+<script>
+  import axios from 'axios';
+  import url from '@/serviceAPI.config.js';
+  export default {
+    created() {
+      axios({
+        url: url.getGoodsInfo,
+        method: 'get'
+      }).then(res => {
+        console.log(res.data.data);
+      }).catch(err => {
+        console.log(err);
+      });
+
+      axios({
+        url: url.getUserInfo,
+        method: 'get'
+      }).then(res => {
+        console.log(res.data.data);
+      }).catch(err => {
+        console.log(err);
+      })
+    }
+  }
+</script>
+
+<style scoped>
+
+</style>
+```
+
+&emsp;最后，我们打开 `localhost:8080` 的控制台，就可以看到这两个接口都能获取到数据了。
 
 <br>
 
