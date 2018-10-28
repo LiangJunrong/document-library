@@ -1,4 +1,6 @@
-# 仿简书项目 - 3 - Redux 数据管理
+仿简书项目 - 3 - Redux 数据管理
+===
+
 > create by **jsliang** on **2018-9-10 16:17:24**  
 > Recently revised in **2018-9-11 12:20:06**
 
