@@ -1,6 +1,9 @@
-# Angular开发手册 - 3 - UI整体布局
+Angular开发手册 - 3 - UI整体布局
+===
+
 > create by **jsliang** on **2018年9月5日16:40:36**  
- 
+> Recently revised in **2018-10-28 10:54:44**
+
 ## 第三章 UI整体布局
 ![图](../../public-repertory/img/js-angular-taskmgr-chapter2-1.png)
 

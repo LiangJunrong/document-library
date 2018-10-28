@@ -1,6 +1,9 @@
-# Angular开发手册 - 2 - 项目工程结构介绍
+Angular开发手册 - 2 - 项目工程结构介绍
+===
+
 > create by **jsliang** on **2018年9月5日12:28:37**  
- 
+> Recently revised in **2018-10-28 10:54:44**
+
 ## 第二章 项目工程结构介绍
 ![图](../../public-repertory/img/js-angular-taskmgr-chapter2-1.png)
 

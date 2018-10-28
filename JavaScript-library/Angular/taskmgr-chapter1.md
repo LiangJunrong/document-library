@@ -1,6 +1,9 @@
-# Angular开发手册 - 1 - 环境搭建
+Angular开发手册 - 1 - 环境搭建
+===
+
 > create by **jsliang** on **2018年9月5日12:28:37**  
- 
+> Recently revised in **2018-10-28 10:54:44**
+
 ## 第一章 环境搭建
 
 **1. 安装 Angular：**  
