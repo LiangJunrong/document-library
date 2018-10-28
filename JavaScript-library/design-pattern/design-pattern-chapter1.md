@@ -1,6 +1,9 @@
-# 设计模式手册 - 1 - 部署开发环境
+设计模式手册 - 1 - 部署开发环境
+===
+
 > create by **jsliang** on **2018年8月22日11:19:00**  
- 
+> Recently revised in **2018-10-28 10:54:44**
+
 ## 第一章 部署开发环境
 &emsp;为什么要部署个开发环境呢？我就不能直接将es6转成es5直接使用吗？回答是：可以啊！[链接拿去](https://www.cnblogs.com/yuanbo88/p/6389299.html)，里面告诉你怎么配置babel，将es6转es5。如果你觉得还要配置babel，也是挺麻烦的，[链接拿去](https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015,react,stage-2&targets=&browsers=&builtIns=false&debug=false&code=)，里面已经设置好了，直接在线将es8、es7、es6转es5，去吧少年~  
 &emsp;但是，怎么说呢，工欲善其事，必先利其器。一切的编程就是为了偷懒，所以jsliang配置个Webpack的es6环境，就是想：  
