@@ -1,4 +1,8 @@
-# git学习
+Git 学习
+===
+
+> Create by **jsliang** on **2018-10-25 15:14:00**  
+> Recently revised in **2018-10-27 22:02:15**
 
 ## 第一节 配置gitignore
 > create by **jsliang** on **2018年9月4日10:45:43**  
