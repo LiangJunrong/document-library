@@ -2,7 +2,7 @@ Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2018-10-28 13:04:35**
+> Recently revised in **2018-10-28 13:11:13**
 
 <br>
 
