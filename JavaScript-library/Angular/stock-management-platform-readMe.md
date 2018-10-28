@@ -1,4 +1,6 @@
-# Angular开发手册 - 0 - 前言
+Angular开发手册 - 0 - 前言
+===
+
 > create by **jsliang** on **2018年9月5日17:28:51**   
 > Recently revised in **2018年9月6日16:47:36**
 

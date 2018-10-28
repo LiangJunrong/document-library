@@ -1,4 +1,6 @@
-# Angular开发手册 - 3 - 开发准备
+Angular开发手册 - 3 - 开发准备
+===
+
 > create by **jsliang** on **2018年9月5日17:37:31**  
 > Recently revised in **2018年9月7日15:49:33**
 

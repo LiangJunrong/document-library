@@ -1,4 +1,6 @@
-# Angular开发手册 - 2 - 开始 Angular 开发
+Angular开发手册 - 2 - 开始 Angular 开发
+===
+
 > create by **jsliang** on **2018年9月5日17:34:46**   
 > Recently revised in **2018年9月7日10:06:00**
 

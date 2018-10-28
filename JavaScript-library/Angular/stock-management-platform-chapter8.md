@@ -1,5 +1,8 @@
-# Angular开发手册 - 8 - 与服务器通讯
+Angular开发手册 - 8 - 与服务器通讯
+===
+
 > create by **jsliang** on **2018年9月5日17:43:15** 
+> Recently revised in **2018-10-28 10:54:44**
 
 ## 表单处理
 
