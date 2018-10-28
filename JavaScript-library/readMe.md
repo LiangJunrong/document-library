@@ -2,7 +2,7 @@ JavaScript
 ===
 
 > Create by **jsliang** on **2018-10-28 10:51:18**  
-> Recently revised in **2018-10-28 10:51:22**
+> Recently revised in **2018-10-28 11:22:42**
 
 * Here is an article about JavaScript
 * 这里存放了关于JavaScript的文章
