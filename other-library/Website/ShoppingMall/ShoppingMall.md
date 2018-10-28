@@ -2,7 +2,7 @@ Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2018-10-28 15:14:16**
+> Recently revised in **2018-10-28 18:58:21**
 
 <br>
 
@@ -432,8 +432,7 @@ export default {
 
 <br>
 
-&emsp;在这个章节，我们开始部署前端环境，开发静态页面，Mock 数据等等。 
-
+&emsp;在这个章节，我们开始部署前端基础环境，为后续的连贯操作做基础准备。 
 <br>
 
 ## <a name="chapter-four-one" id="chapter-four-one">4.1 vue-cli 的安装及使用</a>
