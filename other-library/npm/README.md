@@ -1,4 +1,9 @@
-# npm
+npm 学习
+===
+
+> Create by **jsliang** on **2018-10-28 11:14:22**  
+> Recently revised in **2018-10-28 11:14:25**
+
 * 记录一些常用的 npm 包的简介
 
 | npm         | 详细地址                                                                                                 | 介绍                                                        |
