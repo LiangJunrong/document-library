@@ -1,5 +1,8 @@
-# Angular 介绍
+Angular 介绍
+===
+
 > create by **jsliang** on **2018年9月5日11:56:07** 
+> Recently revised in **2018-10-28 10:54:44**
 
 ## 前言
 &emsp;
