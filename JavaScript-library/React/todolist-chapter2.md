@@ -1,7 +1,7 @@
 React - 2 - 组件
 ===
 
-> create by **jsliang** on **2018年9月5日10:41:14** 
+> create by **jsliang** on **2018年9月5日10:41:14**  
 > Recently revised in **2018-10-28 10:54:44**
 
 ## 第二章 组件
