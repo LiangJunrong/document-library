@@ -2,23 +2,29 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-10-29 11:49:00**
+> Recently revised in **2018-10-29 15:02:04**
 
 <br>
 
 &emsp;**记录下关于 Vue 框架的系统学习旅途：Vue 基础 -> 深入 Vue 套餐 -> Vue 源码剖析。**
 
-&emsp;参考文档。关于学习 Vue 方面，最佳推荐还是官方文档，因为不管是其他文字还是视频教程，都是基于 Vue 的官方文档或者 GitHub 进行学习编写的：[Vue.js 官方文档](https://cn.vuejs.org/v2/guide/)    
+&emsp;**参考文档：**
 
-&emsp;参考视频。
+1. [Vue.js 官方文档](https://cn.vuejs.org/v2/guide/) 
+  
+&emsp;关于学习 Vue 方面，最佳推荐还是官方文档，因为不管是其他文字还是视频教程，都是基于 Vue 的官方文档或者 GitHub 进行学习编写的。   
 
-1. 开课吧 - [Vue.js 及项目实战(2018/06)](https://www.kaikeba.com/)  
+<br>
 
-&emsp;在这里偶然发现一套来自 **开课吧** 的教学视频，然后发现它是今年 6 月份录制的，比较新，并且文件命名非常有意思，在这里先瞅瞅它的授课内容如何，如果很 nice 到时候再跟小伙伴们分享~
+&emsp;**参考视频：**
+
+1. **开课吧** - [Vue.js 及项目实战(2018/06)](https://www.kaikeba.com/)  
+
+&emsp;在这里偶然发现一套来自 **开课吧** 的教学视频，然后发现它是今年 6 月份录制的，内容上还算是比较新，并且文件命名非常有意思，在这里咱的 Vue 基础知识先跟着它走一遍看看~
 
 ![图](../../public-repertory/img/js-vue-basic-learning-1.png)
 
-2. 慕课网 - [《Vue.js 源码全方位深入解析》](https://coding.imooc.com/class/228.html)
+2. **慕课网** - [《Vue.js 源码全方位深入解析》](https://coding.imooc.com/class/228.html)
 
 &emsp;还未开封，但是研究源码可能参考该套视频。
 
@@ -28,10 +34,17 @@ Vue
 
 <br>
 
+&emsp;**不折腾的前端，和咸鱼有什么区别~**
+
 | 目录 |
 | --- |
 | <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Vue 基础](#chapter-three) |
+| &emsp;[3.1 Vue - 初识](#chapter-three-one) |
+| &emsp;[3.2 data - 挂载数据](#chapter-three-two) |
+| &emsp;[3.3 el - 进一步优化](#chapter-three-three) |
+| &emsp;[3.4 {{ ? }} - 插值表达式](#chapter-three-four) |
 
 <br>
 
@@ -41,7 +54,7 @@ Vue
 
 <br>
 
-&emsp;为何需要 Vue ？
+1. 为何需要 Vue ？
 
 * 首先，jQuery 库，它的影响是执行 DOM 操作 + Ajax 请求
 * 然后，art-template 库，主要是作为模板引擎，对页面进行渲染。
@@ -49,7 +62,7 @@ Vue
 
 <br>
 
-&emsp;Vue 和 jQuery 在代码上的区别是什么？
+2. Vue 和 jQuery 在代码上的区别是什么？
 
 * 在 jQuery 这种代码库上，它的使用时调用某个函数，我们只需要把控库的代码就可以了。
 * 在 Vue 这种框架上，它会初始化自身的一些行为，然后执行你所编写的代码，最后释放资源，从而帮助我们更好地运行我们编写好的代码。
@@ -66,13 +79,13 @@ Vue
 
 <br>
 
-## <a name="chapter-three-one" id="chapter-three-one">3.1 初识 Vue</a>
+## <a name="chapter-three-one" id="chapter-three-one">3.1 Vue - 初识</a>
 
 > [返回目录](#catalog-chapter-three)
 
 <br>
 
-&emsp;首先看下我们的代码及其实现：
+&emsp;话不多数，我们直接看代码及其实现：
 
 ```
 <!DOCTYPE html>
@@ -117,7 +130,7 @@ Vue
 
 <br>
 
-&emsp;然后我们解析下代码运行：
+&emsp;现在，我们解析下代码运行：
 
 1. 首先，创建一个空白的 html 模板文件，通过 CDN 引用 Vue：
 
@@ -126,12 +139,16 @@ Vue
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 ```
 
+<br>
+
 2. 然后，我们编写一个挂载点，即我们的 Vue，最终会在哪个 DOM 里面进行操作：
 
 ```
 <!-- 挂载点。可以理解为被操作的对象 -->
 <div id="app"></div>
 ```
+
+<br>
 
 3. 最后，我们通过 New 一个 Vue 实例对象，对我们 id 为 app 的 DOM 节点进行操作：
 
@@ -151,19 +168,21 @@ new Vue({
 })
 ```
 
-&emsp;这样，我们最终就显示了 Vue 的简单引用：
+<br>
+
+&emsp;这样，我们最终就显示了 Vue 的简单引用，是不是觉得非常简单：
 
 ![图](../../public-repertory/img/js-vue-basic-learning-2.png)
 
 <br>
 
-## <a name="chapter-three-two" id="chapter-three-two">3.2 Data - 挂载数据</a>
+## <a name="chapter-three-two" id="chapter-three-two">3.2 data - 挂载数据</a>
 
 > [返回目录](#catalog-chapter-three)
 
 <br>
 
-&emsp;如果 Vue 仅仅是只有 `template` 这个模板装载，那么它跟 jQuery 就显得毫无差别了，下面我们使用下 Vue 的 `data` 数据渲染：
+&emsp;如果 Vue 仅仅是只有 `template` 这个模板装载，那么它跟 jQuery 就显得毫无差别了，下面我们使用下 Vue 的 `data` 进行数据渲染：
 
 ```
 <script>
@@ -192,7 +211,7 @@ new Vue({
 
 <br>
 
-&emsp;在这里，首先我们可以看到，我们在 `template` 中加了一个 `<p>` 标签；然后通过 `{{ text }}` 形式，引入了一个叫 `text` 的 `data` 数据：
+&emsp;在这里，我们可以看到，我们在 `template` 中加了一个 `<p>` 标签，通过 `{{ text }}` 形式，引入了一个叫 `text` 的 `data` 数据：
 
 ```
 <p>{{ text }}</p>
@@ -200,7 +219,7 @@ new Vue({
 
 <br>
 
-&emsp;最后我们在 `<scirpt>` 中定义了 `text` 的内容：
+&emsp;接着我们在 `<scirpt>` 中定义了 `text` 的内容，从而实现数据渲染：
 
 ```
 data: function() {
@@ -213,9 +232,146 @@ data: function() {
 
 <br>
 
-&emsp;这样，我们就知道了，我们不仅可以通过模板渲染 `<div>` 标签，我们也可以将 js 中定义的数据或者变量，通过操作 `data` 从而改变 html 里面的内容。
+&emsp;这样，我们就知道了，我们不仅可以通过模板 `template` 来渲染 `<div>` 标签，我们也可以将 js 中定义的数据或者变量，通过操作 `data` 从而改变 html 里面的内容。
 
 ![图](../../public-repertory/img/js-vue-basic-learning-3.png)
+
+<br>
+
+## <a name="chapter-three-three" id="chapter-three-three">3.3 el - 进一步优化</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;在 `3.1` 章节 及 `3.2` 章节中，我们使用 `el` 的方式是：
+
+```
+el: '#app',
+```
+
+&emsp;该 `el` 挂载形式，在 Vue 内部运行机制中，它会根据你传入的值，进行查找：
+
+* 如果传入的是 `#app`，那它就判断查找 `id` 为 `app` 的节点；
+* 如果传入的是 `.app`，那它就查找 `class` 为 `app` 的节点；
+* 如果传入的是节点名 `div`，那它就查找节点名……  
+
+&emsp;大家应该清楚，这样判断查找是需要时间的，所以我们可以：
+
+```
+el: document.getElementById('app'),
+```
+
+<br>
+
+&emsp;这般操作，使 Vue 直接将挂载点挂载到 `id` 上去，从而获得更好的加载速度。  
+&emsp;这算是对 `el` 的一个小优化。
+
+<br>
+
+## <a name="chapter-three-four" id="chapter-three-four">3.4 {{ ? }} - 插值表达式</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;如果小伙伴有点印象，应该还记得，我们在章节 `3.2` 中通过 `{{}}` 这个插值表达式的使用，在 `data` 中对其里面的数据进行操作。  
+&emsp;下面，我们进一步讲解这个 `{{}}` 还可以进行哪种骚操作：
+
+* 对象：{{ {name: 'jack'} }}
+* 字符串 {{ 'Hello World!' }}
+* 布尔值： {{ isTrue == -1 }}
+* 三元表达式： {{ isTrue ? '正确' : '错误' }}
+
+&emsp;下面我们通过代码进行操作演示：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习 - 2018-10-29 13:27:49</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+
+      el: document.getElementById('app'),
+
+      template: `
+          <div>
+            <p>{{ text }}</p>
+            <p>{{ {name: 'jack'} }}</p>
+            <p>{{ 'Hello World!' }}</p>
+            <p>{{ isTrue == -1 }}</p>
+            <p>{{ isTrue ? '真' : '假' }}</p>
+          </div>
+      `,
+
+      data: function() {
+        return {
+          text: 'Hello World!',
+          isTrue: true
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;它在浏览器的展示为：
+
+![图](../../public-repertory/img/js-vue-basic-learning-4.png)
+
+<br>
+
+&emsp;关键代码讲解：
+
+```
+<div>
+  <!-- 赋值 text 到 <p> 标签中 -->
+  <p>{{ text }}</p>
+  
+  <!-- 赋值对象到标签中 -->
+  <p>{{ {name: 'jack'} }}</p>
+  
+  <!-- 直接赋值字符串到标签中 -->
+  <p>{{ 'Hello World!' }}</p>
+
+  <!-- 
+    直接进行布尔判断，isTrue 在 data 中设置为 true，
+    而 -1 转为 布尔值 是 false，所以两者不相等
+    输出值为 false 
+  -->
+  <p>{{ isTrue == -1 }}</p>
+
+  <!-- 运行三元表达式，isTrue 为 true，输出 真 -->
+  <p>{{ isTrue ? '真' : '假' }}</p>
+</div>
+```
+
+<br>
+
+## <a name="chapter-three-five" id="chapter-three-five">3.4 v-××× - 指令</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;在 Vue 中，如果单单使用 `{{}}` 这种插值表达式方式，是满足不了
 
 <br>
 
