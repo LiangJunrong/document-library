@@ -87,6 +87,8 @@ Vue
 
 &emsp;话不多数，我们直接看代码及其实现：
 
+> index.html
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -285,6 +287,8 @@ el: document.getElementById('app'),
 
 &emsp;下面我们通过代码进行操作演示：
 
+> index.html
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -371,7 +375,102 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;在 Vue 中，如果单单使用 `{{}}` 这种插值表达式方式，是满足不了
+&emsp;在 Vue 中，如果单单使用 `{{}}` 这种插值表达式方式，是满足不了我们的数据操作欲望的，所以，Vue 以 `v-if`、`v-bind` 等形式，提供了一些对于页面 + 数据的更为方便的操作：指令  
+&emsp;这里列举一些常用指令并且通过代码演示进行展示：
+
+* v-text
+* v-html
+* v-if
+* v-else-if
+* v-else
+* v-show
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习 - 2018-10-29 13:27:49</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+
+      el: document.getElementById('app'),
+
+      template: `
+          <div>
+            <p v-text='vTextOrHtml'></p>
+            <p v-html='vTextOrHtml'></p>
+            <p v-if='vIf == 1'>Hello v-If</p>
+            <p v-else-if='vIf == 2'>Hello v-else-if</p>
+            <p v-else>Hello v-else</p>
+            <p v-show='isTrue'></p>
+          </div>
+      `,
+
+      data: function() {
+        return {
+          vTextOrHtml: '<span style="color: red">我是红的</p>',
+          vIf: 2,
+          isTrue: false
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;在这里，我们对代码进行下讲解：
+
+```
+<div>
+  <!-- 这里渲染了 vTextOrHtml 中的文本 -->
+  <p v-text='vTextOrHtml'></p>
+  
+  <!-- 
+    这里在渲染 vTextOrHtml 的过程中，
+    如果遇到标签，则对标签页进行渲染 
+  -->
+  <p v-html='vTextOrHtml'></p>
+  
+  <!-- 
+    判断 data 中 vIf 的值是多少，
+    这里有三种情况：v-if、v-else-if、v-else。
+    如果项目中有更多情况，则再添加 v-else-if 即可
+  -->
+  <p v-if='vIf == 1'>Hello v-If</p>
+  <p v-else-if='vIf == 2'>Hello v-else-if</p>
+  <p v-else>Hello v-else</p>
+  
+  <!-- 
+    判断 isTrue 是真还是假，
+    它不同于 v-if 的是，
+    v-if 如果是假，则在 Element 中没有渲染
+    v-show 如果是假，则该标签为 display: none
+  -->
+  <p v-show='isTrue'></p>
+</div>
+```
+
+<br>
+
+
 
 <br>
 
