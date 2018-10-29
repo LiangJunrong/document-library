@@ -440,7 +440,10 @@ el: document.getElementById('app'),
 
 ```
 <div>
-  <!-- 这里渲染了 vTextOrHtml 中的文本 -->
+  <!-- 
+    这里直接将 vTextOrHtml 中的文本
+    当成 string 渲染到页面中去 
+  -->
   <p v-text='vTextOrHtml'></p>
   
   <!-- 
@@ -460,7 +463,7 @@ el: document.getElementById('app'),
   
   <!-- 
     判断 isTrue 是真还是假，
-    它不同于 v-if 的是，
+    它不同于 v-if 的方面是：
     v-if 如果是假，则在 Element 中没有渲染
     v-show 如果是假，则该标签为 display: none
   -->
@@ -470,7 +473,10 @@ el: document.getElementById('app'),
 
 <br>
 
+&emsp;v-bind 和 v-model 的区别：
 
+* v-bind：将 vue 中的数据同步到页面，即该值大部分用于前端向浏览器传固定数据。v-bind 可以给任何属性赋值，是从 Vue 到页面的单向数据流。
+* v-model：双向数据绑定，前端向浏览器传数据，用户操作浏览器的更改前端可以察觉到。v-model 只能给具有 value 属性的元素进行双向数据绑定（必须使用的是有 value 属性的元素）
 
 <br>
 
