@@ -6,8 +6,44 @@ Vue
 
 <br>
 
+&emsp;记录下 Vue 的系统学习
+
 &emsp;参考文档：[Vue.js 官方文档](https://cn.vuejs.org/v2/guide/)  
 &emsp;参考视频：[开课吧 6月 Vue 视频](https://www.kaikeba.com/)
+
+![图](../../public-repertory/img/js-vue-basic-learning-1.png)
+
+# <a name="chapter-one" id="chapter-one">一 目录</a>
+
+<br>
+
+| 目录 |
+| --- |
+| <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+
+<br>
+
+# <a name="chapter-two" id="chapter-two">二 前言</a>
+
+> [返回目录](#catalog-chapter-two)
+
+<br>
+
+&emsp;为何需要 Vue ？
+
+* 首先，jQuery 库，它的影响是执行 DOM 操作 + Ajax 请求
+* 然后，art-template 库，主要是作为模板引擎，对页面进行渲染。
+* 最后，在广大的需求之下，我们有了 Vue 这样，有简易的 DOM 体验，有模板引擎，有路由功能的框架的出现。
+
+<br>
+
+&emsp;Vue 和 jQuery 在代码上的区别是什么？
+
+* 在 jQuery 这种代码库上，它的使用时调用某个函数，我们只需要把控库的代码就可以了。
+* 在 Vue 这种框架上，它能帮助我们运行编写好的代码。
+
+<br>
 
 <br>
 
