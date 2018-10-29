@@ -6,12 +6,23 @@ Vue
 
 <br>
 
-&emsp;记录下 Vue 的系统学习
+&emsp;**记录下关于 Vue 框架的系统学习旅途：Vue 基础 -> 深入 Vue 套餐 -> Vue 源码剖析。**
 
-&emsp;参考文档：[Vue.js 官方文档](https://cn.vuejs.org/v2/guide/)  
-&emsp;参考视频：[开课吧 6月 Vue 视频](https://www.kaikeba.com/)
+&emsp;参考文档。关于学习 Vue 方面，最佳推荐还是官方文档，因为不管是其他文字还是视频教程，都是基于 Vue 的官方文档或者 GitHub 进行学习编写的：[Vue.js 官方文档](https://cn.vuejs.org/v2/guide/)    
+
+&emsp;参考视频。
+
+1. 开课吧 - [Vue.js 及项目实战(2018/06)](https://www.kaikeba.com/)  
+
+&emsp;在这里偶然发现一套来自 **开课吧** 的教学视频，然后发现它是今年 6 月份录制的，比较新，并且文件命名非常有意思，在这里先瞅瞅它的授课内容如何，如果很 nice 到时候再跟小伙伴们分享~
 
 ![图](../../public-repertory/img/js-vue-basic-learning-1.png)
+
+2. 慕课网 - [《Vue.js 源码全方位深入解析》](https://coding.imooc.com/class/228.html)
+
+&emsp;还未开封，但是研究源码可能参考该套视频。
+
+<br>
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
