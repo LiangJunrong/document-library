@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-10-29 15:02:04**
+> Recently revised in **2018-10-30 20:50:10**
 
 <br>
 
@@ -47,6 +47,7 @@ Vue
 | &emsp;[3.4 插值表达式 - {{ ? }}](#chapter-three-four) |
 | &emsp;[3.5 指令 - v-?](#chapter-three-five) |
 | &emsp;[3.6 事件 - methods](#chapter-three-six) |
+| &emsp;[3.7 模板 - template](#chapter-three-seven) |
 
 <br>
 
@@ -714,6 +715,16 @@ el: document.getElementById('app'),
 ```
 
 &emsp;所以，我们在用户点击按钮的时候，直接修改了它的背景。
+
+<br>
+
+## <a name="chapter-three-seven" id="chapter-three-seven">3.7 模板 - template</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;
 
 <br>
 
