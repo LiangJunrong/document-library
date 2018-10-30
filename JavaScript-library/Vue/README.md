@@ -41,10 +41,11 @@ Vue
 | <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Vue 基础](#chapter-three) |
-| &emsp;[3.1 Vue - 初识](#chapter-three-one) |
-| &emsp;[3.2 data - 挂载数据](#chapter-three-two) |
-| &emsp;[3.3 el - 进一步优化](#chapter-three-three) |
-| &emsp;[3.4 {{ ? }} - 插值表达式](#chapter-three-four) |
+| &emsp;[3.1 初识 Vue](#chapter-three-one) |
+| &emsp;[3.2 挂载数据 - data](#chapter-three-two) |
+| &emsp;[3.3 进一步优化 el](#chapter-three-three) |
+| &emsp;[3.4 插值表达式 - {{ ? }}](#chapter-three-four) |
+| &emsp;[3.5 指令 - v-?](#chapter-three-five) |
 
 <br>
 
@@ -79,7 +80,7 @@ Vue
 
 <br>
 
-## <a name="chapter-three-one" id="chapter-three-one">3.1 Vue - 初识</a>
+## <a name="chapter-three-one" id="chapter-three-one">3.1 初识 Vue</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -178,7 +179,7 @@ new Vue({
 
 <br>
 
-## <a name="chapter-three-two" id="chapter-three-two">3.2 data - 挂载数据</a>
+## <a name="chapter-three-two" id="chapter-three-two">3.2 挂载数据 - data</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -240,7 +241,7 @@ data: function() {
 
 <br>
 
-## <a name="chapter-three-three" id="chapter-three-three">3.3 el - 进一步优化</a>
+## <a name="chapter-three-three" id="chapter-three-three">3.3 进一步优化 el</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -271,7 +272,7 @@ el: document.getElementById('app'),
 
 <br>
 
-## <a name="chapter-three-four" id="chapter-three-four">3.4 {{ ? }} - 插值表达式</a>
+## <a name="chapter-three-four" id="chapter-three-four">3.4 插值表达式 - {{ ? }}</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -369,21 +370,28 @@ el: document.getElementById('app'),
 
 <br>
 
-## <a name="chapter-three-five" id="chapter-three-five">3.4 v-××× - 指令</a>
+## <a name="chapter-three-five" id="chapter-three-five">3.5 指令 - v-?</a>
 
 > [返回目录](#catalog-chapter-three)
 
 <br>
 
-&emsp;在 Vue 中，如果单单使用 `{{}}` 这种插值表达式方式，是满足不了我们的数据操作欲望的，所以，Vue 以 `v-if`、`v-bind` 等形式，提供了一些对于页面 + 数据的更为方便的操作：指令  
-&emsp;这里列举一些常用指令并且通过代码演示进行展示：
+&emsp;在 Vue 中，如果单单使用 `{{}}` 这种插值表达式，是满足不了我们对数据的操作欲望的。所以，Vue 以 `v-if`、`v-bind` 等形式，提供了一些对于页面 + 数据的更为方便的操作：指令  
 
-* v-text
-* v-html
-* v-if
-* v-else-if
-* v-else
-* v-show
+* `v-text`
+* `v-html`
+* `v-if`
+* `v-else-if`
+* `v-else`
+* `v-show`
+* `v-bind`
+* `v-click`
+* `v-model`
+* `v-for`
+
+<br>
+
+&emsp;这里通过一个 `index.html` 及一张图向大家演示其基本用法：
 
 > index.html
 
@@ -396,35 +404,143 @@ el: document.getElementById('app'),
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vue学习 - 2018-10-29 13:27:49</title>
+  <style>
+    /* 颜色样式：红、绿、蓝 */
+    .color-red {
+      color: red;
+    }
+
+    .color-blue {
+      color: blue;
+    }
+
+    .color-green {
+      color: green;
+    }
+  </style>
 </head>
 
 <body>
-
+  <!-- 挂载地点 -->
   <div id="app"></div>
 
-
+  <!-- cdn 引用 -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
     new Vue({
-
+      // 挂载到 id 为 app 的节点上
       el: document.getElementById('app'),
-
+      // 挂载的模板内容
       template: `
           <div>
+
+            <p>v-text 演示</p>
             <p v-text='vTextOrHtml'></p>
+
+            <br/>
+
+            <p>v-html 演示</p>
             <p v-html='vTextOrHtml'></p>
+
+            <br/>
+
+            <p>v-if -> v-else-if -> v-else 演示</p>
             <p v-if='vIf == 1'>Hello v-If</p>
             <p v-else-if='vIf == 2'>Hello v-else-if</p>
             <p v-else>Hello v-else</p>
+
+            <br/>
+
+            <p>v-show 演示</p>
             <p v-show='isTrue'></p>
+
+            <br/>
+
+            <p>v-bind:××× -> :××× 演示</p>
+            <input v-bind:value="vBind" v-bind:class="colorRed" type="text"/>
+            <input v-bind:other1="other1" :other2="other2" :other3=" 'other3' " value="Hello :属性值" type="text"/><br/>
+
+            <br/>
+
+            <p>v-click -> @click 演示</p>
+            <button v-on:click=" vBind= 'Hello v-on:click' ">v-on:click - 点击直接改变 vBind 的值</button><br>
+            <button @click="changevBindValue">v-on:click - 点击通过事件改变 vBind 的值</button><br>
+
+            <br/>
+
+            <p>v-model 演示</p>
+            <input v-model="vModel" type="text" />
+            <p>{{ vModel }}</p>
+
+            <br/>
+
+            <p>v-for 演示</p>
+            <ul v-for="(item, index) in vFor" :class="item.classStyle">
+              <li>{{index+1}}. {{item.name}} - {{item.age}}</li>
+            </ul>
           </div>
       `,
-
-      data: function() {
+      data: function () { // 数据挂载
         return {
+          
+          // v-text 及 v-html 使用数据
           vTextOrHtml: '<span style="color: red">我是红的</p>',
+          
+          // v-if 使用数据
           vIf: 2,
-          isTrue: false
+          
+          // v-show 使用数据
+          isTrue: false,
+          
+          // v-bind 使用数据
+          vBind: "Hello v-bind",
+          
+          // v-bind 通过动态绑定 class 修改样式
+          colorRed: 'color-red',
+          
+          // v-bind 的 :属性 的使用形式
+          other1: 'other1',
+          
+          // 同上
+          other2: 'other2',
+          
+          // v-model 使用数据
+          vModel: 'Hello v-model',
+          
+          // v-for 使用数据
+          vFor: [{
+              name: '张三', // 姓名
+              age: 22, // 年龄
+              classStyle: "color-red" // 样式
+            },
+            {
+              name: '李四',
+              age: 23,
+              classStyle: "color-blue"
+            },
+            {
+              name: '王五',
+              age: 24,
+              classStyle: "color-green"
+            }
+          ]
+        }
+      },
+      /* 
+       * 方法 - methods
+       * 如果你在页面中，想给 v-on:click(@click) 事件绑定方法
+       * 那么，该方法需要在 methods 中编写
+       */
+      methods: {
+        // 点击修改 v-bind 的值
+        changevBindValue: function (e) {
+          
+          console.log(e.target); // <button>v-on:click - 点击通过事件改变 vBind 的值</button>
+          
+          console.log(this.vBind); // Hello v-bind
+          // 将 `Hello v-bind` 换为 `Hello @click`
+          
+          this.vBind = "Hello @click!";
         }
       }
     })
@@ -436,22 +552,32 @@ el: document.getElementById('app'),
 
 <br>
 
+&emsp;页面为：
+
+![图](../../public-repertory/img/js-vue-basic-learning-5.png)
+
+<br>
+
 &emsp;在这里，我们对代码进行下讲解：
 
 ```
 <div>
   <!-- 
     这里直接将 vTextOrHtml 中的文本
-    当成 string 渲染到页面中去 
-  -->
+    当成 string 渲染到页面中去
+   -->
   <p v-text='vTextOrHtml'></p>
-  
+
+  <br/>
+
   <!-- 
     这里在渲染 vTextOrHtml 的过程中，
     如果遇到标签，则对标签页进行渲染 
-  -->
+   -->
   <p v-html='vTextOrHtml'></p>
-  
+
+  <br/>
+
   <!-- 
     判断 data 中 vIf 的值是多少，
     这里有三种情况：v-if、v-else-if、v-else。
@@ -460,7 +586,9 @@ el: document.getElementById('app'),
   <p v-if='vIf == 1'>Hello v-If</p>
   <p v-else-if='vIf == 2'>Hello v-else-if</p>
   <p v-else>Hello v-else</p>
-  
+
+  <br/>
+
   <!-- 
     判断 isTrue 是真还是假，
     它不同于 v-if 的方面是：
@@ -468,6 +596,49 @@ el: document.getElementById('app'),
     v-show 如果是假，则该标签为 display: none
   -->
   <p v-show='isTrue'></p>
+
+  <br/>
+
+  <!-- 
+    v-bind 有两种格式：
+    1. v-bind:value - 全写
+    2. :value - 简写
+    我们还可以通过 v-bind:class 来动态赋值
+    v-bind:other1="other1" 在页面中显示就是：
+    <input other1="other1" />>
+   -->
+  <input v-bind:value="vBind" v-bind:class="colorRed" type="text"/>
+  <input v-bind:other1="other1" :other2="other2" :other3=" 'other3' " value="Hello :属性值" type="text"/><br/>
+
+  <br/>
+
+  <!-- 
+    v-on:click 有两种格式：
+    1. v-on:click - 全写
+    2. @click - 简写
+    v-on:click 除了可以直接在里面写表达式，还可以填写方法
+   -->
+  <button v-on:click=" vBind= 'Hello v-on:click' ">v-on:click - 点击直接改变 vBind 的值</button><br>
+  <button @click="changevBindValue">v-on:click - 点击通过事件改变 vBind 的值</button><br>
+
+  <br/>
+
+  <!-- 
+    v-model 是双向数据绑定，
+    在这里，上面 input 的修改
+    会影响到下面 p 显示的内容
+   -->
+  <input v-model="vModel" type="text" />
+  <p>{{ vModel }}</p>
+
+  <br/>
+
+  <!-- 
+    v-for 循环体遍历输出
+   -->
+  <ul v-for="(item, index) in vFor" :class="item.classStyle">
+    <li>{{index+1}}. {{item.name}} - {{item.age}}</li>
+  </ul>
 </div>
 ```
 
@@ -475,8 +646,10 @@ el: document.getElementById('app'),
 
 &emsp;v-bind 和 v-model 的区别：
 
-* v-bind：将 vue 中的数据同步到页面，即该值大部分用于前端向浏览器传固定数据。v-bind 可以给任何属性赋值，是从 Vue 到页面的单向数据流。
+* v-bind：将 Vue 中的数据同步到页面，即该值大部分用于前端向浏览器传固定数据。v-bind 可以给任何属性赋值，是从 Vue 到页面的单向数据流。
 * v-model：双向数据绑定，前端向浏览器传数据，用户操作浏览器的更改前端可以察觉到。v-model 只能给具有 value 属性的元素进行双向数据绑定（必须使用的是有 value 属性的元素）
+
+&emsp;**关于 Vue 的指令，这里仅做简单讲解，想详细学习的小伙伴，记得前往官方文档：[Vue 文档](https://cn.vuejs.org/v2/guide/)**
 
 <br>
 
