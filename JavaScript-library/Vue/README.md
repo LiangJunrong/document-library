@@ -49,6 +49,8 @@ Vue
 | &emsp;[3.6 事件 - methods](#chapter-three-six) |
 | &emsp;[3.7 模板 - template](#chapter-three-seven) |
 | &emsp;&emsp;[3.7.1 初识组件](#chapter-three-seven-one) |
+| &emsp;&emsp;[3.7.2 父子组件通讯](#chapter-three-seven-two) |
+| &emsp;&emsp;[3.7.3 共用组件](#chapter-three-seven-three) |
 
 <br>
 
@@ -931,6 +933,34 @@ el: document.getElementById('app'),
 
 &emsp;编写完代码后，我们可以在浏览器看到，浏览器显示出了：`我的名字：皮皮虾`，这几个大字，哦了，原来父亲的儿子姓 `皮`。同时，我们也就知道了，在父组件中的数据，通过 `v-bind:***` 的形式，将父组件中的 `data`，发送给子组件。而子组件呢，通过 `props` 的定义，获取到了父亲的数据。  
 &emsp;这样我们就做到了父组件传递数据给子组件。
+
+<br>
+
+## <a name="chapter-three-seven-three" id="chapter-three-seven-three">3.7.3 共用组件</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;在上面中，我们提到：
+
+```
+- App
+ - my-header
+ - my-content
+ - my-footer
+```
+
+<br>
+
+&emsp;在 `App` 这个组件上，我们挂载了三个子组件：`myHeader`、`myContent`、`myFooter`。  
+&emsp;但是，如果某天，出现了一个女孩（共有组件），这个女孩的名字叫：`myGirl`。然后不仅三个儿子（子组件）想追求她，就连父亲（父组件）也想追求她（够疯狂）。那么，在 `Vue` 中，是通过什么方式，使父亲和儿子都有机会接触到这个女孩呢？（父子组件都可以使用共用组件）
+
+> index.html
+
+```
+预知后事如何，请看 2018/11/31 分解
+```
 
 <br>
 
