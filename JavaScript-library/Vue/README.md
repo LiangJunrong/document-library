@@ -48,6 +48,7 @@ Vue
 | &emsp;[3.5 指令 - v-?](#chapter-three-five) |
 | &emsp;[3.6 事件 - methods](#chapter-three-six) |
 | &emsp;[3.7 模板 - template](#chapter-three-seven) |
+| &emsp;&emsp;[3.7.1 初识组件](#chapter-three-seven-one) |
 
 <br>
 
@@ -718,17 +719,23 @@ el: document.getElementById('app'),
 
 <br>
 
-## <a name="chapter-three-seven" id="chapter-three-seven">3.7 模板 - template</a>
+## <a name="chapter-three-seven" id="chapter-three-seven">3.7 组件 - components</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+## <a name="chapter-three-seven-one" id="chapter-three-seven-one">3.7.1 初始组件</a>
 
 > [返回目录](#catalog-chapter-three)
 
 <br>
 
 &emsp;在上面的章节中，我们一直使用 `template: `` ` 的形式，编写 `html` 标签。但是，随着项目的不断扩大，如果全部代码都写在一个 `template` 中，那么我们修改起来就复杂了。所以，我们应该进行划分，例如将一个页面划分为 `header`、`content`、`footer` 三部分。这样，我们需要修改 `nav` 的时候，只需要在 `header` 中修改就可以了。  
-&emsp;那么，在 `Vue` 中，需要如何做，才能比较好的做到组件（组合起来的部件）的划分呢？  
+&emsp;这样的思想，在 `Vue` 中体现为组件（组合起来的部件）。那么，在 `Vue` 中，需要如何做，才能比较好的做到组件的划分呢？  
 
 ```
-- #app
+- app
  - header
  - content
  - footer
@@ -737,6 +744,139 @@ el: document.getElementById('app'),
 <br>
 
 &emsp;如上面代码所示，在 Vue 的定义上，我们将首个 `template` 挂载到了 id 为 app 的节点上。然后，我们将 `template` 划分为三个块：`header`、`content`、`footer`。在这里，我们将 #app 的 `template` 叫做父组件，`header` 等叫子组件，就好比父亲下面有三个儿子一样。
+
+&emsp;首先，我们尝试从 `new Vue` 中抽离单个组件出来：
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // 声明入口组件
+    var App = {
+      template: `<h1>我是入口组件</h1>`
+    }
+
+    new Vue({
+      el: document.getElementById('app'),
+      components: { // 抽离要用的组件们
+        // key 是组件名，value 是组件对象
+        app: App
+      },
+      template: '<app/>', // 使用入口文件
+    })
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;运行后，我们可以在浏览器中看到 `index.html` 显示为 `h1` 的 `我是入口组件` 字样。  
+&emsp;在这里，我们进行了三部曲：
+
+1. 在 `component` 中定义并抽离 `App`
+2. 在 `new Vue` 外定义 `App`
+3. 在 `template` 中使用 `App`
+
+&emsp;这样，我们就做到了单个组件的抽离，及 `new Vue` 是 `App` 的父组件，`App` 是 `new Vue` 的子组件。
+
+&emsp;做到了单个组件的抽离，现在我们实现多个组件的抽离：
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // 声明头部组件
+    var MyHeader = {
+      template: `<div>我是头部</div>`
+    };
+    
+    // 声明内容组件
+    var MyContent = {
+      template: `<div>我是躯体</div>`
+    };
+
+    // 声明底部组件
+    var myFooter = {
+      template: `<div>我是底部</div>`
+    }
+
+    new Vue({
+      el: document.getElementById('app'),
+      components: { // 声明要用的组件们
+        // key 是组件名，value 是组件对象
+        'my-header': MyHeader,
+        'my-content': MyContent,
+        'my-footer': myFooter
+      },
+      template: `
+        <div>
+          <my-header/>
+          <my-content/>
+          <my-footer/>
+        </div>
+      `
+    })
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;这样，我们就做到了组件的抽离。注意：`template` 有且只有一个根节点，如果没有根节点，Vue 会给你报错。
+
+```
+  template: `
+    <my-header/>
+    <my-content/>
+    <my-footer/>
+  `
+```
+
+&emsp;上面那种写法是错误的，谨记。
+
+&emsp;做到这里，我们又可以愉快玩耍了，而且 `myHeader`、`myContent`、`myFooter` 中是可以跟 `new Vue` 一样写 `data`、`methods` 的哦~
+
+<br>
+
+## <a name="chapter-three-seven-two" id="chapter-three-seven-two">3.7.2 初始组件</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;
 
 <br>
 
