@@ -724,7 +724,19 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;
+&emsp;在上面的章节中，我们一直使用 `template: `` ` 的形式，编写 `html` 标签。但是，随着项目的不断扩大，如果全部代码都写在一个 `template` 中，那么我们修改起来就复杂了。所以，我们应该进行划分，例如将一个页面划分为 `header`、`content`、`footer` 三部分。这样，我们需要修改 `nav` 的时候，只需要在 `header` 中修改就可以了。  
+&emsp;那么，在 `Vue` 中，需要如何做，才能比较好的做到组件（组合起来的部件）的划分呢？  
+
+```
+- #app
+ - header
+ - content
+ - footer
+```
+
+<br>
+
+&emsp;如上面代码所示，在 Vue 的定义上，我们将首个 `template` 挂载到了 id 为 app 的节点上。然后，我们将 `template` 划分为三个块：`header`、`content`、`footer`。在这里，我们将 #app 的 `template` 叫做父组件，`header` 等叫子组件，就好比父亲下面有三个儿子一样。
 
 <br>
 
