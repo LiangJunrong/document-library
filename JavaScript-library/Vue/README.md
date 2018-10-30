@@ -46,6 +46,7 @@ Vue
 | &emsp;[3.3 进一步优化 el](#chapter-three-three) |
 | &emsp;[3.4 插值表达式 - {{ ? }}](#chapter-three-four) |
 | &emsp;[3.5 指令 - v-?](#chapter-three-five) |
+| &emsp;[3.6 事件 - methods](#chapter-three-six) |
 
 <br>
 
@@ -432,53 +433,54 @@ el: document.getElementById('app'),
       el: document.getElementById('app'),
       // 挂载的模板内容
       template: `
-          <div>
+        <div>
 
-            <p>v-text 演示</p>
-            <p v-text='vTextOrHtml'></p>
+          <p>v-text 演示</p>
+          <p v-text='vTextOrHtml'></p>
 
-            <br/>
+          <br/>
 
-            <p>v-html 演示</p>
-            <p v-html='vTextOrHtml'></p>
+          <p>v-html 演示</p>
+          <p v-html='vTextOrHtml'></p>
 
-            <br/>
+          <br/>
 
-            <p>v-if -> v-else-if -> v-else 演示</p>
-            <p v-if='vIf == 1'>Hello v-If</p>
-            <p v-else-if='vIf == 2'>Hello v-else-if</p>
-            <p v-else>Hello v-else</p>
+          <p>v-if -> v-else-if -> v-else 演示</p>
+          <p v-if='vIf == 1'>Hello v-If</p>
+          <p v-else-if='vIf == 2'>Hello v-else-if</p>
+          <p v-else>Hello v-else</p>
 
-            <br/>
+          <br/>
 
-            <p>v-show 演示</p>
-            <p v-show='isTrue'></p>
+          <p>v-show 演示</p>
+          <p v-show='isTrue'></p>
 
-            <br/>
+          <br/>
 
-            <p>v-bind:××× -> :××× 演示</p>
-            <input v-bind:value="vBind" v-bind:class="colorRed" type="text"/>
-            <input v-bind:other1="other1" :other2="other2" :other3=" 'other3' " value="Hello :属性值" type="text"/><br/>
+          <p>v-bind:××× -> :××× 演示</p>
+          <input v-bind:value="vBind" v-bind:class="colorRed" type="text"/>
+          <input v-bind:other1="other1" :other2="other2" :other3=" 'other3' " value="Hello :属性值" type="text"/><br/>
 
-            <br/>
+          <br/>
 
-            <p>v-click -> @click 演示</p>
-            <button v-on:click=" vBind= 'Hello v-on:click' ">v-on:click - 点击直接改变 vBind 的值</button><br>
-            <button @click="changevBindValue">v-on:click - 点击通过事件改变 vBind 的值</button><br>
+          <p>v-click -> @click 演示</p>
+          <button v-on:click=" vBind= 'Hello v-on:click' ">v-on:click - 点击直接改变 vBind 的值</button><br>
+          <button @click="changevBindValue">v-on:click - 点击通过事件改变 vBind 的值</button><br>
 
-            <br/>
+          <br/>
 
-            <p>v-model 演示</p>
-            <input v-model="vModel" type="text" />
-            <p>{{ vModel }}</p>
+          <p>v-model 演示</p>
+          <input v-model="vModel" type="text" />
+          <p>{{ vModel }}</p>
 
-            <br/>
+          <br/>
 
-            <p>v-for 演示</p>
-            <ul v-for="(item, index) in vFor" :class="item.classStyle">
-              <li>{{index+1}}. {{item.name}} - {{item.age}}</li>
-            </ul>
-          </div>
+          <p>v-for 演示</p>
+          <ul v-for="(item, index) in vFor" :class="item.classStyle">
+            <li>{{index+1}}. {{item.name}} - {{item.age}}</li>
+          </ul>
+
+        </div>
       `,
       data: function () { // 数据挂载
         return {
@@ -650,6 +652,68 @@ el: document.getElementById('app'),
 * v-model：双向数据绑定，前端向浏览器传数据，用户操作浏览器的更改前端可以察觉到。v-model 只能给具有 value 属性的元素进行双向数据绑定（必须使用的是有 value 属性的元素）
 
 &emsp;**关于 Vue 的指令，这里仅做简单讲解，想详细学习的小伙伴，记得前往官方文档：[Vue 文档](https://cn.vuejs.org/v2/guide/)**
+
+<br>
+
+## <a name="chapter-three-six" id="chapter-three-six">3.6 事件 - methods</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;在上一章 `3.5` 中，我们通过在 `button` 中使用 `v-on:click` 时，给它绑定了方法。  
+&emsp;在 `3.5` 中，我们大体讲述了方法的时候。在这里，我们抽取出来做下讲解：
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: document.getElementById('app'),
+      template: `
+        <button @click="addStyle">添加行内样式</button>
+      `,
+      data: function () { // 数据挂载
+        return {
+
+        }
+      },
+      methods: { // 方法
+        addStyle: function(e) {
+          e.toElement.style.background = "red"
+        }
+      }
+    })
+  </script>
+</body>
+```
+
+<br>
+
+&emsp;在上面的 `<button>` 中，我们通过 `@click` 绑定了事件 `addStyle`，而方法的编写，需要写到与 `data` 同级的 `methods` 中，然后，我们通过传递参数 `e`，可以获取到点击的时候的元素，通过查找，我们发现它的样式所在的目录结构如下：
+
+```
+- button
+  - toElement
+    - style
+      - background
+```
+
+&emsp;所以，我们在用户点击按钮的时候，直接修改了它的背景。
 
 <br>
 
