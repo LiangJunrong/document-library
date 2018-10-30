@@ -870,13 +870,62 @@ el: document.getElementById('app'),
 
 <br>
 
-## <a name="chapter-three-seven-two" id="chapter-three-seven-two">3.7.2 初始组件</a>
+## <a name="chapter-three-seven-two" id="chapter-three-seven-two">3.7.2 父子组件通讯</a>
 
 > [返回目录](#catalog-chapter-three)
 
 <br>
 
-&emsp;
+&emsp;既然前面章节已经划分了父子组件，那么在这里，我们讲下更有趣的事：父子组件通讯。  
+&emsp;在组件间，我们 `new Vue` 相当父亲，他有自己的 `data`。然后，子组件也会有自己的 `data`。假如某天，父亲找到自己的儿子，说：“其实你不是我亲生的，你的姓是***”。那么，在 `Vue` 中，我们要怎么做，才能让它的儿子（子组件），知道它的姓究竟是什么呢？我们来看代码：
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var Son = {
+      template: `
+        <div>我的名字：{{name}}</div>
+      `,
+      props: ['name']
+    }
+
+    new Vue({
+      el: document.getElementById('app'),
+      components: {
+        son: Son
+      },
+      template: `
+        <son :name="name"></son>
+      `,
+      data: {
+        name: '皮皮虾'
+      }
+    })
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;编写完代码后，我们可以在浏览器看到，浏览器显示出了：`我的名字：皮皮虾`，这几个大字，哦了，原来父亲的儿子姓 `皮`。同时，我们也就知道了，在父组件中的数据，通过 `v-bind:***` 的形式，将父组件中的 `data`，发送给子组件。而子组件呢，通过 `props` 的定义，获取到了父亲的数据。  
+&emsp;这样我们就做到了父组件传递数据给子组件。
 
 <br>
 
