@@ -1047,7 +1047,51 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;
+&emsp;今天咱要做的，是戏弄一个叫钱多多的商人，因为它有事没事就炫耀它有很多钱。  
+&emsp;首先，已查证钱多多有百万存款，咱要想个办法，将它的钱变得非常非常少：
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    new Vue({
+      el: document.getElementById('app'),
+      template: `
+        <p>我是钱多多，我有 {{money}} 多一点： ￥{{money | addDot}}，跟我混有出息~</p>
+      `,
+      data: {
+        money: 1000000
+      },
+      // 组件内的过滤器
+      filters: {
+        addDot(money) {
+          return (money / 1000000 + ".000000");
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+&emsp;在上面，咱调用了 `filters` 这员大将，它有个小弟叫 `addDot`，可以根据需要对接受的数据进行过滤，于是咱在它炫耀的那一刻，通过 `{{prop, function}}` 的形式，将 `addDot` 这员大将放了进去，于是它的钱变成了 `1.000000` 元了，nice~
 
 <br>
 
