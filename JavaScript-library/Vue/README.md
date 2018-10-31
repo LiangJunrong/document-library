@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-10-30 20:50:10**
+> Recently revised in **2018-10-31 08:46:05**
 
 <br>
 
@@ -954,13 +954,76 @@ el: document.getElementById('app'),
 <br>
 
 &emsp;在 `App` 这个组件上，我们挂载了三个子组件：`myHeader`、`myContent`、`myFooter`。  
-&emsp;但是，如果某天，出现了一个女孩（共有组件），这个女孩的名字叫：`myGirl`。然后不仅三个儿子（子组件）想追求她，就连父亲（父组件）也想追求她（够疯狂）。那么，在 `Vue` 中，是通过什么方式，使父亲和儿子都有机会接触到这个女孩呢？（父子组件都可以使用共用组件）
+&emsp;但是，如果某天，出现了一个女孩（共有组件），这个女孩的名字叫：`beautifulGirl`。然后不仅三个儿子（子组件）想追求她，就连父亲（父组件）也想追求她（够疯狂）。那么，在 `Vue` 中，是通过什么方式，使父亲和儿子都有机会接触到这个女孩呢？（父子组件都可以使用共用组件）
 
 > index.html
 
 ```
-预知后事如何，请看 2018/11/31 分解
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // 声明头部组件
+    var MyHeader = {
+      template: `
+        <div>我是头部，我想了解<beautiful-girl></beautiful-girl></div>
+      `
+    };
+    
+    // 声明内容组件
+    var MyContent = {
+      template: `
+        <div>我是内容区，我想了解<beautiful-girl></beautiful-girl></div>
+      `
+    };
+
+    // 声明底部组件
+    var myFooter = {
+      template: `
+        <div>我是底部，我想了解<beautiful-girl></beautiful-girl></div>
+      `
+    }
+
+    // 声明共用组件
+    Vue.component('beautiful-girl', {
+      template: `<span>—— 美丽女孩 ——</span>`
+    })
+
+    new Vue({
+      el: document.getElementById('app'),
+      components: { // 声明要用的组件们
+        // key 是组件名，value 是组件对象
+        'my-header': MyHeader,
+        'my-content': MyContent,
+        'my-footer': myFooter,
+
+      },
+      template: `
+        <div>
+          <my-header/>
+          <my-content/>
+          <my-footer/>
+        </div>
+      `
+    })
+  </script>
+</body>
+
+</html>
 ```
+
+<br>
 
 <br>
 
