@@ -52,6 +52,7 @@ Vue
 | &emsp;&emsp;[3.7.2 父子组件通讯](#chapter-three-seven-two) |
 | &emsp;&emsp;[3.7.3 共用组件](#chapter-three-seven-three) |
 | &emsp;[3.8 过滤器 - filter](#chapter-three-eight) |
+| &emsp;[3.9 监听数据 - watch](#chapter-three-night) |
 
 <br>
 
@@ -1126,6 +1127,180 @@ el: document.getElementById('app'),
       `,
       data: {
         money: 1000000
+      }
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+## <a name="chapter-three-night" id="chapter-three-night">3.9 监听数据 - watch</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+## <a name="chapter-three-night-one" id="chapter-three-night-one">3.9.1 监视单个</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;在 `Vue` 中，我们通过 `v-model` 做了双向数据绑定，即在页面的 `<input>` 中输入的值，在我们的 `Vue` 中可以获得数据；在 `Vue` 中定义的数据，也会即时渲染到页面中。  
+&emsp;但是，在代码中，我们怎样才能获取到它即时输入的数据呢？
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    new Vue({
+      el: document.getElementById('app'),
+      template: `
+        <div>
+          <input type="text" v-model="money" />
+          <span>{{money}}</span>
+        </div>
+      `,
+      data: {
+        money: ''
+      },
+      watch: {
+        // key: data 属性的属性名
+        money(newVal, oldVal) {
+          console.log(newVal, oldVal);
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;这样，当我们输入 11 个 1 的时候，浏览器的 `Console` 对应输出为：
+
+> Console
+
+```
+1 
+11 1
+111 11
+1111 111
+11111 1111
+111111 11111
+1111111 111111
+11111111 1111111
+111111111 11111111
+1111111111 111111111
+11111111111 1111111111
+```
+
+<br>
+
+## <a name="chapter-three-night-one" id="chapter-three-night-one">3.9.1 监视多个</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    new Vue({
+      el: document.getElementById('app'),
+      template: `
+        <div>
+          <div>
+            <span>监听简单数据 - </span>
+            <input type="text" v-model="number" />
+            <span>{{number}}</span>
+          </div>
+
+          <br>
+
+          <p>监听数组数据 - </p>
+          <div  v-for="student in students">
+            {{student.name}} - {{student.age}}
+            <button @click="deleteRealName(student.name)">删除</button>
+          </div>
+          
+        </div>
+      `,
+      data: {
+        number: '',
+        students: [
+          {
+            name: "jsliang",
+            age: 23
+          }, {
+            name: "梁峻荣",
+            age: 23
+          }
+        ]
+      },
+      watch: {
+        // key: data 属性的属性名
+        number(newVal, oldVal) {
+          console.log(newVal, oldVal);
+        },
+        // 深度监视：object || array
+        students: {
+          deep: true,
+          handler(newVal, oldVal) {
+            console.log("深度监视：");
+            console.log(newVal);
+          }
+        }
+      },
+      methods: {
+        deleteRealName(studentName) {
+
+          let students = this.students;
+
+          students.forEach( (item, index) => {
+            if(item.name == studentName) {
+              students.splice(index, 1);
+            }
+          })
+        }
       }
     })
 
