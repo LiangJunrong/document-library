@@ -51,6 +51,7 @@ Vue
 | &emsp;&emsp;[3.7.1 初识组件](#chapter-three-seven-one) |
 | &emsp;&emsp;[3.7.2 父子组件通讯](#chapter-three-seven-two) |
 | &emsp;&emsp;[3.7.3 共用组件](#chapter-three-seven-three) |
+| &emsp;[3.8 过滤器 - filter](#chapter-three-eight) |
 
 <br>
 
@@ -1037,6 +1038,16 @@ el: document.getElementById('app'),
 <br>
 
 &emsp;现在，父亲和儿子都可以和漂亮女孩沟通了。究竟是父亲给他们的儿子找了个后妈，还是他们儿子找到自己所爱呢？敬请期待……
+
+<br>
+
+## <a name="chapter-three-eight" id="chapter-three-eight">3.8 过滤器 - filter</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;
 
 <br>
 
