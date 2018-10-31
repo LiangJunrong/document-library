@@ -1091,7 +1091,49 @@ el: document.getElementById('app'),
 </html>
 ```
 
+<br>
+
 &emsp;在上面，咱调用了 `filters` 这员大将，它有个小弟叫 `addDot`，可以根据需要对接受的数据进行过滤，于是咱在它炫耀的那一刻，通过 `{{prop, function}}` 的形式，将 `addDot` 这员大将放了进去，于是它的钱变成了 `1.000000` 元了，nice~
+
+&emsp;然后，在尝试了局部 `filters` 的好处之后，我们还可以试试它的全局过滤器写法：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    // 组件内的过滤器
+    Vue.filter('addDot', function(money) {
+      return (money / 1000000 + ".000000");
+    })
+
+    new Vue({
+      el: document.getElementById('app'),
+      template: `
+        <p>我是钱多多，我有 {{money}} 多一点： ￥{{money | addDot}}，跟我混有出息~</p>
+      `,
+      data: {
+        money: 1000000
+      }
+    })
+
+  </script>
+</body>
+
+</html>
+```
 
 <br>
 
