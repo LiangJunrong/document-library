@@ -53,6 +53,9 @@ Vue
 | &emsp;&emsp;[3.7.3 共用组件](#chapter-three-seven-three) |
 | &emsp;[3.8 过滤器 - filter](#chapter-three-eight) |
 | &emsp;[3.9 监听数据 - watch](#chapter-three-night) |
+| &emsp;&emsp;[3.9.1 浅度监听](#chapter-three-night-one) |
+| &emsp;&emsp;[3.9.2 深度监听](#chapter-three-night-two) |
+| &emsp;&emsp;[3.9.3 同时监听多个属性 - computed](#chapter-three-night-three) |
 
 <br>
 
@@ -1144,7 +1147,7 @@ el: document.getElementById('app'),
 
 <br>
 
-## <a name="chapter-three-night-one" id="chapter-three-night-one">3.9.1 监视单个</a>
+## <a name="chapter-three-night-one" id="chapter-three-night-one">3.9.1 浅度监听</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -1219,7 +1222,7 @@ el: document.getElementById('app'),
 
 <br>
 
-## <a name="chapter-three-night-one" id="chapter-three-night-one">3.9.1 监视多个</a>
+## <a name="chapter-three-night-two" id="chapter-three-night-two">3.9.2 深度监听</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -1300,6 +1303,60 @@ el: document.getElementById('app'),
               students.splice(index, 1);
             }
           })
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+## <a name="chapter-three-night-three" id="chapter-three-night-three">3.9.3 同时监听多个属性 - computed</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    new Vue({
+      el: document.getElementById('app'),
+      template: `
+        <div>
+          
+        </div>
+      `,
+      data: {
+        
+      },
+      computed: {
+        result: function() {
+          // 监视对象，写在了函数内部，
+          // 凡是函数内部有 this. 相关属性，改变都会触发当前函数
+           
         }
       }
     })
