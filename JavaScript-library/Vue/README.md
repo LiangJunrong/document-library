@@ -1346,17 +1346,27 @@ el: document.getElementById('app'),
       el: document.getElementById('app'),
       template: `
         <div>
-          
+          <input type="text" v-model="number1" />
+          +
+          <input type="text" v-model="number2" />
+          *
+          <input type="text" v-model="number3" />
+          =
+          {{result}}
         </div>
       `,
       data: {
-        
+        number1: 0,
+        number2: 0,
+        number3: 0
       },
       computed: {
         result: function() {
           // 监视对象，写在了函数内部，
           // 凡是函数内部有 this. 相关属性，改变都会触发当前函数
-           
+          let addSum = parseInt(this.number1) + parseInt(this.number2);
+          let allSum = addSum * this.number3;
+          return allSum;
         }
       }
     })
