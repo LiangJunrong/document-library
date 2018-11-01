@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-11-1 08:06:52**
+> Recently revised in **2018-11-1 13:18:29**
 
 <br>
 
@@ -113,7 +113,7 @@ Vue
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习 - 2018-10-29 13:27:49</title>
+  <title>Vue学习</title>
 </head>
 
 <body>
@@ -294,7 +294,7 @@ el: document.getElementById('app'),
 <br>
 
 &emsp;如果小伙伴有点印象，应该还记得，我们在章节 `3.2` 中通过 `{{}}` 这个插值表达式的使用，在 `data` 中对其里面的数据进行操作。  
-&emsp;下面，我们进一步讲解这个 `{{}}` 还可以进行哪种骚操作：
+&emsp;下面，我们进一步讲解这个插值表达式 `{{}}` 还可以进行哪种骚操作：
 
 * 对象：{{ {name: 'jack'} }}
 * 字符串 {{ 'Hello World!' }}
@@ -665,7 +665,7 @@ el: document.getElementById('app'),
 * v-bind：将 Vue 中的数据同步到页面，即该值大部分用于前端向浏览器传固定数据。v-bind 可以给任何属性赋值，是从 Vue 到页面的单向数据流，即 Vue -> html。
 * v-model：双向数据绑定，前端向浏览器传数据，用户操作浏览器的更改前端可以察觉到。v-model 只能给具有 value 属性的元素进行双向数据绑定（必须使用的是有 value 属性的元素），即 Vue -> html -> Vue
 
-&emsp;**关于 Vue 的指令，这里仅做简单讲解，想详细学习的小伙伴，记得前往官方文档：[Vue 文档](https://cn.vuejs.org/v2/guide/)**
+&emsp;**关于 Vue 的指令，这里咱先对它进行了个全面的简单了解，知道它是如何使用的。想详细学习的小伙伴，记得前往官方文档：[Vue 文档](https://cn.vuejs.org/v2/guide/)**
 
 <br>
 
@@ -718,7 +718,27 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;在上面的 `<button>` 中，我们通过 `@click` 绑定了事件 `addStyle`，而方法的编写，需要写到与 `data` 同级的 `methods` 中，然后，我们通过传递参数 `e`，可以获取到点击的时候的元素，通过查找，我们发现它的样式所在的目录结构如下：
+&emsp;在上面的 `<button>` 中，我们通过 `@click` 绑定了事件 `addStyle`：
+
+```
+<button @click="addStyle">添加行内样式</button>
+```
+
+<br>
+
+&emsp;而方法的编写，需要写到与 `data` 同级的 `methods` 中：
+
+```
+ methods: { // 方法
+  addStyle: function(e) {
+    e.toElement.style.background = "red"
+  }
+}
+```
+
+<br>
+
+&emsp;然后，我们通过传递参数 `e`，可以获取到点击的时候的元素，通过查找，我们发现它的样式所在的目录结构如下：
 
 ```
 - button
@@ -727,7 +747,7 @@ el: document.getElementById('app'),
       - background
 ```
 
-&emsp;所以，我们在用户点击按钮的时候，直接修改了它的背景。
+&emsp;最后，我们在用户点击按钮的时候，直接修改了它的背景。
 
 <br>
 
@@ -1361,6 +1381,7 @@ el: document.getElementById('app'),
         number3: 0
       },
       computed: {
+        // 如果原值不变，缓存不调函数的优化机制
         result: function() {
           // 监视对象，写在了函数内部，
           // 凡是函数内部有 this. 相关属性，改变都会触发当前函数
