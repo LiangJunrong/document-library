@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-10-31 08:46:05**
+> Recently revised in **2018-11-1 08:06:52**
 
 <br>
 
@@ -1225,7 +1225,7 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;
+&emsp;`watch` 之所以没法监视复杂类型，是因为它监听的是对象的地址，而我们的地址没改，改的是同地址属性的值。所以，对于数组等复杂类型，我们需要开启深度监视。
 
 ```
 <!DOCTYPE html>
