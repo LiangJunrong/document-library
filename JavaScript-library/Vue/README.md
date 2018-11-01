@@ -763,7 +763,7 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;在上面的章节中，我们一直使用 `template: `` ` 的形式，编写 `html` 标签。但是，随着项目的不断扩大，如果全部代码都写在一个 `template` 中，那么我们修改起来就复杂了。所以，我们应该进行划分，例如将一个页面划分为 `header`、`content`、`footer` 三部分。这样，我们需要修改 `nav` 的时候，只需要在 `header` 中修改就可以了。  
+&emsp;在上面的章节中，我们一直使用 `template: `` ` 的形式，编写 `html` 标签。但是，随着项目的不断扩大，如果全部代码都写在一个 `template` 中，那么我们修改起来就复杂了。所以，我们应该想办法对它进行划分，例如将一个页面划分为 `header`、`content`、`footer` 三部分。这样，我们需要修改 `nav` 的时候，只需要在 `header` 中修改就可以了。  
 &emsp;这样的思想，在 `Vue` 中体现为组件（组合起来的部件）。那么，在 `Vue` 中，需要如何做，才能比较好的做到组件的划分呢？  
 
 ```
@@ -1341,7 +1341,7 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;
+&emsp;为了方便我们的监听操作，Vue 定义了个方法：`computed`，我们可以通过 `computed`，监控我们在 `data` 中定义的全部数据。
 
 > index.html
 
@@ -1397,6 +1397,16 @@ el: document.getElementById('app'),
 
 </html>
 ```
+
+<br>
+
+## <a name="chapter-three-ten" id="chapter-three-ten">3.10 传递 DOM - slot</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;
 
 <br>
 
