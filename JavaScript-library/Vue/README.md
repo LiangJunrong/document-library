@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-11-2 07:57:28**
+> Recently revised in **2018-11-2 09:22:53**
 
 <br>
 
@@ -10,27 +10,9 @@ Vue
 
 <br>
 
-&emsp;**记录下关于 Vue 框架的系统学习旅途：Vue 基础 -> Vue 实战 -> Vue 源码剖析。**
+&emsp;**记录下关于 Vue 框架的系统学习旅途：Vue 基础 -> Vue 实战 -> Vue 源码剖析。**  
 
-&emsp;**参考文档：**
-
-1. [Vue.js 官方文档](https://cn.vuejs.org/v2/guide/) 
-  
-&emsp;关于学习 Vue 方面，最佳推荐还是官方文档，因为不管是其他文字还是视频教程，都是基于 Vue 的官方文档或者 GitHub 进行学习编写的。   
-
-<br>
-
-&emsp;**参考视频：**
-
-1. **开课吧** - [Vue.js 及项目实战(2018/06)](https://www.kaikeba.com/)  
-
-&emsp;在这里偶然发现一套来自 **开课吧** 的教学视频，然后发现它是今年 6 月份录制的，内容上还算是比较新，并且文件命名非常有意思，在这里咱的 Vue 基础知识先跟着它走一遍看看~
-
-![图](../../public-repertory/img/js-vue-basic-learning-1.png)
-
-2. **慕课网** - [《Vue.js 源码全方位深入解析》](https://coding.imooc.com/class/228.html)
-
-&emsp;还未开封，但是研究源码可能参考该套视频。
+&emsp;**如果小伙伴也在学习 Vue，或者想复习下 Vue。那么，跟我一起走，发车啦~**
 
 <br>
 
@@ -44,7 +26,7 @@ Vue
 | --- |
 | <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Vue 基础](#chapter-three) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 夯实基础](#chapter-three) |
 | &emsp;[3.1 初识 Vue](#chapter-three-one) |
 | &emsp;[3.2 挂载数据 - data](#chapter-three-two) |
 | &emsp;[3.3 进一步优化 el](#chapter-three-three) |
@@ -63,6 +45,8 @@ Vue
 | &emsp;[3.10 传递 DOM - slot](#chapter-three-ten) |
 | &emsp;&emsp;[3.10.1 slot 单个传递](#chapter-three-ten-one) |
 | &emsp;&emsp;[3.10.2 具名 slot](#chapter-three-ten-two) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 
 <br>
 
@@ -79,6 +63,25 @@ Vue
 
 * 问：学 Vue 有啥用？
 * 答：小伙伴们应该不会跟钱过不去吧？现在企业的前端招聘要求中大都有 Vue 技能需求，所以学了拿更高工资啊。[【 Go! 】](https://www.zhipin.com/geek/new/index/recommend)
+
+<br>
+
+* 问：有没有参考文档？
+* 答：有的，关于学习 Vue 方面，最佳推荐还是官方文档，因为不管是其他文字还是视频教程，都是基于 Vue 的官方文档或者 GitHub 进行学习编写的。  [Vue.js 官方文档](https://cn.vuejs.org/v2/guide/) 
+
+<br>
+
+* 问：有没有参考视频？
+* 答：有的。
+1. **开课吧** - [Vue.js 及项目实战(2018/06)](https://www.kaikeba.com/)  
+
+&emsp;在这里偶然发现一套来自 **开课吧** 的教学视频，然后发现它是今年 6 月份录制的，内容上还算是比较新，并且文件命名非常有意思，在这里咱的 Vue 基础知识先跟着它走一遍看看~
+
+![图](../../public-repertory/img/js-vue-basic-learning-1.png)
+
+2. **慕课网** - [《Vue.js 源码全方位深入解析》](https://coding.imooc.com/class/228.html)
+
+&emsp;还未开封，但是研究源码可能参考该套视频。
 
 <br>
 
@@ -1410,7 +1413,7 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;
+&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
 
 <br>
 
@@ -1420,7 +1423,7 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;
+&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
 
 <br>
 
@@ -1430,7 +1433,27 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;
+&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
+
+<br>
+
+# <a name="chapter-four" id="chapter-four">四 代码实战</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
+
+<br>
+
+# <a name="chapter-five" id="chapter-five">五 源码剖析</a>
+
+> [返回目录](#catalog-chapter-five)
+
+<br>
+
+&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
 
 <br>
 
