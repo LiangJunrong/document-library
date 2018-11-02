@@ -26,7 +26,7 @@ Vue
 | --- |
 | <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 夯实基础](#chapter-three) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 夯实基础 - 一千零一夜](#chapter-three) |
 | &emsp;[3.1 初识 Vue](#chapter-three-one) |
 | &emsp;[3.2 挂载数据 - data](#chapter-three-two) |
 | &emsp;[3.3 进一步优化 el](#chapter-three-three) |
