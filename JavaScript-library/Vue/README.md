@@ -1,4 +1,4 @@
-Vue - 一千零一夜
+Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
@@ -6,7 +6,11 @@ Vue - 一千零一夜
 
 <br>
 
-&emsp;**记录下关于 Vue 框架的系统学习旅途：Vue 基础 -> 深入 Vue 套餐 -> Vue 源码剖析。**
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
+
+<br>
+
+&emsp;**记录下关于 Vue 框架的系统学习旅途：Vue 基础 -> Vue 实战 -> Vue 源码剖析。**
 
 &emsp;**参考文档：**
 
@@ -56,6 +60,9 @@ Vue - 一千零一夜
 | &emsp;&emsp;[3.9.1 浅度监听](#chapter-three-night-one) |
 | &emsp;&emsp;[3.9.2 深度监听](#chapter-three-night-two) |
 | &emsp;&emsp;[3.9.3 同时监听多个属性 - computed](#chapter-three-night-three) |
+| &emsp;[3.10 传递 DOM - slot](#chapter-three-ten) |
+| &emsp;&emsp;[3.10.1 slot 单个传递](#chapter-three-ten-one) |
+| &emsp;&emsp;[3.10.2 具名 slot](#chapter-three-ten-two) |
 
 <br>
 
