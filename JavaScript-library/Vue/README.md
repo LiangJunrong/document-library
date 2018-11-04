@@ -1024,7 +1024,7 @@ el: document.getElementById('app'),
 <br>
 
 &emsp;在 `App` 这个组件上，我们挂载了三个子组件：`myHeader`、`myContent`、`myFooter`。  
-&emsp;但是，如果某天，出现了一个女孩（共有组件），这个女孩的名字叫：`beautifulGirl`。然后不仅三个儿子（子组件）想追求她，就连父亲（父组件）也想追求她（够疯狂）。那么，在 `Vue` 中，是通过什么方式，使父亲和儿子都有机会接触到这个女孩呢？（父子组件都可以使用共用组件）
+&emsp;但是，如果某天，出现了一个女孩（共有组件），这个女孩的名字叫：`beautifulGirl`。然后不仅三个儿子（子组件）想追求她，就连父亲（父组件）也想追求她（够疯狂）。那么，在 `Vue` 中，是通过什么方式，使父亲和儿子都有机会接触到这个女孩呢？（父子组件如何能够都可以使用共用组件）
 
 > index.html
 
@@ -1116,8 +1116,17 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;今天咱要做的，是戏弄一个叫钱多多的商人，因为它有事没事就炫耀它有很多钱。  
-&emsp;首先，已查证钱多多有百万存款，咱要想个办法，将它的钱变得非常非常少：
+&emsp;在工作中，我们经常需要对一些后端传回来的数据进行过滤。例如：我司 Java 小哥传回来的金钱，就是分进制的，即：1元 = 100分。所以传回个 2000，其实是 20 元。那么，在 Vue 中，我们该如何对数据进行过滤呢？  
+
+<br>
+
+## <a name="chapter-three-eight-one" id="chapter-three-eight-one">3.8.1 局部过滤</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;话不多说，先上代码：
 
 > index.html
 
@@ -1162,9 +1171,19 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;在上面，咱调用了 `filters` 这员大将，它有个小弟叫 `addDot`，可以根据需要对接受的数据进行过滤，于是咱在它炫耀的那一刻，通过 `{{prop, function}}` 的形式，将 `addDot` 这员大将放了进去，于是它的钱变成了 `1.000000` 元了，nice~
+&emsp;在上面，我们通过 `filters` 中的 `addDot` 方法，对数据进行了过滤，将 `money` 的数据，从 `10000000` 变成了 `1.000000`。
+
+<br>
+
+## <a name="chapter-three-eight-two" id="chapter-three-eight-two">3.8.2 全局过滤</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
 
 &emsp;然后，在尝试了局部 `filters` 的好处之后，我们还可以试试它的全局过滤器写法：
+
+> index.html
 
 ```
 <!DOCTYPE html>
@@ -1183,7 +1202,7 @@ el: document.getElementById('app'),
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
 
-    // 组件内的过滤器
+    // 全局过滤器
     Vue.filter('addDot', function(money) {
       return (money / 1000000 + ".000000");
     })
