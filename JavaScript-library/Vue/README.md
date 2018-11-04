@@ -10,6 +10,8 @@ Vue
 
 <br>
 
+&emsp;每日一更，最近更新：`2018-11-4 15:39:55`
+
 &emsp;**记录下关于 Vue 框架的系统学习旅途：Vue 基础 -> Vue 实战 -> Vue 源码剖析。**  
 
 &emsp;**如果小伙伴也在学习 Vue，或者想复习下 Vue。那么，跟我一起走吧，发车啦~**
@@ -1099,8 +1101,6 @@ el: document.getElementById('app'),
 
 &emsp;在这里，我们通过 `Vue.component('组件名',{ })` 的形式，注册了个全局组件 `beautiful-girl`，这样，父子组件都可以直接调用该组件，从而在浏览器显示为：
 
-> Console
-
 ```
 我是父组件，我想了解—— 美丽女孩 ——
 我是头部，我想了解—— 美丽女孩 ——
@@ -1229,6 +1229,14 @@ el: document.getElementById('app'),
 
 <br>
 
+&emsp;最后在页面中显示为：
+
+```
+我是钱多多，我有 1000000 多一点： ￥1.000000，跟我混有出息~
+```
+
+<br>
+
 ## <a name="chapter-three-night" id="chapter-three-night">3.9 监听数据 - watch</a>
 
 > [返回目录](#catalog-chapter-three)
@@ -1294,7 +1302,7 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;这样，当我们输入 11 个 1 的时候，浏览器的 `Console` 对应输出为：
+&emsp;这样，当我们输入 11 个 1 的过程中，浏览器的 `Console` 对应输出为：
 
 > Console
 
