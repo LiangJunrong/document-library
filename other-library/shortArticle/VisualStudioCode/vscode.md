@@ -65,4 +65,52 @@
 
 <br>
 
+## 1.5 VS Code 设置模板页
+
+1. 安装插件 HTML Snippets
+2. 文件-首选项-用户代码片段-HTML
+3. 修改文件内容为：
+
+```
+{
+  // Place your snippets for html here. Each snippet is defined under a snippet name and has a prefix, body and 
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+  // same ids are connected.
+  // Example:
+  // "Print to console": {
+  //  "prefix": "log",
+  //  "body": [
+  //      "console.log('$1');",
+  //      "$2"
+  //  ],
+  //  "description": "Log output to console"
+  // }
+  "!!": {
+  "prefix": "!!",
+  "body": [
+    "<!DOCTYPE html>",
+    "<html lang=\"en\">",
+    "<head>",
+    "\t<meta charset=\"UTF-8\">",
+    "\t<meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no\">",
+    "\t<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">",
+    "\t<title>HelloWorld</title>",
+    "</head>",
+    "<body>",
+    "\t$1",
+    "\t",
+    "\t<script src=\"https://cdn.bootcss.com/jquery/3.3.1/jquery.js\"></script>",
+    "</body>",
+    "</html>"
+  ],
+  "description": "!! - Defines a template for a html5 document"
+  }
+}
+```
+
+4. 在HTML页面输入!!然后回车，即可看到新效果
+
+<br>
+
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
