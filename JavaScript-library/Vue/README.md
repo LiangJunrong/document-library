@@ -1320,7 +1320,7 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;在上面，我们讲了通过 `watch` 来监听 `data` 中 `number`、`string` 等字段的改变。但是，如果我们需要监听的是 `array` 等复杂带你的数据，却发现上面的手段无效。  
+&emsp;在上面，我们讲了通过 `watch` 来监听 `data` 中 `number`、`string` 等字段的改变。但是，如果我们需要监听的是 `array` 等复杂的数据，却发现上面的手段无效。  
 &emsp;而 `watch` 之所以没法监视复杂类型，是因为它监听的是对象的地址，而我们的地址没改，改的是同地址属性的值，导致我们没法监听到数据的变化。所以，对于数组等复杂类型，我们需要开启深度监视。
 
 ```
@@ -1344,24 +1344,14 @@ el: document.getElementById('app'),
       el: document.getElementById('app'),
       template: `
         <div>
-          <div>
-            <span>监听简单数据 - </span>
-            <input type="text" v-model="number" />
-            <span>{{number}}</span>
-          </div>
-
-          <br>
-
-          <p>监听数组数据 - </p>
+          <p>监听数组数据</p>
           <div  v-for="student in students">
             {{student.name}} - {{student.age}}
             <button @click="deleteRealName(student.name)">删除</button>
           </div>
-          
         </div>
       `,
       data: {
-        number: '',
         students: [
           {
             name: "jsliang",
@@ -1373,15 +1363,11 @@ el: document.getElementById('app'),
         ]
       },
       watch: {
-        // key: data 属性的属性名
-        number(newVal, oldVal) {
-          console.log(newVal, oldVal);
-        },
         // 深度监视：object || array
         students: {
           deep: true,
           handler(newVal, oldVal) {
-            console.log("深度监视：");
+            console.log("深度监视-执行了数组删除：");
             console.log(newVal);
           }
         }
@@ -1405,6 +1391,12 @@ el: document.getElementById('app'),
 
 </html>
 ```
+
+<br>
+
+&emsp;为方便理解，下面演示下 GIF 图：
+
+![图](../../public-repertory/img/js-vue-basic-learning-7.gif)
 
 <br>
 
@@ -1470,6 +1462,12 @@ el: document.getElementById('app'),
 
 </html>
 ```
+
+<br>
+
+&emsp;其结果如下面 GIF 图所示：
+
+![图](../../public-repertory/img/js-vue-basic-learning-8.gif)
 
 <br>
 
