@@ -42,6 +42,8 @@ Vue
 | &emsp;&emsp;[3.7.2 父子组件通讯](#chapter-three-seven-two) |
 | &emsp;&emsp;[3.7.3 共用组件](#chapter-three-seven-three) |
 | &emsp;[3.8 过滤器 - filter](#chapter-three-eight) |
+| &emsp;&emsp;[3.8.1 局部过滤](#chapter-three-eight-one) |
+| &emsp;&emsp;[3.8.2 全局过滤](#chapter-three-eight-two) |
 | &emsp;[3.9 监听数据 - watch](#chapter-three-night) |
 | &emsp;&emsp;[3.9.1 浅度监听](#chapter-three-night-one) |
 | &emsp;&emsp;[3.9.2 深度监听](#chapter-three-night-two) |
@@ -1097,6 +1099,8 @@ el: document.getElementById('app'),
 
 &emsp;在这里，我们通过 `Vue.component('组件名',{ })` 的形式，注册了个全局组件 `beautiful-girl`，这样，父子组件都可以直接调用该组件，从而在浏览器显示为：
 
+> Console
+
 ```
 我是父组件，我想了解—— 美丽女孩 ——
 我是头部，我想了解—— 美丽女孩 ——
@@ -1231,14 +1235,18 @@ el: document.getElementById('app'),
 
 <br>
 
+&emsp;在 `Vue` 中，我们通过 `v-model` 做了双向数据绑定，即在页面的 `<input>` 中输入的值，在我们的 `Vue` 中可以获得数据；在 `Vue` 中定义的数据，也会即时渲染到页面中。  
+&emsp;但是，在代码中，我们怎样才能获取到它即时输入的数据呢？
+
+<br>
+
 ## <a name="chapter-three-night-one" id="chapter-three-night-one">3.9.1 浅度监听</a>
 
 > [返回目录](#catalog-chapter-three)
 
 <br>
 
-&emsp;在 `Vue` 中，我们通过 `v-model` 做了双向数据绑定，即在页面的 `<input>` 中输入的值，在我们的 `Vue` 中可以获得数据；在 `Vue` 中定义的数据，也会即时渲染到页面中。  
-&emsp;但是，在代码中，我们怎样才能获取到它即时输入的数据呢？
+&emsp;话不多说，先上代码：
 
 > index.html
 
@@ -1312,7 +1320,8 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;`watch` 之所以没法监视复杂类型，是因为它监听的是对象的地址，而我们的地址没改，改的是同地址属性的值。所以，对于数组等复杂类型，我们需要开启深度监视。
+&emsp;在上面，我们讲了通过 `watch` 来监听 `data` 中 `number`、`string` 等字段的改变。但是，如果我们需要监听的是 `array` 等复杂带你的数据，却发现上面的手段无效。  
+&emsp;而 `watch` 之所以没法监视复杂类型，是因为它监听的是对象的地址，而我们的地址没改，改的是同地址属性的值，导致我们没法监听到数据的变化。所以，对于数组等复杂类型，我们需要开启深度监视。
 
 ```
 <!DOCTYPE html>
