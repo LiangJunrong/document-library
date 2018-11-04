@@ -34,8 +34,8 @@ Vue
 | &emsp;[3.1 初识 Vue](#chapter-three-one) |
 | &emsp;[3.2 挂载数据 - data](#chapter-three-two) |
 | &emsp;[3.3 进一步优化 el](#chapter-three-three) |
-| &emsp;[3.4 插值表达式 - {{ ? }}](#chapter-three-four) |
-| &emsp;[3.5 指令 - v-?](#chapter-three-five) |
+| &emsp;[3.4 插值表达式 - {{ }}](#chapter-three-four) |
+| &emsp;[3.5 指令 - v-*](#chapter-three-five) |
 | &emsp;[3.6 事件 - methods](#chapter-three-six) |
 | &emsp;[3.7 模板 - template](#chapter-three-seven) |
 | &emsp;&emsp;[3.7.1 初识组件](#chapter-three-seven-one) |
@@ -183,7 +183,7 @@ Vue
 
 ```
 new Vue({
-  // el：发生行为的目的地，即我们的挂载点
+  // el：element。发生行为的目的地，即我们的挂载点
   el: "#app",
   /*
     * template：模板，即我们要渲染进挂载点的页面标签。
@@ -318,11 +318,12 @@ el: document.getElementById('app'),
 <br>
 
 &emsp;这般操作，使 Vue 直接将挂载点挂载到 `id` 上去，从而获得更好的加载速度。  
+
 &emsp;这算是对 `el` 的一个小优化。
 
 <br>
 
-## <a name="chapter-three-four" id="chapter-three-four">3.4 插值表达式 - {{ ? }}</a>
+## <a name="chapter-three-four" id="chapter-three-four">3.4 插值表达式 - {{ }}</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -420,7 +421,11 @@ el: document.getElementById('app'),
 
 <br>
 
-## <a name="chapter-three-five" id="chapter-three-five">3.5 指令 - v-?</a>
+&emsp;通过三元表达式的运用，我们可以做到一些判断：数组最后一个元素、是否动态显示隐藏等。
+
+<br>
+
+## <a name="chapter-three-five" id="chapter-three-five">3.5 指令 - v-*</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -441,7 +446,7 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;这里通过一个 `index.html` 及一张图向大家演示其基本用法：
+&emsp;那么，上面的指令都是怎么使用的呢？这里通过一个 `index.html` 及一张图向大家演示其基本用法：
 
 > index.html
 
@@ -603,7 +608,7 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;页面为：
+&emsp;我们看下页面：
 
 ![图](../../public-repertory/img/js-vue-basic-learning-6.png)
 
@@ -710,8 +715,8 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;在上一章 `3.5` 中，我们通过在 `button` 中使用 `v-on:click` 时，给它绑定了方法。  
-&emsp;在 `3.5` 中，我们大体讲述了方法的时候。在这里，我们抽取出来做下讲解：
+&emsp;在上一章 `3.5` 中，我们通过在 `button` 中使用 `v-on:click` 时，给它绑定了事件方法。但是，在 `3.5` 中，我们大体讲述了事件方法的使用，但是我们只是一知半解。  
+&emsp;在这里，我们抽取出来做下讲解：
 
 > index.html
 
@@ -789,6 +794,11 @@ el: document.getElementById('app'),
 ## <a name="chapter-three-seven" id="chapter-three-seven">3.7 组件 - components</a>
 
 > [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;敲黑板！敲黑板！敲黑板！  
+&emsp;组件是 Vue 学习的重点，组件化的 SPA 或者 SSR 页面的制作，使得我们开发起来更加随心应手。
 
 <br>
 
