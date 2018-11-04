@@ -213,29 +213,53 @@ new Vue({
 
 &emsp;如果 Vue 仅仅是只有 `template` 这个模板装载，那么它跟 jQuery 就显得没多大差别了，下面我们使用下 Vue 的 `data` 进行数据渲染：
 
+> index.html
+
 ```
-<script>
-  new Vue({
-    // el：发生行为的目的地，即我们的挂载点
-    el: "#app",
-    /*
-      * template：模板，即我们要渲染进挂载点的页面标签。
-      * 最外一层必须有一层包裹，例如 <div> 
-      */
-    template: `
-        <div>
-          <p>Hello World</p>
-          <p>{{ text }}</p>
-        </div>
-    `,
-    data: function() {
-      return {
-        // template 中要使用的数据
-        text: 'Hello World!'
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <!-- 2. 挂载点。可以理解为被操作的对象 -->
+  <div id="app"></div>
+
+  <!-- 1. 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- 生产环境版本，优化了尺寸和速度 -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+  <script>
+    new Vue({
+      // el：发生行为的目的地，即我们的挂载点
+      el: "#app",
+      /*
+        * template：模板，即我们要渲染进挂载点的页面标签。
+        * 最外一层必须有一层包裹，例如 <div> 
+        */
+      template: `
+          <div>
+            <p>{{ text }}</p>
+          </div>
+      `,
+      data: function() {
+        return {
+          // template 中要使用的数据
+          text: 'Hello World!'
+        }
       }
-    }
-  })
-</script>
+    })
+  </script>
+</body>
+
+</html>
 ```
 
 <br>
