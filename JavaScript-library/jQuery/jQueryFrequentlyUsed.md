@@ -1,9 +1,16 @@
 JQuery 工作常用解决方案
 ===
 
-
 > Create by **jsliang** on **2018-11-4 10:37:33**  
 > Recently revised in **2018-11-4 10:45:13**
+
+<br>
+
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/jQuery/jQueryFrequentlyUsed.md)**
+
+&emsp;记录给电信做活动页（520推广、世界杯推广等）过程中，使用 jQuery、HTML、CSS 等技术的技巧，包括但不限于：`rem` 适配、`css reset`、活动边框、弹窗等。  
+
+&emsp;比较琐碎，各取所需。
 
 <br>
 
@@ -26,6 +33,8 @@ JQuery 工作常用解决方案
 <br>
 
 ## 1.3 移动端rem适配
+
+&emsp;直接在 `index.html` 中引用该 `js` 文件即可。
 
 > mobile-terminal-adaptation.js
 
@@ -140,7 +149,17 @@ console.log("url name=" + getUrlParam("name") + ",url idNo=" + getUrlParam("idNo
 
 ## 1.6 常用正则表达式
 
-1. 密码强度
+1. 使用方式：
+```
+if(!/^((\d{8})|(1[35784]\d{9}))$/.test($("#user-phone").val())){
+  alert('请填写11位手机号码或8位固话号码');
+  return false;
+}
+```
+
+<br>
+
+2. 密码强度
 
 * 必须包含数字+小写字母+大写字母的密码，位数在8-10位之间：
 
@@ -154,38 +173,29 @@ console.log("url name=" + getUrlParam("name") + ",url idNo=" + getUrlParam("idNo
 ^\w+$
 ```
 
-2. 校验中文：
+3. 校验中文：
 
 ```
 ^[\u4e00-\u9fa5]{0,}$
 ```
 
-3. Email验证：
+4. Email验证：
 
 ```
 [\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?
 ```
 
-4. 身份证验证
+5. 身份证验证
 
 ```
 ^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$
 ```
 
-5. 手机号验证：以1开头，第二位数是3/4/5/7/8的11位手机号码
+6. 手机号验证：以1开头，第二位数是3/4/5/7/8的11位手机号码
 
 ```
 ^1[3,4,5,7,8]\d{9}$
 ```
-
-6. 使用方式：
-```
-if(!/^((\d{8})|(1[35784]\d{9}))$/.test($("#user-phone").val())){
-  alert('请填写11位手机号码或8位固话号码');
-  return false;
-}
-```
-
 
 <br>
 
@@ -404,6 +414,8 @@ ul{
 
 ## 3.10 jsliang的弹窗
 
+&emsp;如果希望弹窗不固定大小，在手机端或者 PC 端都能使用，推荐使用百分比配置。
+
 > *.html
 
 ```
@@ -487,6 +499,8 @@ ul{
 <br>
 
 ## 3.11 常用SVG
+
+&emsp;直接引用到页面即可。
 
 ```
 <div class="loading-spokes">
