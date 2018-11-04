@@ -14,6 +14,10 @@ Vue
 
 &emsp;**如果小伙伴也在学习 Vue，或者想复习下 Vue。那么，跟我一起走吧，发车啦~**
 
+&emsp;推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。
+
+![图](../../public-repertory/img/js-vue-basic-learning-1.gif)
+
 <br>
 
 # <a name="chapter-one" id="chapter-one">一 目录</a>
@@ -26,7 +30,7 @@ Vue
 | --- |
 | <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 夯实基础 - 一千零一夜](#chapter-three) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 夯实基础](#chapter-three) |
 | &emsp;[3.1 初识 Vue](#chapter-three-one) |
 | &emsp;[3.2 挂载数据 - data](#chapter-three-two) |
 | &emsp;[3.3 进一步优化 el](#chapter-three-three) |
@@ -77,7 +81,7 @@ Vue
 
 &emsp;在这里偶然发现一套来自 **开课吧** 的教学视频，然后发现它是今年 6 月份录制的，内容上还算是比较新，并且文件命名非常有意思，在这里咱的 Vue 基础知识先跟着它走一遍看看~
 
-![图](../../public-repertory/img/js-vue-basic-learning-1.png)
+![图](../../public-repertory/img/js-vue-basic-learning-2.png)
 
 2. **慕课网** - [《Vue.js 源码全方位深入解析》](https://coding.imooc.com/class/228.html)
 
@@ -85,7 +89,7 @@ Vue
 
 <br>
 
-# <a name="chapter-three" id="chapter-three">三 Vue 基础</a>
+# <a name="chapter-three" id="chapter-three">三 夯实基础</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -197,7 +201,7 @@ new Vue({
 
 &emsp;这样，我们最终就显示了 Vue 的简单引用，是不是觉得非常简单：
 
-![图](../../public-repertory/img/js-vue-basic-learning-2.png)
+![图](../../public-repertory/img/js-vue-basic-learning-3.png)
 
 <br>
 
@@ -263,7 +267,7 @@ data: function() {
 
 &emsp;这样，我们就知道了，我们不仅可以通过模板 `template` 来渲染 `<div>` 标签，我们也可以将 js 中定义的数据或者变量，通过操作 `data` 从而改变 html 里面的内容。
 
-![图](../../public-repertory/img/js-vue-basic-learning-3.png)
+![图](../../public-repertory/img/js-vue-basic-learning-4.png)
 
 <br>
 
@@ -365,7 +369,7 @@ el: document.getElementById('app'),
 
 &emsp;它在浏览器的展示为：
 
-![图](../../public-repertory/img/js-vue-basic-learning-4.png)
+![图](../../public-repertory/img/js-vue-basic-learning-5.png)
 
 <br>
 
@@ -581,7 +585,7 @@ el: document.getElementById('app'),
 
 &emsp;页面为：
 
-![图](../../public-repertory/img/js-vue-basic-learning-5.png)
+![图](../../public-repertory/img/js-vue-basic-learning-6.png)
 
 <br>
 
