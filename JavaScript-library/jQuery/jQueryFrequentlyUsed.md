@@ -1,8 +1,8 @@
-JQuery 工作常用解决方案
+jQuery 工作常用解决方案
 ===
 
 > Create by **jsliang** on **2018-11-4 10:37:33**  
-> Recently revised in **2018-11-4 10:45:13**
+> Recently revised in **2018-11-4 11:43:17**
 
 <br>
 
