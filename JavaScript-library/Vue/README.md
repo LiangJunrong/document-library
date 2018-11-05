@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-11-2 09:22:53**
+> Recently revised in **2018-11-5 08:06:01**
 
 <br>
 
@@ -10,7 +10,7 @@ Vue
 
 <br>
 
-&emsp;每日一更，最近发布：`2018-11-4 15:39:55`
+&emsp;每日一更，最近发布：`2018-11-5 08:06:13`
 
 &emsp;**记录下关于 Vue 框架的系统学习旅途：Vue 基础 -> Vue 实战 -> Vue 源码剖析。**  
 
@@ -1485,7 +1485,7 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
+&emsp;在日常工作中，我们对一些常用的功能，例如：侧边栏、顶部导航栏等，会进行常用的封装，等我们想用的时候，就可以直接引用。那么，在 Vue 中，我们是如何实现这个功能的呢？
 
 <br>
 
@@ -1495,7 +1495,130 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
+&emsp;话不多说，先上代码：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.component('my-li', myLi);
+    
+    var myLi = {
+      template: `
+        <li><slot></slot></li>
+      `
+    }
+
+    var App = {
+      template: `
+        <div>
+          <ul>
+            <my-li><button>我是第一行 button 按钮</button></my-li>
+            <my-li><h3>我是第二行 h3 标签</h3></my-li>
+            <my-li><a href="javascript:void(0)">我是第三行 a 导航</a></my-li>
+            <my-li><span>我是第四行 span 标签</span></my-li>
+          </ul>
+        </div>
+      `
+    }
+
+    new Vue({
+      el: document.getElementById('app'),
+      components: {
+        app: App
+      },
+      template: `
+        <app/>
+      `
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;其结果如下图所示：
+
+![图](../../public-repertory/img/js-vue-basic-learning-9.png)
+
+<br>
+
+&emsp;如上代码及其结果图，我们的 `new Vue` 中挂载了一个组件 `App`。
+
+```
+new Vue({
+  el: document.getElementById('app'),
+  components: {
+    app: App
+  },
+  template: `
+    <app/>
+  `
+})
+```
+
+&emsp;然后，该 `App` 的目的，是想动态引用一个 `li` 组件
+
+```
+var App = {
+  template: `
+    <div>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+    </div>
+  `
+}
+```
+
+&emsp;接着，我们在全局定义 `myLi` 组件的同时，通过 `<slot></slot>` 插槽，使它能够动态地加载 `dom` 节点。
+
+```
+Vue.component('my-li', myLi);
+
+var myLi = {
+  template: `
+    <li><slot></slot></li>
+  `
+}
+```
+
+&emsp;最后，我们在 `App` 中，传递给它不同的 `dom` 节点，从而动态生成 `App`。
+
+```
+var App = {
+  template: `
+    <div>
+      <ul>
+        <my-li><button>我是第一行 button 按钮</button></my-li>
+        <my-li><h3>我是第二行 h3 标签</h3></my-li>
+        <my-li><a href="javascript:void(0)">我是第三行 a 导航</a></my-li>
+        <my-li><span>我是第四行 span 标签</span></my-li>
+      </ul>
+    </div>
+  `
+}
+```
+
+&emsp;这样，我们就思路清晰地知道，如何通过 `<slot></slot>` 来动态地加载 `dom` 节点，对我们 Vue 开发又有了更好的帮助。
 
 <br>
 
