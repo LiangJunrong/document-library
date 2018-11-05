@@ -53,6 +53,7 @@ Vue
 | &emsp;[3.10 传递 DOM - slot](#chapter-three-ten) |
 | &emsp;&emsp;[3.10.1 slot 单个传递](#chapter-three-ten-one) |
 | &emsp;&emsp;[3.10.2 具名 slot](#chapter-three-ten-two) |
+| &emsp;[3.11 Vue 组件生命周期](#chapter-three-eleven) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
@@ -1725,6 +1726,16 @@ var App = {
 
 &emsp;然后，再观察下 `App` 中的代码 `<button slot="one">按钮</button>` 和 `<a href="javascript:void(0)" slot="two">链接</a>`，发现它们使用了 `slot="***"`，这说明了它指定了要求组件中 `<slot name="***"></slot>` 的代码接收。所以第二行第三行显示为按钮和链接。  
 &emsp;最后，由于最后一个 `li` 中 `<slot name="three"></slot>`，这个 `name="three"` 在 `App` 组件中没有用到，所以它表现为空。
+
+<br>
+
+## <a name="chapter-three-eleven" id="chapter-three-eleven">3.11 Vue 组件生命周期</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;
 
 <br>
 
