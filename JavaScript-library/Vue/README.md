@@ -54,6 +54,11 @@ Vue
 | &emsp;&emsp;[3.10.1 slot 单个传递](#chapter-three-ten-one) |
 | &emsp;&emsp;[3.10.2 具名 slot](#chapter-three-ten-two) |
 | &emsp;[3.11 Vue 组件生命周期](#chapter-three-eleven) |
+| &emsp;&emsp;[3.11.1 beforeCreate & created](#chapter-three-eleven-one) |
+| &emsp;&emsp;[3.11.2 beforeMount & mounted](#chapter-three-eleven-two) |
+| &emsp;&emsp;[3.11.3 beforeUpdate & updated](#chapter-three-eleven-three) |
+| &emsp;&emsp;[3.11.4 activated & deactivated](#chapter-three-eleven-four) |
+| &emsp;&emsp;[3.11.5 beforeDestory & destory](#chapter-three-eleven-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
@@ -1735,7 +1740,85 @@ var App = {
 
 <br>
 
-&emsp;
+&emsp;在 Vue 中，什么时候进行虚拟 `dom` 渲染成 `dom`，或者什么时候销毁代码，都是有对应的钩子的：
+
+* beforeCreate
+* created
+
+<br>
+
+* beforeMount
+* mounted
+
+<br>
+
+* beforeUpdate
+* updated
+
+<br>
+
+* activated
+* deactivated
+
+<br>
+
+* beforeDestory
+* destory
+
+<br>
+
+&emsp;关于生命周期，Vue 官方文档是有相关图示的：
+
+![图](../../public-repertory/img/js-vue-basic-learning-11.png)
+
+<br>
+
+&emsp;下面我们通过代码演示，讲解这 5 组生命周期的用法。
+
+<br>
+
+## <a name="chapter-three-eleven-one" id="chapter-three-eleven-one">3.11.1 beforeCreate & created</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+
+<br>
+
+## <a name="chapter-three-eleven-two" id="chapter-three-eleven-two">3.11.2 beforeMount & mounted</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+
+<br>
+
+## <a name="chapter-three-eleven-three" id="chapter-three-eleven-three">3.11.3 beforeUpdate & updated</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+
+<br>
+
+## <a name="chapter-three-eleven-four" id="chapter-three-eleven-four">3.11.4 activated & deactivated</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+
+<br>
+
+## <a name="chapter-three-eleven-five" id="chapter-three-eleven-five">3.11.5 beforeDestory & destory</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
 
 <br>
 
