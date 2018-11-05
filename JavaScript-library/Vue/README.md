@@ -1508,14 +1508,14 @@ el: document.getElementById('app'),
   <div id="app"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script>
-    Vue.component('my-li', myLi);
-    
+  <script> 
     var myLi = {
       template: `
         <li><slot></slot></li>
       `
-    }
+    };
+
+    Vue.component('my-li', myLi);
 
     var App = {
       template: `
@@ -1528,7 +1528,7 @@ el: document.getElementById('app'),
           </ul>
         </div>
       `
-    }
+    };
 
     new Vue({
       el: document.getElementById('app'),
@@ -1582,19 +1582,19 @@ var App = {
       </ul>
     </div>
   `
-}
+};
 ```
 
 &emsp;接着，我们在全局定义 `myLi` 组件的同时，通过 `<slot></slot>` 插槽，使它能够动态地加载 `dom` 节点。
 
 ```
-Vue.component('my-li', myLi);
-
 var myLi = {
   template: `
     <li><slot></slot></li>
   `
-}
+};
+
+Vue.component('my-li', myLi);
 ```
 
 &emsp;最后，我们在 `App` 中，传递给它不同的 `dom` 节点，从而动态生成 `App`。
@@ -1611,7 +1611,7 @@ var App = {
       </ul>
     </div>
   `
-}
+};
 ```
 
 &emsp;这样，我们就思路清晰地知道，如何通过 `<slot></slot>` 来动态地加载 `dom` 节点，对我们 Vue 开发又有了更好的帮助。
@@ -1624,7 +1624,107 @@ var App = {
 
 <br>
 
-&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
+&emsp;在上面中，我们谈论到了单个插槽 `slot` 的用法。但是，如果组件想根据父组件是否传递某个变量来存放插槽的数量，要怎么做呢？
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var mySlot = {
+      template: `
+        <ul>
+          <li>
+            <slot></slot>
+          </li>
+          <li>
+            <slot name="one"></slot>
+          </li>
+          <li>
+            <slot name="two"></slot>
+          </li>
+          <li>
+            <slot name="three"></slot>
+          </li>
+        </ul>
+      `
+    };
+
+    Vue.component('my-slot', mySlot);
+
+    var App = {
+      template: `
+        <div>
+          <my-slot>
+            <p>Helo World!</p>
+            <button slot="one">按钮</button>
+            <a href="javascript:void(0)" slot="two">链接</a>
+          </my-slot>
+        </div>
+      `
+    };
+
+    new Vue({
+      el: document.getElementById('app'),
+      components: {
+        app: App
+      },
+      template: `
+        <app/>
+      `
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+&emsp;效果图如下：
+
+![图](../../public-repertory/img/js-vue-basic-learning-10.png)
+
+<br>
+
+&emsp;首先，我们通过下面代码可以知道，第一个 `li` 的 `slot` 是未命名的默认 `slot`，所以它在页面中展示为 `p` 的数据。
+
+```
+var mySlot = {
+  template: `
+    <ul>
+      <li>
+        <slot></slot>
+      </li>
+    </ul>
+  `
+};
+
+var App = {
+  template: `
+    <div>
+      <my-slot>
+        <p>Helo World!</p>
+        <button slot="one">按钮</button>
+        <a href="javascript:void(0)" slot="two">链接</a>
+      </my-slot>
+    </div>
+  `
+};
+```
+
+&emsp;然后，再观察下 `App` 中的代码 `<button slot="one">按钮</button>` 和 `<a href="javascript:void(0)" slot="two">链接</a>`，发现它们使用了 `slot="***"`，这说明了它指定了要求组件中 `<slot name="***"></slot>` 的代码接收。所以第二行第三行显示为按钮和链接。  
+&emsp;最后，由于最后一个 `li` 中 `<slot name="three"></slot>`，这个 `name="three"` 在 `App` 组件中没有用到，所以它表现为空。
 
 <br>
 
