@@ -55,6 +55,7 @@ Vue
 | &emsp;&emsp;[3.10.2 具名 slot](#chapter-three-ten-two) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
 
 <br>
 
@@ -1649,6 +1650,21 @@ var App = {
 <br>
 
 &emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
+
+<br>
+
+# <a name="chapter-six" id="chapter-five">五 源码剖析</a>
+
+> [返回目录](#catalog-chapter-five)
+
+<br>
+
+&emsp;【11-04】今天第一次发表该文章，收到了许许多多的评价，这里我抽取印象教深刻的两句话，说说我的想法：
+
+1. “我现在 觉得看别人的技术书籍都没有官方的好.因为别人吃过一遍，可能还没有消化好就出来欺世盗名...然后我们看他写的...学到的就更少了”
+2. “为什么不直接翻官方文档，然后再以别人的技术文章为辅”。
+  
+&emsp;再三咀嚼这两句话，我觉得还是有道理的，就好比我在文章的前言内容中，说明我参考了哪里的视频，哪里的文章，最后还特意推荐小伙伴们查阅官方文档。而关于 `欺世盗名` 说法，个人觉得我不曾做到。我写文章的目的，仅仅是为了加深我的印象，并且将我的学习、工作经验分享出来，让其他人看了，可以减少重复躺坑时间。而我发表的文章，是不曾用作盈利的。
 
 <br>
 
