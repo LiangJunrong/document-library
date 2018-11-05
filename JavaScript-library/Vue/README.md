@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-11-5 08:06:01**
+> Recently revised in **2018-11-5 12:46:21**
 
 <br>
 
@@ -10,7 +10,7 @@ Vue
 
 <br>
 
-&emsp;每日一更，最近发布：`2018-11-5 08:06:13`
+&emsp;每日一更，最近发布：`2018-11-5 12:46:25`
 
 &emsp;**记录下关于 Vue 框架的系统学习旅途：Vue 基础 -> Vue 实战 -> Vue 源码剖析。**  
 
@@ -56,6 +56,8 @@ Vue
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
+| &emsp;&emsp;[6.1 感言](#chapter-six-one) |
+| &emsp;&emsp;[6.2 感谢](#chapter-six-two) |
 
 <br>
 
@@ -1354,9 +1356,9 @@ el: document.getElementById('app'),
       template: `
         <div>
           <p>监听数组数据</p>
-          <div  v-for="student in students">
+          <div  v-for="(student, index) in students">
             {{student.name}} - {{student.age}}
-            <button @click="deleteRealName(student.name)">删除</button>
+            <button @click="deleteRealName(index)">删除</button>
           </div>
         </div>
       `,
@@ -1382,15 +1384,8 @@ el: document.getElementById('app'),
         }
       },
       methods: {
-        deleteRealName(studentName) {
-
-          let students = this.students;
-
-          students.forEach( (item, index) => {
-            if(item.name == studentName) {
-              students.splice(index, 1);
-            }
-          })
+        deleteRealName(index) {
+            this.students.splice(index, 1);
         }
       }
     })
@@ -1486,7 +1481,7 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;在日常工作中，我们对一些常用的功能，例如：侧边栏、顶部导航栏等，会进行常用的封装，等我们想用的时候，就可以直接引用。那么，在 Vue 中，我们是如何实现这个功能的呢？
+&emsp;在日常工作中，我们对一些常用的功能，例如：侧边栏、顶部导航栏等，会进行常用的封装，等我们想用的时候，就可以直接引用。那么，在 Vue 中，想实现这类功能，我们还需要了解什么？
 
 <br>
 
@@ -1659,12 +1654,26 @@ var App = {
 
 <br>
 
+## <a name="chapter-six-one" id="chapter-six-one">6.1 感言</a>
+
+> [返回目录](#catalog-chapter-six)
+
+<br>
+
 &emsp;【11-04】今天第一次发表该文章，收到了许许多多的评价，这里我抽取印象教深刻的两句话，说说我的想法：
 
 1. “我现在 觉得看别人的技术书籍都没有官方的好.因为别人吃过一遍，可能还没有消化好就出来欺世盗名...然后我们看他写的...学到的就更少了”
 2. “为什么不直接翻官方文档，然后再以别人的技术文章为辅”。
   
 &emsp;再三咀嚼这两句话，我觉得还是有道理的，就好比我在文章的前言内容中，说明我参考了哪里的视频，哪里的文章，最后还特意推荐小伙伴们查阅官方文档。而关于 `欺世盗名` 说法，个人觉得我不曾做到。我写文章的目的，仅仅是为了加深我的印象，并且将我的学习、工作经验分享出来，让其他人看了，可以减少重复躺坑时间。而我发表的文章，是不曾用作盈利的。
+
+## <a name="chapter-six-two" id="chapter-six-two">6.2 感谢</a>
+
+> [返回目录](#catalog-chapter-six)
+
+<br>
+
+1. QQ：**青蛙表哥**。非常佩服这位老哥，发表文章当天就我的代码敲了一遍，然后告诉我一些代码是可以优化的，并且对【深度监听】进行了自己的理解。
 
 <br>
 
