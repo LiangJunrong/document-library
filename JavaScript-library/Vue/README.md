@@ -1653,7 +1653,7 @@ var App = {
 
 <br>
 
-# <a name="chapter-six" id="chapter-six">六 源码剖析</a>
+# <a name="chapter-six" id="chapter-six">六 总结及感言</a>
 
 > [返回目录](#catalog-chapter-six)
 
