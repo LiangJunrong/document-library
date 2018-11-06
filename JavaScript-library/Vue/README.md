@@ -2718,8 +2718,97 @@ console.log(this.$refs.temp.$el);
 > index.html 
 
 ```
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+  
+  <!-- 1. 引入 vue-router 这个插件 对象 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.js"></script>
+  
+  <script>
+
+    // 2. 使用插件
+    Vue.use(VueRouter);
+
+    // 3. 定义路由对象
+    var Login = {
+      template: `
+        <div>
+          <p>登录页面</p>
+        </div>
+      `
+    }
+    var Register = {
+      template: `
+        <div>
+          <p>注册页面</p>
+        </div>
+      `
+    }
+
+    // 4. 创建路由挂载对象
+    var router = new VueRouter({
+      // 5. 配置路由对象
+      routes: [
+        {
+          name: 'login',
+          path: '/myLogin',
+          component: Login
+        },
+        {
+          name: 'register',
+          path: '/myRegister',
+          component: Register
+        }
+      ]
+    });
+
+    // 6. 指定路由改变局部的位置
+    var App = {
+      template: `
+        <div>
+          <router-link :to="{ name: 'login' }">登录</router-link>
+          <router-link :to="{ name: 'register' }">注册</router-link>
+          <router-view></router-view>
+        </div>
+      `
+    }
+
+    // 7. 将路由对象关联到 Vue 实例中
+    new Vue({
+      el: document.getElementById('app'),
+      // 注意这里比平时多了个 router，标明我们要开启路由模式
+      router: router,
+      components: {
+        app: App
+      },
+      template: `<app/>`
+    })
+
+  </script>
+</body>
+
+</html>
 ```
+
+<br>
+
+&emsp;首先，在代码方面，我们通过沿用章节 `3.13.2` 中的代码来演示 `name` 的使用。  
+&emsp;然后，在第 5 步中，我们分别给两个路由对象起了名字。  
+&emsp;最后，我们在第 6 步中，通过 `:to` 来动态绑定了路由值为 `name: '***`，从而达到了我们的目的。
+
+&emsp;这样，当我们上头想修改网址路径的时候，我们只需要到第 5 步的代码中修改即可。
 
 <br>
 
