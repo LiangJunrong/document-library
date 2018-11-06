@@ -1858,7 +1858,7 @@ var App = {
 <br>
 
 &emsp;在代码中可以看到，我们在 `App` 中引用了 `lifeCycle` 这个组件。  
-&emsp;我们通过钩子函数 `beforeCreate` 与 `created`，结合 `console` 发现，这两个钩子函数对于 `data` 来说，一个在 `data` 挂载前（beforeCreate），所以打印出来的是：`undefined`，而另外一个发生在 `data` 挂载后，所以打印出来的是：`Hello World!`
+&emsp;我们通过钩子函数 `beforeCreate`（组件创建之前） 与 `created`（组件创建之后），结合 `console` 发现，这两个钩子函数对于 `data` 来说，一个在 `data` 挂载前（beforeCreate），所以打印出来的是：`undefined`，而另外一个发生在 `data` 挂载后，所以打印出来的是：`Hello World!`。
 
 <br>
 
