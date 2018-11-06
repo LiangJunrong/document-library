@@ -64,6 +64,9 @@ Vue
 | &emsp;&emsp;[3.12.2 组件 DOM 元素获取](#chapter-three-twelve-two) |
 | &emsp;&emsp;[3.12.3 Vue.nextTick()](#chapter-three-twelve-three) |
 | &emsp;<a name="catalog-chapter-three-thirteen" id="catalog-chapter-three-thirteen"></a>[3.13 路由](#chapter-three-thirteen) |
+| &emsp;&emsp;[3.13.1 路由初定义](#chapter-three-thirteen-one) |
+| &emsp;&emsp;[3.13.2 router-view 与 router-link](#chapter-three-thirteen-two) |
+| &emsp;&emsp;[3.13.3 Vue.nextTick()](#chapter-three-thirteen-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
@@ -2697,6 +2700,26 @@ console.log(this.$refs.temp.$el);
 &emsp;下面我们查看下该代码是否能正确运行：
 
 ![图](../../public-repertory/img/js-vue-basic-learning-18.gif)
+
+
+<br>
+
+## <a name="chapter-three-thirteen-three" id="chapter-three-thirteen-three">3.13.3 路由 name 的使用</a>
+
+> [返回目录](#catalog-chapter-three-thirteen)
+
+<br>
+
+&emsp;在章节 `3.13.1` 和章节 `3.13.2` 中，我们都是通过 `<router-link to="***"></router-link>` 来切换路由的。  
+&emsp;假如某天需求改了，产品经理或者项目经理说页面上不能用 `localhost:8080/#/login`，那样子太 `low`（真的 `low` 吗？不见得，但是它们要求就是这样，能咋办啊~ o(╥﹏╥)o），而是用 `localhost:8080/#/mylogin`，所以我们需要修改页面两次（`<router-link>` 和 `path`）……  
+&emsp;又到了哪天，它丢你个文档说，我们路由定好了，照着文档写。然后你一看，我天，页面上显示的路径都和你做的不一样……所以有没有更好的方法解决这个问题呢？  
+&emsp;有的，那就是给 `routes` 起 `name` 值：
+
+> index.html 
+
+```
+
+```
 
 <br>
 
