@@ -33,32 +33,33 @@ Vue
 | <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 夯实基础](#chapter-three) |
-| &emsp;[3.1 初识 Vue](#chapter-three-one) |
-| &emsp;[3.2 挂载数据 - data](#chapter-three-two) |
-| &emsp;[3.3 进一步优化 el](#chapter-three-three) |
-| &emsp;[3.4 插值表达式 - {{ }}](#chapter-three-four) |
-| &emsp;[3.5 指令 - v-*](#chapter-three-five) |
-| &emsp;[3.6 事件 - methods](#chapter-three-six) |
-| &emsp;[3.7 模板 - template](#chapter-three-seven) |
+| &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 初识 Vue](#chapter-three-one) |
+| &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 挂载数据 - data](#chapter-three-two) |
+| &emsp;<a name="catalog-chapter-three-three" id="catalog-chapter-three-three"></a>[3.3 进一步优化 el](#chapter-three-three) |
+| &emsp;<a name="catalog-chapter-three-four" id="catalog-chapter-three-four"></a>[3.4 插值表达式 - {{ }}](#chapter-three-four) |
+| &emsp;<a name="catalog-chapter-three-five" id="catalog-chapter-three-five"></a>[3.5 指令 - v-*](#chapter-three-five) |
+| &emsp;<a name="catalog-chapter-three-six" id="catalog-chapter-three-six"></a>[3.6 事件 - methods](#chapter-three-six) |
+| &emsp;<a name="catalog-chapter-three-seven" id="catalog-chapter-three-seven"></a>[3.7 模板 - template](#chapter-three-seven) |
 | &emsp;&emsp;[3.7.1 初识组件](#chapter-three-seven-one) |
 | &emsp;&emsp;[3.7.2 父子组件通讯](#chapter-three-seven-two) |
 | &emsp;&emsp;[3.7.3 共用组件](#chapter-three-seven-three) |
-| &emsp;[3.8 过滤器 - filter](#chapter-three-eight) |
+| &emsp;<a name="catalog-chapter-three-eight" id="catalog-chapter-three-eight"></a>[3.8 过滤器 - filter](#chapter-three-eight) |
 | &emsp;&emsp;[3.8.1 局部过滤](#chapter-three-eight-one) |
 | &emsp;&emsp;[3.8.2 全局过滤](#chapter-three-eight-two) |
-| &emsp;[3.9 监听数据 - watch](#chapter-three-night) |
+| &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 监听数据 - watch](#chapter-three-night) |
 | &emsp;&emsp;[3.9.1 浅度监听](#chapter-three-night-one) |
 | &emsp;&emsp;[3.9.2 深度监听](#chapter-three-night-two) |
 | &emsp;&emsp;[3.9.3 同时监听多个属性 - computed](#chapter-three-night-three) |
-| &emsp;[3.10 传递 DOM - slot](#chapter-three-ten) |
+| &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 传递 DOM - slot](#chapter-three-ten) |
 | &emsp;&emsp;[3.10.1 slot 单个传递](#chapter-three-ten-one) |
 | &emsp;&emsp;[3.10.2 具名 slot](#chapter-three-ten-two) |
-| &emsp;[3.11 Vue 组件生命周期](#chapter-three-eleven) |
+| &emsp;<a name="catalog-chapter-three-eleven" id="catalog-chapter-three-eleven"></a>[3.11 Vue 组件生命周期](#chapter-three-eleven) |
 | &emsp;&emsp;[3.11.1 beforeCreate & created](#chapter-three-eleven-one) |
 | &emsp;&emsp;[3.11.2 beforeMount & mounted](#chapter-three-eleven-two) |
 | &emsp;&emsp;[3.11.3 beforeUpdate & updated](#chapter-three-eleven-three) |
 | &emsp;&emsp;[3.11.4 beforeDestory & destory](#chapter-three-eleven-four) |
 | &emsp;&emsp;[3.11.5 activated & deactivated](#chapter-three-eleven-five) |
+| &emsp;<a name="catalog-chapter-three-twelve" id="catalog-chapter-three-twelve"></a>[3.12 获取 DOM 元素](#chapter-three-twelve) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
@@ -119,7 +120,7 @@ Vue
 
 ## <a name="chapter-three-one" id="chapter-three-one">3.1 初识 Vue</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-one)
 
 <br>
 
@@ -220,7 +221,7 @@ new Vue({
 
 ## <a name="chapter-three-two" id="chapter-three-two">3.2 挂载数据 - data</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-two)
 
 <br>
 
@@ -306,7 +307,7 @@ data: function() {
 
 ## <a name="chapter-three-three" id="chapter-three-three">3.3 进一步优化 el</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-three)
 
 <br>
 
@@ -338,7 +339,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-four" id="chapter-three-four">3.4 插值表达式 - {{ }}</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-four)
 
 <br>
 
@@ -440,7 +441,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-five" id="chapter-three-five">3.5 指令 - v-*</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-five)
 
 <br>
 
@@ -724,7 +725,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-six" id="chapter-three-six">3.6 事件 - methods</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-six)
 
 <br>
 
@@ -806,7 +807,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-seven" id="chapter-three-seven">3.7 组件 - components</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-seven)
 
 <br>
 
@@ -817,7 +818,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-seven-one" id="chapter-three-seven-one">3.7.1 初始组件</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-seven)
 
 <br>
 
@@ -962,7 +963,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-seven-two" id="chapter-three-seven-two">3.7.2 父子组件通讯</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-seven)
 
 <br>
 
@@ -1021,7 +1022,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-seven-three" id="chapter-three-seven-three">3.7.3 共用组件</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-seven)
 
 <br>
 
@@ -1125,7 +1126,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-eight" id="chapter-three-eight">3.8 过滤器 - filter</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-eight)
 
 <br>
 
@@ -1135,7 +1136,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-eight-one" id="chapter-three-eight-one">3.8.1 局部过滤</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-eight)
 
 <br>
 
@@ -1190,7 +1191,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-eight-two" id="chapter-three-eight-two">3.8.2 全局过滤</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-eight)
 
 <br>
 
@@ -1248,7 +1249,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-night" id="chapter-three-night">3.9 监听数据 - watch</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-night)
 
 <br>
 
@@ -1259,7 +1260,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-night-one" id="chapter-three-night-one">3.9.1 浅度监听</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-night)
 
 <br>
 
@@ -1333,7 +1334,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-night-two" id="chapter-three-night-two">3.9.2 深度监听</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-night)
 
 <br>
 
@@ -1412,7 +1413,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-night-three" id="chapter-three-night-three">3.9.3 同时监听多个属性 - computed</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-night)
 
 <br>
 
@@ -1483,7 +1484,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-ten" id="chapter-three-ten">3.10 传递 DOM - slot</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-ten)
 
 <br>
 
@@ -1493,7 +1494,7 @@ el: document.getElementById('app'),
 
 ## <a name="chapter-three-ten-one" id="chapter-three-ten-one">3.10.1 slot 单个传递</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-ten)
 
 <br>
 
@@ -1626,7 +1627,7 @@ var App = {
 
 ## <a name="chapter-three-ten-two" id="chapter-three-ten-two">3.10.2 具名 slot</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-ten)
 
 <br>
 
@@ -1736,7 +1737,7 @@ var App = {
 
 ## <a name="chapter-three-eleven" id="chapter-three-eleven">3.11 Vue 组件生命周期</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-eleven)
 
 <br>
 
@@ -1779,7 +1780,7 @@ var App = {
 
 ## <a name="chapter-three-eleven-one" id="chapter-three-eleven-one">3.11.1 beforeCreate & created</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-eleven)
 
 <br>
 
@@ -1864,7 +1865,7 @@ var App = {
 
 ## <a name="chapter-three-eleven-two" id="chapter-three-eleven-two">3.11.2 beforeMount & mounted</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-eleven)
 
 <br>
 
@@ -1947,7 +1948,7 @@ var App = {
 
 ## <a name="chapter-three-eleven-three" id="chapter-three-eleven-three">3.11.3 beforeUpdate & updated</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-eleven)
 
 <br>
 
@@ -2046,7 +2047,7 @@ var App = {
 
 ## <a name="chapter-three-eleven-four" id="chapter-three-eleven-four">3.11.4 beforeDestory & destory</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-eleven)
 
 <br>
 
@@ -2134,7 +2135,7 @@ var App = {
 
 ## <a name="chapter-three-eleven-five" id="chapter-three-eleven-five">3.11.5 activated & deactivated</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-three-eleven)
 
 <br>
 
@@ -2219,6 +2220,16 @@ var App = {
 <br>
 
 * 小结：这时候，希望小伙伴回到生命周期章节的开头，看官方关于生命周期的解析图，它将有助于我们更加理解声明周期。如果还是不够清晰，可以点击图片旁边的按钮，进入官方文档，查看官方关于生命周期的解析。[【返回加深学习】](#chapter-three-eleven)
+
+<br>
+
+## <a name="chapter-three-twelve" id="chapter-three-twelve">3.12 获取 DOM 元素</a>
+
+> [返回目录](#catalog-chapter-three-twelve)
+
+<br>
+
+&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
 
 <br>
 
