@@ -66,7 +66,7 @@ Vue
 | &emsp;<a name="catalog-chapter-three-thirteen" id="catalog-chapter-three-thirteen"></a>[3.13 路由](#chapter-three-thirteen) |
 | &emsp;&emsp;[3.13.1 路由初定义](#chapter-three-thirteen-one) |
 | &emsp;&emsp;[3.13.2 router-view 与 router-link](#chapter-three-thirteen-two) |
-| &emsp;&emsp;[3.13.3 Vue.nextTick()](#chapter-three-thirteen-three) |
+| &emsp;&emsp;[3.13.3 路由 name 的使用](#chapter-three-thirteen-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
