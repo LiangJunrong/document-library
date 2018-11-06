@@ -60,6 +60,10 @@ Vue
 | &emsp;&emsp;[3.11.4 beforeDestory & destory](#chapter-three-eleven-four) |
 | &emsp;&emsp;[3.11.5 activated & deactivated](#chapter-three-eleven-five) |
 | &emsp;<a name="catalog-chapter-three-twelve" id="catalog-chapter-three-twelve"></a>[3.12 获取 DOM 元素](#chapter-three-twelve) |
+| &emsp;&emsp;[3.12.1 单个 DOM 元素获取](#chapter-three-twelve-one) |
+| &emsp;&emsp;[3.12.2 组件 DOM 元素获取](#chapter-three-twelve-two) |
+| &emsp;&emsp;[3.12.3 Vue.nextTick()](#chapter-three-twelve-three) |
+| &emsp;<a name="catalog-chapter-three-thirteen" id="catalog-chapter-three-thirteen"></a>[3.13 路由](#chapter-three-thirteen) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
@@ -2480,6 +2484,17 @@ console.log(this.$refs.temp.$el);
 
 &emsp;如上，通过 Vue 的全局 API `Vue.nextTick()`，我们在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。  
 &emsp;这个操作我们可想象下 `Promise` 的执行流程，会获得更好的体验。
+
+
+<br>
+
+## <a name="chapter-three-thirteen" id="chapter-three-thirteen">3.13 路由</a>
+
+> [返回目录](#catalog-chapter-three-thirteen)
+
+<br>
+
+&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
 
 <br>
 
