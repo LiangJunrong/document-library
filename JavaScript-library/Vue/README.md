@@ -67,6 +67,7 @@ Vue
 | &emsp;&emsp;[3.13.1 路由初定义](#chapter-three-thirteen-one) |
 | &emsp;&emsp;[3.13.2 router-view 与 router-link](#chapter-three-thirteen-two) |
 | &emsp;&emsp;[3.13.3 路由 name 的使用](#chapter-three-thirteen-three) |
+| &emsp;&emsp;[3.13.4 路由传参](#chapter-three-thirteen-four) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
@@ -2701,7 +2702,6 @@ console.log(this.$refs.temp.$el);
 
 ![图](../../public-repertory/img/js-vue-basic-learning-18.gif)
 
-
 <br>
 
 ## <a name="chapter-three-thirteen-three" id="chapter-three-thirteen-three">3.13.3 路由 name 的使用</a>
@@ -2809,6 +2809,171 @@ console.log(this.$refs.temp.$el);
 &emsp;最后，我们在第 6 步中，通过 `:to` 来动态绑定了路由值为 `name: '***`，从而达到了我们的目的。
 
 &emsp;这样，当我们上头想修改网址路径的时候，我们只需要到第 5 步的代码中修改即可。
+
+<br>
+
+## <a name="chapter-three-thirteen-four" id="chapter-three-thirteen-four">3.13.4 路由传参</a>
+
+> [返回目录](#catalog-chapter-three-thirteen)
+
+<br>
+
+&emsp;在平时开发中，我们经常给我们的 `url` 传参，那么在 Vue 开发中，Vue 是如何在路径中带参数，并且在对应路由中获取到参数的呢？  
+&emsp;先上代码，先睹为快：
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+  
+  <!-- 1. 引入 vue-router 这个插件 对象 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.js"></script>
+  
+  <script>
+
+    // 2. 使用插件
+    Vue.use(VueRouter);
+
+    // 3. 定义路由对象
+    var Login = {
+      template: `
+        <div>
+          <p>登录页面</p>
+        </div>
+      `,
+      // 输出路径
+      created: function() {
+        console.log(this.$route);
+        console.log(this.$route.query);
+      }
+    }
+    var Register = {
+      template: `
+        <div>
+          <p>注册页面</p>
+        </div>
+      `,
+      // 输出路径
+      created: function() {
+        console.log(this.$route);
+        console.log(this.$route.params);
+      }
+    }
+
+    // 4. 创建路由挂载对象
+    var router = new VueRouter({
+      // 5. 配置路由对象
+      routes: [
+        {
+          name: 'login',
+          path: '/myLogin',
+          component: Login
+        },
+        {
+          name: 'register',
+          path: '/myRegister/:name',
+          component: Register
+        }
+      ]
+    });
+
+    // 6. 指定路由改变局部的位置
+    var App = {
+      template: `
+        <div>
+          <router-link :to="{ name: 'login', query: { id: 1 } }">登录</router-link>
+          <router-link :to="{ name: 'register', params:{ name: 'jsliang' } }">注册</router-link>
+          <router-view></router-view>
+        </div>
+      `
+    }
+
+    // 7. 将路由对象关联到 Vue 实例中
+    new Vue({
+      el: document.getElementById('app'),
+      // 注意这里比平时多了个 router，标明我们要开启路由模式
+      router: router,
+      components: {
+        app: App
+      },
+      template: `<app/>`
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;下面我们先查看其结果：
+
+![图](../../public-repertory/img/js-vue-basic-learning-19.gif)
+
+<br>
+
+&emsp;在这里，我们有两种传参方式：
+
+* query 传参：
+
+&emsp;首先，在第 6 步的 `:to` 中，我们通过 `<router-link :to="{ name: 'login', query: { id: 1 } }">登录</router-link>`，设置传参的值为 `id=1`。  
+&emsp;接着，在第 3 步的 `Login` 组件中定义 `created`，打印出它的对象及其参数：
+
+```
+{name: "login", meta: {…}, path: "/myLogin", hash: "", query: {…}, …}
+
+{id: 1}
+```    
+
+&emsp;最后，在页面中路径显示为显示为：`http://127.0.0.1:8080/#/myLogin?id=1`
+
+* params 传参：
+
+&emsp;首先，在第 6 步的 `:to` 中，我们通过 `<router-link :to="{ name: 'register', params:{ name: 'jsliang' } }">注册</router-link>`，设置传参的值为 `name=jsliang`。  
+&emsp;接着，在第 5 步中，给它的 `path` 预留个 `name` 的插槽：` path: '/myRegister/:name'`  
+&emsp;然后，在第 3 步的 `Login` 组件中定义 `created`，打印出它的对象及其参数：
+
+```
+{name: "register", meta: {…}, path: "/myRegister/jsliang", hash: "", query: {…}, …}
+
+{name: "jsliang"}
+```
+
+&emsp;最后，在页面中路径显示为：`http://127.0.0.1:8080/#/myRegister/jsliang`
+
+<br>
+
+&emsp;当然，小伙伴可能会考虑到传多个参数：
+
+> query 传多个参数代码片段：`http://127.0.0.1:8080/#/myLogin?id=1&name=jsliang`
+
+```
+<router-link :to="{ name: 'login', query: { id: 1, name: 'jsliang' } }">登录</router-link>
+```
+
+<br>
+
+> params 传多个参数代码片段：`http://127.0.0.1:8080/#/myRegister/2/梁峻荣`
+
+```
+path: '/myRegister/:id/:name'
+
+<router-link :to="{ name: 'register', params:{ id: 2, name: '梁峻荣' } }">注册</router-link>
+```
 
 <br>
 
