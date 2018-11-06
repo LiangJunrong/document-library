@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-11-5 21:41:11**
+> Recently revised in **2018-11-6 08:00:55**
 
 <br>
 
@@ -10,7 +10,7 @@ Vue
 
 <br>
 
-&emsp;每日一更，最新发布在 [GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md) 地址，掘金最新更新时间：`2018-11-5 21:41:17`
+&emsp;每日一更，最新发布在 [GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md) 地址，掘金最新更新时间：`2018-11-6 08:01:05`
 
 &emsp;**记录下关于 Vue 框架的系统学习旅途：Vue 基础 -> Vue 实战 -> Vue 源码剖析。**  
 
