@@ -2498,6 +2498,16 @@ console.log(this.$refs.temp.$el);
 * 传统开发方式中，url 改变后，立刻发起请求，响应整个页面，渲染整个页面。
 * SPA 锚点值改变后，不会发起立即发起请求。发起 ajax 请求，SPA 应用会局部改变页面数据。
 
+<br>
+
+## <a name="chapter-three-thirteen-one" id="chapter-three-thirteen-one">3.13.1 路由初定义</a>
+
+> [返回目录](#catalog-chapter-three-thirteen)
+
+<br>
+
+&emsp;话不多说，先上代码：
+
 > index.html
 
 ```
@@ -2574,11 +2584,22 @@ console.log(this.$refs.temp.$el);
 
 <br>
 
-&emsp;这样，我们在页面后面敲上 `/login`，页面就会加载 `Login` 子组件。例如 **jsliang** 的就是：
+&emsp;在上面代码中，我们按顺序可以看出 SPA 页面路由的使用。那么，他们是怎么显示的呢？  
+&emsp;我们在展示的页面后面敲上 `/login`，页面就会加载 `Login` 子组件。例如 **jsliang** 的就是：
 
 ```
 http://127.0.0.1:8080/#/login
 ```
+
+<br>
+
+## <a name="chapter-three-thirteen-two" id="chapter-three-thirteen-two">3.13.2 router-view 与 router-link</a>
+
+> [返回目录](#catalog-chapter-three-thirteen)
+
+<br>
+
+&emsp;
 
 <br>
 
