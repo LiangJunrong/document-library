@@ -1783,6 +1783,82 @@ var App = {
 
 <br>
 
+&emsp;话不多说，先上代码：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var lifeCycle = {
+      template: `
+        <div>
+          我是生命周期组件
+        </div>
+      `,
+      data: function() {
+        return {
+          text: 'Hello World!'
+        }
+      },
+      beforeCreate: function() {
+        // 组件创建之前
+        console.log(this.text); // [Console] undefined
+      },
+      created: function() {
+        // 组件创建之后
+        console.log(this.text); // [Console] Hello World!
+      }
+
+      /*
+        使用 lifeCycle 组件，就会触发以上的事件函数（钩子函数）
+        created 中可以操作数据，并且可以实现 Vue -> 页面 的影响
+        应用：发起 ajax 请求
+      */
+    }
+
+    var App = {
+      components: {
+        'life-cycle': lifeCycle
+      },
+      template: `
+        <div>
+          <life-cycle></life-cycle>
+        </div>
+      `
+    }
+
+    new Vue({
+      el: document.getElementById('app'),
+      components: {
+        app: App
+      },
+      template: `
+        <app/>
+      `
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;在代码中可以看到，我们在 `App` 中引用了 `lifeCycle` 这个组件。  
+&emsp;我们通过钩子函数 `beforeCreate` 与 `created`，结合 `console` 发现，这两个钩子函数对于 `data` 来说，一个在 `data` 挂载前（beforeCreate），所以打印出来的是：`undefined`，而另外一个发生在 `data` 挂载后，所以打印出来的是：`Hello World!`
 
 <br>
 
