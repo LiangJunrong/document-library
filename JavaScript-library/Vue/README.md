@@ -57,8 +57,8 @@ Vue
 | &emsp;&emsp;[3.11.1 beforeCreate & created](#chapter-three-eleven-one) |
 | &emsp;&emsp;[3.11.2 beforeMount & mounted](#chapter-three-eleven-two) |
 | &emsp;&emsp;[3.11.3 beforeUpdate & updated](#chapter-three-eleven-three) |
-| &emsp;&emsp;[3.11.4 activated & deactivated](#chapter-three-eleven-four) |
-| &emsp;&emsp;[3.11.5 beforeDestory & destory](#chapter-three-eleven-five) |
+| &emsp;&emsp;[3.11.4 beforeDestory & destory](#chapter-three-eleven-four) |
+| &emsp;&emsp;[3.11.5 activated & deactivated](#chapter-three-eleven-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
@@ -1767,7 +1767,7 @@ var App = {
 
 <br>
 
-&emsp;关于生命周期，Vue 官方文档是有相关图示的：
+&emsp;关于生命周期，Vue 官方文档是有相关图示及文档的：[官方文档 - Vue 生命周期](https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90)
 
 ![图](../../public-repertory/img/js-vue-basic-learning-11.png)
 
@@ -2044,16 +2044,7 @@ var App = {
 
 <br>
 
-## <a name="chapter-three-eleven-four" id="chapter-three-eleven-four">3.11.4 activated & deactivated</a>
-
-> [返回目录](#catalog-chapter-three)
-
-<br>
-
-
-<br>
-
-## <a name="chapter-three-eleven-five" id="chapter-three-eleven-five">3.11.5 beforeDestory & destory</a>
+## <a name="chapter-three-eleven-four" id="chapter-three-eleven-four">3.11.4 beforeDestory & destory</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -2137,6 +2128,97 @@ var App = {
 
 &emsp;可以看出，当我们点击 `<button>` 的时候，我们的 `isExist` 状态（第一次时）被改变为 `false`，从而触发了 `lifeCycle` 的销毁钩子函数，在控制台打印了上面两行话。  
 &emsp;相应的，如果是当 `isExist` 状态变为 `true` 的时候，会触发我们的 `beforeCreate` 和 `created` 这两个钩子函数，有兴趣的小伙伴可以尝试一下，这里不做过多演示。
+
+<br>
+
+
+## <a name="chapter-three-eleven-five" id="chapter-three-eleven-five">3.11.5 activated & deactivated</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;经过长期的工作，我们知道，如果频繁的操作 DOM，进行影响到钩子函数 `beforeCreate` 和 `created` 及 `beforeDestory` 和 `destory` 的操作，是对我们的性能会产生影响的。我们要如何防止某部分代码的频繁操作 DOM，并且监听到它的操作呢？
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var lifeCycle = {
+      template: `
+        <div id="update">
+          <p>我是生命周期组件</p>
+        </div>
+      `,
+      activated: function() {
+        console.log("组件被激活了");
+      },
+      deactivated: function() {
+        console.log("组件被停用了");
+      }
+    }
+
+    var App = {
+      components: {
+        'life-cycle': lifeCycle
+      },
+      data: function() {
+        return {
+          isExist: true
+        }
+      },
+      template: `
+        <div>
+          <keep-alive>
+            <life-cycle v-if="isExist"></life-cycle>
+          </keep-alive>
+          <button @click="isExist = !isExist">点击改变 子组件 状态</button>
+        </div>
+      `
+    }
+
+    new Vue({
+      el: document.getElementById('app'),
+      components: {
+        app: App
+      },
+      template: `
+        <app/>
+      `
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;在代码中，我们通过 `<keep-alive></keep-alive>` 这个 Vue 的内置组件，对我们子组件进行了包裹。  
+&emsp;然后，当我们进入页面和点击按钮时，做到了 `activated` 和 `deactivated` 这两个钩子函数的触发：
+
+![图](../../public-repertory/img/js-vue-basic-learning-15.png)
+
+<br>
+
+&emsp;可以看出，当我们进来页面的时候，它就告诉我们，该组件被激活了。当我们第一次点击 `<button>` 按钮的时候，`isExist` 的状态变成了 `false`，即该组件被停用了。最后，我们再次点击了 `<button>`，这时候控制台再次打印 `组件被激活了`。
+
+<br>
+
+* 小结：这时候，希望小伙伴回到生命周期章节的开头，看官方关于生命周期的解析图，它将有助于我们更加理解声明周期。如果还是不够清晰，可以点击图片旁边的按钮，进入官方文档，查看官方关于生命周期的解析。[【返回加深学习】](#chapter-three-eleven)
 
 <br>
 
