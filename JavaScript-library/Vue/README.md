@@ -2494,7 +2494,91 @@ console.log(this.$refs.temp.$el);
 
 <br>
 
-&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
+&emsp;在介绍路由的时候，我们先理清下传统开发方式的路由和 SPA 页面的路由：
+* 传统开发方式中，url 改变后，立刻发起请求，响应整个页面，渲染整个页面。
+* SPA 锚点值改变后，不会发起立即发起请求。发起 ajax 请求，SPA 应用会局部改变页面数据。
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+  
+  <!-- 1. 引入 vue-router 这个插件 对象 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.js"></script>
+  
+  <script>
+
+    
+
+    // 2. 使用插件
+    Vue.use(VueRouter);
+
+    // 3. 定义路由对象
+    var Login = {
+      template: `
+        <div>
+          <button>登录</button>
+        </div>
+      `
+    }
+
+    // 4. 创建路由挂载对象
+    var router = new VueRouter({
+      // 5. 配置路由对象
+      routes: [
+        {
+          path: '/login',
+          component: Login
+        }
+      ]
+    });
+
+    // 6. 指定路由改变局部的位置
+    var App = {
+      template: `
+        <div>
+          <router-view></router-view>
+        </div>
+      `
+    }
+
+    // 7. 将路由对象关联到 Vue 实例中
+    new Vue({
+      el: document.getElementById('app'),
+      // 注意这里比平时多了个 router，标明我们要开启路由模式
+      router: router,
+      components: {
+        app: App
+      },
+      template: `<app/>`
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;这样，我们在页面后面敲上 `/login`，页面就会加载 `Login` 子组件。例如 **jsliang** 的就是：
+
+```
+http://127.0.0.1:8080/#/login
+```
 
 <br>
 
