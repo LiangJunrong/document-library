@@ -2059,6 +2059,84 @@ var App = {
 
 <br>
 
+&emsp;话不多说，先上代码：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var lifeCycle = {
+      template: `
+        <div id="update">
+          <p>我是生命周期组件</p>
+        </div>
+      `,
+      // 对应父组件 v-if == false 的时候，就产生下面钩子函数，销毁当前组件
+      beforeDestroy: function() { 
+        // 销毁之前
+        console.log('实例销毁之前调用。在这一步，实例仍然完全可用。');
+      },
+      destroyed: function() {
+        // 销毁之后
+        console.log('Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。');
+      }
+    }
+
+    var App = {
+      components: {
+        'life-cycle': lifeCycle
+      },
+      data: function() {
+        return {
+          isExist: true
+        }
+      },
+      template: `
+        <div>
+          <life-cycle v-if="isExist"></life-cycle>
+          <button @click="isExist = !isExist">点击改变 子组件 状态</button>
+        </div>
+      `
+    }
+
+    new Vue({
+      el: document.getElementById('app'),
+      components: {
+        app: App
+      },
+      template: `
+        <app/>
+      `
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;在这里，我们在点击 `<button>` 的时候，控制台显示为：
+
+![图](../../public-repertory/img/js-vue-basic-learning-14.png)
+
+<br>
+
+&emsp;可以看出，当我们点击 `<button>` 的时候，我们的 `isExist` 状态（第一次时）被改变为 `false`，从而触发了 `lifeCycle` 的销毁钩子函数，在控制台打印了上面两行话。  
+&emsp;相应的，如果是当 `isExist` 状态变为 `true` 的时候，会触发我们的 `beforeCreate` 和 `created` 这两个钩子函数，有兴趣的小伙伴可以尝试一下，这里不做过多演示。
 
 <br>
 
