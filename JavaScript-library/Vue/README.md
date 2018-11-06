@@ -2032,7 +2032,8 @@ var App = {
 
 <br>
 
-&emsp;可以看出，`beforeUpdate` 和 `updated` 可以获取到 `<button>` 按钮触发的事件前后 DOM 的变化，通过这个变化，我们可以在当中做一些操作，从而更好的满足我们的业务需求。
+&emsp;可以看出，`beforeUpdate` 可以获取原 DOM，而 `updated` 可以获取新 DOM。  
+&emsp;它们在上面代码中变现为：获取 `<button>` 按钮触发的事件前后 DOM 的变化，通过这个变化，我们可以在当中做一些操作，从而更好的满足我们的业务需求。
 
 <br>
 
