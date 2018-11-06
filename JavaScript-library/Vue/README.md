@@ -2531,8 +2531,6 @@ console.log(this.$refs.temp.$el);
   
   <script>
 
-    
-
     // 2. 使用插件
     Vue.use(VueRouter);
 
@@ -2540,7 +2538,7 @@ console.log(this.$refs.temp.$el);
     var Login = {
       template: `
         <div>
-          <button>登录</button>
+          <p>登录页面</p>
         </div>
       `
     }
@@ -2584,12 +2582,18 @@ console.log(this.$refs.temp.$el);
 
 <br>
 
-&emsp;在上面代码中，我们按顺序可以看出 SPA 页面路由的使用。那么，他们是怎么显示的呢？  
-&emsp;我们在展示的页面后面敲上 `/login`，页面就会加载 `Login` 子组件。例如 **jsliang** 的就是：
+&emsp;在上面代码中，我们先编写第 1 步，引用 `vue-router` 这个插件。  
+&emsp;然后，我们通过第 2 步 `Vue.use(VueRouter)` 来使用这个插件。  
+&emsp;接着，我们通过第 3 步来定义路由对象，即我们的子组件页面。  
+&emsp;再来，我们通过第 4 步创建路由挂载对象后，在第 5 步配置路由对象。  
+&emsp;紧接着，我们通过第 6 步的 `<router-view></router-view>` 来挂载我们的路由子组件。  
+&emsp;最后，我们通过第 7 步的操作，在 `new Vue` 中使用 `router`，从而做到 SPA 页面路由的使用。  
 
-```
-http://127.0.0.1:8080/#/login
-```
+&emsp;那么，他们是怎么显示的呢？  
+&emsp;我们在展示的页面后面敲上 `/login`，页面就会加载 `Login` 子组件。例如 **jsliang** 的就是 `http://127.0.0.1:8080/#/login`。  
+&emsp;此刻页面显示为：
+
+![图](../../public-repertory/img/js-vue-basic-learning-17.png)
 
 <br>
 
@@ -2599,7 +2603,100 @@ http://127.0.0.1:8080/#/login
 
 <br>
 
-&emsp;
+&emsp;话不多说，先看代码：
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+  
+  <!-- 1. 引入 vue-router 这个插件 对象 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.js"></script>
+  
+  <script>
+
+    // 2. 使用插件
+    Vue.use(VueRouter);
+
+    // 3. 定义路由对象
+    var Login = {
+      template: `
+        <div>
+          <p>登录页面</p>
+        </div>
+      `
+    }
+    var Register = {
+      template: `
+        <div>
+          <p>注册页面</p>
+        </div>
+      `
+    }
+
+    // 4. 创建路由挂载对象
+    var router = new VueRouter({
+      // 5. 配置路由对象
+      routes: [
+        {
+          path: '/login',
+          component: Login
+        },
+        {
+          path: '/register',
+          component: Register
+        }
+      ]
+    });
+
+    // 6. 指定路由改变局部的位置
+    var App = {
+      template: `
+        <div>
+          <router-link to="login">登录</router-link>
+          <router-link to="register">注册</router-link>
+          <router-view></router-view>
+        </div>
+      `
+    }
+
+    // 7. 将路由对象关联到 Vue 实例中
+    new Vue({
+      el: document.getElementById('app'),
+      // 注意这里比平时多了个 router，标明我们要开启路由模式
+      router: router,
+      components: {
+        app: App
+      },
+      template: `<app/>`
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;在上一章节理解了路由的使用之后，现在我们要做的很简单，就是在第 3 步中定义 `Register` 组件，并在第 5 步中挂载该组件，最后通过第 6 步的 `<router-link to="***"></router-link>`，从而达到 `<router-view></router-view>` 中展示对应路由组件的目的。  
+
+&emsp;下面我们查看下该代码是否能正确运行：
+
+![图](../../public-repertory/img/js-vue-basic-learning-18.gif)
 
 <br>
 
