@@ -2037,6 +2037,13 @@ var App = {
 
 <br>
 
+* 小结：（ `beforeMount` & `mounted` ） VS （ `beforeUpdate` & `updated` ） 
+
+&emsp;那么问题来了，`beforeMount` 这组和 `beforeUpdate` 都能监控到 DOM 的变化，它们有什么区别呢？  
+&emsp;答案是，一般我们如果需要在页面加载的时候，监控 DOM 的变化，那就使用 `beforeMount` 和 `mounted`；但是，如果我们想监控用户的操作（点击事件等），那么，我们就需要使用 `beforeUpdate` 和 `updated`，因为它们不像 `beforeMount` 和 `mounted` 只会在页面挂载初期执行一次，它们可以根据用户的操作被执行多次。
+
+<br>
+
 ## <a name="chapter-three-eleven-four" id="chapter-three-eleven-four">3.11.4 activated & deactivated</a>
 
 > [返回目录](#catalog-chapter-three)
