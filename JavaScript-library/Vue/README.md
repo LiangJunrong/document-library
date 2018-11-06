@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-11-6 08:00:55**
+> Recently revised in **2018-11-6 13:14:58**
 
 <br>
 
@@ -10,7 +10,7 @@ Vue
 
 <br>
 
-&emsp;每日一更，最新发布在 [GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md) 地址，掘金最新更新时间：`2018-11-6 08:01:05`
+&emsp;每日一更，最新发布在 [GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md) 地址，[掘金](https://juejin.im/post/5bdea213e51d45054e1685b6)最新更新时间：`2018-11-6 13:15:03`
 
 &emsp;**记录下关于 Vue 框架的系统学习旅途：Vue 基础 -> Vue 实战 -> Vue 源码剖析。**  
 
@@ -1341,6 +1341,8 @@ el: document.getElementById('app'),
 &emsp;在上面，我们讲了通过 `watch` 来监听 `data` 中 `number`、`string` 等字段的改变。但是，如果我们需要监听的是 `array` 等复杂的数据，却发现上面的手段无效。  
 &emsp;而 `watch` 之所以没法监视复杂类型，是因为它监听的是对象的地址，而我们的地址没改，改的是同地址属性的值，导致我们没法监听到数据的变化。所以，对于数组等复杂类型，我们需要开启深度监视。
 
+> index.html
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -1500,6 +1502,8 @@ el: document.getElementById('app'),
 
 &emsp;话不多说，先上代码：
 
+> index.html
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -1632,6 +1636,8 @@ var App = {
 <br>
 
 &emsp;在上面中，我们谈论到了单个插槽 `slot` 的用法。但是，如果组件想根据父组件是否传递某个变量来存放插槽的数量，要怎么做呢？
+
+> index.html
 
 ```
 <!DOCTYPE html>
@@ -1786,6 +1792,8 @@ var App = {
 
 &emsp;话不多说，先上代码：
 
+> index.html
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -1871,6 +1879,8 @@ var App = {
 
 &emsp;话不多说，先上代码：
 
+> index.html
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -1953,6 +1963,8 @@ var App = {
 <br>
 
 &emsp;话不多说，先上代码：
+
+> index.html
 
 ```
 <!DOCTYPE html>
@@ -2053,6 +2065,8 @@ var App = {
 
 &emsp;话不多说，先上代码：
 
+> index.html
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -2140,6 +2154,8 @@ var App = {
 <br>
 
 &emsp;经过长期的工作，我们知道，如果频繁的操作 DOM，进行影响到钩子函数 `beforeCreate` 和 `created` 及 `beforeDestory` 和 `destory` 的操作，是对我们的性能会产生影响的。我们要如何防止某部分代码的频繁操作 DOM，并且监听到它的操作呢？
+
+> index.html
 
 ```
 <!DOCTYPE html>
@@ -2229,7 +2245,70 @@ var App = {
 
 <br>
 
-&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
+&emsp;在日常开发中，可能有小伙伴会想到操作 DOM 元素。如果用原生的 `document.getElementById` 吧，可能太 `low` 了，所以，有没有类似于 jQuery 的 `$("#id")` 之类的呢？
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    var App = {
+      template: `
+        <div>
+          <button ref="btn">按钮</button>
+        </div>
+      `,
+      beforeCreate: function() {
+        // 这里不能操作数据，只是初始化了事件等……
+        console.log(this.$refs.btn); // [Console] undefined
+      },
+      created: function() {
+        // 可以操作数据了
+        console.log(this.$refs.btn); // [Console] undefined
+      },
+      beforeMount: function() {
+        // new Vue 发生装载，替换 <div id="app"></div> 之前
+        console.log(this.$refs.btn); // [Console] undefined
+      },
+      mounted: function() {
+        // 装载数据之后
+        console.log(this.$refs.btn.innerHTML); // [Console] 按钮
+      }
+    }
+
+    new Vue({
+      el: document.getElementById('app'),
+      components: {
+        app: App
+      },
+      template: `<app/>`
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;首先，我们在组件的 DOM 部分（`<button>`），写上 ref = "btn"。  
+&emsp;然后，我们发现只有在 `mounted` 数据装载之后这个钩子函数中，通过组件对象 `this.$refs.btn` 可以获取到元素  
+&emsp;这样，我们就知道在一些场景，如何可以方便地通过 Vue 获取到 DOM 元素了。
 
 <br>
 
