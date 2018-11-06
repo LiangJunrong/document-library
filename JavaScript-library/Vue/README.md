@@ -1822,9 +1822,9 @@ var App = {
       }
 
       /*
-        使用 lifeCycle 组件，就会触发以上的事件函数（钩子函数）
-        created 中可以操作数据，并且可以实现 Vue -> 页面 的影响
-        应用：发起 ajax 请求
+        * 使用 lifeCycle 组件，就会触发以上的事件函数（钩子函数）
+        * created 中可以操作数据，并且可以实现 Vue -> 页面 的影响
+        * 应用：发起 ajax 请求
       */
     }
 
@@ -1868,6 +1868,80 @@ var App = {
 
 <br>
 
+&emsp;话不多说，先上代码：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var lifeCycle = {
+      template: `
+        <div>
+          我是生命周期组件
+        </div>
+      `,
+      data: function() {
+        return {
+          text: 'Hello World!'
+        }
+      },
+      beforeMount: function() {
+        // Vue 起作用之前
+        console.log(document.body.innerHTML);
+      },
+      mounted: function() {
+        // Vue 起作用，装载数据到 DOM 之后
+        console.log(document.body.innerHTML);
+      }
+    }
+
+    var App = {
+      components: {
+        'life-cycle': lifeCycle
+      },
+      template: `
+        <div>
+          <life-cycle></life-cycle>
+        </div>
+      `
+    }
+
+    new Vue({
+      el: document.getElementById('app'),
+      components: {
+        app: App
+      },
+      template: `
+        <app/>
+      `
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+&emsp;那么，虽说它们的作用，一个是 Vue 起作用之前，一个是 Vue 起作用，装载数据到 DOM 之后。  
+&emsp;我们应该怎样才能观察到它的作用？
+
+![图](../../public-repertory/img/js-vue-basic-learning-12.png)
+
+<br>
+
+&emsp;看到上图的红框，也许你会恍然大悟：“喔，`beforeMount` 就是我装载之前的钩子函数，而 `mounted` 是我装载之后的钩子函数，它是 Vue 作用以后的 DOM”
 
 <br>
 
@@ -1877,6 +1951,88 @@ var App = {
 
 <br>
 
+&emsp;话不多说，先上代码：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var lifeCycle = {
+      template: `
+        <div id="update">
+          <p>我是生命周期组件</p>
+          <p>{{text}}</p>
+          <button @click="text = '!dlroW olleH'">点击改变 text</button>
+        </div>
+      `,
+      data: function() {
+        return {
+          text: 'Hello World!'
+        }
+      },
+      // 基于数据改变，影响页面
+      beforeUpdate: function() {
+        // 改变前
+        console.log(document.getElementById('update').innerHTML);
+      },
+      updated: function() {
+        // 改变后
+        console.log(document.getElementById('update').innerHTML);
+      }
+
+      /*
+        * 在日常工作中，我们可以在事件前后拿到它的 DOM，从而做一些我们想要的操作
+      */
+    }
+
+    var App = {
+      components: {
+        'life-cycle': lifeCycle
+      },
+      template: `
+        <div>
+          <life-cycle></life-cycle>
+        </div>
+      `
+    }
+
+    new Vue({
+      el: document.getElementById('app'),
+      components: {
+        app: App
+      },
+      template: `
+        <app/>
+      `
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;在解析代码前，我们先查看它的输出：
+
+![图](../../public-repertory/img/js-vue-basic-learning-13.png)
+
+<br>
+
+&emsp;可以看出，`beforeUpdate` 和 `updated` 可以获取到 `<button>` 按钮触发的事件前后 DOM 的变化，通过这个变化，我们可以在当中做一些操作，从而更好的满足我们的业务需求。
 
 <br>
 
