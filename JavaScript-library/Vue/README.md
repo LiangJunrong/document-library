@@ -69,7 +69,8 @@ Vue
 | &emsp;&emsp;[3.13.3 路由 name 的使用](#chapter-three-thirteen-three) |
 | &emsp;&emsp;[3.13.4 路由传参](#chapter-three-thirteen-four) |
 | &emsp;&emsp;[3.13.5 嵌套路由](#chapter-three-thirteen-five) |
-| &emsp;&emsp;[3.13.6 路由守卫](#chapter-three-thirteen-six) |
+| &emsp;&emsp;[3.13.6 编程导航](#chapter-three-thirteen-six) |
+| &emsp;&emsp;[3.13.7 路由守卫](#chapter-three-thirteen-seven) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
@@ -3133,7 +3134,42 @@ template: `
 
 <br>
 
-## <a name="chapter-three-thirteen-six" id="chapter-three-thirteen-six">3.13.6 路由守卫</a>
+## <a name="chapter-three-thirteen-six" id="chapter-three-thirteen-six">3.13.6 编程导航</a>
+
+> [返回目录](#catalog-chapter-three-thirteen)
+
+<br>
+
+1. 跳到指定的锚点，并显示页面：
+
+```
+this.$router.push(
+  {
+    name: '***',
+    query: {
+      id: 1,
+    },
+    params: {
+      name: 'abc'
+    }
+  }
+)
+```
+
+2. 配置规则： 
+
+```
+{
+  name: '***',
+  path: '/xxx/:name'
+}
+```
+
+3. 根据历史记录，前进或者后退：`this.$router.go(-1|1);`
+
+<br>
+
+## <a name="chapter-three-thirteen-seven" id="chapter-three-thirteen-seven">3.13.7 路由守卫</a>
 
 > [返回目录](#catalog-chapter-three-thirteen)
 
