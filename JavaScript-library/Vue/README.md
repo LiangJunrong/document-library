@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-11-6 13:14:58**
+> Recently revised in **2018-11-7 08:36:01**
 
 <br>
 
@@ -68,6 +68,7 @@ Vue
 | &emsp;&emsp;[3.13.2 router-view 与 router-link](#chapter-three-thirteen-two) |
 | &emsp;&emsp;[3.13.3 路由 name 的使用](#chapter-three-thirteen-three) |
 | &emsp;&emsp;[3.13.4 路由传参](#chapter-three-thirteen-four) |
+| &emsp;&emsp;[3.13.5 嵌套路由](#chapter-three-thirteen-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
@@ -2489,7 +2490,6 @@ console.log(this.$refs.temp.$el);
 &emsp;如上，通过 Vue 的全局 API `Vue.nextTick()`，我们在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。  
 &emsp;这个操作我们可想象下 `Promise` 的执行流程，会获得更好的体验。
 
-
 <br>
 
 ## <a name="chapter-three-thirteen" id="chapter-three-thirteen">3.13 路由</a>
@@ -2974,6 +2974,161 @@ path: '/myRegister/:id/:name'
 
 <router-link :to="{ name: 'register', params:{ id: 2, name: '梁峻荣' } }">注册</router-link>
 ```
+
+<br>
+
+## <a name="chapter-three-thirteen-five" id="chapter-three-thirteen-five">3.13.5 嵌套路由</a>
+
+> [返回目录](#catalog-chapter-three-thirteen)
+
+<br>
+
+&emsp;在章节 `3.10 传递 DOM - slot` 中，我们提到了 `slot` 及具名 `slot` 的区分。然后，在 Vue 日常开发中，如果我们的路由只能一个 `<router-view></router-view>` 放整版页面，这是满足不了我们需求的。  
+&emsp;所以，你考虑到的，大佬们也考虑到了：嵌套路由！通过不同锚点值，填入不同的组件。
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+  
+  <!-- 1. 引入 vue-router 这个插件 对象 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.js"></script>
+  
+  <script>
+
+    // 2. 使用插件
+    Vue.use(VueRouter);
+
+    // 3. 定义路由对象
+    var Login = {
+      // 8. 插槽。路由对象下中还有 <router-view>
+      template: `
+        <div>
+          <p>登录页面</p>
+          <router-link :to="{ name: 'poorManLogin' }">我是屌丝</router-link>
+          <router-link :to="{ name: 'richManLogin' }">我是土豪</router-link>
+          <router-view></router-view>
+        </div>
+      `
+    }
+    // 9. 二级路由子组件
+    var poorManLogin = {
+      template: `
+        <p>屌丝登录页面</p>
+      `
+    }
+    var richManLogin = {
+      template: `
+        <p>土豪登录页面</p>
+      `
+    }
+
+    var Register = {
+      template: `
+        <div>
+          <p>注册页面</p>
+        </div>
+      `
+    }
+
+    // 4. 创建路由挂载对象
+    var router = new VueRouter({
+      // 5. 配置路由对象
+      routes: [
+        {
+          name: 'login',
+          path: '/myLogin',
+          component: Login,
+          // 10. 定义路由下的子路由
+          children: [
+            {
+              name: 'poorManLogin',
+              path: 'loginWayOne',
+              component: poorManLogin
+            }, 
+            {
+              name: 'richManLogin',
+              path: 'loginWayTwo',
+              component: richManLogin
+            }
+          ]
+        },
+        {
+          name: 'register',
+          path: '/myRegister',
+          component: Register
+        }
+      ]
+    });
+
+    // 6. 指定路由改变局部的位置
+    var App = {
+      template: `
+        <div>
+          <router-link :to="{ name: 'login' }">登录</router-link>
+          <router-link :to="{ name: 'register' }">注册</router-link>
+          <router-view></router-view>
+        </div>
+      `
+    }
+
+    // 7. 将路由对象关联到 Vue 实例中
+    new Vue({
+      el: document.getElementById('app'),
+      // 注意这里比平时多了个 router，标明我们要开启路由模式
+      router: router,
+      components: {
+        app: App
+      },
+      template: `<app/>`
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;先看看代码的实现效果：
+
+![图](../../public-repertory/img/js-vue-basic-learning-20.gif)
+
+<br>
+
+&emsp;首先，我们使用章节 `3.13.3 路由 name 的使用` 的代码，在其基础上开发，没有搞懂该章节代码的小伙伴可以先看该章节代码讲解。  
+&emsp;然后，我们在第 8 步中，给路由对象再嵌套子路由：
+
+```
+// 8. 插槽。路由对象下中还有 <router-view>
+template: `
+  <div>
+    <p>登录页面</p>
+    <router-link :to="{ name: 'poorManLogin' }">我是屌丝</router-link>
+    <router-link :to="{ name: 'richManLogin' }">我是土豪</router-link>
+    <router-view></router-view>
+  </div>
+`
+```
+
+&emsp;接着，我们在第 9 步中定义这两个路由子组件。  
+&emsp;最后，我们在第 10 步中，通过 `children` 数组，将这两个子组件配置到路由对象上，我们就可以在 `<router-view>` 的组件中，再定义一层 `<router-view>`，并使用它，从而做到嵌套路由的开发。
+
+&emsp;看到这里，小伙伴们是不是也想到了，可以用嵌套路由来满足用单页应用来开发多页应用的目的~
 
 <br>
 
