@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-11-7 09:29:18**
+> Recently revised in **2018-11-7 13:13:39**
 
 <br>
 
@@ -3230,6 +3230,9 @@ template: `
         // 如果是前往用户页，则需要进行判断 localStorage 是否有值
         if(!localStorage.getItem("userName")) {
           alert('请登录~');
+          next({
+            name: 'login'
+          })
         } else {
           // 执行下一步，不定义就会卡住
           next();
