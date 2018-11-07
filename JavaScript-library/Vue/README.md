@@ -3278,11 +3278,14 @@ template: `
 
 &emsp;首先，我们做下知识点讲解：
 
-* 路由 meta 元数据 -> meta 是对于路由规则是否需要验证权限的配置
-  * 路由对象中和 name 属性同级 { meta: { isChecked: true }}
-* 路由钩子 -> 权限控制的函数执行时期
-  * 每次路由匹配后，渲染组件到 router-view 之前
-  * router.beforeEach(function(to, from, next){  })
+* 路由元数据 `meta`
+1. `meta` 是对于路由规则是否需要验证权限的配置。
+2. 在路由对象中和 `name` 属性同级的代码上添加 `{ meta: { isChecked: true }}` 即可做标记。
+
+* 路由钩子 
+1. 路由钩子发生在权限控制的函数执行时期。在每次路由匹配后，渲染组件到 `router-view` 之前触发。
+2. `router.beforeEach(function(to, from, next){  })`
+3. `next()` 有三种状态：1.`next()` 为放行，即路由可以正常跳转；2.`next(false)` 为取消用户导航的行为，即不放行；3.`next({name:'***'})` 为重定向到某个页面。
 
 &emsp;然后，在 `index.html` 中，我们在第 3 步中，做了个简单登录页面，将用户输入的信息 `userName`，存储到了 `localStorage`。  
 &emsp;接着，在第 5 步中，我们对 `user` 路由，做了 `meta` 判断，进行权限控制。  
