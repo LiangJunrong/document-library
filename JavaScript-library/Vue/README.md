@@ -3132,6 +3132,162 @@ template: `
 
 <br>
 
+## <a name="chapter-three-thirteen-six" id="chapter-three-thirteen-six">3.13.6 路由守卫</a>
+
+> [返回目录](#catalog-chapter-three-thirteen)
+
+<br>
+
+&emsp;话不多说，先上代码：
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+  
+  <!-- 1. 引入 vue-router 这个插件 对象 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.js"></script>
+  
+  <script>
+
+    // 2. 使用插件
+    Vue.use(VueRouter);
+
+    // 3. 定义路由对象
+    var Login = {
+      // 简单的登录页面
+      template: `
+        <div>
+          <p>登录页面</p>
+          <span>用户名：</span>
+          <input type="text" v-model="userName" />
+          <a href="javascript:void(0)" @click="login">登录</a>
+        </div>
+      `,
+      data() {
+        return {
+          userName: ''
+        }
+      },
+      methods: {
+        // 点击登录按钮，将输入框的内容记录为 userName，并存到 localStorage
+        login: function(e) {
+          localStorage.setItem("userName", this.userName);
+          console.log("存储了用户名：" + this.userName);
+        }
+      }
+    }
+    var User = {
+      template: `
+        <div>
+          <p>用户页面</p>
+        </div>
+      `
+    }
+
+    // 4. 创建路由挂载对象
+    var router = new VueRouter();
+
+    // 5. 动态配置路由对象，设置路由规则
+    router.addRoutes([
+        {
+          name: 'login',
+          path: '/login',
+          component: Login
+        },
+        {
+          name: 'user',
+          path: '/user',
+          component: User,
+          // 权限控制，给用户界面定义全局路由守卫
+          meta: {
+            isChecked: true
+          }
+        }
+    ])
+
+    // 6. 定义路由守卫
+    router.beforeEach(function(to, from, next) {
+      // 如果是前往登录页或者首页，则直接前往
+      if(to.name === "login" || to.path === '/') {
+        // 执行下一步，不定义就会卡住
+        next();
+      } else {
+        // 如果是前往用户页，则需要进行判断 localStorage 是否有值
+        if(!localStorage.getItem("userName")) {
+          alert('请登录~');
+        } else {
+          // 执行下一步，不定义就会卡住
+          next();
+        }
+      }
+    })
+
+    // 7. 指定路由改变局部的位置
+    var App = {
+      template: `
+        <div>
+          <router-link :to="{ name: 'login' }">登录</router-link>
+          <router-link :to="{ name: 'user' }">我的</router-link>
+          <router-view></router-view>
+        </div>
+      `
+    }
+
+    // 8. 将路由对象关联到 Vue 实例中
+    new Vue({
+      el: document.getElementById('app'),
+      // 注意这里比平时多了个 router，标明我们要开启路由模式
+      router: router,
+      components: {
+        app: App
+      },
+      template: `<app/>`
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;看下代码成果：
+
+![图](../../public-repertory/img/js-vue-basic-learning-21.gif)
+
+<br>
+
+&emsp;首先，我们做下知识点讲解：
+
+* 路由 meta 元数据 -> meta 是对于路由规则是否需要验证权限的配置
+  * 路由对象中和 name 属性同级 { meta: { isChecked: true }}
+* 路由钩子 -> 权限控制的函数执行时期
+  * 每次路由匹配后，渲染组件到 router-view 之前
+  * router.beforeEach(function(to, from, next){  })
+
+&emsp;然后，在 `index.html` 中，我们在第 3 步中，做了个简单登录页面，将用户输入的信息 `userName`，存储到了 `localStorage`。  
+&emsp;接着，在第 5 步中，我们对 `user` 路由，做了 `meta` 判断，进行权限控制。  
+&emsp;最后，我们在第 6 步中，定义了路由守卫，先判断是哪个页面登录，如果是登录页或者首页，则直接前往；如果是用户页，则进行 `localStorage` 判断，如果用户输入了并保存了 `userName`，则跳往用户页，否则不给跳转。
+
+&emsp;如此，我们做到了路由守卫。
+
+<br>
+
 # <a name="chapter-four" id="chapter-four">四 代码实战</a>
 
 > [返回目录](#catalog-chapter-four)
