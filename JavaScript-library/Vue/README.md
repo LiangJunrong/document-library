@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-11-7 08:36:01**
+> Recently revised in **2018-11-7 09:29:18**
 
 <br>
 
@@ -10,7 +10,7 @@ Vue
 
 <br>
 
-&emsp;每日一更，最新发布在 [GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md) 地址，[掘金](https://juejin.im/post/5bdea213e51d45054e1685b6)最新更新时间：`2018-11-6 13:15:03`
+&emsp;每日一更，最新发布在 [GitHub](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md) 地址，[掘金](https://juejin.im/post/5bdea213e51d45054e1685b6)最新更新时间：`2018-11-7 09:29:25`
 
 &emsp;**记录下关于 Vue 框架的系统学习旅途：Vue 基础 -> Vue 实战 -> Vue 源码剖析。**  
 
@@ -69,6 +69,7 @@ Vue
 | &emsp;&emsp;[3.13.3 路由 name 的使用](#chapter-three-thirteen-three) |
 | &emsp;&emsp;[3.13.4 路由传参](#chapter-three-thirteen-four) |
 | &emsp;&emsp;[3.13.5 嵌套路由](#chapter-three-thirteen-five) |
+| &emsp;&emsp;[3.13.6 路由守卫](#chapter-three-thirteen-six) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
