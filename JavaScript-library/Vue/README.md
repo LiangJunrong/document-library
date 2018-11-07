@@ -3205,6 +3205,12 @@ template: `
     // 5. 动态配置路由对象，设置路由规则
     router.addRoutes([
         {
+          path: '/',
+          redirect: {
+            name: 'login'
+          }
+        },
+        {
           name: 'login',
           path: '/login',
           component: Login
