@@ -2,18 +2,19 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-11-8 20:49:50**
+> Recently revised in **2018-11-8 21:00:45**
 
 <br>
 
-# <a name="chapter-one" id="chapter-one">一 目录</a>
+# <a name="chapter-one" id="chapter-one">一 学习目录</a>
 
 | 目录 |
 | --- |
 | [Vue 基础]() |
 | [Vue Router]() |
+| [Vue-Cli]() |
 | [Axios]() |
-| [实战：todolist]() |
+| [实战：todolist(尚未开始)]() |
 
 <br>
 
@@ -25,7 +26,7 @@ Vue
 <br>
 
 * 问：学 Vue 有啥用？
-* 答：小伙伴们应该不会跟钱过不去吧？现在企业的前端招聘要求中大都有 Vue 技能需求，所以学了拿更高工资啊。[【 Go! 】](https://www.zhipin.com/geek/new/index/recommend)
+* 答：小伙伴们应该不会跟钱过不去吧？现在企业的前端招聘要求中大都有 Vue 技能需求，所以学了拿更高工资啊。不信？点击去看看：[【 Go! 】](https://www.zhipin.com/geek/new/index/recommend)
 
 <br>
 
@@ -38,16 +39,14 @@ Vue
 * 答：
 1. **开课吧** - [Vue.js 及项目实战(2018/06)](https://www.kaikeba.com/)  
 
-&emsp;在这里偶然发现一套来自 **开课吧** 的教学视频，然后发现它是今年 6 月份录制的，内容上还算是比较新，并且文件命名非常有意思，在这里咱的 Vue 基础知识先跟着它走一遍看看~
+&emsp;在这里偶然发现一套来自 **开课吧** 的教学视频，然后发现它是今年 6 月份录制的，内容上还算是比较新，并且文件命名非常有意思，在这里咱的 Vue 基础知识先跟着它走一遍看看~  
+&emsp;【11-08】补充：Axios 中涉及到 Koa 提供的后端接口，还需要恶补一番 Node 基础或者 Koa 直接上手。
 
 ![图](../../public-repertory/img/js-vue-basic-learning-2.png)
 
 2. **慕课网** - [《Vue.js 源码全方位深入解析》](https://coding.imooc.com/class/228.html)
 
 &emsp;还未开封，但是研究源码可能参考该套视频。
-
-<br>
-
 
 <br>
 
