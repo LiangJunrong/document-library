@@ -3320,6 +3320,8 @@ template: `
 
 <br>
 
+&emsp;方法：`axios.get(url, options)`
+
 &emsp;话不多说，先上代码：
 
 ```
