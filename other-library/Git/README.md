@@ -67,11 +67,19 @@ node_modules
 
 &emsp;在当前项目，输入 `git config core.ignorecase false` 即可关闭 git 忽略文件大小写的配置。
 
+<br>
+
 ### 2.3 git 删除文件夹
 
 * 删除 `target` 文件夹：`git rm -r --cached target`
 * 提交更改：`git commit -m "删除 target 目录"`
 * 确认更改：`git push`
+
+<br>
+
+### 2.4 git 覆盖上一次 commit 提交信息
+
+&emsp;`git commit -amend -m "New commit"`
 
 <br>
 
