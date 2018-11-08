@@ -70,6 +70,9 @@ Vue
 | &emsp;&emsp;[3.13.4 路由传参](#chapter-three-thirteen-four) |
 | &emsp;&emsp;[3.13.5 嵌套路由](#chapter-three-thirteen-five) |
 | &emsp;&emsp;[3.13.6 路由守卫](#chapter-three-thirteen-six) |
+| &emsp;<a name="catalog-chapter-three-fourteen" id="catalog-chapter-three-fourteen"></a>[3.14 axios](#chapter-three-fourteen) |
+| &emsp;&emsp;[3.14.1 get](#chapter-three-fourteen-one) |
+| &emsp;&emsp;[3.14.2 post](#chapter-three-fourteen-two) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 代码实战](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 源码剖析](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结及感言](#chapter-five) |
@@ -3298,6 +3301,104 @@ template: `
 &emsp;最后，我们在第 6 步中，定义了路由守卫，先判断是哪个页面登录，如果是登录页或者首页，则直接前往；如果是用户页，则进行 `localStorage` 判断，如果用户输入了并保存了 `userName`，则跳往用户页，否则不给跳转。
 
 &emsp;如此，我们做到了路由守卫。
+
+<br>
+
+## <a name="chapter-three-fourteen" id="chapter-three-fourteen">3.14 axios</a>
+
+> [返回目录](#catalog-chapter-three-fourteen)
+
+<br>
+
+&emsp;在这里，我们讲解下 Vue 与后端交互的过程中，使用到的基于 promise 的 HTTP 库。
+
+<br>
+
+## <a name="chapter-three-fourteen-one" id="chapter-three-fourteen-one">3.14.1 get</a>
+
+> [返回目录](#catalog-chapter-three-fourteen)
+
+<br>
+
+&emsp;话不多说，先上代码：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue学习</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+  <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.js"></script>
+  <!-- 1. 引用 axios -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
+  <script>
+
+    new Vue({
+      el: document.getElementById('app'),
+      template: `
+        <div>
+          <button @click="sendAjax">发送请求</button>
+          <span>数据为：</span>
+          {{ getData }}
+        </div>
+      `,
+      data() {
+        return {
+          getData: ''
+        }
+      },
+      methods: {
+        sendAjax() {
+          // 直接使用 axios
+          // get 为请求方式
+          axios.get('https://www.easy-mock.com/mock/5be3885e033152564881d354/getInfo')
+          // then 为 promise 获取数据
+          .then((res) => {
+            this.getData = res.data;
+          })
+          // catch 为 promise 捕获异常
+          .catch();
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;如上，我们使用 axios 非常简单，只需要引用它的 cdn，然后通过：
+
+```
+axios.get()
+.then()
+.catch()
+```
+
+&emsp;就可以直接调用 axios 获取数据。
+
+<br>
+
+## <a name="chapter-three-fourteen-two" id="chapter-three-fourteen-two">3.14.2 post</a>
+
+> [返回目录](#catalog-chapter-three-fourteen)
+
+<br>
+
+&emsp;**Hello 小伙伴们，未完待续。如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
 
 <br>
 
