@@ -2,11 +2,11 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2018-11-8 09:05:53**
+> Recently revised in **2018-11-8 13:47:49**
 
 <br>
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)**
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)** 
 
 <br>
 
