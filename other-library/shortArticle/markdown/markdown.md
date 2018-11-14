@@ -1,8 +1,8 @@
-Markdown使用语法
+Markdown 使用语法
 ===
 
 > create by **jsliang** on **2018-08-22 17:58:56**  
-> Recently revised in **2018-10-15 14:17:55**
+> Recently revised in **2018-11-14 21:40:54**
 
 &emsp;什么事Markdown？Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本具有一定的格式。Markdown文件的后缀为 \.md  
 &emsp;在jsliang看来，Markdown就是HTML的简化版、TXT文本的格式版。如果你在编写中存在难点，你可以直接在Markdown中使用HTML标记语言（包括使用行内样式）。 
@@ -19,6 +19,10 @@ Markdown使用语法
   "E:\\MyWeb\\jsliang-study\\Document-Library\\Public-Repertory\\css\\markdown-github.css"
 ]
 ```
+
+<br>
+
+&emsp;PS：如果不满意加载本地的 Markdown Style，可以使用 VS Code 的插件：`Markdown Preview Github Styling`
 
 <br>
 
