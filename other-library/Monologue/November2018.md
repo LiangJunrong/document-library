@@ -87,9 +87,15 @@
 
 &emsp;不单单是想想，更想去实现！  
 &emsp;留下你的 GitHub，可以是文章，可以是 Demo，只要能看到你的即时更新！  
-&emsp;我们，每周一更新，一起关注彼此进度：  
+&emsp;我们，每周一更新，一起关注彼此进度!  
+
+* 我的 GitHub 更新记录：
 
 ![图](../../public-repertory/img/other-Monologue-November2018-1.png)
+
+<br>
+
+* 我的参与项目：
 
 ![图](../../public-repertory/img/other-Monologue-November2018-2.png)
 
