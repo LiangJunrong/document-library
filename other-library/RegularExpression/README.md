@@ -2,7 +2,13 @@
 ===
 
 > Create by **jsliang** on **2018-11-14 10:41:20**  
-> Recently revised in **2018-11-14 10:41:25**
+> Recently revised in **2018-11-14 11:23:09**
+
+<br>
+
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/RegularExpression)**
+
+&emsp;**结合实例讲解正则表达式，不仅能学，还能即可用到项目中~**
 
 <br>
 
