@@ -21,8 +21,8 @@
 | **薪资**： | 5.5K | 10K+ |
 | **职位**： | 前端工程师 | 前端工程师 |
 | **工作经验**： | 半年(应届生) | 一年 |
-| **工作内容**： | 1. 使用 jQuery 进行电信活动页的编写 <br> 2. 进行 Java 的 JSP 页面的维护 <br> 3. 进行 PHP 开发的公众号中 H5 页面的开 <br> 4. 小程序的开发与维护 | 1. 能使用 Vue 全家桶进行项目开发 <br> 2. 有 Node.js 编程经验，并进行过 Node.js 实践 <br> 3. 熟悉 HTTP 协议，了解性能优化方法 <br> 4. 了解 ES6 设计模式，并尝试对日常编程进行架构。 |
-| **技能**： | 1. 知道基础的 HTML、CSS、JavaScript，基本的 PSD 图能完美切成网页 <br> 2. 了解并会使用 jQuery 进行 <br> 3. 有微信小程序相关的开发经验 <br> 4. 学习过 Webpack 中文文档，并搭建过 Webpack 多页面配置 <br> 5. 曾经使用过 ElementUI + Express + MongoDB 做毕业设计 <br> 6. 曾经使用过 Bootstrap + ThinkPHP + MySQL 做博客 <br> 7. ……其他省略，不值一提 | 1. Vue 基础知识 <br> 2. Vue-Router <br> 3. Vue-Cli <br> 4. Axios <br> 5. Node 基础知识 <br> 6. Koa <br> 7. MongoDB <br> 8. MySQL  |
+| **工作内容**： | 1. 使用 jQuery 进行电信活动页的编写 <br> 2. 进行 Java 的 JSP 页面的维护 <br> 3. 进行 PHP 开发的公众号中 H5 页面的开 <br> 4. 小程序的开发与维护 | 1. 能使用 Vue 全家桶进行项目开发 <br> 2. 有 Node.js 编程经验，并进行过 Node.js 实践 <br> 3. 熟悉 HTTP 协议，了解项目性能优化方法 <br> 4. 熟悉 ES6，并尝试在项目中使用过 ES6 设计模式 |
+| **拥有技能**： | 1. 知道基础的 HTML、CSS、JavaScript，基本的 PSD 图能完美切成网页 <br> 2. 了解并会使用 jQuery 进行 <br> 3. 有微信小程序相关的开发经验 <br> 4. 学习过 Webpack 中文文档，并搭建过 Webpack 多页面配置 <br> 5. 曾经使用过 ElementUI + Express + MongoDB 做毕业设计 <br> 6. 曾经使用过 Bootstrap + ThinkPHP + MySQL 做博客 <br> 7. ……其他省略，不值一提 | 1. Vue 基础知识 <br> 2. Vue-Router <br> 3. Vue-Cli <br> 4. Axios <br> 5. Node 基础知识 <br> 6. Koa <br> 7. MongoDB <br> 8. MySQL  |
 
 <br>
 
@@ -48,25 +48,34 @@
 
 # 三 留笔做念
 
-&emsp;不单单是想想，更想去实现！  
-&emsp;留下你的 GitHub，可以是文章，可以是 Demo，只要能看到你的即时更新！  
+&emsp;不单单是留念，更想去实现！  
+&emsp;Follow me~ 坚持每天更新自己！  
 &emsp;我们，每周一更新，一起关注彼此进度!  
 
-* 我的 GitHub 更新记录：
+* [我的 GitHub 更新记录](https://github.com/LiangJunrong)：
 
 ![图](../../public-repertory/img/other-Monologue-November2018-1.png)
 
 <br>
 
-* 我的参与项目：
+* [我的 GitHub 项目](https://github.com/LiangJunrong/document-library)：
 
 ![图](../../public-repertory/img/other-Monologue-November2018-2.png)
 
 &emsp;**留笔名单**：
 
-| 姓名 | 最新更新 | 缺更记录 |
-| --- | --- | --- |
-| **jsliang** | [2018-11-14](https://github.com/LiangJunrong/document-library) | 11-10、11-11、11-12、11-13 |
+| 姓名 | 最新更新 | 加入时间 | 缺更记录 |
+| --- | --- | --- | --- |
+| **jsliang** | [2018-11-14](https://github.com/LiangJunrong/document-library) | 2018-10-25 | 11-10、11-11、11-12、11-13 |
+| **何穗君** | [暂无]() | 2018-11-14 | 暂无 |
+
+<br>
+
+&emsp;↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
+
+**[【点我了解入群姿势】](https://github.com/LiangJunrong/Cheer-for-yourself)**
+
+&emsp;↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑
 
 <br>
 
