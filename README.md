@@ -18,7 +18,7 @@ Document Library - 文档库
 
 <br>
 
-## 文件目录
+# 一 文件目录
 | 文件名             | 存放内容                          |
 | ------------------ | --------------------------------- |
 | CSS-library        | CSS文档仓库                       |
@@ -29,7 +29,13 @@ Document Library - 文档库
 
 <br>
 
-## 推荐学习方法
+# 二 反馈 QQ 群
+
+&emsp;如果对该文档库的某篇文章存有疑惑，请加 QQ 群：`798961601`。将根据小伙伴的疑问进行解答，谢谢~
+
+<br>
+
+# 三 推荐学习方法
   
 &emsp;建议小伙伴们有机会可以给自己配个显示器，也就5/600，用起来也舒服。  
 &emsp;**jsliang** 的就是一台手提（ 16G 6核 12线程 7200RMB ） + 一个显示器 （ 21.5寸 1080P 650RMB )。对搞前端的来说，这个价还是用得起的，而且自己的配置，自己用得会比较舒服。  
@@ -45,7 +51,7 @@ Document Library - 文档库
 
 <br>
 
-## 文档协议 
+# 四 文档协议 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">document library of jsliang</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a>.
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
