@@ -239,6 +239,36 @@ console.log(reg.test(str));
 
 > `test()` 方法会在后面逐步讲解
 
+&emsp;下面贴出完整代码：
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正则表达式</title>
+</head>
+
+<body>
+  <p>正则表达式 | <b>jsliang</b> 学习记录</p>
+
+  <script>
+    window.onload = function() {
+      var str = 'abc-cba_abc';
+      var reg = /^[a-z0-9_-]{6,12}$/;
+      console.log(reg.test(str)); // true
+    }
+  </script>
+</body>
+
+</html>
+```
+
 <br>
 
 # <a name="chapter-three-three" id="chapter-three-three">3.3 基本模式匹配</a>
@@ -247,7 +277,43 @@ console.log(reg.test(str));
 
 <br>
 
+&emsp;通过上面的了解，小伙伴对正则表达式应该有了初始的了解，下面我们猜测一下，下面的 `Console 1-3` 哪些是 `true`，哪些是 `false`：
 
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正则表达式</title>
+</head>
+
+<body>
+  <p>正则表达式 | <b>jsliang</b> 学习记录</p>
+
+  <script>
+    window.onload = function() {
+      var str = "Cheer for yourself";
+      var reg1 = /^Cheer/;
+      var reg2 = /yourself$/;
+      var reg3 = /for/;
+      console.log(reg1.test(str));
+      console.log(reg2.test(str));
+      console.log(reg3.test(str));
+    }
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;答案是，这三个都返回 `true`。在这三个 `console.log()` 中，第一个判断该字符串是否以 `Cheer` 开头；第二个判断该字符串是否以 `yourself` 结尾；第三个判断该字符串是否包含 `for`。在日常工作中，经常利用该方法，判断用户输入的 `string` 里面是否包含某些文字，例如：`jsliang 是傻逼`，就需要判断替换为 `jsliang 是帅哥`，至于怎么替换敏感字，我们下文讲解~  
 
 <br>
 
