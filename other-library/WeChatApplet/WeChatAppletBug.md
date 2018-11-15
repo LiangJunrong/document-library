@@ -1416,6 +1416,19 @@ Page({
 })
 ```
 
+&emsp;`2018-11-15`：新增一个 `bug` 修复，就是在第一个 `tab` 能流畅切换的情况下，第二个及其他的 `tab`，需要多次滑动才能上拉加载。这时候，只需要在 `weui-tab__content` 这个类新增三行代码就可以解决该问题：
+
+> *.css
+
+```
+.weui-tab__content {
+  padding: 30rpx 30rpx 0;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+}
+```
+
 <br>
 
 ### <a name="chapter-three-twelve-two" id="chapter-three-twelve-two">3.12.2 自定义选项卡效果与实现</a>
