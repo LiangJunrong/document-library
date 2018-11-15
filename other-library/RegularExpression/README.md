@@ -2,13 +2,19 @@
 ===
 
 > Create by **jsliang** on **2018-11-14 10:41:20**  
-> Recently revised in **2018-11-14 11:23:09**
+> Recently revised in **2018-11-15 08:05:29**
 
 <br>
 
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/RegularExpression)**
 
-&emsp;**结合实例讲解正则表达式，不仅能学，还能即可用到项目中~**
+<br>
+
+&emsp;正则表达式：正则，也叫做规则，让计算机能够读懂人类的规则。正则表达式是繁琐的，越学你会觉得越发发狂。但是，它又是强大的，学会之后的应用可以大大提高你的开发效率。善于利用工具，方能成就自我。
+
+&emsp;参考文献/视频/手册：
+
+* [正则表达式-教程 | 菜鸟教程](http://www.runoob.com/regexp/regexp-tutorial.html)
 
 <br>
 
@@ -23,6 +29,8 @@
 | <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 整合](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 前言](#chapter-three) |
+| &emsp;[3.1 初识正则表达式](#chapter-three-one) |
+| &emsp;[3.2 使用攻略](#chapter-three-two) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 test 方法](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 search 方法](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 match 方法](#chapter-six) |
@@ -37,11 +45,14 @@
 
 <br>
 
-# <a name="chapter-two" id="chapter-two">二 学习整合</a>
+# <a name="chapter-two" id="chapter-two">二 整合</a>
 
 > [目录](#catalog-chapter-two)
 
 <br>
+
+&emsp;本章节整理总结了所有的参考文献，方便日后快速回顾回忆。  
+&emsp;如果你还没正式开始正则表达式，请快速浏览跳过本章节。
 
 | 字符  | 描述                                                                         |
 | ----- | ---------------------------------------------------------------------------- |
@@ -85,55 +96,118 @@
 
 <br>
 
-&emsp;正则表达式：正则，也叫做规则，让计算机能够读懂人类的规则。  
-&emsp;正则都是用来操作字符串的。  
-&emsp;我们要从一串字符串中，把所有相连的数字找出来，然后把它们拼接成一个新数组，用常规写法和正则表达式分别是怎么写的呢？  
+&emsp;什么是正则表达式？正则表达式：正则，也叫做规则，让计算机能够读懂人类的规则。  
+&emsp;正则表达式都是用来操作字符串的。  
 
-&emsp;常规查找：
+<br>
+
+# <a name="chapter-three-one" id="chapter-three-one">3.1 初识正则表达式</a>
+
+> [目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;我们通过一个表达式来初识正则表达式：  
+&emsp;某天，盗贼小白给了盗贼小黑一个盒子，盒子有很多层嵌套，并约定了交易密码：小白将给小黑提供一串字符串，小黑只需要将字符串中的所有相连的数字找出来，然后把它们拼接成一个新数组，数组的第一项就是第一个盒子的密码，以此类推……
+
+> "abc123def456hash789" -> [123, 456, 789] - > [外层盒子1密码, 中间层盒子2密码, 最内层盒子3密码]
+
+&emsp;现在假设盗贼小黑使用 JavaScript 进行常规查找：
+
+> index.html
 
 ```
-window.onload = function() {
-  var str = "abc123def456hash789"
-  function findNum(str) {
-    var arr = [];
-    var tmp = '';
-    for(var i=0; i<str.length; i++) {
-      if(str.charAt(i)<="9" && str.charAt(i)>="0") {
-        tmp += str.charAt(i);
-      } else {
-        if(tmp) {
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正则表达式</title>
+</head>
+
+<body>
+  <p>正则表达式 | <b>jsliang</b> 学习记录</p>
+
+  <script>
+    window.onload = function () {
+      var str = "abc123def456hash789"
+
+      function findNum(str) {
+        var arr = [];
+        var tmp = '';
+        for (var i = 0; i < str.length; i++) {
+          if (str.charAt(i) >= "0" && str.charAt(i) <= "9") {
+            tmp += str.charAt(i);
+          } else {
+            if (tmp) {
+              arr.push(tmp);
+              tmp = "";
+            }
+          }
+        }
+        if (tmp) {
           arr.push(tmp);
-        tmp = "";
+          tmp = "";
+        }
+        return arr;
       }
+      console.log(findNum(str));
     }
-  }
-  if(tmp) {
-    arr.push(tmp);
-    tmp = "";
-  }
-  return arr;
-  }
-  console.log(findNum(str));
-}
+  </script>
+</body>
+
+</html>
 ```
 
 <br>
 
-&emsp;那么，我们再试试正则查找：
+&emsp;写到这里，小黑觉得不妥，太麻烦太复杂了，于是决定使用正则表达式查找：
+
+> index.html
 
 ```
-window.onload = function() {
-  var str = "abc123def456hash789";
-  function findNum(str) {
-    return str.match(/\d+/g);
-  }
-  console.log(findNum(str));
-}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正则表达式</title>
+</head>
+
+<body>
+  <p>正则表达式 | <b>jsliang</b> 学习记录</p>
+
+  <script>
+    window.onload = function() {
+      var str = "abc123def456hash789";
+      function findNum(str) {
+        return str.match(/\d+/g);
+      }
+      console.log(findNum(str));
+    }
+  </script>
+</body>
+
+</html>
 ```
 
 <br>
 
-&emsp;很牛逼有木有？！只需要一行代码，就能解决字符串查找的时候用的一大串代码！
+&emsp;小黑瞬间觉得自己很牛逼有木有？！只需要一行代码，就能解决字符串查找的时候用的一大串代码！
+
+<br>
+
+# <a name="chapter-three-two" id="chapter-three-two">3.2 使用攻略</a>
+
+> [目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;在上面，我们通过使用 `str.match(/\d+/g)`，解决了
 
 <br>
 
@@ -143,7 +217,7 @@ window.onload = function() {
 
 <br>
 
-&emsp;test : 正则去匹配字符串，如果匹配成功就返回真，如果匹配失败就返回假  
+&emsp;test: 正则表达式搜索字符串指定的值，从而去匹配字符串。如果匹配成功就返回真，如果匹配失败就返回假  
 &emsp;test的写法：正则.test(字符串)
 
 ```
