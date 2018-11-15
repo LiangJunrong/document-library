@@ -10,11 +10,15 @@
 
 <br>
 
+&emsp;正则在我眼里，就是作弊码  
+&emsp;你可以老老实实打怪，但是你用了会觉得很爽快
+
 &emsp;正则表达式：正则，也叫做规则，让计算机能够读懂人类的规则。正则表达式是繁琐的，越学你会觉得越发发狂。但是，它又是强大的，学会之后的应用可以大大提高你的开发效率。善于利用工具，方能成就自我。
 
 &emsp;参考文献/视频/手册：
 
 * [正则表达式-教程 | 菜鸟教程](http://www.runoob.com/regexp/regexp-tutorial.html)
+* [正则表达式在线测试 | 菜鸟教程](https://c.runoob.com/front-end/854)
 
 <br>
 
@@ -40,7 +44,7 @@
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 字符类](#chapter-ten) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 过滤标签](#chapter-eleven) |
 | <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 获取class的方法](#chapter-twelve) |
-| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 获取class的方法](#chapter-thirteen) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 转义字符](#chapter-thirteen) |
 | <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 量词](#chapter-fourteen) |
 
 <br>
@@ -571,7 +575,7 @@ window.onload = function () {
 
 <br>
 
-# <a name="chapter-thirteen" id="chapter-thirteen">十三 获取class的方法</a>
+# <a name="chapter-thirteen" id="chapter-thirteen">十三 转义字符</a>
 
 > [目录](#catalog-chapter-thirteen)
 
