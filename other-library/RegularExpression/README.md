@@ -37,7 +37,7 @@
 | &emsp;[2.1 常用正则](#chapter-two-one) |
 | &emsp;[2.2 匹配规则](#chapter-two-two) |
 | &emsp;[2.3 常用方法](#chapter-two-three) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 前言](#chapter-three) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正则旅途](#chapter-three) |
 | &emsp;[3.1 初识正则](#chapter-three-one) |
 | &emsp;[3.2 正则解析](#chapter-three-two) |
 | &emsp;[3.3 正则练习](#chapter-three-three) |
@@ -153,13 +153,15 @@
 
 &emsp;JavaScript 正则默认： 正则匹配成功就会结束，不会继续匹配。如果想查找全部，就要加标识 `g`（全局匹配）
 
+<br>
+
 1. `test()`
 
 &emsp;**规则**：正则表达式搜索字符串指定的值，从而去匹配字符串。如果匹配成功就返回 `true`，如果匹配失败就返回 `false`。  
 &emsp;**用法**：`正则.test(字符串)`  
 &emsp;**案例**：
 
-> 代码片段
+> js 代码片段
 
 ```
 var str = "123abc";
@@ -181,7 +183,7 @@ if(re.test(str)) {
 &emsp;**用法**：`字符串.search(正则)`  
 &emsp;**案例**：
 
-> 代码片段
+> js 代码片段
 
 ```
 var str = "abcdef";
@@ -203,7 +205,7 @@ console.log(str.search(re2));
 &emsp;**用法**：`字符串.match(正则)`  
 &emsp;**案例**：
 
-> 代码片段
+> js 代码片段
 
 ```
 var str = "123fadf321dfadf4fadf1"; //(4) ["123", "321", "4", "1"]
@@ -223,7 +225,7 @@ console.log(str.match(re));
 
 * 简单案例
 
-> 代码片段
+> js 代码片段
 
 ```
 var str = 'aaa';
@@ -280,7 +282,7 @@ window.onload = function() {
 
 <br>
 
-# <a name="chapter-three" id="chapter-three">三 前言</a>
+# <a name="chapter-three" id="chapter-three">三 正则旅途</a>
 
 > [目录](#catalog-chapter-three)
 
@@ -579,13 +581,13 @@ console.log(str); // 2018.11.28
 
 &emsp;所以这段正则的意思就是匹配一次及以上的 `数字-` 形式的字符串。
 &emsp;**然后**，我们使用了 `replace()` 方法。我们观察 `Console` 打印出来的结果，可以看出：`$0` 即是我们的正则 `var re = /(\d+)(-)/g` 去匹配 `var str = "2018-11-28"` 所得到的结果，这里我们匹配成功了两次，即 `2018-` 及 `11-`；`$1` 即是我们的一个小括号 `(\d+)` 的匹配结果，所以结果为 `2018` 以及 `11`；`$2` 即是我们的第二个小括号 `(-)` 的匹配结果，所以结果为 `-` 以及 `-`。  
-&emsp;**最后**，我们做的事情就是，将 `$1` 加上 `.`，并返回最终结果给 `str`，即最终结果：`2018.11.28`  
+&emsp;**最后**，我们做的事情就是，将 `$1` 加上 `.`，并返回最终结果给 `str`，即最终结果：`2018.11.28`。  
 
 > 在这里提到了 `replace()` 方法，详情可了解：[点击前往](#chapter-two-three)
 
 <br>
 
-&emsp;如果小伙伴们感觉还是不过瘾，那么我们再来一段：
+&emsp;**【Once again】** 如果小伙伴们感觉还是不过瘾，那么我们再来一段：
 
 > js 代码片段
 
@@ -662,8 +664,9 @@ console.log(re3.test(str3));  // false
 &emsp;在第三章中，我们介绍了强大之处，介绍了它的使用方法，并通过小练习、`()` 以及 `[]` 的讲解，让小伙伴们更进一步了解在 JavaScript 中正则的使用……  
 &emsp;但！  
 &emsp;这是完结吗？！  
-&emsp;不是的！  
-&emsp;在第二章 [【整合】](#chapter-two) 中，**jsliang** 整合网上资源，记录了一些常用的正则工具，里面有很多东西，是在这篇文章中没有涉及的，有兴趣的小伙伴可以逐一尝试加深对正则的了解。  
+&emsp;不！  
+&emsp;由于 **jsliang** 时间有限，没法一一给小伙伴们介绍正则的乐趣及工作中如何使用正则提高工作效率。  
+&emsp;所以，在第二章 [【整合】](#chapter-two) 中，**jsliang** 整合网上资源，记录了一些常用的正则工具，里面有很多东西，是在这篇文章中没有涉及的，有兴趣的小伙伴可以逐一尝试加深对正则的了解。  
 
 &emsp;**————For the end————**  
 &emsp;在编写这篇文章中，**jsliang** 玩性大发写下了下面的游戏（请用电脑查看）：
