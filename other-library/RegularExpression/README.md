@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-11-14 10:41:20**  
-> Recently revised in **2018-11-18 08:33:29**
+> Recently revised in **2018-11-18 15:57:36**
 
 <br>
 
@@ -13,7 +13,7 @@
 &emsp;正则表达式：正则，也叫做规则，让计算机能够读懂人类的规则。  
 &emsp;正则表达式是繁琐的，越学你会觉得越发发狂。  
 &emsp;但是，它又是强大的。正则在我眼里，就是作弊码，学会之后的应用可以大大提高你的开发效率。  
-&emsp;所以，你可以老老实实打怪，但是你用了它会觉得编程很爽快。
+&emsp;所以，你可以老老实实打怪，但是你用了它会觉得编程更爽快。
 
 &emsp;为此，也是灵感触发，**jsliang** 借此写了个游戏（请用电脑打开网址）：
 
@@ -25,9 +25,9 @@
 
 * [正则表达式-教程 | 菜鸟教程](http://www.runoob.com/regexp/regexp-tutorial.html)
 * [正则表达式在线测试 | 菜鸟教程](https://c.runoob.com/front-end/854)
-* [正则表达式手册](http://tool.oschina.net/uploads/apidocs/jquery/regexp.html)
+* [正则表达式手册 | 开源只用过社区](http://tool.oschina.net/uploads/apidocs/jquery/regexp.html)
 * [鬼斧神工之正则表达式 | 慕课网](https://www.imooc.com/learn/350)
-* [正则表达式真的很 6，可惜你不会写](https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&mid=2247489641&idx=1&sn=5fd41822e46dc471ec551b7901e8f2e7&chksm=f951ad2ace26243c7a5300a7e0a18cd51fba7f516815cc1ee037e80b873d503ebeefecb4fd74&mpshare=1&scene=1&srcid=1008AuZ5aklTGmEXxuQUSgNm#rd)
+* [正则表达式真的很 6，可惜你不会写 | 前端之巅](https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&mid=2247489641&idx=1&sn=5fd41822e46dc471ec551b7901e8f2e7&chksm=f951ad2ace26243c7a5300a7e0a18cd51fba7f516815cc1ee037e80b873d503ebeefecb4fd74&mpshare=1&scene=1&srcid=1008AuZ5aklTGmEXxuQUSgNm#rd)
 
 <br>
 
