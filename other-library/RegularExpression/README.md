@@ -50,6 +50,7 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 前言](#chapter-three) |
 | &emsp;[3.1 初识正则](#chapter-three-one) |
 | &emsp;[3.2 简要攻略](#chapter-three-two) |
+| &emsp;[3.3 基本模式匹配](#chapter-three-three) |
 | <a name="catalog-chapter-nine" id="catalog-chapter-nine"></a>[九 匹配子项](#chapter-nine) |
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 字符类](#chapter-ten) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 过滤标签](#chapter-eleven) |
@@ -434,19 +435,18 @@ console.log(regex.test(myNumber)); // true
 
 <br>
 
-&emsp;上文，盗贼小黑通过使用 `str.match(/\d+/g)`，解决了获取箱子密码的问题。  
+&emsp;在上文中，盗贼小黑通过使用 `str.match(/\d+/g)`，解决了获取箱子密码的问题。  
 &emsp;那么，这串正则表达式是什么意思呢？我们先抛开这个，解析一串简单的：  
-
 > `^[a-z0-9_-]{6,12}$`
 
 &emsp;首先，`^` 表示匹配字符串的开始位置，结合后面的 `[a-z0-9_-]` 表示该字符串开头可以为 `a-z` 的字母，`0-9` 的数字，`_` 下划线，`-` 连接符。  
-&emsp;然后，`[a-z]` 表示匹配 `a-z` 中任意单个字母；`[0-9]` 表示匹配 `0-9` 中任意单个数字；`[_]` 表示匹配下划线；`[-]` 表示匹配连接符 `-`。所以，`[a-z0-9_-]` 表示字符串可以包含`数字`、`字母`、`_`、`-` 这四种形式的字符串。  
+&emsp;然后，`[a-z]` 表示匹配 `a-z` 中任意单个字母；`[0-9]` 表示匹配 `0-9` 中任意单个数字；`[_]` 表示匹配下划线；`[-]` 表示匹配连接符 `-`。所以，将前面的连起来，`[a-z0-9_-]` 表示字符串可以包含`数字`、`字母`、`_`、`-` 这四种形式的字符串。  
 &emsp;接着，`{6, 12}` 表示该字符串的长度为 `6-12` 位。  
-&emsp;最后，`$` 表示结束标志，可参考 `^` 的规则。
+&emsp;最后，`$` 表示结束标志，`^` 的相反。
 
 > `^` 与 `$` 同时使用时，表示精确匹配。
 
-&emsp;终上所述，小伙伴们应该猜测到了这个正则表达式的用途：**校验用户名**。该用户名只能包含字符、数字、下划线和连接字符(-)，并且用户名的长度最长为 12 位，最短为 6 位。
+&emsp;终上所述，小伙伴们应该猜测到了这个正则表达式的用途：**校验用户名**。该用户名只能包含字符、数字、下划线 `(_)` 和连接字符 `(-)`，并且用户名的长度最长为 12 位，最短为 6 位。
 
 &emsp;那么，它在 JavaScript 中要如何使用呢？我们通常用 `/正则表达式/` 两个斜杠来包裹我们要写的正则表达式：
 
@@ -454,17 +454,17 @@ console.log(regex.test(myNumber)); // true
 var reg = /^[a-z0-9_-]{6,12}$/
 ```
 
-&emsp;看，这样就是一条规则了，如果你需要让他匹配一个字符串 `str`。那么，只需要在代码中：
+&emsp;看，这样就是一条规则了，如果你需要让他匹配一个字符串 `str`。那么，只需要在代码中使用 `test()` 测试方法：
 
 ```
 var str = 'abc-cba_abc';
 var reg = /^[a-z0-9_-]{6,12}$/;
-console.log(reg.test(str));
+console.log(reg.test(str)); // true
 ```
 
-&emsp;这样，我们就告诉了 JavaScript：`reg` 通过 `test()` 方法去测试 `str` 是否符合 `reg`的规则，如果符合则返回 `true`，如果不符合则返回 `true`。这里返回的是 `true`，因为我们的 `str` 是符合 `reg` 规则的
+&emsp;这样，我们就告诉了 JavaScript：`reg` 通过 `test()` 方法去测试 `str` 是否符合 `reg`的规则，如果符合则返回 `true`，如果不符合则返回 `true`。这里返回的是 `true`，因为我们的 `str` 是符合 `reg` 规则的。
 
-> `test()` 方法会在后面逐步讲解
+> `test()` 方法及其他好用的方法已经整合到 [【2.3 JS 正则方法】](#chapter-two-three) 里面了，迫不及待的小伙伴们可点击链接先行查看。
 
 &emsp;下面贴出完整代码：
 
@@ -540,7 +540,11 @@ console.log(reg.test(str));
 
 <br>
 
-&emsp;答案是，这三个都返回 `true`。在这三个 `console.log()` 中，第一个判断该字符串是否以 `Cheer` 开头；第二个判断该字符串是否以 `yourself` 结尾；第三个判断该字符串是否包含 `for`。在日常工作中，经常利用该方法，判断用户输入的 `string` 里面是否包含某些文字，例如：`jsliang 是傻逼`，就需要判断替换为 `jsliang 是帅哥`，至于怎么替换敏感字，我们下文讲解~  
+&emsp;答案是，这三个都返回 `true`。在这三个 `console.log()` 中：  
+&emsp;第一个判断该字符串是否以 `Cheer` 开头；  
+&emsp;第二个判断该字符串是否以 `yourself` 结尾；  
+&emsp;第三个判断该字符串是否包含 `for`。  
+&emsp;在日常工作中，经常利用该方法，判断用户输入的 `string` 里面是否包含某些文字，例如：`jsliang 是傻逼`，就需要判断替换为 `jsliang 是帅哥`，至于怎么替换敏感字，迫不及待的小伙伴们可前往 [【2.3 JS 正则方法】](#chapter-two-three) 先行了解~  
 
 <br>
 
