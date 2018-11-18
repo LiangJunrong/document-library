@@ -30,6 +30,7 @@
 * [正则表达式真的很 6，可惜你不会写 | 前端之巅](https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&mid=2247489641&idx=1&sn=5fd41822e46dc471ec551b7901e8f2e7&chksm=f951ad2ace26243c7a5300a7e0a18cd51fba7f516815cc1ee037e80b873d503ebeefecb4fd74&mpshare=1&scene=1&srcid=1008AuZ5aklTGmEXxuQUSgNm#rd)
 * [正则表达式 - 快速参考 | Miscrosoft Docs](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)
 * [揭开正则表达式的神秘面纱 | 正则工作室](http://www.regexlab.com/zh/regref.htm)
+* [正则表达式 JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
 
 <br>
 
@@ -47,7 +48,7 @@
 | &emsp;[2.2 匹配规则](#chapter-two-two) |
 | &emsp;[2.3 JS 正则方法](#chapter-two-three) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 前言](#chapter-three) |
-| &emsp;[3.1 初识正则表达式](#chapter-three-one) |
+| &emsp;[3.1 初识正则](#chapter-three-one) |
 | &emsp;[3.2 简要攻略](#chapter-three-two) |
 | <a name="catalog-chapter-nine" id="catalog-chapter-nine"></a>[九 匹配子项](#chapter-nine) |
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 字符类](#chapter-ten) |
@@ -245,7 +246,7 @@ console.log(str); // b
 
 * 敏感词过滤
 
-> *.html
+> html 代码片段
 
 ```
 <div class="filtering-of-sensitive-words">
@@ -258,7 +259,7 @@ console.log(str); // b
 </div>
 ```
 
-> *.js
+> js 代码片段
 
 ```
 window.onload = function() {
@@ -285,10 +286,9 @@ window.onload = function() {
 > 替换前：`非诚勿扰在中国船的监视之下寸步难行`  
 > 替换后：`**勿扰在***的****寸步难行`
 
-
 <br>
 
-6. `split()`
+1. `split()`
 
 &emsp;**规则**：  
 &emsp;**用法**：  
@@ -304,21 +304,36 @@ window.onload = function() {
 
 &emsp;什么是正则表达式？正则表达式：正则，也叫做规则，让计算机能够读懂人类的规则。  
 &emsp;正则表达式都是用来操作字符串的。  
-&emsp;本文学习目标：
 
-1. 带你通过小故事学习正则表达式
-2. 让你能了解基本正则表达式的意思，并能自己写正则表达式
+&emsp;**本文学习目标**：
+
+1. 通过小故事给小伙伴学习 JavaScript 的正则表达式
+2. 让小伙伴能了解基本正则表达式的意思，并能自己写正则表达式
 
 <br>
 
-# <a name="chapter-three-one" id="chapter-three-one">3.1 初识正则表达式</a>
+# <a name="chapter-three-one" id="chapter-three-one">3.1 初识正则</a>
 
 > [目录](#catalog-chapter-three)
 
 <br>
 
-&emsp;我们通过一个表达式来初识正则表达式：  
-&emsp;某天，盗贼小白给了盗贼小黑一个盒子，盒子有 3 层嵌套，并约定了交易密码提取方式：小白将给小黑提供一串字符串，小黑只需要将字符串中的所有相连的数字找出来，然后把它们拼接成一个新数组，数组的第一项就是第一个盒子的密码，以此类推……
+&emsp;正则长咋样？怎么用？很简单，三行代码带你入门
+
+```
+var regex = /^\d+$/;
+var myNumber = '123';
+console.log(regex.test(myNumber)); // true
+```
+
+&emsp;上面的正则，能验证字符串 `myNumber` 是不是纯数字组成，就这么简单，正则入门了！  
+&emsp;但是，如果我要是敢就这么结束文章，我敢保证你们想拍死我！所以，我们通过一个表达式的故事来初识正则表达式：  
+
+&emsp;某天，盗贼小白给了盗贼小黑一个盒子，盒子像俄罗斯套娃一样，有 3 层嵌套：  
+
+![图](../../public-repertory/img/other-RegularExpression-2.jpg)
+
+&emsp;并且，他们约定了交易密码提取方式：小白将给小黑提供一串字符串，小黑只需要将字符串中的所有相连的数字找出来，然后把它们拼接成一个新数组，数组的第一项就是第一个盒子的密码，以此类推……
 
 > "abc123def456hash789" -> [123, 456, 789] - > [外层盒子1密码, 中间层盒子2密码, 最内层盒子3密码]
 
@@ -407,7 +422,9 @@ window.onload = function() {
 
 <br>
 
-&emsp;小黑瞬间觉得自己很牛逼有木有？！只需要一行代码，就能解决字符串查找的时候用的一大串代码！
+&emsp;小黑瞬间觉得自己很牛逼有木有？！只需要一行代码，就能解决字符串查找的时候用的一大串代码！  
+
+&emsp;那么，讲到这里，小伙伴们应该对正则有了个简单的了解，称热打铁，Here we go~
 
 <br>
 
