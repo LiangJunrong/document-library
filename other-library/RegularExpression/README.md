@@ -25,7 +25,7 @@
 
 * [正则表达式-教程 | 菜鸟教程](http://www.runoob.com/regexp/regexp-tutorial.html)
 * [正则表达式在线测试 | 菜鸟教程](https://c.runoob.com/front-end/854)
-* [正则表达式手册 | 开源只用过社区](http://tool.oschina.net/uploads/apidocs/jquery/regexp.html)
+* [正则表达式手册 | 开源中国社区](http://tool.oschina.net/uploads/apidocs/jquery/regexp.html)
 * [鬼斧神工之正则表达式 | 慕课网](https://www.imooc.com/learn/350)
 * [正则表达式真的很 6，可惜你不会写 | 前端之巅](https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&mid=2247489641&idx=1&sn=5fd41822e46dc471ec551b7901e8f2e7&chksm=f951ad2ace26243c7a5300a7e0a18cd51fba7f516815cc1ee037e80b873d503ebeefecb4fd74&mpshare=1&scene=1&srcid=1008AuZ5aklTGmEXxuQUSgNm#rd)
 
@@ -137,6 +137,10 @@
 
 &emsp;什么是正则表达式？正则表达式：正则，也叫做规则，让计算机能够读懂人类的规则。  
 &emsp;正则表达式都是用来操作字符串的。  
+&emsp;本文学习目标：
+
+1. 带你通过小故事学习正则表达式
+2. 让你能了解基本正则表达式的意思，并能自己写正则表达式
 
 <br>
 
