@@ -29,6 +29,7 @@
 * [鬼斧神工之正则表达式 | 慕课网](https://www.imooc.com/learn/350)
 * [正则表达式真的很 6，可惜你不会写 | 前端之巅](https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&mid=2247489641&idx=1&sn=5fd41822e46dc471ec551b7901e8f2e7&chksm=f951ad2ace26243c7a5300a7e0a18cd51fba7f516815cc1ee037e80b873d503ebeefecb4fd74&mpshare=1&scene=1&srcid=1008AuZ5aklTGmEXxuQUSgNm#rd)
 * [正则表达式 - 快速参考 | Miscrosoft Docs](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)
+* [揭开正则表达式的神秘面纱 | 正则工作室](http://www.regexlab.com/zh/regref.htm)
 
 <br>
 
@@ -42,6 +43,9 @@
 | --- |
 | <a name="catalog-chapter-one" id="catalog-chapter-one"></a>[一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 整合](#chapter-two) |
+| &emsp;[2.1 常用正则](#chapter-two-one) |
+| &emsp;[2.2 匹配规则](#chapter-two-two) |
+| &emsp;[2.3 JS 正则方法](#chapter-two-three) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 前言](#chapter-three) |
 | &emsp;[3.1 初识正则表达式](#chapter-three-one) |
 | &emsp;[3.2 简要攻略](#chapter-three-two) |
@@ -76,7 +80,26 @@
 
 <br>
 
-&emsp;
+1. **验证姓名**
+* 2 到 9 位中文昵称：`^[\u4e00-\u9fa5]{2,9}$ `
+
+2. **验证密码**
+* 只能是字母、数字和下划线，长度不限制：` ^\w+$ `
+* 允许 小写字母 `a-z`、大写字母 `A-Z`、数字 `0-9`、下划线 `_`、 连接符 `-`，且长度在 6-18 位数：` /^[a-zA-Z0-9_-]{6,18}$/ `
+* 必须包含数字+小写字母+大写字母的密码，且长度在8-10位之间：` ^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$ `
+
+3. **验证 Email**
+* 允许有一个字符符合 [A-Za-z0-9_] 之后可以为 [A-Za-z0-9_-+.] + `@` + 允许有一个字符符合 [A-Za-z0-9_] 之后可以为 [A-Za-z0-9_-.] + `.` + 允许有一个字符符合 [A-Za-z0-9_] 之后可以有 [A-Za-z0-9_-.] 的邮箱：` ^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$ `
+
+4. **验证身份证**
+* 18 位身份证号，尾数是数字或者字母 X：` ^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$ `
+* 15 或者 18 位身份证号，尾数可以是数字及 X 或者 x：` (^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$) `
+
+5. **验证手机号**
+* 以 1 开头，第二位数是 3/4/5/7/8 的 11 位手机号码：` ^1[3,4,5,7,8,9]\d{9}$ `
+* 移动号码：` ^134[0-8]\d{7}$|^(?:13[5-9]|147|15[0-27-9]|178|1703|1705|1706|18[2-478])\d{7,8}$ `
+* 电信号码：` ^(?:133|153|1700|1701|1702|177|173|18[019])\d{7,8}$ `
+* 联通号码：` ^(?:13[0-2]|145|15[56]|176|1704|1707|1708|1709|171|18[56])\d{7,8}|$ `
 
 <br>
 
@@ -127,18 +150,18 @@
 
 <br>
 
-&emsp;常用匹配：
+# <a name="chapter-two-three" id="chapter-two-three">2.3 JS 正则方法</a>
 
-1. 密码强度
-* 必须包含数字+小写字母+大写字母的密码，位数在8-10位之间：` ^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$ `
-* 只能是字母、数字和下划线：` ^\w+$ `
-2. 校验中文：` ^[\u4e00-\u9fa5]{0,}$ `
-3. Email验证：
-```
-[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])? 
-```
-4. 身份证验证：` ^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$ `
-5. 手机号验证，以1开头，第二位数是3/4/5/7/8的11位手机号码：` ^1[3,4,5,7,8,9]\d{9}$ `
+> [目录](#catalog-chapter-two)
+
+<br>
+
+1. `test()`
+2. `exec()`
+3. `search()`
+4. `match()`
+5. `replace()`
+6. `split()`
 
 <br>
 
