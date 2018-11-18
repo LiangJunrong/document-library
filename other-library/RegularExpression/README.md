@@ -51,11 +51,9 @@
 | &emsp;[3.1 初识正则](#chapter-three-one) |
 | &emsp;[3.2 简要攻略](#chapter-three-two) |
 | &emsp;[3.3 基本模式匹配](#chapter-three-three) |
-| <a name="catalog-chapter-nine" id="catalog-chapter-nine"></a>[九 匹配子项](#chapter-nine) |
-| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 字符类](#chapter-ten) |
-| <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 过滤标签](#chapter-eleven) |
-| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 获取class的方法](#chapter-twelve) |
-| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 转义字符](#chapter-thirteen) |
+| &emsp;[3.4 渐入佳境：() 匹配子项](#chapter-three-four) |
+| &emsp;[3.5 渐入佳境：[] 字符类](#chapter-three-five) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 回顾总结](#chapter-four) |
 
 <br>
 
@@ -548,7 +546,7 @@ console.log(reg.test(str)); // true
 
 <br>
 
-# <a name="chapter-three-four" id="chapter-three-four">3.3 渐入佳境：匹配子项</a>
+# <a name="chapter-three-four" id="chapter-three-four">3.4 渐入佳境：() 匹配子项</a>
 
 > [目录](#catalog-chapter-three)
 
@@ -588,15 +586,15 @@ console.log(str); // 2018.11.28
 > `$2：-`  
 > `2018.11.28`
 
-&emsp;首先，我们解析下这段正则：
+&emsp;**首先**，我们解析下这段正则：
 
 * `/(\d+)/` 表示任意 1 个及以上的数字
 * `/(-)/` 表示匹配字符 `-`
 * `g` 表示匹配一次以上
 
 &emsp;所以这段正则的意思就是匹配一次及以上的 `数字-` 形式的字符串。
-&emsp;然后，我们使用了 `replace()` 方法。我们观察 `Console` 打印出来的结果，可以看出：`$0` 即是我们的正则 `var re = /(\d+)(-)/g` 去匹配 `var str = "2018-11-28"` 所得到的结果，这里我们匹配成功了两次，即 `2018-` 及 `11-`；`$1` 即是我们的一个小括号 `(\d+)` 的匹配结果，所以结果为 `2018` 以及 `11`；`$2` 即是我们的第二个小括号 `(-)` 的匹配结果，所以结果为 `-` 以及 `-`。  
-&emsp;最后，我们做的事情就是，将 `$1` 加上 `.`，并返回最终结果给 `str`，即最终结果：`2018.11.28`  
+&emsp;**然后**，我们使用了 `replace()` 方法。我们观察 `Console` 打印出来的结果，可以看出：`$0` 即是我们的正则 `var re = /(\d+)(-)/g` 去匹配 `var str = "2018-11-28"` 所得到的结果，这里我们匹配成功了两次，即 `2018-` 及 `11-`；`$1` 即是我们的一个小括号 `(\d+)` 的匹配结果，所以结果为 `2018` 以及 `11`；`$2` 即是我们的第二个小括号 `(-)` 的匹配结果，所以结果为 `-` 以及 `-`。  
+&emsp;**最后**，我们做的事情就是，将 `$1` 加上 `.`，并返回最终结果给 `str`，即最终结果：`2018.11.28`  
 
 > 在这里提到了 `replace()` 方法，详情可了解：[点击前往](#chapter-two-three)
 
@@ -619,112 +617,54 @@ console.log(str.match(re));
 
 <br>
 
-# <a name="chapter-ten" id="chapter-ten">十 字符类</a>
+# <a name="chapter-three-five" id="chapter-three-five">3.5 渐入佳境：[] 字符类</a>
 
-> [目录](#catalog-chapter-ten)
+> [目录](#catalog-chapter-three)
 
-<br>
+&emsp;何为字符类？  
+&emsp;所谓字符类，就是一组类似的元素 `[]` 这样的中括号的整体，所代表一个字符。  
+&emsp;话不多说，先上代码：
 
-&emsp;字符类：一组类似的元素 [] 中括号的整体代表一个字符
-
-```
-// var str = "abcd";
-// var re = /a[bcd]c/;
-// console.log(re.test(str));
-
-// 排除 ： ^ 如果写在[]里面的话，就代表排除的意思
-// var str = "abc";
-// var re = /a[^bcd]c/;
-// console.log(re.test(str));
-
-var str = "a.c";
-var re = /a[a-z0-9A-Z]c/;
-console.log(re.test(str));
-```
-
-<br>
-
-# <a name="chapter-eleven" id="chapter-eleven">十一 过滤标签</a>
-
-> [目录](#catalog-chapter-eleven)
-
-<br>
+> js 代码片段
 
 ```
-window.onload = function() {
-  var filterLabel = document.getElementById("filter-label");
-  var aT = filterLabel.getElementsByTagName("textarea");
-  var oInput = document.getElementById("input2");
-  // var re = /<\w+/g;
-  var re = /<[^>]+>/g;
-  oInput.onclick = function() {
-    aT[1].value = aT[0].value.replace(re, "");
-  };
-};
+var str1 = "abcd";
+var re1 = /a[bcd]c/;
+console.log(re1.test(str1)); // true
+
+var str2 = "abc";
+var re2 = /a[^bcd]c/;
+console.log(re2.test(str2)); // false
+
+var str3 = "a.c";
+var re3 = /a[a-z0-9A-Z]c/;
+console.log(re3.test(str3));  // false
 ```
 
-<br>
+> Console  
+> `true`  
+> `false`  
+> `false`
 
-# <a name="chapter-twelve" id="chapter-twelve">十二 获取class的方法</a>
+&emsp;**首先**，我们先解析第一部分：
 
-> [目录](#catalog-chapter-twelve)
+* `/a/`：匹配字母 `a`
+* `/[bcd]/`：匹配字母 `bcd` 中的一位
+* `/[d]`：匹配字母 `d`
 
-<br>
+&emsp;所以，可以看出，我们用 `re1` 来测试 `str1` 是否符合，它会返回 `true`。  
 
-```
-window.onload = function () {
-  // var aLi = document.getElementsByClassName("li1");
-  var aLi = getByClass(document, "li1");
-  for (var i = 0; i < aLi.length; i++) {
-    aLi[i].style.background = "red";
-  }
+&emsp;**然后**，我们解析第二部分：
 
-  function getByClass(oParent, sClass) {
-    var arr = [];
-    var aEle = oParent.getElementsByTagName("*");
-    // var re = /sClass/; // 当正则需要传参的时候，一定要用全称的写法
-    var re = new RegExp("\\b" + sClass + "\\b");
-    for (var i = 0; i < aEle.length; i++) {
-    if(re.test(aEle[i].className)) {
-      arr.push(aEle[i]);
-      }
-    }
-    return arr;
-  }
-};
-```
+*  `^` 如果写在 `[]` 里面的话，就代表排除的意思。在这里就代表着 `a` 和 `c` 中间不能是 `bcd` 中的任意一个
 
-<br>
+&emsp;所以，可以看出，我们用 `re2` 来测试 `str1` 是否符合，它会返回 `false`。  
 
-# <a name="chapter-thirteen" id="chapter-thirteen">十三 转义字符</a>
+&emsp;**最后**，我们解析第三部分：
 
-> [目录](#catalog-chapter-thirteen)
+* `/[a-z0-9A-Z]/`：匹配小写字母 `a-z`，或者数字 `0-9`，或者大写字母 `A-Z`。即 `a` 与 `c` 之间只能是上面匹配地上的字符。
 
-<br>
-
-```
-// \1：重复的第一个子项
-// \2: 重复的第二个子项
-// ……
-
-var str1 = "abca";
-var re1 = /(a)(b)(c)\1/;
-console.log(re1.test(str1));
-
-var str2 = "assbsscssadc";
-var arr2 = str2.split("");
-str2 = arr2.sort().join("");
-var value = "";
-var index = 0;
-var re = /(\w)\1+/g;
-str2.replace(re, function($0, $1){
-if(index<$0.length) {
-  index = $0.length;
-  value = $1;
-}
-});
-console.log("最多的字符："+value+"，重复的次数："+index);
-```
+&emsp;所以，可以看出，我们用 `re3` 来测试 `str3` 是否符合，它会返回 `false`
 
 <br>
 
