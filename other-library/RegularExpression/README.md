@@ -49,17 +49,11 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 前言](#chapter-three) |
 | &emsp;[3.1 初识正则表达式](#chapter-three-one) |
 | &emsp;[3.2 简要攻略](#chapter-three-two) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 test 方法](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 search 方法](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 match 方法](#chapter-six) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 replace 方法](#chapter-seven) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 敏感词过滤](#chapter-eight) |
 | <a name="catalog-chapter-nine" id="catalog-chapter-nine"></a>[九 匹配子项](#chapter-nine) |
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 字符类](#chapter-ten) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 过滤标签](#chapter-eleven) |
 | <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 获取class的方法](#chapter-twelve) |
 | <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 转义字符](#chapter-thirteen) |
-| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 量词](#chapter-fourteen) |
 
 <br>
 
@@ -156,12 +150,149 @@
 
 <br>
 
+&emsp;正则默认： 正则匹配成功就会结束，不会继续匹配。如果想查找全部，就要加标识 `g`（全局匹配）
+
 1. `test()`
+
+&emsp;**规则**：正则表达式搜索字符串指定的值，从而去匹配字符串。如果匹配成功就返回 `true`，如果匹配失败就返回 `false`。  
+&emsp;**用法**：`正则.test(字符串)`  
+&emsp;**案例**：
+
+> 代码片段
+
+```
+var str = "123abc";
+var re = /\D/; // 匹配非数字
+if(re.test(str)) {
+  console.log("不全是数字！");
+} else {
+  console.log("全是数字！");
+}
+```
+
+> Console：`不全是数字`
+
+<br>
+
 2. `exec()`
+
+&emsp;**规则**：  
+&emsp;**用法**：  
+&emsp;**案例**：
+
+<br>
+
 3. `search()`
+
+&emsp;**规则**：正则去匹配字符串，如果匹配成功，就返回匹配成功的位置，如果匹配失败就返回 `-1`  
+&emsp;**用法**：`字符串.search(正则)`  
+&emsp;**案例**：
+
+> 代码片段
+
+```
+var str = "abcdef";
+var re1 = /d/i; // 3
+var re2 = /h/i; // -1
+console.log(str.search(re1));
+console.log(str.search(re2));
+```
+
+> Console：  
+> `3`  
+> `-1`
+
+<br>
+
 4. `match()`
+
+&emsp;**规则**：正则去匹配字符串，如果匹配成功，就返回匹配成功的数组，如果匹配不成，就返回 `null`  
+&emsp;**用法**：`字符串.match(正则)`  
+&emsp;**案例**：
+
+> 代码片段
+
+```
+var str = "123fadf321dfadf4fadf1"; //(4) ["123", "321", "4", "1"]
+var re = /\d+/g;
+console.log(str.match(re));
+```
+
+> Console：`(4) ["123", "321", "4", "1"]`
+
+<br>
+
 5. `replace()`
+
+&emsp;**规则**：正则去匹配字符串，匹配成功的字符串去替换成新的字符串。函数的第一个参数，是匹配成功的字符；第二个参数：可以是字符串，也可以是一个回调函数。  
+&emsp;**用法**：`字符串.replace(正则,新的字符串)`  
+&emsp;**案例**：
+
+* 简单案例
+
+> 代码片段
+
+```
+var str = 'aaa';
+var re = /a+/g;
+str = str.replace(re, "b");
+console.log(str); // b
+```
+
+> Console：`b`
+
+<br>
+
+* 敏感词过滤
+
+> *.html
+
+```
+<div class="filtering-of-sensitive-words">
+  <h3>敏感词过滤</h3>
+  <p>替换前</p>
+  <textarea name="before" id="" cols="30" rows="10"></textarea>
+  <input type="button" value="确定" id="input1">
+  <p>替换后</p>
+  <textarea name="after" id="" cols="30" rows="10"></textarea>
+</div>
+```
+
+> *.js
+
+```
+window.onload = function() {
+  var aT = document.getElementsByTagName("textarea");
+  var oInput = document.getElementById("input1");
+
+  var re = /非诚|中国船|监视之下/g;
+
+  oInput.onclick = function() {
+    // 一律单个替换： aT[1].value = at[0].value.replace(re, "*");
+    // 多个替换：
+    aT[1].value = aT[0].value.replace(re, function(str) {
+      var result = "";
+      for(var i=0; i<str.length; i++) {
+        result += "*";
+      }
+      return result;
+    });
+  }
+}
+```
+
+> Console  
+> 替换前：`非诚勿扰在中国船的监视之下寸步难行`  
+> 替换后：`**勿扰在***的****寸步难行`
+
+
+<br>
+
 6. `split()`
+
+&emsp;**规则**：  
+&emsp;**用法**：  
+&emsp;**案例**：
 
 <br>
 
@@ -396,154 +527,15 @@ console.log(reg.test(str));
 
 <br>
 
-# <a name="chapter-four" id="chapter-four">四 test 方法</a>
-
-> [目录](#catalog-chapter-four)
-
-<br>
-
-&emsp;test: 正则表达式搜索字符串指定的值，从而去匹配字符串。如果匹配成功就返回真，如果匹配失败就返回假  
-&emsp;test的写法：正则.test(字符串)
-
-```
-// \s : 空格
-// \S : 非空格
-// \d : 数字
-// \D : 非数字
-// \w : 字符 （字母，数字，下划线_）
-// \W : 非字符
-
-var str = "12313213ab2131";
-var re = /\D/;
-if(re.test(str)) {
-  console.log("不全是数字！");
-} else {
-  console.log("全是数字！");
-}
-```
-
-<br>
-
-# <a name="chapter-five" id="chapter-five">五 search 方法</a>
-
-> [目录](#catalog-chapter-five)
-
-<br>
-
-&emsp;search：正则去匹配字符串，如果匹配成功，就返回匹配成功的位置，如果匹配失败就返回-1  
-&emsp;search 的写法：字符串.search(正则)
-
-```
-// 正则中的默认，是区分大小写的
-// 如果不区分大小写的话，在正则的最后加标识i
-var str = "abcdef";
-var re = /g/i;
-// var re = new RegExp("B", "i");
-console.log(str.search(re));
-```
-
-<br>
-
-# <a name="chapter-six" id="chapter-six">六 match 方法</a>
-
-> [目录](#catalog-chapter-six)
-
-<br>
-
-&emsp;match : 正则去匹配字符串，如果匹配成功，就返回匹配成功的数组，如果匹配不成，就返回null  
-&emsp;match的写法: 字符串.match(正则)
-
-```
-// 正则默认： 正则匹配成功就会结束，不会继续匹配
-// 如果想查找全部，就要加标识 g（全局匹配）
-// 量词：匹配不确定的位置
-// + ： 至少出现一次
-
-var str = "123fadf321dfadf4fadf1";
-var re = /\d+/g;
-console.log(str.match(re));
-```
-
-<br>
-
-# <a name="chapter-seven" id="chapter-seven">七 replace 方法</a>
-
-> [目录](#catalog-chapter-seven)
-
-<br>
-
-&emsp;replace ： 正则去匹配字符串，匹配成功的字符串去替换成新的字符串  
-&emsp;replace的写法： 字符串.replace(正则,新的字符串)
-
-```
-var str = 'aaa';
-var re = /a+/g;
-str = str.replace(re, "b");
-console.log(str);
-```
-
-<br>
-
-# <a name="chapter-eight" id="chapter-eight">八 敏感词过滤</a>
-
-> [目录](#catalog-chapter-eight)
-
-<br>
-
-> *.html
-
-```
-<div class="filtering-of-sensitive-words">
-  <!-- 7、敏感词过滤 -->
-  <h3>敏感词过滤</h3>
-  <p>替换前</p>
-  <textarea name="before" id="" cols="30" rows="10"></textarea>
-  <input type="button" value="确定" id="input1">
-  <p>替换后</p>
-  <textarea name="after" id="" cols="30" rows="10"></textarea>
-</div>
-```
-
-<br>
-
-> *.js
-
-```
-// | : 或的意思
-// replace : 第二个参数 ： 可以是字符串，也可以是一个回调函数
-
-window.onload = function() {
-  var aT = document.getElementsByTagName("textarea");
-  var oInput = document.getElementById("input1");
-
-  // 非诚勿扰在中国船的监视之下寸步难行
-  var re = /非诚|中国船|监视之下/g;
-
-  oInput.onclick = function() {
-    // 字符串写法： aT[1].value = at[0].value.replace(re, "*");
-    aT[1].value = aT[0].value.replace(re, function(str) {
-      // 函数的第一个参数，就是匹配成功的字符
-      var result = "";
-      for(var i=0; i<str.length; i++) {
-        result += "*";
-      }
-      return result;
-    });
-  }
-}
-```
-
-<br>
-
 # <a name="chapter-nine" id="chapter-nine">九 匹配子项</a>
 
 > [目录](#catalog-chapter-nine)
 
 <br>
 
-&emsp;匹配子项 ： 小括号() (还有另外一个意思，分组操作)
-&emsp;把正则的整体叫做（母亲）
-&emsp;然后把左边第一个括号里面的正则，叫做这个第一个子项（母亲的第一个孩子）
+&emsp;匹配子项 ： 小括号() (还有另外一个意思，分组操作)  
+&emsp;把正则的整体叫做（母亲）  
+&emsp;然后把左边第一个括号里面的正则，叫做这个第一个子项（母亲的第一个孩子）  
 &emsp;第二个小括号就是第二个孩子
 
 > *.js
@@ -552,7 +544,7 @@ window.onload = function() {
 var str = "2018-5-25";
 var re = /(\d+)(-)/g;
 str = str.replace(re, function($0, $1, $2){
-  // 第一个参数：$0（母亲),第二个参数：$1（第一个孩子），第三个参数：$1(第二个孩子)
+  // 第一个参数：$0（母亲),第二个参数：$1（第一个孩子），第三个参数：$2(第二个孩子)
   return $1 + '.';
   // return $0.substring(0, $0.length-1) + ".";
 });
@@ -678,69 +670,6 @@ if(index<$0.length) {
 }
 });
 console.log("最多的字符："+value+"，重复的次数："+index);
-```
-
-<br>
-
-# <a name="chapter-fourteen" id="chapter-fourteen">十四 量词</a>
-
-> [目录](#catalog-chapter-fourteen)
-
-<br>
-
-```
-// 量词 ： {}
-/*
-
-{4, 7} : 最少出现4次，最多出现7次
-{4,} : 最少出现4次
-{4} :正好出现4次
-
-+ : {1,} // 类似于\d{1,}
-? : {0,1} : 出现0次或者1次
-* : {0,} : 至少出现0次
-
-*/
-
-var str = "ac";
-var re = /ab*/;
-console.log(re.test(str));
-
-// ^ : 正则的最开始位置，代表起始的意思
-// $ : 正则的最末尾位置，代表结束的意思
-
-//判断是不是QQ号
-window.onload = function () {
-  var aInput = document.getElementById("isQQ").getElementsByTagName("input");
-  var re = /^[1-9]\d{4,11}$/;
-  aInput[1].onclick = function () {
-    if (re.test(aInput[0].value)) {
-      console.log("是QQ号");
-    } else {
-      console.log("不是QQ号");
-    }
-  };
-};
-
-// 去掉前后空格
-var str = ' hello ';
-console.log('(' + trim(str) + ')');
-
-function trim(str) {
-  var re = /^\s+|\s+$/g;
-  return str.replace(re, '');
-}
-
-console.log(trim(str));
-
-// 正则集合
-var re = {
-qq: /[1-9][0-9]{4,9}/,
-email: /^\w+@[a-z0-9]+(\.[a-z]+){1,3}$/,
-number: /\d+/
-};
-
-re.email
 ```
 
 <br>
