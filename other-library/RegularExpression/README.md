@@ -21,7 +21,7 @@
 
 ![图](../../public-repertory/img/other-RegularExpression-1.gif)
 
-&emsp;参考文献/视频/手册：
+&emsp;精选参考文献/视频/手册：
 
 * [正则表达式-教程 | 菜鸟教程](http://www.runoob.com/regexp/regexp-tutorial.html)
 * [正则表达式在线测试 | 菜鸟教程](https://c.runoob.com/front-end/854)
