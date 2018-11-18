@@ -2,11 +2,11 @@
 ===
 
 > Create by **jsliang** on **2018-11-14 10:41:20**  
-> Recently revised in **2018-11-18 15:57:36**
+> Recently revised in **2018-11-18 22:06:14**
 
 <br>
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/RegularExpression)**
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star**，你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/RegularExpression)**
 
 <br>
 
@@ -15,22 +15,12 @@
 &emsp;但是，它又是强大的。正则在我眼里，就是作弊码，学会之后的应用可以大大提高你的开发效率。  
 &emsp;所以，你可以老老实实打怪，但是你用了它会觉得编程更爽快。
 
-&emsp;为此，也是灵感触发，**jsliang** 借此写了个游戏（请用电脑打开网址）：
+&emsp;综上，有了 **jsliang** 编写这篇文章来记录自己所学的冲动。  
+&emsp;为此，也是灵感触发，**jsliang** 写了个 PC 小游戏（请用电脑打开网址）：
 
 * **[正则小游戏地址](http://playregex.jsliang.top/)**
 
 ![图](../../public-repertory/img/other-RegularExpression-1.gif)
-
-&emsp;精选参考文献/视频/手册：
-
-* [正则表达式-教程 | 菜鸟教程](http://www.runoob.com/regexp/regexp-tutorial.html)
-* [正则表达式在线测试 | 菜鸟教程](https://c.runoob.com/front-end/854)
-* [正则表达式手册 | 开源中国社区](http://tool.oschina.net/uploads/apidocs/jquery/regexp.html)
-* [鬼斧神工之正则表达式 | 慕课网](https://www.imooc.com/learn/350)
-* [正则表达式真的很 6，可惜你不会写 | 前端之巅](https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&mid=2247489641&idx=1&sn=5fd41822e46dc471ec551b7901e8f2e7&chksm=f951ad2ace26243c7a5300a7e0a18cd51fba7f516815cc1ee037e80b873d503ebeefecb4fd74&mpshare=1&scene=1&srcid=1008AuZ5aklTGmEXxuQUSgNm#rd)
-* [正则表达式 - 快速参考 | Miscrosoft Docs](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)
-* [揭开正则表达式的神秘面纱 | 正则工作室](http://www.regexlab.com/zh/regref.htm)
-* [正则表达式 JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
 
 <br>
 
@@ -46,11 +36,11 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 整合](#chapter-two) |
 | &emsp;[2.1 常用正则](#chapter-two-one) |
 | &emsp;[2.2 匹配规则](#chapter-two-two) |
-| &emsp;[2.3 JS 正则方法](#chapter-two-three) |
+| &emsp;[2.3 常用方法](#chapter-two-three) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 前言](#chapter-three) |
 | &emsp;[3.1 初识正则](#chapter-three-one) |
-| &emsp;[3.2 简要攻略](#chapter-three-two) |
-| &emsp;[3.3 基本模式匹配](#chapter-three-three) |
+| &emsp;[3.2 正则解析](#chapter-three-two) |
+| &emsp;[3.3 正则练习](#chapter-three-three) |
 | &emsp;[3.4 渐入佳境：() 匹配子项](#chapter-three-four) |
 | &emsp;[3.5 渐入佳境：[] 字符类](#chapter-three-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 回顾总结](#chapter-four) |
@@ -65,6 +55,17 @@
 
 &emsp;本章节整理总结了所有的参考文献，方便日后快速回顾回忆。  
 &emsp;如果你还没正式开始正则表达式，请快速浏览跳过本章节。
+
+&emsp;精选参考文献/视频/手册：
+
+* [正则表达式-教程 | 菜鸟教程](http://www.runoob.com/regexp/regexp-tutorial.html)
+* [正则表达式在线测试 | 菜鸟教程](https://c.runoob.com/front-end/854)
+* [正则表达式手册 | 开源中国社区](http://tool.oschina.net/uploads/apidocs/jquery/regexp.html)
+* [鬼斧神工之正则表达式 | 慕课网](https://www.imooc.com/learn/350)
+* [正则表达式真的很 6，可惜你不会写 | 前端之巅](https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&mid=2247489641&idx=1&sn=5fd41822e46dc471ec551b7901e8f2e7&chksm=f951ad2ace26243c7a5300a7e0a18cd51fba7f516815cc1ee037e80b873d503ebeefecb4fd74&mpshare=1&scene=1&srcid=1008AuZ5aklTGmEXxuQUSgNm#rd)
+* [正则表达式 - 快速参考 | Miscrosoft Docs](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)
+* [揭开正则表达式的神秘面纱 | 正则工作室](http://www.regexlab.com/zh/regref.htm)
+* [正则表达式 JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
 
 <br>
 
@@ -97,7 +98,7 @@
 
 <br>
 
-# <a name="chapter-two-two" id="chapter-two-two">2.2 正则表达式规则</a>
+# <a name="chapter-two-two" id="chapter-two-two">2.2 匹配规则</a>
 
 > [目录](#catalog-chapter-two)
 
@@ -144,13 +145,13 @@
 
 <br>
 
-# <a name="chapter-two-three" id="chapter-two-three">2.3 JS 正则方法</a>
+# <a name="chapter-two-three" id="chapter-two-three">2.3 常用方法</a>
 
 > [目录](#catalog-chapter-two)
 
 <br>
 
-&emsp;正则默认： 正则匹配成功就会结束，不会继续匹配。如果想查找全部，就要加标识 `g`（全局匹配）
+&emsp;JavaScript 正则默认： 正则匹配成功就会结束，不会继续匹配。如果想查找全部，就要加标识 `g`（全局匹配）
 
 1. `test()`
 
@@ -174,15 +175,7 @@ if(re.test(str)) {
 
 <br>
 
-2. `exec()`
-
-&emsp;**规则**：  
-&emsp;**用法**：  
-&emsp;**案例**：
-
-<br>
-
-3. `search()`
+2. `search()`
 
 &emsp;**规则**：正则去匹配字符串，如果匹配成功，就返回匹配成功的位置，如果匹配失败就返回 `-1`  
 &emsp;**用法**：`字符串.search(正则)`  
@@ -204,7 +197,7 @@ console.log(str.search(re2));
 
 <br>
 
-4. `match()`
+3. `match()`
 
 &emsp;**规则**：正则去匹配字符串，如果匹配成功，就返回匹配成功的数组，如果匹配不成，就返回 `null`  
 &emsp;**用法**：`字符串.match(正则)`  
@@ -222,7 +215,7 @@ console.log(str.match(re));
 
 <br>
 
-5. `replace()`
+4. `replace()`
 
 &emsp;**规则**：正则去匹配字符串，匹配成功的字符串去替换成新的字符串。函数的第一个参数，是匹配成功的字符；第二个参数：可以是字符串，也可以是一个回调函数。  
 &emsp;**用法**：`字符串.replace(正则,新的字符串)`  
@@ -284,14 +277,6 @@ window.onload = function() {
 > Console  
 > 替换前：`非诚勿扰在中国船的监视之下寸步难行`  
 > 替换后：`**勿扰在***的****寸步难行`
-
-<br>
-
-1. `split()`
-
-&emsp;**规则**：  
-&emsp;**用法**：  
-&emsp;**案例**：
 
 <br>
 
@@ -427,7 +412,7 @@ console.log(regex.test(myNumber)); // true
 
 <br>
 
-# <a name="chapter-three-two" id="chapter-three-two">3.2 简要攻略</a>
+# <a name="chapter-three-two" id="chapter-three-two">3.2 正则解析</a>
 
 > [目录](#catalog-chapter-three)
 
@@ -496,13 +481,13 @@ console.log(reg.test(str)); // true
 
 <br>
 
-# <a name="chapter-three-three" id="chapter-three-three">3.3 基本模式匹配</a>
+# <a name="chapter-three-three" id="chapter-three-three">3.3 正则练习</a>
 
 > [目录](#catalog-chapter-three)
 
 <br>
 
-&emsp;通过上面的了解，小伙伴对正则表达式应该有了初始的了解，下面我们猜测一下，下面的 `Console 1-3` 哪些是 `true`，哪些是 `false`：
+&emsp;通过上面的了解，小伙伴对正则表达式应该有了初始的了解，下面我们猜测一下，下面的 `Console 1 - Console 3`中， 哪些是 `true`，哪些是 `false`：
 
 > index.html
 
@@ -664,7 +649,31 @@ console.log(re3.test(str3));  // false
 
 * `/[a-z0-9A-Z]/`：匹配小写字母 `a-z`，或者数字 `0-9`，或者大写字母 `A-Z`。即 `a` 与 `c` 之间只能是上面匹配地上的字符。
 
-&emsp;所以，可以看出，我们用 `re3` 来测试 `str3` 是否符合，它会返回 `false`
+&emsp;所以，可以看出，我们用 `re3` 来测试 `str3` 是否符合，它会返回 `false`。
+
+<br>
+
+# <a name="chapter-four" id="chapter-four">四 回顾总结</a>
+
+> [目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;在第三章中，我们介绍了强大之处，介绍了它的使用方法，并通过小练习、`()` 以及 `[]` 的讲解，让小伙伴们更进一步了解在 JavaScript 中正则的使用……  
+&emsp;但！  
+&emsp;这是完结吗？！  
+&emsp;不是的！  
+&emsp;在第二章 [【整合】](#chapter-two) 中，**jsliang** 整合网上资源，记录了一些常用的正则工具，里面有很多东西，是在这篇文章中没有涉及的，有兴趣的小伙伴可以逐一尝试加深对正则的了解。  
+
+&emsp;**————For the end————**  
+&emsp;在编写这篇文章中，**jsliang** 玩性大发写下了下面的游戏（请用电脑查看）：
+
+* **游戏地址**：[天下第一武道会](http://playregex.jsliang.top/)
+* **代码地址**：[https://github.com/LiangJunrong/regex](https://github.com/LiangJunrong/regex)
+
+<br>
+
+&emsp;**如果小伙伴们觉得本文还不错，记得 掘金 给个赞并去 GitHub 点个 **star**， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/RegularExpression)**
 
 <br>
 
