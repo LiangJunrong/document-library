@@ -69,7 +69,7 @@
 
 <br>
 
-# <a name="chapter-two-one" id="chapter-two-one">2.1 常用正则表达式</a>
+## <a name="chapter-two-one" id="chapter-two-one">2.1 常用正则表达式</a>
 
 > [目录](#catalog-chapter-two)
 
@@ -98,7 +98,7 @@
 
 <br>
 
-# <a name="chapter-two-two" id="chapter-two-two">2.2 匹配规则</a>
+## <a name="chapter-two-two" id="chapter-two-two">2.2 匹配规则</a>
 
 > [目录](#catalog-chapter-two)
 
@@ -145,7 +145,7 @@
 
 <br>
 
-# <a name="chapter-two-three" id="chapter-two-three">2.3 常用方法</a>
+## <a name="chapter-two-three" id="chapter-two-three">2.3 常用方法</a>
 
 > [目录](#catalog-chapter-two)
 
@@ -298,7 +298,7 @@ window.onload = function() {
 
 <br>
 
-# <a name="chapter-three-one" id="chapter-three-one">3.1 初识正则</a>
+## <a name="chapter-three-one" id="chapter-three-one">3.1 初识正则</a>
 
 > [目录](#catalog-chapter-three)
 
@@ -414,7 +414,7 @@ console.log(regex.test(myNumber)); // true
 
 <br>
 
-# <a name="chapter-three-two" id="chapter-three-two">3.2 正则解析</a>
+## <a name="chapter-three-two" id="chapter-three-two">3.2 正则解析</a>
 
 > [目录](#catalog-chapter-three)
 
@@ -483,7 +483,7 @@ console.log(reg.test(str)); // true
 
 <br>
 
-# <a name="chapter-three-three" id="chapter-three-three">3.3 正则练习</a>
+## <a name="chapter-three-three" id="chapter-three-three">3.3 正则练习</a>
 
 > [目录](#catalog-chapter-three)
 
@@ -533,7 +533,7 @@ console.log(reg.test(str)); // true
 
 <br>
 
-# <a name="chapter-three-four" id="chapter-three-four">3.4 渐入佳境：() 匹配子项</a>
+## <a name="chapter-three-four" id="chapter-three-four">3.4 渐入佳境：() 匹配子项</a>
 
 > [目录](#catalog-chapter-three)
 
@@ -604,7 +604,7 @@ console.log(str.match(re));
 
 <br>
 
-# <a name="chapter-three-five" id="chapter-three-five">3.5 渐入佳境：[] 字符类</a>
+## <a name="chapter-three-five" id="chapter-three-five">3.5 渐入佳境：[] 字符类</a>
 
 > [目录](#catalog-chapter-three)
 
