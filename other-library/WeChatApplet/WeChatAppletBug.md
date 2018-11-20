@@ -2122,6 +2122,18 @@ Page({
 
 <br>
 
+&emsp;在上面，我们仅仅是 **获取** 到了 `input` 的值。那么，我们要如何实现 **动态修改** `input` 的值呢？
+
+```
+<input maxlength='11' placeholder='请输入手机号码' placeholder-class="phone-number" name="phoneNumber" bindinput='phoneNumberInput' type="text" value="{{phoneNumber}}"></input>
+```
+
+<br>
+
+&emsp;答案是：我们只需要将 `value` 的值设为 `phoneNumber` 就行了！
+
+<br>
+
 &emsp;看到这里，如果有习惯 `jQuery` ，习惯操作 `dom` 节点的小伙伴可能会抱有很大疑惑：“它就不能像 `jQuery` 一样直接获取 `dom` 的内容么？”  
 &emsp;答案是，有的：[地址](https://developers.weixin.qq.com/miniprogram/dev/api/wxml/NodesRef.html)。但是，在这里， **jsliang** 并不推荐小伙伴这么做，想要学好一门新的技术，就不能因为旧的技术而限制了自己的观念。时代在进步，科技在发展，我们不学更多的知识，只能被淘汰在前端的潮流中。
 
