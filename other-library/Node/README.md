@@ -6,7 +6,13 @@ Node
 
 <br>
 
-&emsp;Node 学习文章
+# 技术支撑
+
+* [IT 营](https://www.itying.com)
+* [IT 营大地老师 2018 年 4 月 Node.js Koa2 视频教程 avi 版本（课件+源码+视频）](https://pan.baidu.com/s/1O2C6TolDzYpMnKIfQaaqog?errno=0&errmsg=Auth%20Login%20Sucess&&bduss=&ssnerror=0&traceid=#list/path=%2F&parentPath=%2F)
+
+* [进击 Node.js 基础（一）](https://www.imooc.com/learn/348)
+* [进击 Node.js 基础（二）](https://www.imooc.com/learn/637)
 
 <br>
 
