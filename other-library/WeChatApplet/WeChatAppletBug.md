@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-11-20 09:54:04**
+> Recently revised in **2018-11-20 14:17:23**
 
 <br>
 
@@ -2043,6 +2043,8 @@ console.log(JSON.stringify(transData, ' ', ' '));
 &emsp;是的，这就要说说用户下拉动作和上拉触底了：  
 
 &emsp;下拉事件在小程序文档的解释：[链接](https://developers.weixin.qq.com/miniprogram/dev/api/pulldown.html?search-key=pulldown)
+
+> 2018-11-20 注意，该事件需要在 `json` 中设置：   `"enablePullDownRefresh": true`
 
 ```
 /**
