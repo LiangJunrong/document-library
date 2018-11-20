@@ -2,13 +2,11 @@
 ===
 
 > Create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-11-15 15:22:32**
+> Recently revised in **2018-11-20 09:54:04**
 
 <br>
 
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
-
-&emsp;GitHub 最新更新：2018-10-17 13:34:11。追求最新文章的小伙伴可前往下载，掘金上的文章每周六、日更新。
 
 # 写在前面
 
@@ -2684,6 +2682,122 @@ Page({
 <br>
 
 &emsp;如上，实现了视频播放。
+
+<br>
+
+## <a name="chapter-three-twenty-six" id="chapter-three-twenty-six">3.26 多层 for 循环</a>
+
+&emsp;[返回目录](#catalog-chapter-three-twenty-six)
+
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
+
+<br>
+
+&emsp;作为一个 **曾经的 Vuer**，昨儿收到任务，要处理下面的数据：
+
+> 代码片段
+
+```
+contactsData: [
+  {
+    groupName: 'A',
+    users: [
+      {
+        userName: "啊杰",
+        userPhone: '18933338765'
+      }
+    ]
+  },
+  {
+    groupName: 'L',
+    users: [
+      {
+        userName: "李淑芬",
+        userPhone: '18925781396'
+      }
+    ]
+  }
+]
+```
+
+<br>
+
+&emsp;于是，**jsliang** 脑抽，直接：
+
+```
+<view v-for="contactsData">
+  <view v-for="item.users"></view>
+</view>
+```
+
+<br>
+
+&emsp;不出意外失败了，回顾起来有点笑喷。^_^  
+&emsp;那么问题来了，在小程序中，如何进行多次数据遍历循环输出呢？
+
+> 代码片段
+
+> *.js
+
+```
+contactsData: [
+  {
+    groupName: 'A',
+    users: [
+      {
+        userName: "啊杰",
+        userPhone: '18933338765'
+      }
+    ]
+  },
+  {
+    groupName: 'L',
+    users: [
+      {
+        userName: "李淑芬",
+        userPhone: '18925781396'
+      }
+    ]
+  }
+]
+```
+
+<br>
+
+> *.wxml
+
+```
+<view wx:for="{{contactsData}}" wx:for-item="contactsData" wx:key="{{contactsData.index}}">
+  <view>
+    <text>{{contactsData.groupName}}</text>
+  </view>
+  <view wx:for="{{contactsData.users}}" wx:for-item="userInfo" wx:key="{{userInfo.index}}">
+    <text class="contacts-list-user-left-name">{{userInfo.userName}}</text>
+    <text class="contacts-list-user-left-phone">{{userInfo.userPhone}}</text>
+  </view>
+</view>
+```
+
+<br>
+
+&emsp;如上，在设计数据的多层嵌套时，我们要多层遍历输出数据，应该利用 `wx-for-item` 的使用，它可以帮助我们进行变量的重命名。在单层数据中，我们使用：
+
+```
+<view wx:for="{{student}}">
+  <text>{{item.name}}<text>
+</view>
+```
+
+&emsp;然而，我们如果执行第二层及以上的 `wx:for`。那么，使用 `item` 就导致他们冲突了，所以应该通过 `wx-for-item` 重命名要循环的数据：
+
+```
+<view wx:for="{{student}}" wx:for-item="student" wx:key="student.index">
+  <text>{{student.studentGroup}}</text>
+  <view wx:for="{{student.studentInfo}}" wx:for-item="studentInfo" wx:key="{{studentInfo.index}}">
+    <text>{{studentInfo.studentName}}</text>
+  </view>
+</view>
+```
 
 <br>
 
