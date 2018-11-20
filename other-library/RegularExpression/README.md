@@ -44,6 +44,7 @@
 | &emsp;[3.4 渐入佳境：() 匹配子项](#chapter-three-four) |
 | &emsp;[3.5 渐入佳境：[] 字符类](#chapter-three-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 回顾总结](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 文章更正](#chapter-five) |
 
 <br>
 
@@ -447,7 +448,7 @@ var reg = /^[a-z0-9_-]{6,12}$/;
 console.log(reg.test(str)); // true
 ```
 
-&emsp;这样，我们就告诉了 JavaScript：`reg` 通过 `test()` 方法去测试 `str` 是否符合 `reg`的规则，如果符合则返回 `true`，如果不符合则返回 `true`。这里返回的是 `true`，因为我们的 `str` 是符合 `reg` 规则的。
+&emsp;这样，我们就告诉了 JavaScript：`reg` 通过 `test()` 方法去测试 `str` 是否符合 `reg`的规则，如果符合则返回 `true`，如果不符合则返回 `false`。这里返回的是 `true`，因为我们的 `str` 是符合 `reg` 规则的。
 
 > `test()` 方法及其他好用的方法已经整合到 [【2.3 JS 正则方法】](#chapter-two-three) 里面了，迫不及待的小伙伴们可点击链接先行查看。
 
@@ -673,6 +674,26 @@ console.log(re3.test(str3));  // false
 
 * **游戏地址**：[天下第一武道会](http://playregex.jsliang.top/)
 * **代码地址**：[https://github.com/LiangJunrong/regex](https://github.com/LiangJunrong/regex)
+
+<br>
+
+# <a name="chapter-five" id="chapter-five">五 文章更正</a>
+
+> [目录](#catalog-chapter-five)
+
+<br>
+
+1. 掘金反馈 2018-11-20
+* **类型**：内容错误
+* **反馈用户**：[Kaelalv](https://juejin.im/user/5bee10b1f265da61776b8c1b)
+* **反馈内容**：3.2内容中对这段代码解析时：
+```
+var str = 'abc-cba_abc'; 
+var reg = /^[a-z0-9_-]{6,12}$/; 
+console.log(reg.test(str)); // true 
+```
+&emsp;作者手误，打错：不符合则 返回 true；正确：不符合则 返回 false。
+* **反馈处理**：已更正，谢谢反馈
 
 <br>
 
