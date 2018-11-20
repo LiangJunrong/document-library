@@ -102,6 +102,7 @@
 | &emsp;<a name="catalog-chapter-three-twenty-three" id="catalog-chapter-three-twenty-three"></a>[3.23 文件在线预览](#chapter-three-twenty-three)       | 2   |
 | &emsp;<a name="catalog-chapter-three-twenty-four" id="catalog-chapter-three-twenty-four"></a>[3.24 尽量使用 ES6](#chapter-three-twenty-four)          | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-five" id="catalog-chapter-three-twenty-five"></a>[3.25 视频功能实现](#chapter-three-twenty-five)          | 1   |
+| &emsp;<a name="catalog-chapter-three-twenty-six" id="catalog-chapter-three-twenty-six"></a>[3.26 多层 for 循环](#chapter-three-twenty-six)          | 1   |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 网友补充](#chatper-four)                                                             |     |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 文件夹读取报错](#chapter-four-one)                                    | 1   |
 | &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 textarea问题多多](#chapter-four-two)                                  | 1   |
