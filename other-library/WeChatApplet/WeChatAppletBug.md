@@ -14,7 +14,10 @@
 &emsp;工作量: PSD 18 张 (导出的 JPG 30 张)  
 &emsp;耗时：12 个工作日  
 &emsp;总结1: 在页面制作商，需要 3 周工作日（工作 15 天）搞定，前后端对接口另计。实际上，12 个工作日可以搞定所有页面，但是应该往前铺 1.5D 熟悉框架，往后铺 1.5D 整理代码。当然每个人的耗时可能不同，可根据个人实际情况进行调整。  
-&emsp;总结2：在 API 调用上，根据接口数量可能需要 7-12 个工作日进行 API 调用，难点表现在： 1. 接口不够丰富，数据量不足； 2. 接口数据不够正式真实，跟前面的假数据相差太大； 3. 接口可能没法正常调用 等原因。故因根据小程序业务逻辑进行工作时长的报备。  
+&emsp;总结2：在 API 调用上，根据接口数量可能需要 7-12 个工作日进行 API 调用，难点表现在： 
+1. 接口不够丰富，数据量不足； 
+2. 接口数据不够正式真实，跟前面的假数据相差太大； 
+3. 接口可能没法正常调用 等原因。故因根据小程序业务逻辑进行工作时长的报备。  
 
 &emsp;**这里有 jsliang 微信小程序开发中遇到的所有坑，以及在填坑过程中的一些个人经验。jsliang 利用这篇教程存储一些常用的微信小程序开发技巧，方便查找。它可能教不了你什么，但至少能省下你百度的功夫。**  
 
@@ -103,6 +106,7 @@
 | &emsp;<a name="catalog-chapter-three-twenty-four" id="catalog-chapter-three-twenty-four"></a>[3.24 尽量使用 ES6](#chapter-three-twenty-four)          | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-five" id="catalog-chapter-three-twenty-five"></a>[3.25 视频功能实现](#chapter-three-twenty-five)          | 1   |
 | &emsp;<a name="catalog-chapter-three-twenty-six" id="catalog-chapter-three-twenty-six"></a>[3.26 多层 for 循环](#chapter-three-twenty-six)          | 1   |
+| &emsp;<a name="catalog-chapter-three-twenty-seven" id="catalog-chapter-three-twenty-seven"></a>[3.27 拼音导航](#chapter-three-twenty-seven)          | 1   |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 网友补充](#chatper-four)                                                             |     |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 文件夹读取报错](#chapter-four-one)                                    | 1   |
 | &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 textarea问题多多](#chapter-four-two)                                  | 1   |
@@ -2813,6 +2817,86 @@ contactsData: [
   </view>
 </view>
 ```
+
+<br>
+
+## <a name="chapter-three-twenty-seven" id="chapter-three-twenty-seven">3.27 拼音导航</a>
+
+&emsp;[返回目录](#catalog-chapter-three-twenty-seven)
+
+> 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
+
+<br>
+
+&emsp;在项目的开发中，**jsliang** 碰到了联系人列表的开发需求。话不多说，直接上手：
+
+> *.wxml
+
+```
+<view class="pinyin-nav">
+  <view wx:for="{{letters}}" wx:key="{{letters.index}}">
+    <text class="pinyin-nav-byte" data-byte="{{item}}" bindtap="pingyinNav">{{item}}</text>
+  </view>
+</view>
+```
+
+> *.wxss
+
+```
+.pinyin-nav {
+  font-size: 28rpx;
+  line-height: 28rpx;
+  position: fixed;
+  right: 10rpx;
+  top: 105rpx;
+  height: 80%;
+  text-align: center;
+}
+.pinyin-nav-byte {
+  display: inline-block;
+  width: 30rpx;
+  border-radius: 20rpx;
+  padding: 5rpx 5rpx;
+  margin-top: 3rpx;
+  color: #fff;
+  background: rgb(129, 212, 238);
+}
+```
+
+> *.js
+```
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    // 导航字母
+    letters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+  },
+  // 拼音导航
+  pingyinNav(e) {
+    console.log(e.currentTarget.dataset.byte);
+  },
+})
+```
+
+<br>
+
+&emsp;在上面的代码中，**jsliang** 做了三件事：
+
+1. 编写 `Wxml` 结构，由于只有一层 `view` 在循环的时候，在控制台看到的 `Wxml` 结构并不好看，所以循环的是第二层 `view`，这样就形成下面的效果：
+
+```
+<view>
+  <view></view>
+  <view></view>
+  ...
+</view>
+```
+
+2. 编写 `Wxss` 定位，**jsliang** 对 `Wxml` 进行了 `position: fixed` 的绝对定位，这样就可以将它固定在右侧。
+3. 最后，在 `js` 中定义了遍历的数据（字母 `A-Z`）及点击字母的时候，将该字母传递过来。
 
 <br>
 
