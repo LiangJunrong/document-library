@@ -2900,6 +2900,37 @@ Page({
 
 <br>
 
+&emsp;在昨晚上面的基础环境搭建后，我们需要实现下拉、上拉的功能，这两个功能在微信小程序中有定义，这里就不做过多讲解：`onPullDownRefresh`、`onReachBottom`。下面我们重点讲解下点击字母滚动到对应页面：
+
+> 代码片段
+
+```
+onLoad: function (options) {
+  console.log("\n成员管理页：");
+  
+  // 设备信息
+  wx.getSystemInfo({
+    success: res => {
+      console.log("\n设备信息为：");
+      console.log(res);
+
+      let equipmentOneRpx = 750 / res.windowWidth;
+      console.log("换算信息：1rpx = " + equipmentOneRpx + "px");
+      this.setData({
+        equipmentOneRpx: equipmentOneRpx
+      })
+    },
+  })
+},
+```
+
+* [参考资料](https://blog.csdn.net/qq_41080490/article/details/80268298)
+
+&emsp;我们在 `onLoad` 中获取到用户设备的信息，然后计算出 `1rpx` 等于多少 `px`。在 `iphone6` 中，`1rpx = 2px`。我们只需要将 `css` 中写的样式高度 / 比例，就能动态计算我们的高度。  
+&emsp;这里讲解不甚清楚，有空将开启一篇新文章进行讲解。
+
+<br>
+
 # <a name="chatper-four" id="chatper-four">四 网友补充</a>
 
 &emsp;[返回目录](#catalog-chapter-four)
