@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-11-20 14:17:23**
+> Recently revised in **2018-11-21 11:40:01**
 
 <br>
 
@@ -2848,7 +2848,7 @@ contactsData: [
   line-height: 28rpx;
   position: fixed;
   right: 10rpx;
-  top: 105rpx;
+  top: 9%;
   height: 80%;
   text-align: center;
 }
@@ -2896,7 +2896,7 @@ Page({
 ```
 
 2. 编写 `Wxss` 定位，**jsliang** 对 `Wxml` 进行了 `position: fixed` 的绝对定位，这样就可以将它固定在右侧。
-3. 最后，在 `js` 中定义了遍历的数据（字母 `A-Z`）及点击字母的时候，将该字母传递过来。
+3. 最后，在 `js` 中定义了遍历的数据（字母 `A-Z`）及点击字母的时候，将该字母传递过来并打印。
 
 <br>
 
