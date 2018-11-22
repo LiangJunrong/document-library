@@ -23,6 +23,8 @@
 
 > [返回目录](#catalog-chapter-two)
 
+<br>
+
 &emsp;写文章无形中也会磨炼自己的表达能力。  
 &emsp;这周（2018-11-19）在开发 **通讯录** 时，突然发现 **[微信小程序 bug 集中营](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)** 这篇文章不能再继续写了，因为它变得 **臃肿**、**丑陋** 且 **难维护**，连我这个写作人都感慨：如果没有 `Ctrl + F`，我真心不想翻这篇文章。  
 &emsp;所以，单独开一篇文章：**微信小程序功能清单**。然后嘛，为了能吸引小伙伴点进来瞅瞅，起个标新立异的标题吧：**微信小程序 之 奇技淫巧**。
@@ -32,6 +34,8 @@
 # <a name="chapter-three" id="chapter-three">三 功能列表</a>
 
 > [返回目录](#catalog-chapter-three)
+
+<br>
 
 &emsp;**看一遍？谁都可以！**  
 &emsp;**敲一遍？天差地别！**
