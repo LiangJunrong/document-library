@@ -79,10 +79,9 @@ http.createServer(function (req, res) {
 
 <br>
 
-&emsp;OK，搞定完事，我们下一章见……（噼里啪啦，**jsliang** 卒)  
-&emsp;咳咳，开玩笑，现在我们一一讲解上面代码：
+&emsp;OK，搞定完事，现在我们一一讲解上面代码：
 
-1. 首先，我们需要先开启仙人模式，哦，不是，是 `HTTP` 模式。我们都知道，像 PHP 这类老牌子的后端语言，需要 Apache 或者 Nginx 开发 HTTP 服务。然而我们的 Node 不需要：
+1. 首先，我们需要先开启仙人模式，哦，不是，是 `HTTP` 模式。我们都知道，像 PHP 这类老牌子的后端语言，需要 Apache 或者 Nginx 开启 HTTP 服务。然而我们的 Node 不需要：
 
 ```
 var http = require("http");
