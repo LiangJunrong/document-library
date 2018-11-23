@@ -243,30 +243,32 @@ align-content: space-between;
 
 &emsp;实现效果如下：
 
-![图](../../public-repertory/img/other-WechatApplet-bug-7.png)
+![图](../../public-repertory/img/other-WechatAppletFunctionList-3.png)
 
-&emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
+&emsp;如图，这是我们要实现的混合布局效果，那么在微信小程序中要如何编程呢？
 
 > *.wxml
 ```
-<view class="weui-tab__content-item3" wx:for="{{tabs3Content}}" wx:key="{{item.index}}">
-  <navigator url="../indexProductArticle/indexProductArticle">
-    <view class="weui-tab__content-item3-question">
-      <image src="../../public/index_productDetail_icon_question.png"></image>
-      <text>{{item.title}}</text>
+<view class="mixed-layout">
+  <view class="mixed-layout-floor-one">
+    <text>混合布局</text>
+  </view>
+  <view class="mixed-layout-floor-two">
+    <view class="mixed-layout-floor-two-left">
+      <text class="mixed-layout-floor-two-left-title">微信小程序之奇技淫巧</text>
+      <text class="mixed-layout-floor-two-left-author" url="https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletFunctionList.md">作者：jsliang</text>
     </view>
-    <view class="weui-tab__content-item3-answer">
-      <image src="../../public/index_productDetail_icon_answer.png"></image>
-      <text>{{item.content}}</text>
+    <view class="mixed-layout-floor-two-right">
+      <navigator>查看详情</navigator>
     </view>
-    <view class="weui-tab__content-item3-detail">
-      <text class="weui-tab__content-item3-detail-datatime">{{item.datatime}}</text>
-      <text class="weui-tab__content-item3-detail-reader">{{item.reader}}阅读</text>
-      <text class="weui-tab__content-item3-detail-label">#{{item.label}}#</text>
-    </view>
-  </navigator>
-  <view class="weui-tab__content-item3-gap">
-    <image src="../../public/index_productDetail_gap.png"></image>
+  </view>
+  <view class="mixed-layout-floor-three">
+    <text>这是一篇专研小程序各种功能实现的文章，例如布局、通讯录、底部导航栏……如果你感觉不错，可以点赞点 Star；如果感觉有错，那就评论区溜达一番，虚心求教，不胜感激~ </text>
+  </view>
+  <view class="mixed-layout-floor-four">
+    <text>2018-11-23</text>
+    <text>2018阅读</text>
+    <text class="mixed-layout-floor-four-classification">#小程序功能清单#</text>
   </view>
 </view>
 ```
@@ -275,64 +277,72 @@ align-content: space-between;
 
 > *.wxss
 ```
-.weui-tab__content-item3 {
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-  margin-top: -10rpx;
-  margin-bottom: 10rpx;
+
+/* 混合布局 */
+
+/* 混合布局包裹层 */
+.mixed-layout {
+  margin-top: 30rpx;
+  padding: 0 30rpx 30rpx;
 }
-.weui-tab__content-item3:first-child {
-  padding: 40rpx 30rpx 0;
-}
-.weui-tab__content-item3-question image {
-  width: 30rpx;
-  height: 30rpx;
-}
-.weui-tab__content-item3-question text {
-  font-size: 30rpx;
-  line-height: 46rpx;
+
+/* 混合布局第一层 */
+.mixed-layout-floor-one {
+  font-size: 32rpx;
+  line-height: 32rpx;
   font-weight: bold;
-  color: #333;
-  margin-left: 10rpx;
 }
-.weui-tab__content-item3-answer image {
-  width: 30rpx;
-  height: 30rpx;
-}
-.weui-tab__content-item3-answer text {
-  font-size: 26rpx;
-  line-height: 42rpx;
-  color: #a9a9a9;
-  margin-left: 10rpx;
-}
-.weui-tab__content-item3-detail {
+
+/* 混合布局第二层 */
+.mixed-layout-floor-two {
+  /* 关键 Flex 布局 */
   display: flex;
   justify-content: space-between;
-  font-size: 26rpx;
-  color: #a9a9a9;
+  align-items: center;
+
+  margin-top: 40rpx;
+  font-size: 32rpx;
+  border-bottom: 1rpx dotted #ccc;
 }
-.weui-tab__content-item3-detail-label {
+.mixed-layout-floor-two-left {
+  /* 左侧竖行排序 */
+  display: flex;
+  flex-direction: column;
+}
+.mixed-layout-floor-two-left-title {
+  font-weight: bold;
+}
+.mixed-layout-floor-two-left-author {
+  margin-top: 10rpx;
+  color: rgb(146, 138, 138);
+  font-size: 30rpx;
+}
+.mixed-layout-floor-two-right {
+  color: deepskyblue;
+}
+
+/* 混合布局第三层 */
+.mixed-layout-floor-three {
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  line-height: 36rpx;
+  color: rgb(110, 108, 108);
+  text-indent: 1em;
+}
+
+/* 混合布局第四层 */
+.mixed-layout-floor-four {
+  /* 关键 Flex 布局 */
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+.mixed-layout-floor-four-classification {
   color: #d0a763;
 }
-.weui-tab__content-item3-gap image {
-  width: 100%;
-  height: 30rpx;
-}
-```
-
-<br>
-
-> *.js
-```
-tabs3Content: [
-  {
-    title: '员工发明创造是否属于职务发明的认证标准?',
-    content: '随着企业对知识产权在企业发展中核心竞争力的认识力提高，企业保护自身知识产权的意识不断增强，使其技术得......',
-    datatime: '2018-03-05',
-    reader: '2081',
-    label: '知识产权'
-  }
-]
 ```
 
 <br>
