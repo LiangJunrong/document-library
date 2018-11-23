@@ -23,8 +23,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 功能列表](#chapter-three) |
-| &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 通讯录](#chapter-three-one) |
-| &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.1 通讯录](#chapter-three-two) |
+| &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 排兵布阵 - flex布局](#chapter-three-one) |
+| &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 沙场点兵 - 通讯录](#chapter-three-two) |
 
 <br>
 
@@ -35,8 +35,9 @@
 <br>
 
 &emsp;写文章无形中也会磨炼自己的表达能力。  
-&emsp;这周（2018-11-19）在开发 **通讯录** 时，突然发现 **[微信小程序 bug 集中营](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)** 这篇文章不能再继续写了，因为它变得 **臃肿**、**丑陋** 且 **难维护**，连我这个写作人都感慨：如果没有 `Ctrl + F`，我真心不想翻这篇文章。  
-&emsp;所以，单独开一篇文章：**微信小程序功能清单**。然后嘛，为了能吸引小伙伴点进来瞅瞅，起个标新立异的标题吧：**微信小程序 之 奇技淫巧**。
+&emsp;这周 (`2018-11-19`) 在开发 **通讯录** 时，突然发现 **[微信小程序 bug 集中营](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)** 这篇文章不能再继续写了，因为它变得 **臃肿**、**丑陋** 且 **难维护**，连我这个写作人都感慨：如果没有 `Ctrl + F` ，以及我的 **目录** 写得还不错，我真心不想再翻这篇文章。  
+&emsp;为此，**jsliang** 单独开了一篇文章：**微信小程序功能清单**。  
+&emsp;然后嘛，为了能吸引小伙伴点进来瞅瞅，起个标新立异的标题吧：**微信小程序 之 奇技淫巧**。
 
 <br>
 
@@ -51,7 +52,247 @@
 
 <br>
 
-## <a name="chapter-three-two" id="chapter-three-two">3.1 通讯录</a>
+## <a name="chapter-three-one" id="chapter-three-one">3.1 排兵布阵 - flex布局</a>
+
+> [返回目录](#catalog-chapter-three-one)
+
+<br>
+
+&emsp;如果你发现你的 `CSS` 水平还处于 `float` 状态，你会发现在小程序中你举步维艰，因为单单只用浮动布局，在小程序中它不好做。  
+&emsp;所以，`Flex` 布局，是你的不二选择：`Flex` 布局。又称弹性布局，在小程序开发中比较适用。  
+&emsp;网上较好的教程有：
+
+* [【小程序开发之页面布局】](https://blog.csdn.net/anda0109/article/details/72867449)
+* [【阮一峰-Flex 布局教程】](http://www.techug.com/post/flex-examples.html)  
+
+&emsp;如果你想全面了解 `Flex`，推荐去看上面的文章。  
+&emsp;如果你已经了解 `Flex` 布局，点击 [返回目录](#chapter-one) 寻找更多精彩！  
+&emsp;如果你想快速入手小程序下 `Flex` 布局，那么，`Here we go`；
+
+<br>
+
+### <a name="chapter-three-six-one" id="chapter-three-six-one">3.6.1 基础概念</a>
+
+&emsp;[返回目录](#catalog-chapter-three-six)
+
+&emsp;基础概念：[地址](https://www.runoob.com/w3cnote/flex-grammar.html)
+
+```
+  <!-- 设置 flex 布局 -->
+  display: flex;
+
+  <!-- 
+    1、决定主轴的方向
+    row - （默认）水平方向，起点在左端
+    row-reverse - 水平方向，起点在右端
+    column - 垂直方向，起点在上沿
+    column-reverse - 垂直方向，起点在下沿
+   -->
+  flex-direction: row | row-reverse | column | column-reverse;
+  
+  <!-- 
+    2、一条轴线（一行）排不下时如何解决
+    nowrap - （默认）不换行
+    warp - 换行，第一行在上方
+    wrap-reverse - 换行，第一行在下方
+   -->
+  flex-wrap: nowrap | wrap | wrap-reverse;
+  
+  <!-- 
+    3、flex-flow = flex-direction + flex-wrap。即 flex-flow 是这两个属性的合集
+    row nowrap - （默认）水平方向，起点在左端，不换行
+   -->
+  flex-flow: <flex-direction> || <flex-wrap>;
+  
+  <!-- 
+    4、justify-content 定义项目在主轴上的对齐方式
+    flex-start - 左边对齐
+    flex-end - 右边对齐
+    center - 居中对齐
+    space-between - 两端对齐，空格在中间
+    space-around - 空格环绕
+   -->
+  justify-content: flex-start | flex-end | center | space-between | space-around;
+  
+  <!-- 
+    5、align-items 定义项目在交叉轴上如何对齐
+    flex-start - 顶部对齐，即文字图片等顶部同一条线上
+    flex-end - 底部对其，即文字图片等底部在同一条线上
+    center - 中间对其，即文字图片不管多高，都拿它们的中间放在同一条线上
+    stretch - 将文字图片充满整个容器的高度，强制统一
+    baseline - 将每项的第一行文字做统一在一条线上对齐
+   -->
+  align-items: flex-start | flex-end | center | stretch | baseline;
+  
+  <!-- 
+    6、align-content 定义多根轴线的对齐方式。如果只有一根轴线（只有一行），该属性不起作用
+    flex-start - 这几行顶部对齐
+    flex-end - 这几行底部对齐
+    center - 这几行居中对齐
+    stretch - 这几行进行扩展或者缩放，从而填满容器高
+    space-between - 这几行中间使用空格进行填充
+    space-around - 这几行两边及中间进行填充
+   -->
+  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+```
+
+<br>
+
+### <a name="chapter-three-six-two" id="chapter-three-six-two">3.6.2 左右布局</a>
+
+&emsp;[返回目录](#catalog-chapter-three-six)
+
+&emsp;实现效果如下：
+
+![图](../../public-repertory/img/other-WechatApplet-bug-6.png)
+
+&emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
+
+> *.wxml
+```
+<view class="top-recommended-headlines">
+  <view class="top-recommended-headlines-left">
+    <text>热门推荐</text>
+  </view>
+  <view>
+    <image src="../../public/index_top_recommended_headlines.png"></image>
+  </view>
+  <view class="top-recommended-headlines-right">
+    <navigator url="../indexProduct/indexProduct">查看全部 ></navigator>
+  </view>
+</view>
+```
+
+<br>
+
+> *.wxss
+```
+.top-recommended-headlines {
+  display: flex;
+  align-items: flex-end;
+  height: 31rpx;
+  line-height: 31rpx;
+  margin-bottom: 10rpx;
+}
+.top-recommended-headlines-left text {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.top-recommended-headlines image {
+  width: 366rpx;
+  height: 31rpx;
+  margin-left: 10rpx;
+}
+.top-recommended-headlines-right navigator {
+  font-size: 26rpx;
+  color: #a9a9a9;
+  margin-left: 50rpx;
+}
+```
+
+<br>
+
+### <a name="chapter-three-six-three" id="chapter-three-six-three">3.6.3 混合布局</a>
+
+&emsp;[返回目录](#catalog-chapter-three-six)
+
+&emsp;实现效果如下：
+
+![图](../../public-repertory/img/other-WechatApplet-bug-7.png)
+
+&emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
+
+> *.wxml
+```
+<view class="weui-tab__content-item3" wx:for="{{tabs3Content}}" wx:key="{{item.index}}">
+  <navigator url="../indexProductArticle/indexProductArticle">
+    <view class="weui-tab__content-item3-question">
+      <image src="../../public/index_productDetail_icon_question.png"></image>
+      <text>{{item.title}}</text>
+    </view>
+    <view class="weui-tab__content-item3-answer">
+      <image src="../../public/index_productDetail_icon_answer.png"></image>
+      <text>{{item.content}}</text>
+    </view>
+    <view class="weui-tab__content-item3-detail">
+      <text class="weui-tab__content-item3-detail-datatime">{{item.datatime}}</text>
+      <text class="weui-tab__content-item3-detail-reader">{{item.reader}}阅读</text>
+      <text class="weui-tab__content-item3-detail-label">#{{item.label}}#</text>
+    </view>
+  </navigator>
+  <view class="weui-tab__content-item3-gap">
+    <image src="../../public/index_productDetail_gap.png"></image>
+  </view>
+</view>
+```
+
+<br>
+
+> *.wxss
+```
+.weui-tab__content-item3 {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  margin-top: -10rpx;
+  margin-bottom: 10rpx;
+}
+.weui-tab__content-item3:first-child {
+  padding: 40rpx 30rpx 0;
+}
+.weui-tab__content-item3-question image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.weui-tab__content-item3-question text {
+  font-size: 30rpx;
+  line-height: 46rpx;
+  font-weight: bold;
+  color: #333;
+  margin-left: 10rpx;
+}
+.weui-tab__content-item3-answer image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.weui-tab__content-item3-answer text {
+  font-size: 26rpx;
+  line-height: 42rpx;
+  color: #a9a9a9;
+  margin-left: 10rpx;
+}
+.weui-tab__content-item3-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #a9a9a9;
+}
+.weui-tab__content-item3-detail-label {
+  color: #d0a763;
+}
+.weui-tab__content-item3-gap image {
+  width: 100%;
+  height: 30rpx;
+}
+```
+
+<br>
+
+> *.js
+```
+tabs3Content: [
+  {
+    title: '员工发明创造是否属于职务发明的认证标准?',
+    content: '随着企业对知识产权在企业发展中核心竞争力的认识力提高，企业保护自身知识产权的意识不断增强，使其技术得......',
+    datatime: '2018-03-05',
+    reader: '2081',
+    label: '知识产权'
+  }
+]
+```
+
+<br>
+
+## <a name="chapter-three-two" id="chapter-three-two">3.2 沙场点兵 - 通讯录</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
