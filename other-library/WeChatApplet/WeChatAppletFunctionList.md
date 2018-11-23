@@ -8,6 +8,8 @@
 
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletFunctionList.md)**
 
+<br>
+
 &emsp;**开篇点题**：  
 &emsp;这是一篇专研小程序各种功能实现的文章，例如布局、通讯录、底部导航栏……  
 &emsp;感觉不错点赞点 Star，感觉有错评论区溜达一番，虚心求教，不胜感激~ 
@@ -25,7 +27,7 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 功能列表](#chapter-three) |
-| &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 排兵布阵 - flex布局](#chapter-three-one) |
+| &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 排兵布阵 - Flex布局](#chapter-three-one) |
 | &emsp;&emsp;[3.1.1 基础概念](#chapter-three-one-one) |
 | &emsp;&emsp;[3.1.2 左右布局](#chapter-three-one-two) |
 | &emsp;&emsp;[3.1.3 混合布局](#chapter-three-one-three) |
@@ -43,7 +45,7 @@
 &emsp;写文章无形中也会磨炼自己的表达能力。  
 &emsp;这周 (`2018-11-19`) 在开发 **通讯录** 时，突然发现 **[微信小程序 bug 集中营](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)** 这篇文章不能再继续写了，因为它变得 **臃肿**、**丑陋** 且 **难维护**，连我这个写作人都感慨：如果没有 `Ctrl + F` ，以及我的 **目录** 写得还不错，我真心不想再翻这篇文章。  
 &emsp;为此，**jsliang** 单独开了一篇文章：**微信小程序功能清单**。  
-&emsp;然后嘛，为了能吸引小伙伴点进来瞅瞅，起个标新立异的标题吧：**微信小程序 之 奇技淫巧**。
+&emsp;然后嘛，为了能吸引小伙伴点进来瞅瞅，起个标新立异的标题吧：**微信小程序之奇技淫巧**。
 
 <br>
 
@@ -53,7 +55,7 @@
 
 <br>
 
-&emsp;为了小伙伴能快速了解代码中的意思，小伙伴可以去该 [项目地址](https://github.com/LiangJunrong/WeChatApplet) 下载代码放到本地运行查看。
+&emsp;为了小伙伴能快速了解代码中的意思，小伙伴可以去该 [项目地址](https://github.com/LiangJunrong/WeChatApplet) 下载代码到本地运行查看。
 
 &emsp;**敲了再说**  
 
@@ -69,14 +71,14 @@
 
 <br>
 
-## <a name="chapter-three-one" id="chapter-three-one">3.1 排兵布阵 - flex布局</a>
+## <a name="chapter-three-one" id="chapter-three-one">3.1 排兵布阵 - Flex布局</a>
 
 > [返回目录](#catalog-chapter-three-one)
 
 <br>
 
-&emsp;如果你发现你的 `CSS` 水平还处于 `float` 状态，你会发现在小程序中你举步维艰，因为单单只用浮动布局，在小程序中它不好用。  
-&emsp;所以，`Flex` 布局，是你的不二选择：布局的传统解决方案，基于盒状模型，依赖 `display` 属性 + `position` 属性 + `float` 属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。`Flex` 布局。又称弹性布局，可以简便、完整、响应式地实现各种页面布局。  
+&emsp;如果你发现你的 `CSS` 水平还处于 `float` 布局，你会发现在小程序中你举步维艰，因为单单只用浮动布局，在小程序中它不好用。  
+&emsp;所以，`Flex` 布局，是你的不二选择：布局的传统解决方案，基于盒状模型，依赖 `display` 属性 + `position` 属性 + `float` 属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。而 `Flex` 布局。又称弹性布局，可以简便、完整、响应式地实现各种页面布局。  
 &emsp;网上较好的教程有：
 
 * [Flex 布局语法教程 | 菜鸟教程](https://www.runoob.com/w3cnote/flex-grammar.html)
@@ -123,64 +125,107 @@ align-content: space-between;
 
 &emsp;下面我们详细分析该元素的情况：
 
-```
-  /* 设置 flex 布局 */
-  display: flex;
+1. `flex-direction`：决定主轴的方向
+  
+* `row` - （默认）水平方向，起点在左端
+* `row-reverse` - 水平方向，起点在右端 
+* `column` - 垂直方向，起点在上沿 
+* `column-reverse` - 垂直方向，起点在下沿
 
-  /*
-    1、决定主轴的方向
-    row - （默认）水平方向，起点在左端
-    row-reverse - 水平方向，起点在右端
-    column - 垂直方向，起点在上沿
-    column-reverse - 垂直方向，起点在下沿
-   */
-  flex-direction: row | row-reverse | column | column-reverse;
-  
-  /* 
-    2、一条轴线（一行）排不下时如何解决
-    nowrap - （默认）不换行
-    warp - 换行，第一行在上方
-    wrap-reverse - 换行，第一行在下方
-  */
-  flex-wrap: nowrap | wrap | wrap-reverse;
-  
-  /* 
-    3、flex-flow = flex-direction + flex-wrap。即 flex-flow 是这两个属性的合集
-    row nowrap - （默认）水平方向，起点在左端，不换行
-   */
-  flex-flow: <flex-direction> || <flex-wrap>;
-  
-  /* 
-    4、justify-content 定义项目在主轴上的对齐方式
-    flex-start - 左边对齐
-    flex-end - 右边对齐
-    center - 居中对齐
-    space-between - 两端对齐，空格在中间
-    space-around - 空格环绕
-   */
-  justify-content: flex-start | flex-end | center | space-between | space-around;
-  
-  /* 
-    5、align-items 定义项目在交叉轴上如何对齐
-    flex-start - 顶部对齐，即文字图片等顶部同一条线上
-    flex-end - 底部对其，即文字图片等底部在同一条线上
-    center - 中间对其，即文字图片不管多高，都拿它们的中间放在同一条线上
-    stretch - 将文字图片充满整个容器的高度，强制统一
-    baseline - 将每项的第一行文字做统一在一条线上对齐
-   */
-  align-items: flex-start | flex-end | center | stretch | baseline;
-  
-  /*
-    6、align-content 定义多根轴线的对齐方式。如果只有一根轴线（只有一行），该属性不起作用
-    flex-start - 这几行顶部对齐
-    flex-end - 这几行底部对齐
-    center - 这几行居中对齐
-    stretch - 这几行进行扩展或者缩放，从而填满容器高
-    space-between - 这几行中间使用空格进行填充
-    space-around - 这几行两边及中间进行填充
-   */
-  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
 ```
+display: flex;
+
+flex-direction: row | row-reverse | column | column-reverse;
+```
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-2.png)
+
+<br>
+
+2. `flex-wrap`：一条轴线（一行）排不下时如何解决
+
+* `nowrap` - （默认）不换行
+* `warp` - 换行，第一行在上方
+* `wrap-reverse` - 换行，第一行在下方
+
+```
+display: flex;
+
+flex-wrap: nowrap | wrap | wrap-reverse;  
+```
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-3.png)
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-4.png)
+
+<br>
+
+3. `flex-flow`：flex-flow = flex-direction + flex-wrap。即 flex-flow 是这两个属性的合集
+
+* `row nowrap` - （默认）水平方向，起点在左端，不换行
+
+```
+display: flex;
+
+flex-flow: <flex-direction> || <flex-wrap>;
+```
+
+&emsp;详解参考 `1` 和 `2`
+
+<br>
+
+4. `ustify-content`：定义项目在主轴上的对齐方式
+
+* `flex-start` - 左边对齐
+* `flex-end` - 右边对齐
+* `center` - 居中对齐
+* `space-between` - 两端对齐，空格在中间
+* `space-around` - 空格环绕
+
+```
+display: flex;
+
+justify-content: flex-start | flex-end | center | space-between | space-around;
+```
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-5.png)
+
+<br>
+
+5. `align-items`：定义项目在交叉轴上如何对齐
+
+* `flex-start` - 顶部对齐，即文字图片等顶部同一条线上
+* `flex-end` - 底部对其，即文字图片等底部在同一条线上
+* `center` - 中间对其，即文字图片不管多高，都拿它们的中间放在同一条线上
+* `stretch` - 将文字图片充满整个容器的高度，强制统一
+* `baseline` - 将每项的第一行文字做统一在一条线上对齐
+
+```
+display: flex;
+
+align-items: flex-start | flex-end | center | stretch | baseline;
+```
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-6.png)
+
+<br>
+
+6. `align-content`：定义多根轴线的对齐方式。如果只有一根轴线（只有一行），该属性不起作用
+
+* `flex-start` - 这几行顶部对齐
+* `flex-end` - 这几行底部对齐
+* `center` - 这几行居中对齐
+* `stretch` - 这几行进行扩展或者缩放，从而填满容器高
+* `space-between` - 这几行中间使用空格进行填充
+* `space-around` - 这几行两边及中间进行填充
+
+```
+display: flex;
+
+align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+```
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-7.png)
 
 <br>
 
@@ -190,7 +235,7 @@ align-content: space-between;
 
 &emsp;实现效果如下：
 
-![图](../../public-repertory/img/other-WechatAppletFunctionList-2.png)
+![图](../../public-repertory/img/other-WechatAppletFunctionList-8.png)
 
 &emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
 
@@ -245,7 +290,7 @@ align-content: space-between;
 
 &emsp;实现效果如下：
 
-![图](../../public-repertory/img/other-WechatAppletFunctionList-3.png)
+![图](../../public-repertory/img/other-WechatAppletFunctionList-9.png)
 
 &emsp;如图，这是我们要实现的混合布局效果，那么在微信小程序中要如何编程呢？
 
