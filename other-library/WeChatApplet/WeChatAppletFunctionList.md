@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-11-21 20:46:36**  
-> Recently revised in **2018-11-23 14:57:54**
+> Recently revised in **2018-11-23 15:30:40**
 
 <br>
 
@@ -13,6 +13,10 @@
 &emsp;**开篇点题**：  
 &emsp;这是一篇专研小程序各种功能实现的文章，例如布局、通讯录、底部导航栏……  
 &emsp;感觉不错点赞点 Star，感觉有错评论区溜达一番，虚心求教，不胜感激~ 
+
+<br>
+
+&emsp;**成品图**：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-1.png)
 
@@ -44,7 +48,7 @@
 
 &emsp;写文章无形中也会磨炼自己的表达能力。  
 &emsp;这周 (`2018-11-19`) 在开发 **通讯录** 时，突然发现 **[微信小程序 bug 集中营](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)** 这篇文章不能再继续写了，因为它变得 **臃肿**、**丑陋** 且 **难维护**，连我这个写作人都感慨：如果没有 `Ctrl + F` ，以及我的 **目录** 写得还不错，我真心不想再翻这篇文章。  
-&emsp;为此，**jsliang** 单独开了一篇文章：**微信小程序功能清单**。  
+&emsp;为此，**jsliang** 单独开了一篇文章：**微信小程序功能清单**。用来记录小程序各种功能的实现，例如布局、通讯录、底部导航栏……  
 &emsp;然后嘛，为了能吸引小伙伴点进来瞅瞅，起个标新立异的标题吧：**微信小程序之奇技淫巧**。
 
 <br>
@@ -86,7 +90,11 @@
 
 &emsp;如果你想全面了解 `Flex`，推荐去看上面的文章。  
 &emsp;如果你已经了解 `Flex` 布局，点击 [返回目录](#chapter-one) 寻找更多精彩！  
-&emsp;如果你想快速复习浏览 `Flex` 布局，那么，`Here we go`；
+&emsp;如果你想快速复习浏览 `Flex` 布局，那么，`Here we go`~
+
+&emsp;`Flex` 最终实现效果：
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-2.png)
 
 <br>
 
@@ -138,7 +146,7 @@ display: flex;
 flex-direction: row | row-reverse | column | column-reverse;
 ```
 
-![图](../../public-repertory/img/other-WechatAppletFunctionList-2.png)
+![图](../../public-repertory/img/other-WechatAppletFunctionList-3.png)
 
 <br>
 
@@ -154,9 +162,9 @@ display: flex;
 flex-wrap: nowrap | wrap | wrap-reverse;  
 ```
 
-![图](../../public-repertory/img/other-WechatAppletFunctionList-3.png)
-
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-4.png)
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-5.png)
 
 <br>
 
@@ -188,7 +196,7 @@ display: flex;
 justify-content: flex-start | flex-end | center | space-between | space-around;
 ```
 
-![图](../../public-repertory/img/other-WechatAppletFunctionList-5.png)
+![图](../../public-repertory/img/other-WechatAppletFunctionList-6.png)
 
 <br>
 
@@ -206,7 +214,7 @@ display: flex;
 align-items: flex-start | flex-end | center | stretch | baseline;
 ```
 
-![图](../../public-repertory/img/other-WechatAppletFunctionList-6.png)
+![图](../../public-repertory/img/other-WechatAppletFunctionList-7.png)
 
 <br>
 
@@ -225,7 +233,7 @@ display: flex;
 align-content: flex-start | flex-end | center | space-between | space-around | stretch;
 ```
 
-![图](../../public-repertory/img/other-WechatAppletFunctionList-7.png)
+![图](../../public-repertory/img/other-WechatAppletFunctionList-8.png)
 
 <br>
 
@@ -235,7 +243,7 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 
 &emsp;实现效果如下：
 
-![图](../../public-repertory/img/other-WechatAppletFunctionList-8.png)
+![图](../../public-repertory/img/other-WechatAppletFunctionList-9.png)
 
 &emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
 
@@ -290,7 +298,7 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 
 &emsp;实现效果如下：
 
-![图](../../public-repertory/img/other-WechatAppletFunctionList-9.png)
+![图](../../public-repertory/img/other-WechatAppletFunctionList-10.png)
 
 &emsp;如图，这是我们要实现的混合布局效果，那么在微信小程序中要如何编程呢？
 
@@ -399,6 +407,11 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 > [返回目录](#catalog-chapter-three-two)
 
 <br>
+
+&emsp;实现效果：
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-10.png)
+
 
 &emsp;**功能实现思路**
 
