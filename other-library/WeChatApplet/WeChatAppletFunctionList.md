@@ -28,6 +28,7 @@
 | &emsp;&emsp;[3.1.2 左右布局](#chapter-three-one-two) |
 | &emsp;&emsp;[3.1.3 混合布局](#chapter-three-one-three) |
 | &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 沙场点兵 - 通讯录](#chapter-three-two) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 项目地址](#chapter-four) |
 
 <br>
 
@@ -87,7 +88,9 @@
 
 &emsp;[返回目录](#catalog-chapter-three-one)
 
-&emsp;基础概念：[地址](https://www.runoob.com/w3cnote/flex-grammar.html)
+<br>
+
+&emsp;……
 
 ```
   <!-- 设置 flex 布局 -->
@@ -475,6 +478,22 @@ onLoad: function (options) {
 * [参考资料](https://blog.csdn.net/qq_41080490/article/details/80268298)
 
 &emsp;我们在 `onLoad` 中获取到用户设备的信息，然后计算出 `1rpx` 等于多少 `px`。在 `iphone6` 中，`1rpx = 2px`。我们只需要将 `css` 中写的样式高度 / 比例，就能动态计算我们的高度。
+
+<br>
+
+# <a name="chapter-four" id="chapter-four">四 项目地址</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;最后的最后，奉上上面实例中的地址：  
+
+&emsp;[项目地址](https://github.com/LiangJunrong/WeChatApplet)
+
+<br>
+
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
 
 <br>
 
