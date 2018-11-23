@@ -1,8 +1,8 @@
-微信小程序 之 奇技淫巧
+微信小程序之奇技淫巧
 ===
 
 > Create by **jsliang** on **2018-11-21 20:46:36**  
-> Recently revised in **2018-11-23 13:08:22**
+> Recently revised in **2018-11-23 14:57:54**
 
 <br>
 
@@ -52,6 +52,8 @@
 > [返回目录](#catalog-chapter-three)
 
 <br>
+
+&emsp;为了小伙伴能快速了解代码中的意思，小伙伴可以去该 [项目地址](https://github.com/LiangJunrong/WeChatApplet) 下载代码放到本地运行查看。
 
 &emsp;**敲了再说**  
 
