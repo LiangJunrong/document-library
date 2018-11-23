@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-11-21 20:46:36**  
-> Recently revised in **2018-11-23 08:59:53**
+> Recently revised in **2018-11-23 13:08:22**
 
 <br>
 
@@ -11,6 +11,8 @@
 &emsp;**开篇点题**：  
 &emsp;这是一篇专研小程序各种功能实现的文章，例如布局、通讯录、底部导航栏……  
 &emsp;感觉不错点赞点 Star，感觉有错评论区溜达一番，虚心求教，不胜感激~ 
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-1.png)
 
 <br>
 
@@ -487,13 +489,12 @@ onLoad: function (options) {
 
 <br>
 
+&emsp;不定期更新，详情可关注 **jsliang** 的 [GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)  
 &emsp;最后的最后，奉上上面实例中的地址：  
 
 &emsp;[项目地址](https://github.com/LiangJunrong/WeChatApplet)
 
-<br>
-
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+![图](../../public-repertory/img/other-WechatAppletFunctionList-1.png)
 
 <br>
 
