@@ -47,8 +47,17 @@
 
 <br>
 
-&emsp;**看一遍？谁都可以！**  
-&emsp;**敲一遍？天差地别！**
+&emsp;**敲了再说**  
+
+&emsp;**敲&emsp;&emsp;看**  
+&emsp;**一&emsp;&emsp;一**  
+&emsp;**遍&emsp;&emsp;遍**  
+&emsp;**？&emsp;&emsp;？**  
+&emsp;**天&emsp;&emsp;谁**  
+&emsp;**差&emsp;&emsp;都**  
+&emsp;**地&emsp;&emsp;可**  
+&emsp;**别&emsp;&emsp;以**  
+&emsp;**！&emsp;&emsp;！**
 
 <br>
 
@@ -58,12 +67,12 @@
 
 <br>
 
-&emsp;如果你发现你的 `CSS` 水平还处于 `float` 状态，你会发现在小程序中你举步维艰，因为单单只用浮动布局，在小程序中它不好做。  
-&emsp;所以，`Flex` 布局，是你的不二选择：`Flex` 布局。又称弹性布局，在小程序开发中比较适用。  
+&emsp;如果你发现你的 `CSS` 水平还处于 `float` 状态，你会发现在小程序中你举步维艰，因为单单只用浮动布局，在小程序中它不好用。  
+&emsp;所以，`Flex` 布局，是你的不二选择：布局的传统解决方案，基于盒状模型，依赖 `display` 属性 + `position` 属性 + `float` 属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。`Flex` 布局。又称弹性布局，可以简便、完整、响应式地实现各种页面布局。  
 &emsp;网上较好的教程有：
 
-* [【小程序开发之页面布局】](https://blog.csdn.net/anda0109/article/details/72867449)
-* [【阮一峰-Flex 布局教程】](http://www.techug.com/post/flex-examples.html)  
+* [Flex 布局语法教程 | 菜鸟教程](https://www.runoob.com/w3cnote/flex-grammar.html)
+* [Flex 布局教程：实例篇 | 阮一峰](http://www.techug.com/post/flex-examples.html)  
 
 &emsp;如果你想全面了解 `Flex`，推荐去看上面的文章。  
 &emsp;如果你已经了解 `Flex` 布局，点击 [返回目录](#chapter-one) 寻找更多精彩！  
