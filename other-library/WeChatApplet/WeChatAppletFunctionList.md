@@ -80,9 +80,9 @@
 
 <br>
 
-### <a name="chapter-three-six-one" id="chapter-three-six-one">3.6.1 基础概念</a>
+### <a name="chapter-three-one-one" id="chapter-three-one-one">3.1.1 基础概念</a>
 
-&emsp;[返回目录](#catalog-chapter-three-six)
+&emsp;[返回目录](#catalog-chapter-three-one)
 
 &emsp;基础概念：[地址](https://www.runoob.com/w3cnote/flex-grammar.html)
 
@@ -147,9 +147,9 @@
 
 <br>
 
-### <a name="chapter-three-six-two" id="chapter-three-six-two">3.6.2 左右布局</a>
+### <a name="chapter-three-one-two" id="chapter-three-one-two">3.1.2 左右布局</a>
 
-&emsp;[返回目录](#catalog-chapter-three-six)
+&emsp;[返回目录](#catalog-chapter-three-one)
 
 &emsp;实现效果如下：
 
@@ -201,9 +201,9 @@
 
 <br>
 
-### <a name="chapter-three-six-three" id="chapter-three-six-three">3.6.3 混合布局</a>
+### <a name="chapter-three-one-three" id="chapter-three-one-three">3.1.3 混合布局</a>
 
-&emsp;[返回目录](#catalog-chapter-three-six)
+&emsp;[返回目录](#catalog-chapter-three-one)
 
 &emsp;实现效果如下：
 
