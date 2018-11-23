@@ -6,7 +6,7 @@
 
 <br>
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletFunctionList.md)**
 
 &emsp;**开篇点题**：  
 &emsp;这是一篇专研小程序各种功能实现的文章，例如布局、通讯录、底部导航栏……  
@@ -188,21 +188,19 @@ align-content: space-between;
 
 &emsp;实现效果如下：
 
-![图](../../public-repertory/img/other-WechatApplet-bug-6.png)
+![图](../../public-repertory/img/other-WechatAppletFunctionList-2.png)
 
 &emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
 
 > *.wxml
 ```
-<view class="top-recommended-headlines">
-  <view class="top-recommended-headlines-left">
-    <text>热门推荐</text>
+<view class="left-and-right-layout">
+  <view class="left-and-right-layout-floor-one">
+    <text>左右布局</text>
   </view>
-  <view>
-    <image src="../../public/index_top_recommended_headlines.png"></image>
-  </view>
-  <view class="top-recommended-headlines-right">
-    <navigator url="../indexProduct/indexProduct">查看全部 ></navigator>
+  <view class="left-and-right-layout-floor-two">
+    <text class="left-and-right-layout-floor-two-left">GitHub 地址</text>
+    <navigator class="left-and-right-layout-floor-two-right" url="https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletFunctionList.md">查看详情</navigator>
   </view>
 </view>
 ```
@@ -211,26 +209,29 @@ align-content: space-between;
 
 > *.wxss
 ```
-.top-recommended-headlines {
-  display: flex;
-  align-items: flex-end;
-  height: 31rpx;
-  line-height: 31rpx;
-  margin-bottom: 10rpx;
+.left-and-right-layout {
+  padding: 0 30rpx;
 }
-.top-recommended-headlines-left text {
+
+.left-and-right-layout-floor-one {
   font-size: 32rpx;
+  line-height: 32rpx;
   font-weight: bold;
 }
-.top-recommended-headlines image {
-  width: 366rpx;
-  height: 31rpx;
-  margin-left: 10rpx;
+
+.left-and-right-layout-floor-two {
+  /* Flex 左右布局关键点 */
+  display: flex;
+  justify-content: space-between;
+
+  padding: 30rpx 0;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  border-bottom: 1rpx solid #ccc;
 }
-.top-recommended-headlines-right navigator {
-  font-size: 26rpx;
-  color: #a9a9a9;
-  margin-left: 50rpx;
+
+.left-and-right-layout-floor-two-right {
+  color: deepskyblue;
 }
 ```
 
@@ -516,7 +517,7 @@ onLoad: function (options) {
 
 <br>
 
-&emsp;不定期更新，详情可关注 **jsliang** 的 [GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)  
+&emsp;不定期更新，详情可关注 **jsliang** 的 [GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletFunctionList.md)  
 &emsp;最后的最后，奉上上面实例中的地址：  
 
 &emsp;[项目地址](https://github.com/LiangJunrong/WeChatApplet)
