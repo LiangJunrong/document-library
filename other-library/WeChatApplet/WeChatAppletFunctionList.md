@@ -82,7 +82,7 @@
 
 &emsp;如果你想全面了解 `Flex`，推荐去看上面的文章。  
 &emsp;如果你已经了解 `Flex` 布局，点击 [返回目录](#chapter-one) 寻找更多精彩！  
-&emsp;如果你想快速入手小程序下 `Flex` 布局，那么，`Here we go`；
+&emsp;如果你想快速复习浏览 `Flex` 布局，那么，`Here we go`；
 
 <br>
 
@@ -92,56 +92,83 @@
 
 <br>
 
-&emsp;……
+&emsp;万丈高楼平地起，熟悉 `Flex` 需要先了解下面这 `7` 个 `CSS` 属性：
 
 ```
-  <!-- 设置 flex 布局 -->
+/* 设置 Flex 模式 */
+display: flex;
+
+/* 决定元素是横排还是竖着排，要不要倒序 */
+flex-direction: column;
+
+/* 决定元素换行格式，一行排不下的时候如何排 */
+flex-wrap: wrap;
+
+/* flex-flow = flex-direction + flex-wrap */
+flex-flow: column wrap;
+
+/* 同一排下对齐方式，空格如何隔开各个元素 */
+justify-content: space-between;
+
+/* 同一排下元素如何对齐，顶部对齐、中部对齐还是其他 */
+align-items: center;
+
+/* 多行对齐方式 */
+align-content: space-between;
+```
+
+<br>
+
+&emsp;下面我们详细分析该元素的情况：
+
+```
+  /* 设置 flex 布局 */
   display: flex;
 
-  <!-- 
+  /*
     1、决定主轴的方向
     row - （默认）水平方向，起点在左端
     row-reverse - 水平方向，起点在右端
     column - 垂直方向，起点在上沿
     column-reverse - 垂直方向，起点在下沿
-   -->
+   */
   flex-direction: row | row-reverse | column | column-reverse;
   
-  <!-- 
+  /* 
     2、一条轴线（一行）排不下时如何解决
     nowrap - （默认）不换行
     warp - 换行，第一行在上方
     wrap-reverse - 换行，第一行在下方
-   -->
+  */
   flex-wrap: nowrap | wrap | wrap-reverse;
   
-  <!-- 
+  /* 
     3、flex-flow = flex-direction + flex-wrap。即 flex-flow 是这两个属性的合集
     row nowrap - （默认）水平方向，起点在左端，不换行
-   -->
+   */
   flex-flow: <flex-direction> || <flex-wrap>;
   
-  <!-- 
+  /* 
     4、justify-content 定义项目在主轴上的对齐方式
     flex-start - 左边对齐
     flex-end - 右边对齐
     center - 居中对齐
     space-between - 两端对齐，空格在中间
     space-around - 空格环绕
-   -->
+   */
   justify-content: flex-start | flex-end | center | space-between | space-around;
   
-  <!-- 
+  /* 
     5、align-items 定义项目在交叉轴上如何对齐
     flex-start - 顶部对齐，即文字图片等顶部同一条线上
     flex-end - 底部对其，即文字图片等底部在同一条线上
     center - 中间对其，即文字图片不管多高，都拿它们的中间放在同一条线上
     stretch - 将文字图片充满整个容器的高度，强制统一
     baseline - 将每项的第一行文字做统一在一条线上对齐
-   -->
+   */
   align-items: flex-start | flex-end | center | stretch | baseline;
   
-  <!-- 
+  /*
     6、align-content 定义多根轴线的对齐方式。如果只有一根轴线（只有一行），该属性不起作用
     flex-start - 这几行顶部对齐
     flex-end - 这几行底部对齐
@@ -149,7 +176,7 @@
     stretch - 这几行进行扩展或者缩放，从而填满容器高
     space-between - 这几行中间使用空格进行填充
     space-around - 这几行两边及中间进行填充
-   -->
+   */
   align-content: flex-start | flex-end | center | space-between | space-around | stretch;
 ```
 
