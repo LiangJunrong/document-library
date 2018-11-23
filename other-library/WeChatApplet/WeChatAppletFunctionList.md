@@ -451,8 +451,29 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 > wxml 骨架
 
 ```
+<!-- part1 - 搜索区域 -->
+<view class="search"></view>
 
+<!-- part2 - 搜索结果 -->
+<view class="search-result"></view>
+
+<!-- part3 - 内容区域 -->
+<view class="contacts-list"></view>
+
+<!-- part4 - 拼音导航 -->
+<view class="pinyin-nav"></view>
+
+<!-- part5 - 底部导航 -->
+<view class="bottom-nav"></view>
+
+<!-- part6 - 新增弹窗 -->
+<view class="add-prompt"></view>
+
+<!-- part7 - 修改弹窗 -->
+<view class="edit-prompt"></view>
 ```
+
+&emsp;这样，我们就完成了大体的布局，下面开始分别实现各个功能。
 
 <br>
 
