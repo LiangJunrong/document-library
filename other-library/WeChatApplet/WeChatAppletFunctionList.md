@@ -2,7 +2,15 @@
 ===
 
 > Create by **jsliang** on **2018-11-21 20:46:36**  
-> Recently revised in **2018-11-21 22:16:12**
+> Recently revised in **2018-11-23 08:59:53**
+
+<br>
+
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+
+&emsp;**开篇点题**：  
+&emsp;这是一篇专研小程序各种功能实现的文章，例如布局、通讯录、底部导航栏……  
+&emsp;感觉不错点赞点 Star，感觉有错评论区溜达一番，虚心求教，不胜感激~ 
 
 <br>
 
@@ -16,6 +24,7 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 功能列表](#chapter-three) |
 | &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 通讯录](#chapter-three-one) |
+| &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.1 通讯录](#chapter-three-two) |
 
 <br>
 
@@ -42,9 +51,9 @@
 
 <br>
 
-## <a name="chapter-three-one" id="chapter-three-one">3.1 通讯录</a>
+## <a name="chapter-three-two" id="chapter-three-two">3.1 通讯录</a>
 
-> [返回目录](#catalog-chapter-three-one)
+> [返回目录](#catalog-chapter-three-two)
 
 <br>
 
