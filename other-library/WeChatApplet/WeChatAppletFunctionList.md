@@ -32,10 +32,21 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 功能列表](#chapter-three) |
 | &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 排兵布阵 - Flex布局](#chapter-three-one) |
-| &emsp;&emsp;[3.1.1 基础概念](#chapter-three-one-one) |
-| &emsp;&emsp;[3.1.2 左右布局](#chapter-three-one-two) |
-| &emsp;&emsp;[3.1.3 混合布局](#chapter-three-one-three) |
+| &emsp;&emsp;[3.1.1 楼起平地 - 基础概念](#chapter-three-one-one) |
+| &emsp;&emsp;[3.1.2 搭砖建瓦 - 左右布局](#chapter-three-one-two) |
+| &emsp;&emsp;[3.1.3 层台累榭 - 混合布局](#chapter-three-one-three) |
 | &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 沙场点兵 - 通讯录](#chapter-three-two) |
+| &emsp;&emsp;[3.2.1 谋定苍生 - 整体布局](#chapter-three-two-one) |
+| &emsp;&emsp;[3.2.2 千里寻敌 - 搜索功能](#chapter-three-two-two) |
+| &emsp;&emsp;[3.2.3 遥控追踪 - 底部导航](#chapter-three-two-three) |
+| &emsp;&emsp;[3.2.4 拒敌长城 - 弹窗实现](#chapter-three-two-four) |
+| &emsp;&emsp;[3.2.5 卧薪尝胆 - 思路整理](#chapter-three-two-five) |
+| &emsp;&emsp;[3.2.6 广聚民心 - 新增功能](#chapter-three-two-six) |
+| &emsp;&emsp;[3.2.7 化繁为简 - 修改功能](#chapter-three-two-seven) |
+| &emsp;&emsp;[3.2.8 革新去旧 - 删除功能](#chapter-three-two-eight) |
+| &emsp;&emsp;[3.2.9 兵分一路 - 正常加载](#chapter-three-two-night) |
+| &emsp;&emsp;[3.2.10 兵分二路 - 拼音导航](#chapter-three-two-ten) |
+| &emsp;&emsp;[3.2.11 一统天下 - 归纳总结](#chapter-three-two-ten) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 项目地址](#chapter-four) |
 
 <br>
@@ -98,9 +109,9 @@
 
 <br>
 
-### <a name="chapter-three-one-one" id="chapter-three-one-one">3.1.1 基础概念</a>
+### <a name="chapter-three-one-one" id="chapter-three-one-one">3.1.1 楼起平地 - 基础概念</a>
 
-&emsp;[返回目录](#catalog-chapter-three-one)
+> [返回目录](#catalog-chapter-three-one)
 
 <br>
 
@@ -237,9 +248,9 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 
 <br>
 
-### <a name="chapter-three-one-two" id="chapter-three-one-two">3.1.2 左右布局</a>
+### <a name="chapter-three-one-two" id="chapter-three-one-two">3.1.2 搭砖建瓦 - 左右布局</a>
 
-&emsp;[返回目录](#catalog-chapter-three-one)
+> [返回目录](#catalog-chapter-three-one)
 
 &emsp;实现效果如下：
 
@@ -292,9 +303,9 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 
 <br>
 
-### <a name="chapter-three-one-three" id="chapter-three-one-three">3.1.3 混合布局</a>
+### <a name="chapter-three-one-three" id="chapter-three-one-three">3.1.3 层台累榭 - 混合布局</a>
 
-&emsp;[返回目录](#catalog-chapter-three-one)
+> [返回目录](#catalog-chapter-three-one)
 
 &emsp;实现效果如下：
 
@@ -410,8 +421,130 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 
 &emsp;实现效果：
 
-![图](../../public-repertory/img/other-WechatAppletFunctionList-10.png)
+![图](../../public-repertory/img/other-WechatAppletFunctionList-11.png)
 
+
+<br>
+
+### <a name="chapter-three-two-one" id="chapter-three-two-one">3.2.1 谋定苍生 - 整体布局</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-three-two-one" id="chapter-three-two-one">3.2.1 搜索功能</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-three-two-two" id="chapter-three-two-two">3.2.2 千里寻敌 - 搜索功能</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-three-two-three" id="chapter-three-two-three">3.2.3 遥控追踪 - 底部导航</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-three-two-four" id="chapter-three-two-four">3.2.4 拒敌长城 - 弹窗实现</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-three-two-five" id="chapter-three-two-five">3.2.5 卧薪尝胆 - 思路整理</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-three-two-six" id="chapter-three-two-six">3.2.6 广聚民心 - 新增功能</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-three-two-seven" id="chapter-three-two-seven">3.2.7 化繁为简 - 修改功能</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-three-two-eight" id="chapter-three-two-eight">3.2.8 革新去旧 - 删除功能</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-three-two-night" id="chapter-three-two-night">3.2.9 兵分一路 - 正常加载</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-three-two-ten" id="chapter-three-two-ten">3.2.10 兵分二路 - 拼音导航</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-three-two-eleven" id="chapter-three-two-eleven">3.2.11 一统天下 - 归纳总结</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
 
 &emsp;**功能实现思路**
 
