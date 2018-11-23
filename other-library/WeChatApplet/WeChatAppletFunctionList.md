@@ -423,7 +423,6 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-11.png)
 
-
 <br>
 
 ### <a name="chapter-three-two-one" id="chapter-three-two-one">3.2.1 谋定苍生 - 整体布局</a>
@@ -432,17 +431,28 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 
 <br>
 
-&emsp;
+&emsp;工欲善其事，必先利其器。  
+&emsp;**首先**，我们先明确我们需要实现的功能点：
 
-<br>
+* 搜索功能
+* 弹窗新增功能
+* 弹窗修改功能
+* 删除功能
+* 拼音导航功能
+* 底部导航栏
 
-### <a name="chapter-three-two-one" id="chapter-three-two-one">3.2.1 搜索功能</a>
+&emsp;**然后**，我们明确下页面布局：
 
-> [返回目录](#catalog-chapter-three-two)
+![图](../../public-repertory/img/other-WechatAppletFunctionList-12.png)
 
-<br>
+&emsp;如上图，它主要分三大块：头部、内容区、底部。  
+&emsp;**最后**，我们根据功能实现及页面布局编写 `wxml` 的布局：
 
-&emsp;
+> wxml 骨架
+
+```
+
+```
 
 <br>
 
