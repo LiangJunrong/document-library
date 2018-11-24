@@ -533,7 +533,420 @@ Page({
 
 <br>
 
-&emsp;
+&emsp;实现编码及代码讲解：
+
+> addressList.wxml
+
+```
+<!-- part1 - 搜索区域 -->
+<view class="search-form">
+  <!-- 搜索区 -->
+  <view class="search">
+    <view wx:if="{{!searchModel}}" class="search-model search-model-one" bindtap="showSearch">
+      <image class="icon" src="../../public/img/icon_search.png"></image>
+      <text class="search-model-one-text">搜索</text>
+    </view>
+    <view wx:if="{{searchModel}}" class="search-model search-model-two">
+      <image class="icon search-model-two-icon" src="../../public/img/icon_search.png"></image>
+      <!-- 多加层 view 的作用是做到 × 的定位作用 -->
+      <view class="search-model-two-form">
+        <input type="text" class="search-model-two-input" placeholder="搜索" focus="{{inputFocus}}" value="{{searchVal}}" bindinput="monitorInputVal"></input>
+        <text wx:if="{{searchVal.length > 0}}" class="clear-input" bindtap="clearInput">×</text>
+      </view>
+      <text wx:if="{{searchVal.length <= 0}}" class="search-model-two-button search-model-two-button-cancel" bindtap="showSearch">取消</text>
+      <text wx:if="{{searchVal.length > 0}}" class="search-model-two-button search-model-two-button-submit" bindtap="searchSubmit">搜索</text>
+    </view>
+  </view>
+  <!-- 功能区 -->
+  <view class="action">
+    <text class="action-button action-add">添加</text>
+    <text wx:if="{{!deleteModel}}" class="action-button action-delete" bindtap="showDelete">删除</text>
+    <text wx:if="{{deleteModel}}" class="action-button action-delete-comfirm" bindtap="showDelete">完成</text>
+  </view>
+</view>
+
+<!-- part2 - 搜索结果 -->
+<view wx:if="{{searchModel}}" class="search-result">
+  <view class="search-result-item" wx:for="{{searchData}}" wx:key="{{searchData.index}}">
+    <view class="search-result-item-left">
+      <text class="search-result-item-left-name">{{item.userName}}</text>
+      <text class="search-result-item-left-phone">{{item.userPhone}}</text>
+    </view>
+    <view class="search-result-item-right">
+      <image class="icon search-result-item-right-edit" src="../../public/img/icon_edit.png"></image>
+      <image wx:if="{{deleteModel}}" class="icon search-result-item-right-delete" src="../../public/img/icon_delete.png"></image>
+    </view>
+  </view>
+</view>
+
+<!-- part3 - 内容区域 -->
+<view class="contacts-list"></view>
+
+<!-- part4 - 拼音导航 -->
+<view class="pinyin-nav"></view>
+
+<!-- part5 - 底部导航 -->
+<view class="bottom-nav"></view>
+
+<!-- part6 - 新增弹窗 -->
+<view class="add-prompt"></view>
+
+<!-- part7 - 修改弹窗 -->
+<view class="edit-prompt"></view>
+```
+
+> addressList.wxss
+
+```
+/* 全局样式 */
+view {
+  box-sizing: border-box;
+}
+.icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+/* 搜索区域 */
+.search-form {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100rpx;
+  font-size: 32rpx;
+  padding: 0 30rpx;
+  /* 绝对定位 - 固定搜索部分 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+
+/* 搜索区域 - 结构 1 */
+.search {
+ width: 60%; 
+}
+.search-model {
+  height: 70rpx;
+  line-height: 50rpx;
+  padding: 10rpx 0;
+}
+.search-model-one {
+  margin: 15rpx 0;
+  background: #f5f5f5;
+  text-align: center;
+  border-radius: 50rpx;
+}
+.search-model-one-text {
+  margin-left: 30rpx;
+  color: #9b9b9b;
+  font-size: 30rpx;
+}
+.search-model-two {
+  position: relative;
+  display: flex;
+  margin-top: 6rpx;
+}
+.search-model-two-icon {
+  position: absolute;
+  left: 20rpx;
+  top: 30rpx;
+  z-index: 10;
+}
+.search-model-two-form {
+  width: 69%;
+  height: 70rpx;
+  background: #f5f5f5;
+  position: relative;
+}
+.search-model-two-input {
+  padding: 0 65rpx 0 65rpx;
+  height: 70rpx;
+  font-size: 30rpx;
+}
+.clear-input {
+  position: absolute;
+  right: 10rpx;
+  top: 15rpx;
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  padding: 5rpx;
+  color: #fff;
+  background: #ccc;
+  border-radius: 20rpx;
+  z-index: 10;
+}
+.search-model-two-button {
+  display: inline-block;
+  text-align: center;
+  width: 90rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  padding: 5rpx 15rpx;
+  margin-left: 10rpx;
+  color: #fff;
+}
+.search-model-two-button-cancel {
+  background: rgb(8, 202, 186);
+}
+.search-model-two-button-submit {
+  background: rgb(8, 200, 248);
+}
+
+/* 搜索区域 - 结构2 */
+.action {
+  width: 39%;
+}
+.action-button {
+  display: inline-block;
+  text-align: center;
+  width: 90rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  margin-top: 15rpx;
+  padding: 5rpx 15rpx;
+  border: 1rpx solid deepskyblue;
+  border-radius: 40rpx;
+}
+.action-add, .action-delete, .action-delete-comfirm {
+  margin-left: 10rpx;
+}
+.action-delete-comfirm {
+  color: #d0a763;
+  border: 1rpx solid #d0a763;
+}
+
+/* 搜索结果 */
+.search-result {
+  margin-top: 100rpx;
+}
+.search-result-item {
+  box-sizing: border-box;
+  height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 27rpx 60rpx 27rpx 30rpx;
+  border-bottom: 1rpx solid #f3f3f3;
+}
+.search-result-item-left {
+  display: flex;
+  flex-direction: column;
+}
+.search-result-item-left-name {
+  font-size: 30rpx;
+  color: #333333;
+}
+.search-result-item-left-phone {
+  font-size: 26rpx;
+  color: #999999;
+}
+.search-result-item-right image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.search-result-item-right-edit {
+  margin-right: 30rpx;
+}
+.search-result-item-right-delete {
+  margin-right: 30rpx;
+}
+```
+
+> addressList.js
+
+```
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    /**
+     * 功能模式
+     * normalModel - 正常模式
+     * addModel - 新增模式
+     * editModel - 修改模式
+     * deleteModel - 删除模式
+     * searchModel - 搜索模式
+     * pinyinNavModel - 拼音导航模式
+     */
+    normalModel: true,
+    addModel: false,
+    editModel: false,
+    deleteModel: false,
+    searchModel: false,
+    pinyinNavModel: false,
+
+    /**
+     * 搜索功能
+     */
+    inputFocus: false,
+    searchVal: '',
+    searchData: [],
+  },
+    /**
+   * 搜索功能
+   * showSearch - 显示搜索框
+   * monitorInputVal - 监听搜索框的值
+   * searchSubmit - 提交搜索
+   * clearInput - 清除搜索
+   */
+  showSearch(e) {
+    this.setData({
+      normalModel: !this.data.normalModel,
+      searchModel: !this.data.searchModel,
+      inputFocus: true
+    })
+  },
+  monitorInputVal(e) {
+    this.setData({
+      searchVal: e.detail.value
+    })
+  },
+  searchSubmit(e) {
+    console.log("\n【API - 确认搜索】");
+    console.log("搜素字段：" + this.data.searchVal);
+    
+    // 原数据
+    let searchData = this.data.searchData;
+
+    // 搜索数据 - 假设搜索数据是这个，实际应该是接口返回数据
+    let newSearchData = [
+      {
+        userName: '阿狸',
+        userPhone: '18811111111',
+        pinyin: 'ali'
+      },
+      {
+        userName: '贝吉塔',
+        userPhone: '18822222222',
+        pinyin: 'beijita'
+      },
+      {
+        userName: '楚怡',
+        userPhone: '18833333333',
+        pinyin: 'chuyi'
+      },
+      {
+        userName: '邓婕',
+        userPhone: '18844444444',
+        pinyin: 'dengjie'
+      },
+      {
+        userName: '尔康',
+        userPhone: '18855555555',
+        pinyin: 'erkang'
+      },
+      {
+        userName: '福狸',
+        userPhone: '18866666666',
+        pinyin: 'fuli'
+      },
+      {
+        userName: '古狸',
+        userPhone: '18877777777',
+        pinyin: 'guli'
+      },
+      {
+        userName: '哈狸',
+        userPhone: '18888888888',
+        pinyin: 'hali'
+      },
+      {
+        userName: 'i狸',
+        userPhone: '18899999999',
+        pinyin: 'ili'
+      },
+      {
+        userName: '激狸',
+        userPhone: '18800000000',
+        pinyin: 'jli'
+      },
+    ]
+
+    // 拼接新旧数据
+    searchData.push(...newSearchData);
+
+    console.log("\搜索后数据：");
+    console.log(searchData);
+
+    this.setData({
+      searchData: searchData
+    })
+
+  },
+  clearInput(e) {
+    console.log("\n清除搜索");
+    this.setData({
+      searchVal: ''
+    })
+  },
+
+  /**
+   * 删除功能
+   */
+  showDelete(e) {
+    this.setData({
+      deleteModel: !this.data.deleteModel
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    console.log("\n通讯录");
+  }
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    if (this.data.searchModel) {
+      
+      console.log("\n搜索模式下拉：");
+      
+      let newSearchData = [
+        {
+          userName: '克狸',
+          userPhone: '18811121112',
+          pinyin: 'keli'
+        },
+      ]
+
+      // 原数据
+      let searchData = this.data.searchData;
+
+      searchData.push(...newSearchData);
+
+      console.log("\下拉加载后数据：");
+      console.log(searchData);
+
+      this.setData({
+        searchData: searchData
+      })
+
+    }
+  },
+})
+```
+
+> addressList.json
+
+```
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "通讯录",
+  "navigationBarTextStyle": "black",
+}
+```
 
 <br>
 
