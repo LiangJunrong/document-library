@@ -1856,6 +1856,9 @@ Page({
           oldData[oldDataItem].users[oldData[oldDataItem].users.length] = newData;
         }
       }
+
+      console.log("新增后数据：");
+      console.log(oldData);
       
       this.setData({
         contactsData: oldData,
