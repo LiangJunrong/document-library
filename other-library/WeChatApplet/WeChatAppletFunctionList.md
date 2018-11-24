@@ -496,6 +496,7 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 Page({
   data: {
     /**
+     * 功能模式
      * normalModel - 正常模式
      * addModel - 新增模式
      * editModel - 修改模式
