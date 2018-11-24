@@ -1386,7 +1386,7 @@ Page({
 
 ```
 <!-- part3 - 内容区域 -->
-<view class="contacts-list" wx:if="{{normalModel}}">
+<view class="contacts-list">
   <!-- 每组字母数据 -->
   <view class="contacts-item" wx:for="{{contactsData}}" wx:for-item="contactsDataItem" wx:key="{{contactsDataItem.index}}">
     <!-- 字母标题 -->
@@ -1910,7 +1910,7 @@ Page({
 
 ```
 <!-- part3 - 内容区域 -->
-<view class="contacts-list" wx:if="{{normalModel}}">
+<view class="contacts-list">
   <!-- 每组字母数据 -->
   <view class="contacts-item" wx:for="{{contactsData}}" wx:for-item="contactsDataItem" wx:key="{{contactsDataItem.index}}">
     <!-- 字母标题 -->
@@ -2227,7 +2227,7 @@ showDelete(e) {
 
 ```
 <!-- part3 - 内容区域 -->
-<view class="contacts-list" wx:if="{{normalModel}}">
+<view class="contacts-list">
   <!-- 每组字母数据 -->
   <view class="contacts-item" wx:for="{{contactsData}}" wx:for-item="contactsDataItem" wx:key="{{contactsDataItem.index}}">
     <!-- 字母标题 -->
