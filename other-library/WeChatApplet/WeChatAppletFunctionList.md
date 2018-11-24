@@ -485,17 +485,20 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 * 拼音导航功能 - `part1`、`part3`、`part4`、`part5`
 * 底部导航栏 - `part1`、`part3`、`part4`、`part5`
 
-&emsp;请注意，出现的 `part` 部分标明在这种模式下，页面要显示的 `part` 都有哪些，其他的则暂时隐藏，而加粗的意味着这是这个功能特有的部分。为此，我们应该在 `js` 的 `data` 中定义好这些模式：
+&emsp;请注意，出现的 `part` 部分表明在这种模式下，页面要显示的 `part` 都有哪些，其他的则暂时隐藏，而加粗的意味着这是这个功能特有的部分。为此，我们应该在 `js` 的 `data` 中定义好这些模式：
 
 > js 代码片段
 
 ```
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    /**
+     * normalModel - 正常模式
+     * addModel - 新增模式
+     * editModel - 修改模式
+     * searchModel - 搜索模式
+     * pinyinNavModel - 拼音导航模式
+     */
     normalModel: true,
     addModel: false,
     editModel: false,
@@ -507,7 +510,8 @@ Page({
 
 <br>
 
-&emsp;这样，我们除了底部导航栏外，为其他功能定义了一个模式，在下文中，我们将根据模式的开启与关闭，显示/隐藏某些内容，并进行数据的管理。
+&emsp;这样，我们除了底部导航栏外，为其他功能定义了一个模式，正常情况下我们开启 `normalModel`，其他暂时关闭。  
+&emsp;在下文中，我们将根据模式的开启与关闭，显示/隐藏某些内容，并进行数据的管理，请小伙伴们稍微理解下这种思路。
 
 <br>
 
