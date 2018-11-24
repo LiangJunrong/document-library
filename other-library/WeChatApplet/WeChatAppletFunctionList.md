@@ -3245,14 +3245,14 @@ onReachBottom: function () {
 
 <br>
 
-&emsp;天下大事，分久必合，合久必分。  
-&emsp;写到这里，我们的通讯录已然完结，再次 **jsliang** 的代码地址：[项目地址](https://github.com/LiangJunrong/WeChatApplet)  
+&emsp;天下大势，分久必合，合久必分。  
+&emsp;写到这里，我们的通讯录已然完结，在此附上 **jsliang** 的代码地址：[项目地址](https://github.com/LiangJunrong/WeChatApplet)  
 &emsp;然而，这是结束吗？并不是，我们的通讯录，还有个功能未实现：
 
 &emsp;**如何在新增、删除的时候，对新增的字母进行排序，并导航到具体位置？**
 
 &emsp;在工作项目的开发中，**jsliang** 曾想到将新增的中文昵称转换为拼音，然后通过二分查找法，找到对应的位置并进行插入……  
-&emsp;但是，正印了那句话：**我的能力，可以造火箭，你却只给我敲钉子的时间！**  
+&emsp;但是，正印了那句话：**我的能力，可以造火箭，我却只有敲钉子的时间！**  
 &emsp;时间是一切程序猿的杀手，新增排序，咱们，有缘再会！
 
 <br>
@@ -3268,7 +3268,7 @@ onReachBottom: function () {
 
 &emsp;[项目地址](https://github.com/LiangJunrong/WeChatApplet)
 
-&emsp;撰文不易，如果文章对小伙伴有帮助，希望小伙伴们给勤劳撸码、辛苦撰文的 **jsliang** 进行微信打赏，谢谢~
+&emsp;撰文不易，如果文章对小伙伴有帮助，希望小伙伴们给勤劳敲代码、辛苦撰文的 **jsliang** 进行微信打赏，谢谢~
 
 ![图](../../public-repertory/img/seek-reward.png)
 
