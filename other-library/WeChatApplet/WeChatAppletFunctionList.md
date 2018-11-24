@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-11-21 20:46:36**  
-> Recently revised in **2018-11-24 08:39:49**
+> Recently revised in **2018-11-25 00:24:14**
 
 <br>
 
@@ -17,7 +17,7 @@
 
 <br>
 
-&emsp;**成品图**：
+&emsp;**项目图**：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-1.png)
 
@@ -47,7 +47,7 @@
 | &emsp;&emsp;[3.2.8 革新去旧 - 删除功能](#chapter-three-two-eight) |
 | &emsp;&emsp;[3.2.9 兵分一路 - 正常加载](#chapter-three-two-night) |
 | &emsp;&emsp;[3.2.10 兵分二路 - 拼音导航](#chapter-three-two-ten) |
-| &emsp;&emsp;[3.2.11 一统天下 - 归纳总结](#chapter-three-two-ten) |
+| &emsp;&emsp;[3.2.11 一统天下 - 归纳总结](#chapter-three-two-eleven) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 项目地址](#chapter-four) |
 
 <br>
