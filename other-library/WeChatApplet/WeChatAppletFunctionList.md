@@ -2495,7 +2495,7 @@ Page({
 
 <br>
 
-&emsp;现在，我们完成最重要的最后一步，实现 **拼音导航** 功能。
+&emsp;现在，我们完成最后且最重要的一步，实现 **拼音导航** 功能。
 
 &emsp;**首先**，我们先实现拼音导航的布局：
 
@@ -2515,6 +2515,8 @@ Page({
 <br>
 
 > addressList.wxss 代码片段
+
+> [返回本节开头](#chapter-three-two-ten)
 
 ```
 /* 拼音导航 */
@@ -2541,6 +2543,8 @@ Page({
 <br>
 
 > addressList.js 代码片段
+
+> [返回本节开头](#chapter-three-two-ten)
 
 ```
 Page({
@@ -2584,9 +2588,9 @@ Page({
 }
 ```
 
-&emsp;所以，我们的一个字母的高度，为 `44rpx`；而一个用户的高度，为 `120rpx`，即我们要滚动的高度 = 44 * 字母个数 + 120 * 用户条数。
+&emsp;因此，我们的一个字母的高度，为 `44rpx`；而一个用户的高度，为 `120rpx`，即我们要滚动的高度 = 44 * 字母个数 + 120 * 用户条数。
 
-&emsp;最后，我们现在正常模式下先实现一遍拼音导航：
+&emsp;**最后**，我们先在正常模式下模拟实现一遍拼音导航：
 
 ```
 Page({
@@ -2609,7 +2613,8 @@ Page({
    * pininNav - 点击字母
    */
   pingyinNav(e) {
-    console.log("\n【API - 拼音导航");
+        
+    console.log("\n【API - 拼音导航】");
 
     let byte = e.currentTarget.dataset.byte;
 
@@ -2619,11 +2624,11 @@ Page({
     let data = this.data.contactsData;
 
     for (let item in data) {
-      // 如果该字母比点击的字母小，则添加长度
+      // 如果该字母比点击的字母小，则添加数据长度
       if (data[item].groupName < byte) {
         dataLength = dataLength + data[item].users.length;
       }
-      // 如果该字母有内容，则加上它的长度
+      // 如果该字母有内容，则加上它的字母长度
       if (data[item].users.length >= 1 && data[item].groupName != byte) {
         byteLength = byteLength + 1;
       }
@@ -2640,10 +2645,8 @@ Page({
     console.log(data);
 
     wx.pageScrollTo({
-      scrollTop: byteLength * (44 / this.data.equipmentOneRpx) + dataLength * (120 / this.data.equipmentOneRpx),
-      success: (e) => {
-        console.log(e);
-      }
+      // 滚动高度
+      scrollTop: byteLength * (44 / this.data.equipmentOneRpx) + dataLength * (120 / this.data.equipmentOneRpx)
     })
   },
 
