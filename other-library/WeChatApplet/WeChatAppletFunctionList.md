@@ -574,10 +574,12 @@ Page({
 <view class="search-form">
   <!-- 搜索区 -->
   <view class="search">
+    <!-- 假的搜索框 -->
     <view wx:if="{{!searchModel}}" class="search-model search-model-one" bindtap="showSearch">
       <image class="icon" src="../../public/img/icon_search.png"></image>
       <text class="search-model-one-text">搜索</text>
     </view>
+    <!-- 真的搜索框 -->
     <view wx:if="{{searchModel}}" class="search-model search-model-two">
       <image class="icon search-model-two-icon" src="../../public/img/icon_search.png"></image>
       <!-- 多加层 view 的作用是做到 × 的定位作用 -->
@@ -591,7 +593,7 @@ Page({
   </view>
   <!-- 功能区 -->
   <view class="action">
-    <text class="action-button action-add">添加</text>
+    <text class="action-button action-add" bindtap="showAdd">添加</text>
     <text wx:if="{{!deleteModel}}" class="action-button action-delete" bindtap="showDelete">删除</text>
     <text wx:if="{{deleteModel}}" class="action-button action-delete-comfirm" bindtap="showDelete">完成</text>
   </view>
@@ -610,21 +612,6 @@ Page({
     </view>
   </view>
 </view>
-
-<!-- part3 - 内容区域 -->
-<view class="contacts-list"></view>
-
-<!-- part4 - 拼音导航 -->
-<view class="pinyin-nav"></view>
-
-<!-- part5 - 底部导航 -->
-<view class="bottom-nav"></view>
-
-<!-- part6 - 新增弹窗 -->
-<view class="add-prompt"></view>
-
-<!-- part7 - 修改弹窗 -->
-<view class="edit-prompt"></view>
 ```
 
 <br>
@@ -1044,16 +1031,19 @@ Page({
 ```
 <!-- 底部导航条 -->
 <view class="navBar">
+  <!-- 首页 -->
   <view class="navBar-item navBar-home" bindtap='goHome'>
     <image wx:if="{{homeActive}}" src="../../public/img/tabBar_home.png"></image>
     <image wx:if="{{!homeActive}}" src="../../public/img/tabBar_home_nor.png"></image>
     <text class="{{homeActive ? 'active-text' : 'nor-active-text'}}">首页</text>
   </view>
+  <!-- 探索 -->
   <view class="navBar-item navBar-explore" bindtap='goExplore'>
     <image wx:if="{{exploreActive}}" src="../../public/img/tabBar_explore.png"></image>
     <image wx:if="{{!exploreActive}}" src="../../public/img/tabBar_explore_nor.png"></image>
     <text class="{{exploreActive ? 'active-text' : 'nor-active-text'}}">探索</text>
   </view>
+  <!-- 我的 -->
   <view class="navBar-item navBar-user" bindtap='goUser'>
     <image wx:if="{{userActive}}" src="../../public/img/tabBar_user.png"></image>
     <image wx:if="{{!userActive}}" src="../../public/img/tabBar_user_nor.png"></image>
@@ -1387,7 +1377,7 @@ Page({
 * 删除成员功能
 * 拼音导航功能
 
-&emsp;很好！我们实现了一般功能了！但是，小伙伴有没有发现，我们的主内容区是空白的。  
+&emsp;很好！我们实现了一半功能了！但是，小伙伴有没有发现，我们的主内容区是空白的。  
 &emsp;所以，为了剩下的功能实现，我们应该编写下 **内容区域**，并进行页面的数据加载：
 
 > addressList.wxml
@@ -1649,7 +1639,7 @@ Page({
 
 <br>
 
-&emsp;然后，我们在 `js` 中设置弹窗事件：
+&emsp;**然后**，我们在 `js` 中设置弹窗事件：
 
 > addressList.js 代码片段
 
@@ -1769,7 +1759,7 @@ showAdd(e) {
 }
 ```
 
-&emsp;最后，我们完善 `js` 代码，获取 `input` 的值，动态新增到原数据中：
+&emsp;**最后**，我们完善 `js` 代码，获取 `input` 的值，动态新增到原数据中：
 
 > addressList.js
 
