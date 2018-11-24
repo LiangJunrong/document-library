@@ -533,6 +533,10 @@ Page({
 
 <br>
 
+&emsp;
+
+<br>
+
 ### <a name="chapter-three-two-three" id="chapter-three-two-three">3.2.3 遥控追踪 - 底部导航</a>
 
 > [返回目录](#catalog-chapter-three-two)
@@ -802,7 +806,7 @@ onLoad: function (options) {
 
 &emsp;[项目地址](https://github.com/LiangJunrong/WeChatApplet)
 
-&emsp;撰文不易，如果文章对小伙伴有帮助，谢谢小伙伴每一毛的微信打赏~
+&emsp;撰文不易，如果文章对小伙伴有帮助，谢谢小伙伴们的微信打赏~
 
 ![图](../../public-repertory/img/seek-reward.png)
 
