@@ -802,7 +802,9 @@ onLoad: function (options) {
 
 &emsp;[项目地址](https://github.com/LiangJunrong/WeChatApplet)
 
-![图](../../public-repertory/img/other-WechatAppletFunctionList-1.png)
+&emsp;撰文不易，如果文章对小伙伴有帮助，谢谢小伙伴每一毛的微信打赏~
+
+![图](../../public-repertory/img/seek-reward.png)
 
 <br>
 
