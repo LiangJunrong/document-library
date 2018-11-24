@@ -1623,7 +1623,263 @@ Page({
 
 <br>
 
-&emsp;
+&emsp;本章节实现效果：
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-18.gif)
+
+&emsp;如上图，我们实现了新增的功能。那么，它在代码中是如何实现的呢？
+
+&emsp;**首先**，我们要知道弹窗效果是如何出来的：
+
+> addressList.wxml 代码片段
+
+```
+<!-- part1 - 搜索区域 -->
+<view class="search-form">
+  <!-- 搜索区 -->
+  <!-- ...... 该部分代码并无修改，故省略 -->
+  <!-- 功能区 -->
+  <view class="action">
+    <text class="action-button action-add" bindtap="showAdd">添加</text>
+    <text wx:if="{{!deleteModel}}" class="action-button action-delete" bindtap="showDelete">删除</text>
+    <text wx:if="{{deleteModel}}" class="action-button action-delete-comfirm" bindtap="showDelete">完成</text>
+  </view>
+</view>
+```
+
+<br>
+
+&emsp;然后，我们在 `js` 中设置弹窗事件：
+
+> addressList.js 代码片段
+
+```
+showAdd(e) {
+  this.setData({
+    addModel: !this.data.addModel
+  })
+},
+```
+
+&emsp;是的，在这里，我们通过 `addModel` 的模式来控制弹窗，那么，弹窗要怎么编写呢？相信小伙伴在前一章了解过弹窗效果的实现，在这里我们为了连贯，再贴下实现新增弹窗的代码：
+
+> addressList.wxml 代码片段
+
+```
+<!-- part6 - 新增弹窗 -->
+<view wx:if="{{addModel}}" class="add-prompt">
+  <!-- 遮罩层 -->
+  <view class="jsliang-mask" bindtap='showAdd'></view>
+  <!-- 弹窗内容 -->
+  <view class="jsliang-alert">
+    <!-- 标题 -->
+    <view class="jsliang-alert-title">
+      <text>添加成员</text>
+      <text class="jsliang-alert-title-close" bindtap='showAdd'>×</text>
+    </view>
+    <!-- 输入内容 -->
+    <view class="jsliang-alert-content">
+      <input type="text" placeholder='请输入姓名' placeholder-class='jsliang-alert-content-user-name-placeholder' name="addUserName" bindinput='getAddUserName' maxlength='11' value="{{addUserName}}"></input>
+      <input type="text" placeholder='请输入电话号码' placeholder-class='jsliang-alert-content-user-phone-placeholder' name="addUserPhone" bindinput='getAddUserPhone' maxlength='11' value="{{addUserPhone}}"></input>
+    </view>
+    <!-- 确定 -->
+    <view class="jsliang-alert-submit" bindtap='addConfirm'>
+      <text>添加</text>
+    </view>
+  </view>
+</view>
+```
+
+<br>
+
+> addressList.wxss 代码片段
+
+```
+/* 弹窗-添加成员 */
+.jsliang-mask {
+  z-index: 998;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #404040;
+  filter: alpha(opacity=90);
+  -ms-filter: "alpha(opacity=90)";
+  opacity: 0.9;
+}
+.jsliang-alert {
+  z-index: 999;
+  position: fixed;
+  top: 15%;
+  left: 9%;
+  width: 620rpx;
+  height: 580rpx;
+  box-shadow: 2rpx 2rpx 4rpx #A0A0A0, -2rpx -2rpx 4rpx #A0A0A0;
+  background-color: #fff;
+  border-radius: 15rpx;
+}
+
+/* 弹窗标题 */
+.jsliang-alert-title {
+  height: 120rpx;
+  line-height: 120rpx;
+  color: #333333;
+  background: #f8f0e3;
+  font-size: 40rpx;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  border-radius: 15rpx;
+}
+.jsliang-alert-title-close {
+  display: inline-block;
+  color: #999999;
+  position: absolute;
+  font-size: 50rpx;
+  right: 40rpx;
+}
+/* 弹窗内容 */
+.jsliang-alert-content {
+  padding: 0 70rpx;
+}
+.jsliang-alert-content input {
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+.jsliang-alert-content-user-name-placeholder, .jsliang-alert-content-user-phone-placeholder {
+  font-size: 30rpx;
+  color: #b6b6b6;
+}
+.jsliang-alert-content-user-phone {
+  color: rgb(238, 227, 227);
+}
+.jsliang-alert-submit {
+  font-size: 30rpx;
+  margin: 60rpx auto;
+  text-align: center;
+  width: 400rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #fff;
+  background: deepskyblue;
+  border-radius: 50rpx;
+}
+```
+
+&emsp;最后，我们完善 `js` 代码，获取 `input` 的值，动态新增到原数据中：
+
+> addressList.js
+
+```
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    /**
+     * 新增功能
+     * addUserName - 新增的用户名
+     * addUserPhone - 新增的电话号码
+     */
+    addUserName: '',
+    addUserPhone: '',
+  },
+
+  /**
+   * 添加功能
+   * showAdd - 显示/隐藏 新增弹窗
+   * getAddUserName - 双向绑定成员姓名
+   * getAddUserPhone - 双向绑定成员电话
+   * addConfirm - 确认添加
+   */
+  showAdd(e) {
+    this.setData({
+      addModel: !this.data.addModel
+    })
+  },
+  getAddUserName(e) {
+    this.setData({
+      addUserName: e.detail.value
+    })
+  },
+  getAddUserPhone(e) {
+    this.setData({
+      addUserPhone: e.detail.value
+    })
+  },
+  addConfirm(e) {
+    console.log("\n【API -添加成员】");
+
+    let userName = this.data.addUserName;
+    let userPhone = this.data.addUserPhone;
+
+    if (userName == "") { // 不允许姓名为空
+      wx.showModal({
+        title: '添加失败',
+        content: '姓名不能为空~',
+        showCancel: false
+      })
+    } else if (!(/^[\u4e00-\u9fa5a-zA-Z]{1,11}$/.test(userName))) { // 不允许非中文或者大小写英文
+      wx.showModal({
+        title: '添加失败',
+        content: '请用中文或者大小写英文命名~',
+        showCancel: false
+      })
+    } else if (userPhone == "") { // 不允许电话号码为空
+      wx.showModal({
+        title: '添加失败',
+        content: '电话号码不能为空~',
+        showCancel: false
+      })
+    } else if (!(/^1[345789]\d{9}$/.test(userPhone))) { // 不允许电话号码不是 13/4/5/7/8/9 开头的 11 位数字
+      wx.showModal({
+        title: '添加失败',
+        content: '请输入正确的 11 位电话号码~',
+        showCancel: false
+      })
+    } else { // 添加成功
+      
+      // 新数据。假设后端接口返回的数据为 newData
+      let newData = {
+        userName: this.data.addUserName,
+        userPhone: this.data.addUserPhone,
+        pinyin: 'ali'
+      }
+
+      // 旧数据
+      let oldData = this.data.contactsData;
+
+      // 获取新数据的首字母并转换为大写
+      let initials = newData.pinyin.substr(0, 1).toUpperCase();
+
+      // 循环旧数据
+      for (let oldDataItem in oldData) {
+        // 获取旧数据字母
+        let groupName = oldData[oldDataItem].groupName;
+        // 判断这两者字母是否相同
+        if (initials === groupName) {
+          // 往该字母最后一位数据添加新数据
+          oldData[oldDataItem].users[oldData[oldDataItem].users.length] = newData;
+        }
+      }
+      
+      this.setData({
+        contactsData: oldData,
+        normalModel: true,
+        addModel: false,
+        addUserName: '',
+        addUserPhone: ''
+      })
+    }
+  }
+})
+```
+
+&emsp;到此，我们就实现了新增的功能！
 
 <br>
 
