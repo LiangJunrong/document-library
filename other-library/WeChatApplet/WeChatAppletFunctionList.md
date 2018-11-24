@@ -1175,7 +1175,7 @@ Component({
 
 <br>
 
-1. 在需要引用的界面引用该组件
+3. 在需要引用的界面引用该组件
 
 > addressList.wxml
 
