@@ -1223,7 +1223,138 @@ Page({
 
 <br>
 
-&emsp;
+&emsp;本章节实现效果：
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-16.gif)
+
+<br>
+
+&emsp;弹窗？微信小程序就有啊，为啥不用它的呢？
+
+| 类型      | 说明                                                                                                              | 地址                                                                                                                           |
+| --------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| 模态弹窗  | wx.showModal(Object) - 模态弹窗可以给你选择【取消】或者【确定】                           | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showModal)          |
+| \<modal\> | \<modal\>是可以提供用户填写                                                                     | [链接](https://blog.csdn.net/qq_35181466/article/details/80405248)                                                             |
+| 消息弹窗  | wx.showToast(Object) - 消息弹窗就是操作成功或者操作失败的那一刻，系统的提示弹窗，无需用户操作，可设定几秒自动关闭 | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showToast)          |
+| 操作菜单  | wx.showActionSheet(Object) - 操作菜单类似于弹出的下拉菜单，提供你选择其中某项或者【取消】                         | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showActionSheet.html?search-key=showActionSheet) |
+
+&emsp;然而，逐一尝试，你会发现，上面辣么多弹窗，没有一种符合你的需求的！所以，咱要画一个属于自己的弹窗：
+
+> addressList.wxml
+
+> [返回本节开头](#chapter-three-two-four)
+
+```
+<!-- part6 - 新增弹窗 -->
+<view wx:if="{{addModel}}" class="add-prompt">
+  <view class="jsliang-mask" bindtap='showAdd'></view>
+  <view class="jsliang-alert">
+    <!-- 标题 -->
+    <view class="jsliang-alert-title">
+      <text>添加成员</text>
+      <text class="jsliang-alert-title-close" bindtap='showAdd'>×</text>
+    </view>
+    <!-- 输入内容 -->
+    <view class="jsliang-alert-content">
+      <input type="text" placeholder='请输入姓名' placeholder-class='jsliang-alert-content-user-name-placeholder' name="addUserName" bindinput='getAddUserName' maxlength='11' value="{{addUserName}}"></input>
+      <input type="text" placeholder='请输入电话号码' placeholder-class='jsliang-alert-content-user-phone-placeholder' name="addUserPhone" bindinput='getAddUserPhone' maxlength='11' value="{{addUserPhone}}"></input>
+    </view>
+    <!-- 确定 -->
+    <view class="jsliang-alert-submit">
+      <text bindtap='addConfirm'>添加</text>
+    </view>
+  </view>
+</view>
+```
+
+<br>
+
+> addressList.wxss
+
+> [返回本节开头](#chapter-three-two-four)
+
+```
+/* 弹窗-添加成员 */
+.jsliang-prompt {
+  display: block;
+}
+.jsliang-mask {
+  z-index: 998;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #404040;
+  filter: alpha(opacity=90);
+  -ms-filter: "alpha(opacity=90)";
+  opacity: 0.9;
+}
+.jsliang-alert {
+  z-index: 999;
+  position: fixed;
+  top: 15%;
+  left: 9%;
+  width: 620rpx;
+  height: 580rpx;
+  box-shadow: 2rpx 2rpx 4rpx #A0A0A0, -2rpx -2rpx 4rpx #A0A0A0;
+  background-color: #fff;
+  border-radius: 15rpx;
+}
+
+/* 弹窗标题 */
+.jsliang-alert-title {
+  height: 120rpx;
+  line-height: 120rpx;
+  color: #333333;
+  background: #f8f0e3;
+  font-size: 40rpx;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  border-radius: 15rpx;
+}
+.jsliang-alert-title-close {
+  display: inline-block;
+  color: #999999;
+  position: absolute;
+  font-size: 50rpx;
+  right: 40rpx;
+}
+/* 弹窗内容 */
+.jsliang-alert-content {
+  padding: 0 70rpx;
+}
+.jsliang-alert-content input {
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+.jsliang-alert-content-user-name-placeholder, .jsliang-alert-content-user-phone-placeholder {
+  font-size: 30rpx;
+  color: #b6b6b6;
+}
+.jsliang-alert-content-user-phone {
+  color: rgb(238, 227, 227);
+}
+.jsliang-alert-submit {
+  font-size: 30rpx;
+  margin: 60rpx auto;
+  text-align: center;
+  width: 400rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #fff;
+  background: deepskyblue;
+  border-radius: 50rpx;
+}
+```
+
+<br>
+
+&emsp;这样，我们就可以通过控制 `addModel` 的 `true` 或者 `false`，来显示隐藏新增弹窗。  
+&emsp;同理，我们可以依法炮制通过 `editModel` 控制修改弹窗。
 
 <br>
 
