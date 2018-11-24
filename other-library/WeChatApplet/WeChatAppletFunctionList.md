@@ -1010,7 +1010,208 @@ Page({
 
 <br>
 
-&emsp;
+&emsp;本章节实现效果：
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-14.png)
+
+&emsp;众所周知，微信小程序的子页面（除了设置 `tabBar` 的页面）是没有底部导航栏的。那么，我们要如何设计，才能编写一个 **自定义的底部导航栏** 呢？  
+&emsp;在这里，我们通过 `fixed` 布局，在页面实现一个 **自定义的底部导航栏** 是很容易的。但是，考虑到其他页面可能也需要使用这个底部导航栏，我们就需要想办法将其封装成组件了：
+
+&emsp;微信小程序 - [自定义组件](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/)
+
+&emsp;是的，微信小程序官方文档中是存在这个东西的。当然，至于过程中我百度了几篇文章来辅助写出下面的代码，你猜？  
+&emsp;下面贴出实现代码及如何使用：
+
+1. 建立目录。  
+
+&emsp;**首先**，在根目录中新建 `component` 目录，用来存放我们项目的组件。  
+&emsp;**然后**，我们新建 `navBar` 目录，用来存放我们的组件 `navBar`。  
+&emsp;**最后**，我们新建 `Component` 为 `navBar`。
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-15.png)
+
+<br>
+
+2. 进行组件代码编写。
+
+> navBar.wxml
+
+> [返回本节开头](#chapter-three-two-three)
+
+```
+<!-- 底部导航条 -->
+<view class="navBar">
+  <view class="navBar-item navBar-home" bindtap='goHome'>
+    <image wx:if="{{homeActive}}" src="../../public/img/tabBar_home.png"></image>
+    <image wx:if="{{!homeActive}}" src="../../public/img/tabBar_home_nor.png"></image>
+    <text class="{{homeActive ? 'active-text' : 'nor-active-text'}}">首页</text>
+  </view>
+  <view class="navBar-item navBar-explore" bindtap='goExplore'>
+    <image wx:if="{{exploreActive}}" src="../../public/img/tabBar_explore.png"></image>
+    <image wx:if="{{!exploreActive}}" src="../../public/img/tabBar_explore_nor.png"></image>
+    <text class="{{exploreActive ? 'active-text' : 'nor-active-text'}}">探索</text>
+  </view>
+  <view class="navBar-item navBar-user" bindtap='goUser'>
+    <image wx:if="{{userActive}}" src="../../public/img/tabBar_user.png"></image>
+    <image wx:if="{{!userActive}}" src="../../public/img/tabBar_user_nor.png"></image>
+    <text class="{{userActive ? 'active-text' : 'nor-active-text'}}">我的</text>
+  </view>
+</view>
+```
+
+<br>
+
+> navBar.wxss
+
+> [返回本节开头](#chapter-three-two-three)
+
+```
+/* 底部导航条 */
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+  width: 100%;
+  height: 97rpx;
+  padding: 5rpx 0;
+  border-top: 1rpx solid #cccccc;
+  position: fixed;
+  bottom: 0;
+  background: #F7F7FA;
+}
+.navBar image {
+  width: 55rpx;
+  height: 55rpx;
+}
+.navBar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20rpx;
+  color: #999999;
+}
+.nor-active-text {
+  padding-top: 5rpx;
+}
+.active-text {
+  padding-top: 5rpx;
+  color: #d0a763;
+}
+```
+
+<br>
+
+> navBar.js
+
+> [返回本节开头](#chapter-three-two-three)
+
+```
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    homeActive: {
+      type: Boolean,
+      value: false
+    },
+    exploreActive: {
+      type: Boolean,
+      value: false
+    },
+    userActive: {
+      type: Boolean,
+      value: false
+    }
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    // 返回首页
+    goHome: function (e) {
+      wx.switchTab({
+        url: '../index/index',
+      })
+    },
+    // 返回探索页
+    goExplore: function (e) {
+      wx.switchTab({
+        url: '../explore/explore',
+      })
+    },
+    // 返回我的
+    goUser: function (e) {
+      wx.switchTab({
+        url: '../user/user',
+      })
+    }
+  }
+})
+```
+
+<br>
+
+> navBar.json
+
+> [返回本节开头](#chapter-three-two-three)
+
+```
+{
+  "component": true,
+  "usingComponents": {}
+}
+```
+
+<br>
+
+1. 在需要引用的界面引用该组件
+
+> addressList.wxml
+
+```
+<!-- part5 - 底部导航 -->
+<view class="bottom-nav">
+  <navBar homeActive="{{homeActive}}"></navBar>
+</view>
+```
+
+> addressList.json
+
+```
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "通讯录",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "navBar": "../../component/navBar/navBar"
+  }
+}
+```
+
+> addressList.js
+
+```
+Page({
+  data: {
+    // 引用底部导航
+    homeActive: true,
+  }
+})
+```
+
+&emsp;这样，我们就实现了底部导航栏组件的开发及引用。  
+&emsp;下次我们还需使用该底部导航栏的时候，我们只需要重复在 `addressList` 的步骤就行了。  
+&emsp;当然，我们需要根据需要活跃的位置，进行 `homeActive`、`exploreActive`、`userActive` 这三个活跃状态与否的设置。
 
 <br>
 
