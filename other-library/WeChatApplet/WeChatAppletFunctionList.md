@@ -85,6 +85,11 @@
 &emsp;**别&emsp;&emsp;以**  
 &emsp;**！&emsp;&emsp;！**
 
+&emsp;顺带附上一些资源网站：
+
+* [Iconfont - 阿里巴巴矢量图标库](http://www.iconfont.cn/home/index)
+* [图片压缩 - TinyPNG](https://tinypng.com/)
+
 <br>
 
 ## <a name="chapter-three-one" id="chapter-three-one">3.1 排兵布阵 - Flex布局</a>
@@ -438,6 +443,7 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 <br>
 
 &emsp;工欲善其事，必先利其器。  
+
 &emsp;**首先**，我们先将该页面命名为：`addressList`，并编写它的 `json` 门面：
 
 > addressList.json
@@ -552,7 +558,7 @@ Page({
 
 &emsp;首先，我们通过 `fixed` 定位，将 `search-form` 固定在顶部。  
 &emsp;然后，我们将 `search-form` 其内部分为 **搜索区** `search` 与 **功能区** `action`。  
-&emsp;接着，我们将 `search` 分为 **假的搜索区** `search-model-one` 与 **真的搜索区** `search-model-two`，这样我们就不用烦恼一会居中一会靠边要怎么区分，思路不容易乱。  
+&emsp;接着，我们将 `search` 分为 **假的搜索区** `search-model-one` 与 **真的搜索区** `search-model-two`。为什么要分两种情况呢？因为这样我们就不用烦恼 `input` 的 `placeholder` 一会居中一会靠边要怎么区分，思路不容易乱。  
 &emsp;最后，根据功能，我们逐步完善 `wxml` 与 `wxss`代码。
 
 > addressList.wxml
