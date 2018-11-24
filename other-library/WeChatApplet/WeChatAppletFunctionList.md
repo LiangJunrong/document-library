@@ -527,7 +527,9 @@ Page({
 
 <br>
 
-&emsp;
+&emsp;本章节实现效果：
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-13.gif)
 
 <br>
 
