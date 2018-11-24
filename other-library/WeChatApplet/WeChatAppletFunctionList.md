@@ -1015,11 +1015,13 @@ Page({
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-14.png)
 
 &emsp;众所周知，微信小程序的子页面（除了设置 `tabBar` 的页面）是没有底部导航栏的。那么，我们要如何设计，才能编写一个 **自定义的底部导航栏** 呢？  
-&emsp;在这里，我们通过 `fixed` 布局，在页面实现一个 **自定义的底部导航栏** 是很容易的。但是，考虑到其他页面可能也需要使用这个底部导航栏，我们就需要想办法将其封装成组件了：
+&emsp;在日常开发中，我们通过 `fixed` 布局，在页面实现一个 **自定义的底部导航栏** 是很容易的。  
+&emsp;但是，考虑到其他页面可能也需要使用这个底部导航栏，我们就需要想办法将其封装成组件了：
 
 &emsp;微信小程序 - [自定义组件](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/)
 
 &emsp;是的，微信小程序官方文档中是存在这个东西的。当然，至于过程中我百度了几篇文章来辅助写出下面的代码，你猜？  
+
 &emsp;下面贴出实现代码及如何使用：
 
 1. 建立目录。  
@@ -1208,10 +1210,10 @@ Page({
   }
 })
 ```
-
-&emsp;这样，我们就实现了底部导航栏组件的开发及引用。  
+ 
 &emsp;下次我们还需使用该底部导航栏的时候，我们只需要重复在 `addressList` 的步骤就行了。  
-&emsp;当然，我们需要根据需要活跃的位置，进行 `homeActive`、`exploreActive`、`userActive` 这三个活跃状态与否的设置。
+&emsp;当然，我们需要根据需要活跃的位置，进行 `homeActive`、`exploreActive`、`userActive` 这三个活跃状态与否的设置。  
+&emsp;这样，我们就实现了底部导航栏组件的开发及引用。 
 
 <br>
 
