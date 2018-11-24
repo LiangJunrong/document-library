@@ -1617,6 +1617,8 @@ Page({
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-18.gif)
 
+<br>
+
 &emsp;如上图，我们实现了新增的功能。那么，它在代码中是如何实现的呢？
 
 &emsp;**首先**，我们要知道弹窗效果是如何出来的：
@@ -1655,6 +1657,8 @@ showAdd(e) {
 
 > addressList.wxml 代码片段
 
+> [返回本节开头](#chapter-three-two-six)
+
 ```
 <!-- part6 - 新增弹窗 -->
 <view wx:if="{{addModel}}" class="add-prompt">
@@ -1683,6 +1687,8 @@ showAdd(e) {
 <br>
 
 > addressList.wxss 代码片段
+
+> [返回本节开头](#chapter-three-two-six)
 
 ```
 /* 弹窗-添加成员 */
@@ -1762,6 +1768,8 @@ showAdd(e) {
 &emsp;**最后**，我们完善 `js` 代码，获取 `input` 的值，动态新增到原数据中：
 
 > addressList.js
+
+> [返回本节开头](#chapter-three-two-six)
 
 ```
 Page({
@@ -1882,7 +1890,284 @@ Page({
 
 <br>
 
-&emsp;
+&emsp;本章节实现效果：
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-19.gif)
+
+<br>
+
+&emsp;在新增功能的开发后，我们的修改功能就显得比较容易了。  
+&emsp;首先，我们整理下修改的思路：
+
+* 用户点击按钮，传递数据给窗口：用户姓名、用户电话。
+* 用户点击修改，循环遍历原数据，找到要修改的字母组下要修改的名字再进行修改，所以，单单是上面的两个字段还不够，应该有：用户所在组、用户原姓名、用户新姓名、用户电话。
+
+&emsp;所以，在 `wxml` 中我们应该这么写：
+
+> addressList.wxml 代码片段
+
+> [返回本节开头](#chapter-three-two-seven)
+
+```
+<!-- part3 - 内容区域 -->
+<view class="contacts-list" wx:if="{{normalModel}}">
+  <!-- 每组字母数据 -->
+  <view class="contacts-item" wx:for="{{contactsData}}" wx:for-item="contactsDataItem" wx:key="{{contactsDataItem.index}}">
+    <!-- 字母标题 -->
+    <!-- ... 代码省略 ... -->
+    <!-- 该组字母的成员 -->
+    <view class="contacts-list-user" wx:for="{{contactsDataItem.users}}" wx:for-item="usersItem" wx:key="{{usersItem.index}}">
+      <!-- 成员信息展示 -->
+      <!-- ... 代码省略 ... -->
+      <!-- 成员操作 -->
+      <view class="contacts-list-user-right">
+        <image class="icon contacts-list-user-right-edit" src="../../public/img/icon_edit.png" bindtap="showEdit" data-username="{{usersItem.userName}}" data-userphone="{{usersItem.userPhone}}" data-groupname="{{contactsDataItem.groupName}}"></image>
+        <image wx:if="{{deleteModel}}" class="icon contacts-list-user-right-delete" src="../../public/img/icon_delete.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+```
+
+<br>
+
+&emsp;然后，我们将新增的弹窗照搬过来并加入电话无法修改的效果：
+
+> addressList.wxml 代码片段
+
+> [返回本节开头](#chapter-three-two-seven)
+
+```
+<!-- part7 - 修改弹窗 -->
+<view wx:if="{{editModel}}" class="edit-prompt">
+  <!-- 遮罩层 -->
+  <view class="jsliang-mask" bindtap='showEdit'></view>
+  <!-- 弹窗内容 -->
+  <view class="jsliang-alert">
+    <!-- 标题 -->
+    <view class="jsliang-alert-title">
+      <text>修改成员</text>
+      <text class="jsliang-alert-title-close" bindtap='showEdit'>×</text>
+    </view>
+    <!-- 输入内容 -->
+    <view class="jsliang-alert-content">
+      <input type="text" placeholder='请输入姓名' placeholder-class='jsliang-alert-content-user-name-placeholder' name="editUserName" bindinput='getEditUserName' maxlength='11' value="{{editNewUserName}}"></input>
+      <input type="text" class="input-forbid" placeholder='请输入电话号码' placeholder-class='jsliang-alert-content-user-phone-placeholder' name="editUserPhone" bindinput='getEditUserPhone' maxlength='11' value="{{editUserPhone}}" disabled="disabled"></input>
+    </view>
+    <!-- 确定 -->
+    <view class="jsliang-alert-submit" bindtap='editConfirm'>
+      <text>修改</text>
+    </view>
+  </view>
+</view>
+```
+
+<br>
+
+> addressList.wxss 代码片段
+
+> [返回本节开头](#chapter-three-two-seven)
+
+```
+/* 弹窗-添加成员 */
+.jsliang-mask {
+  z-index: 998;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #404040;
+  filter: alpha(opacity=90);
+  -ms-filter: "alpha(opacity=90)";
+  opacity: 0.9;
+}
+.jsliang-alert {
+  z-index: 999;
+  position: fixed;
+  top: 15%;
+  left: 9%;
+  width: 620rpx;
+  height: 580rpx;
+  box-shadow: 2rpx 2rpx 4rpx #A0A0A0, -2rpx -2rpx 4rpx #A0A0A0;
+  background-color: #fff;
+  border-radius: 15rpx;
+}
+
+/* 弹窗标题 */
+.jsliang-alert-title {
+  height: 120rpx;
+  line-height: 120rpx;
+  color: #333333;
+  background: #f8f0e3;
+  font-size: 40rpx;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  border-radius: 15rpx;
+}
+.jsliang-alert-title-close {
+  display: inline-block;
+  color: #999999;
+  position: absolute;
+  font-size: 50rpx;
+  right: 40rpx;
+}
+/* 弹窗内容 */
+.jsliang-alert-content {
+  padding: 0 70rpx;
+}
+.jsliang-alert-content input {
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+.jsliang-alert-content-user-name-placeholder, .jsliang-alert-content-user-phone-placeholder {
+  font-size: 30rpx;
+  color: #b6b6b6;
+}
+.jsliang-alert-content-user-phone {
+  color: rgb(238, 227, 227);
+}
+.jsliang-alert-submit {
+  font-size: 30rpx;
+  margin: 60rpx auto;
+  text-align: center;
+  width: 400rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #fff;
+  background: deepskyblue;
+  border-radius: 50rpx;
+}
+
+/* 弹窗-修改成员 */
+.input-forbid {
+  color: rgb(202, 196, 196);
+}
+```
+
+<br>
+
+&emsp;最后，我们在 `js` 中实现修改的功能：
+
+> addressList.js 代码片段
+
+> [返回本节开头](#chapter-three-two-seven)
+
+```
+// pages/addressList/addressList.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    /**
+     * 修改功能
+     * editOldUserName - 在哪组改动
+     * editOldUserName - 原名字
+     * editNewUserName - 新名字
+     * editUserPhone - 电话
+     */
+    editGroupName: '',
+    editOldUserName: '',
+    editNewUserName: '',
+    editUserPhone: '',
+  },
+
+  /**
+   * 修改功能
+   * showEdit - 显示修改框
+   * getEditUserName - 双向绑定成员名
+   * getEditUserPhone - 双向绑定成员电话
+   * editConfirm - 确认修改
+   */
+  showEdit(e) {
+    if (!this.data.editModel) { // 显示弹窗则传递数据
+      this.setData({
+        editModel: true,
+        editGroupName: e.currentTarget.dataset.groupname,
+        editOldUserName: e.currentTarget.dataset.username,
+        editNewUserName: e.currentTarget.dataset.username,
+        editUserPhone: e.currentTarget.dataset.userphone,
+      })
+    } else { // 否则只控制弹窗隐藏
+      this.setData({
+        editModel: false
+      })
+    }
+  },
+  getEditUserName(e) {
+    this.setData({
+      editNewUserName: e.detail.value
+    })
+  },
+  editUserPhone(e) {
+    this.setData({
+      editUserPhone: e.detail.value
+    })
+  },
+  editConfirm(e) {
+
+    console.log("\n【API - 修改成员】");
+
+    let userName = this.data.editNewUserName;
+    let userPhone = this.data.editUserPhone;
+
+    if (userName == "") { // 不允许姓名为空
+      wx.showModal({
+        title: '修改失败',
+        content: '姓名不能为空~',
+        showCancel: false
+      })
+    } else if (!(/^[\u4e00-\u9fa5a-zA-Z]{1,11}$/.test(userName))) { // 不允许非中文或者大小写英文
+      wx.showModal({
+        title: '修改失败',
+        content: '请用中文或者大小写英文命名~',
+        showCancel: false
+      })
+    } else {
+
+      let contactsData = this.data.contactsData;
+
+      // 循环遍历原数据
+      for (let groupInfo in contactsData) {
+        // 找到原数据中的该字母组
+        if (this.data.editGroupName == contactsData[groupInfo].groupName) {
+          // 遍历该组的用户名
+          for (let userInfo in contactsData[groupInfo].users) {
+            // 找到原数据中相同的姓名
+            if (this.data.editOldUserName == contactsData[groupInfo].users[userInfo].userName) {
+              // 修改它的姓名
+              contactsData[groupInfo].users[userInfo].userName = this.data.editNewUserName;
+
+              console.log("新增后数据：");
+              console.log(contactsData);
+
+              this.setData({
+                contactsData: contactsData,
+                editModel: false,
+                normalModel: true
+              })
+
+              wx.showToast({
+                title: '修改成功~',
+              })
+
+              break;
+
+            }
+          }
+        }
+      }
+    }
+  }
+})
+```
+
+&emsp;这样，我们就实现了**弹窗修改功能**！
 
 <br>
 
