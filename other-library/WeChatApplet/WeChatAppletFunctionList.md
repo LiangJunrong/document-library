@@ -546,6 +546,10 @@ Page({
 
 <br>
 
+* 查看 `wxml` 代码：[Go to wxml](#chapter-three-two-two-wxml)
+* 查看 `wxss` 代码：[Go to wxss](#chapter-three-two-two-wxss)
+* 查看 `js`代码`：[Go to js](#chapter-three-two-two-js)
+
 &emsp;本章节实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-13.gif)
@@ -554,14 +558,14 @@ Page({
 
 &emsp;实现思路、编码及代码讲解：
 
+> <a name="chapter-three-two-two-wxml" id="chapter-three-two-two-wxml">addressList.wxml</a>
+
 1. 在 `wxml` 与 `wxss` 结构上。  
 
-&emsp;首先，我们通过 `fixed` 定位，将 `search-form` 固定在顶部。  
-&emsp;然后，我们将 `search-form` 其内部分为 **搜索区** `search` 与 **功能区** `action`。  
-&emsp;接着，我们将 `search` 分为 **假的搜索区** `search-model-one` 与 **真的搜索区** `search-model-two`。为什么要分两种情况呢？因为这样我们就不用烦恼 `input` 的 `placeholder` 一会居中一会靠边要怎么区分，思路不容易乱。  
-&emsp;最后，根据功能，我们逐步完善 `wxml` 与 `wxss`代码。
-
-> addressList.wxml
+&emsp;**首先**，我们通过 `fixed` 定位，将 `search-form` 固定在顶部。  
+&emsp;**然后**，我们将 `search-form` 其内部分为 **搜索区** `search` 与 **功能区** `action`。  
+&emsp;**接着**，我们将 `search` 分为 **假的搜索区** `search-model-one` 与 **真的搜索区** `search-model-two`。为什么要分两种情况呢？因为这样我们就不用烦恼 `input` 的 `placeholder` 一会居中一会靠边要怎么区分，思路不容易乱。  
+&emsp;**最后**，根据功能，我们逐步完善 `wxml` 与 `wxss`代码。
 
 > [返回本节开头](#chapter-three-two-two)
 
@@ -625,7 +629,7 @@ Page({
 
 <br>
 
-> addressList.wxss
+> <a name="chapter-three-two-two-wxss" id="chapter-three-two-two-wxss">addressList.wxss</a>
 
 > [返回本节开头](#chapter-three-two-two)
 
@@ -792,6 +796,8 @@ view {
 
 <br>
 
+> <a name="chapter-three-two-two-js" id="chapter-three-two-two-js">addressList.js</a>
+
 2. 在 `js`上。
 
 &emsp;我们仔细观察本节开头的 `GIF` 图，发现它有这几个特点：
@@ -802,8 +808,6 @@ view {
 * 上拉加载更多数据
 * 点击 `×` 按钮，输入内容消失
 * 点击【取消】按钮，关闭搜索页面
-
-> addressList.js
 
 > [返回本节开头](#chapter-three-two-two)
 
