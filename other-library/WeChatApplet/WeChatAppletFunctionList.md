@@ -2488,21 +2488,23 @@ Page({
 
 <br>
 
-&emsp;
+
+&emsp;本章节实现效果：
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-22.gif)
 
 <br>
 
-### <a name="chapter-three-two-eleven" id="chapter-three-two-eleven">3.2.11 一统天下 - 归纳总结</a>
+&emsp;现在，我们完成最重要的最后一步，实现 **拼音导航** 功能。
 
-> [返回目录](#catalog-chapter-three-two)
+&emsp;**首先**，我们先实现拼音导航的布局：
 
-<br>
+> addressList.wxml 代码片段
 
-&emsp;话不多说，直接上手：
-
-> *.wxml
+> [返回本节开头](#chapter-three-two-ten)
 
 ```
+<!-- part4 - 拼音导航 -->
 <view class="pinyin-nav">
   <view wx:for="{{letters}}" wx:key="{{letters.index}}">
     <text class="pinyin-nav-byte" data-byte="{{item}}" bindtap="pingyinNav">{{item}}</text>
@@ -2510,9 +2512,12 @@ Page({
 </view>
 ```
 
-> *.wxss
+<br>
+
+> addressList.wxss 代码片段
 
 ```
+/* 拼音导航 */
 .pinyin-nav {
   font-size: 28rpx;
   line-height: 28rpx;
@@ -2533,7 +2538,10 @@ Page({
 }
 ```
 
-> *.js
+<br>
+
+> addressList.js 代码片段
+
 ```
 Page({
 
@@ -2541,39 +2549,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // 导航字母
+    /**
+     * 拼音导航功能
+     * letters - 导航字母
+     */
     letters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
-    // 数据
-    contactsData: [
-      { groupName: 'A', users: [] },
-      { groupName: 'B', users: [] },
-      { groupName: 'C', users: [] },
-      { groupName: 'D', users: [] },
-      { groupName: 'E', users: [] },
-      { groupName: 'F', users: [] },
-      { groupName: 'G', users: [] },
-      { groupName: 'H', users: [] },
-      { groupName: 'I', users: [] },
-      { groupName: 'J', users: [] },
-      { groupName: 'K', users: [] },
-      { groupName: 'L', users: [] },
-      { groupName: 'M', users: [] },
-      { groupName: 'N', users: [] },
-      { groupName: 'O', users: [] },
-      { groupName: 'P', users: [] },
-      { groupName: 'Q', users: [] },
-      { groupName: 'R', users: [] },
-      { groupName: 'S', users: [] },
-      { groupName: 'T', users: [] },
-      { groupName: 'U', users: [] },
-      { groupName: 'V', users: [] },
-      { groupName: 'W', users: [] },
-      { groupName: 'X', users: [] },
-      { groupName: 'Y', users: [] },
-      { groupName: 'Z', users: [] }
-    ],
   },
-  // 拼音导航
+  /**
+   * 拼音导航功能
+   * pininNav - 点击字母
+   */
   pingyinNav(e) {
     console.log(e.currentTarget.dataset.byte);
   },
@@ -2582,50 +2567,129 @@ Page({
 
 <br>
 
-&emsp;在上面的代码中，**jsliang** 做了三件事：
+&emsp;**然后**，布局有了，我们要如何实现滚动效果呢？  
 
-1. 编写 `Wxml` 结构，由于只有一层 `view` 在循环的时候，在控制台看到的 `Wxml` 结构并不好看，所以循环的是第二层 `view`，这样就形成下面的效果：
+* [参考资料 - 根据设备宽高动态设置元素宽高](https://blog.csdn.net/qq_41080490/article/details/80268298)
+
+&emsp;考虑到设备的不同，它的高度也不同，所以我们是需要获取到样式的动态高度的。先看看我们在 `wxss` 中定义的高度吧：
+
+> addressList.wxss 代码片段
 
 ```
-<view>
-  <view></view>
-  <view></view>
-  ...
-</view>
+.contacts-list-title {
+  height: 44rpx;
+}
+.contacts-list-user {
+  height: 120rpx;
+}
 ```
 
-2. 编写 `Wxss` 定位，**jsliang** 对 `Wxml` 进行了 `position: fixed` 的绝对定位，这样就可以将它固定在右侧。
-3. 最后，在 `js` 中定义了遍历的数据（字母 `A-Z`）及点击字母的时候，将该字母传递过来并打印。
+&emsp;所以，我们的一个字母的高度，为 `44rpx`；而一个用户的高度，为 `120rpx`，即我们要滚动的高度 = 44 * 字母个数 + 120 * 用户条数。
+
+&emsp;最后，我们现在正常模式下先实现一遍拼音导航：
+
+```
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    /**
+     * 拼音导航功能
+     * letters - 导航字母
+     * equipmentOneRpx - 设备中 1rpx 为多少 px
+     */
+    letters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+    equipmentOneRpx: '',
+  },
+
+  /**
+   * 拼音导航功能
+   * pininNav - 点击字母
+   */
+  pingyinNav(e) {
+    console.log("\n【API - 拼音导航");
+
+    let byte = e.currentTarget.dataset.byte;
+
+    let dataLength = 0;
+    let byteLength = 0;
+
+    let data = this.data.contactsData;
+
+    for (let item in data) {
+      // 如果该字母比点击的字母小，则添加长度
+      if (data[item].groupName < byte) {
+        dataLength = dataLength + data[item].users.length;
+      }
+      // 如果该字母有内容，则加上它的长度
+      if (data[item].users.length >= 1 && data[item].groupName != byte) {
+        byteLength = byteLength + 1;
+      }
+      // 如果该字母等于点击的字母，则中断循环
+      if (data[item].groupName == byte) {
+        break;
+      }
+    }
+
+    console.log("title 长度为：" + byteLength);
+    console.log("data 条数为：" + dataLength);
+
+    console.log("\n现在数组为：");
+    console.log(data);
+
+    wx.pageScrollTo({
+      scrollTop: byteLength * (44 / this.data.equipmentOneRpx) + dataLength * (120 / this.data.equipmentOneRpx),
+      success: (e) => {
+        console.log(e);
+      }
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+    console.log("\n通讯录");
+
+    // 设备信息
+    wx.getSystemInfo({
+      success: res => {
+        console.log("\n设备信息为：");
+        console.log(res);
+
+        let equipmentOneRpx = 750 / res.windowWidth;
+        console.log("换算信息：1rpx = " + equipmentOneRpx + "px");
+        this.setData({
+          equipmentOneRpx: equipmentOneRpx
+        })
+      },
+    })
+  }
+})
+```
+
+&emsp;我们在 `onLoad` 中获取到用户设备的信息，然后计算出 `1rpx` 等于多少 `px`。在 `iphone6` 中，`1rpx = 2px`。我们只需要将 `css` 中写的样式高度 / 比例，就能动态计算我们的高度，从而实现滚动到目标位置的效果。
 
 <br>
 
-&emsp;在昨晚上面的基础环境搭建后，我们需要实现下拉、上拉的功能，这两个功能在微信小程序中有定义，这里就不做过多讲解：`onPullDownRefresh`、`onReachBottom`。下面我们重点讲解下点击字母滚动到对应页面：
+&emsp;—————— 分割线 ——————
 
-> 代码片段
+<br>
 
-```
-onLoad: function (options) {
-  console.log("\n成员管理页：");
-  
-  // 设备信息
-  wx.getSystemInfo({
-    success: res => {
-      console.log("\n设备信息为：");
-      console.log(res);
+&emsp;现在，我们开始 **真拼音导航** 功能的实现。
 
-      let equipmentOneRpx = 750 / res.windowWidth;
-      console.log("换算信息：1rpx = " + equipmentOneRpx + "px");
-      this.setData({
-        equipmentOneRpx: equipmentOneRpx
-      })
-    },
-  })
-},
-```
+<br>
 
-* [参考资料](https://blog.csdn.net/qq_41080490/article/details/80268298)
+### <a name="chapter-three-two-eleven" id="chapter-three-two-eleven">3.2.11 一统天下 - 归纳总结</a>
 
-&emsp;我们在 `onLoad` 中获取到用户设备的信息，然后计算出 `1rpx` 等于多少 `px`。在 `iphone6` 中，`1rpx = 2px`。我们只需要将 `css` 中写的样式高度 / 比例，就能动态计算我们的高度。
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
 
 <br>
 
