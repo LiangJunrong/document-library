@@ -2177,7 +2177,147 @@ Page({
 
 <br>
 
-&emsp;
+
+&emsp;本章节实现效果：
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-20.gif)
+
+<br>
+
+&emsp;如果有小伙伴是跟着前面章节一步一步走下来的，会发现我在写 **搜索功能** 的时候，写上了删除模式 `deleteModel`，可以唤出删除按钮：
+
+> addressList.wxml 代码片段
+
+> [返回本节开头](#chapter-three-two-eight)
+
+```
+<!-- part1 - 搜索区域 -->
+<view class="search-form">
+  <!-- 搜索区 -->
+  <!-- ... 代码省略 ... -->
+  <!-- 功能区 -->
+  <view class="action">
+    <text class="action-button action-add" bindtap="showAdd">添加</text>
+    <text wx:if="{{!deleteModel}}" class="action-button action-delete" bindtap="showDelete">删除</text>
+    <text wx:if="{{deleteModel}}" class="action-button action-delete-comfirm" bindtap="showDelete">完成</text>
+  </view>
+</view>
+```
+
+<br>
+
+&emsp;它绑定了个 `showDelete` 的事件，来控制删除按钮的显示隐藏：
+
+> addressList.js 代码片段
+
+> [返回本节开头](#chapter-three-two-eight)
+
+```
+showDelete(e) {
+  this.setData({
+    deleteModel: !this.data.deleteModel
+  })
+},
+```
+
+<br>
+
+> addressList.wxml 代码片段
+
+> [返回本节开头](#chapter-three-two-eight)
+
+```
+<!-- part3 - 内容区域 -->
+<view class="contacts-list" wx:if="{{normalModel}}">
+  <!-- 每组字母数据 -->
+  <view class="contacts-item" wx:for="{{contactsData}}" wx:for-item="contactsDataItem" wx:key="{{contactsDataItem.index}}">
+    <!-- 字母标题 -->
+    <!-- ... 代码省略 ... -->
+    <!-- 该组字母的成员 -->
+    <view class="contacts-list-user" wx:for="{{contactsDataItem.users}}" wx:for-item="usersItem" wx:for-index="userIndex" wx:key="{{usersItem.index}}">
+      <!-- 成员信息展示 -->
+      <!-- ... 代码省略 ... -->
+      <!-- 成员操作 -->
+      <view class="contacts-list-user-right">
+        <image class="icon contacts-list-user-right-edit" src="../../public/img/icon_edit.png" bindtap="showEdit" data-groupname="{{contactsDataItem.groupName}}" data-username="{{usersItem.userName}}" data-userphone="{{usersItem.userPhone}}"></image>
+        <image wx:if="{{deleteModel}}" class="icon contacts-list-user-right-delete" src="../../public/img/icon_delete.png" bindtap="showConfirm" data-groupname="{{contactsDataItem.groupName}}" data-username="{{usersItem.userName}}" data-index="{{userIndex}}"></image>
+      </view>
+    </view>
+  </view>
+</view>
+```
+
+<br>
+
+&emsp;然后，如何实现删除功能呢？我们需要传递什么数据给 `js`？  
+
+* 字母组名
+* 该项所在索引
+
+&emsp;我们只需要遍历原数据，找到对应的组，并根据传递过来的索引，删除该组中对应索引的值，我们就完成了删除的功能：
+
+> addressList.js 代码片段
+
+> [返回本节开头](#chapter-three-two-eight)
+
+```
+Page({
+  /**
+   * 删除功能
+   * showDelete - 显示/隐藏 删除图标
+   * showConfirm - 确认删除
+   */
+  showDelete(e) {
+    this.setData({
+      deleteModel: !this.data.deleteModel
+    })
+  },
+  deleteConfirm(e) {
+
+    console.log("\n【API - 删除用户");
+
+    let userName = e.currentTarget.dataset.username;
+    let groupName = e.currentTarget.dataset.groupname;
+    let index = e.currentTarget.dataset.index;
+
+    wx.showModal({
+      title: '删除确认',
+      content: '是否删除成员【' + e.currentTarget.dataset.username + "】?",
+      success: (e) => {
+        
+        if (e.confirm) { // 如果确认删除
+
+          console.log("删除成功!");
+
+          // 原数据
+          let contactsData = this.data.contactsData;
+
+          // 遍历原数据
+          for (let groupInfo in contactsData) {
+            // 找到要删除成员所在的组
+            if (groupName == contactsData[groupInfo].groupName) {
+              // 根据索引删除该条记录
+              contactsData[groupInfo].users.splice(index, 1);
+            }
+          }
+
+          this.setData({
+            contactsData: contactsData
+          })
+
+          wx.showToast({
+            title: '删除成功~',
+          })
+
+        } else if (e.cancel) { // 如果取消
+          console.log("取消删除!");
+        }
+
+      }
+    })
+  }
+})
+```
 
 <br>
 
