@@ -143,7 +143,7 @@ align-content: space-between;
 
 <br>
 
-&emsp;下面我们详细分析该元素的情况：
+&emsp;下面我们详细分析这些元素的情况：
 
 1. `flex-direction`：决定主轴的方向
   
@@ -420,7 +420,9 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 
 <br>
 
-&emsp;实现效果：
+&emsp;不知道小伙伴们在日常开发中，有没有碰到各种稀奇古怪的功能效果，我们觉得不可思议，但是在项目经理的眼中却是 “**满足客户需求**” 的。  
+&emsp;所以，拿到需求清单的时候不要恐慌，我们仔细分析，总能找到它的破绽，从而完成我们的任务。  
+&emsp;通讯录实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-11.png)
 
