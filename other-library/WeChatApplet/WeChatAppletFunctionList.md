@@ -438,7 +438,20 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 <br>
 
 &emsp;工欲善其事，必先利其器。  
-&emsp;**首先**，我们先明确我们需要实现的功能点：
+&emsp;**首先**，我们先将该页面命名为：`addressList`，并编写它的 `json` 门面：
+
+> addressList.json
+
+```
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "通讯录",
+  "navigationBarTextStyle": "black"
+}
+```
+
+&emsp;**接着**，我们明确需要实现的功能点：
 
 * 搜索功能
 * 弹窗新增功能
@@ -533,9 +546,18 @@ Page({
 
 <br>
 
-&emsp;实现编码及代码讲解：
+&emsp;实现思路、编码及代码讲解：
+
+1. 在 `wxml` 与 `wxss` 结构上。  
+
+&emsp;首先，我们通过 `fixed` 定位，将 `search-form` 固定在顶部。  
+&emsp;然后，我们将 `search-form` 其内部分为 **搜索区** `search` 与 **功能区** `action`。  
+&emsp;接着，我们将 `search` 分为 **假的搜索区** `search-model-one` 与 **真的搜索区** `search-model-two`，这样我们就不用烦恼一会居中一会靠边要怎么区分，思路不容易乱。  
+&emsp;最后，根据功能，我们逐步完善 `wxml` 与 `wxss`代码。
 
 > addressList.wxml
+
+> [返回本节开头](#chapter-three-two-two)
 
 ```
 <!-- part1 - 搜索区域 -->
@@ -595,7 +617,11 @@ Page({
 <view class="edit-prompt"></view>
 ```
 
+<br>
+
 > addressList.wxss
+
+> [返回本节开头](#chapter-three-two-two)
 
 ```
 /* 全局样式 */
@@ -758,7 +784,22 @@ view {
 }
 ```
 
+<br>
+
+2. 在 `js`上。
+
+&emsp;我们仔细观察本节开头的 `GIF` 图，发现它有这几个特点：
+
+* 点击假的搜索区，进入真的搜索区
+* 输入内容，按钮由【取消】变为【搜索】
+* 点击【搜索】按钮，页面显示搜索内容
+* 上拉加载更多数据
+* 点击 `×` 按钮，输入内容消失
+* 点击【取消】按钮，关闭搜索页面
+
 > addressList.js
+
+> [返回本节开头](#chapter-three-two-two)
 
 ```
 Page({
@@ -785,12 +826,16 @@ Page({
 
     /**
      * 搜索功能
+     * inputFocus - 搜索框聚焦
+     * searchVal - 搜索内容
+     * searchData - 搜索结果
      */
     inputFocus: false,
     searchVal: '',
     searchData: [],
   },
-    /**
+
+  /**
    * 搜索功能
    * showSearch - 显示搜索框
    * monitorInputVal - 监听搜索框的值
@@ -902,16 +947,19 @@ Page({
    */
   onLoad: function (options) {
     console.log("\n通讯录");
-  }
+  },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (this.data.searchModel) {
-      
-      console.log("\n搜索模式下拉：");
-      
+    if (this.data.normalModel) { // 正常模式上拉
+      console.log("\n正常模式上拉")
+    } else if (this.data.searchModel) { // 搜索模式上拉
+
+      console.log("\n搜索模式上拉：");
+
+      // 新数据
       let newSearchData = [
         {
           userName: '克狸',
@@ -923,29 +971,21 @@ Page({
       // 原数据
       let searchData = this.data.searchData;
 
+      // 拼接新旧数据
       searchData.push(...newSearchData);
 
-      console.log("\下拉加载后数据：");
+      console.log("\上拉加载后数据：");
       console.log(searchData);
 
       this.setData({
         searchData: searchData
       })
 
+    } else if (this.data.pinyinNavModel) { // 拼音模式上拉
+      console.log("\n拼音模式上拉");
     }
   },
 })
-```
-
-> addressList.json
-
-```
-{
-  "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTitleText": "通讯录",
-  "navigationBarTextStyle": "black",
-}
 ```
 
 <br>
