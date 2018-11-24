@@ -1020,7 +1020,7 @@ Page({
 
 &emsp;微信小程序 - [自定义组件](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/)
 
-&emsp;是的，微信小程序官方文档中是存在这个东西的。当然，至于过程中我百度了几篇文章来辅助写出下面的代码，你猜？  
+&emsp;是的，微信小程序官方文档中是存在这个东西的。当然，仅有官方文档，是满足不了我的，至于过程中我百度了几篇文章来辅助写出下面的代码，你猜？  
 
 &emsp;下面贴出实现代码及如何使用：
 
@@ -1240,6 +1240,10 @@ Page({
 
 &emsp;然而，逐一尝试，你会发现，上面辣么多弹窗，没有一种符合你的需求的！所以，咱要画一个属于自己的弹窗：
 
+&emsp;**首先**，咱在 `part6` 中新增两个层：遮罩层 `jsliang-mask` 和弹窗内容 `jsliang-alert`。  
+&emsp;**然后**，往弹窗内容中编写我们需要的 `input` 输入框和 `text` 按钮。  
+&emsp;**最后**，我们逐一细化编写代码。
+
 > addressList.wxml
 
 > [返回本节开头](#chapter-three-two-four)
@@ -1247,7 +1251,9 @@ Page({
 ```
 <!-- part6 - 新增弹窗 -->
 <view wx:if="{{addModel}}" class="add-prompt">
+  <!-- 遮罩层 -->
   <view class="jsliang-mask" bindtap='showAdd'></view>
+  <!-- 弹窗内容 -->
   <view class="jsliang-alert">
     <!-- 标题 -->
     <view class="jsliang-alert-title">
@@ -1275,9 +1281,6 @@ Page({
 
 ```
 /* 弹窗-添加成员 */
-.jsliang-prompt {
-  display: block;
-}
 .jsliang-mask {
   z-index: 998;
   position: fixed;
