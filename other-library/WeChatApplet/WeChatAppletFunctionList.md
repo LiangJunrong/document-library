@@ -1263,8 +1263,8 @@ Page({
     </view>
     <!-- 输入内容 -->
     <view class="jsliang-alert-content">
-      <input type="text" placeholder='请输入姓名' placeholder-class='jsliang-alert-content-user-name-placeholder' name="addUserName" bindinput='getAddUserName' maxlength='11' value="{{addUserName}}"></input>
-      <input type="text" placeholder='请输入电话号码' placeholder-class='jsliang-alert-content-user-phone-placeholder' name="addUserPhone" bindinput='getAddUserPhone' maxlength='11' value="{{addUserPhone}}"></input>
+      <input type="text" placeholder='请输入姓名' placeholder-class='jsliang-alert-content-user-name-placeholder'></input>
+      <input type="text" placeholder='请输入电话号码' placeholder-class='jsliang-alert-content-user-phone-placeholder'></input>
     </view>
     <!-- 确定 -->
     <view class="jsliang-alert-submit">
