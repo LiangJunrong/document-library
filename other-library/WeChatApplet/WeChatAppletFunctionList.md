@@ -2177,7 +2177,6 @@ Page({
 
 <br>
 
-
 &emsp;本章节实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-20.gif)
@@ -2327,7 +2326,159 @@ Page({
 
 <br>
 
-&emsp;
+&emsp;本章节实现效果：
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-21.gif)
+
+<br>
+
+&emsp;写到这里，**jsliang** 终于可以松一口气了，咱离胜利不远了~  
+&emsp;现在，我们实现正常情况下的不断下拉加载：
+
+&emsp;正如我们在 **搜索功能** 实现章节中提及到的，我们分三种上拉模式：**正常模式上拉**、**搜索模式上拉**、**拼音模式上拉**：
+
+> addressList.js 代码片段
+
+```
+page({
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    
+    if (this.data.normalModel) { // 正常模式上拉
+      console.log("\n正常模式上拉");
+    } else if (this.data.searchModel) { // 搜索模式上拉
+      console.log("\n搜索模式上拉");
+    } else if (this.data.pinyinNavModel) { // 拼音模式上拉
+      console.log("\n拼音模式上拉");
+    }
+  }
+})
+```
+
+&emsp;那么，我们只需要参考 `onLoad` 中的正常加载方式，往正常模式中模拟数据，实现上拉效果，就 OK 了：
+
+> addressList.js 代码片段
+
+```
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    /**
+     * 上拉触底
+     * normalModelNoData - 正常模式没数据加载了
+     */
+    normalModelNoData: false,
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    if (this.data.normalModel) { // 正常模式上拉
+      
+      console.log("\n正常模式上拉");
+
+      if (!this.data.normalModelNoData) { // 如果还有数据
+        
+        // 新数据
+        let newData = [
+          {
+            userName: '克狸',
+            userPhone: '18811121112',
+            pinyin: 'keli'
+          },
+          {
+            userName: '拉狸',
+            userPhone: '18811131113',
+            pinyin: 'lali'
+          },
+          {
+            userName: '磨狸',
+            userPhone: '18811141114',
+            pinyin: 'moli'
+          },
+          {
+            userName: '尼狸',
+            userPhone: '18811151115',
+            pinyin: 'nili'
+          },
+          {
+            userName: '噢狸',
+            userPhone: '18811161116',
+            pinyin: 'oli'
+          },
+          {
+            userName: '皮皮狸',
+            userPhone: '18811171117',
+            pinyin: 'pipili'
+          },
+          {
+            userName: '曲狸',
+            userPhone: '18811181118',
+            pinyin: 'quli'
+          },
+          {
+            userName: '任狸',
+            userPhone: '18811191119',
+            pinyin: 'renli'
+          },
+          {
+            userName: '司马狸',
+            userPhone: '18811211121',
+            pinyin: 'simali'
+          },
+          {
+            userName: '提狸',
+            userPhone: '18811221122',
+            pinyin: 'tili'
+          }
+        ]
+
+        // 原数据
+        let oldData = this.data.contactsData;
+
+        // 循环新数据
+        for (let newDataItem in newData) {
+          // 转换新数据拼音首字母为大写
+          let initials = newData[newDataItem].pinyin.substr(0, 1).toUpperCase();
+          // 循环旧数据
+          for (let oldDataItem in oldData) {
+            // 获取旧数据字母分组
+            let groupName = oldData[oldDataItem].groupName;
+
+            // 判断两个字母是否相同
+            if (initials == groupName) {
+              // 使用 array[array.length] 将数据加入到该组中
+              oldData[oldDataItem].users[oldData[oldDataItem].users.length] = newData[newDataItem];
+            }
+          }
+        }
+
+        console.log("\上拉加载后数据：");
+        console.log(oldData);
+
+        this.setData({
+          contactsData: oldData,
+          normalModelNoData: true
+        })
+        
+      } else { // 如果没数据了
+        console.log("正常模式没数据");
+      }
+
+    } else if (this.data.searchModel) { // 搜索模式上拉
+      console.log("\n搜索模式上拉：");
+    } else if (this.data.pinyinNavModel) { // 拼音模式上拉
+      console.log("\n拼音模式上拉");
+    }
+  }
+})
+```
 
 <br>
 
