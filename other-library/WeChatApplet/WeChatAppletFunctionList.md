@@ -2579,6 +2579,8 @@ Page({
 
 > addressList.wxss 代码片段
 
+> [返回本节开头](#chapter-three-two-ten)
+
 ```
 .contacts-list-title {
   height: 44rpx;
@@ -2591,6 +2593,10 @@ Page({
 &emsp;因此，我们的一个字母的高度，为 `44rpx`；而一个用户的高度，为 `120rpx`，即我们要滚动的高度 = 44 * 字母个数 + 120 * 用户条数。
 
 &emsp;**最后**，我们先在正常模式下模拟实现一遍拼音导航：
+
+> addressList.js 代码片段
+
+> [返回本节开头](#chapter-three-two-ten)
 
 ```
 Page({
@@ -2682,7 +2688,554 @@ Page({
 
 <br>
 
-&emsp;现在，我们开始 **真拼音导航** 功能的实现。
+&emsp;现在，我们开始 **真拼音导航** 功能的实现：
+
+&emsp;**首先**，我们应该考虑到，正常加载模式与拼音导航模式，会对 `contactsData` 的使用产生冲突：假如用户划拉了几页数据，然后进入拼音导航，那么，用户下拉页面的时候，可能就加载原本数据了，而不是加载该字母上面的数据……为此，我们在第一次加载拼音模式的时候，应该清空 `contactsData`（多了也不行，因为用户可能点击其他字母）。  
+&emsp;**然后**，我们关闭正常模式，并开启拼音导航模式，设置拼音导航模式不是第一次加载了。  
+&emsp;**接着**，我们遍历空数据和新数据，删除重复数据后，将数据添加到 `contactsData` 中。  
+&emsp;**最后**，我们才用上我们前面的页面滚动效果，滚动到我们希望跳转到的位置。
+
+&emsp;以上，考虑到步骤繁杂，我们应该使用 `Promise` 来实现：
+
+* [ES6 入门之 Promise | 阮一峰](http://es6.ruanyifeng.com/#docs/promise#Promise-%E7%9A%84%E5%90%AB%E4%B9%89)
+
+> addressList.js 代码片段
+
+> [返回本节开头](#chapter-three-two-ten)
+
+```
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    /**
+     * 拼音导航功能
+     * letters - 导航字母
+     * equipmentOneRpx - 设备中 1rpx 为多少 px
+     * firstEntryPinyinModel - 第一次进入拼音导航模式
+     */
+    letters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+    equipmentOneRpx: '',
+    firstEntryPinyinModel: true,
+  },
+
+  /**
+   * 拼音导航功能
+   * pininNav - 点击字母
+   */
+  pinyinNav(e) {
+
+    console.log("\n【API - 拼音导航】");
+
+    let byte = e.currentTarget.dataset.byte;
+
+    // 开启 Promise
+    const promise = new Promise((resolve, reject) => {
+
+      console.log("\n第一步：清空原数据");
+
+      let contactsData = [
+        {
+          groupName: 'A',
+          users: []
+        },
+        {
+          groupName: 'B',
+          users: []
+        },
+        {
+          groupName: 'C',
+          users: []
+        },
+        {
+          groupName: 'D',
+          users: []
+        },
+        {
+          groupName: 'E',
+          users: []
+        },
+        {
+          groupName: 'F',
+          users: []
+        },
+        {
+          groupName: 'G',
+          users: []
+        },
+        {
+          groupName: 'H',
+          users: []
+        },
+        {
+          groupName: 'I',
+          users: []
+        },
+        {
+          groupName: 'J',
+          users: []
+        },
+        {
+          groupName: 'K',
+          users: []
+        },
+        {
+          groupName: 'L',
+          users: []
+        },
+        {
+          groupName: 'M',
+          users: []
+        },
+        {
+          groupName: 'N',
+          users: []
+        },
+        {
+          groupName: 'O',
+          users: []
+        },
+        {
+          groupName: 'P',
+          users: []
+        },
+        {
+          groupName: 'Q',
+          users: []
+        },
+        {
+          groupName: 'R',
+          users: []
+        },
+        {
+          groupName: 'S',
+          users: []
+        },
+        {
+          groupName: 'T',
+          users: []
+        },
+        {
+          groupName: 'U',
+          users: []
+        },
+        {
+          groupName: 'V',
+          users: []
+        },
+        {
+          groupName: 'W',
+          users: []
+        },
+        {
+          groupName: 'X',
+          users: []
+        },
+        {
+          groupName: 'Y',
+          users: []
+        },
+        {
+          groupName: 'Z',
+          users: []
+        }
+      ];
+
+      if (this.data.firstEntryPinyinModel) { // 为防止无法下拉，第一次进入拼音导航模式，清空原数据
+        this.setData({
+          contactsData: contactsData
+        })
+      }
+
+      // 告诉下一步可以执行了
+      let success = true;
+      resolve(success);
+
+    }).then(() => {
+
+      console.log("\n第二步：开启拼音导航模式");
+
+      this.setData({
+        normalModel: false,
+        pinyinNavModel: true,
+        firstEntryPinyinModel: false,
+      })
+
+    }).then(() => {
+
+      console.log("\n第三步：判断并添加数据");
+
+      let data = this.data.contactsData;
+      console.log("\n现在的数据有：");
+      console.log(data);
+
+      let newData = [
+        {
+          userName: '克狸',
+          userPhone: '18811121112',
+          pinyin: 'keli'
+        },
+        {
+          userName: '拉狸',
+          userPhone: '18811131113',
+          pinyin: 'lali'
+        },
+        {
+          userName: '磨狸',
+          userPhone: '18811141114',
+          pinyin: 'moli'
+        },
+        {
+          userName: '尼狸',
+          userPhone: '18811151115',
+          pinyin: 'nili'
+        },
+        {
+          userName: '噢狸',
+          userPhone: '18811161116',
+          pinyin: 'oli'
+        },
+        {
+          userName: '皮皮狸',
+          userPhone: '18811171117',
+          pinyin: 'pipili'
+        },
+        {
+          userName: '曲狸',
+          userPhone: '18811181118',
+          pinyin: 'quli'
+        },
+        {
+          userName: '任狸',
+          userPhone: '18811191119',
+          pinyin: 'renli'
+        },
+        {
+          userName: '司马狸',
+          userPhone: '18811211121',
+          pinyin: 'simali'
+        },
+        {
+          userName: '提狸',
+          userPhone: '18811221122',
+          pinyin: 'tili'
+        }
+      ]
+      console.log("\n新数据有：");
+      console.log(newData);
+
+      console.log("\n组合数据：");
+      for (let groupInfo in data) { // 循环原数据
+        for (let item in newData) { // 循环新数据
+
+          if (data[groupInfo].groupName == newData[item].pinyin.substr(0, 1).toUpperCase()) { // 如果新数据字母 与 原数据字母相同
+
+            // 清君侧，删除重复数据
+            // 循环用户数据，判断 新数据的用户名 是否存在于用户数据，如果存在则删除之
+            for (let userInfo in data[groupInfo].users) { // 循环用户原数据
+              console.log(newData);
+              if (newData.length > 1) {
+                if (data[groupInfo].users[userInfo].userName == newData[item].userName) { // 判断 新数据的用户名 是否存在于原用户数据
+                  newData.splice(item, 1);
+                }
+              }
+            }
+
+            if (newData.length > 1) { // 判断是否还有数据
+              if (data[groupInfo].groupName == newData[item].pinyin.substr(0, 1).toUpperCase()) { // 再判断一次新数据与旧数据字母是否相同
+                console.log("添加到组：【" + data[groupInfo].groupName + "】");
+                data[groupInfo].users.push(newData[item]);
+                console.log(data);
+              }
+            }
+
+          }
+        }
+      }
+
+      this.setData({
+        contactsData: data,
+      })
+
+    }).then(() => {
+
+      console.log("\n第四步：滚动页面");
+
+      let dataLength = 0;
+      let byteLength = 0;
+
+      let data = this.data.contactsData;
+      console.log(data);
+
+      for (let item in data) {
+        // 如果该字母比点击的字母小，则添加数据长度
+        if (data[item].groupName < byte) {
+          dataLength = dataLength + data[item].users.length;
+        }
+        // 如果该字母有内容，则加上它的字母长度
+        if (data[item].users.length >= 1 && data[item].groupName != byte) {
+          byteLength = byteLength + 1;
+        }
+        // 如果该字母等于点击的字母，则中断循环
+        if (data[item].groupName == byte) {
+          break;
+        }
+      }
+
+      console.log("title 长度为：" + byteLength);
+      console.log("data 条数为：" + dataLength);
+
+      console.log("\n现在数组为：");
+      console.log(data);
+
+      wx.pageScrollTo({
+        // 滚动高度
+        scrollTop: byteLength * (44 / this.data.equipmentOneRpx) + dataLength * (120 / this.data.equipmentOneRpx)
+      })
+
+    })
+
+  }
+})
+```
+
+&emsp;如此，我们就实现了拼音导航的点击加载了！下面，我们紧接着将拼音导航功能的 **下拉刷新** 和 **上拉加载** 搞定吧~
+
+&emsp;关于下拉刷新，我们需要现在 `json` 中开启下拉刷新的功能：
+
+> addressList.json
+
+> [返回本节开头](#chapter-three-two-ten)
+
+```
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "通讯录",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "navBar": "../../component/navBar/navBar"
+  }
+}
+```
+
+<br>
+
+&emsp;然后，我们在 `onPullDownRefresh` 中实现代码效果即可：
+
+> addressList.js 代码片段
+
+> [返回本节开头](#chapter-three-two-ten)
+
+```
+Page({
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+    if (this.data.pinyinNavModel) { // 拼音下拉刷新
+
+      console.log("\n【API - 拼音下拉刷新】");
+
+      let data = this.data.contactsData;
+      console.log("\n现在的数据有：");
+      console.log(data);
+
+      let newData = [
+        {
+          userName: '阿狸',
+          userPhone: '18811111111',
+          pinyin: 'ali'
+        },
+        {
+          userName: '贝吉塔',
+          userPhone: '18822222222',
+          pinyin: 'beijita'
+        },
+        {
+          userName: '楚怡',
+          userPhone: '18833333333',
+          pinyin: 'chuyi'
+        },
+        {
+          userName: '邓婕',
+          userPhone: '18844444444',
+          pinyin: 'dengjie'
+        },
+        {
+          userName: '尔康',
+          userPhone: '18855555555',
+          pinyin: 'erkang'
+        },
+        {
+          userName: '福狸',
+          userPhone: '18866666666',
+          pinyin: 'fuli'
+        },
+        {
+          userName: '古狸',
+          userPhone: '18877777777',
+          pinyin: 'guli'
+        },
+        {
+          userName: '哈狸',
+          userPhone: '18888888888',
+          pinyin: 'hali'
+        },
+        {
+          userName: 'i狸',
+          userPhone: '18899999999',
+          pinyin: 'ili'
+        },
+        {
+          userName: '激狸',
+          userPhone: '18800000000',
+          pinyin: 'jli'
+        },
+      ]
+      console.log("\n新数据有：");
+      console.log(newData);
+
+      console.log("\n组合数据：");
+      for (let groupInfo in data) { // 循环原数据
+        for (let item in newData) { // 循环新数据
+
+          if (data[groupInfo].groupName == newData[item].pinyin.substr(0, 1).toUpperCase()) { // 如果新数据字母 与 原数据字母相同
+
+            // 清君侧，删除重复数据
+            // 循环用户数据，判断 新数据的用户名 是否存在于用户数据，如果存在则删除之
+            for (let userInfo in data[groupInfo].users) { // 循环用户原数据
+              if (newData.length > 1) {
+                if (data[groupInfo].users[userInfo].userName == newData[item].userName) { // 判断 新数据的用户名 是否存在于原用户数据
+                  newData.splice(item, 1);
+                }
+              }
+            }
+
+            if (newData.length > 1) { // 判断是否还有数据
+              if (data[groupInfo].groupName == newData[item].pinyin.substr(0, 1).toUpperCase()) { // 再判断一次新数据与旧数据字母是否相同
+                console.log("添加到组：【" + data[groupInfo].groupName + "】");
+                data[groupInfo].users.unshift(newData[item]);
+                console.log(data);
+              }
+            }
+
+          }
+        }
+      }
+
+      this.setData({
+        contactsData: data
+      })
+
+    }
+  }
+})
+```
+
+<br>
+
+&emsp;同时，拼音导航功能的上拉功能实现如下：
+
+> addressList.js 代码片段
+
+> [返回本节开头](#chapter-three-two-ten)
+
+```
+Page({
+onReachBottom: function () {
+    if (this.data.normalModel) { // 正常模式上拉
+
+      console.log("\n正常模式上拉");
+
+    } else if (this.data.searchModel) { // 搜索模式上拉
+      console.log("\n搜索模式上拉：");
+    } else if (this.data.pinyinNavModel) { // 拼音模式上拉
+      
+      console.log("\n拼音模式上拉");
+
+      let data = this.data.contactsData;
+      console.log("\n现在的数据有：");
+      console.log(data);
+
+      let newData = [
+        {
+          userName: 'u狸',
+          userPhone: '18811311131',
+          pinyin: 'uli'
+        },
+        {
+          userName: 'v狸',
+          userPhone: '18811321132',
+          pinyin: 'vli'
+        },
+        {
+          userName: '无狸',
+          userPhone: '18811331133',
+          pinyin: 'wuli'
+        },
+        {
+          userName: '犀狸',
+          userPhone: '18811341134',
+          pinyin: 'xili'
+        },
+        {
+          userName: '毅狸',
+          userPhone: '18811351135',
+          pinyin: 'yili'
+        },
+        {
+          userName: '醉狸',
+          userPhone: '18811361136',
+          pinyin: 'zuili'
+        }
+      ]
+      console.log("\n新数据有：");
+      console.log(newData);
+
+      console.log("\n组合数据：");
+      for (let groupInfo in data) { // 循环原数据
+        for (let item in newData) { // 循环新数据
+
+          if (data[groupInfo].groupName == newData[item].pinyin.substr(0, 1).toUpperCase()) { // 如果新数据字母 与 原数据字母相同
+
+            // 清君侧，删除重复数据
+            // 循环用户数据，判断 新数据的用户名 是否存在于用户数据，如果存在则删除之
+            for (let userInfo in data[groupInfo].users) { // 循环用户原数据
+              console.log(newData);
+              if (newData.length > 1) {
+                if (data[groupInfo].users[userInfo].userName == newData[item].userName) { // 判断 新数据的用户名 是否存在于原用户数据
+                  newData.splice(item, 1);
+                }
+              }
+            }
+
+            if (newData.length > 1) { // 判断是否还有数据
+              if (data[groupInfo].groupName == newData[item].pinyin.substr(0, 1).toUpperCase()) { // 再判断一次新数据与旧数据字母是否相同
+                console.log("添加到组：【" + data[groupInfo].groupName + "】");
+                data[groupInfo].users.push(newData[item]);
+                console.log(data);
+              }
+            }
+
+          }
+        }
+      }
+
+      this.setData({
+        contactsData: data
+      })
+
+    }
+  }
+})
+```
+
+&emsp;如上，我们成功实现拼音导航全部功能！！！
 
 <br>
 
