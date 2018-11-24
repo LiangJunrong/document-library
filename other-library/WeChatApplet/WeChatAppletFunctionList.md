@@ -2498,47 +2498,6 @@ Page({
 
 <br>
 
-&emsp;
-
-<br>
-
-&emsp;**功能实现思路**
-
-* 数据存放位置：
-```
-contactsData: [
-  { groupName: 'A', users: [] },
-  { groupName: 'B', users: [] },
-  // ...C 组之后省略不写，同 A、B 组一样
-]
-```
-* 正常分页接口 1：`pagination/paginationWayOne`
-* 拼音分页接口 2（上拉加载）：`pagination/paginationWayTwo`
-* 拼音分页接口 3（下拉加载）：`pagination/paginationWayThree`
-* 修改数据接口：`changeData/editData`
-* 删除数据接口：`changeData/deleteData`
-* 新增数据接口：`changeData/addData`
-
-1. 首屏渲染。用户进入页面，加载 **正常分页接口 1**：`pagination/paginationWayOne?pageNo=1`，获取第一页数据，并判断分组，添加到 `contactsData`。
-2. 正常上拉动作。用户在进入页面后，执行正常的上拉加载动作，则执行 **正常分页接口 1**：`pagination/paginationWayOne?pageNo=2`，在原有 `contactsData` 的情况下，将第二页的数据进行判断分析，分别添加到各分组中。
-3. 点击拼音导航条。加载 **拼音分页接口 2（上拉加载）**： `pagination/paginationWayTwo?pinyin=L&pageNo=1`，如果该次接口返回数据，则将新数据同【L】组及其之后的【M】【N】组等（因为【L】组可能不满分页条数）的原数据进行比对：如果是原数据所不存在的，则将新的数据直接 `push` 插入到【L】组尾端；如果该数据已存在，则不理会。
-4. 拼音导航条情况下，执行上拉加载动作。则执行 **拼音分页接口 2（上拉加载）**：`pagination/paginationWayTwo?pinyin=L&pageNo=2`，从而加载第二页，并与上一条分析一样，分析判断，然后插入数据。
-5. 拼音导航条情况下，执行下拉刷新动作。执行接口 **拼音分页接口 3（下拉加载）**：`pagination/paginationWayThree?pinyin=L&pageNo=1`，从而获得该字母前一个字母的数据（后端会进行倒序查询输出，我们需要的仅仅是进行判断，然后 `unshift` 插入渲染）。
-6. 用户进行修改操作。加载接口 `changeData/editData?userName=jsliang`，点击修改后，删除原有数据，判断接口返回的拼音：首先循环 `A-Z`，查看该数据应该存放到哪个组；然后在该字母组中，执行二分查找；最后插入该数据位置，并重新渲染数据新增部分。
-7. 用户执行删除操作。加载接口 `changeData/deleteData?userName=jsliang`，直接删除该数据。
-8. 用户执行新增操作。加载接口 `changeData/addData`，成功后根据拼音进行二分查找，然后插入到对应的位置。
-
-<br>
-
-> 由于不能暴露公司代码，需要抽取进行单独编程。  
-> 故以下代码尚未完善，敬请期待
-
-&emsp;**☆———————华———————☆**  
-&emsp;**☆———————丽———————☆**  
-&emsp;**☆———————分———————☆**  
-&emsp;**☆———————割———————☆**  
-&emsp;**☆———————线———————☆**  
-
 &emsp;话不多说，直接上手：
 
 > *.wxml
