@@ -856,6 +856,7 @@ Page({
     this.setData({
       normalModel: !this.data.normalModel,
       searchModel: !this.data.searchModel,
+      searchData: [],
       inputFocus: true
     })
   },
@@ -1367,7 +1368,252 @@ Page({
 
 <br>
 
-&emsp;
+&emsp;文章写到这里，我们需要整理下我们都完成了什么，还缺什么？
+
+![图](../../public-repertory/img/other-WechatAppletFunctionList-17.png)
+
+<br>
+
+&emsp;如上，我们实现了：
+
+* 搜索功能
+* 底部导航
+* 弹窗显示
+
+&emsp;那么，我们还缺少：
+
+* 新增成员功能
+* 修改成员功能
+* 删除成员功能
+* 拼音导航功能
+
+&emsp;很好！我们实现了一般功能了！但是，小伙伴有没有发现，我们的主内容区是空白的。  
+&emsp;所以，为了剩下的功能实现，我们应该编写下 **内容区域**，并进行页面的数据加载：
+
+> addressList.wxml
+
+> [返回本节开头](#chapter-three-two-five)
+
+```
+<!-- part3 - 内容区域 -->
+<view class="contacts-list" wx:if="{{normalModel}}">
+  <!-- 每组字母数据 -->
+  <view class="contacts-item" wx:for="{{contactsData}}" wx:for-item="contactsDataItem" wx:key="{{contactsDataItem.index}}">
+    <!-- 字母标题 -->
+    <view wx:if="{{!contactsDataItem.users.length < 1}}" class="contacts-list-title">
+      <text>{{contactsDataItem.groupName}}</text>
+    </view>
+    <!-- 该组字母的成员 -->
+    <view class="contacts-list-user" wx:for="{{contactsDataItem.users}}" wx:for-item="usersItem" wx:key="{{usersItem.index}}">
+      <!-- 成员信息展示 -->
+      <view class="contacts-list-user-left">
+        <text class="contacts-list-user-left-name">{{usersItem.userName}}</text>
+        <text class="contacts-list-user-left-phone">{{usersItem.userPhone}}</text>
+      </view>
+      <!-- 成员操作 -->
+      <view class="contacts-list-user-right">
+        <image class="icon contacts-list-user-right-edit" src="../../public/img/icon_edit.png"></image>
+        <image wx:if="{{deleteModel}}" class="icon contacts-list-user-right-delete" src="../../public/img/icon_delete.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+```
+
+<br>
+
+> addressList.wxss
+
+> [返回本节开头](#chapter-three-two-five)
+
+```
+/* 联系人列表 */
+.contacts-list {
+  margin-top: 100rpx;
+  margin-bottom: 120rpx;
+}
+.contacts-list-title {
+  box-sizing: border-box;
+  font-size: 24rpx;
+  font-weight: bold;
+  height: 44rpx;
+  line-height: 44rpx;
+  color: #b2b2b2;
+  background: #f5f5f5;
+  border-bottom: 1rpx solid #efefef;
+  padding-left: 30rpx;
+}
+.contacts-list-user {
+  box-sizing: border-box;
+  height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 27rpx 60rpx 27rpx 30rpx;
+  border-bottom: 1rpx solid #f3f3f3;
+}
+.contacts-list-user-left {
+  display: flex;
+  flex-direction: column;
+}
+.contacts-list-user-left-name {
+  font-size: 30rpx;
+  color: #333333;
+}
+.contacts-list-user-left-phone {
+  font-size: 26rpx;
+  color: #999999;
+}
+.contacts-list-user-right image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.contacts-list-user-right-edit {
+  margin-right: 30rpx;
+}
+.contacts-list-user-right-delete {
+  margin-right: 30rpx;
+}
+```
+
+<br>
+
+> addressList.js
+
+> [返回本节开头](#chapter-three-two-five)
+
+```
+Page({
+  data: {
+    // 数据定义
+    contactsData: [
+      { groupName: 'A', users: [] },
+      { groupName: 'B', users: [] },
+      { groupName: 'C', users: [] },
+      { groupName: 'D', users: [] },
+      { groupName: 'E', users: [] },
+      { groupName: 'F', users: [] },
+      { groupName: 'G', users: [] },
+      { groupName: 'H', users: [] },
+      { groupName: 'I', users: [] },
+      { groupName: 'J', users: [] },
+      { groupName: 'K', users: [] },
+      { groupName: 'L', users: [] },
+      { groupName: 'M', users: [] },
+      { groupName: 'N', users: [] },
+      { groupName: 'O', users: [] },
+      { groupName: 'P', users: [] },
+      { groupName: 'Q', users: [] },
+      { groupName: 'R', users: [] },
+      { groupName: 'S', users: [] },
+      { groupName: 'T', users: [] },
+      { groupName: 'U', users: [] },
+      { groupName: 'V', users: [] },
+      { groupName: 'W', users: [] },
+      { groupName: 'X', users: [] },
+      { groupName: 'Y', users: [] },
+      { groupName: 'Z', users: [] }
+    ],
+  },
+  
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    
+    console.log("\n通讯录");
+
+    let that = this;
+
+    // 原数据
+    let oldData = that.data.contactsData;
+
+    // 第一页数据
+    let newData = [
+      {
+        userName: '阿狸',
+        userPhone: '18811111111',
+        pinyin: 'ali'
+      },
+      {
+        userName: '贝吉塔',
+        userPhone: '18822222222',
+        pinyin: 'beijita'
+      },
+      {
+        userName: '楚怡',
+        userPhone: '18833333333',
+        pinyin: 'chuyi'
+      },
+      {
+        userName: '邓婕',
+        userPhone: '18844444444',
+        pinyin: 'dengjie'
+      },
+      {
+        userName: '尔康',
+        userPhone: '18855555555',
+        pinyin: 'erkang'
+      },
+      {
+        userName: '福狸',
+        userPhone: '18866666666',
+        pinyin: 'fuli'
+      },
+      {
+        userName: '古狸',
+        userPhone: '18877777777',
+        pinyin: 'guli'
+      },
+      {
+        userName: '哈狸',
+        userPhone: '18888888888',
+        pinyin: 'hali'
+      },
+      {
+        userName: 'i狸',
+        userPhone: '18899999999',
+        pinyin: 'ili'
+      },
+      {
+        userName: '激狸',
+        userPhone: '18800000000',
+        pinyin: 'jli'
+      },
+    ]
+
+    // 循环新数据
+    for (let newDataItem in newData) {
+      // 转换新数据拼音首字母为大写
+      let initials = newData[newDataItem].pinyin.substr(0, 1).toUpperCase();
+      // 循环旧数据
+      for (let oldDataItem in oldData) {
+        // 获取旧数据字母分组
+        let groupName = oldData[oldDataItem].groupName;
+
+        // 判断两个字母是否相同
+        if (initials == groupName) {
+          // 使用 array[array.length] 将数据加入到该组中
+          oldData[oldDataItem].users[oldData[oldDataItem].users.length] = newData[newDataItem];
+        }
+      }
+    }
+
+    console.log("\页面初始加载数据：");
+    console.log(oldData);
+
+    that.setData({
+      contactsData: oldData
+    })
+
+  }
+})
+```
+
+<br>
+
+&emsp;如上，我们在前几章节代码的前提下，将 `part3` 部分进行定义，并在 `onLoad()` 这个内置的页面加载函数中，虚拟了接口返回的第一页数据，最后将它循环判断，放在不同的字母中，从而实现了首页的加载。  
+&emsp;所以，我们可以开始实现我们其他的功能咯~
 
 <br>
 
