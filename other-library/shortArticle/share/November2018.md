@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-11-26 08:10:27**  
-> Recently revised in **2018-11-26 08:10:31**
+> Recently revised in **2018-11-26 09:24:40**
 
 <br>
 
@@ -14,7 +14,10 @@
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 历史](#chapter-three) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 历史发展](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 技术比较](#chapter-three) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 经验分享](#chapter-three) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 思考总结](#chapter-three) |
 
 <br>
 
@@ -24,7 +27,7 @@
 
 <br>
 
-&emsp;受邀于 **中国电信** 旗下 **天翼爱音乐文化技术有限公司** 的邀请，于 **2018年11月** 做个小小的技术分享，分享内容有：前端发展史、JQuery 与 Vue/React/Angular 的比较、前端开发经验分享与总结等……
+&emsp;受邀于 **[中国电信](https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8?fromtitle=%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1&fromid=138709)** 旗下 **[天翼爱音乐文化技术有限公司](https://baike.baidu.com/item/%E7%88%B1%E9%9F%B3%E4%B9%90/13684469?fr=aladdin)** 的邀请，于 **2018年11月** 做个小小的技术分享，分享内容有：前端发展史、JQuery 与 Vue/React/Angular 的比较、前端开发经验分享与总结等……
 
 <br>
 
