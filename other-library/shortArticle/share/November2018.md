@@ -34,6 +34,7 @@
 * [前端发展史 | 博客园 - kidney](https://www.cnblogs.com/kidney/p/6079530.html)
 * [前端发展史 | 简书 - 迷缘火叶](https://www.jianshu.com/p/8dc5c6aa01fc)
 * [前端开发的历史和趋势 | CSDN - 红豆灬](https://blog.csdn.net/doulinxu/article/details/64906673?locationNum=2&fps=1)
+* [前端基础历史 | 百度前端技术学院 - 刘文超](http://ife.baidu.com/note/detail/id/1266)
 
 <br>
 
@@ -157,6 +158,32 @@
 * 一门后端语言
 * 移动端开发：IOS、Android、H5
 * 其他技能：数据库、HTTP 协议。
+
+&emsp;————————————————————
+
+1. js 操作 HTML
+
+* 原生 JavaScript 操作 DOM 节点
+
+&emsp;代码演示：
+
+```
+………………
+```
+
+2. jQuery 阶段
+
+* jQuery 在操作 DOM 节点的基础上，还解决了许多的浏览器兼容问题（IE 系列）
+
+&emsp;代码演示：
+
+```
+………………
+```
+
+3. MVC 模式阶段
+
+4. MVVM 模式阶段
 
 <br>
 
