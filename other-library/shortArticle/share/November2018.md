@@ -53,7 +53,7 @@
 
 &emsp;刀耕火种 -> 现代社会  
 &emsp;jQuery 梭哈（目前还有） -> 前端工程化：gulp + jquery -> Angular 等出现：MV* 时代 -> Webpack + 数据驱动虚拟 DOM + Vue/React/Angular  
-&emsp;现代化社会：Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架魔爪。  
+&emsp;现代化社会：Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架魔爪。UI 框架来说，桌面端的 ElementUI、NW JS；移动端的RN、Weex  
 &emsp;Node 的发展，加速 JS 的进步。
 
 &emsp;————————————————————
@@ -66,6 +66,97 @@
 &emsp;————————————————————
 
 &emsp;Model-View-Controller
+
+&emsp;————————————————————
+
+1. 什么是前端？
+
+* 前端：针对浏览器的开发，代码在浏览器运行
+* 后端：针对服务器的开发，代码在服务器运行
+
+2. 前后端不分的时代？
+
+&emsp;互联网发展的早期，前后端开发是一体的，前端代码是后端代码的一部分。  
+&emsp;后端收到浏览器的请求 -> 发送静态页面 -> 发送到浏览器
+
+3. 后端 MVC 的开发模式？
+
+* Model（模型层）：提供/保存数据
+* Controller（控制层）：数据处理，实现业务逻辑
+* View（视图层）：展示数据，提供用户界面
+
+> 在此时，前端只是后端 MVC 中的 V，所以那时候的所谓 “前端工程师”，就是 “切图仔”，因为后端太忙没空写页面样式让它长得更好看些，前端编写页面模板后，后端代码读取模板，替换变量，渲染出页面。
+
+&emsp;以 PHP 框架的 Laravel 为例：
+
+![图](../../../public-repertory/img/other-share-3.png)
+
+&emsp;PHP 代码：
+
+```
+<html>
+  <head><title>Car {{ $car->id }}</title></head>
+  <body>
+    <h1>Car {{ $car->id }}</h1>
+    <ul>
+      <li>Make: {{ $car->make }}</li>
+      <li>Model: {{ $car->model }}</li>
+      <li>Produced on: {{ $car->produced_on }}</li>
+    </ul>
+  </body>
+</html>
+```
+
+4. 前端第一次史诗级进步？
+
+&emsp;Ajax 的诞生，促进了第一次史诗级进步：Web 2.0 的诞生，前端不再是后端的模板，可以独立得到各种数据。
+
+* Web 1.0：静态网页，纯内容展示
+* Web 2.0：动态网页，富交互，前端数据处理
+
+* 2004 年：Gmail
+* 2005 年：Google 地图
+
+5. MVVM 模式？
+
+* Model
+* View
+* View-Model：简化的 Controller，唯一的作用就是为 View 提供处理好的数据，不含其它逻辑。
+
+![图](../../../public-repertory/img/other-share-4.png)
+
+6. SPA？
+
+&emsp;SPA = Single-page application  
+&emsp;这意味着，网页其实就是一个应用程序，它可以做到：
+
+* 读写数据
+* 切换视图
+* 用户交互
+
+7. Vue、React、Angular？
+
+&emsp;双向数据绑定介绍
+
+8. 前后端通讯？
+
+&emsp;后端暴露 RESTFul 接口。  
+&emsp;前端通过 Ajax，以 HTTP 通信协议与后端通信。
+
+9. Node？
+
+&emsp;2009 年，Node 诞生，它是服务器上的 JavaScript 运行环境。  
+&emsp;Node = JavaScript + 操作系统 API。  
+&emsp;JavaScript 成为服务端脚本语言，与 Python 和 Ruby 一样。  
+&emsp;JavaScript 成为唯一的浏览器和服务器都支持的语言。  
+&emsp;前端工程师可以编写后端程序了，大前端往全栈发展。
+
+10. 全栈技能？
+
+* 传统前端技能：HTML、JavaScript、CSS
+* 一门后端语言
+* 移动端开发：IOS、Android、H5
+* 其他技能：数据库、HTTP 协议。
 
 <br>
 
