@@ -172,7 +172,7 @@ flex-direction: row | row-reverse | column | column-reverse;
 2. `flex-wrap`：一条轴线（一行）排不下时如何解决
 
 * `nowrap` - （默认）不换行
-* `warp` - 换行，第一行在上方
+* `wrap` - 换行，第一行在上方
 * `wrap-reverse` - 换行，第一行在下方
 
 ```
@@ -201,7 +201,7 @@ flex-flow: <flex-direction> || <flex-wrap>;
 
 <br>
 
-4. `ustify-content`：定义项目在主轴上的对齐方式
+4. `justify-content`：定义项目在主轴上的对齐方式
 
 * `flex-start` - 左边对齐
 * `flex-end` - 右边对齐
