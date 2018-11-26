@@ -29,6 +29,10 @@
 
 &emsp;受邀于 **[中国电信](https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8?fromtitle=%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1&fromid=138709)** 旗下 **[天翼爱音乐文化技术有限公司](https://baike.baidu.com/item/%E7%88%B1%E9%9F%B3%E4%B9%90/13684469?fr=aladdin)** 的邀请，于 **2018年11月** 做个小小的技术分享，分享内容有：前端发展史、JQuery 与 Vue/React/Angular 的比较、前端开发经验分享与总结等……
 
+&emsp;参考文献：
+
+* [前端发展史 | 博客园 kidney](https://www.cnblogs.com/kidney/p/6079530.html)
+
 <br>
 
 # <a name="chapter-three" id="chapter-three">三 历史</a>
@@ -67,6 +71,12 @@
 
 * 2009 年，基于 V8 引擎的服务端 JavaScript 运行环境：Node 诞生，类似于一个虚拟机，也就是说 JS 在服务端语言中有了一席之地。
 * Ajax 是前端的第一次飞跃；Node 是前端的第二次飞跃。
+
+## 手机端
+
+* 2007 年第一代 iPhone 发布。
+* 2008 年第一台安卓手机发布。
+* 一开始是 Native App 的天下，现在 Web App 逐渐取代，React Native、微信小程序等不断提升。
 
 <br>
 
