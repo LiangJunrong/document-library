@@ -39,6 +39,10 @@
 
 &emsp;很久很久很久以前，在 **jsliang** 出生的前一年，即 1994 年的时候，网景公司 (Netscape Communications) 推出了第一款浏览器：NCSAMosaic，但是它只有少数的幸运儿才能使用。
 
+![图](../../../public-repertory/img/other-share-1.png)
+
+&emsp;它的初始作用，是为了方便科学家看文档、传论文而写的。所以，学前端的人，都知道 HTML 文件开头的声明，叫 `Document`。
+
 <br>
 
 # <a name="chapter-four" id="chapter-four">四 技术比较</a>
@@ -47,7 +51,22 @@
 
 <br>
 
-&emsp;
+* 1994 年，网景浏览器。所有网页基于 HTML + CSS。
+* 1994 年，PHP 年，PHP 创建，利用模板引擎实现了与数据库交互用于生产动态页面。
+* 1995 年，网景推出了 JavaScript。
+* 1996 年，微软推出 iframe 标签，实现异步的局部加载。
+* 1999 年，Ajax 有了雏形，2006 年，XMLHttpRequest(Ajax) 才被 W3C 正式纳入标准。
+* 2006 年，用于操作 DOM 的 jQuery 出现，它快速风靡了全球，大量的基于 jQuery 的插件构成了一个庞大的生态系统，稳固了 jQuery 作为 JS 库一哥的地位。
+* 2008 年，谷歌 V8 引擎发布，终结微软 IE 时代。
+* 2009 年 AngularJS 诞生。
+* 2011 年 React 诞生。
+* 2014 年 Vue.js 诞生。
+* 如今，后端负责数据，前端负责其余工作越发明显化：
+
+![图](../../../public-repertory/img/other-share-2.png)
+
+* 2009 年，基于 V8 引擎的服务端 JavaScript 运行环境：Node 诞生，类似于一个虚拟机，也就是说 JS 在服务端语言中有了一席之地。
+* Ajax 是前端的第一次飞跃；Node 是前端的第二次飞跃。
 
 <br>
 
