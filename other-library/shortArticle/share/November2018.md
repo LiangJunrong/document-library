@@ -15,9 +15,9 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 历史发展](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 技术比较](#chapter-three) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 经验分享](#chapter-three) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 思考总结](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 技术比较](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 经验分享](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 思考总结](#chapter-six) |
 
 <br>
 
@@ -31,13 +31,43 @@
 
 <br>
 
-# <a name="chapter-three" id="chapter-three">二 历史</a>
+# <a name="chapter-three" id="chapter-three">三 历史</a>
 
 > [返回目录](#catalog-chapter-three)
 
 <br>
 
 &emsp;很久很久很久以前，在 **jsliang** 出生的前一年，即 1994 年的时候，网景公司 (Netscape Communications) 推出了第一款浏览器：NCSAMosaic，但是它只有少数的幸运儿才能使用。
+
+<br>
+
+# <a name="chapter-four" id="chapter-four">四 技术比较</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-five" id="chapter-five">五 经验分享</a>
+
+> [返回目录](#catalog-chapter-five)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-six" id="chapter-six">六 思考总结</a>
+
+> [返回目录](#catalog-chapter-six)
+
+<br>
+
+&emsp;
 
 <br>
 
