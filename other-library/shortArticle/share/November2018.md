@@ -31,7 +31,9 @@
 
 &emsp;参考文献：
 
-* [前端发展史 | 博客园 kidney](https://www.cnblogs.com/kidney/p/6079530.html)
+* [前端发展史 | 博客园 - kidney](https://www.cnblogs.com/kidney/p/6079530.html)
+* [前端发展史 | 简书 - 迷缘火叶](https://www.jianshu.com/p/8dc5c6aa01fc)
+* [前端开发的历史和趋势 | CSDN - 红豆灬](https://blog.csdn.net/doulinxu/article/details/64906673?locationNum=2&fps=1)
 
 <br>
 
@@ -46,6 +48,24 @@
 ![图](../../../public-repertory/img/other-share-1.png)
 
 &emsp;它的初始作用，是为了方便科学家看文档、传论文而写的。所以，学前端的人，都知道 HTML 文件开头的声明，叫 `Document`。
+
+&emsp;————————————————————
+
+&emsp;刀耕火种 -> 现代社会  
+&emsp;jQuery 梭哈（目前还有） -> 前端工程化：gulp + jquery -> Angular 等出现：MV* 时代 -> Webpack + 数据驱动虚拟 DOM + Vue/React/Angular  
+&emsp;现代化社会：Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架魔爪。  
+&emsp;Node 的发展，加速 JS 的进步。
+
+&emsp;————————————————————
+
+&emsp;数据-模板-样式混合：  
+&emsp;PHP 直接将数据内嵌到 HTML 中。  
+&emsp;ASP.net 大量使用 table。  
+&emsp;Java 的 JSP 直接将数据嵌入到网页中。
+
+&emsp;————————————————————
+
+&emsp;Model-View-Controller
 
 <br>
 
