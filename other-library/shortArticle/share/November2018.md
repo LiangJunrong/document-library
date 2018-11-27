@@ -147,7 +147,23 @@
 
 <br>
 
-&emsp;
+&emsp;1995 年，网景推出了 JavaScript，形成了前端的雏形：HTML 为骨架，CSS 为外貌，JavaScript 为交互。  
+&emsp;而到了 1998 年前后，Ajax（Asynchronous Javascript And XML：异步的 JavaScript 和 XML）得到了相对的应用，并且在之后逐渐被使用到各个页面上，从而促进了 Web 从 1.0 的静态网页，纯内容展示向 Web 2.0 模式迈进了一步：  
+
+&emsp;**Web 2.0 时代：动态网页，富交互，前端数据处理**  
+
+&emsp;在 Ajax 的普及中，有三件事是值得一提的：
+
+* 2004 年：Gmail
+* 2005 年：Google 地图
+* 2006 年：Ajax 被 W3C 正式纳入标准
+
+&emsp;这时候，前端不再是后端的模板，它可以独立得到各种数据。相对于 Web 1.0 的时代，Web 2.0 由石器时代迈向了铁器时代！
+
+![图](../../../public-repertory/img/other-share-7.gif)
+
+&emsp;在 Web 2.0 的时代中，在 2006 年的时候，用于操作 DOM 的 jQuery 出现了，它快速地风靡了全球。大量的基于 jQuery 的插件构成了一个庞大的生态系统，从而稳固了 jQuery 作为 JS 库一哥的地位。  
+&emsp;jQuery 的影响是源远流长的。即时到了今天，还是会有用 jQuery 梭哈、jQuery + gulp 前端工程化的项目等。无它，唯方便而。
 
 <br>
 
@@ -157,6 +173,33 @@
 
 <br>
 
+&emsp;伴随着 jQuery 对于 DOM 的大量操作，有些前端开发者逐渐觉得力不从心了。  
+
+* 2008 年，谷歌 V8 引擎发布，终结微软 IE 时代。
+* 2009 年 AngularJS 诞生、Node诞生。
+* 2011 年 React 诞生。
+* 2014 年 Vue.js 诞生。
+
+&emsp;如果说，Angular、React、Vue 等 MVVM 模式的出现，加速了数据驱动前端工程化的发展。那么，Node 这个基于 V8 引擎的服务端 JavaScript 运行环境的诞生，可媲美 Ajax 对于前端的贡献。Node 是前端的第二次飞跃，它使 JS 在服务端语言中也有了一席之地。  
+
+> 何为 MVVM 模式？
+> * Model：提供/保存数据。
+> * View：视图
+> * View-Model：简化的 Controller，唯一的作用就是为 View 提供处理好的数据，不含其它逻辑。
+> ![图](../../../public-repertory/img/other-share-4.png)
+
+&emsp;如今，后端负责数据，前端负责其余工作越发明显化。它们之间的通讯，只需要后端暴露 RESTFul 接口，前端通过 Ajax，以 HTTP 通信协议与后端通信即可：
+
+![图](../../../public-repertory/img/other-share-2.png)
+
+&emsp;以此同时，手机端的发展也是不可小觑的：
+
+* 2007 年第一代 iPhone 发布。
+* 2008 年第一台安卓手机发布。
+
+&emsp;虽然，一开始的手机应用，是 Native App 的天下，但是随着 React Native、微信小程序等不断提升，现在 Web App 逐渐取代 Native App 的天下。
+
+<br>
 
 &emsp;————————————————————
 
@@ -165,27 +208,13 @@
 &emsp;现代化社会：Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架魔爪。UI 框架来说，桌面端的 ElementUI、NW JS；移动端的RN、Weex  
 &emsp;Node 的发展，加速 JS 的进步。
 
-&emsp;————————————————————
+&emsp;——————————————————————
 
-1. 前端第一次史诗级进步？
+1. MVVM 模式？
 
-&emsp;Ajax 的诞生(“Asynchronous Javascript And XML”（异步 JavaScript 和 XML）)，1998 年前后得到应用，促进了第一次史诗级进步：Web 2.0 的诞生，前端不再是后端的模板，可以独立得到各种数据。
 
-* Web 1.0：静态网页，纯内容展示
-* Web 2.0：动态网页，富交互，前端数据处理
 
-* 2004 年：Gmail
-* 2005 年：Google 地图
-
-5. MVVM 模式？
-
-* Model
-* View
-* View-Model：简化的 Controller，唯一的作用就是为 View 提供处理好的数据，不含其它逻辑。
-
-![图](../../../public-repertory/img/other-share-4.png)
-
-6. SPA？
+2. SPA？
 
 &emsp;SPA = Single-page application  
 &emsp;这意味着，网页其实就是一个应用程序，它可以做到：
@@ -197,11 +226,6 @@
 7. Vue、React、Angular？
 
 &emsp;双向数据绑定介绍
-
-8. 前后端通讯？
-
-&emsp;后端暴露 RESTFul 接口。  
-&emsp;前端通过 Ajax，以 HTTP 通信协议与后端通信。
 
 9. Node？
 
@@ -257,28 +281,7 @@
 
 <br>
 
-* 1994 年，网景浏览器。所有网页基于 HTML + CSS。
-* 1994 年，PHP 创建，利用模板引擎实现了与数据库交互用于生产动态页面。
-* 1995 年，网景推出了 JavaScript。
-* 1996 年，微软推出 iframe 标签，实现异步的局部加载。
-* 1999 年，Ajax 有了雏形，2006 年，XMLHttpRequest(Ajax) 才被 W3C 正式纳入标准。
-* 2006 年，用于操作 DOM 的 jQuery 出现，它快速风靡了全球，大量的基于 jQuery 的插件构成了一个庞大的生态系统，稳固了 jQuery 作为 JS 库一哥的地位。
-* 2008 年，谷歌 V8 引擎发布，终结微软 IE 时代。
-* 2009 年 AngularJS 诞生。
-* 2011 年 React 诞生。
-* 2014 年 Vue.js 诞生。
-* 如今，后端负责数据，前端负责其余工作越发明显化：
-
-![图](../../../public-repertory/img/other-share-2.png)
-
-* 2009 年，基于 V8 引擎的服务端 JavaScript 运行环境：Node 诞生，类似于一个虚拟机，也就是说 JS 在服务端语言中有了一席之地。
-* Ajax 是前端的第一次飞跃；Node 是前端的第二次飞跃。
-
-## 手机端
-
-* 2007 年第一代 iPhone 发布。
-* 2008 年第一台安卓手机发布。
-* 一开始是 Native App 的天下，现在 Web App 逐渐取代，React Native、微信小程序等不断提升。
+&emsp;
 
 <br>
 
