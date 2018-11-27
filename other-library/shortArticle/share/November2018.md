@@ -26,9 +26,9 @@
 | &emsp;[4.4 Node 与 Java](#chapter-four-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 经验分享](#chapter-five) |
 | &emsp;[5.1 ThinkPHP + Bootstrap + MySQL](#chapter-five-one) |
-| &emsp;[5.2 jQuery + HTML5](#chapter-five-two) |
-| &emsp;[5.3 微信小程序](#chapter-five-three) |
-| &emsp;[5.4 Vue 与 Express](#chapter-five-four) |
+| &emsp;[5.2 Vue + Express + MongoDB](#chapter-five-two) |
+| &emsp;[5.3 jQuery + HTML5](#chapter-five-three) |
+| &emsp;[5.4 微信小程序](#chapter-five-four) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 思考总结](#chapter-six) |
 
 <br>
@@ -348,7 +348,7 @@
 
 <br>
 
-## <a name="chapter-five-two" id="chapter-five-two">5.2 jQuery + HTML5</a>
+## <a name="chapter-five-two" id="chapter-five-two">5.2 Vue + Express + MongoDB</a>
 
 > [返回目录](#catalog-chapter-five)
 
@@ -358,7 +358,7 @@
 
 <br>
 
-## <a name="chapter-five-three" id="chapter-five-three">5.3 微信小程序</a>
+## <a name="chapter-five-three" id="chapter-five-three">5.3 jQuery + HTML5</a>
 
 > [返回目录](#catalog-chapter-five)
 
@@ -368,7 +368,7 @@
 
 <br>
 
-## <a name="chapter-five-four" id="chapter-five-four">5.4 Vue 与 Express</a>
+## <a name="chapter-five-four" id="chapter-five-four">5.4 微信小程序</a>
 
 > [返回目录](#catalog-chapter-five)
 
