@@ -43,7 +43,21 @@
 
 <br>
 
-# <a name="chapter-three" id="chapter-three">三 历史</a>
+# <a name="chapter-three" id="chapter-three">三 历史发展</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;以铜为镜，可以正衣冠；  
+&emsp;以古为镜，可以知兴替；  
+&emsp;以人为镜，可以明得失。  
+
+&emsp;了解一门技术的历史，可以帮助我们更清晰地了解这个行业的动态。
+
+<br>
+
+# <a name="chapter-three-one" id="chapter-three-one">3.1 原始社会</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -53,8 +67,15 @@
 
 ![图](../../../public-repertory/img/other-share-1.png)
 
-&emsp;它的初始作用，是为了方便科学家看文档、传论文而写的。所以，学前端的人，都知道 HTML 文件开头的声明，叫 `Document`。  
-&emsp;这时候的互联网，无疑是处于**原始社会**：你的标点符号变了？OK，下载过一个新的页面；你提交了一个表单？OK，白屏等待许久，最后返回个 “用户名错误”；你电商网站有一千种商品？OK，那你写一千个页面吧……  
+&emsp;它的初始作用，是为了方便科学家看文档、传论文。所以，到今天为止，学前端的人在接触 HTML 的时候，都会记得它的第一句有个词是 `Document`。  
+&emsp;这时候的互联网，无疑是处于**原始社会**。  
+
+![图](../../../public-repertory/img/other-share-5.png)
+
+
+&emsp;你的标点符号变了？OK，下载过一个新的页面；  
+&emsp;你提交了一个表单？OK，白屏等待许久，最后返回给你个 “用户名错误”；  
+&emsp;你电商网站有一千种商品？OK，那你写一千个页面吧……  
 &emsp;这时候的互联网，前后端开发是一体的，前端代码是后端代码的一部分。  
 &emsp;即：后端收到浏览器的请求 ---> 发送静态页面 ---> 发送到浏览器
 
