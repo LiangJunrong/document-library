@@ -180,7 +180,7 @@
 * 2011 年 React 诞生。
 * 2014 年 Vue.js 诞生。
 
-&emsp;如果说，Angular、React、Vue 等 MVVM 模式的出现，加速了数据驱动前端工程化的发展。那么，Node 这个基于 V8 引擎的服务端 JavaScript 运行环境的诞生，可媲美 Ajax 对于前端的贡献。Node 是前端的第二次飞跃，它使 JS 在服务端语言中也有了一席之地。  
+&emsp;如果说，Angular、React、Vue 等 MVVM 模式的出现，以及 Webpack 的前端工程化，加速了数据驱动前端工程化的发展。那么，Node 这个基于 V8 引擎的服务端 JavaScript 运行环境的诞生，可媲美 Ajax 对于前端的贡献。Node 是前端的第二次飞跃，它使 JS 在服务端语言中也有了一席之地。  
 
 > 何为 MVVM 模式？
 > * Model：提供/保存数据。
@@ -192,29 +192,30 @@
 
 ![图](../../../public-repertory/img/other-share-2.png)
 
+&emsp;在这个前端的工业时代中，Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架魔爪。UI 框架来说，桌面端的 ElementUI、NW JS；移动端的RN、Weex 等。  
+
 &emsp;以此同时，手机端的发展也是不可小觑的：
 
 * 2007 年第一代 iPhone 发布。
 * 2008 年第一台安卓手机发布。
 
-&emsp;虽然，一开始的手机应用，是 Native App 的天下，但是随着 React Native、微信小程序等不断提升，现在 Web App 逐渐取代 Native App 的天下。
+&emsp;虽然，一开始的手机应用，是 Native App 的天下，但是随着 React Native、微信小程序的发布，以及网速的等不断提升，现在手机上 Web App 逐渐取代 Native App。
 
 <br>
 
-&emsp;————————————————————
+# <a name="chapter-four" id="chapter-four">四 技术比较</a>
 
-&emsp;刀耕火种 -> 现代社会  
-&emsp;jQuery 梭哈（目前还有） -> 前端工程化：gulp + jquery -> Angular 等出现：MV* 时代 -> Webpack + 数据驱动虚拟 DOM + Vue/React/Angular  
-&emsp;现代化社会：Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架魔爪。UI 框架来说，桌面端的 ElementUI、NW JS；移动端的RN、Weex  
-&emsp;Node 的发展，加速 JS 的进步。
+> [返回目录](#catalog-chapter-four)
 
-&emsp;——————————————————————
+<br>
 
-1. MVVM 模式？
+> **以下文字尚未整理完毕，敬请期待**  
+> **以下文字尚未整理完毕，敬请期待**  
+> **以下文字尚未整理完毕，敬请期待**
 
+7. jQuery 多页面？
 
-
-2. SPA？
+6. SPA？
 
 &emsp;SPA = Single-page application  
 &emsp;这意味着，网页其实就是一个应用程序，它可以做到：
@@ -272,16 +273,6 @@
 
 1. jQuery Todolist 及其代码演示
 2. Vue Todolist 及其代码演示
-
-<br>
-
-# <a name="chapter-four" id="chapter-four">四 技术比较</a>
-
-> [返回目录](#catalog-chapter-four)
-
-<br>
-
-&emsp;
 
 <br>
 
