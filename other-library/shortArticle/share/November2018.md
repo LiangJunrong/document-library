@@ -15,6 +15,10 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 历史发展](#chapter-three) |
+| &emsp;[3.1 原始社会](#chapter-three-one) |
+| &emsp;[3.2 石器时代](#chapter-three-two) |
+| &emsp;[3.3 铁器时代](#chapter-three-three) |
+| &emsp;[3.4 工业时代](#chapter-three-four) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 技术比较](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 经验分享](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 思考总结](#chapter-six) |
@@ -76,8 +80,54 @@
 &emsp;你的标点符号变了？OK，下载过一个新的页面；  
 &emsp;你提交了一个表单？OK，白屏等待许久，最后返回给你个 “用户名错误”；  
 &emsp;你电商网站有一千种商品？OK，那你写一千个页面吧……  
-&emsp;这时候的互联网，前后端开发是一体的，前端代码是后端代码的一部分。  
-&emsp;即：后端收到浏览器的请求 ---> 发送静态页面 ---> 发送到浏览器
+
+&emsp;同时，这时候的互联网，前后端开发是一体的，前端代码是后端代码的一部分。  
+&emsp;即：后端收到浏览器的请求 ---> 发送静态页面 ---> 发送到浏览器。
+
+<br>
+
+# <a name="chapter-three-two" id="chapter-three-two">3.2 石器时代</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;也在同一年(1994)，PHP 出现了，有了将数据嵌入到 HTML 中的形式，这意味着互联网行业出现了钻木取火。
+
+&emsp;这时候的互联网，兴起了数据嵌入模板，模板直接写样式的开发模式，例如 MVC 模式：
+
+* Model（模型层）：提供/保存数据。
+* Controller（控制层）：数据处理，实现业务逻辑。
+* View（视图层）：展示数据，提供用户界面。
+
+&emsp;在此时，前端只是后端 MVC 中的 V，所以那时候的所谓 “前端工程师”，就是 “切图仔”，因为后端太忙没空写页面样式让它长得更好看些，前端编写页面模板后，后端代码读取模板，替换变量，渲染出页面。
+
+&emsp;相似的：
+
+&emsp;PHP 直接将数据内嵌到 HTML 中。  
+&emsp;ASP.net 的 ASPX，在 HTML 中嵌入 C# 代码。  
+&emsp;Java 的 JSP 直接将数据嵌入到网页中。
+
+&emsp;以 PHP 框架的 Laravel 为例：
+
+![图](../../../public-repertory/img/other-share-3.png)
+
+<br>
+
+# <a name="chapter-three-three" id="chapter-three-three">3.3 铁器时代</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+<br>
+
+# <a name="chapter-three-four" id="chapter-three-four">3.4 工业时代</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
 
 &emsp;————————————————————
 
@@ -85,13 +135,6 @@
 &emsp;jQuery 梭哈（目前还有） -> 前端工程化：gulp + jquery -> Angular 等出现：MV* 时代 -> Webpack + 数据驱动虚拟 DOM + Vue/React/Angular  
 &emsp;现代化社会：Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架魔爪。UI 框架来说，桌面端的 ElementUI、NW JS；移动端的RN、Weex  
 &emsp;Node 的发展，加速 JS 的进步。
-
-&emsp;————————————————————
-
-&emsp;数据-模板-样式混合：  
-&emsp;PHP 直接将数据内嵌到 HTML 中。  
-&emsp;ASP.net 大量使用 table。  
-&emsp;Java 的 JSP 直接将数据嵌入到网页中。
 
 &emsp;————————————————————
 
@@ -117,9 +160,7 @@
 
 > 在此时，前端只是后端 MVC 中的 V，所以那时候的所谓 “前端工程师”，就是 “切图仔”，因为后端太忙没空写页面样式让它长得更好看些，前端编写页面模板后，后端代码读取模板，替换变量，渲染出页面。
 
-&emsp;以 PHP 框架的 Laravel 为例：
 
-![图](../../../public-repertory/img/other-share-3.png)
 
 &emsp;PHP 代码：
 
