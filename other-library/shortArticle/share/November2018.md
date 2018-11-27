@@ -109,13 +109,8 @@
 * Controller（控制层）：数据处理，实现业务逻辑。
 * View（视图层）：展示数据，提供用户界面。
 
-&emsp;在此时，前端只是后端 MVC 中的 V，所以那时候的所谓 “前端工程师” 还没有对应的概念，前端开发人员都喜欢自称 “切图仔”。因为后端太忙，没空写页面样式让它长得更好看些，于是才有了前端编写页面模板后，让后端代码读取模板，替换变量，渲染出页面。
-
-&emsp;相似的：
-
-&emsp;PHP 直接将数据内嵌到 HTML 中。  
-&emsp;ASP.net 的 ASPX，在 HTML 中嵌入 C# 代码。  
-&emsp;Java 的 JSP 直接将数据嵌入到网页中。
+&emsp;在此时，前端只是后端 MVC 中的 V，所以那时候的所谓 “前端工程师” 还没有对应的概念，前端开发人员都喜欢自称 “切图仔”。  
+&emsp;因为后端太忙，没空写页面样式让它长得更好看些，于是才有了前端编写页面模板后，让后端代码读取模板，替换变量，渲染出页面。
 
 &emsp;以 PHP 框架的 Laravel 为例：
 
@@ -147,6 +142,13 @@
 </ul>
 ```
 
+> 相似的：  
+> PHP 直接将数据内嵌到 HTML 中。  
+> ASP 的 ASPX，在 HTML 中嵌入 C# 代码。  
+> Java 的 JSP 直接将数据嵌入到网页中。
+
+
+
 <br>
 
 ## <a name="chapter-three-three" id="chapter-three-three">3.3 铁器时代</a>
@@ -156,7 +158,7 @@
 <br>
 
 &emsp;1995 年，网景推出了 JavaScript，形成了前端的雏形：HTML 为骨架，CSS 为外貌，JavaScript 为交互。  
-&emsp;而到了 1998 年前后，Ajax（Asynchronous Javascript And XML：异步的 JavaScript 和 XML）得到了相对的应用，并且在之后逐渐被使用到各个页面上，从而促进了 Web 从 1.0 的静态网页，纯内容展示向 Web 2.0 模式迈进了一步：  
+&emsp;而到了 1998 年前后，Ajax（Asynchronous Javascript And XML：异步的 JavaScript 和 XML）得到了相对的应用，并且在之后逐渐被使用到各个页面上，从而促进了 Web 从 1.0 的静态网页，纯内容展示向 Web 2.0 模式迈进：  
 
 &emsp;**Web 2.0 时代：动态网页，富交互，前端数据处理**  
 
@@ -171,7 +173,7 @@
 ![图](../../../public-repertory/img/other-share-7.gif)
 
 &emsp;在 Web 2.0 的时代中，在 2006 年的时候，用于操作 DOM 的 jQuery 出现了，它快速地风靡了全球。大量的基于 jQuery 的插件构成了一个庞大的生态系统，从而稳固了 jQuery 作为 JS 库一哥的地位。  
-&emsp;jQuery 的影响是源远流长的。即时到了今天，还是会有用 jQuery 梭哈、jQuery + gulp 前端工程化的项目等。无它，唯方便而。
+&emsp;jQuery 的影响是源远流长的。即时到了今天，还是会有用 jQuery 梭哈、jQuery + gulp 前端工程化的项目等……无它，唯方便而。
 
 <br>
 
