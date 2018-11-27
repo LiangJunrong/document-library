@@ -183,14 +183,14 @@
 
 <br>
 
-&emsp;伴随着 jQuery 对于 DOM 的大量操作，有些前端开发者逐渐觉得力不从心了。  
+&emsp;伴随着大数据时代的到来，而 jQuery 在大量的数据操作时，会对 DOM 进行大量的操作，从而导致页面的加载缓慢……这时，有些前端开发者逐渐觉得力不从心了。  
 
 * 2008 年，谷歌 V8 引擎发布，终结微软 IE 时代。
 * 2009 年 AngularJS 诞生、Node诞生。
 * 2011 年 React 诞生。
 * 2014 年 Vue.js 诞生。
 
-&emsp;如果说，Angular、React、Vue 等 MVVM 模式的出现，以及 Webpack 的前端工程化，加速了数据驱动前端工程化的发展。那么，Node 这个基于 V8 引擎的服务端 JavaScript 运行环境的诞生，可媲美 Ajax 对于前端的贡献。Node 是前端的第二次飞跃，它使 JS 在服务端语言中也有了一席之地。  
+&emsp;如果说，Angular、React、Vue 等 MVVM 模式的出现，以及 Webpack 的前端工程化构建，加速了数据驱动前端工程化的发展。那么，Node 这个基于 V8 引擎的服务端 JavaScript 运行环境的诞生，可媲美 Ajax 对于前端的贡献。Node 是前端的第二次飞跃，它使 JS 在服务端语言中也有了一席之地。  
 
 > 何为 MVVM 模式？
 > * Model：提供/保存数据。
@@ -198,11 +198,11 @@
 > * View-Model：简化的 Controller，唯一的作用就是为 View 提供处理好的数据，不含其它逻辑。
 > ![图](../../../public-repertory/img/other-share-4.png)
 
-&emsp;如今，后端负责数据，前端负责其余工作越发明显化。它们之间的通讯，只需要后端暴露 RESTFul 接口，前端通过 Ajax，以 HTTP 通信协议与后端通信即可：
+&emsp;如今，后端负责数据，前端负责其余工作越发明显化。它们之间的通讯，只需要后端暴露 RESTFul 接口，前端通过 Ajax，以 HTTP 协议与后端通信即可：
 
 ![图](../../../public-repertory/img/other-share-2.png)
 
-&emsp;在这个前端的工业时代中，Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架魔爪。UI 框架来说，桌面端的 ElementUI、NW JS；移动端的RN、Weex 等。  
+&emsp;在这个前端的工业时代中，Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架的魔爪。而这三大框架的 UI 框架来说，桌面端的 ElementUI、NW JS；移动端的RN、Weex 等。  
 
 &emsp;以此同时，手机端的发展也是不可小觑的：
 
