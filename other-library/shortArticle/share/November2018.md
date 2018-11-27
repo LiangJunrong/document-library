@@ -14,7 +14,7 @@
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 历史发展](#chapter-three) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 发展历史](#chapter-three) |
 | &emsp;[3.1 原始社会](#chapter-three-one) |
 | &emsp;[3.2 石器时代](#chapter-three-two) |
 | &emsp;[3.3 铁器时代](#chapter-three-three) |
@@ -47,7 +47,7 @@
 
 <br>
 
-# <a name="chapter-three" id="chapter-three">三 历史发展</a>
+# <a name="chapter-three" id="chapter-three">三 发展历史</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -71,8 +71,8 @@
 
 ![图](../../../public-repertory/img/other-share-1.png)
 
-&emsp;它的初始作用，是为了方便科学家看文档、传论文。所以，到今天为止，学前端的人在接触 HTML 的时候，都会记得它的第一句有个词是 `Document`。  
-&emsp;这时候的互联网，无疑是处于**原始社会**。  
+&emsp;它的初始作用，是为了方便科学家看文档、传论文。所以，到今天为止，学习前端的人在接触 HTML 的时候，都会记得它的第一句有个词是 `Document`。  
+&emsp;这时候的互联网，无疑是处于原始社会的文明初创时期。  
 
 ![图](../../../public-repertory/img/other-share-5.png)
 
@@ -81,8 +81,7 @@
 &emsp;你提交了一个表单？OK，白屏等待许久，最后返回给你个 “用户名错误”；  
 &emsp;你电商网站有一千种商品？OK，那你写一千个页面吧……  
 
-&emsp;同时，这时候的互联网，前后端开发是一体的，前端代码是后端代码的一部分。  
-&emsp;即：后端收到浏览器的请求 ---> 发送静态页面 ---> 发送到浏览器。
+&emsp;同时，这时候的互联网，前后端开发是一体的，前端代码是后端代码的一部分：后端收到浏览器的请求 ---> 发送静态页面 ---> 发送到浏览器。
 
 <br>
 
@@ -92,7 +91,9 @@
 
 <br>
 
-&emsp;也在同一年(1994)，PHP 出现了，有了将数据嵌入到 HTML 中的形式，这意味着互联网行业出现了钻木取火。
+&emsp;就在同一年(1994 年)，PHP 出现了，有了将数据嵌入到 HTML 中的形式，这意味着互联网行业出现了钻木取火，不断朝石器时代发展。
+
+![图](../../../public-repertory/img/other-share-6.png)
 
 &emsp;这时候的互联网，兴起了数据嵌入模板，模板直接写样式的开发模式，例如 MVC 模式：
 
@@ -100,7 +101,7 @@
 * Controller（控制层）：数据处理，实现业务逻辑。
 * View（视图层）：展示数据，提供用户界面。
 
-&emsp;在此时，前端只是后端 MVC 中的 V，所以那时候的所谓 “前端工程师”，就是 “切图仔”，因为后端太忙没空写页面样式让它长得更好看些，前端编写页面模板后，后端代码读取模板，替换变量，渲染出页面。
+&emsp;在此时，前端只是后端 MVC 中的 V，所以那时候的所谓 “前端工程师”，昵称叫做 “切图仔”。因为后端太忙没空写页面样式让它长得更好看些，于是前端编写页面模板后，让后端代码读取模板，替换变量，渲染出页面。
 
 &emsp;相似的：
 
@@ -112,6 +113,22 @@
 
 ![图](../../../public-repertory/img/other-share-3.png)
 
+&emsp;PHP 代码：
+
+```
+<html>
+  <head><title>Car {{ $car->id }}</title></head>
+  <body>
+    <h1>Car {{ $car->id }}</h1>
+    <ul>
+      <li>Make: {{ $car->make }}</li>
+      <li>Model: {{ $car->model }}</li>
+      <li>Produced on: {{ $car->produced_on }}</li>
+    </ul>
+  </body>
+</html>
+```
+
 <br>
 
 # <a name="chapter-three-three" id="chapter-three-three">3.3 铁器时代</a>
@@ -119,6 +136,8 @@
 > [返回目录](#catalog-chapter-three)
 
 <br>
+
+&emsp;
 
 <br>
 
@@ -138,49 +157,9 @@
 
 &emsp;————————————————————
 
-&emsp;Model-View-Controller
+1. 前端第一次史诗级进步？
 
-&emsp;————————————————————
-
-1. 什么是前端？
-
-* 前端：针对浏览器的开发，代码在浏览器运行
-* 后端：针对服务器的开发，代码在服务器运行
-
-2. 前后端不分的时代？
-
-&emsp;互联网发展的早期，前后端开发是一体的，前端代码是后端代码的一部分。  
-&emsp;后端收到浏览器的请求 -> 发送静态页面 -> 发送到浏览器
-
-3. 后端 MVC 的开发模式？
-
-* Model（模型层）：提供/保存数据
-* Controller（控制层）：数据处理，实现业务逻辑
-* View（视图层）：展示数据，提供用户界面
-
-> 在此时，前端只是后端 MVC 中的 V，所以那时候的所谓 “前端工程师”，就是 “切图仔”，因为后端太忙没空写页面样式让它长得更好看些，前端编写页面模板后，后端代码读取模板，替换变量，渲染出页面。
-
-
-
-&emsp;PHP 代码：
-
-```
-<html>
-  <head><title>Car {{ $car->id }}</title></head>
-  <body>
-    <h1>Car {{ $car->id }}</h1>
-    <ul>
-      <li>Make: {{ $car->make }}</li>
-      <li>Model: {{ $car->model }}</li>
-      <li>Produced on: {{ $car->produced_on }}</li>
-    </ul>
-  </body>
-</html>
-```
-
-4. 前端第一次史诗级进步？
-
-&emsp;Ajax 的诞生，促进了第一次史诗级进步：Web 2.0 的诞生，前端不再是后端的模板，可以独立得到各种数据。
+&emsp;Ajax 的诞生(“Asynchronous Javascript And XML”（异步 JavaScript 和 XML）)，1998 年前后得到应用，促进了第一次史诗级进步：Web 2.0 的诞生，前端不再是后端的模板，可以独立得到各种数据。
 
 * Web 1.0：静态网页，纯内容展示
 * Web 2.0：动态网页，富交互，前端数据处理
