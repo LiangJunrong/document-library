@@ -42,7 +42,7 @@
 
 &emsp;参与协助：
 
-* **[腾讯科技有限公司 TEG 部](https://hr.qq.com/environment.html)** - **陈建光**
+* **[深圳大学](https://baike.baidu.com/item/%E6%B7%B1%E5%9C%B3%E5%A4%A7%E5%AD%A6/423814?fr=aladdin)** - **[陈建光](https://github.com/jgchenu)**
 * **[杭州店家科技 智慧财务线](https://www.lagou.com/gongsi/73675.html)** - **靳宗楠**
 
 <br>
@@ -213,9 +213,9 @@
 > **以下文字尚未整理完毕，敬请期待**  
 > **以下文字尚未整理完毕，敬请期待**
 
-7. jQuery 多页面？
+1. jQuery 多页面？
 
-6. SPA？
+2. SPA？
 
 &emsp;SPA = Single-page application  
 &emsp;这意味着，网页其实就是一个应用程序，它可以做到：
