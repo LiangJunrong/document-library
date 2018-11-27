@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-11-26 08:10:27**  
-> Recently revised in **2018-11-26 20:51:34**
+> Recently revised in **2018-11-27 08:57:01**
 
 <br>
 
@@ -36,6 +36,11 @@
 * [前端开发的历史和趋势 | CSDN - 红豆灬](https://blog.csdn.net/doulinxu/article/details/64906673?locationNum=2&fps=1)
 * [前端基础历史 | 百度前端技术学院 - 刘文超](http://ife.baidu.com/note/detail/id/1266)
 
+&emsp;参与协助：
+
+* **[腾讯科技有限公司 TEG 部](https://hr.qq.com/environment.html)** - **陈建光**
+* **[杭州店家科技 智慧财务线](https://www.lagou.com/gongsi/73675.html)** - **靳宗楠**
+
 <br>
 
 # <a name="chapter-three" id="chapter-three">三 历史</a>
@@ -48,7 +53,10 @@
 
 ![图](../../../public-repertory/img/other-share-1.png)
 
-&emsp;它的初始作用，是为了方便科学家看文档、传论文而写的。所以，学前端的人，都知道 HTML 文件开头的声明，叫 `Document`。
+&emsp;它的初始作用，是为了方便科学家看文档、传论文而写的。所以，学前端的人，都知道 HTML 文件开头的声明，叫 `Document`。  
+&emsp;这时候的互联网，无疑是处于**原始社会**：你的标点符号变了？OK，下载过一个新的页面；你提交了一个表单？OK，白屏等待许久，最后返回个 “用户名错误”；你电商网站有一千种商品？OK，那你写一千个页面吧……  
+&emsp;这时候的互联网，前后端开发是一体的，前端代码是后端代码的一部分。  
+&emsp;即：后端收到浏览器的请求 ---> 发送静态页面 ---> 发送到浏览器
 
 &emsp;————————————————————
 
@@ -199,7 +207,7 @@
 <br>
 
 * 1994 年，网景浏览器。所有网页基于 HTML + CSS。
-* 1994 年，PHP 年，PHP 创建，利用模板引擎实现了与数据库交互用于生产动态页面。
+* 1994 年，PHP 创建，利用模板引擎实现了与数据库交互用于生产动态页面。
 * 1995 年，网景推出了 JavaScript。
 * 1996 年，微软推出 iframe 标签，实现异步的局部加载。
 * 1999 年，Ajax 有了雏形，2006 年，XMLHttpRequest(Ajax) 才被 W3C 正式纳入标准。
