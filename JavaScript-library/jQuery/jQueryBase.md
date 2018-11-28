@@ -722,7 +722,28 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+&emsp;jQuery可以通过链的形式，链接多个动作。
+
+&emsp;修改8.4动画的代码：
+
+> js 代码片段
+
+```
+function runBall() {
+  $("#circle").animate({
+    left: '-=110px',
+    top: '+=150px',
+    backgroundColor: 'red'
+  }).animate({
+    left: '110px',
+    backgroundColor: 'rgb(5, 243, 172)'
+  }).animate({
+    left: '0',
+    top: '0',
+    backgroundColor: 'rgb(243, 207, 5)'
+  });
+};
+```
 
 <br>
 
@@ -732,7 +753,64 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+* `text()`：捕获文本
+* `html()`：捕获HTML
+* `val()`：捕获表单文本值
+* `attr()`：捕获属性值
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>捕获</title>
+    <style>
+      .container {
+        width: 320px;
+        margin: 0 auto;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="showText">显示文本</button>
+      <button id="showHtml">显示HTML</button>
+      <button id="showVal">显示表单值</button>
+      <button id="showAttr">显示属性</button>
+      <p id="text">这是段落中的<b>粗体</b> 文本。</p>
+      <input id="webSkill" type="text" value="jQuery">
+      <a id="myBlog" href="http://www.liangjunrong.com" target="_black">梁峻荣的网站</a>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $("#showText").click(function(){
+          alert("显示文本："+$("#text").text());
+        });
+        $("#showHtml").click(function(){
+          alert("显示HTML："+$("#text").html());
+        });
+        $("#showVal").click(function(){
+          alert("显示表单值："+$("#webSkill").val());
+        });
+        $("#showAttr").click(function(){
+          alert("显示属性："+$("#myBlog").attr("target"));
+        });
+      });
+    </script>
+
+  </body>
+
+</html>
+```
 
 <br>
 
@@ -742,7 +820,74 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+* `text()`：捕获文本
+* `html()`：捕获HTML
+* `val()`：捕获表单文本值
+* `attr()`：捕获属性值
+
+&emsp; 在设置方面，这4个方法还提供回调函数。
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>设置</title>
+    <style>
+      .container {
+        width: 320px;
+        margin: 0 auto;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div class="container">
+      <button id="changeText">修改文本</button>
+      <p id="text">这是段落中的<b> 粗体</b> 文本。</p>
+      <button id="changeHtml">修改HTML</button>
+      <p id="htmlText">这是段落中的<b> 粗体</b> 文本。</p>
+      <button id="changeVal">修改表单值</button>
+      <input id="webSkill" type="text" value="jQuery">
+      <br/>
+      <button id="changeAttr1">修改属性1</button>
+      <a id="myBlog1" href="http://www.liangjunrong.com" target="_black">梁峻荣的网站</a>
+      <br/>
+      <button id="changeAttr2">修改属性2</button>
+      <a id="myBlog2" href="http://www.liangjunrong.com:3000" target="_black">便捷校园</a>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $("#changeText").click(function(){
+          $("#text").text("Hello World!");
+        });
+        $("#changeHtml").click(function(){
+          $("#htmlText").html("<b>Hello World！</b>");
+        });
+        $("#changeVal").click(function(){
+          $("#webSkill").val("Hello World!");
+        });
+        $("#changeAttr1").click(function(){
+          $("#myBlog1").text("便捷校园").attr("href", "http://www.liangjunrong.com:3000");
+        });
+        $("#changeAttr2").click(function(){
+          $("#myBlog2").text("梁峻荣的网站").attr({
+            "href":"http://www.liangjunrong.com",
+            "target":""
+          });
+        });
+      });
+    </script>
+
+  </body>
+</html>
+```
 
 <br>
 
@@ -752,7 +897,60 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+* append() - 在被选的元素的结尾插入内容
+* prepend() - 在被选的元素的开头插入内容
+* after() - 在被选元素之后插入内容
+* before() - 在被选元素之前插入内容
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加元素</title>
+    <style>
+      #container {
+        background: red;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <button onclick="appendText()">append追加文本</button>
+    <button onclick="afterText()">after追加文本</button>
+    <div id="container">
+    <p>这是一个段落。</p>
+    </div>
+    <p>Hello World!</p>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      function appendText() {
+        var txt1 = "<p>文本。</p>"; // 使用 HTML 标签创建文本
+        var txt2 = $("<p></p>").text("文本。"); // 使用 jQuery 创建文本
+        var txt3 = document.createElement("p");
+        txt3.innerHTML = "文本。"; // 使用 DOM 创建文本 text with DOM
+        $("#container").append(txt1, txt2, txt3); // 追加新元素
+      }
+
+      function afterText() {
+        var txt1 = "<p>文本。</p>"; // 使用 HTML 标签创建文本
+        var txt2 = $("<p></p>").text("文本。"); // 使用 jQuery 创建文本
+        var txt3 = document.createElement("p");
+        txt3.innerHTML = "文本。"; // 使用 DOM 创建文本 text with DOM
+        $("#container").after(txt1, txt2, txt3); // 追加新元素
+      }
+    </script>
+  </body>
+
+</html>
+```
 
 <br>
 
