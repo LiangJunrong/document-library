@@ -75,7 +75,11 @@ jQuery 基础
 
 <br>
 
-&emsp;
+&emsp;本文最初用 `word` 记录于 `2018-05-07`。  
+&emsp;那时候还是前端职场新人，想在想起还是非常感谢带我的前端小姐姐的指导。  
+&emsp;这篇文章是在 **[jQuery 教程 | 菜鸟教程](https://www.runoob.com/jquery/jquery-tutorial.html)** 学习的过程中的记录笔记。  
+&emsp;如需系统学习 jQuery，建议参考网上现成的系统的 jQuery 网站教程/视频教程。  
+&emsp;本文仅供 jQueryer 复习自己所学知识。
 
 <br>
 
