@@ -10,9 +10,9 @@
 
 * (1) 问：  
 
-&emsp;你好，我觉得很困惑，我只会点 HTML5、CSS，大学期间学过点防火墙、HTML5、CSS3、SQL、Java，我担心我的技术可能连毕业设计都解决不了，我的申题是基于 Node.js 的动漫资源管理的实现与开发，而且我剩下一个月了。
+&emsp;你好，我觉得很困惑，我只会点 HTML5、CSS3，大学期间学过点防火墙、HTML5、CSS3、SQL、Java……但是我担心我的技术可能连毕业设计都解决不了，我的题目是基于 Node.js 的动漫资源管理的实现与开发，而且我剩下一个月了，能不能搞定啊？
 
-* 答：建议使用 jQuery + Bootstrap + Express + MySQL。  
+* 答：自信还是要有的。建议使用 jQuery + Bootstrap + Express + MySQL。  
 
 &emsp;首先，为什么使用 Bootstrap 呢？因为它布局简单，容易上手，基本看个 2/3 天就能了解一些简单的使用。  
 &emsp;然后，为什么推荐使用 jQuery 呢？因为它精简了 JavaScript 操作 DOM 的部分，容易上手，同时可以做一些好看的动画，而且它的延伸很多，拿来就用。  
