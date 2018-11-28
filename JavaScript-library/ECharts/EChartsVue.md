@@ -24,7 +24,7 @@ ECharts + Vue 折腾记
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-three) |
 | &emsp;[3.1 引用 Vue-Cli](#chapter-three-one) |
 | &emsp;[3.2 引用 Echarts](#chapter-three-two) |
-| &emsp;[3.3 配置](#chapter-three-three) |
+| &emsp;[3.3 引用 ElementUI](#chapter-three-three) |
 
 <br>
 
@@ -45,7 +45,7 @@ ECharts + Vue 折腾记
 5. [在vue中添加Echarts图表使用详解 | PHP 中文网 - 小云云](http://www.php.cn/js-tutorial-384897.html)
 6. [v-charts | 饿了么](https://v-charts.js.org/#/)
 7. [vue-echarts | npm](https://www.npmjs.com/package/vue-echarts)
-8. [在vue中，应该直接使用echarts还是 vue-echarts | Vue 论坛 - JasonBai007](https://forum.vuejs.org/t/vue-echarts-vue-echarts/48831)
+8. [在vue中，应该直接使用 echarts 还是 vue-echarts | Vue 论坛 - JasonBai007](https://forum.vuejs.org/t/vue-echarts-vue-echarts/48831)
 
 <br>
 
@@ -238,13 +238,13 @@ export default {
 
 <br>
 
-## <a name="chapter-three-three" id="chapter-three-three">3.3 配置</a>
+## <a name="chapter-three-three" id="chapter-three-three">引用 ElementUI</a>
 
 > [返回目录](#catalog-chapter-three)
 
 <br>
 
-&emsp;
+&emsp;考虑到项目没有 UI 设计稿。那么，就需要引用一款 Vue 的 UI 框架了，偷懒用 ElementUI 吧。
 
 <br>
 
