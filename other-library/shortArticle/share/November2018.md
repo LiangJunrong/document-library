@@ -47,6 +47,8 @@
 * [前端发展史 | 简书 - 迷缘火叶](https://www.jianshu.com/p/8dc5c6aa01fc)
 * [前端开发的历史和趋势 | CSDN - 红豆灬](https://blog.csdn.net/doulinxu/article/details/64906673?locationNum=2&fps=1)
 * [前端基础历史 | 百度前端技术学院 - 刘文超](http://ife.baidu.com/note/detail/id/1266)
+* [JSP、JavaScript、jQuery、jQuery Easy UI、Ajax、JSON各自是什么、区别、联系 | CSDN - 南下Debugging](https://blog.csdn.net/u012369153/article/details/53465379)
+* [jquery 和 jsp常用功能点汇总 | CSDN - toMatser](https://blog.csdn.net/tomcat_2014/article/details/50392422)
 
 &emsp;参与协助：
 
@@ -234,11 +236,19 @@
 * [Java Server Pages](https://github.com/LiangJunrong/document-library/blob/master/other-library/JavaAbout/JSP/README.md)
 * [jQuery](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/jQuery/jQueryBase.md)
 
-&emsp;JSP 全称 Java Server Page，是 Java 企业应用的一种动态技术，JSP 是服务端运行的 JSP 网页代码文件。  
-&emsp;jQuery 是一个轻量级的 JavaScript 库。
+&emsp;JSP 全称 Java Server Page，是 Java 企业应用的一种动态技术，JSP 是服务端运行的 JSP 网页代码文件。Java 和 JSP 是运行在服务器端的，也就是说他两运行的结果生成 HTML，HTML 是静态页面，而 JSP 是动态页面，JSP 实际上就是 Servlet。  
+&emsp;jQuery 是一个轻量级的 JavaScript 库。jQuery 能够使用户的 HTML 页面 和 HTML 内容分离，也就是说，jQuery 更好地规范了 HTML、CSS、JavaScript 三者的分离，更有利于代码的维护。
 
 &emsp;为什么对这两个技术进行比较呢？  
-&emsp;首先，JSP 是直接嵌入到网页的技术，为什么现在不推荐
+&emsp;首先，JSP 是直接嵌入到网页的技术，但是现在不推荐了，为什么？
+
+1. Java 后端本身就任务繁重，JSP 增加了工作负担。
+2. Java + JSP 开发偶尔度太大，无法多人合作解决开发时长太高的问题。
+3. 将页面部署的任务分离给前端，前后端进行接口联调，有利于开发时间的缩短及后期代码的维护。
+
+&emsp;相同功能 JSP 与 jQuery 代码比较：
+
+* [jquery 和 jsp常用功能点汇总 | CSDN - toMatser](https://blog.csdn.net/tomcat_2014/article/details/50392422)
 
 <br>
 
