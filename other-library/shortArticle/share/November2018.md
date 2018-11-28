@@ -229,7 +229,16 @@
 
 <br>
 
-&emsp;
+&emsp;关于 JSP 与 jQuery 的学习记录：
+
+* [Java Server Pages](https://github.com/LiangJunrong/document-library/blob/master/other-library/JavaAbout/JSP/README.md)
+* [jQuery](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/jQuery/jQueryBase.md)
+
+&emsp;JSP 全称 Java Server Page，是 Java 企业应用的一种动态技术，JSP 是服务端运行的 JSP 网页代码文件。  
+&emsp;jQuery 是一个轻量级的 JavaScript 库。
+
+&emsp;为什么对这两个技术进行比较呢？  
+&emsp;首先，JSP 是直接嵌入到网页的技术，为什么现在不推荐
 
 <br>
 
