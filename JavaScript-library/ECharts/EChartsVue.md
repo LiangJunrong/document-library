@@ -78,7 +78,7 @@ npm i echarts -S
 
 &emsp;然后，你可以选择按需引用还是全局引用：
 
-1. 全局引用
+1. **全局引用**
 
 &emsp;ECharts 初始化应在钩子函数 `mounted()` 中，这个钩子函数是在 `el` 被新创建的 `vm.$el` 替换，并挂载到实例上去之后调用。
 
@@ -155,7 +155,7 @@ export default {
 
 <br>
 
-2. 按需引用
+2. **按需引用**
 
 &emsp;如果我们使用全局引用。将 ECharts 图表打包，会导致体积过大，所以项目中最好按需引入。  
 &emsp;在这里我们使用 `requrie` 引用而不是 `import`，因为 `import` 必须写全路径，比较麻烦。
@@ -214,6 +214,12 @@ export default {
 
 </style>
 ```
+
+<br>
+
+&emsp;最后，我们只需要 `npm run dev` 启动项目，打开 `localhost:8080` 即可。
+
+![图](../../public-repertory/img/js-EChartsVue-1.png)
 
 <br>
 
