@@ -89,7 +89,59 @@ jQuery 基础
 
 <br>
 
-&emsp;
+&emsp;jQuery是一个轻量级的 "写的少，做的多" 的 JavaScript 库。  
+
+&emsp;jQuery 的引用：
+
+* 百度 CDN：
+
+```
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+```
+* jQuery 官网 CDN：
+  
+```
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+```
+* BootCDN：
+
+```
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+```
+
+<br>
+
+&emsp;尝试：
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>尝试引用jQuery - 2018年5月7日16:20:50</title>
+  
+  </head>
+  <body>
+    <p>点我？消失给你看哦~</p>
+    <p>继续点试试？</p>
+    <p>再点试试？</p>
+
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("p").click(function(){
+          $(this).hide();
+        });
+      });
+    </script>
+  </body>
+</html>
+```
+
 
 <br>
 
@@ -99,7 +151,16 @@ jQuery 基础
 
 <br>
 
-&emsp;
+&emsp;jQuery 版本 2 以上不支持 IE6，7，8 浏览器。  
+&emsp;如果需要支持 IE6/7/8，那么请选择 1.9。  
+&emsp;你还可以通过条件注释在使用 IE6/7/8 时只包含进1.9。  
+
+```
+<!--[if lt IE 9]>
+  <script src="jquery-1.9.0.js"></script>
+<![endif]--><!--[if gte IE 9]><!-->
+  <script src="jquery-2.0.0.js"></script><!--<![endif]-->
+```
 
 <br>
 
@@ -109,7 +170,12 @@ jQuery 基础
 
 <br>
 
-&emsp;
+&emsp;基础语法： `$(selector).action()`。在jQuery中，$=jQuery
+
+&emsp;ready：
+
+* 写法1：`$(document).ready(function(){ // 开始写 jQuery 代码... });`
+* 写法2：`$(function(){ // 开始写 jQuery 代码... });`
 
 <br>
 
@@ -119,7 +185,7 @@ jQuery 基础
 
 <br>
 
-&emsp;
+&emsp;jQuery 选择器可以帮助我们更好地选择 DOM 元素。
 
 <br>
 
@@ -129,7 +195,19 @@ jQuery 基础
 
 <br>
 
-&emsp;
+&emsp;在页面中选取所有 `<p>` 元素:  
+
+> js 代码片段
+
+```
+$("p")
+实例：
+$(document).ready(function(){ 
+  $("button").click(function(){ 
+    $("p").hide(); 
+  }); 
+});
+```
 
 <br>
 
