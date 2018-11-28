@@ -15,6 +15,7 @@ ECharts + Vue 折腾记
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-three) |
+| &emsp;[3.1 vue-cli 的安装及使用](#chapter-three-one) |
 
 <br>
 
@@ -38,7 +39,22 @@ ECharts + Vue 折腾记
 
 <br>
 
-&emsp;
+&emsp;Now，开始折腾~
+
+<br>
+
+## <a name="chapter-three-one" id="chapter-three-one">3.1 vue-cli 的安装及使用</a>
+
+> [返回目录](#catalog-chapter-three-one)
+
+<br>
+
+&emsp;步骤：
+
+1. 安装 `vue-cli`：`npm i vue-cli -g`
+2. 初始化 Vue 项目：`vue init webpack`
+3. 开启开发模式：`npm run dev`
+4. 打开浏览器，查看网页： `http://localhost:8080`
 
 <br>
 
