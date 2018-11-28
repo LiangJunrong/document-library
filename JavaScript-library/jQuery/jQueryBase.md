@@ -47,7 +47,7 @@ jQuery 基础
 | <a name="catalog-chapter-twenty-one" id="catalog-chapter-twenty-one"></a>[二十一 get() 和 post()](#chapter-twenty-one) |
 | <a name="catalog-chapter-twenty-two" id="catalog-chapter-twenty-two"></a>[二十二 Ajax](#chapter-twenty-two) |
 | <a name="catalog-chapter-twenty-three" id="catalog-chapter-twenty-three"></a>[二十三 JSONP](#chapter-twenty-three) |
-| <a name="catalog-chapter-twenty-four" id="catalog-chapter-twenty-four"></a>[二十四 noConflict](#chapter-twenty-four) |
+| <a name="catalog-chapter-twenty-four" id="catalog-chapter-twenty-four"></a>[二十四 无冲突 - noConflict](#chapter-twenty-four) |
 | <a name="catalog-chapter-twenty-five" id="catalog-chapter-twenty-five"></a>[二十五 jQuery 实例](#chapter-twenty-five) |
 | <a name="catalog-chapter-twenty-six" id="catalog-chapter-twenty-six"></a>[二十六 选择器扩展](#chapter-twenty-six) |
 | &emsp;[26.1 基本选择器](#chapter-twenty-six-one) |
@@ -1481,7 +1481,90 @@ function runBall() {
 
 <br>
 
-&emsp;
+* `first()` - 第一个匹配条件的元素
+* `last()` - 最后一个匹配条件的元素
+* `eq()` - 符合索引号的元素
+* `filter()` - 匹配filter里条件的元素
+* `not()` - 去掉not里符合条件的元素后的其他元素
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过滤</title>
+    <style>
+      .container {
+        width: 320px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .textClass {
+        border: 2px solid rgb(0, 255, 221);
+        border-radius: 20px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="button">
+        <button id="first">first</button>
+        <button id="last">last</button>
+        <button id="eq">eq</button>
+        <button id="filter">filter</button>
+        <button id="not">not</button>
+        <button id="clear">clear</button>
+      </div>
+      <div id="box">
+        <h1>Hello!</h1>
+        <h2>Hello!</h2>
+        <h3>Hello!</h3>
+        <h4>Hello!</h4>
+        <h5>Hello!</h5>
+        <h6>Hello!</h6>
+        <h1>Hello!</h1>
+        <h2>Hello!</h2>
+        <h3>Hello!</h3>
+        <h4>Hello!</h4>
+        <h5>Hello!</h5>
+        <h6>Hello!</h6>
+      </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $("#first").click(function(){
+          $("#box h3").first().addClass("textClass");
+        });
+        $("#last").click(function(){
+          $("#box h3").last().addClass("textClass");
+        });
+        $("#eq").click(function(){
+          $("#box").children().eq(2).addClass("textClass");
+        });
+        $("#filter").click(function(){
+          $("#box").children().filter("h3").addClass("textClass");
+        });
+        $("#not").click(function(){
+          $("#box").children().not("h3").addClass("textClass");
+        });
+        $("#clear").click(function(){
+          $("#box").children().removeClass("textClass");
+        })
+      });
+    </script>
+  </body>
+
+</html>
+```
 
 <br>
 
@@ -1491,7 +1574,14 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;语法：`$(selector).load(URL,data,callback);`
+
+* `URL`：请求加载的URL
+* `data`：查询字符串键值对集合
+* `callback`：`load()` 方法完成后所执行的函数名称
+  * `responseTxt` - 包含调用成功时的结果内容
+  * `statusTxt` - 包含调用的状态
+  * `xhr` - 包含XMLHttpRequest对象
 
 <br>
 
@@ -1501,7 +1591,14 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;get - 从指定的资源请求数据  
+&emsp;post - 向指定的资源提交要处理的数据  
+
+&emsp;语法：
+
+* `$.get(URL,callback);`
+* `URL`：请求的 `URL`
+* `callback`：请求成功后所执行的函数名
 
 <br>
 
@@ -1511,7 +1608,53 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;语法：`$.ajax({name:value, name:value, ... })`
+
+&emsp;方法 1：
+
+> js 代码片段1
+
+```
+$.ajax({
+  url: host + '/addressInfo',
+  type: 'get',
+  dataType: 'json',
+  data: {
+  addressName: $serA
+}
+}).done(function (res) {
+  console.log(res);
+}).fail(function () {
+  console.log("error");
+}).always(function () {
+  console.log("complete");
+});
+```
+
+<br>
+
+&emsp;方法 2：
+
+> js 代码片段2
+
+```
+$.ajax({
+    url: host + '/olduser/up',
+    type: 'get',
+    dataType: 'json',
+    data: {
+    userName: $("#search-name").val(),
+    adsl: $("#search-id").val()
+  },
+  success:function(res){
+    if(res.code == 0) {
+      "#search-name").val()) + "&adsl=" + escape($("#search-id").val());
+    } else {
+      alert(res.msg);
+    }
+  }
+})
+```
 
 <br>
 
@@ -1521,17 +1664,54 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;跨域读取数据，请用 JSONP。
+
+> 注意：JSONP 与 Ajax 没任何关系！JSONP 是利用 script 标签来 get 到被包裹的 json 数据。
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSONP</title>
+    
+  </head>
+
+  <body>
+    <div id="divCustomers"></div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $.getJSON("http://www.runoob.com/try/ajax/jsonp.php?jsoncallback=?", function (data) {
+
+        var html = '<ul>';
+        for (var i = 0; i < data.length; i++) {
+          html += '<li>' + data[i] + '</li>';
+        }
+        html += '</ul>';
+
+        $('#divCustomers').html(html);
+      });
+    </script>
+  </body>
+
+</html>
+```
 
 <br>
 
-# <a name="chapter-twenty-four" id="chapter-twenty-four">二十四 noConflict</a>
+# <a name="chapter-twenty-four" id="chapter-twenty-four">二十四 无冲突 - noConflict</a>
 
 > [返回目录](#catalog-chapter-twenty-four)
 
 <br>
 
-&emsp;
+&emsp;当 jQuery 和其他的 JavaScript 框架同时将$作为简写的使用，可以考虑使用noConflict()方法解决冲突。
 
 <br>
 
@@ -1541,7 +1721,7 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;总结前面的 jQuery 实例：[https://www.runoob.com/jquery/jquery-examples.html](https://www.runoob.com/jquery/jquery-examples.html)
 
 <br>
 
@@ -1551,7 +1731,7 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;选择器的扩展大全
 
 <br>
 
@@ -1561,7 +1741,12 @@ function runBall() {
 
 <br>
 
-&emsp;
+```
+$("#id") // ID选择器
+$("div")  // 元素选择器
+$(".classname") // 类选择器
+$(".classname,.classname1,#id1") // 组合选择器
+```
 
 <br>
 
@@ -1571,7 +1756,12 @@ function runBall() {
 
 <br>
 
-&emsp;
+```
+$("#id>.classname ")    // 子元素选择器
+$("#id .classname ")    // 后代元素选择器
+$("#id + .classname ")    // 紧邻下一个元素选择器
+$("#id ~ .classname ")    // 兄弟元素选择器
+```
 
 <br>
 
@@ -1581,7 +1771,16 @@ function runBall() {
 
 <br>
 
-&emsp;
+```
+$("li:first")    // 第一个 li
+$("li:last")     // 最后一个 li
+$("li:even")     // 挑选下标为偶数的 li
+$("li:odd")      // 挑选下标为奇数的 li
+$("li:eq(4)")    // 下标等于 4 的 li
+$("li:gt(2)")    // 下标大于 2 的 li
+$("li:lt(2)")    // 下标小于 2 的 li
+$("li:not(#runoob)") // 挑选除 id="runoob" 以外的所有 li
+```
 
 <br>
 
@@ -1591,7 +1790,12 @@ function runBall() {
 
 <br>
 
-&emsp;
+```
+$("div:contains('Runob')")    // 包含 Runob 文本的元素
+$("td:empty")                 // 不包含子元素或者文本的空元素
+$("div:has(selector)")        // 含有选择器所匹配的元素
+$("td:parent")                // 含有子元素或者文本的元素
+```
 
 <br>
 
@@ -1601,7 +1805,10 @@ function runBall() {
 
 <br>
 
-&emsp;
+```
+$("li:hidden")       // 匹配所有不可见元素，或 type 为 hidden 的元素
+$("li:visible")      // 匹配所有可见元素
+```
 
 <br>
 
@@ -1611,7 +1818,15 @@ function runBall() {
 
 <br>
 
-&emsp;
+```
+$("div[id]")        // 所有含有 id 属性的 div 元素
+$("div[id='123']")        // id属性值为123的div 元素
+$("div[id!='123']")        // id属性值不等于123的div 元素
+$("div[id^='qq']")        // id属性值以qq开头的div 元素
+$("div[id$='zz']")        // id属性值以zz结尾的div 元素
+$("div[id*='bb']")        // id属性值包含bb的div 元素
+$("input[id][name$='man']") //多属性选过滤，同时满足两个属性的条件的元素
+```
 
 <br>
 
@@ -1621,7 +1836,12 @@ function runBall() {
 
 <br>
 
-&emsp;
+```
+$("input:enabled")    // 匹配可用的 input
+$("input:disabled")   // 匹配不可用的 input
+$("input:checked")    // 匹配选中的 input
+$("option:selected")  // 匹配选中的 option
+```
 
 <br>
 
@@ -1631,7 +1851,17 @@ function runBall() {
 
 <br>
 
-&emsp;
+```
+$(":input")      //匹配所有 input, textarea, select 和 button 元素
+$(":text")       //所有的单行文本框，$(":text") 等价于$("[type=text]")，推荐使用$("input:text")效率更高，下同
+$(":password")   //所有密码框
+$(":radio")      //所有单选按钮
+$(":checkbox")   //所有复选框
+$(":submit")     //所有提交按钮
+$(":reset")      //所有重置按钮
+$(":button")     //所有button按钮
+$(":file")       //所有文件域
+```
 
 <br>
 
@@ -1641,7 +1871,7 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;配合 jQuery 的插件，可以更好的进行工作。
 
 <br>
 
@@ -1651,7 +1881,8 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;说明：jQuery Validate是在jQuery基础上扩展的为表单提供验证功能的插件。  
+&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-validate.html](https://www.runoob.com/jquery/jquery-plugin-validate.html)
 
 <br>
 
@@ -1661,7 +1892,8 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;说明：jQuery Accordion插件用于创建折叠菜单  
+&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-accordion.html](https://www.runoob.com/jquery/jquery-plugin-accordion.html)
 
 <br>
 
@@ -1671,7 +1903,8 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;说明：jQuery Autocomplete插件根据用户输入值进行搜索和过滤  
+&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-autocomplete.html](https://www.runoob.com/jquery/jquery-plugin-autocomplete.html)
 
 <br>
 
@@ -1681,7 +1914,8 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;说明：jQuery Growl用户做消息提醒  
+&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-message.html](https://www.runoob.com/jquery/jquery-plugin-message.html)
 
 <br>
 
@@ -1691,7 +1925,8 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;说明：jQuery Password Validation 在jQuery Validation 的基础上扩展，专门对密码进行验证  
+&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-password-validation.html](https://www.runoob.com/jquery/jquery-plugin-password-validation.html)
 
 <br>
 
@@ -1701,7 +1936,8 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;说明：jQuery Prettydate为表单提供验证功能  
+&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-prettydate.html](https://www.runoob.com/jquery/jquery-plugin-prettydate.html)
 
 <br>
 
@@ -1711,7 +1947,8 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;说明：jQuery Treeview提供无序灵活的可折叠树形菜单  
+&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-treeview.html](https://www.runoob.com/jquery/jquery-plugin-treeview.html)
 
 <br>
 
