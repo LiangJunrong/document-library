@@ -39,13 +39,13 @@ ECharts + Vue 折腾记
 &emsp;参考文献：
 
 1. [ECharts Demo | ECharts 官网](http://www.echartsjs.com/examples/)
-2. [在vue-cli项目中使用echarts | 博客园 - 搞前端的李蚊子](https://www.cnblogs.com/Smiled/p/7686316.html)
-3. [在Vue中使用echarts | 简书 - Mr_Treasure](https://www.cnblogs.com/Smiled/p/7686316.html)
+2. [在 vue-cli 项目中使用 echarts | 博客园 - 搞前端的李蚊子](https://www.cnblogs.com/Smiled/p/7686316.html)
+3. [Vue：在 Vue 中使用 echarts | 简书 - Mr_Treasure](https://www.cnblogs.com/Smiled/p/7686316.html)
 4. [在 VUE 项目中使用 ECharts 画 K 线图和面积图 | CSDN - zgh0711](https://v-charts.js.org/#/)
-5. [在vue中添加Echarts图表使用详解 | PHP 中文网 - 小云云](http://www.php.cn/js-tutorial-384897.html)
+5. [在 vue 中添加 Echarts 图表使用详解 | PHP 中文网 - 小云云](http://www.php.cn/js-tutorial-384897.html)
 6. [v-charts | 饿了么](https://v-charts.js.org/#/)
 7. [vue-echarts | npm](https://www.npmjs.com/package/vue-echarts)
-8. [在vue中，应该直接使用 echarts 还是 vue-echarts | Vue 论坛 - JasonBai007](https://forum.vuejs.org/t/vue-echarts-vue-echarts/48831)
+8. [在 vue 中，应该直接使用 echarts 还是 vue-echarts | Vue 论坛 - JasonBai007](https://forum.vuejs.org/t/vue-echarts-vue-echarts/48831)
 
 <br>
 
