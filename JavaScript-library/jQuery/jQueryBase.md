@@ -407,30 +407,28 @@ $(document).ready(function(){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>淡入与淡出</title>
     <style>
-    .container {
-      width: 320px;
-      margin: 0 auto;
-    }
-    #red {
-      width: 100px;
-      height: 100px;
-      background: red;
-    }
-
-    #green {
-      width: 100px;
-      height: 100px;
-      background: green;
-    }
-
-    #blue {
-      width: 100px;
-      height: 100px;
-      background: blue;
-    }
-    #fadeIn {
-      display: none;
-    }
+      .container {
+        width: 320px;
+        margin: 0 auto;
+      }
+      #red {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+      #green {
+        width: 100px;
+        height: 100px;
+        background: green;
+      }
+      #blue {
+        width: 100px;
+        height: 100px;
+        background: blue;
+      }
+      #fadeIn {
+        display: none;
+      }
     </style>
     
   </head>
@@ -479,7 +477,54 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+&emsp;语法：
+
+* `$(selector).slideDown(speed,callback);`
+* `$(selector).slideUp(speed,callback);`
+* `$(selector).slideToggle(speed,callback);`
+* `speed`：时间
+* `callback`：回调函数
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>显示与隐藏</title>
+    <style>
+      #toggleHide {
+        display: none;
+      }
+    </style>
+    
+  </head>
+
+  <body>
+    <button id="toggle">
+    <span id="toggleHide">显示</span>
+    <span id="toggleShow">隐藏</span>
+    </button>
+    <p>如果你点击“隐藏” 按钮，我将会消失。</p>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#toggle").click(function () {
+          $("#toggleHide").toggle()
+          $("#toggleShow").toggle();
+          $("p").toggle(1000);
+        });
+      });
+    </script>
+  </body>
+
+</html>
+```
 
 <br>
 
@@ -489,7 +534,102 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+&emsp;语法：
+
+* `$(selector).animate({params},speed,callback);`
+* `params`：css 属性（键值对形式，-号替换为驼峰 → `border-radius=borderRadius:'15px'`）
+* `speed`：时间
+* `callback`：回调函数
+
+&emsp;操作：
+1. 能操作单个属性
+2. 能操作多个属性
+3. 值能使用相对值（+=、-=）
+4. 属性值能为"show"、"hide" 或 "toggle"等
+5. 编写多个animate能使用队列功能
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+    <style>
+      .container {
+        width: 320px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      #circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        background: rgb(243, 207, 5);
+        display: inline-block;
+        position: relative;
+      }
+      #stop {
+        display: none;
+      }
+    </style>
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="run">
+        <span id="start">start!</span> 
+        <span id="stop">stop!</span>
+      </button>
+      <hr/>
+      <div id="circle"></div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <!-- jQuery颜色插件 -->
+    <script src="http://code.jquery.com/color/jquery.color-2.1.2.js" integrity="sha256-1Cn7TdfHiMcEbTuku97ZRSGt2b3SvZftEIn68UMgHC8="
+    crossorigin="anonymous"></script>
+    <script>
+      $(function () {
+        var start;
+        $("#stop").click(function(){
+          clearInterval(start);
+          $("#start").show();
+          $("#stop").hide();
+        });
+        $("#start").click(function(){
+          start = setInterval("runBall()", 1000);
+          $("#start").hide();
+          $("#stop").show();
+          });
+        });
+
+        function runBall() {
+          $("#circle").animate({
+          left: '-=110px',
+          top: '+=150px',
+          backgroundColor: 'red'
+        });
+        $("#circle").animate({
+          left: '110px',
+          backgroundColor: 'rgb(5, 243, 172)'
+        });
+        $("#circle").animate({
+          left: '0',
+          top: '0',
+          backgroundColor: 'rgb(243, 207, 5)'
+        });
+      };
+    </script>
+  </body>
+
+</html>
+```
 
 <br>
 
@@ -499,7 +639,80 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+&emsp;语法：
+
+* `$(selector).stop(stopAll,goToEnd);`
+* `stopAll`：默认 `false`。`true`：停止包括后续 `animate` 的所有动作
+* `goToEnd`：默认 `false`。`true`：直接跳到该动作末尾，同时停止后面动作
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>停止动画</title>
+    <style>
+      .container {
+        width: 320px;
+        margin: 0 auto;
+      }
+      #text {
+        background: #b9f309;
+        position: relative;
+      }
+      #text p {
+        text-indent: 2em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="start">开始</button>
+      <button id="stopDefault">停止</button>
+      <button id="stopAll">停止所有</button>
+      <button id="stopToEnd">停止动画，但完成动作</button>
+      <hr>
+      <div id="text">
+        <p>点击 "开始" 按钮开始动画。</p>
+        <p>点击 "停止" 按钮停止当前激活的动画，但之后我们能再动画队列中再次激活。</p>
+        <p>点击 "停止所有" 按钮停止当前动画，并清除动画队列，所以元素的所有动画都会停止。</p>
+        <p>点击 "停止动画，但完成动作" 快速完成动作，并停止它。</p>
+      </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#start").click(function () {
+          $("#text").animate({
+            top: '200px'
+          }, 1000);
+          $("#text").animate({
+            top: '0'
+          }, 1000);
+        });
+        $("#stopDefault").click(function(){
+          $("#text").stop();
+        })
+        $("#stopAll").click(function(){
+          $("#text").stop(true);
+        })
+        $("#stopToEnd").click(function(){
+          $("#text").stop(true,true);
+        })
+      });
+    </script>
+
+  </body>
+
+</html>
+```
 
 <br>
 
