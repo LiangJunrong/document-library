@@ -50,14 +50,14 @@ jQuery 基础
 | <a name="catalog-chapter-twenty-four" id="catalog-chapter-twenty-four"></a>[二十四 noConflict](#chapter-twenty-four) |
 | <a name="catalog-chapter-twenty-five" id="catalog-chapter-twenty-five"></a>[二十五 jQuery 实例](#chapter-twenty-five) |
 | <a name="catalog-chapter-twenty-six" id="catalog-chapter-twenty-six"></a>[二十六 选择器扩展](#chapter-twenty-six) |
-| &emsp;[26.1 显示/隐藏](#chapter-twenty-six-one) |
-| &emsp;[26.2 淡入/淡出](#chapter-twenty-six-two) |
-| &emsp;[26.3 滑动](#chapter-twenty-six-three) |
+| &emsp;[26.1 基本选择器](#chapter-twenty-six-one) |
+| &emsp;[26.2 层次选择器](#chapter-twenty-six-two) |
+| &emsp;[26.3 过滤选择器（重点）](#chapter-twenty-six-three) |
 | &emsp;&emsp;[26.3.1 内容过滤选择器](#chapter-twenty-six-three-one) |
 | &emsp;&emsp;[26.3.2 可见性过滤选择器](#chapter-twenty-six-three-two) |
-| &emsp;[26.4 动画](#chapter-twenty-six-four) |
-| &emsp;[26.5 停止动画](#chapter-twenty-six-five) |
-| &emsp;[26.6 链](#chapter-twenty-six-six) |
+| &emsp;[26.4 属性过滤选择器](#chapter-twenty-six-four) |
+| &emsp;[26.5 状态过滤选择器](#chapter-twenty-six-five) |
+| &emsp;[26.6 表单选择器](#chapter-twenty-six-six) |
 | <a name="catalog-chapter-twenty-seven" id="catalog-chapter-twenty-seven"></a>[二十七 插件扩展](#chapter-twenty-seven) |
 | &emsp;[27.1 jQuery Validate](#chapter-twenty-seven-one) |
 | &emsp;[27.2 jQuery Accordion](#chapter-twenty-seven-two) |
@@ -72,6 +72,526 @@ jQuery 基础
 # <a name="chapter-two" id="chapter-two">二 前言</a>
 
 > [返回目录](#catalog-chapter-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-three" id="chapter-three">三 尝试</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-four" id="chapter-four">四 兼容</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-five" id="chapter-five">五 jQuery 语法</a>
+
+> [返回目录](#catalog-chapter-five)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-six" id="chapter-six">六 jQuery 选择器</a>
+
+> [返回目录](#catalog-chapter-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-six-one" id="chapter-six-one">6.1 元素选择器</a>
+
+> [返回目录](#catalog-chapter-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-six-two" id="chapter-six-two">6.2 #ID 选择器</a>
+
+> [返回目录](#catalog-chapter-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-six-three" id="chapter-six-three">6.3 .class 选择器</a>
+
+> [返回目录](#catalog-chapter-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-six-four" id="chapter-six-four">6.4 其他用法</a>
+
+> [返回目录](#catalog-chapter-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-seven" id="chapter-seven">七 DOM 事件</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-seven-one" id="chapter-seven-one">7.1 mouseover 与 mouseenter</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-seven-two" id="chapter-seven-two">7.2 键盘事件顺序</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-eight" id="chapter-eight">八 jQuery 效果</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-eight-one" id="chapter-eight-one">8.1 显示/隐藏</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-eight-two" id="chapter-eight-two">8.2 淡入/淡出</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-eight-three" id="chapter-eight-three">8.3 滑动</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-eight-four" id="chapter-eight-four">8.4 动画</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-eight-five" id="chapter-eight-five">8.5 停止动画</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-eight-six" id="chapter-eight-six">8.6 链</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-night" id="chapter-night">九 捕获</a>
+
+> [返回目录](#catalog-chapter-night)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-ten" id="chapter-ten">十 设置</a>
+
+> [返回目录](#catalog-chapter-ten)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-eleven" id="chapter-eleven">十一 添加元素</a>
+
+> [返回目录](#catalog-chapter-eleven)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-twelve" id="chapter-twelve">十二 删除元素</a>
+
+> [返回目录](#catalog-chapter-twelve)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-thirteen" id="chapter-thirteen">十三 CSS 类</a>
+
+> [返回目录](#catalog-chapter-thirteen)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-fourteen" id="chapter-fourteen">十四 CSS() 方法</a>
+
+> [返回目录](#catalog-chapter-fourteen)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-fifteen" id="chapter-fifteen">十五 尺寸</a>
+
+> [返回目录](#catalog-chapter-fifteen)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-sixteen" id="chapter-sixteen">十六 祖先选择器</a>
+
+> [返回目录](#catalog-chapter-sixteen)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-seventeen" id="chapter-seventeen">十七 后代选择器</a>
+
+> [返回目录](#catalog-chapter-seventeen)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-eighteen" id="chapter-eighteen">十八 同胞选择器</a>
+
+> [返回目录](#catalog-chapter-eighteen)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-nighteen" id="chapter-nighteen">十九 过滤选择器</a>
+
+> [返回目录](#catalog-chapter-nighteen)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-twenty" id="chapter-twenty">二十 load</a>
+
+> [返回目录](#catalog-chapter-twenty)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-twenty-one" id="chapter-twenty-one">二十一 get() 和 post()</a>
+
+> [返回目录](#catalog-chapter-twenty-one)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-twenty-two" id="chapter-twenty-two">二十二 Ajax</a>
+
+> [返回目录](#catalog-chapter-twenty-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-twenty-three" id="chapter-twenty-three">二十三 JSONP</a>
+
+> [返回目录](#catalog-chapter-twenty-three)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-twenty-four" id="chapter-twenty-four">二十四 noConflict</a>
+
+> [返回目录](#catalog-chapter-twenty-four)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-twenty-five" id="chapter-twenty-five">二十五 jQuery 实例</a>
+
+> [返回目录](#catalog-chapter-twenty-five)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-twenty-six" id="chapter-twenty-six">二十六 选择器扩展</a>
+
+> [返回目录](#catalog-chapter-twenty-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-six-one" id="chapter-twenty-six-one">26.1 基本选择器</a>
+
+> [返回目录](#catalog-chapter-twenty-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-six-two" id="chapter-twenty-six-two">26.2 层次选择器</a>
+
+> [返回目录](#catalog-chapter-twenty-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-six-three" id="chapter-twenty-six-three">26.3 过滤选择器（重点）</a>
+
+> [返回目录](#catalog-chapter-twenty-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-twenty-six-three-one" id="chapter-twenty-six-three-one">26.3.1 内容过滤选择器</a>
+
+> [返回目录](#catalog-chapter-twenty-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+### <a name="chapter-twenty-six-three-two" id="chapter-twenty-six-three-two">26.3.2 可见性过滤选择器</a>
+
+> [返回目录](#catalog-chapter-twenty-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-six-four" id="chapter-twenty-six-four">26.4 属性过滤选择器</a>
+
+> [返回目录](#catalog-chapter-twenty-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-six-five" id="chapter-twenty-six-five">26.5 状态过滤选择器</a>
+
+> [返回目录](#catalog-chapter-twenty-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-six-six" id="chapter-twenty-six-six">26.6 表单选择器</a>
+
+> [返回目录](#catalog-chapter-twenty-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-twenty-seven" id="chapter-twenty-seven">二十七 插件扩展</a>
+
+> [返回目录](#catalog-chapter-twenty-seven)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-seven-one" id="chapter-twenty-seven-one">27.1 jQuery Validate</a>
+
+> [返回目录](#catalog-chapter-twenty-seven)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-seven-two" id="chapter-twenty-seven-two">27.2 jQuery Accordion</a>
+
+> [返回目录](#catalog-chapter-twenty-seven)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-seven-three" id="chapter-twenty-seven-three">27.3 jQuery Autocomplete</a>
+
+> [返回目录](#catalog-chapter-twenty-seven)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-seven-four" id="chapter-twenty-seven-four">27.4 jQuery Growl</a>
+
+> [返回目录](#catalog-chapter-twenty-seven)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-seven-five" id="chapter-twenty-seven-five">27.5 jQuery Password Validation</a>
+
+> [返回目录](#catalog-chapter-twenty-seven)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-seven-six" id="chapter-twenty-seven-six">27.6 jQuery Prettydate</a>
+
+> [返回目录](#catalog-chapter-twenty-seven)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-twenty-seven-seven" id="chapter-twenty-seven-seven">27.7 jQuery Treeview</a>
+
+> [返回目录](#catalog-chapter-twenty-seven)
 
 <br>
 
