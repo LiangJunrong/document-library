@@ -15,8 +15,9 @@ ECharts + Vue 折腾记
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-three) |
-| &emsp;[3.1 引用 vue-cli](#chapter-three-one) |
+| &emsp;[3.1 引用 Vue-Cli](#chapter-three-one) |
 | &emsp;[3.2 引用 Echarts](#chapter-three-two) |
+| &emsp;[3.3 配置](#chapter-three-three) |
 
 <br>
 
@@ -47,7 +48,7 @@ ECharts + Vue 折腾记
 
 <br>
 
-&emsp;Now，开始折腾~
+&emsp;Now，如果你 Vue 不是问题，那么，开始折腾~
 
 > 如果你觉得自己的 npm 下载速度过慢，请使用 cnpm：
 
@@ -56,7 +57,7 @@ ECharts + Vue 折腾记
 
 <br>
 
-## <a name="chapter-three-one" id="chapter-three-one">3.1 引用 vue-cli</a>
+## <a name="chapter-three-one" id="chapter-three-one">3.1 引用 Vue-Cli</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -77,13 +78,13 @@ ECharts + Vue 折腾记
 
 <br>
 
-&emsp;首先，我们在项目中安装 ECharts 依赖：
+&emsp;**首先**，我们在项目中安装 ECharts 依赖：
 
 ```
 npm i echarts -S
 ```
 
-&emsp;然后，你可以选择按需引用还是全局引用：
+&emsp;**然后**，你可以选择按需引用还是全局引用：
 
 1. **全局引用**
 
@@ -224,9 +225,19 @@ export default {
 
 <br>
 
-&emsp;最后，我们只需要 `npm run dev` 启动项目，打开 `localhost:8080` 即可。
+&emsp;**最后**，我们只需要 `npm run dev` 启动项目，打开 `localhost:8080` 即可。
 
 ![图](../../public-repertory/img/js-EChartsVue-1.png)
+
+<br>
+
+## <a name="chapter-three-three" id="chapter-three-three">3.3 配置</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;
 
 <br>
 
