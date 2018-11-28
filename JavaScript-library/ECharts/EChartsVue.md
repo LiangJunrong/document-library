@@ -31,6 +31,10 @@ ECharts + Vue 折腾记
 &emsp;参考文献：
 
 * [ECharts Demo | ECharts 官网](http://www.echartsjs.com/examples/)
+* [在vue-cli项目中使用echarts | 博客园 - 搞前端的李蚊子](https://www.cnblogs.com/Smiled/p/7686316.html)
+* [在Vue中使用echarts | 简书 - Mr_Treasure](https://www.cnblogs.com/Smiled/p/7686316.html)
+* [v-charts | 饿了么](https://v-charts.js.org/#/)
+* [在 VUE 项目中使用 ECharts 画 K 线图和面积图 | CSDN - zgh0711](https://v-charts.js.org/#/)
 
 <br>
 
