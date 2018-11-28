@@ -2,7 +2,7 @@ ECharts + Vue 折腾记
 ===
 
 > Create by **jsliang** on **2018-11-28 11:01:39**  
-> Recently revised in **2018-11-28 11:01:43**
+> Recently revised in **2018-11-28 11:11:41**
 
 <br>
 
@@ -29,6 +29,16 @@ ECharts + Vue 折腾记
 &emsp;参考文献：
 
 * [ECharts Demo | ECharts 官网](http://www.echartsjs.com/examples/)
+
+<br>
+
+# <a name="chapter-three" id="chapter-three">三 正文</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;
 
 <br>
 
