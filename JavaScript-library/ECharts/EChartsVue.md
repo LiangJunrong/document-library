@@ -2,7 +2,7 @@ ECharts + Vue 折腾记
 ===
 
 > Create by **jsliang** on **2018-11-28 11:01:39**  
-> Recently revised in **2018-11-28 11:11:41**
+> Recently revised in **2018-11-28 12:02:16**
 
 <br>
 
@@ -15,7 +15,8 @@ ECharts + Vue 折腾记
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-three) |
-| &emsp;[3.1 vue-cli 的安装及使用](#chapter-three-one) |
+| &emsp;[3.1 引用 vue-cli](#chapter-three-one) |
+| &emsp;[3.2 引用 Echarts](#chapter-three-two) |
 
 <br>
 
@@ -41,11 +42,16 @@ ECharts + Vue 折腾记
 
 &emsp;Now，开始折腾~
 
+> 如果你觉得自己的 npm 下载速度过慢，请使用 cnpm：
+
+* 安装：`npm install -g cnpm --registry=https://registry.npm.taobao.org`
+* 使用：`cnpm i 插件 -g`
+
 <br>
 
-## <a name="chapter-three-one" id="chapter-three-one">3.1 vue-cli 的安装及使用</a>
+## <a name="chapter-three-one" id="chapter-three-one">3.1 引用 vue-cli</a>
 
-> [返回目录](#catalog-chapter-three-one)
+> [返回目录](#catalog-chapter-three)
 
 <br>
 
@@ -55,6 +61,159 @@ ECharts + Vue 折腾记
 2. 初始化 Vue 项目：`vue init webpack`
 3. 开启开发模式：`npm run dev`
 4. 打开浏览器，查看网页： `http://localhost:8080`
+
+<br>
+
+## <a name="chapter-three-two" id="chapter-three-two">3.2 引用 Echarts</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;首先，我们在项目中安装 ECharts 依赖：
+
+```
+npm i echarts -S
+```
+
+&emsp;然后，你可以选择按需引用还是全局引用：
+
+1. 全局引用
+
+&emsp;ECharts 初始化应在钩子函数 `mounted()` 中，这个钩子函数是在 `el` 被新创建的 `vm.$el` 替换，并挂载到实例上去之后调用。
+
+> 项目/src/main.js
+
+```
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+
+// 引入echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+
+Vue.config.productionTip = false
+
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
+})
+```
+
+<br>
+
+> 项目/src/components/HelloWorld.vue
+
+```
+<template>
+  <div>
+    <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'hello',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  mounted(){
+    this.drawLine();
+  },
+  methods: {
+    drawLine(){
+        // 基于准备好的dom，初始化echarts实例
+        let myChart = this.$echarts.init(document.getElementById('myChart'))
+        // 绘制图表
+        myChart.setOption({
+            title: { text: '在Vue中使用echarts' },
+            tooltip: {},
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        });
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
+```
+
+<br>
+
+2. 按需引用
+
+&emsp;如果我们使用全局引用。将 ECharts 图表打包，会导致体积过大，所以项目中最好按需引入。  
+&emsp;在这里我们使用 `requrie` 引用而不是 `import`，因为 `import` 必须写全路径，比较麻烦。
+
+> 项目/src/components/HelloWorld.vue
+
+```
+<template>
+  <div>
+    <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+  </div>
+</template>
+
+<script>
+  // 引入基本模板
+  let echarts = require("echarts/lib/echarts");
+  // 引入柱状图组件
+  require("echarts/lib/chart/bar");
+  // 引入提示框和title组件
+  require("echarts/lib/component/tooltip");
+  require("echarts/lib/component/title");
+  export default {
+    name: 'hello',
+    data() {
+      return {
+        msg: 'Welcome to Your Vue.js App'
+      }
+    },
+    mounted() {
+      this.drawLine();
+    },
+    methods: {
+      drawLine() {
+        // 基于准备好的dom，初始化echarts实例
+        let myChart = echarts.init(document.getElementById('myChart'))
+        // 绘制图表
+        myChart.setOption({
+          title: { text: 'ECharts 入门示例' },
+          tooltip: {},
+          xAxis: {
+            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+          },
+          yAxis: {},
+          series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+          }]
+        });
+      }
+    }
+  };
+</script>
+
+<style scoped>
+
+</style>
+```
 
 <br>
 
