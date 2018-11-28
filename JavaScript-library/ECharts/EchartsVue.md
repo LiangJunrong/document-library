@@ -1,4 +1,4 @@
-Echarts + Vue 折腾记
+ECharts + Vue 折腾记
 ===
 
 > Create by **jsliang** on **2018-11-28 11:01:39**  
@@ -24,8 +24,11 @@ Echarts + Vue 折腾记
 
 <br>
 
- 
-&emsp;在这里，**jsliang** 将通过 Echarts + Vue 进行折腾。
+&emsp;在这里，**jsliang** 将通过 ECharts + Vue 进行折腾。
+
+&emsp;参考文献：
+
+* [ECharts Demo | ECharts 官网](http://www.echartsjs.com/examples/)
 
 <br>
 
