@@ -35,6 +35,8 @@ ECharts + Vue 折腾记
 * [在Vue中使用echarts | 简书 - Mr_Treasure](https://www.cnblogs.com/Smiled/p/7686316.html)
 * [v-charts | 饿了么](https://v-charts.js.org/#/)
 * [在 VUE 项目中使用 ECharts 画 K 线图和面积图 | CSDN - zgh0711](https://v-charts.js.org/#/)
+* [在vue中添加Echarts图表使用详解 | PHP 中文网 - 小云云](http://www.php.cn/js-tutorial-384897.html)
+* [在vue中，应该直接使用echarts还是 vue-echarts | Vue 论坛 - JasonBai007](https://forum.vuejs.org/t/vue-echarts-vue-echarts/48831)
 
 <br>
 
