@@ -6,6 +6,16 @@ jQuery 基础
 
 <br>
 
+&emsp;jQuery 操作 DOM 的那一套，还是非常值得关注的。我那时候一直想看 妙味 的 jQuery 剖析，我会员都买了，但是那会又去折腾小程序了，所以就没空了。
+
+&emsp;其实我觉得，jQuery 不是说丢就能丢的，只是前端新人，都觉得 Vue、React 工作好找，就学点 JavaScript 皮毛，去折腾那个去了。但是，讲真原生 JavaScript 还是要操作 DOM 的，DOM 操作哪家强，前端技术找 jQuery。
+
+&emsp;而且，一些开发中，直接用 jQuery 暴力拆迁，还是挺快的。我觉得我以后不用  jQuery 的原因，可能是项目涉及的数据量太大，操作 DOM 太多的时候，我才会更换成 Vue 这些。
+
+&emsp;最后的最后，一句话吧：没有最屌的技术，只有最适合项目的技术。
+
+<br>
+
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
 &emsp;**不折腾的前端，和咸鱼有什么区别**
