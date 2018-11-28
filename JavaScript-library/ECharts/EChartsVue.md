@@ -22,9 +22,9 @@ ECharts + Vue 折腾记
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-three) |
-| &emsp;[3.1 引用 Vue-Cli](#chapter-three-one) |
-| &emsp;[3.2 引用 Echarts](#chapter-three-two) |
-| &emsp;[3.3 引用 ElementUI](#chapter-three-three) |
+| &emsp;[3.1 Vue](#chapter-three-one) |
+| &emsp;[3.2 Echarts](#chapter-three-two) |
+| &emsp;[3.3 ElementUI](#chapter-three-three) |
 
 <br>
 
@@ -64,11 +64,16 @@ ECharts + Vue 折腾记
 
 <br>
 
-## <a name="chapter-three-one" id="chapter-three-one">3.1 引用 Vue-Cli</a>
+## <a name="chapter-three-one" id="chapter-three-one">3.1 Vue</a>
 
 > [返回目录](#catalog-chapter-three)
 
 <br>
+
+&emsp;Vue 参考文档：
+
+* [介绍 Vue.js | Vue 官网](https://cn.vuejs.org/v2/guide/)
+* [介绍 Vue Router | Vue Router 官网](https://router.vuejs.org/zh/)
 
 &emsp;步骤：
 
@@ -79,7 +84,7 @@ ECharts + Vue 折腾记
 
 <br>
 
-## <a name="chapter-three-two" id="chapter-three-two">3.2 引用 Echarts</a>
+## <a name="chapter-three-two" id="chapter-three-two">3.2 Echarts</a>
 
 > [返回目录](#catalog-chapter-three)
 
@@ -238,7 +243,7 @@ export default {
 
 <br>
 
-## <a name="chapter-three-three" id="chapter-three-three">引用 ElementUI</a>
+## <a name="chapter-three-three" id="chapter-three-three">3.3 ElementUI</a>
 
 > [返回目录](#catalog-chapter-three)
 
