@@ -280,7 +280,12 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+| 鼠标事件 | 键盘事件 | 表单事件 |文档/窗口事件 |
+| --- | --- | --- | --- |
+| `click` - 点击 | `keypress` - 键被按下 | `submit` - 表单提交 | `load` - 全部加载（1.8已废弃） |
+| `dbclick` - 双击 | `keydown` - 键按下的过程 | `change` - 文本改变 | resize - 浏览器窗口大小调试 |
+| `mouseenter` - 鼠标进入 | `keyup` - 键被松开 | `focus` - 获得焦点 | scroll - 滚动 |
+| `mouseleave` - 鼠标离开| &emsp; | `blur` - 失去焦点 | `unload` - 离开页面（1.8已废弃） |
 
 <br>
 
@@ -290,7 +295,9 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+&emsp;`mouseover` 事件在鼠标移动到选取的元素及其子元素上时触发。  
+&emsp;`mouseenter` 事件只在鼠标移动到选取的元素上时触发。  
+&emsp;`mouseleave` 与 `mouseout`同样。
 
 <br>
 
@@ -300,7 +307,15 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+1. keydown - 键按下的过程
+
+&emsp;↓↓↓↓↓
+
+2. keypress - 键被按下
+
+&emsp;↓↓↓↓↓
+
+3. keyup - 键被松开
 
 <br>
 
@@ -310,7 +325,7 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+&emsp;jQuery 可以使用其事件，做一些好玩的事情
 
 <br>
 
@@ -320,7 +335,47 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+&emsp;语法：
+
+* 隐藏：`$(selector).hide(speed,callback);`
+* 显示：`$(selector).show(speed,callback);`
+* 切换：`$(selector).toggle(speed,callback);`
+* `speed`：速度（毫秒）
+* `callback`：完成后显示的函数
+
+> index.html
+
+```
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>显示与隐藏</title>
+  </head>
+
+  <body>
+    <p>如果你点击“隐藏” 按钮，我将会消失。</p>
+    <button id="hide">隐藏</button>
+    <button id="show">显示</button>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#hide").click(function () {
+          $("p").hide(5000);
+        });
+        $("#show").click(function () {
+          $("p").show(1000);
+        });
+      });
+    </script>
+  </body>
+
+</html>
+```
 
 <br>
 
@@ -330,7 +385,91 @@ $(document).ready(function(){
 
 <br>
 
-&emsp;
+&emsp;语法：
+
+* 淡入：`$(selector).fadeIn(speed,callback);`
+* 淡出：`$(selector).fadeOut(speed,callback);`
+* 切换：`$(selector).fadeToggle(speed,callback);`
+* 渐变：`$(selector).fadeTo(speed,opacity,callback);`
+* `speed`：速度
+* `opacity`：透明度
+* `callback`：回调函数
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>淡入与淡出</title>
+    <style>
+    .container {
+      width: 320px;
+      margin: 0 auto;
+    }
+    #red {
+      width: 100px;
+      height: 100px;
+      background: red;
+    }
+
+    #green {
+      width: 100px;
+      height: 100px;
+      background: green;
+    }
+
+    #blue {
+      width: 100px;
+      height: 100px;
+      background: blue;
+    }
+    #fadeIn {
+      display: none;
+    }
+    </style>
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="fadeToggle">
+      <span id="fadeIn">淡入</span>
+      <span id="fadeOut">淡出</span>
+      </button>
+      <button id="fadeTo">渐变</button>
+      <div id="red"></div>
+      <div id="green"></div>
+      <div id="blue"></div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $("#fadeToggle").click(function(){
+          $("#blue").fadeToggle(1000,function(){
+            $("#green").fadeToggle(500,function(){
+              $("#red").fadeToggle(200)
+            });
+          });
+          $("#fadeIn").toggle();
+          $("#fadeOut").toggle();
+        });
+        $("#fadeTo").click(function(){
+          $("#red").fadeTo(500,0.3);
+          $("#green").fadeTo(1000,0.5);
+          $("#blue").fadeTo("slow",0.1);
+        })
+      });
+    </script>
+  </body>
+
+</html>
+```
 
 <br>
 
