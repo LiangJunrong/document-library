@@ -2,7 +2,7 @@ ECharts + Vue 折腾记
 ===
 
 > Create by **jsliang** on **2018-11-28 11:01:39**  
-> Recently revised in **2018-11-28 12:02:16**
+> Recently revised in **2018-11-28 14:09:00**
 
 <br>
 
@@ -30,13 +30,14 @@ ECharts + Vue 折腾记
 
 &emsp;参考文献：
 
-* [ECharts Demo | ECharts 官网](http://www.echartsjs.com/examples/)
-* [在vue-cli项目中使用echarts | 博客园 - 搞前端的李蚊子](https://www.cnblogs.com/Smiled/p/7686316.html)
-* [在Vue中使用echarts | 简书 - Mr_Treasure](https://www.cnblogs.com/Smiled/p/7686316.html)
-* [v-charts | 饿了么](https://v-charts.js.org/#/)
-* [在 VUE 项目中使用 ECharts 画 K 线图和面积图 | CSDN - zgh0711](https://v-charts.js.org/#/)
-* [在vue中添加Echarts图表使用详解 | PHP 中文网 - 小云云](http://www.php.cn/js-tutorial-384897.html)
-* [在vue中，应该直接使用echarts还是 vue-echarts | Vue 论坛 - JasonBai007](https://forum.vuejs.org/t/vue-echarts-vue-echarts/48831)
+1. [ECharts Demo | ECharts 官网](http://www.echartsjs.com/examples/)
+2. [在vue-cli项目中使用echarts | 博客园 - 搞前端的李蚊子](https://www.cnblogs.com/Smiled/p/7686316.html)
+3. [在Vue中使用echarts | 简书 - Mr_Treasure](https://www.cnblogs.com/Smiled/p/7686316.html)
+4. [在 VUE 项目中使用 ECharts 画 K 线图和面积图 | CSDN - zgh0711](https://v-charts.js.org/#/)
+5. [在vue中添加Echarts图表使用详解 | PHP 中文网 - 小云云](http://www.php.cn/js-tutorial-384897.html)
+6. [v-charts | 饿了么](https://v-charts.js.org/#/)
+7. [vue-echarts | npm](https://www.npmjs.com/package/vue-echarts)
+8. [在vue中，应该直接使用echarts还是 vue-echarts | Vue 论坛 - JasonBai007](https://forum.vuejs.org/t/vue-echarts-vue-echarts/48831)
 
 <br>
 
