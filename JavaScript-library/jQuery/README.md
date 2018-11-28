@@ -3,11 +3,11 @@ jQuery
 
 
 > Create by **jsliang** on **2018-11-4 10:38:08**  
-> Recently revised in **2018-11-4 10:38:11**
+> Recently revised in **2018-11-28 08:02:56**
 
 <br>
 
-&emsp;记录 jQuery 工作的日常操作。
+&emsp;记录 jQuery 的学习及 jQuery 工作日常。
 
 <br>
 
