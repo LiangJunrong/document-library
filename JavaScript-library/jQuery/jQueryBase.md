@@ -897,10 +897,10 @@ function runBall() {
 
 <br>
 
-* append() - 在被选的元素的结尾插入内容
-* prepend() - 在被选的元素的开头插入内容
-* after() - 在被选元素之后插入内容
-* before() - 在被选元素之前插入内容
+* `append()` - 在被选的元素的结尾插入内容
+* `prepend()` - 在被选的元素的开头插入内容
+* `after()` - 在被选元素之后插入内容
+* `before()` - 在被选元素之前插入内容
 
 > index.html
 
@@ -960,7 +960,62 @@ function runBall() {
 
 <br>
 
-&emsp;
+* `remove()` - 删除被选元素（及其子元素）（可附加参数）
+* `empty()` - 从被选元素中删除子元素
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>删除元素</title>
+    <style>
+      .container {
+        width: 320px;
+        margin: 0 auto;
+      }
+      #text {
+        width: 200px;
+        height: 200px;
+        background: rgb(255, 217, 0);
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div class="container">
+      <button id="remove">remove元素</button>
+      <button id="empty">empty元素</button>
+      <button id="removeFew">remove部分元素</button>
+      <div id="text">
+        <p class="pText">Hello World!</p>
+        <p id="pText">Hello World! Liang~</p>
+        <p>Hello GuangZhou!</p>
+      </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $("#remove").click(function(){
+          $("#text").remove();
+        });
+        $("#empty").click(function(){
+          $("#text").empty();
+        });
+        $("#removeFew").click(function(){
+          $("p").remove(".pText");
+        });
+      });
+    </script>
+
+  </body>
+</html>
+```
 
 <br>
 
@@ -970,7 +1025,57 @@ function runBall() {
 
 <br>
 
-&emsp;
+* `addClass()` - 向被选元素添加一个类或多个类
+* `removeClass()` - 从被选元素删除一个或多个类
+* `toggleClass()` - 对被选元素进行添加/删除类的切换操作
+* `css()` - 设置或返回样式属性
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS类</title>
+    <style>
+      .container {
+        width: 320px;
+        margin: 0 auto;
+      }
+
+      .changeClass {
+        background: rgb(0, 255, 179);
+      }
+    </style>
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="addClass">添加样式</button>
+      <p id="changeClass">
+        Hello World!
+        <br> 我叫梁峻荣！
+      </p>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#addClass").click(function () {
+          $("#changeClass").toggleClass("changeClass");
+        });
+      });
+    </script>
+
+  </body>
+
+</html>
+```
 
 <br>
 
@@ -980,7 +1085,59 @@ function runBall() {
 
 <br>
 
-&emsp;
+&emsp;语法：
+
+* 返回CSS： `css("propertyname");`
+* 修改CSS： `css("propertyname","value");`
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS类</title>
+    <style>
+    .container {
+      width: 320px;
+      margin: 0 auto;
+    }
+    p {
+      background: red;
+    }
+    </style>
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="getCss">获取CSS</button>
+      <button id="changeCss">修改CSS</button>
+      <p>这是一个段落。</p>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#getCss").click(function () {
+          alert($("p").css("background"));
+        });
+        $("#changeCss").click(function () {
+          $("p").css({
+            "background": "red",
+            "fontSize": "30px"
+          });
+        });
+      });
+    </script>
+  </body>
+
+</html>
+```
 
 <br>
 
@@ -990,7 +1147,94 @@ function runBall() {
 
 <br>
 
-&emsp;
+* `width()` - 元素宽度
+* `height()` - 元素高度
+* `innerWidth()` - padding+元素 宽度
+* `innerHeight()` - padding+元素 高度
+* `outerWidth()` - border+padding+元素 宽度
+* `outerHeight()` - border+padding+元素 高度
+
+![图](../../public-repertory/img/js-jQueryBase-1.png)
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>尺寸</title>
+    <style>
+      .container {
+        width: 320px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .box {
+        width: 220px;
+        height: 220px;
+        padding: 10px;
+        border: 5px solid #ccc;
+        background: rgb(6, 193, 240);
+        display: inline-block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="showWidth">显示width</button>
+      <button id="showHeight">显示height</button>
+      <button id="showInnerWidth">显示innerWidth</button>
+      <button id="showInnerHeight">显示innerHeight</button>
+      <button id="showOuterWidth">显示outerWidth</button>
+      <button id="showOuterHeight">显示outerHeight</button>
+      <div class="box">
+        <p id="width"></p>
+        <p id="height"></p>
+        <p id="innerWidth"></p>
+        <p id="innerHeight"></p>
+        <p id="outerWidth"></p>
+        <p id="outerHeight"></p>
+      </div>
+    </div>
+
+        <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $("#showWidth").click(function(){
+          var width = "div的width是：" + $(".box").width() + "</br>";
+          $("#width").html(width);
+        });
+        $("#showHeight").click(function(){
+          var height = "div的height是：" + $(".box").height() + "</br>";
+          $("#height").html(height);
+        });
+        $("#showInnerWidth").click(function(){
+          var innerWidth = "div的innerWidth是：" + $(".box").innerWidth() + "</br>";
+          $("#innerWidth").html(innerWidth);
+        });
+        $("#showInnerHeight").click(function(){
+          var innerHeight = "div的innerHeight是：" + $(".box").innerHeight() + "</br>";
+          $("#innerHeight").html(innerHeight);
+        });
+        $("#showOuterWidth").click(function(){
+          var outerWidth = "div的outerWidth是：" + $(".box").outerWidth() + "</br>";
+          $("#outerWidth").html(outerWidth);
+        });
+        $("#showOuterHeight").click(function(){
+          var outerHeight = "div的outerHeight是：" + $(".box").outerHeight() + "</br>";
+          $("#outerHeight").html(outerHeight);
+        });
+      });
+    </script>
+  </body>
+
+</html>
+```
 
 <br>
 
@@ -1000,7 +1244,74 @@ function runBall() {
 
 <br>
 
-&emsp;
+* `parent()` - 上一级父元素
+* `parents()` - 上至html标签
+* `parentsUntil()` - 介于目前元素与选择元素之间的所有标签。
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>祖先</title>
+    <style>
+      .container {
+        width: 320px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .ancestorsClass {
+        color: rgb(0, 0, 0);
+        border: 2px solid rgb(0, 247, 255);
+      }
+    </style>
+  </head>
+
+  <body class="ancestors">body （曾曾祖父元素）
+    <div class="container">div （曾祖父元素）
+      <hr>
+      <button id="parent">parent</button>
+      <button id="parents">parents</button>
+      <button id="parentsSelect">parents刷选</button>
+      <button id="parentUntil">parentsUntil</button>
+      <button id="clear">清空</button>
+      <hr>
+      <ul>ul （祖父元素）
+        <li>li （父元素）
+          <span>span</span>
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $("#parent").click(function(){
+          $("span").parent().addClass("ancestorsClass");
+        });
+        $("#parents").click(function(){
+          $("span").parents().addClass("ancestorsClass");
+        });
+        $("#parentsSelect").click(function(){
+          $("span").parents("ul").addClass("ancestorsClass");
+        });
+        $("#parentUntil").click(function(){
+          $("span").parentsUntil("div").addClass("ancestorsClass");
+        });
+        $("#clear").click(function(){
+          $("span").parents().removeClass("ancestorsClass");
+        });
+      });
+    </script>
+  </body>
+
+</html>
+```
 
 <br>
 
@@ -1010,7 +1321,60 @@ function runBall() {
 
 <br>
 
-&emsp;
+* `children()` - 所选元素的所有直接子元素
+* `find()` - 找到符合条件的子元素
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>后代</title>
+    <style>
+      .container {
+        width: 320px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .boxClass {
+        font-size: 2em;
+        color: rebeccapurple;
+      }
+    </style>
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="children">children</button>
+      <button id="find">find</button>
+      <div id="box">
+      <p class="p1">Hello World!</p>
+      <hr>
+      <p class="p2">!dlroW olleH</p>
+      </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $("#children").click(function(){
+          $("#box").children("p.p1").addClass("boxClass");
+        });
+          $("#find").click(function(){
+          $("#box").find("*").addClass("boxClass");
+        });
+      });
+    </script>
+  </body>
+
+</html>
+```
 
 <br>
 
@@ -1020,7 +1384,94 @@ function runBall() {
 
 <br>
 
-&emsp;
+* `siblings()` - 被选元素的所有同胞元素
+* `next()` - 被选元素的下一个元素
+* `nextAll()` - 被选元素的下面所有元素
+* `nextUntil()` - 被选元素到后面指定元素中间的所有元素
+* `prev()` - 被选元素的前一个元素
+* `prevAll()` - 被选元素的前面所有元素
+* `prevUntil()` - 被选元素到前面指定元素中间的所有元素
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>同胞</title>
+    <style>
+      .container {
+        width: 320px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .textClass {
+        border: 2px solid rgb(0, 255, 221);
+        border-radius: 20px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="button">
+        <button id="sibling">sibling</button>
+        <button id="next">next</button>
+        <button id="nextAll">nextAll</button>
+        <button id="nextUntil">nextUntil</button>
+        <button id="prev">prev</button>
+        <button id="prevAll">prevAll</button>
+        <button id="prevUntil">prevUntil</button>
+        <button id="clear">clear</button>
+      </div>
+      <div id="box">
+        <h1>Hello!</h1>
+        <h2>Hello!</h2>
+        <h3>Hello!</h3>
+        <h4>Hello!</h4>
+        <h5>Hello!</h5>
+        <h6>Hello!</h6>
+      </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#sibling").click(function () {
+          $("h3").siblings("h4").addClass("textClass");
+        });
+        $("#next").click(function () {
+          $("h1").next().addClass("textClass");
+        });
+        $("#nextAll").click(function () {
+          $("h1").nextAll().addClass("textClass");
+        });
+        $("#nextUntil").click(function () {
+          $("h3").nextUntil("h6").addClass("textClass");
+        });
+        $("#prev").click(function () {
+          $("h6").prev().addClass("textClass");
+        });
+        $("#prevAll").click(function () {
+          $("h6").prevAll().addClass("textClass");
+        });
+        $("#prevUntil").click(function () {
+          $("h6").prevUntil("h3").addClass("textClass");
+        });
+        $("#clear").click(function () {
+          $("#box").children().removeClass("textClass");
+        });
+      });
+    </script>
+  </body>
+
+</html>
+```
 
 <br>
 
