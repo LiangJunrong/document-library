@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-11-26 08:10:27**  
-> Recently revised in **2018-11-27 08:57:01**
+> Recently revised in **2018-11-29 08:23:37**
 
 <br>
 
@@ -236,19 +236,59 @@
 * [Java Server Pages](https://github.com/LiangJunrong/document-library/blob/master/other-library/JavaAbout/JSP/README.md)
 * [jQuery](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/jQuery/jQueryBase.md)
 
-&emsp;JSP 全称 Java Server Page，是 Java 企业应用的一种动态技术，JSP 是服务端运行的 JSP 网页代码文件。Java 和 JSP 是运行在服务器端的，也就是说他两运行的结果生成 HTML，HTML 是静态页面，而 JSP 是动态页面，JSP 实际上就是 Servlet。  
-&emsp;jQuery 是一个轻量级的 JavaScript 库。jQuery 能够使用户的 HTML 页面 和 HTML 内容分离，也就是说，jQuery 更好地规范了 HTML、CSS、JavaScript 三者的分离，更有利于代码的维护。
+&emsp;何为 JSP？  
+&emsp;JSP 全称 Java Server Page，是 Java 企业应用的一种动态技术，JSP 是服务端运行的 JSP 网页代码文件。Java 和 JSP 是运行在服务器端的，也就是说他两运行的结果生成 HTML，HTML 是静态页面，而 JSP 是动态页面。  
 
-&emsp;为什么对这两个技术进行比较呢？  
-&emsp;首先，JSP 是直接嵌入到网页的技术，但是现在不推荐了，为什么？
+&emsp;何为 jQuery？  
+&emsp;jQuery 是一个轻量级的 JavaScript 库。jQuery 能够使用户的 HTML 页面 和 JS 内容分离，也就是说，jQuery 的使用，更有利于 HTML、CSS、JavaScript 三者的分离，使得前端代码得到更好的维护。
 
-1. Java 后端本身就任务繁重，JSP 增加了工作负担。
-2. Java + JSP 开发偶尔度太大，无法多人合作解决开发时长太高的问题。
-3. 将页面部署的任务分离给前端，前后端进行接口联调，有利于开发时间的缩短及后期代码的维护。
+&emsp;现在对相同功能进行 JSP 与 jQuery 代码比较：
 
-&emsp;相同功能 JSP 与 jQuery 代码比较：
+> JSP 代码片段
 
-* [jquery 和 jsp常用功能点汇总 | CSDN - toMatser](https://blog.csdn.net/tomcat_2014/article/details/50392422)
+```
+<ul>  
+  <c:forEach items="${list}">  
+    <li>${user.userName}</li>
+  </c:forEach>
+</ul>  
+```
+
+<br>
+
+> jQuery 代码片段
+
+```
+<!-- 内容填充 -->
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script>
+  $.ajax({
+    // ...获取数据
+    let data = res.data;
+  });
+  $(function() {
+    var html = '';
+    $.each(data, function(index, item) {
+      var html='<li>' + item.userName + '</li>';
+      html += html;
+    })
+    html = '<ul>' + html + '</ul>';
+  })
+</script>
+```
+
+&emsp;咋看之下，你会觉得：“啊，JSP 那么简单，用 JSP 好啊！”  
+&emsp;是的，JSP 几行代码就能解决 jQuery 十几行代码才能解决的事，而且运行速度也快过 jQuery，为啥不一直用它呢？  
+&emsp;就项目发展而言。公司初创的时候，项目初期结构不繁杂的情况下，使用 JSP 无可厚非，因为它快、省事，而且还能节省个人力（前后端让一个 Java 写就可以搞定了）。但是，在项目越来越繁杂、庞大的情况下，一个 Java 已经维护不过来了，你必须不停地加人手……然而，就好比喜欢锻炼的不全都喜欢跑步一样，并不是所有操作数据的 Java 都喜欢写页面的，这时候就凸显了几个问题：
+
+1. 项目越来越大，模块越来越多，需要投入的人手也越来越多，这时候需要分模块分人手地去维护。而且这个 Java 程序猿必须喜欢操作数据，也喜欢编写页面，要不然企业将面临员工频繁流动的困扰。  
+2. 用户开始对界面操作提更高的要求，需要增加更多的 HTML 互动和特效，无形中增加 Java 程序猿的工作量。
+3. 当有员工辞职后，下一名员工接手的时间将逐渐增加，因为他不仅要熟悉数据的操作部分，更需要去数据页面的互动。
+
+&emsp;综上，这时候企业就需要考虑了：能不能帮 Java 程序猿减轻负担，更好地维护发展项目。而这时候，JavaScript 经过时间的沉淀，越发凸显了它的强大，所以，在诸多因素之下，就有了前后端的分离：  
+
+&emsp;后端人员提供接口，前端人员使用 jQuery 中封装好的 Ajax 获取数据，渲染到页面上。
 
 <br>
 
