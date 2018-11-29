@@ -61,6 +61,8 @@
 
 <br>
 
+![图](../../../public-repertory/img/other-share-0.png)
+
 &emsp;以铜为镜，可以正衣冠；  
 &emsp;以古为镜，可以知兴替；  
 &emsp;以人为镜，可以明得失。  
@@ -110,13 +112,19 @@
 * View（视图层）：展示数据，提供用户界面。
 
 &emsp;在此时，前端只是后端 MVC 中的 V，所以那时候的所谓 “前端工程师” 还没有对应的概念，前端开发人员都喜欢自称 “切图仔”。  
-&emsp;因为后端太忙，没空写页面样式让它长得更好看些，于是才有了前端编写页面模板后，让后端代码读取模板，替换变量，渲染出页面。
+&emsp;后来，因为后端太忙，没空写页面样式让它长得更好看些，于是才有了前端编写页面模板后，让后端代码读取模板，替换变量，渲染出页面。
 
 &emsp;以 PHP 框架的 Laravel 为例：
 
+1. 用户提交请求
+2. 根据路由不同请求对应的 Laravel 控制器
+3. 控制器与模型交互
+4. 控制器调用结果页面
+5. 在用户浏览器上渲染页面
+
 ![图](../../../public-repertory/img/other-share-3.png)
 
-&emsp;PHP 代码：
+&emsp;代码片段：
 
 ```
 <html>
@@ -124,22 +132,12 @@
   <body>
     <h1>Car {{ $car->id }}</h1>
     <ul>
-      <li>Make: {{ $car->make }}</li>
-      <li>Model: {{ $car->model }}</li>
-      <li>Produced on: {{ $car->produced_on }}</li>
+      <li style="color:red">>Make: {{ $car->make }}</li>
+      <li style="color:blue">Model: {{ $car->model }}</li>
+      <li style="color:yellow">Produced on: {{ $car->produced_on }}</li>
     </ul>
   </body>
 </html>
-```
-
-&emsp;HTML 与 CSS：
-
-```
-<ul>
-  <li style="color:red">Make</li>
-  <li style="color:blue">Model</li>
-  <li style="color:yellow">Produced on</li>
-</ul>
 ```
 
 > 相似的：  
