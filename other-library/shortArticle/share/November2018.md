@@ -61,7 +61,7 @@
 
 <br>
 
-![图](../../../public-repertory/img/other-share-0.png)
+![图](../../../public-repertory/img/other-share-1.png)
 
 &emsp;以铜为镜，可以正衣冠；  
 &emsp;以古为镜，可以知兴替；  
@@ -79,12 +79,12 @@
 
 &emsp;很久很久很久以前，在 **jsliang** 出生的前一年，即 1994 年的时候，网景公司 (Netscape Communications) 推出了第一款浏览器：NCSAMosaic，但是它只有少数的幸运儿才能使用。
 
-![图](../../../public-repertory/img/other-share-1.png)
+![图](../../../public-repertory/img/other-share-2.png)
 
 &emsp;它的初始作用，是为了方便科学家看文档、传论文。所以，到今天为止，学习前端的人在接触 HTML 的时候，都会记得它的第一句有个词是 `Document`。  
 &emsp;这时候的互联网，无疑是处于原始社会的文明初创时期。  
 
-![图](../../../public-repertory/img/other-share-5.png)
+![图](../../../public-repertory/img/other-share-3.png)
 
 
 &emsp;你的标点符号变了？OK，浏览器下载过一个新的页面；  
@@ -103,7 +103,7 @@
 
 &emsp;就在同一年(1994 年)，PHP 出现了，有了将数据嵌入到 HTML 中的形式，这意味着互联网行业出现了钻木取火，不断朝石器时代发展。
 
-![图](../../../public-repertory/img/other-share-6.png)
+![图](../../../public-repertory/img/other-share-4.png)
 
 &emsp;这时候的互联网，兴起了数据嵌入模板，模板直接写样式的开发模式，例如 MVC 模式：
 
@@ -116,7 +116,7 @@
 
 &emsp;以 PHP 框架的 Laravel 为例：
 
-![图](../../../public-repertory/img/other-share-3.png)
+![图](../../../public-repertory/img/other-share-5.png)
 
 1. 用户提交请求
 2. 根据路由不同请求对应的 Laravel 控制器
@@ -166,7 +166,7 @@
 
 &emsp;这时候，前端不再是后端的模板，它可以独立得到各种数据。相对于 Web 1.0 的时代，Web 2.0 由石器时代迈向了铁器时代！
 
-![图](../../../public-repertory/img/other-share-7.gif)
+![图](../../../public-repertory/img/other-share-6.gif)
 
 &emsp;在 Web 2.0 的时代中，在 2006 年的时候，用于操作 DOM 的 jQuery 出现了，它快速地风靡了全球。大量的基于 jQuery 的插件构成了一个庞大的生态系统，从而稳固了 jQuery 作为 JS 库一哥的地位。  
 &emsp;jQuery 的影响是源远流长的。即时到了今天，还是会有用 jQuery 一把梭、jQuery + gulp 的前端工程化的项目等……无它，唯方便而。
@@ -186,7 +186,7 @@
 * 2011 年 React 诞生。
 * 2014 年 Vue.js 诞生。
 
-> ![图](../../../public-repertory/img/other-share-7-5.png)
+> ![图](../../../public-repertory/img/other-share-7.png)
 
 &emsp;如果说，Angular、React、Vue 等 MVVM 模式的出现，以及 Webpack 的前端工程化构建，加速了数据驱动前端工程化的发展。那么，Node 这个基于 V8 引擎的服务端 JavaScript 运行环境的诞生，可媲美 Ajax 对于前端的贡献。  
 
@@ -196,11 +196,11 @@
 > * Model：提供/保存数据。
 > * View：视图
 > * View-Model：简化的 Controller，唯一的作用就是为 View 提供处理好的数据，不含其它逻辑。
-> ![图](../../../public-repertory/img/other-share-4.png)
+> ![图](../../../public-repertory/img/other-share-8.png)
 
 &emsp;如今，后端负责数据，前端负责其余工作越发明显化。它们之间的通讯，只需要后端暴露 RESTful 接口，前端通过 Ajax，以 HTTP 协议与后端通信即可：
 
-![图](../../../public-repertory/img/other-share-2.png)
+![图](../../../public-repertory/img/other-share-9.png)
 
 &emsp;在这个前端的工业时代中，Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架的魔爪。而这三大框架的 UI 框架来说，也涌现了不少地技术，例如桌面端的 ElementUI、NW.js；移动端的React Native、Weex 等。  
 
@@ -245,7 +245,7 @@
 &emsp;何为 jQuery？  
 &emsp;jQuery 是一个轻量级的 JavaScript 库。jQuery 能够使用户的 HTML 页面 和 JS 内容分离，也就是说，jQuery 的使用，更有利于 HTML、CSS、JavaScript 三者的分离，使得前端代码得到更好的维护。
 
-![图](../../../public-repertory/img/other-share-7-6.png)
+![图](../../../public-repertory/img/other-share-10.png)
 
 &emsp;现在就相同功能进行 JSP 与 jQuery 代码比较：
 
@@ -289,7 +289,7 @@
 &emsp;就项目发展而言。公司初创的时候，项目初期结构不繁杂的情况下，使用 JSP 无可厚非，因为它快、省事，而且还能节省人力（前后端让一个 Java 写就可以搞定了）。  
 &emsp;但是，在项目越来越繁杂、庞大的情况下，一个 Java 已经维护不过来了，企业必须不停地增加 Java 开发人手，而 Java 人员也深陷技术债中……
 
-![图](../../../public-repertory/img/other-share-7-7.png)
+![图](../../../public-repertory/img/other-share-11.png)
 
 &emsp;然而，就好比喜欢锻炼的不全都喜欢跑步一样，并不是所有操作数据的 Java 都喜欢写页面的，这时候就凸显了几个问题：
 
@@ -300,7 +300,7 @@
 &emsp;综上，这时候企业不得不考虑了：能不能帮 Java 开发人员减轻负担，更好地维护发展项目。  
 &emsp;以此同时，JavaScript 经过时间的沉淀，越发凸显了它的强大。所以，在诸多因素之下，就有了前后端的分离：  
 
-![图](../../../public-repertory/img/other-share-7-8.png)
+![图](../../../public-repertory/img/other-share-12.png)
 
 &emsp;后端人员提供接口，前端人员使用 jQuery 中封装好的 Ajax 调取接口获取数据，渲染到页面上。
 
@@ -319,7 +319,7 @@
 > * Model：提供/保存数据。
 > * View：视图。
 > * View-Model：简化的 Controller，唯一的作用就是为 View 提供处理好的数据，不含其它逻辑。
-> ![图](../../../public-repertory/img/other-share-4.png)
+> ![图](../../../public-repertory/img/other-share-8.png)
 
 <br>
 
@@ -409,7 +409,7 @@
 </html>
 ```
 
-![图](../../../public-repertory/img/other-share-8.gif)
+![图](../../../public-repertory/img/other-share-13.gif)
 
 <br>
 
