@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-11-26 08:10:27**  
-> Recently revised in **2018-11-29 08:23:37**
+> Recently revised in **2018-11-29 10:45:57**
 
 <br>
 
@@ -46,6 +46,7 @@
 * [jquery 和 vue对比 | 博客园 - 绿茶/](https://www.cnblogs.com/MR-YY/p/6898464.html)
 * [浅析 Vue 和微信小程序的区别、比较 | 脚本之家 - 卖女孩的小火柴](https://www.jb51.net/article/144972.htm)
 * [怎样在 vue，angular，react 快速选择一个合适的框架 | CSDN - 猛码象](https://blog.csdn.net/weixin_41879988/article/details/81638474)
+* [前端工程师的未来在哪里？ | 微信公众号 - 阿里技术](https://baijiahao.baidu.com/s?id=1590342694937942541&wfr=spider&for=pc)
 
 &emsp;参与协助：
 
@@ -445,7 +446,17 @@
 
 <br>
 
-&emsp;
+&emsp;**没有最好的框架，只有最合适的应用场景。**  
+
+&emsp;希望小伙伴们在面临不同的项目时，可以选择到最合适的框架，从而减少开发工作量，降低开发难度。  
+
+&emsp;最后的最后，我们再谈谈前端的未来发展及前端职业未来：
+
+1. 前端会继续分化。例如，喜欢 CSS 图形化的，将深入地学习 UI 与 CSS 3D 等，进行更炫酷的布局；喜欢 JavaScript 的，将更深入地学习数据的操作，实现更复杂地业务、更有趣的用户体验。
+2. 前端会继续融合。例如，Vue、React、Angular 合并，实现大一统，结束三分天下的局面。
+3. 前端将更加丰富。例如，PC、Mobile、IPad 等的体验更加丰富，不同的平台实现不同的功能。
+
+&emsp;所以，抓住机遇，不断折腾，创造更好的前端吧！
 
 <br>
 
