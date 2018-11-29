@@ -268,12 +268,18 @@
 
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 <script>
-  var data;
-  $.ajax({
-    // ...获取数据
-    data = res.data;
-  });
+  
   $(function() {
+    // 通过 ajax 从 Java 接口获取数据
+    var data;
+    $.ajax({
+      // ...请求地址、请求头及传参等
+      success: function(res){
+        data = res.data;
+      }
+    })
+
+    // 拼接字符串，并渲染页面
     var html = '';
     $.each(data, function(index, item) {
       var html='<li>' + item.userName + '</li>';
