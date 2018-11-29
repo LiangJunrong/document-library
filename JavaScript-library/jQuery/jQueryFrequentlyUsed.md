@@ -8,7 +8,7 @@ jQuery 工作常用解决方案
 
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/jQuery/jQueryFrequentlyUsed.md)**
 
-&emsp;记录给电信做活动页（520推广、世界杯推广等）过程中，使用 jQuery、HTML、CSS 等技术的技巧，包括但不限于：`rem` 适配、`css reset`、活动边框、弹窗等。  
+&emsp;记录工作中，使用 jQuery、HTML、CSS 等技术的技巧，包括但不限于：`rem` 适配、`css reset`、活动边框、弹窗等。  
 
 &emsp;比较琐碎，各取所需。
 
@@ -20,7 +20,6 @@ jQuery 工作常用解决方案
 
 ## 1.1 jQuery 引入
 
-&emsp;电信：`<script src="http://gd.189.cn/js/jquery.js"></script>`  
 &emsp;CDN：`<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>`
 
 <br>
