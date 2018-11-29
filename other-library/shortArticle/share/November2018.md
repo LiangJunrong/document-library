@@ -39,7 +39,7 @@
 
 <br>
 
-&emsp;受邀于 **[中国电信](https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8?fromtitle=%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1&fromid=138709)** 旗下 **[天翼爱音乐文化技术有限公司](https://baike.baidu.com/item/%E7%88%B1%E9%9F%B3%E4%B9%90/13684469?fr=aladdin)** 的邀请，于 **2018年11月** 做个小小的技术分享，分享内容有：前端发展史、JQuery 与 Vue/React/Angular 的比较、前端开发经验分享与总结等……
+&emsp;于 **2018年12月** 做个小小的前端技术分享，分享内容有：前端发展史、JQuery 与 Vue/React/Angular 的比较、前端开发经验分享与总结等……
 
 &emsp;参考文献：
 
@@ -301,7 +301,7 @@
 
 <br>
 
-&emsp;在上面的 JSP 与 jQuery 的比较中，我们会发现一个问题，就是 jQuery 在数据操作上，它需要进行的操作步骤太多了。而且，频繁的操作 DOM，在数据量比较大的情况下，页面将变得卡慢。  
+&emsp;在上面的 JSP 与 jQuery 的比较中，我们会发现一个问题，就是 jQuery 在数据操作上，它需要进行的操作步骤太多了。而且，频繁地操作 DOM。在数据量比较大的情况下，页面将变得卡慢。  
 &emsp;而这时候，就有了 MVVM 等 MV* 概念的提出：
 
 > 何为 MVVM 模式？
@@ -312,7 +312,7 @@
 
 <br>
 
-&emsp;
+&emsp;简单来说，就是 MV* 模式，将数据的操作步骤提升上去了。在 Vue、React、Angular 等 MV* 框架中，可以通过对数据的操作，完成对页面数据的渲染。
 
 <br>
 
