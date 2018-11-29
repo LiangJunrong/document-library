@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-11-26 08:10:27**  
-> Recently revised in **2018-11-29 10:45:57**
+> Recently revised in **2018-11-29 11:06:26**
 
 <br>
 
@@ -33,7 +33,7 @@
 
 <br>
 
-&emsp;于 **2018年12月** 做个小小的前端技术分享，分享内容有：前端发展史、JQuery 与 Vue/React/Angular 的比较、前端开发经验分享与总结等……
+&emsp;于 **2018年12月** 做个小小的前端技术分享，分享包括但不限于：Web 前端发展史、JQuery 与 Vue 的比较、Vue/React/Angular 的比较、前端开发经验的分享与总结等……
 
 &emsp;参考文献：
 
