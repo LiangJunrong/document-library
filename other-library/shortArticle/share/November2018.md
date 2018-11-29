@@ -287,7 +287,7 @@
     })
     html = '<ul>' + html + '</ul>';
   })
-</script>
+</script> 
 ```
 
 &emsp;咋看之下，你会觉得：“啊，JSP 那么简单，用 JSP 好啊！”  
