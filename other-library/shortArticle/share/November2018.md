@@ -6,6 +6,12 @@
 
 <br>
 
+&emsp;Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更丰富文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/shortArticle/share/November2018.md)
+
+&emsp;**查阅网上诸多资料，并结合自己的实际开发经验，进行的一次前端技术分享。**  
+
+<br>
+
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
 &emsp;**不折腾的前端，和咸鱼有什么区别**
@@ -124,7 +130,7 @@
 4. 控制器调用结果页面
 5. 在用户浏览器上渲染页面
 
-&emsp;代码片段：
+&emsp;PHP 内嵌 HTML 代码片段：
 
 ```
 <html>
