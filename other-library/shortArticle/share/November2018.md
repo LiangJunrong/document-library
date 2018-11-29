@@ -49,6 +49,7 @@
 * [前端基础历史 | 百度前端技术学院 - 刘文超](http://ife.baidu.com/note/detail/id/1266)
 * [JSP、JavaScript、jQuery、jQuery Easy UI、Ajax、JSON各自是什么、区别、联系 | CSDN - 南下Debugging](https://blog.csdn.net/u012369153/article/details/53465379)
 * [jquery 和 jsp常用功能点汇总 | CSDN - toMatser](https://blog.csdn.net/tomcat_2014/article/details/50392422)
+* [jquery 和 vue对比 | 博客园 - 绿茶/](https://www.cnblogs.com/MR-YY/p/6898464.html)
 
 &emsp;参与协助：
 
@@ -300,6 +301,17 @@
 
 <br>
 
+&emsp;在上面的 JSP 与 jQuery 的比较中，我们会发现一个问题，就是 jQuery 在数据操作上，它需要进行的操作步骤太多了。而且，频繁的操作 DOM，在数据量比较大的情况下，页面将变得卡慢。  
+&emsp;而这时候，就有了 MVVM 等 MV* 概念的提出：
+
+> 何为 MVVM 模式？
+> * Model：提供/保存数据。
+> * View：视图
+> * View-Model：简化的 Controller，唯一的作用就是为 View 提供处理好的数据，不含其它逻辑。
+> ![图](../../../public-repertory/img/other-share-4.png)
+
+<br>
+
 &emsp;
 
 <br>
@@ -328,22 +340,7 @@
 > **以下文字尚未整理完毕，敬请期待**  
 > **以下文字尚未整理完毕，敬请期待**
 
-1. jQuery 多页面？
-
-2. SPA？
-
-&emsp;SPA = Single-page application  
-&emsp;这意味着，网页其实就是一个应用程序，它可以做到：
-
-* 读写数据
-* 切换视图
-* 用户交互
-
-7. Vue、React、Angular？
-
-&emsp;双向数据绑定介绍
-
-9. Node？
+1. Node？
 
 &emsp;2009 年，Node 诞生，它是服务器上的 JavaScript 运行环境。  
 &emsp;Node = JavaScript + 操作系统 API。  
@@ -360,29 +357,9 @@
 
 &emsp;————————————————————
 
-1. js 操作 HTML
+1. MVC 模式阶段
 
-* 原生 JavaScript 操作 DOM 节点
-
-&emsp;代码演示：
-
-```
-………………
-```
-
-2. jQuery 阶段
-
-* jQuery 在操作 DOM 节点的基础上，还解决了许多的浏览器兼容问题（IE 系列）
-
-&emsp;代码演示：
-
-```
-………………
-```
-
-3. MVC 模式阶段
-
-4. MVVM 模式阶段
+2. MVVM 模式阶段
 
 &emsp;————————————————————
 
