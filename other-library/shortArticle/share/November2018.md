@@ -51,6 +51,7 @@
 * [jquery 和 jsp常用功能点汇总 | CSDN - toMatser](https://blog.csdn.net/tomcat_2014/article/details/50392422)
 * [jquery 和 vue对比 | 博客园 - 绿茶/](https://www.cnblogs.com/MR-YY/p/6898464.html)
 * [浅析 Vue 和微信小程序的区别、比较 | 脚本之家 - 卖女孩的小火柴](https://www.jb51.net/article/144972.htm)
+* [怎样在 vue，angular，react 快速选择一个合适的框架 | CSDN - 猛码象](https://blog.csdn.net/weixin_41879988/article/details/81638474)
 
 &emsp;参与协助：
 
