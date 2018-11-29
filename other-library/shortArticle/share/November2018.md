@@ -238,10 +238,12 @@
 * [jQuery](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/jQuery/jQueryBase.md)
 
 &emsp;何为 JSP？  
-&emsp;JSP 全称 Java Server Page，是 Java 企业应用的一种动态技术，JSP 是服务端运行的 JSP 网页代码文件。Java 和 JSP 是运行在服务器端的，也就是说他两运行的结果生成 HTML，HTML 是静态页面，而 JSP 是动态页面。  
+&emsp;JSP 全称 Java Server Page，是 Java 企业应用的一种动态技术。Java 和 JSP 是运行在服务器端的，也就是说他两运行的结果生成 HTML，HTML 是静态页面，而 JSP 是动态页面。  
 
 &emsp;何为 jQuery？  
 &emsp;jQuery 是一个轻量级的 JavaScript 库。jQuery 能够使用户的 HTML 页面 和 JS 内容分离，也就是说，jQuery 的使用，更有利于 HTML、CSS、JavaScript 三者的分离，使得前端代码得到更好的维护。
+
+![图](../../../public-repertory/img/other-share-7-6.png)
 
 &emsp;现在就相同功能进行 JSP 与 jQuery 代码比较：
 
