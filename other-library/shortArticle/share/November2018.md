@@ -312,7 +312,101 @@
 
 <br>
 
-&emsp;简单来说，就是 MV* 模式，将数据的操作步骤提升上去了。在 Vue、React、Angular 等 MV* 框架中，可以通过对数据的操作，完成对页面数据的渲染。
+&emsp;简单来说，就是 MV* 模式，将对数据的操作提升上去了。在 Vue、React、Angular 等 MV* 框架中，可以通过对数据的操作，从而完成对页面数据的渲染。这里我们挑选简单、快速、紧凑而强大的 Vue，与 jQuery 进行比较。
+
+> index.html - jQuery
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery 代码演示</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul id="list">
+      <li>第1条数据</li>
+      <li>第2条数据</li>
+    </ul>
+    <button id="add">添加数据</button>
+  </div>
+
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {  
+      var i = 2;
+      $('#add').click(function() { 
+        i++; 
+        //通过dom操作在最后一个li元素后手动添加一个标签
+        $("#list").children("li").last().append("<li>第" + i + "条数据</li>");
+      });  
+    }); 
+  </script>
+</body>
+
+</html>
+```
+
+> index.html - Vue
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue 代码演示</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <!--根据数组数据自动渲染页面-->
+      <li v-for="item in message">{{item}}</li>
+    </ul>
+    <button @click="add">添加数据</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        message: ["第1条数据", "第2条数据"],
+        i: 2
+      },
+      methods:{
+        //向数组添加一条数据即可
+        add:function(){
+          this.i++;
+          this.message.push("第" + this.i + "条数据");
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
+```
+
+![图](../../../public-repertory/img/other-share-8.gif)
+
+<br>
+
+&emsp;上面的例子，对着两者进行了简单的比较与区分。虽然只是一个简单的说明，但是 Vue 能解决的问题远比上面的要多的多，复杂的多。  
+&emsp;对 jQuery 与 Vue 进行比较，是推崇 Vue，建议全面废弃 jQuery 吗？并不是。  
+
+* Vue 适用的场景：复杂数据操作的后台页面，表单填写页面。
+* jQuery 适用的场景：比如说一些 HTML5 的动画页面，一些需要 JavaScript 来操作页面样式的页面。
+
+&emsp;正应了那句话：“没有最好的框架，只有更适合的应用”。我们应该根据项目的需求，对技术进行不同的选取。就好比在公众号的 H5 页面上，**jsliang** 就很喜欢用 jQuery 进行操作，因为它简单粗暴好操作，在动画效果的编写上也不错；而在使用 Echarts 进行报表演示的开发中，我更喜欢使用 Vue ，它能很简易地对后端传回的大量数据进行操作。
 
 <br>
 
