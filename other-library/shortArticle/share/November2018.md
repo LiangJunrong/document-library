@@ -276,16 +276,16 @@
       // ...请求地址、请求头及传参等
       success: function(res){
         data = res.data;
+
+        // 拼接字符串，并渲染页面
+        var html = '';
+        $.each(data, function(index, item) {
+          var html='<li>' + item.userName + '</li>';
+          html += html;
+        })
+        html = '<ul>' + html + '</ul>';
       }
     })
-
-    // 拼接字符串，并渲染页面
-    var html = '';
-    $.each(data, function(index, item) {
-      var html='<li>' + item.userName + '</li>';
-      html += html;
-    })
-    html = '<ul>' + html + '</ul>';
   })
 </script> 
 ```
