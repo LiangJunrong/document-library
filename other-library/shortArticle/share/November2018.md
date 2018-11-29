@@ -91,7 +91,7 @@
 &emsp;你提交了一个表单？OK，浏览器白屏等待许久，最后返回给你个 “用户名错误”；  
 &emsp;你电商网站有一千种商品？OK，那你写一千个页面吧……  
 
-&emsp;这时候的互联网，前后端开发是一体的，前端代码是后端代码的一部分：后端收到浏览器的请求 ---> 发送静态页面 ---> 发送到浏览器。
+&emsp;这时候的互联网，它的开发者统称为程序员。因为前后端开发是一体的，前端代码是后端代码的一部分：后端收到浏览器的请求 ---> 发送静态页面 ---> 发送到浏览器。
 
 <br>
 
@@ -116,13 +116,13 @@
 
 &emsp;以 PHP 框架的 Laravel 为例：
 
+![图](../../../public-repertory/img/other-share-3.png)
+
 1. 用户提交请求
 2. 根据路由不同请求对应的 Laravel 控制器
 3. 控制器与模型交互
 4. 控制器调用结果页面
 5. 在用户浏览器上渲染页面
-
-![图](../../../public-repertory/img/other-share-3.png)
 
 &emsp;代码片段：
 
@@ -153,7 +153,7 @@
 
 <br>
 
-&emsp;1995 年，网景推出了 JavaScript，形成了前端的雏形：HTML 为骨架，CSS 为外貌，JavaScript 为交互。  
+&emsp;1995 年，网景推出了 JavaScript，形成了前端的雏形：**HTML 为骨架，CSS 为外貌，JavaScript 为交互**。  
 &emsp;而到了 1998 年前后，Ajax（Asynchronous Javascript And XML：异步的 JavaScript 和 XML）得到了相对的应用，并且在之后逐渐被使用到各个页面上，从而促进了 Web 从 1.0 的静态网页，纯内容展示向 Web 2.0 模式迈进：  
 
 &emsp;**Web 2.0 时代：动态网页，富交互，前端数据处理**  
@@ -169,7 +169,7 @@
 ![图](../../../public-repertory/img/other-share-7.gif)
 
 &emsp;在 Web 2.0 的时代中，在 2006 年的时候，用于操作 DOM 的 jQuery 出现了，它快速地风靡了全球。大量的基于 jQuery 的插件构成了一个庞大的生态系统，从而稳固了 jQuery 作为 JS 库一哥的地位。  
-&emsp;jQuery 的影响是源远流长的。即时到了今天，还是会有用 jQuery 梭哈、jQuery + gulp 前端工程化的项目等……无它，唯方便而。
+&emsp;jQuery 的影响是源远流长的。即时到了今天，还是会有用 jQuery 一把梭、jQuery + gulp 的前端工程化的项目等……无它，唯方便而。
 
 <br>
 
@@ -188,7 +188,9 @@
 
 > ![图](../../../public-repertory/img/other-share-7-5.png)
 
-&emsp;如果说，Angular、React、Vue 等 MVVM 模式的出现，以及 Webpack 的前端工程化构建，加速了数据驱动前端工程化的发展。那么，Node 这个基于 V8 引擎的服务端 JavaScript 运行环境的诞生，可媲美 Ajax 对于前端的贡献。Node 是前端的第二次飞跃，它使 JS 在服务端语言中也有了一席之地。  
+&emsp;如果说，Angular、React、Vue 等 MVVM 模式的出现，以及 Webpack 的前端工程化构建，加速了数据驱动前端工程化的发展。那么，Node 这个基于 V8 引擎的服务端 JavaScript 运行环境的诞生，可媲美 Ajax 对于前端的贡献。  
+
+&emsp;Node 是前端的第二次飞跃，它使 JS 在服务端语言中也有了一席之地。  
 
 > 何为 MVVM 模式？
 > * Model：提供/保存数据。
@@ -196,7 +198,7 @@
 > * View-Model：简化的 Controller，唯一的作用就是为 View 提供处理好的数据，不含其它逻辑。
 > ![图](../../../public-repertory/img/other-share-4.png)
 
-&emsp;如今，后端负责数据，前端负责其余工作越发明显化。它们之间的通讯，只需要后端暴露 RESTFul 接口，前端通过 Ajax，以 HTTP 协议与后端通信即可：
+&emsp;如今，后端负责数据，前端负责其余工作越发明显化。它们之间的通讯，只需要后端暴露 RESTful 接口，前端通过 Ajax，以 HTTP 协议与后端通信即可：
 
 ![图](../../../public-repertory/img/other-share-2.png)
 
@@ -209,9 +211,9 @@
 * ......
 * 2018 年 iPhone Xs Max 发布。
 
-&emsp;虽然，一开始的手机应用，是 Native App 的天下。但是，随着 React Native、微信小程序这类技术的发展，以及网速等的不断提升，基于手机本地系统如 IOS、Android、WP，使用其原生程序进行编写的第三方应用程序，逐渐被 Web App 取代。
+&emsp;虽然，一开始的手机应用，是基于手机本地系统如 IOS、Android、WP，使用其原生程序进行编写的第三方应用程序 —— Native App 的天下。但是，随着 React Native、微信小程序等这类技术的发展，以及网速等的不断提升，Native App 逐渐被 Web App 所取代。
 
-&emsp;多元化的前端框架兴起了这门行业的工业时代，诸多科技百花争放、百家争鸣。
+&emsp;如今，多元化的前端框架使这门行业兴起了其独特的工业时代，诸多科技百花争放、百家争鸣。
 
 <br>
 
