@@ -145,8 +145,6 @@
 > ASP 的 ASPX，在 HTML 中嵌入 C# 代码。  
 > Java 的 JSP 直接将数据嵌入到网页中。
 
-
-
 <br>
 
 ## <a name="chapter-three-three" id="chapter-three-three">3.3 铁器时代</a>
@@ -181,12 +179,14 @@
 
 <br>
 
-&emsp;伴随着大数据时代的到来，而 jQuery 在大量的数据操作时，会对 DOM 进行大量的操作，从而导致页面的加载缓慢……这时，有些前端开发者逐渐觉得力不从心了。  
+&emsp;伴随着信息时代、大数据时代的到来，jQuery 在大量的数据操作中的弊端体现出来了，它在对 DOM 进行大量的操作中，会导致页面的加载缓慢等问题，这时，有些前端开发者逐渐觉得力不从心了……  
 
 * 2008 年，谷歌 V8 引擎发布，终结微软 IE 时代。
 * 2009 年 AngularJS 诞生、Node诞生。
 * 2011 年 React 诞生。
 * 2014 年 Vue.js 诞生。
+
+> ![图](../../../public-repertory/img/other-share-7-5.png)
 
 &emsp;如果说，Angular、React、Vue 等 MVVM 模式的出现，以及 Webpack 的前端工程化构建，加速了数据驱动前端工程化的发展。那么，Node 这个基于 V8 引擎的服务端 JavaScript 运行环境的诞生，可媲美 Ajax 对于前端的贡献。Node 是前端的第二次飞跃，它使 JS 在服务端语言中也有了一席之地。  
 
@@ -200,14 +200,18 @@
 
 ![图](../../../public-repertory/img/other-share-2.png)
 
-&emsp;在这个前端的工业时代中，Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架的魔爪。而这三大框架的 UI 框架来说，桌面端的 ElementUI、NW JS；移动端的RN、Weex 等。  
+&emsp;在这个前端的工业时代中，Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架的魔爪。而这三大框架的 UI 框架来说，也涌现了不少地技术，例如桌面端的 ElementUI、NW.js；移动端的React Native、Weex 等。  
 
 &emsp;以此同时，手机端的发展也是不可小觑的：
 
 * 2007 年第一代 iPhone 发布。
 * 2008 年第一台安卓手机发布。
+* ......
+* 2018 年 iPhone Xs Max 发布。
 
-&emsp;虽然，一开始的手机应用，是 Native App 的天下，但是随着 React Native、微信小程序的发布，以及网速的等不断提升，现在手机上 Web App 逐渐取代 Native App。
+&emsp;虽然，一开始的手机应用，是 Native App 的天下。但是，随着 React Native、微信小程序这类技术的发展，以及网速等的不断提升，基于手机本地系统如 IOS、Android、WP，使用其原生程序进行编写的第三方应用程序，逐渐被 Web App 取代。
+
+&emsp;多元化的前端框架兴起了这门行业的工业时代，诸多科技百花争放、百家争鸣。
 
 <br>
 
@@ -217,7 +221,8 @@
 
 <br>
 
-&emsp;没有最完美的技术，只有更完美的解决方案。
+&emsp;没有最好的框架，只有最合适的应用场景。  
+&emsp;在前端的开发工作开始之前，我们应该就不同的前端技术进行分析比较，从而更好、更流畅地进行编程开发。
 
 <br>
 
