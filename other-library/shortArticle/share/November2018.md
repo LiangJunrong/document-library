@@ -23,13 +23,7 @@
 | &emsp;[4.1 JSP 与 jQuery](#chapter-four-one) |
 | &emsp;[4.2 jQuery 与 Vue](#chapter-four-two) |
 | &emsp;[4.3 Vue 与 小程序](#chapter-four-three) |
-| &emsp;[4.4 Node 与 Java](#chapter-four-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 经验分享](#chapter-five) |
-| &emsp;[5.1 ThinkPHP + Bootstrap + MySQL](#chapter-five-one) |
-| &emsp;[5.2 Vue + Express + MongoDB](#chapter-five-two) |
-| &emsp;[5.3 jQuery + HTML5](#chapter-five-three) |
-| &emsp;[5.4 微信小程序](#chapter-five-four) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 思考总结](#chapter-six) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 思考总结](#chapter-five) |
 
 <br>
 
@@ -445,101 +439,9 @@
 
 <br>
 
-## <a name="chapter-four-four" id="chapter-four-four">4.4 Node 与 Java</a>
-
-> [返回目录](#catalog-chapter-four)
-
-<br>
-
-&emsp;
-
-<br>
-
-> **以下文字尚未整理完毕，敬请期待**  
-> **以下文字尚未整理完毕，敬请期待**  
-> **以下文字尚未整理完毕，敬请期待**
-
-1. Node？
-
-&emsp;2009 年，Node 诞生，它是服务器上的 JavaScript 运行环境。  
-&emsp;Node = JavaScript + 操作系统 API。  
-&emsp;JavaScript 成为服务端脚本语言，与 Python 和 Ruby 一样。  
-&emsp;JavaScript 成为唯一的浏览器和服务器都支持的语言。  
-&emsp;前端工程师可以编写后端程序了，大前端往全栈发展。
-
-10. 全栈技能？
-
-* 传统前端技能：HTML、JavaScript、CSS
-* 一门后端语言
-* 移动端开发：IOS、Android、H5
-* 其他技能：数据库、HTTP 协议。
-
-&emsp;————————————————————
-
-1. MVC 模式阶段
-
-2. MVVM 模式阶段
-
-&emsp;————————————————————
-
-1. jQuery Todolist 及其代码演示
-2. Vue Todolist 及其代码演示
-
-<br>
-
-# <a name="chapter-five" id="chapter-five">五 经验分享</a>
+# <a name="chapter-five" id="chapter-five">五 思考总结</a>
 
 > [返回目录](#catalog-chapter-five)
-
-<br>
-
-&emsp;学习扩宽视野，实战提升经验。
-
-<br>
-
-## <a name="chapter-five-one" id="chapter-five-one">5.1 ThinkPHP + Bootstrap + MySQL</a>
-
-> [返回目录](#catalog-chapter-five)
-
-<br>
-
-&emsp;
-
-<br>
-
-## <a name="chapter-five-two" id="chapter-five-two">5.2 Vue + Express + MongoDB</a>
-
-> [返回目录](#catalog-chapter-five)
-
-<br>
-
-&emsp;
-
-<br>
-
-## <a name="chapter-five-three" id="chapter-five-three">5.3 jQuery + HTML5</a>
-
-> [返回目录](#catalog-chapter-five)
-
-<br>
-
-&emsp;
-
-<br>
-
-## <a name="chapter-five-four" id="chapter-five-four">5.4 微信小程序</a>
-
-> [返回目录](#catalog-chapter-five)
-
-<br>
-
-&emsp;
-
-<br>
-
-# <a name="chapter-six" id="chapter-six">六 思考总结</a>
-
-> [返回目录](#catalog-chapter-six)
 
 <br>
 
