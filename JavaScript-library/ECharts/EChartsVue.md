@@ -249,7 +249,63 @@ export default {
 
 <br>
 
-&emsp;考虑到项目没有 UI 设计稿。那么，就需要引用一款 Vue 的 UI 框架了，偷懒用 ElementUI 吧。
+&emsp;考虑到项目没有 UI 设计稿。那么，就需要引用一款 Vue 的 UI 框架了，偷懒用 ElementUI 吧。  
+&emsp;然后，为了使项目尽可能小巧，**jsliang** 打算按需引入 ElementUI：
+
+1. 安装 ElementUI：`npm i element-ui -S`
+2. 安装 babel-plugin-component：`npm i babel-plugin-component -D`
+3. 修改 .babelrc：
+
+> .babelrc
+
+```
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+      }
+    }],
+    "stage-2"
+  ],
+  "plugins": [
+    "transform-vue-jsx", 
+    "transform-runtime",
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
+```
+
+4. 按需引入 `Row` 与 `Col`：
+
+> main.js
+
+```
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+
+Vue.config.productionTip = false
+
+import {Row, Col} from 'element-ui';
+Vue.use(Row).use(Col);
+
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
+})
+```
+
+&emsp;这样，就可以在项目中使用这两个组件了。
 
 <br>
 
