@@ -6,10 +6,9 @@ ECharts + Vue 折腾记
 
 <br>
 
-&emsp;现在的前端一般需要完成将大量的数据，实现可视化。现在是大数据和云计算的时代，所以数据可视化逐渐变成一种趋势。  
-&emsp;而 ECharts 和 d3.js 则是可视化的成熟框架。对于制作的图表可以说是满足你的创造力。  
-&emsp;两者相比，D3 它被很多其他的表格插件所使用。它允许绑定任意数据到DOM，然后将数据驱动转换应用到Document中。你可以使用它用一个数组创建基本的HTML表格，或是利用它的流体过度和交互，用相似的数据创建惊人的SVG条形图。  
-&emsp;而ECharts图表更加的适合应用，具备华丽的外衣，但很实用。
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更丰富文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/shortArticle/share/November2018.md)**
+
+&emsp;整合 Vue + ElementUI + ECharts，进行的图表开发。
 
 <br>
 
@@ -34,6 +33,9 @@ ECharts + Vue 折腾记
 
 <br>
 
+&emsp;现在的前端一般需要完成将大量的数据，实现可视化。  
+&emsp;现在是大数据和云计算的时代，所以数据可视化逐渐变成一种趋势。  
+&emsp;而 ECharts 对于制作的图表可以满足小伙伴们的创造力，它具备华丽的外衣，且实用。  
 &emsp;在这里，**jsliang** 将通过 ECharts + Vue 进行折腾。
 
 &emsp;参考文献：
