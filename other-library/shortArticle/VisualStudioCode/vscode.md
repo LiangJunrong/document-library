@@ -117,6 +117,7 @@ VSCode 常用操作和配置
 # 第二节 插件推荐
 
 * Prettier - Code formatter：格式化代码
+* Vetur - 管理好你的 Vue 代码
 
 <br>
 
