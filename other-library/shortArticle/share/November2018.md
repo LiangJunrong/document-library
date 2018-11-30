@@ -6,7 +6,7 @@
 
 <br>
 
-&emsp;Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更丰富文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/shortArticle/share/November2018.md)
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更丰富文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/shortArticle/share/November2018.md)**
 
 &emsp;**查阅网上诸多资料，并结合自己的实际开发经验，进行的一次前端技术分享。**  
 
@@ -485,6 +485,10 @@
 3. 前端将更加丰富。例如，PC、Mobile、IPad 等的体验更加丰富，不同的平台实现不同的功能。
 
 &emsp;所以，抓住机遇，不断折腾，创造更好的前端吧！
+
+<br>
+
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更丰富文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/shortArticle/share/November2018.md)**
 
 <br>
 
