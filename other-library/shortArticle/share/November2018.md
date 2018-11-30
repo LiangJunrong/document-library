@@ -30,6 +30,7 @@
 | &emsp;[4.2 jQuery 与 Vue](#chapter-four-two) |
 | &emsp;[4.3 Vue 与 小程序](#chapter-four-three) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 思考总结](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解疑释惑](#chapter-six) |
 
 <br>
 
@@ -52,6 +53,7 @@
 * [jquery 和 vue对比 | 博客园 - 绿茶/](https://www.cnblogs.com/MR-YY/p/6898464.html)
 * [浅析 Vue 和微信小程序的区别、比较 | 脚本之家 - 卖女孩的小火柴](https://www.jb51.net/article/144972.htm)
 * [怎样在 vue，angular，react 快速选择一个合适的框架 | CSDN - 猛码象](https://blog.csdn.net/weixin_41879988/article/details/81638474)
+* [vue.js适合开发大的网站吗？ | 百度贴吧 - 醉红尘](http://tieba.baidu.com/p/5832476235)
 * [前端工程师的未来在哪里？ | 微信公众号 - 阿里技术](https://baijiahao.baidu.com/s?id=1590342694937942541&wfr=spider&for=pc)
 
 &emsp;参与协助：
@@ -485,6 +487,24 @@
 3. 前端将更加丰富。例如，PC、Mobile、IPad 等的体验更加丰富，不同的平台实现不同的功能。
 
 &emsp;所以，抓住机遇，不断折腾，创造更好的前端吧！
+
+<br>
+
+# <a name="chapter-six" id="chapter-six">六 解疑释惑</a>
+
+> [返回目录](#catalog-chapter-six)
+
+<br>
+
+> quesiton 1
+
+* 问：为什么 Vue 不建议用于开发大型项目？
+
+* 答：
+
+&emsp;**首先**，这里讨论的 Vue，建议用于开发中小型页面，但是 Vue 是可以开发大型项目的。  
+&emsp;**然后**，Vue 本身是个轻量级框架，开发中小页面应用是挺好的，但是开发大型应用尤其是涉及大量表单交互的地方，React 和 Angular 就比较合适了。  
+&emsp;**最后**，大型项目的配置较多，而 React 相对于 Vue 来说更加灵活，所以在有对比的情况下，不推荐你使用 Vue 开发大型项目。
 
 <br>
 
