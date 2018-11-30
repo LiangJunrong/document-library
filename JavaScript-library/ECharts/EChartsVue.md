@@ -8,7 +8,9 @@ ECharts + Vue 折腾记
 
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/ECharts/EChartsVue.md)**
 
-&emsp;整合 Vue + ElementUI + ECharts，进行的图表开发。
+&emsp;官网就是躺坑的地儿！  
+&emsp;翻遍百度文，一把辛酸泪~  
+&emsp;整合网上的 Vue + ElementUI，Vue + ECharts，ECharts + 百度地图 API……的文章，带你走非一般的道路。
 
 <br>
 
@@ -24,6 +26,7 @@ ECharts + Vue 折腾记
 | &emsp;[3.1 Vue](#chapter-three-one) |
 | &emsp;[3.2 Echarts](#chapter-three-two) |
 | &emsp;[3.3 ElementUI](#chapter-three-three) |
+| &emsp;[3.4 百度地图](#chapter-three-four) |
 
 <br>
 
