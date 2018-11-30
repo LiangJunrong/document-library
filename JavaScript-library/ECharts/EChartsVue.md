@@ -28,6 +28,8 @@ ECharts + Vue 折腾记
 | &emsp;[3.3 ElementUI](#chapter-three-three) |
 | &emsp;[3.4 百度地图](#chapter-three-four) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 精细入微](#chapter-four) |
+| &emsp;[4.1 百度地图调整](#chapter-four-one) |
+| &emsp;[4.2 样式问题集](#chapter-four-two) |
 
 <br>
 
@@ -463,7 +465,7 @@ http://api.map.baidu.com/getscript?
 
 <hr>
 
-* **问**：如何去除百度地图左下角的信息？
+* **问**：如何去除百度地图左下角的信息（logo 和 文字）？
 
 &emsp;**答**：
 
@@ -481,7 +483,7 @@ http://api.map.baidu.com/getscript?
 
 <br>
 
-## <a name="chapter-four-two" id="chapter-four-two">4.2 样式问题</a>
+## <a name="chapter-four-two" id="chapter-four-two">4.2 样式问题集</a>
 
 > [返回目录](#catalog-chapter-three)
 
