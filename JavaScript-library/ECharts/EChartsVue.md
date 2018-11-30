@@ -8,7 +8,7 @@ ECharts + Vue 折腾记
 
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/ECharts/EChartsVue.md)**
 
-&emsp;官网就是躺坑的地儿！  
+&emsp;技术官网就是躺坑的地儿！  
 &emsp;翻遍百度文，一把辛酸泪~  
 &emsp;整合网上的 Vue + ElementUI，Vue + ECharts，ECharts + 百度地图 API……的文章，带你走非一般的道路。
 
@@ -36,7 +36,6 @@ ECharts + Vue 折腾记
 
 <br>
 
-&emsp;现在的前端一般需要完成将大量的数据，实现可视化。  
 &emsp;现在是大数据和云计算的时代，所以数据可视化逐渐变成一种趋势。  
 &emsp;而 ECharts 对于制作的图表可以满足小伙伴们的创造力，它具备华丽的外衣，且实用。  
 &emsp;在这里，**jsliang** 将通过 ECharts + Vue 进行折腾。
@@ -67,7 +66,7 @@ ECharts + Vue 折腾记
 
 <br>
 
-&emsp;Now，如果你 Vue 不是问题，那么，开始折腾~
+&emsp;Now, let's go~
 
 > 如果你觉得自己的 npm 下载速度过慢，请使用 cnpm：
 
@@ -318,6 +317,107 @@ new Vue({
 ```
 
 &emsp;这样，就可以在项目中使用这两个组件了。
+
+<br>
+
+## <a name="chapter-three-four" id="chapter-three-four">3.4 百度地图</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;引用百度地图很简单，但是结合 Vue + ECharts 来使用百度地图，很难。现在我们过一遍如何使用：
+
+1. 引用百度地图：
+
+> 项目/index.html
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>ECharts 图表</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/getscript?v=3.0&ak=Xjmh9v5jGa******6ZVf0PU2ueSedr5F"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
+```
+
+> 注意：srcipt 引用的链接，需要你去百度地图 API 那里获得，因为 ak 对应的是个人的 API 地址。[百度地图 API](http://lbsyun.baidu.com/index.php?title=jspopular3.0)
+
+2. 在组件中使用它：
+
+```
+<template>
+  <div class="mer">
+    <p>全国商户数/全国用户数表</p>
+    <div id="mer-my-chart" class="mer-my-chart"></div>
+  </div>
+</template>
+
+<script>
+  // 引入基本模板
+  let echarts = require("echarts/lib/echarts");
+
+  export default {
+    data() {
+      return {
+        
+      }
+    },
+    mounted() {
+      this.drawMap();
+    },
+    methods: {
+      drawMap() {
+        
+        setTimeout(() => {
+          // 基于准备好的dom，初始化echarts实例
+          let myChart = echarts.init(document.getElementById('mer-my-chart'));
+          
+          // 创建地图实例  
+          var map = new BMap.Map("mer-my-chart");
+
+          // 绘制图表
+          myChart.setOption({
+            // 加载 bmap 组件
+            bmap: {
+              // 百度地图中心经纬度
+              center: [120.13066322374, 30.240018034923],
+              // 百度地图缩放
+              zoom: 5,
+              // 是否开启拖拽缩放，可以只设置 'scale' 或者 'move'
+              roam: true,
+              // 百度地图的自定义样式，见 http://developer.baidu.com/map/jsdevelop-11.htm
+              mapStyle: {}
+            },
+            series: [{
+              type: 'scatter',
+              // 使用百度地图坐标系
+              coordinateSystem: 'bmap',
+              // 数据格式跟在 geo 坐标系上一样，每一项都是 [经度，纬度，数值大小，其它维度...]
+              data: [ [120, 30, 1] ]
+            }]
+          });
+        }, 1000);
+      }
+    }
+  };
+</script>
+
+<style scoped>
+  .mer-my-chart {
+    width: 100%;
+    height: 500px;
+  }
+</style>
+```
+
+&emsp;这样，我们就可以在我们的 ECharts 畅通无阻地使用百度地图了。
 
 <br>
 
