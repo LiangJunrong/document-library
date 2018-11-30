@@ -57,6 +57,8 @@ Document Library - 文档库
 
 ![图](./public-repertory/img/seek-reward.png)
 
+![图](./public-repertory/img/seek-reward.jpg)
+
 <br>
 
 # 五 文档协议 
