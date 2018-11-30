@@ -210,7 +210,7 @@
 
 ![图](../../../public-repertory/img/other-share-9.png)
 
-&emsp;在这个前端的工业时代中，Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架的魔爪。而这三大框架的 UI 框架来说，也涌现了不少地技术，例如桌面端的 ElementUI、NW.js；移动端的React Native、Weex 等。  
+&emsp;在这个前端的工业时代中，Vue、React、Angular 三大框架并驾齐驱。其他框架虽然也有在陆续发布，但是脱离不了这三大框架的魔爪。而这三大框架的 UI 框架来说，也涌现了不少地技术，例如桌面端的 Electron、NW.js；移动端的React Native、Weex 等。  
 
 &emsp;以此同时，手机端的发展也是不可小觑的：
 
