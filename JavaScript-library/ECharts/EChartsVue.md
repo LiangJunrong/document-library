@@ -2,11 +2,11 @@ ECharts + Vue 折腾记
 ===
 
 > Create by **jsliang** on **2018-11-28 11:01:39**  
-> Recently revised in **2018-11-28 17:47:46**
+> Recently revised in **2018-11-30 09:03:18**
 
 <br>
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更丰富文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/shortArticle/share/November2018.md)**
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/ECharts/EChartsVue.md)**
 
 &emsp;整合 Vue + ElementUI + ECharts，进行的图表开发。
 
@@ -37,6 +37,9 @@ ECharts + Vue 折腾记
 &emsp;现在是大数据和云计算的时代，所以数据可视化逐渐变成一种趋势。  
 &emsp;而 ECharts 对于制作的图表可以满足小伙伴们的创造力，它具备华丽的外衣，且实用。  
 &emsp;在这里，**jsliang** 将通过 ECharts + Vue 进行折腾。
+
+> 如果小伙伴们对 Vue 还不太熟，这里可能没法带你飞喔~  
+> 前置条件：[Vue](https://github.com/LiangJunrong/document-library/tree/master/JavaScript-library/Vue)、Npm、Webpack
 
 &emsp;参考文献：
 
@@ -312,6 +315,10 @@ new Vue({
 ```
 
 &emsp;这样，就可以在项目中使用这两个组件了。
+
+<br>
+
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/ECharts/EChartsVue.md)**
 
 <br>
 
