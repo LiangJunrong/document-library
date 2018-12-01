@@ -242,6 +242,8 @@
 
 <br>
 
+&emsp;就技术而言，JSP 与 jQuery 是天南地北的。但是，**jsliang** 个人觉得可以就内嵌 HTML 的形式与前后端分离的形式，对 JSP 与 jQuery 进行简要比较。这里的比较，仅仅因为工作中同时有涉及 JSP 与 jQuery，如有不实，望海纳指正。
+
 &emsp;关于 JSP 与 jQuery 的学习记录：
 
 * [Java Server Pages](https://github.com/LiangJunrong/document-library/blob/master/other-library/JavaAbout/JSP/README.md)
@@ -254,8 +256,6 @@
 &emsp;jQuery 是一个轻量级的 JavaScript 库。jQuery 能够使用户的 HTML 页面 和 JS 内容分离，也就是说，jQuery 的使用，更有利于 HTML、CSS、JavaScript 三者的分离，使得前端代码得到更好的维护。
 
 ![图](../../../public-repertory/img/other-share-10.png)
-
-> 就技术而言，JSP 与 jQuery 是天南地北的。但是，**jsliang** 个人可以觉得就内嵌 HTML 的形式与前后端分离的形式，对 JSP 与 jQuery 进行简要比较。这里的比较，仅仅因为工作中同时有涉及 JSP 与 jQuery，如有虚言，望海纳指正。
 
 &emsp;现在就相同功能进行 JSP 与 jQuery 代码比较：
 
