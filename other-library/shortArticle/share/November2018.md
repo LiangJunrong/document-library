@@ -255,6 +255,8 @@
 
 ![图](../../../public-repertory/img/other-share-10.png)
 
+> 就技术而言，JSP 与 jQuery 是天南地北的。但是，**jsliang** 个人可以觉得就内嵌 HTML 的形式与前后端分离的形式，对 JSP 与 jQuery 进行简要比较。这里的比较，仅仅因为工作中同时有涉及 JSP 与 jQuery，如有虚言，望海纳指正。
+
 &emsp;现在就相同功能进行 JSP 与 jQuery 代码比较：
 
 > JSP 代码片段
