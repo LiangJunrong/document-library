@@ -17,6 +17,7 @@ Node 基础
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 基础学习](#chapter-three) |
 | &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 HTTP - 开始 Node 之旅](#chapter-three-one) |
 | &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 URL 模块](#chapter-three-two) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 工具整合](#chapter-four) |
 
 <br>
 
@@ -44,8 +45,10 @@ Node 基础
 > [返回目录](#catalog-chapter-three-one)
 
 <br>
- 
-> app.js
+
+&emsp;为防被砍，话不多说，上代码：
+
+> 01_http.js
 
 ```
 // 1. 引入 http 模块
@@ -71,10 +74,14 @@ http.createServer(function (req, res) {
 }).listen(3000); // 监听的端口
 ```
 
-&emsp;首先，将上面的代码复制粘贴到 `app.js` 中。  
-&emsp;然后，启动 VS Code 终端：`Ctrl + ~`。  
-&emsp;接着，输入 `node app.js` 并回车。  
-&emsp;最后，打开 `localhost:3000`：
+<br>
+
+&emsp;那么，上面代码，我们要怎么用呢？
+
+&emsp;**首先**，将上面的代码复制粘贴到 `01_http.js` 中。  
+&emsp;**然后**，启动 VS Code 终端：`Ctrl + ~`。  
+&emsp;**接着**，输入 `node 01_http.js` 并回车。  
+&emsp;**最后**，打开 `localhost:3000`：
 
 ![图](../../public-repertory/img/other-node-NodeBase-1.png)
 
@@ -96,7 +103,7 @@ var http = require("http");
  * res 浏览器返回响应信息 (response)
  */
 http.createServer(function (req, res) {
-  // ... 代码
+  // ... 步骤 3 代码
 }).listen(3000); // 监听的端口
 ```
 
@@ -128,6 +135,16 @@ res.end();
 <br>
 
 &emsp; 
+
+<br>
+
+# <a name="chapter-four" id="chapter-four">四 工具整合</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;
 
 <br>
 
