@@ -26,7 +26,8 @@ Node 基础
 
 <br>
 
-&emsp;对于传统的 PHP 来说，PHP 在编写后端代码的时候，需要 Apache 或者 Nginx 的 HTTP 服务器，来处理客户端的请求应用。不过对于 Node.js 来说，概念完全不一样了。使用 Node.js 时，我们不仅仅在实现一个应用，同时还实现了整个 HTTP 服务器。
+&emsp;对于传统的 PHP 来说，PHP 在编写后端代码的时候，需要 Apache 或者 Nginx 的 HTTP 服务器，来处理客户端的请求应用。  
+&emsp;不过，对于 Node.js 来说，概念完全不一样了。使用 Node.js 时，我们不仅仅在实现一个应用，同时还实现了整个 HTTP 服务器。
 
 1. [js 笔记十:vscode 代码提示 | CSDN](https://blog.csdn.net/zdhsoft/article/details/79305847)
 
