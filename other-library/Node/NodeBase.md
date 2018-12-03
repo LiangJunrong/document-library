@@ -2,7 +2,7 @@ Node 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:42:42**  
-> Recently revised in **2018-12-3 20:27:47**
+> Recently revised in **2018-12-3 21:15:24**
 
 <br>
 
@@ -27,10 +27,12 @@ Node 基础
 
 <br>
 
-&emsp;对于传统的 PHP 来说，PHP 在编写后端代码的时候，需要 Apache 或者 Nginx 的 HTTP 服务器，来处理客户端的请求应用。  
-&emsp;不过，对于 Node.js 来说，概念完全不一样了。使用 Node.js 时，我们不仅仅在实现一个应用，同时还实现了整个 HTTP 服务器。
+&emsp;本文主要目的：
 
-1. [js 笔记十:vscode 代码提示 | CSDN](https://blog.csdn.net/zdhsoft/article/details/79305847)
+1. 整合 Node 基础，加深 **jsliang** 对 Node 的学习了解并且方便复习。纯属个人参考，如需学习还请在 QQ 群：`798961601` 中咨询。  
+2. 整合 Node 工具，方便查找在 Node 开发中，有哪些工具比较有利于开发。
+
+&emsp;参考资料：
 
 <br>
 
@@ -46,7 +48,7 @@ Node 基础
 
 <br>
 
-&emsp;为防被砍，话不多说，上代码：
+&emsp;话不多说，先上代码：
 
 > 01_http.js
 
@@ -118,7 +120,7 @@ res.writeHead(200, {
 // 往页面打印值
 res.write('<h1 style="text-align:center">Hello NodeJS</h1>');
 
-// 结束响应
+// 结束响应 
 res.end();
 ```
 
