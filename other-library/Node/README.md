@@ -2,7 +2,7 @@ Node
 ===
 
 > Create by **jsliang** on **2018-11-22 08:21:23**  
-> Recently revised in **2018-11-22 08:21:31**
+> Recently revised in **2018-12-3 20:32:14**
 
 <br>
 
@@ -63,7 +63,7 @@ Node
 # 技术支撑
 
 * [IT 营](https://www.itying.com)
-* [IT 营 Node.js Koa2 视频教程 avi 版本（课件+源码+视频）](https://pan.baidu.com/s/1O2C6TolDzYpMnKIfQaaqog?errno=0&errmsg=Auth%20Login%20Sucess&&bduss=&ssnerror=0&traceid=#list/path=%2F&parentPath=%2F)
+* [IT 营 Node.js Koa2 视频教程 avi 版本（课件+源码+视频）](https://www.itying.com/goods-240.html)
 
 * [进击 Node.js 基础（一）](https://www.imooc.com/learn/348)
 * [进击 Node.js 基础（二）](https://www.imooc.com/learn/637)
