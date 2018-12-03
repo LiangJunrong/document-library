@@ -137,7 +137,7 @@ res.end();
 <br>
 
 &emsp;URL 模块是什么呢？  
-&emsp;我们在控制台（终端）开启 Node 模式，并打印出 url 来看一下：
+&emsp;我们在控制台（终端）开启 Node 模式，并打印出 `url` 来看一下：
 
 ![图](../../public-repertory/img/other-node-NodeBase-2.png)
 
@@ -145,6 +145,8 @@ res.end();
 &emsp;那么，这些模块都有什么用呢？
 
 &emsp;话不多说，先上代码：
+
+> 02_url.js
 
 ```
 // 1. 引入 url 模块
@@ -217,21 +219,21 @@ http.createServer(function (req, res) {
 
 &emsp;在上面的代码中：
 
-&emsp;**首先**，我们引入该章节的主角 url 模块：
+&emsp;**首先**，我们引入该章节的主角 `url` 模块：
 
 ```
 // 1. 引入 url 模块
 var url = require("url");
 ```
 
-&emsp;**然后**，我们引入 http 模块：
+&emsp;**然后**，我们引入 `http` 模块：
 
 ```
 // 2. 引入 http 模块
 var http = require("http");
 ```
 
-&emsp;**接着**，我们创建 http 模块，因为 url 的监听，需要 http 模块的开启：
+&emsp;**接着**，我们创建 `http` 模块，因为 `url` 的监听，需要 `http` 模块的开启：
 
 ```
 // 3. 用 http 模块创建服务
@@ -255,7 +257,7 @@ http.createServer(function (req, res) {
 }).listen(3000);
 ```
 
-&emsp;**最后**，我们访问我们给出的地址：`http://localhost:3000/?userName=jsliang&userAge=23`，并通过它查看 url 的 parse 模块怎么用，输出啥：
+&emsp;**最后**，我们访问我们给出的地址：`http://localhost:3000/?userName=jsliang&userAge=23`，并通过它查看 `url` 的 `parse` 模块怎么用，输出啥：
 
 ```
 // 4. 获取服务器请求
@@ -299,6 +301,120 @@ if(req.url != "/favicon.ico") {
 ```
 
 &emsp;从中，我们可以看出，我们可以通过 `query`，获取到我们想要的路径字段。
+
+<br>
+
+&emsp;当然，上面只讲解了 `parse` 的用法，我们可以将上面代码中 `if` 语句里面的代码全部清空。然后，输入下面的内容，去学习 `url` 模块更多的内容：
+
+1. url 模块所有内容：
+
+```
+console.log(url);
+
+/**
+ * Console：
+ { 
+   Url: [Function: Url],
+    parse: [Function: urlParse], // 获取地址信息
+    resolve: [Function: urlResolve], // 追加或者替换地址
+    resolveObject: [Function: urlResolveObject],
+    format: [Function: urlFormat], // 逆向 parse，根据地址信息获取原 url 信息
+    URL: [Function: URL],
+    URLSearchParams: [Function: URLSearchParams],
+    domainToASCII: [Function: domainToASCII],
+    domainToUnicode: [Function: domainToUnicode] 
+  }
+ */
+```
+
+<br>
+
+2. parse 如何使用
+
+```
+console.log(url.parse("http://www.baidu.com"));
+
+/**
+ * Console：
+  Url {
+    protocol: 'http:',
+    slashes: true,
+    auth: null,
+    host: 'www.baidu.com',
+    port: null,
+    hostname: 'www.baidu.com',
+    hash: null,
+    search: null,
+    query: null,
+    pathname: '/',
+    path: '/',
+    href: 'http://www.baidu.com/' 
+  }
+ */
+```
+
+<br>
+
+3. parse 带参数：
+
+```
+console.log(url.parse("http://www.baidu.com/new?name=zhangsan"));
+
+/**
+ * Console：
+  Url {
+    protocol: 'http:',
+    slashes: true,
+    auth: null,
+    host: 'www.baidu.com',
+    port: null,
+    hostname: 'www.baidu.com',
+    hash: null,
+    search: '?name=zhangsan',
+    query: 'name=zhangsan',
+    pathname: '/new',
+    path: '/new?name=zhangsan',
+    href: 'http://www.baidu.com/new?name=zhangsan' 
+  }
+ */
+```
+
+<br>
+
+4. `format` 怎么用：
+
+```
+console.log(url.format({
+  protocol: 'http:',
+  slashes: true,
+  auth: null,
+  host: 'www.baidu.com',
+  port: null,
+  hostname: 'www.baidu.com',
+  hash: null,
+  search: '?name=zhangsan',
+  query: 'name=zhangsan',
+  pathname: '/new',
+  path: '/new?name=zhangsan',
+  href: 'http://www.baidu.com/new?name=zhangsan' 
+}))
+
+// Console：
+// http://www.baidu.com/new?name=zhangsan
+```
+
+<br>
+
+5. `resolve` 怎么用：
+
+```
+console.log(url.resolve("http://www.baidu.com/jsliang", "梁峻荣"));
+
+// Console：
+// http://www.baidu.com/梁峻荣
+```
+
+&emsp;当然，`url` 在这里我们只讲解了个入门，更多的还请看官网 API：[url | Node.js v10.14.1 文档](http://nodejs.cn/api/url.html#url_class_url)
 
 <br>
 
