@@ -32,6 +32,9 @@ Node
 
 # 编程开发环境
 
+&emsp;Node 系列教程文章中，需要的前置知识为：**Node**、**npm**、**cnpm**、**Visio Studio Code**。  
+&emsp;下面是这些技术的详细介绍：
+
 1. Node.js
 
 &emsp;在开发学习中，我们需要安装配置 Node 的环境。  
