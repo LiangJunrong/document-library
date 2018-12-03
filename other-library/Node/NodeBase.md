@@ -18,6 +18,7 @@ Node 基础
 | &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 HTTP - 开始 Node 之旅](#chapter-three-one) |
 | &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 URL 模块](#chapter-three-two) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 工具整合](#chapter-four) |
+| &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 supervisor - 监听 Node 改动](#chapter-four-one) |
 
 <br>
 
@@ -424,7 +425,31 @@ console.log(url.resolve("http://www.baidu.com/jsliang", "梁峻荣"));
 
 <br>
 
-&emsp;
+&emsp;工欲善其事，必先利其器。  
+&emsp;掌控好了工具，可以方便你更快地进行开发。
+
+<br>
+
+# <a name="chapter-four-one" id="chapter-four-one">4.1 supervisor - 监听 Node 改动</a>
+
+> [返回目录](#catalog-chapter-four-one)
+
+<br>
+
+* [supervisor 官网](http://www.supervisord.org/)
+
+&emsp;正如其官网所说，它是一个进行控制系统：
+
+1. 安装插件：`npm i supervisor -g`
+2. 运行文件：`supervisor app.js`
+3. 查看运行：`localhost:3000`
+
+&emsp;平时，我们 `node app.js` 后，当我们修改了 `app.js` 的内容，就需要关闭 node 命令行再执行 `node app.js`。  
+&emsp;而我们使用 `supervisor` 后，我们修改了 `app.js` 中的内容，只要点击保存，即可生效保存后的代码，实现实时监听 node 代码的变动。  
+
+&emsp;关于这个工具，网上更详细的攻略有：
+
+* [详细版：用Supervisor守护你的Node.js进程 | 简书 - Mike的读书季](https://www.jianshu.com/p/6d84e5efe99d)
 
 <br>
 
