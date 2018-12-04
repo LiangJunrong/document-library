@@ -458,7 +458,7 @@ console.log(url.resolve("http://www.baidu.com/jsliang", "梁峻荣"));
 
 ![图](../../public-repertory/img/other-node-NodeBase-3.png)
 
-&emsp;这一章节中，我们新建了 `03_CommonJS.js`、`03_tool-add.js`、`node_modules/tools`、`node_modules/jsliang-tools/tools.js` 这 4 个文件/文件夹，其中 `package.json` 我们暂且不理会，稍后会讲解它如何自动生成。
+&emsp;这一章节中，我们新建了 `03_CommonJS.js`、`03_tool-add.js`、`node_modules/03_tool-multiply.js`、`node_modules/jsliang-module/tools.js` 这 4 个文件/文件夹，其中 `package.json` 我们暂且不理会，稍后会讲解它如何自动生成。
 
 &emsp;在 `03_tool-add.js` 中：
 
@@ -535,9 +535,114 @@ http.createServer(function (req, res) {
 
 <br>
 
+&emsp;**然后**，当我们模块文件过多的时候，应该需要有个存放这些模块的目录，Node 就很靠谱，它规范我们可以将这些文件都放在 `node_modules` 目录中（大家都放在这个目录上，就不会有其他乱七八糟的命名了）。  
+
+&emsp;所以，我们在 `node_modules` 中新建一个 `03_tool-multiply.js` 文件，其内容如下：
+
+> 03_tool-multiply.js
+
 ```
-npm init --yes
+var tools = {
+  multiply: (...numbers) => {
+    let sum = numbers[0];
+    for (let number in numbers) {
+      sum = sum * numbers[number];
+    }
+    return sum;
+  }
+}
+
+module.exports = tools;
 ```
+
+&emsp;在引用方面，我们只需要通过：
+```
+// 如果 Node 在当前目录没找到 tool.js 文件，则会去 node_modules 里面去查找
+var tools2 = require('03_tool-multiply');
+
+console.log(tools2.multiply(1, 2, 3, 4));
+```
+
+&emsp;这样，就可以成功导入 `03_tool-multiply.js` 文件了。
+
+<br>
+
+&emsp;最后，如果全部单个文件丢在 `node_modules` 上，它会显得杂乱无章，所以我们应该定义个自己的模块：`jsliang-module`，然后将我们的 `tools.js` 存放在该目录中：
+
+> jsliang-module/tools.js
+
+```
+var tools = {
+  add: (...numbers) => {
+    let sum = 0;
+    for (let number in numbers) {
+      sum += numbers[number];
+    }
+    return sum;
+  },
+  multiply: (...numbers) => {
+    let sum = numbers[0];
+    for (let number in numbers) {
+      sum = sum * numbers[number];
+    }
+    return sum;
+  }
+}
+
+module.exports = tools;
+```
+
+<br>
+
+&emsp;这样，我们就定义好了自己的工具库。  
+&emsp;但是，如果我们通过 `var tools3 = require('jsliang-module');` 去导入，会发现它报 `error` 了，所以，我们应该在 `jsliang-module` 目录下，通过下面命令行生成一个 `package.json`
+
+> PS E:\MyWeb\node_modules\jsliang-module> npm init --yes
+
+&emsp;这样，在 `jsliang-module` 中就有了 `package.json`。  
+&emsp;而我们在 `03_CommonJS.js` 就可以引用它了：
+
+> 03_CommonJS.js
+
+```
+var http = require("http");
+
+var tools1 = require('./03_tool-add');
+// 如果 Node 在当前目录没找到 tool.js 文件，则会去 node_modules 里面去查找
+var tools2 = require('03_tool-multiply');
+// 通过 package.json 来引用文件
+var tools3 = require('jsliang-module');
+
+http.createServer(function (req, res) {
+
+  res.writeHead(200, {
+    "Content-Type": "text/html;charset=UTF-8"
+  });
+
+  res.write('<h1 style="text-align:center">Hello NodeJS</h1>');
+  
+  console.log(tools1.add(1, 2, 3));
+  console.log(tools2.multiply(1, 2, 3, 4));
+  console.log(tools3.add(4, 5, 6));
+  /**
+   * Console：
+   * 6
+   * 24
+   * 15
+   * 6
+   * 24
+   * 15
+   * 这里要记得，它请求了两次，
+   * http://localhost:3000/ 为一次，
+   * http://localhost:3000/favicon.ico 为第二次
+   */
+  
+  res.end();
+
+}).listen(3000);
+```
+
+&emsp;这样，我们就通过三种方法，了解了各种 `exports` 和 `require` 的姿势以及 Node 模块化的概念啦~
 
 <br>
 
