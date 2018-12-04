@@ -452,6 +452,93 @@ console.log(url.resolve("http://www.baidu.com/jsliang", "梁峻荣"));
 
 <br>
 
+&emsp;现在，我们讲解下 Node 中的模块化及 exports/require 的使用。
+
+&emsp;首先，我们查看下目录：
+
+![图](../../public-repertory/img/other-node-NodeBase-3.png)
+
+&emsp;这一章节中，我们新建了 `03_CommonJS.js`、`03_tool-add.js`、`node_modules/tools`、`node_modules/jsliang-tools/tools.js` 这 4 个文件/文件夹，其中 `package.json` 我们暂且不理会，稍后会讲解它如何自动生成。
+
+&emsp;在 `03_tool-add.js` 中：
+
+> 03_tool-add.js
+
+```
+// 1. 假设我们文件其中有个工具模块
+var tools = {
+  add: (...numbers) => {
+    let sum = 0;
+    for (let number in numbers) {
+      sum += numbers[number];
+    }
+    return sum;
+  }
+}
+
+/**
+ * 2. 暴露模块
+ * exports.str = str;
+ * module.exports = str;
+ * 区别：
+ * module.exports 是真正的接口
+ * exports 是一个辅助工具
+ * 如果 module.exports 为空，那么所有的 exports 收集到的属性和方法，都赋值给了 module.exports
+ * 如果 module.exports 具有任何属性和方法，则 exports 会被忽略
+ */
+
+// exports 使用方法
+// var str = "jsliang is very good!";
+// exports.str = str; // { str: 'jsliang is very good!' }
+
+// module.exports 使用方法
+module.exports = tools;
+```
+
+<br>
+
+&emsp;第一步，我们定义了个工具库 `tools`。  
+&emsp;第二步，我们通过 `modules.exports` 将 `tools` 进行了导出。  
+&emsp;所以，我们在 `03_CommonJS.js` 可以通过 `require` 导入使用：
+
+```
+var http = require("http");
+
+var tools1 = require('./03_tool-add');
+
+http.createServer(function (req, res) {
+
+  res.writeHead(200, {
+    "Content-Type": "text/html;charset=UTF-8"
+  });
+
+  res.write('<h1 style="text-align:center">Hello NodeJS</h1>');
+  
+  console.log(tools1.add(1, 2, 3));
+  /**
+   * Console：
+   * 6
+   * 6
+   * 这里要记得，它请求了两次，
+   * http://localhost:3000/ 为一次，
+   * http://localhost:3000/favicon.ico 为第二次
+   */
+  
+  res.end();
+
+}).listen(3000);
+```
+
+<br>
+
+&emsp;这样，我们就完成了 `exports` 与 `require` 的初次使用。
+
+<br>
+
+```
+npm init --yes
+```
+
 <br>
 
 &emsp;参考文献：
