@@ -454,7 +454,7 @@ console.log(url.resolve("http://www.baidu.com/jsliang", "梁峻荣"));
 
 &emsp;现在，我们讲解下 Node 中的模块化及 exports/require 的使用。
 
-&emsp;首先，我们查看下目录：
+&emsp;**首先**，我们查看下目录：
 
 ![图](../../public-repertory/img/other-node-NodeBase-3.png)
 
@@ -567,7 +567,7 @@ console.log(tools2.multiply(1, 2, 3, 4));
 
 <br>
 
-&emsp;最后，如果全部单个文件丢在 `node_modules` 上，它会显得杂乱无章，所以我们应该定义个自己的模块：`jsliang-module`，然后将我们的 `tools.js` 存放在该目录中：
+&emsp;**最后**，如果全部单个文件丢在 `node_modules` 上，它会显得杂乱无章，所以我们应该定义个自己的模块：`jsliang-module`，然后将我们的 `tools.js` 存放在该目录中：
 
 > jsliang-module/tools.js
 
@@ -608,9 +608,17 @@ module.exports = tools;
 var http = require("http");
 
 var tools1 = require('./03_tool-add');
+
 // 如果 Node 在当前目录没找到 tool.js 文件，则会去 node_modules 里面去查找
 var tools2 = require('03_tool-multiply');
-// 通过 package.json 来引用文件
+
+/**
+ * 通过 package.json 来引用文件
+ * 1. 通过在 jsliang-module 中 npm init --yes 来生成 package.json 文件
+ * 2. package.json 文件中告诉了程序入口文件为 ："main": "tools.js",
+ * 3. Node 通过 require 查找 jsliang-module，发现它有个 package.json
+ * 4. Node 执行 tools.js 文件
+ */
 var tools3 = require('jsliang-module');
 
 http.createServer(function (req, res) {
