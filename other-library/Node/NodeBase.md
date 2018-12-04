@@ -419,6 +419,39 @@ console.log(url.resolve("http://www.baidu.com/jsliang", "梁峻荣"));
 
 <br>
 
+# <a name="chapter-three-three" id="chapter-three-three">3.3 CommonJS</a>
+
+> [返回目录](#catalog-chapter-three-three)
+
+<br>
+
+* 什么是 CommonJS？
+
+&emsp;CommonJS 就是为 JS 的表现来制定规范，因为 JS 没有模块系统、标准库较少、缺乏包管理工具，所以 CommonJS 应运而生，它希望 JS 可以在任何地方运行，而不只是在浏览器中，从而达到 Java、C#、PHP 这些后端语言具备开发大型应用的能力。
+
+<br>
+
+* CommonJS 的应用？
+
+1. 服务器端 JavaScript 应用程序。（Node.js）
+2. 命令行工具
+3. 桌面图形界面应用程序。
+
+<br>
+
+* CommonJS 与 Node.js 的关系？
+
+&emsp;CommonJS 就是模块化的标准，Node.js 就是 CommonJS（模块化）的实现。
+
+<br>
+
+&emsp;参考文献：
+
+* [CommonJS 规范 | 博客园 - Little Bird](https://www.cnblogs.com/littlebirdlbw/p/5670633.html)
+* [js模块化编程之彻底弄懂CommonJS和AMD/CMD！ | 博客园 - 方便以后复习](http://www.cnblogs.com/chenguangliang/p/5856701.html)
+
+<br>
+
 # <a name="chapter-four" id="chapter-four">四 工具整合</a>
 
 > [返回目录](#catalog-chapter-four)
