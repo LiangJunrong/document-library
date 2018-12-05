@@ -2,7 +2,7 @@ ECharts 打造在线个人简历
 ===
 
 > Create by **jsliang** on **2018-12-5 11:48:56**  
-> Recently revised in **2018-12-5 13:48:06**
+> Recently revised in **2018-12-5 14:27:06**
 
 <br>
 
@@ -10,7 +10,9 @@ ECharts 打造在线个人简历
 
 <br>
 
-&emsp;使用 Vue + ECharts + ElementUI 打造的个人简历。  
+&emsp;互联网冬天？裁员？跳槽？  
+&emsp;最近频繁听到身边朋友跳槽的声音，然后 “被” 要求改了几份简历，结果嘛，enmmmm......  
+&emsp;所以，咱使用 Vue + ECharts + ElementUI 来打造份个人简历，小伙伴们看看对面试有木有帮助吧~  
 &emsp;使用技术：
 
 * Vue
