@@ -2,12 +2,18 @@ npm 学习
 ===
 
 > Create by **jsliang** on **2018-10-28 11:14:22**  
-> Recently revised in **2018-12-5 08:40:24**
+> Recently revised in **2018-12-5 09:02:26**
 
 <br>
 
 &emsp;npm 是啥？  
-&emsp;npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm 下载各种各样的包。在我们安装 Node 的时候，它默认会顺带给你安装 npm。
+&emsp;npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm 下载各种各样的包。  
+&emsp;在我们安装 Node 的时候，它默认会顺带给你安装 npm。
+
+* `npm -v`：查看 npm 版本。
+* `npm list`：查看当前目录下都安装了哪些 npm 包。
+* `npm info 模块`：查看该模块的版本及内容。
+* `npm i 模块@版本号`：安装该模块的指定版本。
 
 &emsp;在平时使用 npm 安装包的过程中，你可能需要知道一些 npm 基本知识：
 
@@ -21,6 +27,17 @@ npm 学习
 
 * `cnpm i webpack-cli -D`
 * `npm install element-ui -S`
+
+&emsp;那么，这么多的 npm 包，我们通过什么管理呢？  
+&emsp;答案是 `package.json`。  
+&emsp;如果我们需要创建 `package.json`，那么我们只需要在指定的包管理目录（例如 `node_modules`）中通过以下命名进行生成：
+
+* `npm init`：按步骤创建 `package.json`。
+* `npm init --yes`：快速创建 `package.json`
+
+&emsp;当然，因为国内网络环境的原因，有些时候通过 npm 下载包，可能会很慢或者直接卡断，这时候就要安装淘宝的 npm 镜像：cnpm
+
+* `npm install -g cnpm --registry=https://registry.npm.taobao.org`
 
 <br>
 
