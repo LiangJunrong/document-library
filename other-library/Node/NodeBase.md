@@ -675,7 +675,7 @@ http.createServer(function (req, res) {
 
 ![图](../../public-repertory/img/other-node-NodeBase-4.png)
 
-&emsp;那么，假如我们需要使用第三方模块，应该去哪找呢？
+&emsp;那么，假如我们需要使用一些第三方模块，应该去哪找呢？
 
 1. [百度](https://www.baidu.com)。百度找到你需要安装的第三方模块。
 2. [npm 官网](https://www.npmjs.com/)。如果你已经知道包的名字，那么，直接在 npm 官网上搜索，相比会更快找到想要安装的包。
@@ -706,6 +706,10 @@ http.createServer(function (req, res) {
 
 * `npm init`：按步骤创建 `package.json`。
 * `npm init --yes`：快速创建 `package.json`
+
+&emsp;当然，因为国内网络环境的原因，有些时候通过 npm 下载包，可能会很慢或者直接卡断，这时候就要安装淘宝的 npm 镜像：cnpm
+
+* `npm install -g cnpm --registry=https://registry.npm.taobao.org`
 
 <br>
 
