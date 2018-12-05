@@ -486,7 +486,20 @@ new Vue({
 
 <br>
 
-&emsp;
+&emsp;该需要的东东，都准备好了。  
+&emsp;那么，我们的简历，长啥样呢？
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-5.png)
+
+&emsp;如图，这是 **jsliang** 下载下来的一个 ECharts 图。  
+&emsp;然后，怕小伙伴们难以理解，我用 PS 修改下吧：
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-6.png)
+
+&emsp;很好，总体环境一目了然了：简历分为 7 个部分。  
+&emsp;下面我们开始切图仔工作：
+
+
 
 <br>
 
