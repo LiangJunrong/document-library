@@ -35,9 +35,9 @@ ECharts 打造在线个人简历
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 整体搭建](#chapter-three) |
 | &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 基础配置](#chapter-three-one) |
-| &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 总体配置](#chapter-three-two) |
-| &emsp;<a name="catalog-chapter-three-three" id="catalog-chapter-three-three"></a>[3.3 安装 ECharts](#chapter-three-three) |
-| &emsp;<a name="catalog-chapter-three-four" id="catalog-chapter-three-four"></a>[3.4 安装 ElementUI](#chapter-three-four) |
+| &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 安装 ECharts](#chapter-three-two) |
+| &emsp;<a name="catalog-chapter-three-three" id="catalog-chapter-three-three"></a>[3.3 安装 ElementUI](#chapter-three-three) |
+| &emsp;<a name="catalog-chapter-three-four" id="catalog-chapter-three-four"></a>[3.4 总体配置](#chapter-three-four) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 分步实现](#chapter-four) |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 part1 - 基本信息](#chapter-four-one) |
 | &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 part2 - 好友分布](#chapter-four-two) |
@@ -151,7 +151,8 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-import '../static/css/reset.css' /**引入样式重置 */
+// 引入样式重置
+import '../static/css/reset.css'
 
 new Vue({
   el: '#app',
@@ -225,31 +226,258 @@ input::-moz-placeholder { color: #919191; font-size: .26rem } /* Mozilla Firefox
 input::-ms-input-placeholder { color: #919191; font-size: .26rem } /* Internet Explorer */
 ```
 
-&emsp;当然，怕小伙伴们嫌麻烦，直接上传了基础代码：[地址]()
+&emsp;当然，怕小伙伴们嫌麻烦，直接上传了基础代码：[ECharts 打造在线个人简历 基础配置](https://github.com/LiangJunrong/CurriculumVitae/tree/basic-configuration)
 
 <br>
 
-## <a name="chapter-three-two" id="chapter-three-two">3.2 总体配置</a>
+## <a name="chapter-three-two" id="chapter-three-two">3.2 安装 ECharts</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
 <br>
 
-&emsp;
+&emsp;**首先**，我们在项目中安装 ECharts 依赖：
+
+```
+npm i echarts -S
+```
+
+&emsp;**然后**，你可以选择按需引用还是全局引用：
+
+1. **全局引用**
+
+&emsp;ECharts 初始化应在钩子函数 `mounted()` 中，这个钩子函数是在 `el` 被新创建的 `vm.$el` 替换，并挂载到实例上去之后调用。
+
+> 项目/src/main.js
+
+```
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+
+// 引入echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+
+Vue.config.productionTip = false
+
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
+})
+```
 
 <br>
 
-## <a name="chapter-three-three" id="chapter-three-three">3.3 安装 ECharts</a>
+> 项目/src/components/HelloWorld.vue
+
+```
+<template>
+  <div>
+    <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'hello',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  mounted(){
+    this.drawLine();
+  },
+  methods: {
+    drawLine(){
+        // 基于准备好的dom，初始化echarts实例
+        let myChart = this.$echarts.init(document.getElementById('myChart'))
+        // 绘制图表
+        myChart.setOption({
+            title: { text: '在Vue中使用echarts' },
+            tooltip: {},
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        });
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
+```
+
+<br>
+
+2. **按需引用**
+
+&emsp;如果我们使用全局引用。将 ECharts 图表打包，会导致体积过大，所以项目中最好按需引入。  
+&emsp;在这里我们使用 `requrie` 引用而不是 `import`，因为 `import` 必须写全路径，比较麻烦。
+
+> 项目/src/components/HelloWorld.vue
+
+```
+<template>
+  <div>
+    <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+  </div>
+</template>
+
+<script>
+  // 引入基本模板
+  let echarts = require("echarts/lib/echarts");
+  // 引入柱状图组件
+  require("echarts/lib/chart/bar");
+  // 引入提示框和title组件
+  require("echarts/lib/component/tooltip");
+  require("echarts/lib/component/title");
+  export default {
+    name: 'hello',
+    data() {
+      return {
+        msg: 'Welcome to Your Vue.js App'
+      }
+    },
+    mounted() {
+      this.drawLine();
+    },
+    methods: {
+      drawLine() {
+        // 基于准备好的dom，初始化echarts实例
+        let myChart = echarts.init(document.getElementById('myChart'))
+        // 绘制图表
+        myChart.setOption({
+          title: { text: 'ECharts 入门示例' },
+          tooltip: {},
+          xAxis: {
+            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+          },
+          yAxis: {},
+          series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+          }]
+        });
+      }
+    }
+  };
+</script>
+
+<style scoped>
+
+</style>
+```
+
+<br>
+
+&emsp;**最后**，我们只需要 `npm run dev` 启动项目，打开 `localhost:8080` 即可。
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-3.png)
+
+<br>
+
+## <a name="chapter-three-three" id="chapter-three-three">3.3 安装 ElementUI</a>
 
 > [返回目录](#catalog-chapter-three-three)
 
 <br>
 
-&emsp;
+&emsp;考虑到 UI 就是我，我就是 UI。  
+&emsp;那么，尽情使用 UI 框架吧！这里偷懒用 ElementUI 咯。  
+&emsp;然后，为了使项目尽可能小巧，**jsliang** 打算按需引入 ElementUI：
+
+1. 安装 ElementUI：`npm i element-ui -S`
+2. 安装 babel-plugin-component：`npm i babel-plugin-component -D`
+3. 修改 .babelrc：
+
+> .babelrc
+
+```
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+      }
+    }],
+    "stage-2"
+  ],
+  "plugins": [
+    "transform-vue-jsx", 
+    "transform-runtime",
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
+```
+
+4. 按需引入 `Row` 与 `Col`：
+
+> main.js
+
+```
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+
+Vue.config.productionTip = false
+
+// 引入样式重置
+import '../static/css/reset.css'
+
+// 引入及使用 ElementUI
+import {Row, Col} from 'element-ui';
+Vue.use(Row).use(Col);
+
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
+})
+```
+
+&emsp;这样，就可以在项目中使用这两个组件了：
+
+> 项目/src/components/HelloWorld.vue 代码片段
+
+```
+<template>
+  <div>
+    <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+    <el-row>
+      <el-col :span="8">111</el-col>
+      <el-col :span="8">222</el-col>
+      <el-col :span="8">333</el-col>
+    </el-row>
+  </div>
+</template>
+```
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-4.png)
 
 <br>
 
-## <a name="chapter-three-four" id="chapter-three-four">3.4 安装 ElementUI</a>
+## <a name="chapter-three-four" id="chapter-three-four">3.4 总体配置</a>
 
 > [返回目录](#catalog-chapter-three-four)
 
