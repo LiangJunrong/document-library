@@ -19,6 +19,7 @@ Node 基础
 | &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 URL 模块](#chapter-three-two) |
 | &emsp;<a name="catalog-chapter-three-three" id="catalog-chapter-three-three"></a>[3.3 CommonJS](#chapter-three-three) |
 | &emsp;<a name="catalog-chapter-three-four" id="catalog-chapter-three-four"></a>[3.4 包与 npm](#chapter-three-four) |
+| &emsp;<a name="catalog-chapter-three-five" id="catalog-chapter-three-five"></a>[3.5 fs 文件管理](#chapter-three-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 工具整合](#chapter-four) |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 supervisor - 监听 Node 改动](#chapter-four-one) |
 
@@ -724,6 +725,93 @@ http.createServer(function (req, res) {
 &emsp;当然，因为国内网络环境的原因，有些时候通过 npm 下载包，可能会很慢或者直接卡断，这时候就要安装淘宝的 npm 镜像：cnpm
 
 * `npm install -g cnpm --registry=https://registry.npm.taobao.org`
+
+<br>
+
+# <a name="chapter-three-five" id="chapter-three-five">3.5 fs 文件管理</a>
+
+> [返回目录](#catalog-chapter-three-five)
+
+<br>
+
+&emsp;本章节我们讲解下 fs 文件管理：
+
+1. `fs.stat` 检测是文件还是目录
+2. `fs.mkdir` 创建目录
+3. `fs.writeFile` 创建写入文件
+4. `fs.appendFile` 追加文件
+5. `fs.readFile` 读取文件
+6. `fs.readdir` 读取目录
+7. `fs.rename` 重命名
+8. `fs.rmdir` 删除目录
+9. `fs.unlink` 删除文件
+
+<br>
+
+> 此章节文件目录：
+
+![图](../../public-repertory/img/other-node-NodeBase-5.png)
+
+&emsp;**首先**，我们通过 `fs.stat` 检查一个读取的是文件还是目录：
+
+> 05_fs.js
+
+```
+/**
+ * 1. fs.stat 检测是文件还是目录
+ * 2. fs.mkdir 创建目录
+ * 3. fs.writeFile 创建写入文件
+ * 4. fs.appendFile 追加文件
+ * 5. fs.readFile 读取文件
+ * 6. fs.readdir 读取目录
+ * 7. fs.rename 重命名
+ * 8. fs.rmdir 删除目录
+ * 9. fs.unlink 删除文件
+ */
+
+//  1. fs.stat
+let fs = require('fs');
+fs.stat('index.js', (error, stats) => {
+  if(error) {
+    console.log(error);
+    return false;
+  } else {
+    console.log(stats);
+    /**
+     * Console：
+     * Stats {
+     *  dev: 886875,
+     *  mode: 33206,
+     *  nlink: 1,
+     *  uid: 0,
+     *  gid: 0,
+     *  rdev: 0,
+     *  blksize: undefined,
+     *  ino: 844424931461390,
+     *  size: 284,
+     *  blocks: undefined,
+     *  atimeMs: 1542847157494,
+     *  mtimeMs: 1543887546361.2158,
+     *  ctimeMs: 1543887546361.2158,
+     *  birthtimeMs: 1542847157493.663,
+     *  atime: 2018-11-22T00:39:17.494Z,
+     *  mtime: 2018-12-04T01:39:06.361Z,
+     *  ctime: 2018-12-04T01:39:06.361Z,
+     *  birthtime: 2018-11-22T00:39:17.494Z }
+     */
+
+    console.log(`文件：${stats.isFile()}`); 
+    // Console：文件：true
+    
+    console.log(`目录：${stats.isDirectory()}`); 
+    // Console：目录：false
+
+    return false;
+  }
+})
+```
+
+&emsp;通过 `Console` 打印出来的信息，我们基础掌握了 `fs.stat` 的作用。
 
 <br>
 
