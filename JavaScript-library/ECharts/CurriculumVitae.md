@@ -486,18 +486,178 @@ new Vue({
 
 <br>
 
-&emsp;该需要的东东，都准备好了。  
-&emsp;那么，我们的简历，长啥样呢？
+&emsp;该需要的东东，都差不多准备好了。  
+&emsp;那么，我们的简历，长啥样呢？  
+&emsp;由于手里木有成品 “参考”、“借鉴”，所以去网上看看别人的 ECharts 都长啥样吧：
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-5.png)
 
-&emsp;如图，这是 **jsliang** 下载下来的一个 ECharts 图。  
-&emsp;然后，怕小伙伴们难以理解，我用 PS 修改下吧：
+&emsp;如图，**jsliang** 觉得这图的布局不错，所以下载下来了它的 png 版本和 psd 版本。  
+&emsp;然后，怕小伙伴们难以想象要怎么操作，我用 PS 修改下它的 psd 吧：
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-6.png)
 
-&emsp;很好，总体环境一目了然了：简历分为 7 个部分。  
+&emsp;很好，这个在线个人简历要怎么做就一目了然了：它分为 7 个部分。  
+
 &emsp;下面我们开始切图仔工作：
+
+&emsp;**首先**，创建 7 个 `components`，并删除 `HelloWorld.vue`：
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-7.png)
+
+&emsp;**jsliang**太懒，名字就懒得取了，从左到右，从上到下，依次命名 7 个框的名字为：`PartOne` 到 `PartSeven` 吧。
+
+> PartOne.vue 代码示例
+
+```
+<template>
+  <div>
+    <p>第一部分</p>
+  </div>
+</template>
+
+<script>
+  export default {
+    
+  }
+</script>
+
+<style scoped>
+
+</style>
+```
+
+> 说到这里，有的小伙伴可能觉得复制粘贴或者手写 Vue-Cli 代码特别烦，所以这里推荐使用 VS Code 的插件：`Vue VSCode Snippets`。通过在页面上敲：`vbase`，就可以快速生成 Vue-Cli 的基础代码了。
+
+&emsp;**然后**，我们在 `项目/src/router/index.js` 中定义这些文件，并在 `项目/src/App.vue` 引用它们：
+
+> 项目/src/router/index.js
+
+```
+import Vue from 'vue'
+import Router from 'vue-router'
+import PartOne from '@/components/PartOne'
+import PartTwo from '@/components/PartTwo'
+import PartThree from '@/components/PartThree'
+import PartFour from '@/components/PartFour'
+import PartFive from '@/components/PartFive'
+import PartSix from '@/components/PartSix'
+import PartSeven from '@/components/PartSeven'
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      components: {
+        PartOne: PartOne,
+        PartTwo: PartTwo,
+        PartThree: PartThree,
+        PartFour: PartFour,
+        PartFive: PartFive,
+        PartSix: PartSix,
+        PartSeven: PartSeven
+      }
+    },
+    {
+      path: '/PartOne',
+      name: 'PartOne',
+      component: PartOne
+    },
+    {
+      path: '/PartTwo',
+      name: 'PartTwo',
+      component: PartTwo
+    },
+    {
+      path: '/PartThree',
+      name: 'PartThree',
+      component: PartThree
+    },
+    {
+      path: '/PartFour',
+      name: 'PartFour',
+      component: PartFour
+    },
+    {
+      path: '/PartFive',
+      name: 'PartFive',
+      component: PartFive
+    },
+    {
+      path: '/PartSix',
+      name: 'PartSix',
+      component: PartSix
+    },
+    {
+      path: '/PartSeven',
+      name: 'PartSeven',
+      component: PartSeven
+    },
+  ]
+})
+```
+
+<br>
+
+> 项目/src/App.vue
+
+```
+<template>
+  <div id="app">
+    <!-- 第一行 -->
+    <el-row>
+      <el-col :span="8">
+        <router-view name="PartOne"/>
+      </el-col>
+      <el-col :span="8">
+        <router-view name="PartTwo"/>
+      </el-col>
+      <el-col :span="8">
+        <router-view name="PartThree"/>
+      </el-col>
+    </el-row>
+    <!-- 第二行 -->
+    <el-row>
+      <el-col :span="6">
+        <router-view name="PartFour"/>
+      </el-col>
+      <el-col :span="6">
+        <router-view name="PartFive"/>
+      </el-col>
+      <el-col :span="6">
+        <router-view name="PartSix"/>
+      </el-col>
+      <el-col :span="6">
+        <router-view name="PartSeven"/>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App'
+}
+</script>
+
+<style>
+
+</style>
+```
+
+<br>
+
+&emsp;此时，通过 `npm run dev`，我们可以在 `localhost:8080/#/` 中可以看到我们已成功进行了布局：
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-8.png)
+
+<br>
+
+&emsp;最后，我们通过 CSS 的渲染，成功实现我们的总体布局：
+
+&emsp;为了防止小伙伴们晕乎，保险起见 **jsliang** 将总体配置的代码提交到了分支：
 
 
 
