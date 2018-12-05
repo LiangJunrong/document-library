@@ -47,7 +47,11 @@ ECharts 打造在线个人简历
 
 <br>
 
-&emsp;
+&emsp;首先，我们通过控制台（终端）新建一个 Vue-Cli 项目：
+
+* `vue init webpack`
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-1.png)
 
 <br>
 
