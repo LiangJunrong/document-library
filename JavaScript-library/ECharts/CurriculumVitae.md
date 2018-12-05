@@ -2,7 +2,11 @@ ECharts 打造在线个人简历
 ===
 
 > Create by **jsliang** on **2018-12-5 11:48:56**  
-> Recently revised in **2018-12-5 13:12:30**
+> Recently revised in **2018-12-5 13:48:06**
+
+<br>
+
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/ECharts/CurriculumVitae.md)**
 
 <br>
 
@@ -29,9 +33,17 @@ ECharts 打造在线个人简历
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 整体搭建](#chapter-three) |
 | &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 基础配置](#chapter-three-one) |
-| &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 调整布局](#chapter-three-two) |
+| &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 总体配置](#chapter-three-two) |
+| &emsp;<a name="catalog-chapter-three-three" id="catalog-chapter-three-three"></a>[3.3 安装 ECharts](#chapter-three-three) |
+| &emsp;<a name="catalog-chapter-three-four" id="catalog-chapter-three-four"></a>[3.4 安装 ElementUI](#chapter-three-four) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 分步实现](#chapter-four) |
-| &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 part1 - 基础信息](#chapter-four-one) |
+| &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 part1 - 基本信息](#chapter-four-one) |
+| &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 part2 - 好友分布](#chapter-four-two) |
+| &emsp;<a name="catalog-chapter-four-three" id="catalog-chapter-four-three"></a>[4.3 part3 - 技能特长](#chapter-four-three) |
+| &emsp;<a name="catalog-chapter-four-four" id="catalog-chapter-four-four"></a>[4.4 part4 - 工作经验](#chapter-four-four) |
+| &emsp;<a name="catalog-chapter-four-five" id="catalog-chapter-four-five"></a>[4.5 part5 - 前端研发](#chapter-four-five) |
+| &emsp;<a name="catalog-chapter-four-six" id="catalog-chapter-four-six"></a>[4.6 part6 - 自学旅途](#chapter-four-six) |
+| &emsp;<a name="catalog-chapter-four-seven" id="catalog-chapter-four-seven"></a>[4.7 part7 - 求职意向](#chapter-four-seven) |
 
 <br>
 
@@ -45,9 +57,21 @@ ECharts 打造在线个人简历
 
 <br>
 
-# <a name="chapter-three" id="chapter-three">三 正文</a>
+# <a name="chapter-three" id="chapter-three">三 整体搭建</a>
 
 > [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;工欲善其事  
+&emsp;必先利其器  
+&emsp;在我们进行愉快折腾之前，我们需要将代码的环境搭建好，才能如鱼得水更好地开发。
+
+<br>
+
+## <a name="chapter-three-one" id="chapter-three-one">3.1 基础配置</a>
+
+> [返回目录](#catalog-chapter-three-one)
 
 <br>
 
@@ -197,6 +221,125 @@ input::-ms-input-placeholder { color: #919191; font-size: .26rem } /* Internet E
 ```
 
 &emsp;当然，怕小伙伴们嫌麻烦，直接上传了基础代码：[地址]()
+
+<br>
+
+## <a name="chapter-three-two" id="chapter-three-two">3.2 总体配置</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-three-three" id="chapter-three-three">3.3 安装 ECharts</a>
+
+> [返回目录](#catalog-chapter-three-three)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-three-four" id="chapter-three-four">3.4 安装 ElementUI</a>
+
+> [返回目录](#catalog-chapter-three-four)
+
+<br>
+
+&emsp;
+
+<br>
+
+# <a name="chapter-four" id="chapter-four">四 分步实现</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;**提问**：简历一般有什么内容？  
+&emsp;**回答**：
+
+1. 基本信息：姓名、工作年限、学历、格言、年龄、联系电话、电子邮箱、GitHub、掘金……
+2. 求职意向：职位、城市、薪资、入职时间……
+3. 工作经验：……
+4. 个人技能：熟悉 HTML5、CSS3、JavaScript……
+5. 教育背景/荣誉证书（没有出彩的话，**jsliang** 就建议忽略不写了）
+
+&emsp;所以，我们就着这几方面来编写我们的简历。
+
+<br>
+
+## <a name="chapter-four-one" id="chapter-four-one">4.1 part1 - 基本信息</a>
+
+> [返回目录](#catalog-chapter-four-one)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-four-two" id="chapter-four-two">4.2 part2 - 好友分布</a>
+
+> [返回目录](#catalog-chapter-four-two)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-four-three" id="chapter-four-three">4.3 part3 - 技能特长</a>
+
+> [返回目录](#catalog-chapter-four-three)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-four-four" id="chapter-four-four">4.4 part4 - 工作经验</a>
+
+> [返回目录](#catalog-chapter-four-four)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-four-five" id="chapter-four-five">4.5 part5 - 前端研发</a>
+
+> [返回目录](#catalog-chapter-four-five)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-four-six" id="chapter-four-six">4.6 part6 - 自学旅途</a>
+
+> [返回目录](#catalog-chapter-four-six)
+
+<br>
+
+&emsp;
+
+<br>
+
+## <a name="chapter-four-seven" id="chapter-four-seven">4.7 part7 - 求职意向</a>
+
+> [返回目录](#catalog-chapter-four-seven)
+
+<br>
+
+&emsp;
 
 <br>
 
