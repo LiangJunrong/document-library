@@ -605,31 +605,31 @@ export default new Router({
 
 ```
 <template>
-  <div id="app">
+  <div class="app" id="app">
     <!-- 第一行 -->
     <el-row>
-      <el-col :span="8">
+      <el-col :span="6">
         <router-view name="PartOne"/>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="12">
         <router-view name="PartTwo"/>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="6">
         <router-view name="PartThree"/>
       </el-col>
     </el-row>
     <!-- 第二行 -->
     <el-row>
-      <el-col :span="6">
+      <el-col :span="8">
         <router-view name="PartFour"/>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="8">
         <router-view name="PartFive"/>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="4">
         <router-view name="PartSix"/>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="4">
         <router-view name="PartSeven"/>
       </el-col>
     </el-row>
