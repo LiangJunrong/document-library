@@ -2,7 +2,29 @@ npm 学习
 ===
 
 > Create by **jsliang** on **2018-10-28 11:14:22**  
-> Recently revised in **2018-10-28 11:14:25**
+> Recently revised in **2018-12-5 08:40:24**
+
+<br>
+
+&emsp;npm 是啥？  
+&emsp;npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm 下载各种各样的包。在我们安装 Node 的时候，它默认会顺带给你安装 npm。
+
+&emsp;在平时使用 npm 安装包的过程中，你可能需要知道一些 npm 基本知识：
+
+* `i`/`install`：安装。使用 `install` 或者它的简写 `i`，都表明你想要下载这个包。
+* `uninstall`：卸载。如果你发现这个模块你已经不使用了，那么可以通过 `uninstall` 卸载它。
+* `g`：全局安装。表明这个包将安装到你的计算机中，你可以在计算机任何一个位置使用它。
+* `--save`/`-S`：通过该种方式安装的包的名称及版本号会出现在 `package.json` 中的 `dependencies` 中。`dependencies` 是需要发布在生成环境的。例如：`ElementUI` 是部署后还需要的，所以通过 `-S` 形式来安装。
+* `--save-dev`/`-D`：通过该种方式安装的包的名称及版本号会出现在 `package.json` 中的 `devDependencies` 中。`devDependencies` 只在开发环境使用。例如：`gulp` 只是用来压缩代码、打包的工具，程序运行时并不需要，所以通过 `-D` 形式来安装。
+
+&emsp;例子：
+
+* `cnpm i webpack-cli -D`
+* `npm install element-ui -S`
+
+<br>
+
+# 常用模块
 
 * 记录一些常用的 npm 包的简介
 
