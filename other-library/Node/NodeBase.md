@@ -677,10 +677,12 @@ http.createServer(function (req, res) {
 
 &emsp;那么，假如我们需要使用一些第三方模块，应该去哪找呢？
 
-1. [百度](https://www.baidu.com)。百度找到你需要安装的第三方模块。
-2. [npm 官网](https://www.npmjs.com/)。如果你已经知道包的名字，那么，直接在 npm 官网上搜索，相比会更快找到想要安装的包。
+1. [百度](https://www.baidu.com)。百度查找你需要安装的第三方模块的对应内容。
+2. [npm 官网](https://www.npmjs.com/)。如果你已经知道包的名字或者包的作用。那么，直接在 npm 官网上搜索，想必会更快找到想要安装的包。
 
-&emsp;那么，npm 是啥？npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm 下载各种各样的包。在我们安装 Node 的时候，它默认会顺带给你安装 npm。
+&emsp;那么，npm 是啥？  
+&emsp;npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm 下载各种各样的包。  
+&emsp;在我们安装 Node 的时候，它默认会顺带给你安装 npm。
 
 * `npm -v`：查看 npm 版本。
 * `npm list`：查看当前目录下都安装了哪些 npm 包。
