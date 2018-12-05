@@ -2,7 +2,7 @@ Node 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:42:42**  
-> Recently revised in **2018-12-5 08:08:41**
+> Recently revised in **2018-12-5 09:03:35**
 
 <br>
 
@@ -32,7 +32,7 @@ Node 基础
 
 &emsp;本文主要目的：
 
-1. 整合 Node 基础，加深 **jsliang** 对 Node 的学习了解并且方便复习。纯属个人参考，如需学习还请在 QQ 群：`798961601` 中咨询。  
+1. 整合 Node 基础，加深 **jsliang** 对 Node 的学习了解并且方便复习。纯属个人参考，如需疑问还请在 QQ 群：`798961601` 中咨询。  
 2. 整合 Node 工具，方便查找在 Node 开发中，有哪些工具比较有利于开发。
 
 &emsp;参考资料：
@@ -94,13 +94,13 @@ http.createServer(function (req, res) {
 
 &emsp;OK，搞定完事，现在我们一一讲解上面代码：
 
-1. 首先，我们需要先开启仙人模式，哦，不是，是 `HTTP` 模式。我们都知道，像 PHP 这类老牌子的后端语言，需要 Apache 或者 Nginx 开启 HTTP 服务。然而我们的 Node 不需要：
+1. **首先**，我们需要先开启仙人模式。哦，不是，是 HTTP 模式。我们都知道，像 PHP 这类老牌子的后端语言，需要 Apache 或者 Nginx 开启 HTTP 服务。然而我们的 Node 不需要：
 
 ```
 var http = require("http");
 ```
 
-2. 然后，开启 HTTP 服务，并设置开启的端口：
+2. **然后**，开启 HTTP 服务，并设置开启的端口：
 
 ```
 /**
@@ -112,7 +112,7 @@ http.createServer(function (req, res) {
 }).listen(3000); // 监听的端口
 ```
 
-3. 接着，我们设置 HTTP 头部，并往页面打印值，最后结束响应：
+3. **接着**，我们设置 HTTP 头部，并往页面打印值，最后结束响应：
 
 ```
 // 设置 HTTP 头部，状态码是 200，文件类型是 html，字符集是 utf8
@@ -127,7 +127,7 @@ res.write('<h1 style="text-align:center">Hello NodeJS</h1>');
 res.end();
 ```
 
-4. 最后，我们往浏览器输入 `http://localhost:3000/`，将访问到我们开启的 Node 服务，从而往页面渲染页面。
+4. **最后**，我们往浏览器输入 `http://localhost:3000/`，将访问到我们开启的 Node 服务，从而往页面渲染页面。
 
 &emsp;至此，小伙伴们是不是也开启了自己的 Node 之旅？
 
@@ -384,7 +384,7 @@ console.log(url.parse("http://www.baidu.com/new?name=zhangsan"));
 
 <br>
 
-4. `format` 怎么用：
+4. `format` 的使用：
 
 ```
 console.log(url.format({
@@ -408,7 +408,7 @@ console.log(url.format({
 
 <br>
 
-5. `resolve` 怎么用：
+5. `resolve` 的使用：
 
 ```
 console.log(url.resolve("http://www.baidu.com/jsliang", "梁峻荣"));
@@ -417,7 +417,7 @@ console.log(url.resolve("http://www.baidu.com/jsliang", "梁峻荣"));
 // http://www.baidu.com/梁峻荣
 ```
 
-&emsp;当然，`url` 在这里我们只讲解了个入门，更多的还请看官网 API：[url | Node.js v10.14.1 文档](http://nodejs.cn/api/url.html#url_class_url)
+&emsp;当然，`url` 这里我们只讲解了个入门，更多的还请看官网 API：[url | Node.js v10.14.1 文档](http://nodejs.cn/api/url.html#url_class_url)
 
 <br>
 
@@ -454,13 +454,18 @@ console.log(url.resolve("http://www.baidu.com/jsliang", "梁峻荣"));
 
 <br>
 
-&emsp;现在，我们讲解下 Node 中的模块化及 exports/require 的使用。
+&emsp;现在，我们通过三种使用方式，来讲解下 Node 中的模块化及 exports/require 的使用。
 
-&emsp;**首先**，我们查看下目录：
+&emsp;我们先查看下目录：
 
 ![图](../../public-repertory/img/other-node-NodeBase-3.png)
 
-&emsp;这一章节中，我们新建了 `03_CommonJS.js`、`03_tool-add.js`、`node_modules/03_tool-multiply.js`、`node_modules/jsliang-module/tools.js` 这 4 个文件/文件夹，其中 `package.json` 我们暂且不理会，稍后会讲解它如何自动生成。
+<br>
+
+&emsp;**方法一**：
+
+&emsp;首先，我们新建 `03_CommonJS.js`、`03_tool-add.js`、`node_modules/03_tool-multiply.js`、`node_modules/jsliang-module/tools.js` 这 4 个文件/文件夹。  
+&emsp;其中 `package.json` 我们暂且不理会，稍后会讲解它如何自动生成。
 
 &emsp;在 `03_tool-add.js` 中：
 
@@ -499,6 +504,7 @@ module.exports = tools;
 
 <br>
 
+&emsp;那么，上面的代码有啥含义呢？  
 &emsp;第一步，我们定义了个工具库 `tools`。  
 &emsp;第二步，我们通过 `modules.exports` 将 `tools` 进行了导出。  
 &emsp;所以，我们在 `03_CommonJS.js` 可以通过 `require` 导入使用：
@@ -521,7 +527,7 @@ http.createServer(function (req, res) {
    * Console：
    * 6
    * 6
-   * 这里要记得，它请求了两次，
+   * 这里要记得 Node 运行过程中，它请求了两次，
    * http://localhost:3000/ 为一次，
    * http://localhost:3000/favicon.ico 为第二次
    */
@@ -537,7 +543,9 @@ http.createServer(function (req, res) {
 
 <br>
 
-&emsp;**然后**，当我们模块文件过多的时候，应该需要有个存放这些模块的目录，Node 就很靠谱，它规范我们可以将这些文件都放在 `node_modules` 目录中（大家都放在这个目录上，就不会有其他乱七八糟的命名了）。  
+&emsp;**方法二**：
+
+&emsp;当我们模块文件过多的时候，应该需要有个存放这些模块的目录，Node 就很靠谱，它规范我们可以将这些文件都放在 `node_modules` 目录中（大家都放在这个目录上，就不会有其他乱七八糟的命名了）。  
 
 &emsp;所以，我们在 `node_modules` 中新建一个 `03_tool-multiply.js` 文件，其内容如下：
 
@@ -569,7 +577,9 @@ console.log(tools2.multiply(1, 2, 3, 4));
 
 <br>
 
-&emsp;**最后**，如果全部单个文件丢在 `node_modules` 上，它会显得杂乱无章，所以我们应该定义个自己的模块：`jsliang-module`，然后将我们的 `tools.js` 存放在该目录中：
+&emsp;**方法三**：
+
+&emsp;如果全部单个文件丢在 `node_modules` 上，它会显得杂乱无章，所以我们应该定义个自己的模块：`jsliang-module`，然后将我们的 `tools.js` 存放在该目录中：
 
 > jsliang-module/tools.js
 
@@ -642,7 +652,7 @@ http.createServer(function (req, res) {
    * 6
    * 24
    * 15
-   * 这里要记得，它请求了两次，
+   * 这里要记得 Node 运行过程中，它请求了两次，
    * http://localhost:3000/ 为一次，
    * http://localhost:3000/favicon.ico 为第二次
    */
@@ -652,7 +662,9 @@ http.createServer(function (req, res) {
 }).listen(3000);
 ```
 
-&emsp;这样，我们就通过三种方法，了解了各种 `exports` 和 `require` 的姿势以及 Node 模块化的概念啦~
+<br>
+
+&emsp;到此，我们就通过三种方法，了解了各种 `exports` 和 `require` 的姿势以及 Node 模块化的概念啦~
 
 <br>
 
