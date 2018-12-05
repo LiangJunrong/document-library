@@ -2,7 +2,7 @@ ECharts 打造在线个人简历
 ===
 
 > Create by **jsliang** on **2018-12-5 11:48:56**  
-> Recently revised in **2018-12-5 15:34:20**
+> Recently revised in **2018-12-5 20:48:37**
 
 <br>
 
@@ -505,7 +505,7 @@ new Vue({
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-7.png)
 
-&emsp;**jsliang**太懒，名字就懒得取了，从左到右，从上到下，依次命名 7 个框的名字为：`PartOne` 到 `PartSeven` 吧。
+&emsp;**jsliang** 太懒，名字就懒得取了，从左到右，从上到下，依次命名 7 个框的名字为：`PartOne` 到 `PartSeven` 吧。
 
 > PartOne.vue 代码示例
 
@@ -657,9 +657,152 @@ export default {
 
 &emsp;最后，我们通过 CSS 的渲染，成功实现我们的总体布局：
 
+> 此刻的项目结构图：
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-9.png)
+
+> App.vue
+
+```
+<template>
+  <div class="app" id="app">
+    <div class="banner">
+      <img class="hidden-md-only hidden-lg-only hidden-xl-only" :src="bannerXSSM" alt="banner 图">
+      <img class="hidden-xs-only hidden-sm-only hidden-lg-only hidden-xl-only" :src="bannerMD" alt="banner 图">
+      <img class="hidden-xs-only hidden-sm-only hidden-md-only" :src="bannerLGXL" alt="banner 图">
+    </div>
+    <!-- 第一行 -->
+    <el-row>
+      <el-col :xs="24" :sm="24" :md="6" :lg="6" :xl="6" class="part">
+        <router-view name="PartOne"/>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="part">
+        <router-view name="PartTwo"/>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="6" :lg="6" :xl="6" class="part">
+        <router-view name="PartThree"/>
+      </el-col>
+    </el-row>
+    <!-- 第二行 -->
+    <el-row>
+      <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8" class="part">
+        <router-view name="PartFour"/>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8" class="part">
+        <router-view name="PartFive"/>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4" class="part">
+        <router-view name="PartSix"/>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4" class="part">
+        <router-view name="PartSeven"/>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      bannerXSSM: require("./assets/img/banner_640.png"),
+      bannerMD: require("./assets/img/banner_1000.png"),
+      bannerLGXL: require("./assets/img/banner.png"),
+    };
+  }
+};
+</script>
+
+<style>
+body {
+  background: #011128;
+  color: #fff;
+}
+.app {
+  width: 100%;
+}
+.part {
+  padding: 20px;
+}
+.banner img {
+  width: 100%;
+  height: 80px;
+}
+p {
+  text-align: center;
+}
+</style>
+```
+
+<br>
+
+> main.js
+
+```
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+
+Vue.config.productionTip = false
+
+// 引入样式重置
+import '../static/css/reset.css'
+
+// 引入 ElementUI 响应式断点
+import 'element-ui/lib/theme-chalk/display.css';
+
+// 引入及使用 ElementUI
+import {Row, Col} from 'element-ui';
+Vue.use(Row).use(Col);
+
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
+})
+```
+
+<br>
+
+&emsp;
+
+> PartOne.vue (其他雷同)
+
+```
+<template>
+  <div class="part-one">
+    <p>第一部分</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "partOne"
+};
+</script>
+
+<style scoped>
+.part-one {
+  width: 100%;
+  height: 500px;
+  border: 15px solid transparent;
+  border-image: url("~@/./assets/img/border_image.png") 30 30 stretch;
+  background: #18202d;
+}
+</style>
+```
+
+<br>
+
+I&emsp;这样，我们就成功完成了高尚的切图仔工作咯：
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-10.png)
+
 &emsp;为了防止小伙伴们晕乎，保险起见 **jsliang** 将总体配置的代码提交到了分支：
 
-
+&emsp;[ECharts 打造在线个人简历分支 - 完整配置](https://github.com/LiangJunrong/CurriculumVitae/tree/overall-configuration)
 
 <br>
 
