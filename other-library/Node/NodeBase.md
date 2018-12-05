@@ -700,6 +700,13 @@ http.createServer(function (req, res) {
 * `cnpm i webpack-cli -D`
 * `npm install element-ui -S`
 
+&emsp;那么，这么多的 npm 包，我们通过什么管理呢？  
+&emsp;答案是 `package.json`。  
+&emsp;如果我们需要创建 `package.json`，那么我们只需要在指定的包管理目录（例如 `node_modules`）中通过以下命名进行生成：
+
+* `npm init`：按步骤创建 `package.json`。
+* `npm init --yes`：快速创建 `package.json`
+
 <br>
 
 # <a name="chapter-four" id="chapter-four">四 工具整合</a>
