@@ -815,6 +815,88 @@ fs.stat('index.js', (error, stats) => {
 
 <br>
 
+&emsp;**然后**，我们尝试通过 `fs.mkdir` 创建目录：
+
+> 05_fs.js
+
+```
+/**
+ * 1. fs.stat 检测是文件还是目录
+ * 2. fs.mkdir 创建目录
+ * 3. fs.writeFile 创建写入文件
+ * 4. fs.appendFile 追加文件
+ * 5. fs.readFile 读取文件
+ * 6. fs.readdir 读取目录
+ * 7. fs.rename 重命名
+ * 8. fs.rmdir 删除目录
+ * 9. fs.unlink 删除文件
+ */
+
+//  2. fs.mkdir
+let fs = require('fs');
+
+/**
+ * 接收参数
+ * path - 将创建的目录路径
+ * mode - 目录权限（读写权限），默认 0777
+ * callback - 回调，传递异常参数 err
+ */
+fs.mkdir('css', (err) => {
+  if(err) {
+    console.log(err);
+    return false;
+  } else {
+    console.log("创建目录成功！");
+    // Console：创建目录成功！
+  }
+})
+```
+
+&emsp;通过 `node 05_fs.js`，我们发现目录中多了一个 `css` 文件夹。
+
+<br>
+
+&emsp;**那么**，有创建就有删除，创建的目录如何删除呢？这里讲解下 `fs.rmdir`：
+
+> 05_fs.js
+
+```
+/**
+ * 1. fs.stat 检测是文件还是目录
+ * 2. fs.mkdir 创建目录
+ * 3. fs.writeFile 创建写入文件
+ * 4. fs.appendFile 追加文件
+ * 5. fs.readFile 读取文件
+ * 6. fs.readdir 读取目录
+ * 7. fs.rename 重命名
+ * 8. fs.rmdir 删除目录
+ * 9. fs.unlink 删除文件
+ */
+
+//  8. fs.rmdir
+let fs = require('fs');
+
+/**
+ * 接收参数
+ * path - 将创建的目录路径
+ * mode - 目录权限（读写权限），默认 0777
+ * callback - 回调，传递异常参数 err
+ */
+fs.rmdir('css', (err) => {
+  if(err) {
+    console.log(err);
+    return false;
+  } else {
+    console.log("创建目录成功！");
+    // Console：创建目录成功！
+  }
+})
+```
+
+&emsp;通过 `node 05_fs.js`，我们发现目录中的 `css` 文件夹被删除了。
+
+<br>
+
 # <a name="chapter-four" id="chapter-four">四 工具整合</a>
 
 > [返回目录](#catalog-chapter-four)
