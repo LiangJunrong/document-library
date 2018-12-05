@@ -670,7 +670,27 @@ http.createServer(function (req, res) {
 
 <br>
 
-&emsp;
+&emsp;Node 中除了它自己提供的核心模块之外，还可以自定义模块，以及使用 **第三方模块**。  
+&emsp;Node 中第三方模块由包组成，可以通过包来对一组具有相互依赖关系的模块进行统一管理。
+
+![图](../../public-repertory/img/other-node-NodeBase-4.png)
+
+&emsp;那么，假如我们需要使用第三方模块，应该去哪找呢？
+
+1. [百度](https://www.baidu.com)。百度找到你需要安装的第三方模块。
+2. [npm 官网](https://www.npmjs.com/)。如果你已经知道包的名字，那么，直接在 npm 官网上搜索，相比会更快找到想要安装的包。
+
+&emsp;在平时使用上，你可能需要知道一些 npm 基本命令：
+
+* i/install：安装。使用 install 或者它的简写 i，都表明你想要下载这个包。
+* g：全局安装。表明这个包将安装到你的计算机中，你可以在计算机任何一个位置使用它。
+* --save/-S：通过该种方式安装的包的名称及版本号会出现在 `package.json` 中的 `dependencies` 中。`dependencies` 是需要发布在生成环境的。例如：`ElementUI` 是部署后还需要的，所以通过 `-S` 形式来安装。
+* --save-dev/-D：通过该种方式安装的包的名称及版本号会出现在 `package.json` 中的 `devDependencies` 中。`devDependencies` 只在开发环境使用。例如：`gulp` 只是用来压缩代码、打包的工具，程序运行时并不需要，所以通过 `-D` 形式来安装。
+
+&emsp;例子：
+
+* `cnpm i webpack-cli -D`
+* `npm install element-ui -S`
 
 <br>
 
