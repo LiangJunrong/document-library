@@ -162,6 +162,8 @@ new Vue({
 })
 ```
 
+<br>
+
 > reset.css
 
 ```
@@ -226,7 +228,8 @@ input::-moz-placeholder { color: #919191; font-size: .26rem } /* Mozilla Firefox
 input::-ms-input-placeholder { color: #919191; font-size: .26rem } /* Internet Explorer */
 ```
 
-&emsp;当然，怕小伙伴们嫌麻烦，直接上传了基础代码：[ECharts 打造在线个人简历 基础配置](https://github.com/LiangJunrong/CurriculumVitae/tree/basic-configuration)
+&emsp;当然，怕小伙伴们嫌麻烦，直接上传了基础代码：  
+&emsp;[ECharts 打造在线个人简历分支 - 基础配置](https://github.com/LiangJunrong/CurriculumVitae/tree/basic-configuration)
 
 <br>
 
@@ -242,7 +245,7 @@ input::-ms-input-placeholder { color: #919191; font-size: .26rem } /* Internet E
 npm i echarts -S
 ```
 
-&emsp;**然后**，你可以选择按需引用还是全局引用：
+&emsp;**然后**，你可以选择按需引用还是全局引用（个人建议使用按需引用）：
 
 1. **全局引用**
 
@@ -324,7 +327,7 @@ export default {
 2. **按需引用**
 
 &emsp;如果我们使用全局引用。将 ECharts 图表打包，会导致体积过大，所以项目中最好按需引入。  
-&emsp;在这里我们使用 `requrie` 引用而不是 `import`，因为 `import` 必须写全路径，比较麻烦。
+&emsp;在这里我们使用 `requrie` 引用而不是 `import`，是因为 `import` 必须写全路径，比较麻烦。
 
 > 项目/src/components/HelloWorld.vue
 
@@ -383,7 +386,7 @@ export default {
 
 <br>
 
-&emsp;**最后**，我们只需要 `npm run dev` 启动项目，打开 `localhost:8080` 即可。
+&emsp;**最后**，我们只需要 `npm run dev` 启动项目，打开 `localhost:8080` 即可：
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-3.png)
 
@@ -395,7 +398,7 @@ export default {
 
 <br>
 
-&emsp;考虑到 UI 就是我，我就是 UI。  
+&emsp;考虑到 UI 是我，开发还是我。  
 &emsp;那么，尽情使用 UI 框架吧！这里偷懒用 ElementUI 咯。  
 &emsp;然后，为了使项目尽可能小巧，**jsliang** 打算按需引入 ElementUI：
 
