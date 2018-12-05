@@ -69,8 +69,7 @@ ECharts 打造在线个人简历
 
 <br>
 
-&emsp;工欲善其事  
-&emsp;必先利其器  
+&emsp;工欲善其事，必先利其器。  
 &emsp;在我们进行愉快折腾之前，我们需要将代码的环境搭建好，才能如鱼得水更好地开发。
 
 <br>
@@ -81,14 +80,14 @@ ECharts 打造在线个人简历
 
 <br>
 
-&emsp;首先，我们通过控制台（终端）新建一个 `Vue-Cli` 项目：
+&emsp;首先，我们在指定目录下，通过控制台（终端）新建一个 `Vue-Cli` 项目：
 
 * `vue init webpack`
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-1.png)
 
 &emsp;然后，我们使用 `npm i` 安装 `Vue-Cli` 的依赖，生成 `node_modules` 文件夹。  
-&emsp;最后，我们引入 `CSS reset`，并清理红框内文件，之后项目变为如下所示：
+&emsp;最后，我们引入 `CSS reset`，并清理下红框内文件，之后项目变为如下所示：
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-2.png)
 
