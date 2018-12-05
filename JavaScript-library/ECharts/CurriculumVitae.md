@@ -2,7 +2,7 @@ ECharts 打造在线个人简历
 ===
 
 > Create by **jsliang** on **2018-12-5 11:48:56**  
-> Recently revised in **2018-12-5 20:48:37**
+> Recently revised in **2018-12-5 20:59:57**
 
 <br>
 
@@ -11,7 +11,7 @@ ECharts 打造在线个人简历
 <br>
 
 &emsp;互联网冬天？裁员？跳槽？  
-&emsp;最近频繁听到身边朋友跳槽的声音，然后帮忙改了几份简历，结果嘛，enmmm......  
+&emsp;最近频繁听到身边朋友跳槽的声音，然后帮几个还没毕业的小师弟修改了几份简历，结果嘛，enmmm......  
 &emsp;咱使用 Vue + ECharts + ElementUI 来打造份在线个人简历吧！  
 &emsp;涉及技术：
 
@@ -46,6 +46,7 @@ ECharts 打造在线个人简历
 | &emsp;<a name="catalog-chapter-four-five" id="catalog-chapter-four-five"></a>[4.5 part5 - 前端研发](#chapter-four-five) |
 | &emsp;<a name="catalog-chapter-four-six" id="catalog-chapter-four-six"></a>[4.6 part6 - 自学旅途](#chapter-four-six) |
 | &emsp;<a name="catalog-chapter-four-seven" id="catalog-chapter-four-seven"></a>[4.7 part7 - 求职意向](#chapter-four-seven) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 总结](#chapter-five) |
 
 <br>
 
@@ -58,8 +59,8 @@ ECharts 打造在线个人简历
 &emsp;在使用 Vue + ECharts 编写公司报表项目的时候，突如其来，想到可以写个在线简历。  
 &emsp;**于是，就去做了。**  
 &emsp;文章中的见解仅代表个人观点，不代表 “最优想法”，请文明评论、科学参考。  
-&emsp;如有更好建议，可加 **jsliang** 的文档库 QQ 群：`798961601`。  
-&emsp;谢谢~
+&emsp;如有更好建议，可加 **jsliang** 的文档库 QQ 群讨论：`798961601`。  
+&emsp;谢谢谅解~
 
 <br>
 
@@ -70,7 +71,7 @@ ECharts 打造在线个人简历
 <br>
 
 &emsp;工欲善其事，必先利其器。  
-&emsp;在我们进行愉快折腾之前，我们需要将代码的环境搭建好，才能如鱼得水更好地开发。
+&emsp;在我们进行愉快折腾之前，我们需要将代码的环境搭建好，才能如鱼得水，更好地开发。
 
 <br>
 
@@ -228,7 +229,8 @@ input::-moz-placeholder { color: #919191; font-size: .26rem } /* Mozilla Firefox
 input::-ms-input-placeholder { color: #919191; font-size: .26rem } /* Internet Explorer */
 ```
 
-&emsp;当然，怕小伙伴们嫌麻烦，直接上传了基础代码：  
+&emsp;当然，怕小伙伴们嫌麻烦，**jsliang** 直接上传了基础代码，需要的小伙伴直接下载即可： 
+
 &emsp;[ECharts 打造在线个人简历分支 - 基础配置](https://github.com/LiangJunrong/CurriculumVitae/tree/basic-configuration)
 
 <br>
@@ -238,6 +240,8 @@ input::-ms-input-placeholder { color: #919191; font-size: .26rem } /* Internet E
 > [返回目录](#catalog-chapter-three-two)
 
 <br>
+
+&emsp;既然说了用 ECharts 来写，那么，我们肯定要搞下 ECharts 的安装啦~
 
 &emsp;**首先**，我们在项目中安装 ECharts 依赖：
 
@@ -497,7 +501,7 @@ new Vue({
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-6.png)
 
-&emsp;很好，这个在线个人简历要怎么做就一目了然了：它分为 7 个部分。  
+&emsp;很好，这个在线个人简历要怎么做就一目了然了。  
 
 &emsp;下面我们开始切图仔工作：
 
@@ -505,7 +509,7 @@ new Vue({
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-7.png)
 
-&emsp;**jsliang** 太懒，名字就懒得取了，从左到右，从上到下，依次命名 7 个框的名字为：`PartOne` 到 `PartSeven` 吧。
+&emsp;**jsliang** 太懒，名字就懒得想了，从左到右，从上到下，依次命名 7 个框的名字为 `PartOne` 到 `PartSeven` 吧。
 
 > PartOne.vue 代码示例
 
@@ -529,7 +533,7 @@ new Vue({
 
 > 说到这里，有的小伙伴可能觉得复制粘贴或者手写 Vue-Cli 代码特别烦，所以这里推荐使用 VS Code 的插件：`Vue VSCode Snippets`。通过在页面上敲：`vbase`，就可以快速生成 Vue-Cli 的基础代码了。
 
-&emsp;**然后**，我们在 `项目/src/router/index.js` 中定义这些文件，并在 `项目/src/App.vue` 引用它们：
+&emsp;**然后**，我们在 `index.js` 中定义这些文件，并在 `App.vue` 引用它们：
 
 > 项目/src/router/index.js
 
@@ -608,28 +612,28 @@ export default new Router({
   <div class="app" id="app">
     <!-- 第一行 -->
     <el-row>
-      <el-col :span="6">
+      <el-col :xs="24" :sm="24" :md="6" :lg="6" :xl="6" class="part">
         <router-view name="PartOne"/>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="part">
         <router-view name="PartTwo"/>
       </el-col>
-      <el-col :span="6">
+      <el-col :xs="24" :sm="24" :md="6" :lg="6" :xl="6" class="part">
         <router-view name="PartThree"/>
       </el-col>
     </el-row>
     <!-- 第二行 -->
     <el-row>
-      <el-col :span="8">
+      <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8" class="part">
         <router-view name="PartFour"/>
       </el-col>
-      <el-col :span="8">
+      <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8" class="part">
         <router-view name="PartFive"/>
       </el-col>
-      <el-col :span="4">
+      <el-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4" class="part">
         <router-view name="PartSix"/>
       </el-col>
-      <el-col :span="4">
+      <el-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4" class="part">
         <router-view name="PartSeven"/>
       </el-col>
     </el-row>
@@ -655,7 +659,7 @@ export default {
 
 <br>
 
-&emsp;最后，我们通过 CSS 的渲染，成功实现我们的总体布局：
+&emsp;**最后**，我们通过 CSS 的渲染，成功实现我们的总体布局：
 
 > 此刻的项目结构图：
 
@@ -766,9 +770,7 @@ new Vue({
 
 <br>
 
-&emsp;
-
-> PartOne.vue (其他雷同)
+> PartOne.vue ( PartTwo 及其他 6 个文件雷同)
 
 ```
 <template>
@@ -796,11 +798,11 @@ export default {
 
 <br>
 
-I&emsp;这样，我们就成功完成了高尚的切图仔工作咯：
+&emsp;这样，我们就成功完成了高尚的切图仔工作，可以继续下一步咯：
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-10.png)
 
-&emsp;为了防止小伙伴们晕乎，保险起见 **jsliang** 将总体配置的代码提交到了分支：
+&emsp;为了防止小伙伴们晕乎，保险起见 **jsliang** 将总体配置的代码提交到了分支，需要的小伙伴直接下载即可：
 
 &emsp;[ECharts 打造在线个人简历分支 - 完整配置](https://github.com/LiangJunrong/CurriculumVitae/tree/overall-configuration)
 
@@ -816,12 +818,12 @@ I&emsp;这样，我们就成功完成了高尚的切图仔工作咯：
 &emsp;**回答**：
 
 1. 基本信息：姓名、工作年限、学历、格言、年龄、联系电话、电子邮箱、GitHub、掘金……
-2. 求职意向：职位、城市、薪资、入职时间……
+2. 求职意向：职位、城市、薪资、准备入职时间……
 3. 工作经验：……
 4. 个人技能：熟悉 HTML5、CSS3、JavaScript……
-5. 教育背景/荣誉证书（没有出彩的话，**jsliang** 就建议忽略不写了）
+5. 教育背景/荣誉证书（这两样没有很出彩的地方的话，**jsliang** 建议就忽略不写了）
 
-&emsp;所以，我们就着这几方面来编写我们的简历。
+&emsp;所以，我们就着这几方面来编写我们的简历吧~
 
 <br>
 
@@ -895,7 +897,17 @@ I&emsp;这样，我们就成功完成了高尚的切图仔工作咯：
 
 <br>
 
-# 四 打赏
+
+# <a name="chapter-five" id="chapter-five">五 总结</a>
+
+> [返回目录](#catalog-chapter-five)
+
+<br>
+
+&emsp;**不折腾的前端，和咸鱼有什么区别！**  
+&emsp;**在此祝小伙伴们找到更好的工作~**
+
+&emsp;**小伙伴们如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/ECharts/CurriculumVitae.md)**
   
 &emsp;撰文不易，如果文章对小伙伴有帮助，希望小伙伴们给勤劳敲代码、辛苦撰文的 **jsliang** 进行微信/支付宝打赏，你们的每一次打赏都是最好的鼓励，谢谢~
 
