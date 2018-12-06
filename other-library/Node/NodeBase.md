@@ -757,18 +757,6 @@ http.createServer(function (req, res) {
 > 05_fs.js
 
 ```
-/**
- * 1. fs.stat 检测是文件还是目录
- * 2. fs.mkdir 创建目录
- * 3. fs.writeFile 创建写入文件
- * 4. fs.appendFile 追加文件
- * 5. fs.readFile 读取文件
- * 6. fs.readdir 读取目录
- * 7. fs.rename 重命名
- * 8. fs.rmdir 删除目录
- * 9. fs.unlink 删除文件
- */
-
 //  1. fs.stat
 let fs = require('fs');
 fs.stat('index.js', (error, stats) => {
@@ -820,18 +808,6 @@ fs.stat('index.js', (error, stats) => {
 > 05_fs.js
 
 ```
-/**
- * 1. fs.stat 检测是文件还是目录
- * 2. fs.mkdir 创建目录
- * 3. fs.writeFile 创建写入文件
- * 4. fs.appendFile 追加文件
- * 5. fs.readFile 读取文件
- * 6. fs.readdir 读取目录
- * 7. fs.rename 重命名
- * 8. fs.rmdir 删除目录
- * 9. fs.unlink 删除文件
- */
-
 //  2. fs.mkdir
 let fs = require('fs');
 
@@ -861,18 +837,6 @@ fs.mkdir('css', (err) => {
 > 05_fs.js
 
 ```
-/**
- * 1. fs.stat 检测是文件还是目录
- * 2. fs.mkdir 创建目录
- * 3. fs.writeFile 创建写入文件
- * 4. fs.appendFile 追加文件
- * 5. fs.readFile 读取文件
- * 6. fs.readdir 读取目录
- * 7. fs.rename 重命名
- * 8. fs.rmdir 删除目录
- * 9. fs.unlink 删除文件
- */
-
 //  8. fs.rmdir
 let fs = require('fs');
 
@@ -894,6 +858,143 @@ fs.rmdir('css', (err) => {
 ```
 
 &emsp;通过 `node 05_fs.js`，我们发现目录中的 `css` 文件夹被删除了。
+
+<br>
+
+&emsp;接着，我们通过 `fs.writeFile` 来创建写入文件：
+
+> 05_fs.js
+
+```
+//  3. fs.writeFile
+let fs = require('fs');
+
+/**
+ * filename (String) 文件名称
+ * data (String | Buffer) 将要写入的内容，可以是字符串或者 buffer 数据。
+ * · encoding (String) 可选。默认 'utf-8'，当 data 是 buffer 时，该值应该为 ignored。
+ * · mode (Number) 文件读写权限，默认 438。
+ * · flag (String) 默认值 'w'。
+ * callback { Function } 回调，传递一个异常参数 err。
+ */
+fs.writeFile('index.js', 'Hello jsliang', (err) => {
+  if(err) {
+    console.log(err);
+    return false;
+  } else {
+    console.log('写入成功！');
+  }
+})
+```
+
+&emsp;值得注意的是，这样的写入，是清空原文件中的所有数据，然后添加 `Hello jsliang` 这句话。即：存在即覆盖，不存在即创建。  
+
+&emsp;有创建就有删除，感兴趣的可以使用 `fs.unlink` 进行文件的删除，再次不做过多讲解。
+
+<br>
+
+&emsp;**既然**，上面的是覆盖文件，那么有没有追加文件呢？有的，使用 `fs.appendFile` 吧：
+
+> 05_fs.js
+
+```
+//  4. fs.appendFile
+let fs = require('fs');
+
+fs.appendFile('index.js', '这段文本是要追加的内容', (err) => {
+  if(err) {
+    console.log(err);
+    return false;
+  } else {
+    console.log("追加成功");
+  }
+})
+```
+
+&emsp;这样，我们就成功往里面追加了一段话，从而使 `index.js` 变成了：
+
+> index.js
+
+```
+Hello jsliang这段文本是要追加的内容
+```
+
+<br>
+
+&emsp;**在上面**，我们已经做了：新增、修改、删除操作。那么小伙伴一定很熟悉下一步骤是做什么了：  
+
+* `fs.readFile` 读取文件
+* `fs.readdir` 读取目录
+
+> 05_fs.js
+
+```
+let fs = require('fs');
+
+// 5. fs.readFile
+fs.readFile('index.js', (err, data) => {
+  if(err) {
+    console.log(err);
+    return false;
+  } else {
+    console.log("读取文件成功！");
+    console.log(data);
+    // Console：
+    // 读取文件成功！
+    // <Buffer 48 65 6c 6c 6f 20 6a 73 6c 69 61 6e 67 e8 bf 99 e6 ae b5 e6 96 87 e6 9c ac e6 98 af e8 a6 81 e8 bf bd e5 8a a0 e7 9a 84 e5 86 85 e5 ae b9>
+  }
+})
+
+// 6. fs.readdir 读取目录
+fs.readdir('node_modules', (err, data) => {
+  if(err) {
+    console.log(err);
+    return false;
+  } else {
+    console.log("读取目录成功！");
+    console.log(data);
+    // Console：
+    // 读取目录成功！
+    // [ '03_tool-multiply.js', 'jsliang-module' ]
+  }
+})
+```
+
+&emsp;如上，我们成功做到了读取文件和读取目录。  
+
+&emsp;最后，我们再回顾一开始的目标：
+
+~~1. `fs.stat` 检测是文件还是目录~~  
+~~2. `fs.mkdir` 创建目录~~  
+~~3. `fs.writeFile` 创建写入文件~~  
+~~4. `fs.appendFile` 追加文件~~  
+~~5. `fs.readFile` 读取文件~~  
+~~6. `fs.readdir` 读取目录~~  
+7. `fs.rename` 重命名  
+~~8. `fs.rmdir` 删除目录~~  
+~~9. `fs.unlink` 删除文件~~
+
+&emsp;很好，我们就剩下重命名了：
+
+> 05_fs.js
+
+```
+let fs = require('fs');
+
+// 7. fs.rename 重命名
+fs.rename('index.js', 'jsliang.js', (err) => {
+  if(err) {
+    console.log(err);
+    return false;
+  } else {
+    console.log("重命名成功！");
+  }
+})
+```
+
+&emsp;OK，通通搞定，现在目录变成了：
+
+![图](../../public-repertory/img/other-node-NodeBase-6.png)
 
 <br>
 
