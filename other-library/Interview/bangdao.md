@@ -8,6 +8,8 @@
 
 &emsp;[邦道科技 - Boss 直聘](https://www.zhipin.com/job_detail/37dfdd538e3475ad1Xx_09m6Fls~.html?ka=comp_joblist_6)
 
+> 更多面试题请查看大纲 [面试小集](./README.md)
+
 * **from 金亮亮**
 
 1. 先说一下 `React` 和 `Vue` 的不同点。
