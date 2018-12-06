@@ -992,6 +992,24 @@ fs.rename('index.js', 'jsliang.js', (err) => {
 })
 ```
 
+&emsp;当然，如果 `fs.rename` 还有更劲爆的功能：剪切
+
+> 05_fs.js
+
+```
+let fs = require('fs');
+
+// 7. fs.rename 重命名
+fs.rename('jsliang.js', 'node_modules/jsliang.js', (err) => {
+  if(err) {
+    console.log(err);
+    return false;
+  } else {
+    console.log("剪切成功！");
+  }
+})
+```
+
 &emsp;OK，通通搞定，现在目录变成了：
 
 ![图](../../public-repertory/img/other-node-NodeBase-6.png)
