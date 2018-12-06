@@ -2,15 +2,15 @@
 ===
 
 > Create by **jsliang** on **2018-12-6 21:17:50**  
-> Recently revised in **2018-12-6 21:17:53**
+> Recently revised in **2018-12-6 21:45:02**
 
 <br>
 
 &emsp;这里收集了一些公司的前端面试题，有需要的小伙伴可以瞅瞅：
 
-| 公司名 |
+| 试题 |
 | --- |
-| [邦道科技](./bangdao.md) |
+| [阿里系公司第一轮电面题](./InterviewOne.md) |
 
 <br>
 
