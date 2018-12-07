@@ -11,7 +11,7 @@ ECharts 打造在线个人简历
 <br>
 
 &emsp;互联网冬天？裁员？跳槽？  
-&emsp;最近频繁听到身边朋友跳槽的声音，然后帮几个还没毕业的小师弟修改了几份简历，结果嘛，enmmm......  
+&emsp;最近频繁听身边朋友说公司裁员、员工跳槽的事情，然后帮几个还没毕业的小师弟修改了几份简历，结果嘛，enmmm......  
 &emsp;咱使用 Vue + ECharts + ElementUI 来打造份在线个人简历吧！  
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-18.png)
@@ -24,7 +24,7 @@ ECharts 打造在线个人简历
 * ElementUI
 * HTML/HTML5
 * CSS/CSS3
-* JS/ES6
+* JavaScript/ES6
 
 <br>
 
