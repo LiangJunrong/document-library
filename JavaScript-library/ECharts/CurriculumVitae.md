@@ -2,7 +2,7 @@ ECharts 打造在线个人简历
 ===
 
 > Create by **jsliang** on **2018-12-5 11:48:56**  
-> Recently revised in **2018-12-7 11:47:55**
+> Recently revised in **2018-12-7 15:48:05**
 
 <br>
 
@@ -14,7 +14,7 @@ ECharts 打造在线个人简历
 &emsp;最近频繁听身边朋友说公司裁员、员工跳槽的事情，然后帮几个还没毕业的小师弟修改了几份简历，结果嘛，enmmm......  
 &emsp;咱使用 Vue + ECharts + ElementUI 来打造份在线个人简历吧！  
 
-&emsp;最终成品：[点击查看](http://cv.jsliang.top/#/)
+&emsp;最终成品线上地址：[点击查看](http://cv.jsliang.top/#/)
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-18.png)
 
@@ -1608,6 +1608,10 @@ export default {
 &emsp;结果如下图所示：
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-17.png)
+
+&emsp;至此，所有代码编写完毕，偷懒的小伙伴可以去下面地址下载所有代码：
+
+* [ECharts 打造在线个人简历](https://github.com/LiangJunrong/CurriculumVitae)
 
 <br>
 
