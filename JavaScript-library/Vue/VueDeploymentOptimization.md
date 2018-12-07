@@ -6,11 +6,9 @@ Vue 部署优化
 
 <br>
 
-&emsp;参考文献：
-
-1. [vuejs项目性能优化总结 | 简书 - Evtion](https://www.jianshu.com/p/41075f1f5297)
-
 &emsp;在进行 Vue 项目部署时，发现它访问速度贼慢，于是做了下优化，下面是优化建议：
+
+<br>
 
 # 一 进行路由懒加载
 
@@ -161,6 +159,12 @@ productionSourceMap: false,
 * [TinyPNG | 图片压缩](https://tinypng.com/)
 
 &emsp;上面的网站就能很不错地压缩图片，从而减少图片的体积。
+
+<br>
+
+# 五 参考文献：
+
+1. [vuejs项目性能优化总结 | 简书 - Evtion](https://www.jianshu.com/p/41075f1f5297)
 
 <br>
 
