@@ -506,7 +506,7 @@ new Vue({
 
 &emsp;该需要的东东，都差不多准备好了。  
 &emsp;那么，我们的简历，长啥样呢？  
-&emsp;由于手里木有成品 “参考”、“借鉴”，所以去网上看看别人的 ECharts 都长啥样吧：
+&emsp;由于手里木有成品 “参考” 和 “借鉴”，所以去网上看看别人的 ECharts 都长啥样吧：
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-5.png)
 
@@ -546,6 +546,8 @@ new Vue({
 ```
 
 > 说到这里，有的小伙伴可能觉得复制粘贴或者手写 Vue-Cli 代码特别烦，所以这里推荐使用 VS Code 的插件：`Vue VSCode Snippets`。通过在页面上敲：`vbase`，就可以快速生成 Vue-Cli 的基础代码了。
+
+<br>
 
 &emsp;**然后**，我们在 `index.js` 中定义这些文件，并在 `App.vue` 引用它们：
 
@@ -849,6 +851,8 @@ export default {
 
 &emsp;话不多说，先上代码：
 
+> PartOne.vue
+
 ```
 <template>
   <div class="part-one">
@@ -917,6 +921,8 @@ p {
 
 &emsp;话不多说，先上代码：
 
+> PartTwo.vue
+
 ```
 <template>
   <div class="part-two" id="part-two"></div>
@@ -935,23 +941,32 @@ export default {
     return {};
   },
   mounted() {
-    this.drawTempMap();
+    this.drawECharts();
   },
   methods: {
-    drawTempMap() {
+    drawECharts() {
+
       // 基于准备好的dom，初始化echarts实例
       let myChart = echarts.init(document.getElementById("part-two"));
 
-      // 微信前端好友统计
-      // select: true 可以设置选定
-      let myFriendData = [
+      // 排行前五城市
+      let myFirendCity = [
+        { name: "广州", value: ["113.23", "23.16", "9"] },
+        { name: "深圳", value: ["114.07", "22.62", "12"] },
+        { name: "上海", value: ["121.48", "31.22", "10"] },
+        { name: "西安", value: ["108.95", "34.27", "4"] },
+        { name: "北京", value: ["116.46", "39.92", "12"] },
+      ];
+
+      // 好友分布省份
+      let myFriendProvince = [
         { name: "山东", value: 1 },
         { name: "四川", value: 1 },
         { name: "广东", value: 21 },
         { name: "广西", value: 1 },
         { name: "北京", value: 12 },
         { name: "甘肃", value: 1 },
-        { name: "上海", value: 5 },
+        { name: "上海", value: 10 },
         { name: "陕西", value: 4 },
         { name: "湖北", value: 1 },
         { name: "湖南", value: 1 },
@@ -963,40 +978,88 @@ export default {
         { name: "河南", value: 1 }
       ];
 
-      // 绘制图表
       myChart.setOption({
+        // 标题
         title: {
-          text: "前端微信好友分布",
+          text: "前端好友分布",
           textStyle: {
             color: "#fff"
           },
-          subtext: "jsliang 统计",
+          subtext: "微信统计",
           subtextStyle: {
             color: "#fff"
           },
           x: "center"
         },
-        // 移动显示条数
+        // 移动显示
         tooltip: {
-          trigger: "item"
+          trigger: "item",
+          // 鼠标移动过去显示
+          formatter: function(params) {
+            if (params.value[2] == undefined) {
+              if(!params.name) {
+                return "该地区暂无好友";
+              } else {
+                return params.name + " : " + params.value;
+              }
+            } else {
+              return params.name + " : " + params.value[2];
+            }
+          }
         },
-        // 数量颜色标记
+        // 左边注记
         visualMap: {
-          // 注记
-          // show: false,
-          x: "left",
-          y: "bottom",
-          splitList: [
-            { start: 20, end: 30 },
-            { start: 10, end: 20 },
-            { start: 0, end: 10 }
-          ],
-          color: ["#0bb9f3", "#59d3fc", "#8ce2ff"],
+          text: ["", "好友数"],
+          min: 0,
+          max: 30,
+          // 是否能通过手柄显示
+          calculable: true,
+          inRange: {
+            color: ["#e4e004", "#ff5506", "#ff0000"]
+          },
           textStyle: {
             color: "#fff"
-          },
+          }
         },
+        // geo
+        geo: {
+          map: "china"
+        },
+        // 数据
         series: [
+          // 排行前五城市
+          {
+            name: "排行前五",
+            type: "effectScatter",
+            coordinateSystem: "geo",
+            symbolSize: function(val) {
+              return val[2] * 2;
+            },
+            showEffectOn: "render",
+            rippleEffect: {
+              brushType: "stroke"
+            },
+            hoverAnimation: true,
+            label: {
+              normal: {
+                formatter: "{b}",
+                position: "right",
+                show: true,
+                color: "#fff"
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: "#ddb926",
+                shadowBlur: 10,
+                shadowColor: "#333"
+              }
+            },
+            // 类似于 z-index
+            zlevel: 1,
+            data: myFirendCity,
+          },
+          // 好友分布省份
           {
             name: "好友数",
             type: "map",
@@ -1006,6 +1069,7 @@ export default {
             label: {
               // 显示省份标签
               normal: {
+                formatter: myFirendCity,
                 show: false,
                 textStyle: {
                   color: "#fff"
@@ -1019,18 +1083,18 @@ export default {
             itemStyle: {
               normal: {
                 borderWidth: 0.5, // 区域边框宽度
-                borderColor: "deepskyblue", // 区域边框颜色
-                areaColor: "#fff" // 区域颜色
+                borderColor: "#fff", // 区域边框颜色
+                areaColor: "deepskyblue" // 区域颜色
               },
               // 对应的鼠标悬浮效果
               emphasis: {
                 borderWidth: 1,
                 borderColor: "#fff",
-                areaColor: "deepskyblue"
+                areaColor: "#00aeff"
               }
             },
             // 数据
-            data: myFriendData
+            data: myFriendProvince
           }
         ]
       });
@@ -1205,6 +1269,8 @@ export default {
 
 &emsp;有时候就是想偷懒，也想不起自己还有啥好吹水的了，于是贴个自己的前端文档库的成就吧：
 
+> PartFour.vue
+
 ```
 <template>
   <div class="part-four" id="part-four"></div>
@@ -1246,8 +1312,9 @@ export default {
         },
         // 横轴
         xAxis: {
+          show: false,
           type: "category",
-          data: ["Github 提交", "Github Star数", "掘金点赞量", "掘金阅读量"],
+          data: ["Github 提交：\n1141", "Github Star数：\n269", "掘金点赞量：\n1508", "掘金阅读量：\n234"],
           axisLine: {
             lineStyle: {
               color: "#fff"
@@ -1273,17 +1340,19 @@ export default {
             // 图类型
             type: "bar",
             // 数据
-            data: [1141, 269, 1508,234],
+            data: [1141, 269, 1508, 234],
             // 文本
             label: {
               show: true,
               position: "top",
               color: "#fff",
+              formatter: "{b}"
             },
             // 柱条样式
             itemStyle: {
               color: "deepskyblue"
-            }
+            },
+            zlevel: 1
           }
         ]
       });
@@ -1315,7 +1384,7 @@ export default {
 
 &emsp;简历一大重点，就是工作经验啦：
 
-> partFive.vue
+> PartFive.vue
 
 ```
 <template>
@@ -1370,7 +1439,9 @@ a:hover {
 
 <br>
 
-&emsp;除了工作经验，我们还需要 show 一 show 我们的编程技能都有什么：
+&emsp;除了工作经验，我们还需要 show 一下我们的编程技能都有什么：
+
+> PartSix.vue
 
 ```
 <template>
@@ -1421,7 +1492,9 @@ export default {};
 
 <br>
 
-&emsp;最后，当然要表明我们的求职意向，好让 HR 小姐姐知道我们想要什么啦：
+&emsp;最后，当然要表明我们的求职意向，好让 HR 小姐姐知道我们想要什么啦~
+
+> PartSeven.vue
 
 ```
 <template>
@@ -1489,7 +1562,7 @@ export default {};
 * “哇，Vue 这样写的吗？你懂不懂 Vue？”
 * “哇，……”
 
-&emsp;enm......一般都不会回复喷子，哈哈~
+&emsp;enm......所以我一般都不会回复喷子滴，哈哈~
 
 &emsp;**最后，在此祝小伙伴们找到更好的工作~**
 
