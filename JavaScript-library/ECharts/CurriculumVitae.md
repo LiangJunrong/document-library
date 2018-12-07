@@ -397,6 +397,15 @@ export default {
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-3.png)
 
+&emsp;当然，仅仅带进门，可能小伙伴们还可能会感觉懵逼，所以咱顺带讲讲 ECharts 如何上手：
+
+1. 照着上面案例敲一遍
+2. 过一遍它的上手文档：[5 分钟上手 ECharts](http://www.echartsjs.com/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts)
+3. 查看它的各种实例，并从自己要做的简单的图做起
+4. 在步骤 3 中，碰到不懂的属性值，记得随时查看文档：[文档 - 配置项手册](http://www.echartsjs.com/option.html#title)
+
+&emsp;如此，小伙伴们就可以更好上手 ECharts 啦~
+
 <br>
 
 ## <a name="chapter-three-three" id="chapter-three-three">3.3 安装 ElementUI</a>
