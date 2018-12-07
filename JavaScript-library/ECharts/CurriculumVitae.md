@@ -1332,6 +1332,10 @@ export default {
             lineStyle: {
               color: "#fff"
             }
+          },
+          axisLabel: {
+            // 横轴信息全部显示
+            interval: 0
           }
         },
         // 图形系列
@@ -1388,9 +1392,12 @@ export default {
 
 ```
 <template>
-  <div class="part-five">
+  <div :class="partFive">
     <h3 class="text-center text-top">工作经验</h3>
-    <p><a href="javascript:void(0)">广州**科技股份有限公司</a><span class="text-small"> | 2018/05 - 至今</span></p>
+    <p>
+      <a href="javascript:void(0)">广州**科技股份有限公司</a>
+      <span class="text-small">| 2018/05 - 至今</span>
+    </p>
     <p class="text-small">工作内容：日常操作 jQuery 编写活动页、微信小程序、Vue + ECharts 报表制作……</p>
     <p class="text-small">项目成就：</p>
     <p class="text-small">&emsp;1. 企业宝小程序。使用原生代码进行微信小程序的开发，代码已完成，尚在审核，尚未上线。</p>
@@ -1400,7 +1407,21 @@ export default {
 </template>
 
 <script>
-export default {};
+export default {
+  name: "partFive",
+  data() {
+    return {
+      partFive: "part-five",
+      curWidth: 0
+    };
+  },
+  beforeMount() {
+    this.curWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    if(this.curWidth < 1000) {
+      this.partFive = "part-five-responsive"
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -1417,11 +1438,17 @@ a:hover {
   border-image: url("~@/./assets/img/border_image.png") 30 30 stretch;
   background: #18202d;
 }
+.part-five-responsive {
+  width: 100%;
+  border: 40px solid transparent;
+  border-image: url("~@/./assets/img/border_image.png") 30 30 stretch;
+  background: #18202d;
+}
 .text-center {
   text-align: center;
 }
 .text-small {
-  font-size: .9em;
+  font-size: 0.9em;
   color: rgb(253, 239, 239);
 }
 </style>
@@ -1445,7 +1472,7 @@ a:hover {
 
 ```
 <template>
-  <div class="part-six">
+  <div :class="partSix">
     <h3 class="text-center">编程技能</h3>
     <p class="font-small"><span class="font-bold">前端：</span>HTML/HTML5、CSS/CSS3、JS/ES6、jQuery、Vue、微信小程序……</p>
     <p class="font-small"><span class="font-bold">后端：</span>Node、PHP</p>
@@ -1454,13 +1481,33 @@ a:hover {
 </template>
 
 <script>
-export default {};
+export default {
+  name: "partSix",
+  data() {
+    return {
+      partSix: "part-six",
+      curWidth: 0
+    };
+  },
+  beforeMount() {
+    this.curWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    if(this.curWidth < 1000) {
+      this.partSix = "part-six-responsive"
+    }
+  }
+};
 </script>
 
 <style scoped>
 .part-six {
   width: 100%;
   height: 310px;
+  border: 40px solid transparent;
+  border-image: url("~@/./assets/img/border_image.png") 30 30 stretch;
+  background: #18202d;
+}
+.part-six-responsive {
+  width: 100%;
   border: 40px solid transparent;
   border-image: url("~@/./assets/img/border_image.png") 30 30 stretch;
   background: #18202d;
@@ -1498,7 +1545,7 @@ export default {};
 
 ```
 <template>
-  <div class="part-seven">
+  <div :class="partSeven">
     <h3 class="text-center">求职意向</h3>
     <p class="text-small"><span class="font-bold">期望职位：</span>前端工程师</p>
     <p class="text-small"><span class="font-bold">工作技能：</span>Vue</p>
@@ -1509,7 +1556,21 @@ export default {};
 </template>
 
 <script>
-export default {};
+export default {
+  name: "partSeven",
+  data() {
+    return {
+      partSeven: "part-seven",
+      curWidth: 0
+    };
+  },
+  beforeMount() {
+    this.curWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    if(this.curWidth < 1000) {
+      this.partSeven = "part-sevev-responsive"
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -1519,6 +1580,12 @@ export default {};
   border: 40px solid transparent;
   border-image: url("~@/./assets/img/border_image.png") 30 30 stretch;
   background: #18202d;
+}
+.part-sevev-responsive {
+  width: 100%;
+  border: 40px solid transparent;
+  border-image: url("~@/./assets/img/border_image.png") 30 30 stretch;
+  background: #18202d; 
 }
 .text-center {
   text-align: center;
