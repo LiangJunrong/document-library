@@ -232,7 +232,8 @@ input::-moz-placeholder { color: #919191; font-size: .26rem } /* Mozilla Firefox
 input::-ms-input-placeholder { color: #919191; font-size: .26rem } /* Internet Explorer */
 ```
 
-&emsp;当然，怕小伙伴们嫌麻烦，**jsliang** 直接上传了基础代码，需要的小伙伴直接下载即可： 
+&emsp;当然，怕小伙伴们嫌麻烦，不想敲代码。  
+&emsp;所以 **jsliang** 直接上传了基础代码，需要的小伙伴直接下载即可： 
 
 &emsp;[ECharts 打造在线个人简历分支 - 基础配置](https://github.com/LiangJunrong/CurriculumVitae/tree/basic-configuration)
 
@@ -397,7 +398,8 @@ export default {
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-3.png)
 
-&emsp;当然，仅仅带进门，可能小伙伴们还可能会感觉懵逼，所以咱顺带讲讲 ECharts 如何上手：
+&emsp;当然，仅仅带进门，可能小伙伴们还可能会感觉懵逼：下一步我要怎么做？  
+&emsp;所以，**jsliang** 顺带讲讲 ECharts 如何上手：
 
 1. 照着上面案例敲一遍
 2. 过一遍它的上手文档：[5 分钟上手 ECharts](http://www.echartsjs.com/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts)
@@ -1475,11 +1477,19 @@ export default {};
 
 &emsp;**不折腾的前端，和咸鱼有什么区别！**  
 
-&emsp;最后看下我们的最终成品：
+&emsp;最后再看下我们的最终成品：
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-18.png)
 
-&emsp;OK，到这里，也是时候该结束这篇文章啦！
+&emsp;OK，到这里，也是时候该结束这篇文章啦！  
+&emsp;当然，**jsliang** 已经 **预** **感** **到** **了**：  
+
+&emsp;**你的好友喷子小哥已经上线！**
+* “哇，这样用 ECharts 的吗？还能不能更 low 点？！”
+* “哇，Vue 这样写的吗？你懂不懂 Vue？”
+* “哇，……”
+
+&emsp;enm......一般都不会回复，哈哈~
 
 &emsp;**最后，在此祝小伙伴们找到更好的工作~**
 
