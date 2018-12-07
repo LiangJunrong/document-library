@@ -2,7 +2,7 @@ ECharts 打造在线个人简历
 ===
 
 > Create by **jsliang** on **2018-12-5 11:48:56**  
-> Recently revised in **2018-12-5 20:59:57**
+> Recently revised in **2018-12-7 10:36:24**
 
 <br>
 
@@ -13,6 +13,9 @@ ECharts 打造在线个人简历
 &emsp;互联网冬天？裁员？跳槽？  
 &emsp;最近频繁听到身边朋友跳槽的声音，然后帮几个还没毕业的小师弟修改了几份简历，结果嘛，enmmm......  
 &emsp;咱使用 Vue + ECharts + ElementUI 来打造份在线个人简历吧！  
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-18.png)
+
 &emsp;涉及技术：
 
 * Vue
@@ -1356,11 +1359,46 @@ a:hover {
 
 <br>
 
-&emsp;
+&emsp;除了工作经验，我们还需要 show 一 show 我们的编程技能都有什么：
 
 ```
+<template>
+  <div class="part-six">
+    <h3 class="text-center">编程技能</h3>
+    <p class="font-small"><span class="font-bold">前端：</span>HTML/HTML5、CSS/CSS3、JS/ES6、jQuery、Vue、微信小程序……</p>
+    <p class="font-small"><span class="font-bold">后端：</span>Node、PHP</p>
+    <p class="font-small"><span class="font-bold">其他：</span>MongoDB、MySQL、Sqlserver</p>
+  </div>
+</template>
 
+<script>
+export default {};
+</script>
+
+<style scoped>
+.part-six {
+  width: 100%;
+  height: 310px;
+  border: 40px solid transparent;
+  border-image: url("~@/./assets/img/border_image.png") 30 30 stretch;
+  background: #18202d;
+}
+.text-center {
+  text-align: center;
+}
+.font-small {
+  font-size: .9em;
+}
+.font-bold {
+  font-weight: bold;
+  color: deepskyblue;
+}
+</style>
 ```
+
+<br>
+
+&emsp;成果如下图所示：
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-16.png)
 
@@ -1372,11 +1410,48 @@ a:hover {
 
 <br>
 
-&emsp;
+&emsp;最后，当然要表明我们的求职意向，好让 HR 小姐姐知道我们想要什么啦：
 
 ```
+<template>
+  <div class="part-seven">
+    <h3 class="text-center">求职意向</h3>
+    <p class="text-small"><span class="font-bold">期望职位：</span>前端工程师</p>
+    <p class="text-small"><span class="font-bold">工作技能：</span>Vue</p>
+    <p class="text-small"><span class="font-bold">目标城市：</span>广州、深圳、杭州、上海</p>
+    <p class="text-small"><span class="font-bold">期望薪资：</span>10K - 15K</p>
+    <p class="text-small"><span class="font-bold">入职时间：</span>随时入职</p>
+  </div>
+</template>
 
+<script>
+export default {};
+</script>
+
+<style scoped>
+.part-seven {
+  width: 100%;
+  height: 310px;
+  border: 40px solid transparent;
+  border-image: url("~@/./assets/img/border_image.png") 30 30 stretch;
+  background: #18202d;
+}
+.text-center {
+  text-align: center;
+}
+.text-small {
+  font-size: .9em;
+}
+.font-bold {
+  text-align: center;
+  color: deepskyblue;
+}
+</style>
 ```
+
+<br>
+
+&emsp;结果如下图所示：
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-17.png)
 
@@ -1390,11 +1465,18 @@ a:hover {
 <br>
 
 &emsp;**不折腾的前端，和咸鱼有什么区别！**  
-&emsp;**在此祝小伙伴们找到更好的工作~**
 
-&emsp;**小伙伴们如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/ECharts/CurriculumVitae.md)**
+&emsp;最后看下我们的最终成品：
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-18.png)
+
+&emsp;OK，到这里，也是时候该结束这篇文章啦！
+
+&emsp;**最后，在此祝小伙伴们找到更好的工作~**
+
+* **小伙伴们如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/ECharts/CurriculumVitae.md)**
   
-&emsp;撰文不易，如果文章对小伙伴有帮助，希望小伙伴们给勤劳敲代码、辛苦撰文的 **jsliang** 进行微信/支付宝打赏，你们的每一次打赏都是最好的鼓励，谢谢~
+* **撰文不易，如果文章对小伙伴有帮助，希望小伙伴们给勤劳敲代码、辛苦撰文的 jsliang 进行微信/支付宝打赏，你们的每一次打赏都是最好的鼓励，谢谢~**
 
 ![图](../../public-repertory/img/seek-reward.png)
 
