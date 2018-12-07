@@ -42,8 +42,8 @@ ECharts 打造在线个人简历
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 part1 - 基本信息](#chapter-four-one) |
 | &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 part2 - 好友分布](#chapter-four-two) |
 | &emsp;<a name="catalog-chapter-four-three" id="catalog-chapter-four-three"></a>[4.3 part3 - 技能特长](#chapter-four-three) |
-| &emsp;<a name="catalog-chapter-four-four" id="catalog-chapter-four-four"></a>[4.4 part4 - 工作经验](#chapter-four-four) |
-| &emsp;<a name="catalog-chapter-four-five" id="catalog-chapter-four-five"></a>[4.5 part5 - 前端研发](#chapter-four-five) |
+| &emsp;<a name="catalog-chapter-four-four" id="catalog-chapter-four-four"></a>[4.4 part4 - 文章成就](#chapter-four-four) |
+| &emsp;<a name="catalog-chapter-four-five" id="catalog-chapter-four-five"></a>[4.5 part5 - 工作经验](#chapter-four-five) |
 | &emsp;<a name="catalog-chapter-four-six" id="catalog-chapter-four-six"></a>[4.6 part6 - 自学旅途](#chapter-four-six) |
 | &emsp;<a name="catalog-chapter-four-seven" id="catalog-chapter-four-seven"></a>[4.7 part7 - 求职意向](#chapter-four-seven) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 总结](#chapter-five) |
@@ -1083,17 +1083,213 @@ let myFriendData = [
 
 <br>
 
-&emsp;
+&emsp;说到简历，还记得之前看过一份，印象特深，因为人家就是用 Word 中用图表展示的。所以，咱也试试：
+
+> PartThree.vue
+
+```
+<template>
+  <div class="part-three" id="part-three"></div>
+</template>
+
+<script>
+
+// 引入基本模板
+let echarts = require("echarts/lib/echarts");
+
+export default {
+  name: "partThree",
+  data() {
+    return {};
+  },
+  mounted() {
+    this.drawECharts();
+  },
+  methods: {
+    drawECharts() {
+      // 基于准备好的dom，初始化echarts实例
+      let myChart = echarts.init(document.getElementById("part-three"));
+
+      myChart.setOption({
+        // 标题
+        title: {
+          // 标题文本
+          text: "技能分布图",
+          // 标题样式
+          textStyle: {
+            color: "#fff"
+          },
+          // 标题位置
+          x: "center"
+        },
+        // 移动显示
+        tooltip: {
+          trigger: "item",
+          // 显示文字样式
+          formatter: "{a} <br/>{b} : {d}%"
+        },
+        // 注记
+        legend: {
+          x: "center",
+          y: "bottom",
+          textStyle: {
+            color: "#fff"
+          },
+          data: [ "HTML5", "CSS3", "JavaScript", "jQuery", "Vue", "Node", "微信小程序", "其他" ]
+        },
+        // 注记显示手柄
+        calculable: true,
+        // 图形系列
+        series: [
+          {
+            name: "技能分布",
+            type: "pie",
+            radius: [30, 110],
+            roseType: "area",
+            data: [
+              { value: 15, name: "HTML5" },
+              { value: 15, name: "CSS3" },
+              { value: 20, name: "JavaScript" },
+              { value: 20, name: "jQuery" },
+              { value: 20, name: "Vue" },
+              { value: 15, name: "Node" },
+              { value: 25, name: "微信小程序" },
+              { value: 15, name: "其他" }
+            ]
+          }
+        ],
+        // 颜色调整
+        color: ['#00bfff', '#00ffdd', '#207ffc', '#00aeff', "#00eeff", "#006eff", "#0099ff", "#0066ff"]
+      });
+    }
+  }
+};
+</script>
+
+<style scoped>
+.part-three {
+  width: 100%;
+  height: 500px;
+  border: 40px solid transparent;
+  border-image: url("~@/./assets/img/border_image.png") 30 30 stretch;
+  background: #18202d;
+}
+</style>
+```
+
+&emsp;如上，我们就设置好了：
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-13.png)
 
 <br>
 
-## <a name="chapter-four-four" id="chapter-four-four">4.4 part4 - 工作经验</a>
+## <a name="chapter-four-four" id="chapter-four-four">4.4 part4 - 文章成就</a>
 
 > [返回目录](#catalog-chapter-four-four)
 
 <br>
 
-&emsp;
+&emsp;有时候就是想偷懒，也想不起自己还有啥好吹水的了，于是贴个自己的前端文档库的成就吧：
+
+```
+<template>
+  <div class="part-four" id="part-four"></div>
+</template>
+
+<script>
+// 引入基本模板
+let echarts = require("echarts/lib/echarts");
+
+export default {
+  name: "partFour",
+  data() {
+    return {};
+  },
+  mounted() {
+    this.drawECharts();
+  },
+  methods: {
+    drawECharts() {
+      // 基于准备好的dom，初始化echarts实例
+      let myChart = echarts.init(document.getElementById("part-four"));
+
+      myChart.setOption({
+        // 标题
+        title: {
+          // 标题文本
+          text: "文章成就统计",
+          // 标题文本样式
+          textStyle: {
+            color: "#fff"
+          },
+          // 标题位置
+          x: "center"
+        },
+        // 图形布局
+        grid: {
+          // 距离底部高度
+          bottom: "20"
+        },
+        // 横轴
+        xAxis: {
+          type: "category",
+          data: ["Github 提交", "Github Star数", "掘金点赞量", "掘金阅读量"],
+          axisLine: {
+            lineStyle: {
+              color: "#fff"
+            }
+          },
+          axisLabel: {
+            // 横轴信息全部显示
+            interval: 0
+          }
+        },
+        // 纵轴
+        yAxis: {
+          type: "value",
+          axisLine: {
+            lineStyle: {
+              color: "#fff"
+            }
+          }
+        },
+        // 图形系列
+        series: [
+          {
+            // 图类型
+            type: "bar",
+            // 数据
+            data: [1141, 269, 1508,234],
+            // 文本
+            label: {
+              show: true,
+              position: "top",
+              color: "#fff",
+            },
+            // 柱条样式
+            itemStyle: {
+              color: "deepskyblue"
+            }
+          }
+        ]
+      });
+    }
+  }
+};
+</script>
+
+<style scoped>
+.part-four {
+  width: 100%;
+  height: 310px;
+  border: 40px solid transparent;
+  border-image: url("~@/./assets/img/border_image.png") 30 30 stretch;
+  background: #18202d;
+}
+</style>
+```
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-14.png)
 
 <br>
 
