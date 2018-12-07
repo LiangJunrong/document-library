@@ -44,7 +44,7 @@ ECharts 打造在线个人简历
 | &emsp;<a name="catalog-chapter-four-three" id="catalog-chapter-four-three"></a>[4.3 part3 - 技能特长](#chapter-four-three) |
 | &emsp;<a name="catalog-chapter-four-four" id="catalog-chapter-four-four"></a>[4.4 part4 - 文章成就](#chapter-four-four) |
 | &emsp;<a name="catalog-chapter-four-five" id="catalog-chapter-four-five"></a>[4.5 part5 - 工作经验](#chapter-four-five) |
-| &emsp;<a name="catalog-chapter-four-six" id="catalog-chapter-four-six"></a>[4.6 part6 - 自学旅途](#chapter-four-six) |
+| &emsp;<a name="catalog-chapter-four-six" id="catalog-chapter-four-six"></a>[4.6 part6 - 编程技能](#chapter-four-six) |
 | &emsp;<a name="catalog-chapter-four-seven" id="catalog-chapter-four-seven"></a>[4.7 part7 - 求职意向](#chapter-four-seven) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 总结](#chapter-five) |
 
@@ -1311,8 +1311,8 @@ export default {
     <p class="text-small">工作内容：日常操作 jQuery 编写活动页、微信小程序、Vue + ECharts 报表制作……</p>
     <p class="text-small">项目成就：</p>
     <p class="text-small">&emsp;1. 企业宝小程序。使用原生代码进行微信小程序的开发，代码已完成，尚在审核，尚未上线。</p>
-    <p class="text-small">&emsp;2. 报表汇总。使用 Vue + ECharts 进行报表设计，正在开发。</p>
-    <p class="text-small">&emsp;3. 日常 jQuery 活动页及 H5 活动页编写。太 low，不献丑了。</p>
+    <p class="text-small">&emsp;2. ECharts 报表汇总。使用 Vue + ECharts 进行报表设计，正在开发。</p>
+    <p class="text-small">&emsp;3. jQuery 活动页及 H5 活动页。</p>
   </div>
 </template>
 
@@ -1350,13 +1350,19 @@ a:hover {
 
 <br>
 
-## <a name="chapter-four-six" id="chapter-four-six">4.6 part6 - 自学旅途</a>
+## <a name="chapter-four-six" id="chapter-four-six">4.6 part6 - 编程技能</a>
 
 > [返回目录](#catalog-chapter-four-six)
 
 <br>
 
 &emsp;
+
+```
+
+```
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-16.png)
 
 <br>
 
@@ -1367,6 +1373,12 @@ a:hover {
 <br>
 
 &emsp;
+
+```
+
+```
+
+![图](../../public-repertory/img/js-ECharts-CurriculumVitae-17.png)
 
 <br>
 
