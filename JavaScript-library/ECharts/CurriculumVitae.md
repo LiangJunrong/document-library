@@ -1317,7 +1317,7 @@ export default {
         xAxis: {
           show: false,
           type: "category",
-          data: ["Github 提交：\n1141", "Github Star数：\n269", "掘金点赞量：\n1508", "掘金阅读量：\n234"],
+          data: ["Github 提交：\n1141", "Github Star数：\n269", "掘金点赞量：\n1508", "掘金关注者：\n234"],
           axisLine: {
             lineStyle: {
               color: "#fff"
