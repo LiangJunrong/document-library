@@ -2,7 +2,7 @@ Node 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:42:42**  
-> Recently revised in **2018-12-6 07:47:59**
+> Recently revised in **2018-12-8 10:52:11**
 
 <br>
 
@@ -21,6 +21,7 @@ Node 基础
 | &emsp;<a name="catalog-chapter-three-four" id="catalog-chapter-three-four"></a>[3.4 包与 npm](#chapter-three-four) |
 | &emsp;<a name="catalog-chapter-three-five" id="catalog-chapter-three-five"></a>[3.5 fs 文件管理](#chapter-three-five) |
 | &emsp;<a name="catalog-chapter-three-six" id="catalog-chapter-three-six"></a>[3.6 fs 案例](#chapter-three-six) |
+| &emsp;<a name="catalog-chapter-three-seven" id="catalog-chapter-three-seven"></a>[3.7 fs 流](#chapter-three-seven) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 工具整合](#chapter-four) |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 supervisor - 监听 Node 改动](#chapter-four-one) |
 
@@ -1017,9 +1018,9 @@ fs.rename('jsliang.js', 'node_modules/jsliang.js', (err) => {
 
 <br>
 
-# <a name="chapter-three-five" id="chapter-three-five">3.5 fs 文件管理</a>
+# <a name="chapter-three-six" id="chapter-three-six">3.6 fs 案例</a>
 
-> [返回目录](#catalog-chapter-three-five)
+> [返回目录](#catalog-chapter-three-six)
 
 <br>
 
@@ -1102,6 +1103,16 @@ fs.readdir('node_modules', (err, files) => {
 })
 
 ```
+
+<br>
+
+# <a name="chapter-three-seven" id="chapter-three-seven">3.7 fs 流</a>
+
+> [返回目录](#catalog-chapter-three-seven)
+
+<br>
+
+&emsp;
 
 <br>
 
