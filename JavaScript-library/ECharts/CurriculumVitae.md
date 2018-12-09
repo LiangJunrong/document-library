@@ -2,7 +2,7 @@ ECharts 打造在线个人简历
 ===
 
 > Create by **jsliang** on **2018-12-5 11:48:56**  
-> Recently revised in **2018-12-7 15:48:05**
+> Recently revised in **2018-12-9 11:38:03**
 
 <br>
 
@@ -12,7 +12,8 @@ ECharts 打造在线个人简历
 
 &emsp;互联网冬天？裁员？跳槽？  
 &emsp;最近频繁听身边朋友说公司裁员、员工跳槽的事情，然后帮几个还没毕业的小师弟修改了几份简历，结果嘛，enmmm......  
-&emsp;咱使用 Vue + ECharts + ElementUI 来打造份在线个人简历吧！  
+
+&emsp;**咱使用 Vue + ECharts + ElementUI 来打造份在线个人简历，并将它部署到免费的服务器上去吧！**  
 
 &emsp;最终成品线上地址：[点击查看](http://cv.jsliang.top/#/)
 
@@ -1626,8 +1627,19 @@ export default {
 
 ![图](../../public-repertory/img/js-ECharts-CurriculumVitae-18.png)
 
-&emsp;OK，到这里，也是时候该结束这篇文章啦！  
-&emsp;当然，**jsliang** 已经 **预** **感** **到** **了**：  
+&emsp;OK，到这里，也是时候将这份成品放到我们的线上啦：
+
+&emsp;**[使用 GitHub Pages 和 VuePress 搭建网站](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/GithubPages/DocumentLibrary.md)**
+
+&emsp;我们只需要搭建个 GitHub Pages 的账号，就可以部署这份在线简历咯~  
+&emsp;当然 **jsliang** 有自己的服务器哈，就没使用 GitHub Pages 了，感兴趣的小伙伴可以跟着上面的文章折腾去~  
+&emsp;所以，这篇文章就结束啦！  
+
+<br>
+
+> 番外：
+
+&emsp;哈哈，**jsliang** 已经 **预** **感** **到** **了**：  
 
 &emsp;**你的好友喷子小哥上线啦！**
 * “哇，这样用 ECharts 的吗？还能不能更 low 点？！”
