@@ -1179,8 +1179,174 @@ writeStream.on('finish', () => {
 &emsp;什么是 Web 服务器？  
 &emsp;Web 服务器一般指网站服务器，是指驻留于因特网上某种类型计算机的程序，可以像浏览器等 Web 客户端提供文档，也可以放置网站文件，让全世界浏览；可以放置数据文件，让全世界下载。目前最主流的三个 Web 服务器是 Apache、Nginx、IIS。
 
+&emsp;下面，我们使用 Node 来创建一个 Web 服务：
+
+![图](../../public-repertory/img/other-node-NodeBase-7.png)
+
 <br>
 
+> 08_WebService.js
+
+```
+// 引入 http 模块
+let http = require("http");
+
+// 引入 fs 模块
+let fs = require("fs");
+
+http.createServer((req, res) => {
+  // 获取响应路径
+  let pathName = req.url;
+
+  // 默认加载路径
+  if (pathName == "/") {
+    // 默认加载的首页
+    pathName = "index.html";
+  }
+
+  // 过滤 /favicon.ico 的请求
+  if (pathName != "/favicon.ico") {
+    // 获取 08_WebService 下的 index.html
+    fs.readFile("./08_WebService/" + pathName, (err, data) => {
+      if (err) {
+        
+        // 如果不存在这个文件
+        
+        console.log("404 Not Found!");
+        fs.readFile('./08_WebService/404.html', (errorNotFound, dataNotFound) => {
+          if(errorNotFound) {
+            console.log(errorNotFound);
+          } else {
+            res.writeHead(200, {
+              "Content-Type": "text/html; charset='utf-8'"
+            });
+            // 读取写入文件
+            res.write(dataNotFound);
+            // 结束响应
+            res.end();
+          }
+        })
+        return;
+      } else {
+
+        // 返回这个文件
+        
+        // 设置请求头
+        res.writeHead(200, {
+          "Content-Type": "text/html; charset='utf-8'"
+        });
+        // 读取写入文件
+        res.write(data);
+        // 结束响应
+        res.end();
+      }
+    });
+  }
+}).listen(8080);
+```
+
+<br>
+
+&emsp;这样，我们在浏览器输入 `localhost:8080` 即可以看到：
+
+![图](../../public-repertory/img/other-node-NodeBase-8.png)
+
+<br>
+
+&emsp;好家伙，感情它就加载了整个 `index.html` 文件，连 CSS 这些没引入么？  
+&emsp;所以，下一步，我们要动态加载 `html`、`css` 以及 `js`：
+
+> 08_WebService.js
+
+```
+// 引入 http 模块
+let http = require("http");
+
+// 引入 fs 模块
+let fs = require("fs");
+
+// 引入 url 模块
+let url = require("url");
+
+// 引入 path 模块
+let path = require("path");
+
+http.createServer((req, res) => {
+  
+  // 获取响应路径
+  let pathName = url.parse(req.url).pathname;
+
+  // 默认加载路径
+  if (pathName == "/") {
+    // 默认加载的首页
+    pathName = "index.html";
+  }
+
+  // 获取文件的后缀名
+  let extName = path.extname(pathName);
+
+  // 过滤 /favicon.ico 的请求
+  if (pathName != "/favicon.ico") {
+    // 获取 08_WebService 下的 index.html
+    fs.readFile("./08_WebService/" + pathName, (err, data) => {
+      // 如果不存在这个文件
+      if (err) {
+        console.log("404 Not Found!");
+        fs.readFile(
+          "./08_WebService/404.html",
+          (errorNotFound, dataNotFound) => {
+            if (errorNotFound) {
+              console.log(errorNotFound);
+            } else {
+              res.writeHead(200, {
+                "Content-Type": "text/html; charset='utf-8'"
+              });
+              // 读取写入文件
+              res.write(dataNotFound);
+              // 结束响应
+              res.end();
+            }
+          }
+        );
+        return;
+      }
+      // 返回这个文件
+      else {
+        // 获取文件类型
+        let ext = getExt(extName);
+
+        // 设置请求头
+        res.writeHead(200, {
+          "Content-Type": ext + "; charset='utf-8'"
+        });
+        // 读取写入文件
+        res.write(data);
+        // 结束响应
+        res.end();
+      }
+    });
+  }
+}).listen(8080);
+
+// 获取后缀名
+getExt = (extName) => {
+  switch(extName) {
+    case '.html': return 'text/html';
+    case '.css': return 'text/css';
+    case '.js': return 'text/js';
+    default: return 'text/html';
+  }
+}
+```
+
+<br>
+
+&emsp;这样，当我们再次请求的时候，浏览器就变成了：
+
+![图](../../public-repertory/img/other-node-NodeBase-9.png)
+
+<br>
+ 
 # <a name="chapter-four" id="chapter-four">四 工具整合</a>
 
 > [返回目录](#catalog-chapter-four)
