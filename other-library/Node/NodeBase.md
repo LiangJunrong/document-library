@@ -2056,12 +2056,14 @@ let EventEmitter = new events.EventEmitter();
 
 getExt = () => {
   fs.readFile('08_ext.json', (err, data) => {
+    // 将 data 广播出去
     EventEmitter.emit('data', data.toString());
   })  
 };
 
 getExt();
 
+// 监听 data
 EventEmitter.on('data', (ext) => {
   console.log(ext);
 });
