@@ -24,7 +24,8 @@ Node 基础
 | &emsp;<a name="catalog-chapter-three-seven" id="catalog-chapter-three-seven"></a>[3.7 fs 流](#chapter-three-seven) |
 | &emsp;<a name="catalog-chapter-three-eight" id="catalog-chapter-three-eight"></a>[3.8 创建 Web 服务器](#chapter-three-eight) |
 | &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 非阻塞 I/O 事件驱动](#chapter-three-night) |
-| &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 静态文件托管](#chapter-three-ten) |
+| &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 封装文件到 node_modules](#chapter-three-ten) |
+| &emsp;<a name="catalog-chapter-three-eleven" id="catalog-chapter-three-eleven"></a>[3.11 get 与 post](#chapter-three-eleven) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 工具整合](#chapter-four) |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 supervisor - 监听 Node 改动](#chapter-four-one) |
 
@@ -2077,13 +2078,23 @@ EventEmitter.on('data', (ext) => {
 
 <br>
 
-# <a name="chapter-three-ten" id="chapter-three-ten">3.10 静态文件托管</a>
+# <a name="chapter-three-ten" id="chapter-three-ten">3.10 封装文件到 node_modules</a>
 
 > [返回目录](#catalog-chapter-three-ten)
 
 <br>
 
 &emsp;首先，对我们的功能进行封装：
+
+<br>
+
+# <a name="chapter-three-eleven" id="chapter-three-eleven">3.11 get 与 post</a>
+
+> [返回目录](#catalog-chapter-three-eleven)
+
+<br>
+
+&emsp;
 
 <br>
 
