@@ -1951,6 +1951,74 @@ getExt = (extName) => {
 1. Node 的非阻塞 I/O 是什么？
 2. Node events 模块是什么？
 
+&emsp;首先，在我们正常编程中，我们是希望程序能够一行一行按照我们的意愿编写的：
+
+> 09_io.js
+
+```
+console.log("1");
+
+console.log("2");
+
+console.log("3");
+
+/**
+ * Console：
+ * 1
+ * 2
+ * 3
+ */
+```
+
+<br>
+
+&emsp;但是，事与愿违。  
+&emsp;我们有时候，会执行一些异步方法（函数）：
+
+> 09_io.js
+
+```
+console.log("1");
+
+// console.log("2");
+let fs = require('fs');
+getExt = () => {
+  fs.readFile('08_ext.json', (err, data) => {
+    console.log("2");
+  })
+}
+getExt();
+
+console.log("3");
+
+/**
+ * Console：
+ * 1
+ * 3
+ * 2
+ */
+```
+
+<br>
+
+&emsp;在上面代码中，由于 `fs.readFile` 是 Node 的异步函数。所以，程序先执行了 1 和 3，最后才执行 `fs.readFile` 的 2 部分。  
+
+> 在这里，可以看出 Node 不会因为一段代码的逻辑错误，从而导致其他代码无法运行。
+
+&emsp;这样子，就导致了一个问题：步骤 3 可能拿不到步骤 2 的执行结果了！这就是 Node 的非租塞性 I/O 驱动。
+
+<br>
+
+*---*
+
+1. 章节 3.1 - 章节 3.8 是一个小模块
+
+*---*
+
+<br>
+
+&emsp;就像上面的代码，就很 “符合” 我们的逻辑，从 1 到 3 依次打印了出来。
+
 <br>
  
 # <a name="chapter-four" id="chapter-four">四 工具整合</a>
