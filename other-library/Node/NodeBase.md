@@ -2,7 +2,7 @@ Node 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:42:42**  
-> Recently revised in **2018-12-9 11:13:32**
+> Recently revised in **2018-12-9 15:48:13**
 
 <br>
 
@@ -24,6 +24,7 @@ Node 基础
 | &emsp;<a name="catalog-chapter-three-seven" id="catalog-chapter-three-seven"></a>[3.7 fs 流](#chapter-three-seven) |
 | &emsp;<a name="catalog-chapter-three-eight" id="catalog-chapter-three-eight"></a>[3.8 创建 Web 服务器](#chapter-three-eight) |
 | &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 非阻塞 I/O 事件驱动](#chapter-three-night) |
+| &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 静态文件托管](#chapter-three-ten) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 工具整合](#chapter-four) |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 supervisor - 监听 Node 改动](#chapter-four-one) |
 
@@ -2073,6 +2074,16 @@ EventEmitter.on('data', (ext) => {
 
 &emsp;在这里，`EventEmitter.on` 通过监听 `data` 的形式，获取了 `getExt` 内部的执行结果。  
 &emsp;如此，我们就了解了 Node 的 I/O 事件及 `events` 模块
+
+<br>
+
+# <a name="chapter-three-ten" id="chapter-three-ten">3.10 静态文件托管</a>
+
+> [返回目录](#catalog-chapter-three-ten)
+
+<br>
+
+&emsp;首先，对我们的功能进行封装：
 
 <br>
 
