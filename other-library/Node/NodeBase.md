@@ -54,7 +54,7 @@ Node 基础
 * [NodeJs 实战——原生 NodeJS 轻仿 Express 框架从需求到实现（一） | 倔强的石头 - 掘金](https://juejin.im/post/5bf227a751882516be2ec124)
 * [NodeJs 实战——原生 NodeJS 轻仿 Express 框架从需求到实现（二） | 倔强的石头 - 掘金](https://juejin.im/post/5bf4e46a6fb9a049f153d2ae)
 
-> 上面的两篇文章比较思路比较凌乱，仅建议参考
+> 上面的两篇文章比较思路比较凌乱，仅建议参考，或者直接 DownLoad 它的 GitHub 代码：[地址](https://github.com/chenshengshui/tiny-express)
 
 <br>
 
