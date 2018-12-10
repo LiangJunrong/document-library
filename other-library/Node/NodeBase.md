@@ -44,8 +44,17 @@ Node 基础
 
 &emsp;参考资料：
 
+1. **经典：该类值得我们研读**
+
+* [API 文档 | Node.js 中文网](http://nodejs.cn/api/)
 * [Node.js 教程 | 菜鸟教程](http://www.runoob.com/nodejs/nodejs-tutorial.html)
-* 
+
+2. **尝试：该类值得我们参考借鉴**
+
+* [NodeJs 实战——原生 NodeJS 轻仿 Express 框架从需求到实现（一） | 倔强的石头 - 掘金](https://juejin.im/post/5bf227a751882516be2ec124)
+* [NodeJs 实战——原生 NodeJS 轻仿 Express 框架从需求到实现（二） | 倔强的石头 - 掘金](https://juejin.im/post/5bf4e46a6fb9a049f153d2ae)
+
+> 上面的两篇文章比较思路比较凌乱，仅建议参考
 
 <br>
 
