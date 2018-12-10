@@ -25,8 +25,9 @@ Node 基础
 | &emsp;<a name="catalog-chapter-three-eight" id="catalog-chapter-three-eight"></a>[3.8 创建 Web 服务器](#chapter-three-eight) |
 | &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 非阻塞 I/O 事件驱动](#chapter-three-night) |
 | &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 get 与 post](#chapter-three-ten) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 工具整合](#chapter-four) |
-| &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 supervisor - 监听 Node 改动](#chapter-four-one) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Web框架 - 仿 Express](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 工具整合](#chapter-five) |
+| &emsp;<a name="catalog-chapter-five-one" id="catalog-chapter-five-one"></a>[5.1 supervisor - 监听 Node 改动](#chapter-four-one) |
 
 <br>
 
@@ -42,6 +43,9 @@ Node 基础
 2. 整合 Node 工具，方便查找在 Node 开发中，有哪些工具比较有利于开发。
 
 &emsp;参考资料：
+
+* [Node.js 教程 | 菜鸟教程](http://www.runoob.com/nodejs/nodejs-tutorial.html)
+* 
 
 <br>
 
@@ -2143,9 +2147,19 @@ try {
 
 <br>
  
-# <a name="chapter-four" id="chapter-four">四 工具整合</a>
+# <a name="chapter-four" id="chapter-four">四 Web框架 - 仿 Express</a>
 
 > [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;
+
+<br>
+ 
+# <a name="chapter-five" id="chapter-five">五 工具整合</a>
+
+> [返回目录](#catalog-chapter-five)
 
 <br>
 
@@ -2154,9 +2168,9 @@ try {
 
 <br>
 
-# <a name="chapter-four-one" id="chapter-four-one">4.1 supervisor - 监听 Node 改动</a>
+# <a name="chapter-five-one" id="chapter-five-one">5.1 supervisor - 监听 Node 改动</a>
 
-> [返回目录](#catalog-chapter-four-one)
+> [返回目录](#catalog-chapter-five-one)
 
 <br>
 
