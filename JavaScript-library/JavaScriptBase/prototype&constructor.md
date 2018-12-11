@@ -6,7 +6,16 @@ JavaScript 之 构造函数与原型对象
 
 <br>
 
+# 一 正文
 
+> “每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，实例都包含一个指向原型对象的内部指针。” —— 《JavaScript 高级程序设计》
+
+<br>
+
+# 二 参考文献
+
+* [js深入理解构造函数和原型对象 | 博客园 - 快饿死的鱼](https://www.cnblogs.com/thonrt/p/5900510.html)
+* [一句话总结JS构造函数、原型和实例的关系 | CSDN - 夜色芜染](https://blog.csdn.net/u012443286/article/details/78823955)
 
 <br>
 
