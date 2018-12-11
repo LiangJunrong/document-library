@@ -22,7 +22,7 @@ JavaScript 之 构造函数与原型对象
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-three) |
-| &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 基础配置](#chapter-three-one) |
+| &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 箭头函数](#chapter-three-one) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 总结](#chapter-four) |
 
 <br>
