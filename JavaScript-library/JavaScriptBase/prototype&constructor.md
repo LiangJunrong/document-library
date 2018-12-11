@@ -77,6 +77,7 @@ Application.prototype.get = (path, handle) => {
 2. [什么时候你不能使用箭头函数？ | 简书 - 王仕军](https://www.jianshu.com/p/1357112985ef)
 3. [js深入理解构造函数和原型对象 | 博客园 - 快饿死的鱼](https://www.cnblogs.com/thonrt/p/5900510.html)
 4. [一句话总结JS构造函数、原型和实例的关系 | CSDN - 夜色芜染](https://blog.csdn.net/u012443286/article/details/78823955)
+5. [箭头函数 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 <br>
 
