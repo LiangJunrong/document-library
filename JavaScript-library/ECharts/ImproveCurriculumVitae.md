@@ -2,7 +2,7 @@ ECharts 打造在线个人简历 【升级版】
 ===
 
 > Create by **jsliang** on **2018-12-11 10:21:27**  
-> Recently revised in **2018-12-11 11:48:46**
+> Recently revised in **2018-12-11 11:56:50**
 
 <br>
 
@@ -38,7 +38,7 @@ ECharts 打造在线个人简历 【升级版】
 
 &emsp;**不折腾的前端，和咸鱼有什么区别**
 
-&emsp;相信按奈不住的小伙伴，可以根据 **jsliang** 的文章，结合上面更改的意见，自己动手搞个更炫酷的简历的，加油~
+&emsp;相信按奈不住的小伙伴，可以根据 **jsliang** 的文章，结合上面更改的建议，自己动手搞个更炫酷的简历的，加油~
 
 > 更多精彩，尽在 [jsliang 的文档库](https://github.com/LiangJunrong/document-library/)
 
