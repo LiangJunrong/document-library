@@ -23,6 +23,8 @@ JavaScript 之 构造函数与原型对象
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-three) |
 | &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 箭头函数](#chapter-three-one) |
+| &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 不能使用箭头函数的场景](#chapter-three-two) |
+| &emsp;<a name="catalog-chapter-three-three" id="catalog-chapter-three-three"></a>[3.3 构造函数和原型对象](#chapter-three-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 总结](#chapter-four) |
 
 <br>
@@ -136,6 +138,143 @@ obj.getAge(); // 25
 ```
 
 &emsp;这就是箭头函数及其大致作用。
+
+<br>
+
+# <a name="chapter-three-two" id="chapter-three-two">3.2 不能使用箭头函数的场景</a>
+
+> [返回目录](#catalog-chapter-three-two)
+
+<br>
+
+&emsp;什么时候不能使用箭头函数呢？
+
+1. 定义对象方法
+2. 定义原型方法
+3. 定义构造函数
+4. 定义事件回调函数
+
+&emsp;**首先**，在定义对象方法中，举例：
+
+```
+const calculator = {
+ array: [1, 2, 3],
+ sum: () => {
+  console.log(this === window); // => true
+  return this.array.reduce((result, item) => result + item);
+ }
+};
+
+console.log(this === window); // => true
+
+// Throws "TypeError: Cannot read property 'reduce' of undefined"
+calculator.sum();
+```
+
+&emsp;如上，它会报错，因为 `this` 的指向不对，需要修改为：
+
+```
+const calculator = {
+    array: [1, 2, 3],
+    sum() {
+        console.log(this === calculator); // => true
+        return this.array.reduce((result, item) => result + item);
+    }
+};
+calculator.sum(); // => 6
+```
+
+<br>
+
+&emsp;**然后**，在定义原型方法上，也需要注意不能滥用箭头函数：
+
+```
+function Cat(name) {
+  this.name = name;
+}
+
+Cat.prototype.sayCatName = () => {
+ console.log(this === window); // => true
+ return this.name;
+};
+
+const cat = new Cat('Mew');
+cat.sayCatName(); // => undefined
+```
+
+&emsp;这里需要修改为：
+
+```
+function Cat(name) {
+    this.name = name;
+}
+
+Cat.prototype.sayCatName = function () {
+  console.log(this === cat); // => true
+  return this.name;
+};
+
+const cat = new Cat('Mew');
+cat.sayCatName(); // => 'Mew'
+```
+
+<br>
+
+&emsp;**接着**，在定义事件回调函数时，也需要注意 `this` 的指向：
+
+```
+const button = document.getElementById('myButton');
+button.addEventListener('click', () => {
+ console.log(this === window); // => true
+ this.innerHTML = 'Clicked button';
+});
+```
+
+&emsp;修正为：
+
+```
+const button = document.getElementById('myButton');
+button.addEventListener('click', function() {
+  console.log(this === button); // => true
+  this.innerHTML = 'Clicked button';
+});
+```
+
+<br>
+
+&emsp;最后，在定义构造函数上：
+
+```
+const Message = (text) => {
+  this.text = text;
+};
+// Throws "TypeError: Message is not a constructor"
+const helloMessage = new Message('Hello World!');
+```
+
+&emsp;修正为：
+
+```
+const Message = function(text) {
+  this.text = text;
+};
+const helloMessage = new Message('Hello World!');
+console.log(helloMessage.text); // => 'Hello World!'
+```
+
+&emsp;综合 3.1 与 3.2 的内容，我们可以清晰明白，虽然使用箭头函数，能够精简代码，并在一定程度上有所帮助。  
+&emsp;但是，我们不能因为追求简洁的代码，而提升我们的代码维护难度和造成多种 bug。  
+&emsp;量力而行才是最好的。
+
+<br>
+
+# <a name="chapter-three-three" id="chapter-three-three">3.3 构造函数和原型对象</a>
+
+> [返回目录](#catalog-chapter-three-three)
+
+<br>
+
+&emsp;
 
 <br>
 
