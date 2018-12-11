@@ -134,6 +134,8 @@ axios.get()
 
 跨域代理：
 
+&emsp;[http-proxy-middleware | 代理了解推荐文章](https://npm.taobao.org/package/http-proxy-middleware)
+
 1. 设置 `index.js`：
 
 ```
