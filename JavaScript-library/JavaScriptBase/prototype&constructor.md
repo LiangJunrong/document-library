@@ -2,16 +2,36 @@ JavaScript 之 构造函数与原型对象
 ===
 
 > Create by **jsliang** on **2018-12-11 09:27:44**  
-> Recently revised in **2018-12-11 09:27:48**
+> Recently revised in **2018-12-11 13:06:06**
 
 <br>
 
-> “每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，实例都包含一个指向原型对象的内部指针。”   
+> “每个构造函数都有一个原型对象，  
+> 原型对象都包含一个指向构造函数的指针，  
+> 实例都包含一个指向原型对象的内部指针。”   
 > —— 《JavaScript 高级程序设计》
 
 <br>
 
-# 一 前言
+# <a name="chapter-one" id="chapter-one">一 目录</a>
+
+&emsp;**不折腾的前端，和咸鱼有什么区别**
+
+| 目录 |                                                                             
+| --- | 
+| [一 目录](#chapter-one) | 
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-three) |
+| &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 基础配置](#chapter-three-one) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 总结](#chapter-four) |
+
+<br>
+
+# <a name="chapter-two" id="chapter-two">二 前言</a>
+
+> [返回目录](#catalog-chapter-two)
+
+<br>
 
 &emsp;在编写学习 [Node 基础](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md) 中，写到 Node 仿 Express 的时候，我写了这么一段代码：
 
@@ -43,24 +63,51 @@ Application.prototype.get = (path, handle) => {
 
 <br>
 
-# 二 正文
+# <a name="chapter-three" id="chapter-three">三 正文</a>
 
-&emsp;首先，咱先提下参考的三篇文章，免得大佬又怼我：
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;参考文献：
 
 1. [箭头函数 | 廖雪峰的官网](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000)
 2. [什么时候你不能使用箭头函数？ | 简书 - 王仕军](https://www.jianshu.com/p/1357112985ef)
 3. [js深入理解构造函数和原型对象 | 博客园 - 快饿死的鱼](https://www.cnblogs.com/thonrt/p/5900510.html)
-
-&emsp;然后，我们进入正题：
+4. [一句话总结JS构造函数、原型和实例的关系 | CSDN - 夜色芜染](https://blog.csdn.net/u012443286/article/details/78823955)
 
 <br>
 
-# 三 参考文献
+# <a name="chapter-three-one" id="chapter-three-one">3.1 箭头函数</a>
 
-* [js深入理解构造函数和原型对象 | 博客园 - 快饿死的鱼](https://www.cnblogs.com/thonrt/p/5900510.html)
-* [一句话总结JS构造函数、原型和实例的关系 | CSDN - 夜色芜染](https://blog.csdn.net/u012443286/article/details/78823955)
-* [箭头函数 | 廖雪峰的官网](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000)
-* [什么时候你不能使用箭头函数？ | 简书 - 王仕军](https://www.jianshu.com/p/1357112985ef)
+> [返回目录](#catalog-chapter-three-one)
+
+<br>
+
+&emsp;ES6 标准新增了一种新的函数：Arrow Function(箭头函数)。  
+&emsp;为什么叫箭头函数？
+
+```
+x => x * x;
+```
+
+&emsp;因为它的定义用的就是一个箭头。上面代码相当于：
+
+```
+function(x) {
+  return x * x;
+}
+```
+
+<br>
+
+# <a name="chapter-four" id="chapter-four">四 总结</a>
+
+> [返回目录](#catalog-chapter-four)
+
+<br>
+
+&emsp;
 
 <br>
 
