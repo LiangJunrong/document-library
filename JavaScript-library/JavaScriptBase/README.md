@@ -6,9 +6,9 @@ JavaScript 基础
 
 <br>
 
-&emsp;万丈高楼平地起
-&emsp;地基还得自己起
-&emsp;记录 JavaScript 基础知识
+&emsp;万丈高楼平地起  
+&emsp;地基还得自己起  
+&emsp;记录 JavaScript 基础知识  
 
 <br>
 
