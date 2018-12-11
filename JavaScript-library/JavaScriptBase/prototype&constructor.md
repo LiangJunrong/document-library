@@ -99,6 +99,44 @@ function(x) {
 }
 ```
 
+&emsp;那么，它的作用是什么呢：箭头函数相当于匿名函数，并且简化了函数定义。而箭头函数内部的 `this` 是词法作用域，由上下文确定：
+
+```
+var obj = {
+ birth: 1990,
+ getAge: function () {
+  var b = this.birth; // 1990
+  var fn = function () {
+    return new Date().getFullYear() - this.birth; // this 指向 window 或 undefined
+  };
+  return fn();
+ }
+};
+```
+
+&emsp;在上文的代码中：
+
+```
+return new Date().getFullYear() - this.birth;
+```
+
+&emsp;这里的 `this` 指向 `window` 或 `undefined`，从而使 JavaScript 函数对 `this` 的绑定没有得到预期的结果。  
+&emsp;那么，我们可以尝试使用箭头函数：
+
+```
+var obj = {
+ birth: 1990,
+ getAge: function () {
+  var b = this.birth; // 1990
+  var fn = () => new Date().getFullYear() - this.birth; // this 指向 obj 对象
+  return fn();
+ }
+};
+obj.getAge(); // 25
+```
+
+&emsp;这就是箭头函数及其大致作用。
+
 <br>
 
 # <a name="chapter-four" id="chapter-four">四 总结</a>
