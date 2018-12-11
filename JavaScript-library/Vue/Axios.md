@@ -157,7 +157,25 @@ build: {
 }
 ```
 
-2. 调用 `PartOne.vue`：
+2. 设置 `main.js` 全局拦截器：
+
+```
+// 设置 axios
+import axios from 'axios';
+// 添加请求拦截器
+axios.interceptors.request.use( (config) => {
+  config.headers.common['timestamp'] = "******";
+  config.headers.common['deviceid'] = "******";
+  config.headers.common['signature'] = "******";
+  // 在发送请求之前做些什么
+  return config;
+}, (error) => {
+  // 在请求错误时做些什么
+  return Promise.reject(error);
+})
+```
+
+3. 调用 `PartOne.vue`：
 
 ```
 axios({
