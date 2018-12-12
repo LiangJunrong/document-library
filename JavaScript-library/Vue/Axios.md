@@ -132,7 +132,9 @@ axios.get()
 
 <br>
 
-跨域代理：
+# 三 杂记
+
+## 3.1 跨域代理
 
 &emsp;[http-proxy-middleware | 代理了解推荐文章](https://npm.taobao.org/package/http-proxy-middleware)
 
@@ -188,6 +190,37 @@ axios({
   console.log(res);
 })
 ```
+
+<br>
+
+## 3.2 单个页面多 API 调用
+
+1. 全代码为：
+
+```
+create() {
+  this.getApi();
+},
+methods: {
+ _getApi() {
+   axios(xxx).then( res=> {
+     console.log(res);
+     this._drawxxx(res);
+   })
+ },
+ _drawxxx(res) {
+
+ }
+}
+```
+
+2. 理解：
+
+&emsp;**首先**，在 `create()` 中调用方法体。  
+&emsp;**然后**，在 `methods()` 中编写方法体，方法体调用 `axios`。  
+&emsp;**最后**，在方法体中通过 `axios` 获取到数据之后，将数据传入到方法中进行处理。
+
+3. 缘故：这样分布处理，有利于代码逻辑优化，当某步出现错误的时候，方便调试。
 
 <br>
 
