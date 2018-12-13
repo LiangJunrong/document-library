@@ -38,6 +38,33 @@ MySQL
 
 <br>
 
+&emsp;在这里，咱是用 Window 系统进行的下载安装，各位看官如果是用 Mac 或者其他，请看：
+
+* [Window 安装 MySQL 全攻略 | 博客园 - Smile_Coding](https://www.cnblogs.com/ayyl/p/5978418.html)
+* [Linux 安装 MySQL | 百度经验](https://jingyan.baidu.com/article/fec7a1e5f8d3201190b4e782.html)
+
+&emsp;如果上面两篇都无法满足大佬需求，请自行百度或者 google。
+
+&emsp;那么下面开始安装：
+
+1. 直接打开 MySQL 下载页面：[地址](https://dev.mysql.com/downloads/mysql/)
+2. 选择系统 Windows
+3. 点击下载 MSI 安装包
+
+![图](../../public-repertory/img/other-sql-MySQL-1.png)
+
+&emsp;然后，它会弹出窗口告诉你，需要登录或者注册：
+
+![图](../../public-repertory/img/other-sql-MySQL-2.png)
+
+![图](../../public-repertory/img/other-sql-MySQL-3.png)
+
+&emsp;**jsliang** 没有自己的账号，所以需要注册，但是点开注册页面，发现自己又不想注册了（太多账号了！不想再搞事情了），所以咱直接下载比较旧的版本吧：
+
+* [MySQL 版本5.7 MSI 安装包](http://cdn.mysql.com//Downloads/MySQLInstaller/mysql-installer-community-5.7.16.0.msi)
+
+> 最新版本是 8.0.13
+
 &emsp;
 
 <br>
