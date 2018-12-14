@@ -6,6 +6,10 @@ MySQL
 
 <br>
 
+&emsp;**一切的折腾，均要有个度。并且，明白自己折腾的目的。**  
+
+<br>
+
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
 &emsp;**不折腾的前端，和咸鱼有什么区别**
