@@ -25,6 +25,7 @@ Node 基础
 | &emsp;<a name="catalog-chapter-three-eight" id="catalog-chapter-three-eight"></a>[3.8 创建 Web 服务器](#chapter-three-eight) |
 | &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 非阻塞 I/O 事件驱动](#chapter-three-night) |
 | &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 get 与 post](#chapter-three-ten) |
+| &emsp;<a name="catalog-chapter-three-eleven" id="catalog-chapter-three-eleven"></a>[3.11 Node 连接 MySQL](#chapter-three-eleven) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Web框架 - 仿 Express](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 工具整合](#chapter-five) |
 | &emsp;<a name="catalog-chapter-five-one" id="catalog-chapter-five-one"></a>[5.1 supervisor - 监听 Node 改动](#chapter-four-one) |
@@ -2242,6 +2243,67 @@ console.log('http server is start...');
 <br>
 
 &emsp;我们通过 Vue 进行了布局，通过 Axios 进行了接口的请求。从而完成了对数据的操作。
+
+<br>
+
+# <a name="chapter-three-eleven" id="chapter-three-eleven">3.11 Node 连接 MySQL</a>
+
+> [返回目录](#catalog-chapter-three-eleven)
+
+<br>
+
+&emsp;**首先**，我们通过可视化工具进行表的设计：
+
+| 名   | 类型    | 长度 | 键   |
+| ---- | ------- | ---- | ---- |
+| id   | int     | 11   | 主键 |
+| name | varchar | 255  |      |
+| age  | varchar | 255  |      |
+
+&emsp;**然后**，我们进行表的填充：
+
+| id | name | age |
+| --- | --- | --- |
+| 1 | jslliang | 23 |
+| 2 | 梁峻荣 | 23 |
+
+&emsp;**接着**，我们安装 Node 连接 MySQL 的包：
+
+```
+npm i mysql -D
+```
+
+&emsp;**再来**，我们编写 Node 的 `index.js`：
+
+> index.js
+
+```
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '123456',
+  database: 'node'
+});
+
+connection.connect();
+
+connection.query('SELECT * FROM user', function (error, results, fields) {
+  if (error) throw error;
+  console.log(results);
+});
+
+connection.end();
+```
+
+&emsp;**最后**，我们通过 `node index.js`，打开该服务：
+
+```
+[ RowDataPacket { id: 1, name: 'jsliang', age: '23' },
+  RowDataPacket { id: 2, name: '梁峻荣', age: '23' } ]
+```
+
+&emsp;如此，我们便完成了 Node 连接 MySQL。
 
 <br>
 
