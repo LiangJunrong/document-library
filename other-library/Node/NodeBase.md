@@ -65,6 +65,10 @@ Node 基础
 
 <br>
 
+&emsp;万丈高楼平地起，地基还得自己起。
+
+<br>
+
 # <a name="chapter-three-one" id="chapter-three-one">3.1 HTTP - 开始 Node 之旅</a>
 
 > [返回目录](#catalog-chapter-three-one)
@@ -1129,7 +1133,7 @@ fs.readdir('node_modules', (err, files) => {
 
 <br>
 
-&emsp;**首先**，我们了解下 fs 流及其读取
+&emsp;话不多说，我们了解下 `fs` 流及其读取：
 
 ```
 // 新建 fs
@@ -1164,6 +1168,23 @@ fileReadStream.on('error', (error) => {
 
 <br>
 
+&emsp;在这里，我们通过 `fs` 模块的 `createReadStream` 创建了读取流，然后读取文件 `index.js`，从而最后在控制台输出了：
+
+```
+1 接收到：259
+——结束——
+1
+console.log("尽信书，不如无书；尽看代码，不如删掉这些文件。");
+console.log("尽信书，不如无书；尽看代码，不如删掉这些文件。");
+console.log("尽信书，不如无书；尽看代码，不如删掉这些文件。");
+```
+
+<br>
+
+&emsp;其中 `console.log()` 那三行就是 `index.js` 的文本内容。
+
+<br>
+
 &emsp;然后，我们试下流的存入：
 
 ```
@@ -1181,6 +1202,8 @@ writeStream.on('finish', () => {
   // Console：写入完成
 });
 ```
+
+&emsp;我们打开 `index.js`，会发现里面的内容变成了 `console.log("Hello World! 我要存入数据！")`，依次，我们通过流的形式进行了读取和写入的操作。
 
 <br>
 
