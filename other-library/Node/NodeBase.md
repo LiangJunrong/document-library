@@ -2185,7 +2185,7 @@ console.log('http server is start...');
 
 <br>
 
-&emsp;**首先**，我们加载了 http 模块，并创建了服务。  
+&emsp;**首先**，我们加载了 `http` 模块，并创建了服务。  
 &emsp;**然后**，我们设置了跨域的处理方式，允许进行跨域。  
 &emsp;**接着**，我们进行了请求的判断处理，由于只做简单演练，故只判断是 `get` 请求还是 `post` 请求。  
 &emsp;**最后**，我们将请求的结果返回给客户端。
@@ -2275,6 +2275,8 @@ console.log('http server is start...');
 
 <br>
 
+> 关于 MySQL 的安装，可以查看 **jsliang** 写的：[MySQL 安装及图形化工具](https://github.com/LiangJunrong/document-library/blob/master/other-library/SQL/MySQL.md)
+
 &emsp;**首先**，我们通过可视化工具进行表的设计：
 
 | 名   | 类型    | 长度 | 键   |
@@ -2328,61 +2330,169 @@ connection.end();
 
 &emsp;如此，我们便完成了 Node 连接 MySQL。
 
+&emsp;———————华丽分割线———————
+
+&emsp;当然，增删改查是后端的基本操作，所以在这里，我们可以补全基本的增删改查功能。
+
+&emsp;先看目录：
+
+![图](../../public-repertory/img/other-node-NodeBase-12.png)
+
+* **新增表字段**
+
+> add.js
+
+```
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '123456',
+  database: 'node'
+});
+
+connection.connect();
+
+let addSql = "INSERT INTO user(id,name,age) VALUES(0,?,?)";
+let addSqlParams = ["jsliang", "23"];
+
+connection.query(addSql, addSqlParams, function (err, res) {
+  if (err) {
+    console.log("新增错误：");
+    console.log(err);
+    return;
+  } else {
+    console.log("新增成功：");
+    console.log(res);
+  }
+});
+
+connection.end();
+```
+
 <br>
 
-*---*
+&emsp;我们只需要直接 `node add.js`，就能往数据库中新增数据了。
 
-1. 章节 3.1 - 章节 3.8 是一个小模块
-2. Console 模块与 Error 模块，需要认知两种 Console 打印方式：
+<br>
+
+* **删除表字段**
+
+> delete.js
 
 ```
-console.log("Success：新增执行成功！");
-// Console：Success：新增执行成功！
+// 连接 MySQL
+var mysql = require('mysql');
+// MySQL 的连接信息
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '123456',
+  database: 'node'
+});
 
-console.error(new Error('新增执行失败：'));
-/**
- * Console：
- * Error: 新增执行失败：
-    at Object.<anonymous> (E:\MyWeb\jsliang-study\unfineshed-code\Test\index.js:3:15)
-    at Module._compile (module.js:652:30)
-    at Object.Module._extensions..js (module.js:663:10)
-    at Module.load (module.js:565:32)
-    at tryModuleLoad (module.js:505:12)
-    at Function.Module._load (module.js:497:3)
-    at Function.Module.runMain (module.js:693:10)
-    at startup (bootstrap_node.js:191:16)
-    at bootstrap_node.js:612:3
- */
+// 开始连接
+connection.connect();
 
-try {
-  const m = 1;
-  const n = m + z;
-} catch(error) {
-  console.log(error);
-}
-/**
- * Console：
- * ReferenceError: z is not defined
-    at Object.<anonymous> (E:\MyWeb\jsliang-study\unfineshed-code\Test\index.js:7:17)
-    at Module._compile (module.js:652:30)
-    at Object.Module._extensions..js (module.js:663:10)
-    at Module.load (module.js:565:32)
-    at tryModuleLoad (module.js:505:12)
-    at Function.Module._load (module.js:497:3)
-    at Function.Module.runMain (module.js:693:10)
-    at startup (bootstrap_node.js:191:16)
-    at bootstrap_node.js:612:3
- */
+// 新增的 SQL 语句及新增的字段信息
+var delSql = 'DELETE FROM user where id = 2';
+
+// 连接 SQL 并实施语句
+connection.query(delSql, function (err, res) {
+  if (err) {
+    console.log("删除错误：");
+    console.log(err);
+    return;
+  } else {
+    console.log("删除成功：");
+    console.log(res);
+  }
+});
+
+// 终止连接
+connection.end();
 ```
 
-3. 加密模块。
-4. 
+<br>
 
-*---*
+* **修改表字段**
+
+> update.js
+
+```
+// 连接 MySQL
+var mysql = require('mysql');
+// MySQL 的连接信息
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '123456',
+  database: 'node'
+});
+
+// 开始连接
+connection.connect();
+
+// 新增的 SQL 语句及新增的字段信息
+let updateSql = "UPDATE user SET name = ?,age = ? WHERE Id = ?";
+let updateSqlParams = ["LiangJunrong", "23", 1];
+
+// 连接 SQL 并实施语句
+connection.query(updateSql, updateSqlParams, function (err, res) {
+  if (err) {
+    console.log("修改错误：");
+    console.log(err);
+    return;
+  } else {
+    console.log("修改成功：");
+    console.log(res);
+  }
+});
+
+// 终止连接
+connection.end();
+```
+
+<br>
+
+* **查询表字段**
+
+> read.js
+
+```
+// 连接 MySQL
+var mysql = require('mysql');
+// MySQL 的连接信息
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '123456',
+  database: 'node'
+});
+
+// 开始连接
+connection.connect();
+
+// 新增的 SQL 语句及新增的字段信息
+let readSql = "SELECT * FROM user";
+
+// 连接 SQL 并实施语句
+connection.query(readSql, function (err, res) {
+  if (err) throw err;
+  console.log(res);
+});
+
+// 终止连接
+connection.end();
+```
+
+<br>
+
+&emsp;以上，我们打通了 Node 与 MySQL 的壁垒，实现了数据的增删改查。
 
 <br>
  
-# <a name="chapter-four" id="chapter-four">四 Web框架 - 仿 Express</a>
+# <a name="chapter-four" id="chapter-four">四 Web 实战 —— 仿企业官网</a>
 
 > [返回目录](#catalog-chapter-four)
 
