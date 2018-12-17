@@ -2096,6 +2096,8 @@ EventEmitter.on('data', (ext) => {
 
 <br>
 
+![图](../../public-repertory/img/other-node-NodeBase-11.gif)
+
 &emsp;话不多说，先上代码：
 
 > index.js
