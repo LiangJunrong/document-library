@@ -2096,7 +2096,150 @@ EventEmitter.on('data', (ext) => {
 
 <br>
 
-&emsp;
+&emsp;话不多说，先上代码：
+
+> index.js
+
+```
+// 加载 http 模块
+var http = require('http');
+
+// 虚拟 SQL 读取出来的数据
+var items = [];
+
+// 创建 http 服务
+http.createServer(function (req, res) {
+  
+  // 设置跨域的域名，* 代表允许任意域名跨域
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  // 设置 header 类型
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  // 跨域允许的请求方式
+  res.setHeader('Content-Type', 'application/json');
+
+  // 判断请求
+  switch (req.method) {
+    
+    // post 请求时，浏览器会先发一次 options 请求，如果请求通过，则继续发送正式的 post 请求
+    case 'OPTIONS':
+      res.statusCode = 200;
+      res.end();
+      break;
+    
+      // 如果是 get 请求，则直接返回 items 数组
+    case 'GET':
+      let data = JSON.stringify(items);
+      res.write(data);
+      res.end();
+      break;
+      
+    // 如果是 post 请求
+    case 'POST':
+      let item = '';
+      // 读取每次发送的数据
+      req.on('data', function (chunk) {
+        item += chunk;
+      });
+      // 数据发送完成
+      req.on('end', function () {
+        // 存入
+        item = JSON.parse(item);
+        items.push(item.item);
+        // 将数据返回到客户端
+        let data = JSON.stringify(items);
+        res.write(data);
+        res.end();
+      });
+      break;
+  }
+}).listen(3000)
+
+console.log('http server is start...');
+```
+
+<br>
+
+&emsp;**首先**，我们加载了 http 模块，并创建了服务。  
+&emsp;**然后**，我们设置了跨域的处理方式，允许进行跨域。  
+&emsp;**接着**，我们进行了请求的判断处理，由于只做简单演练，故只判断是 `get` 请求还是 `post` 请求。  
+&emsp;**最后**，我们将请求的结果返回给客户端。
+
+<br>
+
+&emsp;在上面，我们进行了后端 Node 的部署，那么前端页面要怎么做呢？
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Node Web</title>
+
+</head>
+
+<body>
+
+  <div id="app">
+    <h1>Todo List</h1>
+    <ul>
+      <li v-for="(item, index) in items" :key="index">{{ item }}</li>
+    </ul>
+    <input type="text" v-model="item">
+    <button @click="postApi">添加</button>
+  </div>
+
+  <!-- cdn 引用：Vue 和 Node -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  
+  <script>
+    new Vue({
+      el: document.getElementById('app'),
+      data: function () {
+        return {
+          items: [],
+          item: '',
+        }
+      },
+      created() {
+        // 进入页面请求数据
+        axios.get('http://localhost:3000/').then(res => {
+          console.log("\n【API - get 数据】");
+          console.log(res);
+          this.items = res.data;
+        }).catch(function (err) {
+          console.log(err)
+        })
+      },
+      methods: {
+        // 点击按钮提交数据
+        postApi() {
+          axios.post('http://localhost:3000/', {
+            item: this.item
+          }).then(res => {
+            console.log("\n【API - post 数据】")
+            console.log(res);
+            this.items = res.data;
+          }).catch(function (err) {
+            console.log(err)
+          })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;我们通过 Vue 进行了布局，通过 Axios 进行了接口的请求。从而完成了对数据的操作。
 
 <br>
 
@@ -2149,10 +2292,6 @@ try {
 4. 
 
 *---*
-
-<br>
-
-&emsp;就像上面的代码，就很 “符合” 我们的逻辑，从 1 到 3 依次打印了出来。
 
 <br>
  
