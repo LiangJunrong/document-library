@@ -2,7 +2,7 @@ Node 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:42:42**  
-> Recently revised in **2018-12-11 08:03:37**
+> Recently revised in **2018-12-17 20:55:37**
 
 <br>
 
@@ -13,7 +13,7 @@ Node 基础
 | 目录 |                                                                             
 | --- | 
 | [一 目录](#chapter-one) | 
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 资料整合](#chapter-two) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 基础学习](#chapter-three) |
 | &emsp;<a name="catalog-chapter-three-one" id="catalog-chapter-three-one"></a>[3.1 HTTP - 开始 Node 之旅](#chapter-three-one) |
 | &emsp;<a name="catalog-chapter-three-two" id="catalog-chapter-three-two"></a>[3.2 URL 模块](#chapter-three-two) |
