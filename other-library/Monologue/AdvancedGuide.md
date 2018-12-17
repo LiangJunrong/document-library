@@ -12,7 +12,7 @@
 | --- |
 | [梁峻荣](https://github.com/LiangJunrong) |
 | [Liutaochange](https://github.com/liutaochange) |
-| [jgrry](https://github.com/jgchenu) |
+| [jerry](https://github.com/jgchenu) |
 | [邵威儒](https://github.com/iamswr) |
 | [HESUIJUN](https://github.com/HESUIJUN) |
 | [豆包君](https://github.com/danygitgit) |
@@ -25,7 +25,7 @@
 
 * - [x] [梁峻荣](https://github.com/LiangJunrong) 完成了 7 天的提交。
 * - [x] [Liutaochange](https://github.com/liutaochange) 完成了 7 天的提交。
-* - [ ] [jgrry](https://github.com/jgchenu) 完成了 6 天的提交，最后一天有所收获，但未记录于 GitHub 上。
+* - [ ] [jerry](https://github.com/jgchenu) 完成了 6 天的提交，最后一天有所收获，但未记录于 GitHub 上。
 * - [x] [豆包君](https://github.com/danygitgit) 完成了 7 天的提交。
 * - [ ] [邵威儒](https://github.com/iamswr) 完成了 1 天的提交，剩余 6 天正在咨询情况。
 * - [ ] [HESUIJUN](https://github.com/HESUIJUN) 完成了 0 天的提交，正在咨询情况。
