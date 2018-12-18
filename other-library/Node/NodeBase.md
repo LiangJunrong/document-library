@@ -34,6 +34,7 @@ Node 基础
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Web 实战 —— 仿企业官网](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 工具整合](#chapter-five) |
 | &emsp;<a name="catalog-chapter-five-one" id="catalog-chapter-five-one"></a>[5.1 supervisor - 监听 Node 改动](#chapter-five-one) |
+| &emsp;<a name="catalog-chapter-five-two" id="catalog-chapter-five-two"></a>[5.2 PM2 - Node 进程管理](#chapter-five-two) |
 
 <br>
 
@@ -2538,6 +2539,46 @@ connection.end();
 &emsp;关于这个工具，网上更详细的攻略有：
 
 * [详细版：用Supervisor守护你的Node.js进程 | 简书 - Mike的读书季](https://www.jianshu.com/p/6d84e5efe99d)
+
+<br>
+
+# <a name="chapter-five-two" id="chapter-five-two">5.2 PM2 - Node 进程管理</a>
+
+> [返回目录](#catalog-chapter-five-two)
+
+<br>
+
+* [PM2 - npm](https://www.npmjs.com/package/pm2)
+
+&emsp;PM2 是 Node 进程管理工具，可以利用它来简化很多 Node 应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。
+
+&emsp;下面就对 PM2 进行入门性的介绍，基本涵盖了 PM2 的常用的功能和配置：
+
+1. 全局安装 PM2：`npm i pm2 -g`
+2. 监听应用：`pm2 start index.js`
+3. 查看所有进程：`pm2 list`
+4. 查看某个进程：`pm2 describe App name/id`
+5. 停止某个进程：`pm2 stop App name/id`。例如：
+
+> 先通过 `pm2 list` 查看：
+
+| App name | id | status |
+| --- | --- | --- |
+| index | 0 | online |
+
+&emsp;只需要执行 `pm2 stop index` 或者 `pm2 stop 0` 即可。
+
+6. 停止所有进程：`pm2 stop all`
+7. 重启某个进程：`pm2 restart App name/id`
+8. 删除某个进程：`pm2 delete App name/id`
+
+&emsp;如上，如果说我们的 `supervisor` 是监听单个进程的话，那么 `PM2` 就是监听多个进程。
+
+&emsp;更多攻略：
+
+* [PM2 官网](https://pm2.io/doc/en/runtime/quick-start/?utm_source=pm2&utm_medium=website&utm_campaign=rebranding)
+* [PM2 用法简介 | 简书 - LeavesLife](https://www.jianshu.com/p/f640450bd120)
+* [PM2实用入门指南 | 博客园 - 程序猿小卡](http://www.cnblogs.com/chyingp/p/pm2-documentation.html)
 
 <br>
 
