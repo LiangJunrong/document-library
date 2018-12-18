@@ -2299,10 +2299,10 @@ console.log('http server is start...');
 
 &emsp;**然后**，我们进行表的填充：
 
-| id | name | age |
-| --- | --- | --- |
-| 1 | jslliang | 23 |
-| 2 | 梁峻荣 | 23 |
+| id  | name     | age |
+| --- | -------- | --- |
+| 1   | jslliang | 23  |
+| 2   | 梁峻荣   | 23  |
 
 &emsp;**接着**，我们安装 Node 连接 MySQL 的包：
 
@@ -2534,9 +2534,70 @@ connection.end();
 
 &emsp;如上，我们仅需要了解 FrontEndCode 目录以及 NodeWeb 目录即可。
 
-&emsp;**然后**，我们进行功能分析：
+&emsp;**然后**，我们进行后端功能分析：
 
+1. 留言板。用户点击 **留言板** 的时候，需要先判断用户是否登录。如果用户尚未登录，则直接跳转到 **登录页**；如果用户登录了，则显示 **留言板页面**。
 
+&emsp;在 **留言板页面** 中，存在两个接口：
+
+* **获取留言内容**：调取 `getMessage` 接口，返回全部留言信息，由于预计信息不多，故这里不做分页功能，有需要的小伙伴在实现完这个功能后，可以进行分页接口的设计。
+* **提交留言内容**：调取 `sendMessage` 接口，将用户名、用户 id、留言内容发送给后端。
+
+![图](../../public-repertory/img/other-node-NodeBase-14.png)
+
+<br>
+
+2. 在 **登录页面** 中，存在一个接口：
+
+* **登录**：调取 `login` 接口，提交用户填写的姓名和密码。
+
+![图](../../public-repertory/img/other-node-NodeBase-15.png)
+
+<br>
+
+3. 在 **注册页面** 中，存在一个接口：
+
+* **注册**：调取 `register` 接口，提交用户填写的姓名和密码。
+
+![图](../../public-repertory/img/other-node-NodeBase-16.png)
+
+<br>
+
+&emsp;由此，我们可以设计下前后端的接口结合：
+
+> 接口文档
+
+| 接口          | 类型 | 参数                                                       | 返回信息                                                                             |
+| ------------- | ---- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `getMessage`  | get  | 无参                                                       | n 条记录：id(用户 id)、user_name(用户名)、user_message(用户留言内容)、time(留言时间) |
+| `sendMessage` | post | id(用户 id)、user_name(用户名)、user_message(用户留言内容) | status 状态                                                                          |
+| `login`       | post | id(用户 id)、user_name(用户名)、user_password(用户密码)    | status 状态                                                                          |
+| `register`    | post | id(用户 id)、user_name(用户名)、user_password(用户密码)    | status 状态                                                                          |
+
+<br>
+
+&emsp;**最后**，我们进行 MySQL 数据库的表设计：
+
+> user 表
+
+| 名            | 类型     | 长度 | 键   |
+| ------------- | -------- | ---- | ---- |
+| id            | int      | 11   | 主键 |
+| user_name     | varchar  | 255  |      |
+| user_password | varchar  | 255  |      |
+| time          | datetime |      |      |
+
+<br>
+
+> message 表
+
+| 名           | 类型     | 长度 | 键   |
+| ------------ | -------- | ---- | ---- |
+| id           | int      | 11   | 主键 |
+| user_message | varchar  | 255  |      |
+| user_id      | varchar  | 255  | 外键 |
+| user_name    | varchar  | 255  |      |
+| time         | datetime |      |      |
 
 <br>
  
@@ -2594,9 +2655,9 @@ connection.end();
 
 > 先通过 `pm2 list` 查看：
 
-| App name | id | status |
-| --- | --- | --- |
-| index | 0 | online |
+| App name | id  | status |
+| -------- | --- | ------ |
+| index    | 0   | online |
 
 &emsp;只需要执行 `pm2 stop index` 或者 `pm2 stop 0` 即可。
 
