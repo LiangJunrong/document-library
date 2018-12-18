@@ -6,8 +6,13 @@ Node 基础
 
 <br>
 
-&emsp;该文章的代码：[Node](https://github.com/LiangJunrong/Node)  
-&emsp;该文章的实验成品：[仿企业官网]()
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/ECharts/CurriculumVitae.md)**
+
+&emsp;**Node 基础代码**：[链接](https://github.com/LiangJunrong/Node/tree/FrontEndCodeBase)
+
+&emsp;**Node 成品代码**：[链接](https://github.com/LiangJunrong/Node)  
+
+&emsp;**Node 项目演示**：[链接](http://company.jsliang.top/)
 
 <br>
 
@@ -32,6 +37,7 @@ Node 基础
 | &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 get 与 post](#chapter-three-ten) |
 | &emsp;<a name="catalog-chapter-three-eleven" id="catalog-chapter-three-eleven"></a>[3.11 Node 连接 MySQL](#chapter-three-eleven) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Web 实战 —— 仿企业官网](#chapter-four) |
+| &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 编程环境](#chapter-four-one) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 工具整合](#chapter-five) |
 | &emsp;<a name="catalog-chapter-five-one" id="catalog-chapter-five-one"></a>[5.1 supervisor - 监听 Node 改动](#chapter-five-one) |
 | &emsp;<a name="catalog-chapter-five-two" id="catalog-chapter-five-two"></a>[5.2 PM2 - Node 进程管理](#chapter-five-two) |
@@ -2504,7 +2510,33 @@ connection.end();
 
 <br>
 
-1. [logo 制作](http://www.uugai.com/logoa/wenzi.php)
+&emsp;在进行代码实战的时候，我们很多时候会遇到一些小事儿，例如：logo 制作、ico 制作、icon 挑选等……  
+
+&emsp;下面这些都是 **jsliang** 平时碰到的，小伙伴有需要的可以 mark 啦~
+
+* [logo 制作](http://www.uugai.com/logoa/wenzi.php)
+* [ico 制作](http://www.bitbug.net/)
+* [icon 挑选](https://www.iconfont.cn/home/index)
+
+<br>
+
+# <a name="chapter-four-one" id="chapter-four-one">4.1 编程环境</a>
+
+> [返回目录](#catalog-chapter-four-one)
+
+<br>
+
+&emsp;**首先**，我们查看下我们的前端基本代码：[地址](https://github.com/LiangJunrong/Node/tree/FrontEndCodeBase)
+
+![图](../../public-repertory/img/other-node-NodeBase-13.png)
+
+<br>
+
+&emsp;如上，我们仅需要了解 FrontEndCode 目录以及 NodeWeb 目录即可。
+
+&emsp;**然后**，我们进行功能分析：
+
+
 
 <br>
  
@@ -2579,6 +2611,18 @@ connection.end();
 * [PM2 官网](https://pm2.io/doc/en/runtime/quick-start/?utm_source=pm2&utm_medium=website&utm_campaign=rebranding)
 * [PM2 用法简介 | 简书 - LeavesLife](https://www.jianshu.com/p/f640450bd120)
 * [PM2实用入门指南 | 博客园 - 程序猿小卡](http://www.cnblogs.com/chyingp/p/pm2-documentation.html)
+
+<br>
+
+*-----------------------*
+
+&emsp;后记：  
+
+&emsp;**撰文不易，如果文章对小伙伴有帮助，希望小伙伴们给勤劳敲代码、辛苦撰文的 jsliang 进行微信/支付宝打赏，你们的每一次打赏都是最好的鼓励，谢谢~**
+
+![图](../../public-repertory/img/seek-reward.png)
+
+![图](../../public-repertory/img/seek-reward.jpg)
 
 <br>
 
