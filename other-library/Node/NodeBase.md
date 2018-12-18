@@ -33,7 +33,7 @@ Node 基础
 | &emsp;<a name="catalog-chapter-three-eleven" id="catalog-chapter-three-eleven"></a>[3.11 Node 连接 MySQL](#chapter-three-eleven) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Web 实战 —— 仿企业官网](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 工具整合](#chapter-five) |
-| &emsp;<a name="catalog-chapter-five-one" id="catalog-chapter-five-one"></a>[5.1 supervisor - 监听 Node 改动](#chapter-four-one) |
+| &emsp;<a name="catalog-chapter-five-one" id="catalog-chapter-five-one"></a>[5.1 supervisor - 监听 Node 改动](#chapter-five-one) |
 
 <br>
 
@@ -2503,7 +2503,7 @@ connection.end();
 
 <br>
 
-&emsp;
+1. [logo 制作](http://www.uugai.com/logoa/wenzi.php)
 
 <br>
  
