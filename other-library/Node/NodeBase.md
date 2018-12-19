@@ -2523,6 +2523,10 @@ connection.end();
 * [ico 制作](http://www.bitbug.net/)
 * [icon 挑选](https://www.iconfont.cn/home/index)
 
+&emsp;另外，由于 HTML 与 CSS 没什么好讲的，所以本章节的前提静态页面 **jsliang** 已经写好了，小伙伴们在学习前可以先下载：
+
+* [静态页面代码地址](https://github.com/LiangJunrong/Node/tree/FrontEndCodeBase)
+
 <br>
 
 # <a name="chapter-four-one" id="chapter-four-one">4.1 编程环境</a>
@@ -2812,7 +2816,42 @@ http.createServer(function (req, res) {
 
 <br>
 
-&emsp;
+&emsp;很好，我们回到仿企业网站的页面上，准备编写接口以及丰富 Node 的接口。  
+
+&emsp;**首先**，我们在注册页面通过点击事件来触发调接口：
+
+> register.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="keywords" content="前端,jsliang,bootstrap,企业建站">
+  <meta http-equiv="description" content="jsliang 为你打造最好的企业服务">
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>注册-jsliang 前端有限公司</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+  <!-- 省略 body 中代码，有需要的请前往第四章开头下载查看全部代码 -->
+
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    $(function() {
+
+    })
+  </script>
+</body>
+
+</html>
+```
 
 <br>
 
