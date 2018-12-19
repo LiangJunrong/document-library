@@ -2614,6 +2614,12 @@ connection.end();
 
 &emsp;在我们进行实操之前，先确认我们是否能写接口，所以我们可以新建一个 `test` 文件夹，里面放一个 `index.html` 以及一个 `index.js` 来测试一下。
 
+```
+- text
+ - index.html
+ - index.js
+```
+
 &emsp;**首先**，我们就 4.1 提到的接口，进行后端接口的设置：
 
 > index.js
