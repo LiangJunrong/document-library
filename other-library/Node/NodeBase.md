@@ -2,7 +2,7 @@ Node 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:42:42**  
-> Recently revised in **2018-12-19 08:33:48**
+> Recently revised in **2018-12-19 22:10:47**
 
 <br>
 
@@ -2815,6 +2815,9 @@ http.createServer(function (req, res) {
 > [返回目录](#catalog-chapter-four-three)
 
 <br>
+
+* **设定：用户注册数不能超过 233，超过之后无法新增**
+* **设定：用户留言数不能超过 233，超过之后无法留言**
 
 &emsp;很好，我们回到仿企业网站的页面上，准备编写接口以及丰富 Node 的接口。  
 
