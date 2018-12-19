@@ -2574,10 +2574,10 @@ connection.end();
 
 | 接口          | 类型 | 参数                                                       | 返回信息                                                                             |
 | ------------- | ---- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| `getMessage`  | get  | 无参                                                       | n 条记录：id(用户 id)、user_name(用户名)、user_message(用户留言内容)、time(留言时间) |
-| `sendMessage` | post | id(用户 id)、user_name(用户名)、user_message(用户留言内容) | status 状态                                                                          |
-| `login`       | post | id(用户 id)、user_name(用户名)、user_password(用户密码)    | status 状态                                                                          |
-| `register`    | post | id(用户 id)、user_name(用户名)、user_password(用户密码)    | status 状态                                                                          |
+| `getMessage`：获取留言信息  | get  | 无参                                                       | n 条记录：id(用户 id)、user_name(用户名)、user_message(用户留言内容)、time(留言时间) |
+| `sendMessage`：提交留言信息 | post | id(用户 id)、user_name(用户名)、user_message(用户留言内容) | status 状态                                                                          |
+| `login`：登录       | post | id(用户 id)、user_name(用户名)、user_password(用户密码)    | status 状态                                                                          |
+| `register`：注册    | post | id(用户 id)、user_name(用户名)、user_password(用户密码)    | status 状态                                                                          |
 
 <br>
 
@@ -2612,9 +2612,191 @@ connection.end();
 
 <br>
 
-&emsp;
+&emsp;在我们进行实操之前，先确认我们是否能写接口，所以我们可以新建一个 `test` 文件夹，里面放一个 `index.html` 以及一个 `index.js` 来测试一下。
 
-1. [nodejs 之 querystring 模块 | 博客园 - whiteMu](https://www.cnblogs.com/whiteMu/p/5986297.html)
+&emsp;**首先**，我们就 4.1 提到的接口，进行后端接口的设置：
+
+> index.js
+
+```
+// 引入 http 模块：http 是提供 Web 服务的基础
+const http = require("http");
+
+// 引入 url 模块：url 是对用户提交的路径进行解析
+const url = require("url");
+
+// 引入 qs 模块：qs 是对路径进行 json 化或者将 json 转换为 string 路径
+const qs = require("querystring");
+
+// 用 http 模块创建服务
+/**
+ * req 获取 url 信息 (request)
+ * res 浏览器返回响应信息 (response)
+ */
+http.createServer(function (req, res) {
+ 
+  // 设置跨域
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  // 设置 header 类型
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  // 跨域允许的请求方式
+  res.setHeader('Content-Type', 'application/json');
+
+  if(req.method == "POST") {
+    
+    console.log("\n【POST 形式】");
+
+    // 获取前端发来的路由地址
+    let pathName = req.url;
+    
+    console.log("\n接口为：" + pathName);
+    
+    // 接收发送过来的参数
+    let tempResult = "";
+
+    // 数据接入中
+    req.addListener("data", function(chunk) {
+      tempResult += chunk;
+    });
+
+    // 数据接收完成
+    req.addListener("end", function() {
+      
+      let reuslt = JSON.stringify(qs.parse(tempResult));
+      console.log("\n参数为：");
+      console.log(reuslt);
+
+      if(pathName == "/sendMessage") { // 提交留言信息
+        
+        console.log("\n【API - 提交留言信息】");
+
+      } else if (pathName == "/login") { // 登录
+
+        console.log("\n【API - 登录】");
+
+      } else if (pathName == "/register") { // 注册
+
+        console.log("\n【API - 注册】");
+
+      }
+
+      // 返回数据
+      res.write(reuslt);
+      
+      // 结束响应
+      res.end();
+    })
+
+  } else if(req.method == "GET") {
+    
+    console.log("\n【GET 形式】");
+
+    // 解析 url 接口
+    let pathName = url.parse(req.url).pathname;
+
+    console.log("\n接口为：" + pathName);
+
+    if(pathName == "/getMessage") { // 获取留言信息
+
+      console.log("\n【API - 获取留言信息】");
+
+      // 解析 url 参数部分
+      let params = url.parse(req.url, true).query;
+          
+      console.log("\n参数为：");
+      console.log(params);
+
+      // 返回数据
+      res.write(JSON.stringify(params));
+
+      // 结束响应
+      res.end();
+    }
+
+  }
+
+}).listen(8888); // 监听的端口
+```
+
+<br>
+
+&emsp;通过判断 `req.method` 属于 `GET` 还是 `POST` 形式，从而确定加载的接口。然后，在 `POST` 中，判断是属于 **提交留言信息**、**登录** 还是 **注册**；在 `GET` 中，判断是不是 **获取留言信息**。在这里的返回数据暂且定为它原数据的 `json` 值。
+
+&emsp;**然后**，我们通过一个前端页面来演示我们的接口是否能使用：
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>演示代码</title>
+</head>
+
+<body>
+  <div>
+    <label for="user">用户名</label><input type="text" id="user">
+  </div>
+  <div>
+    <label for="password">密&nbsp;&nbsp;&nbsp;码</label><input type="password" id="password">
+  </div>
+  <div>
+    <button id="register">注册</button>
+  </div>
+
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+  <script>
+    $(function () {
+      // 测试 get 接口
+      $.ajax({
+        url: "http://localhost:8888/getMessage",
+        type: "POST",
+        data: {
+          username: "jsliang"
+        },
+        success: function (res) {
+          console.log(res);
+        },
+        error: function (err) {
+          console.log(err);
+        }
+      })
+
+      $("#register").click(function () {
+        // 测试 post 接口
+        $.ajax({
+          url: "http://localhost:8888/login",
+          type: "POST",
+          data: {
+            username: $("#user").val(),
+            password: $("#password").val()
+          },
+          success: function (res) {
+            console.log(res);
+          },
+          error: function (err) {
+            console.log(err);
+          }
+        })
+      })
+    });
+  </script>
+</body>
+
+</html>
+```
+
+<br>
+
+&emsp;**最后**，我们通过 `node index.js`，并打开 `index.html`，通过 `F12` 控制台查看我们的接口是否正常：
+
+![图](../../public-repertory/img/other-node-NodeBase-17.png)
+
+&emsp;可以看到我们的接口能正常调通，这样我们就可以连接数据库，进行这 4 个接口的设计了。
 
 <br>
 
