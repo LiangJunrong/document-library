@@ -2913,7 +2913,7 @@ http.createServer(function (req, res) {
   // 跨域允许的请求方式
   res.setHeader('Content-Type', 'application/json');
 
-  if (req.method == "POST") {
+  if (req.method == "POST") { // 接口 POST 形式
 
     console.log("\n【POST 形式】");
 
@@ -2941,15 +2941,15 @@ http.createServer(function (req, res) {
 
         console.log("\n【API - 提交留言信息】");
 
+        // 结束响应
+        res.end("提交留言接口尚未完成");
+
       } else if (pathName == "/login") { // 登录
 
         console.log("\n【API - 登录】");
 
-        // 返回数据
-        res.write(JSON.stringify(result));
-
         // 结束响应
-        res.end();
+        res.end("登录接口尚未完成");
 
       } else if (pathName == "/register") { // 注册
 
@@ -2957,14 +2957,14 @@ http.createServer(function (req, res) {
 
         result = JSON.parse(result);
 
-        let username = result.username;
-        let password = result.password;
-        let time = getNowFormatDate();
+        let username = result.username; // 用户名
+        let password = result.password; // 密码
+        let time = getNowFormatDate(); // 时间
 
-        if (!username) {
+        if (!username) { // 用户名为空
           res.end("注册失败，用户名为空。");
           return;
-        } else if (!password) {
+        } else if (!password) { // 密码为空
           res.end("注册失败，密码为空");
           return;
         } else {
@@ -2977,7 +2977,7 @@ http.createServer(function (req, res) {
             
             // 连接 SQL 并实施语句
             connection.query(readSql, function (error1, response1) {
-              if (error1) {
+              if (error1) { // 如果 SQL 语句错误
                 throw error1;
               } else {
                 
@@ -2987,6 +2987,7 @@ http.createServer(function (req, res) {
                 let newRes = JSON.parse(JSON.stringify(response1));
                 console.log(newRes);
 
+                // 判断姓名重复与否
                 let userNameRepeat = false;
                 for(let item in newRes) {
                   if(newRes[item].user_name == username) {
@@ -2994,10 +2995,14 @@ http.createServer(function (req, res) {
                   }
                 }
 
+                // 如果姓名重复
                 if(userNameRepeat) {
                   res.end("注册失败，姓名重复！");
                   return;
-                } else {
+                } else if(newRes.length > 6) { // 如果注册名额已满
+                  res.end("注册失败，名额已满！");
+                  return;
+                } else { // 可以注册
                   resolve();
                 }
                 
@@ -3014,12 +3019,12 @@ http.createServer(function (req, res) {
 
             // 连接 SQL 并实施语句
             connection.query(addSql, addSqlParams, function (error2, response2) {
-              if (error2) {
+              if (error2) { // 如果 SQL 语句错误
                 console.log("新增错误：");
                 console.log(error2);
                 return;
               } else {
-                console.log("新增成功：");
+                console.log("\nSQL 查询结果：");
                 console.log(response2);
 
                 console.log("\n注册成功！");
@@ -3034,10 +3039,11 @@ http.createServer(function (req, res) {
         }
         // 注册流程结束
       }
-
+      // 接口信息处理完毕
     })
+    // 数据接收完毕
 
-  } else if (req.method == "GET") {
+  } else if (req.method == "GET") { // 接口 GET 形式
 
     console.log("\n【GET 形式】");
 
@@ -3082,18 +3088,9 @@ function getNowFormatDate() {
   if (strDate >= 0 && strDate <= 9) {
     strDate = "0" + strDate;
   }
+  // 返回 yyyy-mm-dd hh:mm:ss 形式
   var currentdate = year + "-" + month + "-" + strDate + " " + hour + ":" + minute + ":" + second;
   return currentdate;
-}
-
-// 查询某个表：表名，字段
-function readSql(tableName, tableField) {
-
-}
-
-// 新增数据
-function addSql() {
-  
 }
 ```
 
