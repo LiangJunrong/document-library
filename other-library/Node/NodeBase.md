@@ -2,7 +2,7 @@ Node 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:42:42**  
-> Recently revised in **2018-12-18 17:49:26**
+> Recently revised in **2018-12-19 08:33:48**
 
 <br>
 
@@ -2613,6 +2613,8 @@ connection.end();
 <br>
 
 &emsp;
+
+1. [nodejs 之 querystring 模块 | 博客园 - whiteMu](https://www.cnblogs.com/whiteMu/p/5986297.html)
 
 <br>
 
