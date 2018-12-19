@@ -2672,9 +2672,9 @@ http.createServer(function (req, res) {
     // 数据接收完成
     req.addListener("end", function() {
       
-      let reuslt = JSON.stringify(qs.parse(tempResult));
+      let result = JSON.stringify(qs.parse(tempResult));
       console.log("\n参数为：");
-      console.log(reuslt);
+      console.log(result);
 
       if(pathName == "/sendMessage") { // 提交留言信息
         
@@ -2691,7 +2691,7 @@ http.createServer(function (req, res) {
       }
 
       // 返回数据
-      res.write(reuslt);
+      res.write(result);
       
       // 结束响应
       res.end();
@@ -2844,13 +2844,38 @@ http.createServer(function (req, res) {
   <script src="./js/jquery-3.3.1.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script>
-    $(function() {
-
+     $(function() {
+      $("#register-submit").click(function() {
+        $.ajax({
+          url: "http://localhost:8888/register",
+          type: 'post',
+          dataType: 'json',
+          data: {
+            username: $("#userName").val(),
+            password: $("#userPassword").val()
+          },
+          success:function(res){
+            console.log(res);
+          }
+        })
+      })
     })
   </script>
 </body>
 
 </html>
+```
+
+<br>
+
+&emsp;如此，我们在用户点击 **注册** 按钮的时候，进行接口的调用，发送数据到了后端。
+
+&emsp;**然后**，我们编写 Node，前端调用接口后，Node 判断这两个参数是否为空，如果不为空，则将数据存储到数据库。
+
+> index.js
+
+```
+
 ```
 
 <br>
