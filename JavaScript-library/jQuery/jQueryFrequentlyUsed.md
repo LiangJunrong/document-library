@@ -112,7 +112,7 @@ $.ajax({
   },
   success:function(res){
     if(res.code == 0) {
-      "#search-name").val()) + "&adsl=" + escape($("#search-id").val());
+      $("#search-name").val() + "&adsl=" + escape($("#search-id").val());
     } else {
       alert(res.msg);
     }
