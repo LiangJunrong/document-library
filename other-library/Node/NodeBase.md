@@ -3675,7 +3675,226 @@ function getNowFormatDate() {
 > messageBoard.html
 
 ```
+<!-- 留言板 -->
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="keywords" content="前端,jsliang,bootstrap,企业建站">
+  <meta http-equiv="description" content="jsliang 为你打造最好的企业服务">
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>留言板-jsliang 前端有限公司</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="header text-center">
+    <nav class="navbar navbar-dark bg-sky navbar-expand-lg sticky-top">
+      <a class="navbar-brand" href="index.html">
+        <img src="./images/common-logo.png" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto text-left">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">企业首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="consultingBusiness.html">咨询业务</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="valueAddedService.html">增值业务</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="trainingBusiness.html">培训业务</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mobileApplications.html">移动应用</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="messageBoard.html">留言板</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="http://www.baidu.com/baidu" target="_blank">
+          <input class="form-control mr-sm-2" type="search" name="word" placeholder="jsliang" aria-label="Search">
+          <button class="btn btn-primary my-2 my-sm-0" type="submit">
+            <span class="glyphicon glyphicon-search"></span>搜索</button>
+        </form>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link nav-right-link" id="nav-link-register" href="login.html">登录</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-right-link" id="nav-link-login" href="register.html">注册</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-right-link" id="nav-link-user" href="javascript:void(0)">用户名</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+    <div class="banner">
+      <img class="img-fluid" src="./images/common-banner.jpg" alt="广告图">
+    </div>
+  </div>
+  <div class="container">
+      <div class="row aside">
+        <div class="col-md-2">
+          <div class="row">
+            <div class="message-board-sidebar">
+              <img class="img-fluid" src="./images/messageBoard.png" alt="战略伙伴">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10 content">
+          <h4 class="content-nav">
+            <span class="text-primary float-left">
+              <img src="./images/common-nav-btn.png" alt="小导航图标">&nbsp;留言咨询</span>
+            <span class="float-right">当前位置：jsliang 前端>留言咨询</span>
+          </h4>
+          <ul class="message-board-ul" id="message-board-ul">
+            <!-- 填充位置 -->
+            <!-- <li class="message-board-li">
+              <span class="text-warning font-bold">☆ </span>
+              <span class="user-message">祝 jsliang 早日找到 13K+ 的工作！</span>
+              <span>—— </span>
+              <span class="user-name">jsliang</span>
+              <span class="message-time">2018-12-18 15:34:15</span>
+            </li>
+            <li>
+              <span class="text-warning font-bold">☆ </span>
+              <span class="user-message">不折腾的前端，和咸鱼有什么区别！</span>
+              <span>—— </span>
+              <span class="user-name">梁峻荣</span>
+              <span class="message-time">2018-12-18 15:31:44</span>
+            </li>
+            <li>
+              <span class="text-warning font-bold">☆ </span>
+              <span class="user-message">人生三愿：吃得下饭，睡得着觉，笑得出来；人生四然：来是偶然，去是必然，尽其当然，顺其自然。相信未来你的人生会更精彩！</span>
+              <span>—— </span>
+              <span class="user-name">梁峻荣</span>
+              <span class="message-time">2018-12-18 15:31:44</span>
+            </li> -->
+          </ul>
+          <hr>
+          <div>
+            <p>我也要留言：</p>
+            <textarea class="form-control" name="message" id="message" cols="30" rows="4" maxlength="140"></textarea>
+          </div>
+          <br>
+          <div class="text-indent-one">
+            <button class="btn btn-primary" id="message-submit" type="submit">提交留言</button>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="text-center footer">
+    <div class="copyright">
+      <p>jsliang 前端有限公司 版权所有</p>
+      <p>Copyright@ 2019. ALL Rights Reserved</p>
+      <p>友情链接:
+        <a target="_blank" class="text-warning" href="https://github.com/LiangJunrong/document-library">梁峻荣的 GitHub</a>
+      </p>
+    </div>
+    <div class="network-security">
+      <p>
+        <a target="_blank" href="http://www.beianbeian.com/beianxinxi/f9709bb6-0a3e-4863-9ad7-09e616d1ea60.html">粤ICP备16084737号-1</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/islogin.js"></script>
+  <script>
+    $(function() {
+      
+      let userName = sessionStorage.getItem("userName");
+      let userId = sessionStorage.getItem("id");
+      
+      // 查询留言板
+      if(userName && userId) { // 如果没有存储
+        $.ajax({
+          url: "http://localhost:8888/getMessage",
+          type: 'get',
+          dataType: 'json',
+          success: function (res) {
+            console.log(res);
+            let li = ``;
+            for(let item in res.data) {
+              li = li + `
+                <li>
+                  <span class="text-warning font-bold">☆ </span>
+                  <span class="user-message">${res.data[item].user_message}</span>
+                  <span>—— </span>
+                  <span class="user-name">${res.data[item].user_name} [${res.data[item].user_id}]</span>
+                  <span class="message-time">${res.data[item].time}</span>
+                </li>
+              `;
+            }
+            $("#message-board-ul").append(li);
+          },
+          error: function (err) {
+            console.log(err);
+          }
+        })
+      } else { // 如果有存储
+        window.location.href = "../login.html";
+      }
+
+      // 提交留言
+      $("#message-submit").click(function() {
+        let messageText = $("#message").val()
+        if(!messageText) {
+          alert("留言内容不能为空");
+        } else if(messageText.length > 140) {
+          alert("留言长度不能超过 140 位！");
+        } else {
+          $.ajax({
+            url: "http://localhost:8888/sendMessage",
+            type: 'post',
+            dataType: 'json',
+            data: {
+              userid: userId,
+              username: userName,
+              message: messageText
+            },
+            success: function (res) {
+              console.log(res);
+              if(res.code == "0") {
+                alert("新增成功！");
+                window.location.reload();
+              }
+            },
+            error: function (err) {
+              console.log(err);
+              console.log(err.responseText);
+              if (err.responseText == "登录失败，留言内容为空！") {
+                alert("登录失败，留言内容为空！");
+              } else if (err.responseText == "登录失败，字数超过限制！") {
+                alert("登录失败，字数超过限制！");
+              } else {
+                alert("未知错误！");
+              }
+            }
+          })
+        }
+      })
+
+    })
+  </script>
+</body>
+
+</html>
 ```
 
 <br>
