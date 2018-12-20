@@ -2,7 +2,7 @@ Node 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:42:42**  
-> Recently revised in **2018-12-19 22:10:47**
+> Recently revised in **2018-12-20 09:02:52**
 
 <br>
 
@@ -2816,8 +2816,8 @@ http.createServer(function (req, res) {
 
 <br>
 
-* **设定：用户注册数不能超过 233，超过之后无法新增**
-* **设定：用户留言数不能超过 233，超过之后无法留言**
+* **设定：用户注册数不能超过 300，超过之后无法新增**
+* **设定：用户留言数不能超过 300，超过之后无法留言**
 
 &emsp;很好，我们回到仿企业网站的页面上，准备编写接口以及丰富 Node 的接口。  
 
@@ -2941,15 +2941,15 @@ http.createServer(function (req, res) {
 
         console.log("\n【API - 提交留言信息】");
 
-        // 结束响应
-        res.end("提交留言接口尚未完成");
-
       } else if (pathName == "/login") { // 登录
 
         console.log("\n【API - 登录】");
 
+        // 返回数据
+        res.write(JSON.stringify(result));
+
         // 结束响应
-        res.end("登录接口尚未完成");
+        res.end();
 
       } else if (pathName == "/register") { // 注册
 
@@ -2965,7 +2965,13 @@ http.createServer(function (req, res) {
           res.end("注册失败，用户名为空。");
           return;
         } else if (!password) { // 密码为空
-          res.end("注册失败，密码为空");
+          res.end("注册失败，密码为空！");
+          return;
+        } else if(username.length > 10) {
+          res.end("注册失败，姓名过长！");
+          return;
+        } else if(password.length > 20) {
+          res.end("注册失败，密码过长！");
           return;
         } else {
           
@@ -2999,7 +3005,7 @@ http.createServer(function (req, res) {
                 if(userNameRepeat) {
                   res.end("注册失败，姓名重复！");
                   return;
-                } else if(newRes.length > 6) { // 如果注册名额已满
+                } else if(newRes.length > 300) { // 如果注册名额已满
                   res.end("注册失败，名额已满！");
                   return;
                 } else { // 可以注册
@@ -3029,8 +3035,11 @@ http.createServer(function (req, res) {
 
                 console.log("\n注册成功！");
 
+                // 将 SQL 结果返回到前端
+                res.write(JSON.stringify(response2));
+
                 // 结束响应
-                res.end("注册成功！");
+                res.end();
               }
             });
 
@@ -3066,6 +3075,14 @@ http.createServer(function (req, res) {
       res.write(JSON.stringify(params));
 
       // 结束响应
+      res.end();
+    } else if(pathName == "/") { // 首页
+      res.writeHead(200, {
+        "Content-Type": "text/html;charset=UTF-8"
+      });
+
+      res.write('<h1 style="text-align:center">jsliang 前端有限公司服务已开启！</h1><h2 style="text-align:center">详情可见：<a href="https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md" target="_blank">Node 基础</a></h2>');
+
       res.end();
     }
 
