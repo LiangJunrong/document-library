@@ -149,14 +149,6 @@ dev: {
    }
  },
 },
-build: {
-  proxyTable: {
-   '/stat': {
-     target: 'http://172.**.**.**:8080/', // 接口的域名
-     changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
-   }
- },
-}
 ```
 
 2. 设置 `main.js` 全局拦截器：
@@ -245,9 +237,13 @@ import axios from 'axios';
 
 // 请求配置
 const request = axios.create({
+  // 本地开发 dev 的时候，不需要开启这个
+  // baseURL: 'http://172.26.167.5:8080',
   timeout: 5000,
   headers: {
-    timestamp: "20181212203848"
+    timestamp: "20181026094424",
+    deviceid: "10102",
+    signature: "F9CB03DD3ED50EDA5DB214C42D4DC0D6",
   }
 })
 

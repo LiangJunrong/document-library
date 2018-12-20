@@ -2847,26 +2847,26 @@ http.createServer(function (req, res) {
   <script src="./js/jquery-3.3.1.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script>
-    $(function() {
-      $("#register-submit").click(function() {
-        
+    $(function () {
+      $("#register-submit").click(function () {
+
         let userName = $("#userName").val();
         let userPassword = $("#userPassword").val();
-        
-        if(!userName) {
+
+        if (!userName) {
           alert("请输入用户名");
           $("#userName").focus();
-        } else if(!userPassword) {
+        } else if (!userPassword) {
           alert("请输入密码");
           $("#userPassword").focus();
-        } else if(userName.length > 10) {
+        } else if (userName.length > 10) {
           alert("请输入少于 10 位的用户名");
           $("#userName").focus();
-        } else if(userPassword.length > 20) {
+        } else if (userPassword.length > 20) {
           alert("请输入少于 20 位的密码");
           $("#userPassword").focus();
         } else {
-        
+
           $.ajax({
             url: "http://localhost:8888/register",
             type: 'post',
@@ -2875,33 +2875,31 @@ http.createServer(function (req, res) {
               username: userName,
               password: userPassword
             },
-            success:function(res){
+            success: function (res) {
               console.log(res);
-              if(res.insertId) {
+              if (res.insertId) {
                 alert("注册成功，前往登录！");
                 window.location.href = "./login.html";
               }
             },
-            error:function(err) {
+            error: function (err) {
               console.log(err.responseText);
-              if(err.responseText == "注册失败，姓名重复！") {
+              if (err.responseText == "注册失败，姓名重复！") {
                 alert("用户名已被注册！");
-              } else if(err.responseText == "注册失败，名额已满！") {
+              } else if (err.responseText == "注册失败，名额已满！") {
                 alert("注册失败，名额已满！");
-              } else if(err.responseText == "注册失败，密码为空！") {
+              } else if (err.responseText == "注册失败，密码为空！") {
                 alert("注册失败，密码为空！");
-              } else if(err.responseText == "注册失败，姓名过长！") {
+              } else if (err.responseText == "注册失败，姓名过长！") {
                 alert("注册失败，姓名过长！");
-              } else if(err.responseText == "注册失败，密码过长！") {
+              } else if (err.responseText == "注册失败，密码过长！") {
                 alert("注册失败，密码过长！");
               } else {
                 alert("未知错误！");
               }
             }
           })
-
         }
-        
       })
     })
   </script>
