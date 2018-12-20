@@ -2,7 +2,7 @@ Node 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:42:42**  
-> Recently revised in **2018-12-20 09:02:52**
+> Recently revised in **2018-12-20 13:48:36**
 
 <br>
 
@@ -45,6 +45,7 @@ Node 基础
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 工具整合](#chapter-five) |
 | &emsp;<a name="catalog-chapter-five-one" id="catalog-chapter-five-one"></a>[5.1 supervisor - 监听 Node 改动](#chapter-five-one) |
 | &emsp;<a name="catalog-chapter-five-two" id="catalog-chapter-five-two"></a>[5.2 PM2 - Node 进程管理](#chapter-five-two) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结](#chapter-six) |
 
 <br>
 
@@ -4303,6 +4304,16 @@ function getNowFormatDate() {
 * [PM2 官网](https://pm2.io/doc/en/runtime/quick-start/?utm_source=pm2&utm_medium=website&utm_campaign=rebranding)
 * [PM2 用法简介 | 简书 - LeavesLife](https://www.jianshu.com/p/f640450bd120)
 * [PM2实用入门指南 | 博客园 - 程序猿小卡](http://www.cnblogs.com/chyingp/p/pm2-documentation.html)
+
+<br>
+ 
+# <a name="chapter-six" id="chapter-six">六 总结</a>
+
+> [返回目录](#catalog-chapter-six)
+
+<br>
+
+&emsp;综上，搞定一切！
 
 <br>
 
