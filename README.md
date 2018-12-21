@@ -1,6 +1,9 @@
 Document Library - 文档库
 ===
 
+> 始建于 `2018-08-20`。  
+> 如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/WritingIdeas.md)** 进行查看。
+
 * Here is the jsliang's learning and working experience document on programming. If you have doubts about this, please send an email to 1741020489@qq.com.
 * 这里存放了jsliang的学习、工作中关于编程的经验文档。如果你对此有疑惑，请发邮件到1741020489@qq.com。
 
@@ -21,9 +24,9 @@ Document Library - 文档库
 # 一 文件目录
 | 文件名             | 存放内容                          |
 | ------------------ | --------------------------------- |
-| CSS-library        | CSS文档仓库                       |
-| HTML-library       | HTML文档仓库                      |
-| JavaScript-library | JavaScript文档仓库                |
+| CSS-library        | CSS 文档仓库                       |
+| HTML-library       | HTML 文档仓库                      |
+| JavaScript-library | JavaScript 文档仓库                |
 | other-library      | 其他文档仓库(整站制作/微信小程序)                      |
 | public-repertory   | 文档仓库使用到的图片、CSS文件等…… |
 
