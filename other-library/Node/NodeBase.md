@@ -3166,10 +3166,14 @@ if (pathName == "/getMessage") { // 获取留言信息
 <br>
 
 &emsp;综上，搞定一切！  
-&emsp;兴许在上面代码的摧残下，能看到这里的小伙伴已经寥寥无几了，但我坚信我该交代的基本都交代了，如果小伙伴看完真觉得不错，那就点个赞或者给个 star 吧！你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md)  
-&emsp;如果小伙伴要评论的话，可以加个暗语：`Node 基础，***`
+&emsp;兴许在前面代码的摧残下，能看到这里的小伙伴已经寥寥无几了，但我坚信我该交代的基本都交代了，不该交代的也交代了~  
+&emsp;所以，如果小伙伴看完真觉得不错，那就点个赞或者给个 star 吧！你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md)  
+
+&emsp;如果小伙伴看完这里要评论的话，可以加个暗语：`Node 基础，***`，这样 **jsliang** 看到必回，哈哈~
 
 * Node 基础，我完成了！
+* Node 基础，我想说 jsliang 肯定还偷懒了，没写成最完美的，我不管我打赏了你赶紧给我完善下！
+* ……
 
 &emsp;**so, that's all, thanks~**
 
