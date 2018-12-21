@@ -6,7 +6,7 @@ Node 基础
 
 <br>
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/ECharts/CurriculumVitae.md)**
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md)**
 
 &emsp;**Node 基础代码**：[链接](https://github.com/LiangJunrong/Node/tree/FrontEndCodeBase)
 
@@ -57,8 +57,9 @@ Node 基础
 
 &emsp;本文主要目的：
 
-1. 整合 Node 基础，加深 **jsliang** 对 Node 的学习了解并且方便复习。纯属个人参考，如需疑问还请在 QQ 群：`798961601` 中咨询。  
+1. 整合 Node 基础，加深 **jsliang** 对 Node 的学习了解，并且方便日后复习。  
 2. 整合 Node 工具，方便查找在 Node 开发中，有哪些工具比较有利于开发。
+3. 给初学 Node 的小伙伴做一个参考，如有疑问还请在 QQ 群：`798961601` 中咨询。
 
 &emsp;参考资料：
 
