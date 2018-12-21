@@ -10,6 +10,8 @@ Node 基础
 
 &emsp;**jsliang 文档库撰文思路**：[链接](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/WritingIdeas.md)
 
+&emsp;**Node 部署项目、云服务器以及域名的使用**：[链接](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/BuildStation/README.md)
+
 &emsp;**Node 基础代码**：[链接](https://github.com/LiangJunrong/Node/tree/FrontEndCodeBase)
 
 &emsp;**Node 成品代码**：[链接](https://github.com/LiangJunrong/Node)  
