@@ -9,6 +9,7 @@
 &emsp;没有什么是一篇文章理不清的，  
 &emsp;如果有，那就写篇思路大纲！
 
+* 【2018-12-21】目前准备折腾写篇关于 Nginx 以及服务器部署的文章
 * 【2018-10-29】我怀念之前写 Vue + Node 的日子了，现在一直用着 jQuery，感觉好 low，没有一点技术提升，于是开始跟着技术胖的视频，折腾 [Vue + Koa2 + MongoDB 搭建商城](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/ShoppingMall/ShoppingMall.md)。  
 &emsp;**然后**，发现 Vue 基础知识不够，于是看着开课吧的视频学习 Vue 基础，写了 [Vue 开篇](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)、[Vue 基础](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)、[Vue Router](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueRouter.md)、[VueCli](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueCli.md)、[Axios](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/Axios.md) 等 Vue 系列文章。  
 &emsp;**但是**，学 Axios 的途中，突然发现它居然使用 Koa 提供服务的，但是开课吧不提供 Node 视频，而且正巧答应了大学老师帮她准备一下 Node 原生的教程，于是自己去百度资料，折腾了篇 [Node 基础](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md)，中途发现还有 MySQL 也需要补充下知识，但是没空、没时间折腾，只写了篇 [MySQL 安装及图形化工具](https://github.com/LiangJunrong/document-library/blob/master/other-library/SQL/MySQL.md)。没事，放着先，反正 MySQL 大致的我都懂。  
