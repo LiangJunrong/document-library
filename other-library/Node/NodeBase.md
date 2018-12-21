@@ -8,13 +8,15 @@ Node 基础
 
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md)**
 
-&emsp;**jsliang 文档库撰文思路：[链接]()**
+&emsp;**jsliang 文档库撰文思路**：[链接]()
 
 &emsp;**Node 基础代码**：[链接](https://github.com/LiangJunrong/Node/tree/FrontEndCodeBase)
 
 &emsp;**Node 成品代码**：[链接](https://github.com/LiangJunrong/Node)  
 
 &emsp;**Node 项目演示**：[链接](http://company.jsliang.top/)
+
+![图](../../public-repertory/img/other-node-NodeBase-0.png)
 
 <br>
 
