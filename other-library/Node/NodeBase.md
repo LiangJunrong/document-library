@@ -45,7 +45,8 @@ Node 基础
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 工具整合](#chapter-five) |
 | &emsp;<a name="catalog-chapter-five-one" id="catalog-chapter-five-one"></a>[5.1 supervisor - 监听 Node 改动](#chapter-five-one) |
 | &emsp;<a name="catalog-chapter-five-two" id="catalog-chapter-five-two"></a>[5.2 PM2 - Node 进程管理](#chapter-five-two) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结](#chapter-six) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 参考资料](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 总结](#chapter-seven) |
 
 <br>
 
@@ -60,20 +61,6 @@ Node 基础
 1. 整合 Node 基础，加深 **jsliang** 对 Node 的学习了解，并且方便日后复习。  
 2. 整合 Node 工具，方便查找在 Node 开发中，有哪些工具比较有利于开发。
 3. 给初学 Node 的小伙伴做一个参考，如有疑问还请在 QQ 群：`798961601` 中咨询。
-
-&emsp;参考资料：
-
-1. **经典：该类值得我们研读**
-
-* [API 文档 | Node.js 中文网](http://nodejs.cn/api/)
-* [Node.js 教程 | 菜鸟教程](http://www.runoob.com/nodejs/nodejs-tutorial.html)
-
-2. **尝试：该类值得我们参考借鉴**
-
-* [NodeJs 实战——原生 NodeJS 轻仿 Express 框架从需求到实现（一） | 倔强的石头 - 掘金](https://juejin.im/post/5bf227a751882516be2ec124)
-* [NodeJs 实战——原生 NodeJS 轻仿 Express 框架从需求到实现（二） | 倔强的石头 - 掘金](https://juejin.im/post/5bf4e46a6fb9a049f153d2ae)
-
-> 上面的两篇文章比较思路比较凌乱，仅建议参考，或者直接 DownLoad 它的 GitHub 代码：[地址](https://github.com/chenshengshui/tiny-express)
 
 <br>
 
@@ -4308,9 +4295,56 @@ function getNowFormatDate() {
 
 <br>
  
-# <a name="chapter-six" id="chapter-six">六 总结</a>
+# <a name="chapter-six" id="chapter-six">六 参考资料</a>
 
 > [返回目录](#catalog-chapter-six)
+
+<br>
+
+&emsp;在编写这篇文章的过程中，有一些参考资料是值得保留阅读的：
+
+1. **经典：该类值得我们研读**
+
+> 经典，就是随着时间流逝，它还是那么有参考价值。
+
+* [API 文档 | Node.js 中文网](http://nodejs.cn/api/)
+* [Node.js 教程 | 菜鸟教程](http://www.runoob.com/nodejs/nodejs-tutorial.html)
+* [Express 文档 | Express 中文网](http://www.expressjs.com.cn/)
+
+2. **尝试：该类值得我们参考借鉴**
+
+> Node 基础模块
+
+* [nodejs之querystring模块 | 博客园 - whiteMu](https://www.cnblogs.com/whiteMu/p/5986297.html)
+
+> Node 编写接口
+
+* [用Node编写RESTful API接口 | php 中文网 - 不言](http://www.php.cn/js-tutorial-406242.html)
+
+> MySQL 学习
+
+* [](http://www.runoob.com/mysql/mysql-tutorial.html)
+
+> Node 连接数据库
+
+* [node.js前后台交互示例 -- 使用node.js实现用户注册功能 | 博客园 - 返回主页 党兴明](https://www.cnblogs.com/by-dxm/p/6723039.html)
+* [node.js实现简单的登录注册页面 - 博客园 - 返回主页 bestjarvan](https://www.cnblogs.com/bestjarvan/archive/2017/04/08/6680857.html)
+
+> Node 仿 Express
+
+* [nodejs模块：简单http请求路由，仿express | CSDN - TTUZ](https://blog.csdn.net/tiantangyouzui/article/details/70184959)
+* [初学nodejs一：别被Express的API搞晕了 | 前端乱炖 - 飞天小黑神猪](http://www.html-js.com/article/1603)
+* [NodeJs 实战——原生 NodeJS 轻仿 Express 框架从需求到实现（一） | 倔强的石头 - 掘金](https://juejin.im/post/5bf227a751882516be2ec124)
+* [NodeJs 实战——原生 NodeJS 轻仿 Express 框架从需求到实现（二） | 倔强的石头 - 掘金](https://juejin.im/post/5bf4e46a6fb9a049f153d2ae)
+* [仿 Express | Github - wallaceyuan](https://github.com/wallaceyuan/yuan-express)
+* [Node.js 封装仿照 express 的路由 | CSDN - c.](https://blog.csdn.net/cckevincyh/article/details/78695177)
+* [学习node中express框架中间件的相关知识及实践 | Github - BadWaka](https://github.com/BadWaka/node-express-middleware-study)
+
+<br>
+ 
+# <a name="chapter-seven" id="chapter-seven">七 总结</a>
+
+> [返回目录](#catalog-chapter-seven)
 
 <br>
 
