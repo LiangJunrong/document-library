@@ -4323,7 +4323,7 @@ function getNowFormatDate() {
 
 > MySQL 学习
 
-* [](http://www.runoob.com/mysql/mysql-tutorial.html)
+* [MySQL 教程 | 菜鸟教程](http://www.runoob.com/mysql/mysql-tutorial.html)
 
 > Node 连接数据库
 
