@@ -2262,7 +2262,12 @@ function getNowFormatDate() {
 
 <br>
 
-&emsp;通过判断 `req.method` 属于 `GET` 还是 `POST` 形式，从而确定加载的接口。然后，在 `POST` 中，判断是属于 **提交留言信息**、**登录** 还是 **注册**；在 `GET` 中，判断是不是 **获取留言信息**。在这里的返回数据暂且定为它原数据的 `json` 值。
+&emsp;通过判断 `req.method` 属于 `GET` 还是 `POST` 形式，从而确定加载的接口：  
+
+* 在 `POST` 中，判断是属于 **提交留言信息**、**登录** 还是 **注册**；
+* 在 `GET` 中，判断是不是 **获取留言信息**。  
+
+&emsp;**同时**，我们在其中定义了 MySQL 的连接以及一个 `getNowFormatDate` 用来获取当前时间，格式为：`2018-12-21 10:03:59`
 
 &emsp;**然后**，我们通过一个前端页面来演示我们的接口是否能使用：
 
@@ -2340,6 +2345,8 @@ function getNowFormatDate() {
 
 &emsp;可以看到我们的接口能正常调通，这样我们就可以连接数据库，进行这 4 个接口的设计了。
 
+> 如果小伙伴们觉得每次更新 Node 代码后，又要重启一遍 `node index.js` 觉得麻烦，可以通过 `supervisor` 来监听 Node 代码的改动，`supervisor` 的安装使用：[supervisor](#chapter-five-one)
+
 <br>
 
 # <a name="chapter-four-three" id="chapter-four-three">4.3 注册功能</a>
@@ -2347,9 +2354,6 @@ function getNowFormatDate() {
 > [返回目录](#catalog-chapter-four-three)
 
 <br>
-
-* **设定：用户注册数不能超过 300，超过之后无法新增**
-* **设定：用户留言数不能超过 300，超过之后无法留言**
 
 &emsp;很好，我们回到仿企业网站的页面上，准备编写接口以及丰富 Node 的接口。  
 
