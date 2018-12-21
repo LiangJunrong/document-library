@@ -8,6 +8,8 @@ Node 基础
 
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md)**
 
+&emsp;**jsliang 文档库撰文思路：[链接]()**
+
 &emsp;**Node 基础代码**：[链接](https://github.com/LiangJunrong/Node/tree/FrontEndCodeBase)
 
 &emsp;**Node 成品代码**：[链接](https://github.com/LiangJunrong/Node)  
@@ -365,7 +367,6 @@ console.log(url);
 
 ```
 console.log(url.parse("http://www.baidu.com"));
-
 /**
  * Console：
   Url {
@@ -2357,7 +2358,27 @@ function getNowFormatDate() {
 
 &emsp;很好，我们回到仿企业网站的页面上，准备编写接口以及丰富 Node 的接口。  
 
-&emsp;**首先**，我们在注册页面通过点击事件来触发调接口：
+&emsp;**首先**，我们开启前端和 Node 服务：
+
+1. 打开命令行/终端
+
+2. 开启前端
+
+* `cd FrontEndCode`
+* `live-server`
+
+> 安装 `live-server`：`npm i live-server -g`
+
+3. 开启后端
+
+* `cd NodeWeb`
+* `supervisor index.js`
+
+> 安装 `supervisor`：`npm i supervisor -g`
+
+<br>
+
+&emsp;**然后**，我们在注册页面通过点击事件来触发调接口：
 
 > register.html
 
@@ -2382,6 +2403,7 @@ function getNowFormatDate() {
 
   <script src="./js/jquery-3.3.1.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/islogin.js"></script>
   <script>
     $(function () {
       $("#register-submit").click(function () {
@@ -2403,6 +2425,7 @@ function getNowFormatDate() {
           $("#userPassword").focus();
         } else {
 
+          // 如果用户输入的没毛病，那就加载接口
           $.ajax({
             url: "http://localhost:8888/register",
             type: 'post',
@@ -2413,7 +2436,7 @@ function getNowFormatDate() {
             },
             success: function (res) {
               console.log(res);
-              if (res.insertId) {
+              if (res.code == "0") {
                 alert("注册成功，前往登录！");
                 window.location.href = "./login.html";
               }
@@ -2436,6 +2459,7 @@ function getNowFormatDate() {
             }
           })
         }
+
       })
     })
   </script>
@@ -2446,245 +2470,134 @@ function getNowFormatDate() {
 
 <br>
 
-&emsp;如此，我们在用户点击 **注册** 按钮的时候，进行接口的调用，发送数据到了后端。
+&emsp;如此，我们在用户点击 **注册** 按钮的时候，进行接口的调用，发送数据到了后端，如果成功了，那就弹窗，并跳转到登录页；如果没成功，就弹窗提示。
 
-&emsp;**然后**，我们编写 Node，前端调用接口后，Node 判断这两个参数是否为空，如果不为空，则将数据存储到数据库。
+<br>
+
+&emsp;**接着**，我们编写 Node，前端调用接口后，Node 判断这两个参数是否为空，如果不为空，则将数据存储到数据库。
 
 > index.js
 
 ```
-// 连接 MySQL：先安装 npm i mysql -D
-var mysql = require('mysql');
-// MySQL 的连接信息
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '123456',
-  database: 'nodebase'
-});
-// 开始连接
-connection.connect();
+// ... 其他代码省略，请自行前往章节 4.2 后端接口 获取其他代码
 
-// 引入 http 模块：http 是提供 Web 服务的基础
-const http = require("http");
+if (pathName == "/sendMessage") { // 提交留言信息
 
-// 引入 url 模块：url 是对用户提交的路径进行解析
-const url = require("url");
+  console.log("\n【API - 提交留言信息】");
 
-// 引入 qs 模块：qs 是对路径进行 json 化或者将 json 转换为 string 路径
-const qs = require("querystring");
+} else if (pathName == "/login") { // 登录
 
-// 用 http 模块创建服务
-/**
- * req 获取 url 信息 (request)
- * res 浏览器返回响应信息 (response)
- */
-http.createServer(function (req, res) {
+  console.log("\n【API - 登录】");
 
-  // 设置跨域
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  // 设置 header 类型
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  // 跨域允许的请求方式
-  res.setHeader('Content-Type', 'application/json');
+} else if (pathName == "/register") { // 注册
 
-  if (req.method == "POST") { // 接口 POST 形式
+  console.log("\n【API - 注册】");
 
-    console.log("\n【POST 形式】");
+  result = JSON.parse(result);
 
-    // 获取前端发来的路由地址
-    let pathName = req.url;
+  let username = result.username; // 用户名
+  let password = result.password; // 密码
+  let time = getNowFormatDate(); // 时间
 
-    console.log("\n接口为：" + pathName);
+  if (!username) { // 用户名为空
+    res.end("注册失败，用户名为空。");
+    return;
+  } else if (!password) { // 密码为空
+    res.end("注册失败，密码为空！");
+    return;
+  } else if(username.length > 10) { // 姓名过长
+    res.end("注册失败，姓名过长！");
+    return;
+  } else if(password.length > 20) { // 密码过长
+    res.end("注册失败，密码过长！");
+    return;
+  } else {
+    
+    // 查询 user 表
+    // 使用 Promise 的原因是因为中间调用了两次数据库，而数据库查询是异步的，所以需要用 Promise。
+    new Promise( (resolve, reject) => {
 
-    // 接收发送过来的参数
-    let tempResult = "";
-
-    // 数据接入中
-    req.addListener("data", function (chunk) {
-      tempResult += chunk;
-    });
-
-    // 数据接收完成
-    req.addListener("end", function () {
-
-      var result = JSON.stringify(qs.parse(tempResult));
-      console.log("\n参数为：");
-      console.log(result);
-
-      if (pathName == "/sendMessage") { // 提交留言信息
-
-        console.log("\n【API - 提交留言信息】");
-
-      } else if (pathName == "/login") { // 登录
-
-        console.log("\n【API - 登录】");
-
-        // 返回数据
-        res.write(JSON.stringify(result));
-
-        // 结束响应
-        res.end();
-
-      } else if (pathName == "/register") { // 注册
-
-        console.log("\n【API - 注册】");
-
-        result = JSON.parse(result);
-
-        let username = result.username; // 用户名
-        let password = result.password; // 密码
-        let time = getNowFormatDate(); // 时间
-
-        if (!username) { // 用户名为空
-          res.end("注册失败，用户名为空。");
-          return;
-        } else if (!password) { // 密码为空
-          res.end("注册失败，密码为空！");
-          return;
-        } else if(username.length > 10) {
-          res.end("注册失败，姓名过长！");
-          return;
-        } else if(password.length > 20) {
-          res.end("注册失败，密码过长！");
-          return;
+      // 新增的 SQL 语句及新增的字段信息
+      let readSql = "SELECT * FROM user";
+      
+      // 连接 SQL 并实施语句
+      connection.query(readSql, function (error1, response1) {
+        
+        if (error1) { // 如果 SQL 语句错误
+          throw error1;
         } else {
           
-          // 查询 user 表
-          new Promise( (resolve, reject) => {
+          console.log("\nSQL 查询结果：");
 
-            // 新增的 SQL 语句及新增的字段信息
-            let readSql = "SELECT * FROM user";
-            
-            // 连接 SQL 并实施语句
-            connection.query(readSql, function (error1, response1) {
-              if (error1) { // 如果 SQL 语句错误
-                throw error1;
-              } else {
-                
-                console.log("\nSQL 查询结果：");
+          // 将结果先去掉 RowDataPacket，再转换为 json 对象
+          let newRes = JSON.parse(JSON.stringify(response1));
+          console.log(newRes);
 
-                // 将结果先去掉 RowDataPacket，再转换为 json 对象
-                let newRes = JSON.parse(JSON.stringify(response1));
-                console.log(newRes);
+          // 判断姓名重复与否
+          let userNameRepeat = false;
+          for(let item in newRes) {
+            if(newRes[item].user_name == username) {
+              userNameRepeat = true;
+            }
+          }
 
-                // 判断姓名重复与否
-                let userNameRepeat = false;
-                for(let item in newRes) {
-                  if(newRes[item].user_name == username) {
-                    userNameRepeat = true;
-                  }
-                }
-
-                // 如果姓名重复
-                if(userNameRepeat) {
-                  res.end("注册失败，姓名重复！");
-                  return;
-                } else if(newRes.length > 300) { // 如果注册名额已满
-                  res.end("注册失败，名额已满！");
-                  return;
-                } else { // 可以注册
-                  resolve();
-                }
-                
-              }
-            });
-
-          }).then( () => {
-            
-            console.log("\n第二步：");
-            
-            // 新增的 SQL 语句及新增的字段信息
-            let addSql = "INSERT INTO user(user_name,user_password, time) VALUES(?,?,?)";
-            let addSqlParams = [result.username, result.password, time];
-
-            // 连接 SQL 并实施语句
-            connection.query(addSql, addSqlParams, function (error2, response2) {
-              if (error2) { // 如果 SQL 语句错误
-                console.log("新增错误：");
-                console.log(error2);
-                return;
-              } else {
-                console.log("\nSQL 查询结果：");
-                console.log(response2);
-
-                console.log("\n注册成功！");
-
-                // 将 SQL 结果返回到前端
-                res.write(JSON.stringify(response2));
-
-                // 结束响应
-                res.end();
-              }
-            });
-
-          })
-          // Promise 结束
+          // 如果姓名重复
+          if(userNameRepeat) {
+            res.end("注册失败，姓名重复！");
+            return;
+          } else if(newRes.length > 300) { // 如果注册名额已满
+            res.end("注册失败，名额已满！");
+            return;
+          } else { // 可以注册
+            resolve();
+          }
+          
         }
-        // 注册流程结束
-      }
-      // 接口信息处理完毕
-    })
-    // 数据接收完毕
-
-  } else if (req.method == "GET") { // 接口 GET 形式
-
-    console.log("\n【GET 形式】");
-
-    // 解析 url 接口
-    let pathName = url.parse(req.url).pathname;
-
-    console.log("\n接口为：" + pathName);
-
-    if (pathName == "/getMessage") { // 获取留言信息
-
-      console.log("\n【API - 获取留言信息】");
-
-      // 解析 url 参数部分
-      let params = url.parse(req.url, true).query;
-
-      console.log("\n参数为：");
-      console.log(params);
-
-      // 返回数据
-      res.write(JSON.stringify(params));
-
-      // 结束响应
-      res.end();
-    } else if(pathName == "/") { // 首页
-      res.writeHead(200, {
-        "Content-Type": "text/html;charset=UTF-8"
       });
 
-      res.write('<h1 style="text-align:center">jsliang 前端有限公司服务已开启！</h1><h2 style="text-align:center">详情可见：<a href="https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md" target="_blank">Node 基础</a></h2>');
+    }).then( () => {
+      
+      console.log("\n第二步：");
+      
+      // 新增的 SQL 语句及新增的字段信息
+      let addSql = "INSERT INTO user(user_name,user_password, time) VALUES(?,?,?)";
+      let addSqlParams = [result.username, result.password, time];
 
-      res.end();
-    }
+      // 连接 SQL 并实施语句
+      connection.query(addSql, addSqlParams, function (error2, response2) {
+        if (error2) { // 如果 SQL 语句错误
+          console.log("新增错误：");
+          console.log(error2);
+          return;
+        } else {
+          console.log("\nSQL 查询结果：");
+          console.log(response2);
 
+          console.log("\n注册成功！");
+
+          // 返回数据
+          res.write(JSON.stringify({
+            code: "0",
+            message: "注册成功！"
+          }));
+
+          // 结束响应
+          res.end();
+        }
+      });
+
+    })
+    // Promise 结束
   }
-
-}).listen(8888); // 监听的端口
-
-// 获取当前时间
-function getNowFormatDate() {
-  var date = new Date();
-  var year = date.getFullYear(); // 年
-  var month = date.getMonth() + 1; // 月
-  var strDate = date.getDate(); // 日
-  var hour = date.getHours(); // 时
-  var minute = date.getMinutes(); // 分
-  var second = date.getMinutes(); // 秒
-  if (month >= 1 && month <= 9) {
-    month = "0" + month;
-  }
-  if (strDate >= 0 && strDate <= 9) {
-    strDate = "0" + strDate;
-  }
-  // 返回 yyyy-mm-dd hh:mm:ss 形式
-  var currentdate = year + "-" + month + "-" + strDate + " " + hour + ":" + minute + ":" + second;
-  return currentdate;
+  // 注册流程结束
 }
 ```
+
+<br>
+
+&emsp;**最后**，我们在查看下该功能是否成功：
+
+![图](../../public-repertory/img/other-node-NodeBase-18.gif)
 
 <br>
 
@@ -2693,6 +2606,8 @@ function getNowFormatDate() {
 > [返回目录](#catalog-chapter-four-four)
 
 <br>
+
+&emsp;在上面，我们完成了注册功能，那么相对来说，登录功能就容易通了，因为查询部分我们已经试过了一次。
 
 > login.html
 
@@ -2713,135 +2628,18 @@ function getNowFormatDate() {
 </head>
 
 <body>
-  <div class="header text-center">
-    <nav class="navbar navbar-dark bg-sky navbar-expand-lg sticky-top">
-      <a class="navbar-brand" href="index.html">
-        <img src="./images/common-logo.png" alt="Logo">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto text-left">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">企业首页</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="consultingBusiness.html">咨询业务</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="valueAddedService.html">增值业务</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="trainingBusiness.html">培训业务</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="mobileApplications.html">移动应用</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="messageBoard.html">留言板</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0" action="http://www.baidu.com/baidu" target="_blank">
-          <input class="form-control mr-sm-2" type="search" name="word" placeholder="jsliang" aria-label="Search">
-          <button class="btn btn-primary my-2 my-sm-0" type="submit">
-            <span class="glyphicon glyphicon-search"></span>搜索</button>
-        </form>
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link nav-right-link nav-item-active" id="nav-link-register" href="login.html">登录</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-right-link" id="nav-link-login" href="register.html">注册</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-right-link" id="nav-link-user" href="javascript:void(0)">用户名</a>
-          </li>
-        </ul>
-
-      </div>
-    </nav>
-    <div class="banner">
-      <img class="img-fluid" src="./images/common-banner.jpg" alt="广告图">
-    </div>
-  </div>
-  <div class="container">
-    <div class="row aside">
-      <div class="col-md-2">
-        <div class="row">
-          <div class="sidebar">
-            <ul>
-              <li>
-                <span class="triangle"></span>
-                <a href="login.html" class="text-primary">登录</a>
-              </li>
-              <li>
-                <span class="triangle"></span>
-                <a href="register.html">注册</a>
-              </li>
-            </ul>
-          </div>
-          <div class="strategic-partner">
-            <img src="./images/common-china_tele.png" alt="战略伙伴">
-          </div>
-        </div>
-      </div>
-      <div class="col-md-10 content">
-        <h4 class="content-nav">
-          <span class="text-primary float-left">
-            <img src="./images/common-nav-btn.png" alt="小导航图标">&nbsp;用户操作</span>
-          <span class="float-right">当前位置：jsliang 前端>登录注册</span>
-        </h4>
-        <div class="row content-text">
-          <div class="col-md-4 card">
-            <br>
-            <h4 class="text-center">登录账号</h4>
-            <div>
-              <label for="userName">用户昵称：</label>
-              <input maxlength="10" type="text" class="form-control" id="userName" placeholder="请输入用户名" required>
-            </div>
-            <div>
-              <label for="userPassword">账号密码：</label>
-              <input maxlength="20" type="password" class="form-control" id="userPassword" placeholder="请输入密码" required>
-            </div>
-            <br>
-            <div class="text-center">
-              <button class="btn btn-primary" type="submit" id="login-submit">登录</button>
-            </div>
-            <br>
-          </div>
-          <div class="col-md-8">
-            <img class="img-fluid" src="./images/common-login&register.png" alt="欢迎登录/注册">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="text-center footer">
-    <div class="copyright">
-      <p>jsliang 前端有限公司 版权所有</p>
-      <p>Copyright@ 2019. ALL Rights Reserved</p>
-      <p>友情链接:
-        <a target="_blank" class="text-warning" href="https://github.com/LiangJunrong/document-library">梁峻荣的 GitHub</a>
-      </p>
-    </div>
-    <div class="network-security">
-      <p>
-        <a target="_blank" href="http://www.beianbeian.com/beianxinxi/f9709bb6-0a3e-4863-9ad7-09e616d1ea60.html">粤ICP备16084737号-1</a>
-      </p>
-    </div>
-  </div>
+  
+  <!-- 代码省略，有需要的小伙伴请在第四章前言部分下载代码 -->
 
   <script src="./js/jquery-3.3.1.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/islogin.js"></script>
   <script>
     $(function () {
       $("#login-submit").click(function () {
 
-        let userName = $("#userName").val();
-        let userPassword = $("#userPassword").val();
+        let userName = $("#userName").val(); // 用户名
+        let userPassword = $("#userPassword").val(); // 密码
 
         if (!userName) {
           alert("请输入用户名");
@@ -2904,302 +2702,100 @@ function getNowFormatDate() {
 </html>
 ```
 
+<br>
+
+&emsp;编写完前端的代码后，我们进行 Node 代码的编辑：
+
 > index.js
 
 ```
-// 连接 MySQL：先安装 npm i mysql -D
-var mysql = require('mysql');
-// MySQL 的连接信息
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '123456',
-  database: 'nodebase'
-});
-// 开始连接
-connection.connect();
 
-// 引入 http 模块：http 是提供 Web 服务的基础
-const http = require("http");
+// ... 其他代码省略，请自行前往章节 4.2 后端接口 获取其他代码
 
-// 引入 url 模块：url 是对用户提交的路径进行解析
-const url = require("url");
+if (pathName == "/sendMessage") { // 提交留言信息
 
-// 引入 qs 模块：qs 是对路径进行 json 化或者将 json 转换为 string 路径
-const qs = require("querystring");
+  console.log("\n【API - 提交留言信息】");
 
-// 用 http 模块创建服务
-/**
- * req 获取 url 信息 (request)
- * res 浏览器返回响应信息 (response)
- */
-http.createServer(function (req, res) {
+} else if (pathName == "/login") { // 登录
 
-  // 设置跨域
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  // 设置 header 类型
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  // 跨域允许的请求方式
-  res.setHeader('Content-Type', 'application/json');
+  console.log("\n【API - 登录】");
 
-  if (req.method == "POST") { // 接口 POST 形式
+  result = JSON.parse(result);
 
-    console.log("\n【POST 形式】");
+  let username = result.username; // 用户名
+  let password = result.password; // 密码
 
-    // 获取前端发来的路由地址
-    let pathName = req.url;
+  if (!username) { // 用户名为空
+    res.end("登录失败，用户名为空！");
+    return;
+  } else if (!password) { // 密码为空
+    res.end("登录失败，密码为空！");
+    return;
+  } else if(username.length > 10) {
+    res.end("登录失败，姓名过长！");
+    return;
+  } else if(password.length > 20) {
+    res.end("登录失败，密码过长！");
+    return;
+  } else { 
+    
+    // 新增的 SQL 语句及新增的字段信息
+    let readSql = "SELECT * FROM user WHERE user_name  = '" + username + "'";
 
-    console.log("\n接口为：" + pathName);
-
-    // 接收发送过来的参数
-    let tempResult = "";
-
-    // 数据接入中
-    req.addListener("data", function (chunk) {
-      tempResult += chunk;
-    });
-
-    // 数据接收完成
-    req.addListener("end", function () {
-
-      var result = JSON.stringify(qs.parse(tempResult));
-      console.log("\n参数为：");
-      console.log(result);
-
-      if (pathName == "/sendMessage") { // 提交留言信息
-
-        console.log("\n【API - 提交留言信息】");
-
-      } else if (pathName == "/login") { // 登录
-
-        console.log("\n【API - 登录】");
-
-        result = JSON.parse(result);
-
-        let username = result.username; // 用户名
-        let password = result.password; // 密码
-
-        if (!username) { // 用户名为空
-          res.end("登录失败，用户名为空！");
+    // 连接 SQL 并实施语句
+    connection.query(readSql, function (error1, response1) {
+      if (error1) {
+        throw error1;
+      } else {
+        if(response1 == undefined || response1.length == 0) { // 不存在用户
+          res.end("\n不存在该用户！");
           return;
-        } else if (!password) { // 密码为空
-          res.end("登录失败，密码为空！");
-          return;
-        } else if(username.length > 10) {
-          res.end("登录失败，姓名过长！");
-          return;
-        } else if(password.length > 20) {
-          res.end("登录失败，密码过长！");
-          return;
-        } else { 
-          
-          // 新增的 SQL 语句及新增的字段信息
-          let readSql = "SELECT * FROM user WHERE user_name  = '" + username + "'";
+        } else { // 存在用户
+          console.log("\n存在该用户！");
 
-          // 连接 SQL 并实施语句
-          connection.query(readSql, function (error1, response1) {
-            if (error1) {
-              throw error1;
-            } else {
-              if(response1 == undefined || response1.length == 0) { // 不存在用户
-                res.end("\n不存在该用户！");
-                return;
-              } else { // 存在用户
-                console.log("\n存在该用户！");
+          let newRes = JSON.parse(JSON.stringify(response1));
+          console.log(newRes);
 
-                let newRes = JSON.parse(JSON.stringify(response1));
-                console.log(newRes);
-
-                if(newRes[0].user_password == password) { // 密码正确
-                  // 返回数据
-                  res.write(JSON.stringify({
-                    code: "0",
-                    message: "登录成功！",
-                    data: {
-                      id: newRes[0].id,
-                      userName: newRes[0].user_name
-                    }
-                  }));
-
-                  res.end();
-                } else { // 密码错误
-                  // 返回数据
-                  res.write(JSON.stringify({
-                    code: "1",
-                    message: "登录失败，密码错误！"
-                  }));
-
-                  res.end();
-                }
-                // 判断密码正确与否完毕
+          if(newRes[0].user_password == password) { // 密码正确
+            // 返回数据
+            res.write(JSON.stringify({
+              code: "0",
+              message: "登录成功！",
+              data: {
+                id: newRes[0].id,
+                userName: newRes[0].user_name
               }
-              // 存在用户处理结束
-            }
-          });
+            }));
+
+            res.end();
+          } else { // 密码错误
+            // 返回数据
+            res.write(JSON.stringify({
+              code: "1",
+              message: "登录失败，密码错误！"
+            }));
+
+            res.end();
+          }
+          // 判断密码正确与否完毕
         }
-        // 登录步骤结束
-      } else if (pathName == "/register") { // 注册
-
-        console.log("\n【API - 注册】");
-
-        result = JSON.parse(result);
-
-        let username = result.username; // 用户名
-        let password = result.password; // 密码
-        let time = getNowFormatDate(); // 时间
-
-        if (!username) { // 用户名为空
-          res.end("注册失败，用户名为空。");
-          return;
-        } else if (!password) { // 密码为空
-          res.end("注册失败，密码为空！");
-          return;
-        } else if(username.length > 10) {
-          res.end("注册失败，姓名过长！");
-          return;
-        } else if(password.length > 20) {
-          res.end("注册失败，密码过长！");
-          return;
-        } else {
-          
-          // 查询 user 表
-          new Promise( (resolve, reject) => {
-
-            // 新增的 SQL 语句及新增的字段信息
-            let readSql = "SELECT * FROM user";
-            
-            // 连接 SQL 并实施语句
-            connection.query(readSql, function (error1, response1) {
-              if (error1) { // 如果 SQL 语句错误
-                throw error1;
-              } else {
-                
-                console.log("\nSQL 查询结果：");
-
-                // 将结果先去掉 RowDataPacket，再转换为 json 对象
-                let newRes = JSON.parse(JSON.stringify(response1));
-                console.log(newRes);
-
-                // 判断姓名重复与否
-                let userNameRepeat = false;
-                for(let item in newRes) {
-                  if(newRes[item].user_name == username) {
-                    userNameRepeat = true;
-                  }
-                }
-
-                // 如果姓名重复
-                if(userNameRepeat) {
-                  res.end("注册失败，姓名重复！");
-                  return;
-                } else if(newRes.length > 300) { // 如果注册名额已满
-                  res.end("注册失败，名额已满！");
-                  return;
-                } else { // 可以注册
-                  resolve();
-                }
-                
-              }
-            });
-
-          }).then( () => {
-            
-            console.log("\n第二步：");
-            
-            // 新增的 SQL 语句及新增的字段信息
-            let addSql = "INSERT INTO user(user_name,user_password, time) VALUES(?,?,?)";
-            let addSqlParams = [result.username, result.password, time];
-
-            // 连接 SQL 并实施语句
-            connection.query(addSql, addSqlParams, function (error2, response2) {
-              if (error2) { // 如果 SQL 语句错误
-                console.log("新增错误：");
-                console.log(error2);
-                return;
-              } else {
-                console.log("\nSQL 查询结果：");
-                console.log(response2);
-
-                console.log("\n注册成功！");
-
-                // 返回数据
-                res.write(JSON.stringify({
-                  code: "0",
-                  message: "注册成功！"
-                }));
-
-                // 结束响应
-                res.end();
-              }
-            });
-
-          })
-          // Promise 结束
-        }
-        // 注册流程结束
+        // 存在用户处理结束
       }
-      // 接口信息处理完毕
-    })
-    // 数据接收完毕
-
-  } else if (req.method == "GET") { // 接口 GET 形式
-
-    console.log("\n【GET 形式】");
-
-    // 解析 url 接口
-    let pathName = url.parse(req.url).pathname;
-
-    console.log("\n接口为：" + pathName);
-
-    if (pathName == "/getMessage") { // 获取留言信息
-
-      console.log("\n【API - 获取留言信息】");
-
-      // 解析 url 参数部分
-      let params = url.parse(req.url, true).query;
-
-      console.log("\n参数为：");
-      console.log(params);
-
-      // 返回数据
-      res.write(JSON.stringify(params));
-
-      // 结束响应
-      res.end();
-    } else if(pathName == "/") { // 首页
-      res.writeHead(200, {
-        "Content-Type": "text/html;charset=UTF-8"
-      });
-
-      res.write('<h1 style="text-align:center">jsliang 前端有限公司服务已开启！</h1><h2 style="text-align:center">详情可见：<a href="https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md" target="_blank">Node 基础</a></h2>');
-
-      res.end();
-    }
-
+    });
   }
+  // 登录步骤结束
+} else if (pathName == "/register") { // 注册
 
-}).listen(8888); // 监听的端口
+  console.log("\n【API - 注册】");
 
-// 获取当前时间
-function getNowFormatDate() {
-  var date = new Date();
-  var year = date.getFullYear(); // 年
-  var month = date.getMonth() + 1; // 月
-  var strDate = date.getDate(); // 日
-  var hour = date.getHours(); // 时
-  var minute = date.getMinutes(); // 分
-  var second = date.getMinutes(); // 秒
-  if (month >= 1 && month <= 9) {
-    month = "0" + month;
-  }
-  if (strDate >= 0 && strDate <= 9) {
-    strDate = "0" + strDate;
-  }
-  // 返回 yyyy-mm-dd hh:mm:ss 形式
-  var currentdate = year + "-" + month + "-" + strDate + " " + hour + ":" + minute + ":" + second;
-  return currentdate;
 }
 ```
+
+<br>
+
+&emsp;很好，前端和后端都编写完毕，是时候查验下功能是否实现了：
+
+![图](../../public-repertory/img/other-node-NodeBase-19.gif)
 
 <br>
 
@@ -3208,6 +2804,8 @@ function getNowFormatDate() {
 > [返回目录](#catalog-chapter-four-five)
 
 <br>
+
+&emsp;现在，我们就剩下留言功能了，一鼓作气做好它吧！
 
 > messageBoard.html
 
@@ -3229,125 +2827,8 @@ function getNowFormatDate() {
 </head>
 
 <body>
-  <div class="header text-center">
-    <nav class="navbar navbar-dark bg-sky navbar-expand-lg sticky-top">
-      <a class="navbar-brand" href="index.html">
-        <img src="./images/common-logo.png" alt="Logo">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto text-left">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">企业首页</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="consultingBusiness.html">咨询业务</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="valueAddedService.html">增值业务</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="trainingBusiness.html">培训业务</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="mobileApplications.html">移动应用</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="messageBoard.html">留言板</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0" action="http://www.baidu.com/baidu" target="_blank">
-          <input class="form-control mr-sm-2" type="search" name="word" placeholder="jsliang" aria-label="Search">
-          <button class="btn btn-primary my-2 my-sm-0" type="submit">
-            <span class="glyphicon glyphicon-search"></span>搜索</button>
-        </form>
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link nav-right-link" id="nav-link-register" href="login.html">登录</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-right-link" id="nav-link-login" href="register.html">注册</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-right-link" id="nav-link-user" href="javascript:void(0)">用户名</a>
-          </li>
-        </ul>
-
-      </div>
-    </nav>
-    <div class="banner">
-      <img class="img-fluid" src="./images/common-banner.jpg" alt="广告图">
-    </div>
-  </div>
-  <div class="container">
-      <div class="row aside">
-        <div class="col-md-2">
-          <div class="row">
-            <div class="message-board-sidebar">
-              <img class="img-fluid" src="./images/messageBoard.png" alt="战略伙伴">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-10 content">
-          <h4 class="content-nav">
-            <span class="text-primary float-left">
-              <img src="./images/common-nav-btn.png" alt="小导航图标">&nbsp;留言咨询</span>
-            <span class="float-right">当前位置：jsliang 前端>留言咨询</span>
-          </h4>
-          <ul class="message-board-ul" id="message-board-ul">
-            <!-- 填充位置 -->
-            <!-- <li class="message-board-li">
-              <span class="text-warning font-bold">☆ </span>
-              <span class="user-message">祝 jsliang 早日找到 13K+ 的工作！</span>
-              <span>—— </span>
-              <span class="user-name">jsliang</span>
-              <span class="message-time">2018-12-18 15:34:15</span>
-            </li>
-            <li>
-              <span class="text-warning font-bold">☆ </span>
-              <span class="user-message">不折腾的前端，和咸鱼有什么区别！</span>
-              <span>—— </span>
-              <span class="user-name">梁峻荣</span>
-              <span class="message-time">2018-12-18 15:31:44</span>
-            </li>
-            <li>
-              <span class="text-warning font-bold">☆ </span>
-              <span class="user-message">人生三愿：吃得下饭，睡得着觉，笑得出来；人生四然：来是偶然，去是必然，尽其当然，顺其自然。相信未来你的人生会更精彩！</span>
-              <span>—— </span>
-              <span class="user-name">梁峻荣</span>
-              <span class="message-time">2018-12-18 15:31:44</span>
-            </li> -->
-          </ul>
-          <hr>
-          <div>
-            <p>我也要留言：</p>
-            <textarea class="form-control" name="message" id="message" cols="30" rows="4" maxlength="140"></textarea>
-          </div>
-          <br>
-          <div class="text-indent-one">
-            <button class="btn btn-primary" id="message-submit" type="submit">提交留言</button>
-          </div>
-        </div>
-      </div>
-  </div>
-  <div class="text-center footer">
-    <div class="copyright">
-      <p>jsliang 前端有限公司 版权所有</p>
-      <p>Copyright@ 2019. ALL Rights Reserved</p>
-      <p>友情链接:
-        <a target="_blank" class="text-warning" href="https://github.com/LiangJunrong/document-library">梁峻荣的 GitHub</a>
-      </p>
-    </div>
-    <div class="network-security">
-      <p>
-        <a target="_blank" href="http://www.beianbeian.com/beianxinxi/f9709bb6-0a3e-4863-9ad7-09e616d1ea60.html">粤ICP备16084737号-1</a>
-      </p>
-    </div>
-  </div>
+  
+  <!-- 代码省略，基础代码请前往本章节前言下载 -->
 
   <script src="./js/jquery-3.3.1.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
@@ -3359,7 +2840,7 @@ function getNowFormatDate() {
       let userId = sessionStorage.getItem("id");
       
       // 查询留言板
-      if(userName && userId) { // 如果没有存储
+      if(userName && userId) { // 如果有存储
         $.ajax({
           url: "http://localhost:8888/getMessage",
           type: 'get',
@@ -3384,7 +2865,7 @@ function getNowFormatDate() {
             console.log(err);
           }
         })
-      } else { // 如果有存储
+      } else { // 如果没有存储
         window.location.href = "../login.html";
       }
 
@@ -3436,336 +2917,124 @@ function getNowFormatDate() {
 
 <br>
 
+&emsp;接着编写下 Node 后端：
+
 > index.js
 
 ```
-// 连接 MySQL：先安装 npm i mysql -D
-var mysql = require('mysql');
-// MySQL 的连接信息
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '123456',
-  database: 'nodebase'
-});
-// 开始连接
-connection.connect();
 
-// 引入 http 模块：http 是提供 Web 服务的基础
-const http = require("http");
+// ... 其他代码省略，请自行前往章节 4.2 后端接口 获取其他代码
 
-// 引入 url 模块：url 是对用户提交的路径进行解析
-const url = require("url");
+if (pathName == "/sendMessage") { // 提交留言信息
 
-// 引入 qs 模块：qs 是对路径进行 json 化或者将 json 转换为 string 路径
-const qs = require("querystring");
+  console.log("\n【API - 提交留言信息】");
 
-// 用 http 模块创建服务
-/**
- * req 获取 url 信息 (request)
- * res 浏览器返回响应信息 (response)
- */
-http.createServer(function (req, res) {
+  result = JSON.parse(result);
 
-  // 设置跨域
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  // 设置 header 类型
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  // 跨域允许的请求方式
-  res.setHeader('Content-Type', 'application/json');
+  let id = result.userid; // id
+  let userName = result.username; // 用户名
+  let messageText = result.message; // 留言内容
+  let time = getNowFormatDate(); // 时间
 
-  if (req.method == "POST") { // 接口 POST 形式
+  if(!messageText) {
+    res.end("登录失败，留言内容为空！");
+    return;
+  } else if(messageText.length > 140) {
+    res.end("登录失败，字数超过限制！");
+    return;
+  } else {
+    
+    // 新增的 SQL 语句及新增的字段信息
+    let addSql = "INSERT INTO message(user_message, user_id, user_name, time) VALUES(?, ?, ?, ?)";
+    let addSqlParams = [messageText, id, userName, time];
 
-    console.log("\n【POST 形式】");
+    // 连接 SQL 并实施语句
+    connection.query(addSql, addSqlParams, function (error1, response1) {
+      if (error1) { // 如果 SQL 语句错误
+        throw error1;
+      } else {
+        console.log("\n新增成功！");
 
-    // 获取前端发来的路由地址
-    let pathName = req.url;
+        // 返回数据
+        res.write(JSON.stringify({
+          code: "0",
+          message: "新增成功！"
+        }));
 
-    console.log("\n接口为：" + pathName);
-
-    // 接收发送过来的参数
-    let tempResult = "";
-
-    // 数据接入中
-    req.addListener("data", function (chunk) {
-      tempResult += chunk;
-    });
-
-    // 数据接收完成
-    req.addListener("end", function () {
-
-      var result = JSON.stringify(qs.parse(tempResult));
-      console.log("\n参数为：");
-      console.log(result);
-
-      if (pathName == "/sendMessage") { // 提交留言信息
-
-        console.log("\n【API - 提交留言信息】");
-
-        result = JSON.parse(result);
-
-        let id = result.userid; // id
-        let userName = result.username; // 用户名
-        let messageText = result.message; // 留言内容
-
-        if(!messageText) {
-          res.end("登录失败，用户名为空！");
-          return;
-        } else if(messageText.length > 140) {
-
-        } else {
-        
-        }
-
-      } else if (pathName == "/login") { // 登录
-
-        console.log("\n【API - 登录】");
-
-        result = JSON.parse(result);
-
-        let username = result.username; // 用户名
-        let password = result.password; // 密码
-
-        if (!username) { // 用户名为空
-          res.end("登录失败，用户名为空！");
-          return;
-        } else if (!password) { // 密码为空
-          res.end("登录失败，密码为空！");
-          return;
-        } else if(username.length > 10) {
-          res.end("登录失败，姓名过长！");
-          return;
-        } else if(password.length > 20) {
-          res.end("登录失败，密码过长！");
-          return;
-        } else { 
-          
-          // 新增的 SQL 语句及新增的字段信息
-          let readSql = "SELECT * FROM user WHERE user_name  = '" + username + "'";
-
-          // 连接 SQL 并实施语句
-          connection.query(readSql, function (error1, response1) {
-            if (error1) {
-              throw error1;
-            } else {
-              if(response1 == undefined || response1.length == 0) { // 不存在用户
-                res.end("\n不存在该用户！");
-                return;
-              } else { // 存在用户
-                console.log("\n存在该用户！");
-
-                let newRes = JSON.parse(JSON.stringify(response1));
-                console.log(newRes);
-
-                if(newRes[0].user_password == password) { // 密码正确
-                  // 返回数据
-                  res.write(JSON.stringify({
-                    code: "0",
-                    message: "登录成功！",
-                    data: {
-                      id: newRes[0].id,
-                      userName: newRes[0].user_name
-                    }
-                  }));
-
-                  res.end();
-                } else { // 密码错误
-                  // 返回数据
-                  res.write(JSON.stringify({
-                    code: "1",
-                    message: "登录失败，密码错误！"
-                  }));
-
-                  res.end();
-                }
-                // 判断密码正确与否完毕
-              }
-              // 存在用户处理结束
-            }
-          });
-        }
-        // 登录步骤结束
-      } else if (pathName == "/register") { // 注册
-
-        console.log("\n【API - 注册】");
-
-        result = JSON.parse(result);
-
-        let username = result.username; // 用户名
-        let password = result.password; // 密码
-        let time = getNowFormatDate(); // 时间
-
-        if (!username) { // 用户名为空
-          res.end("注册失败，用户名为空。");
-          return;
-        } else if (!password) { // 密码为空
-          res.end("注册失败，密码为空！");
-          return;
-        } else if(username.length > 10) {
-          res.end("注册失败，姓名过长！");
-          return;
-        } else if(password.length > 20) {
-          res.end("注册失败，密码过长！");
-          return;
-        } else {
-          
-          // 查询 user 表
-          new Promise( (resolve, reject) => {
-
-            // 新增的 SQL 语句及新增的字段信息
-            let readSql = "SELECT * FROM user";
-            
-            // 连接 SQL 并实施语句
-            connection.query(readSql, function (error1, response1) {
-              if (error1) { // 如果 SQL 语句错误
-                throw error1;
-              } else {
-                
-                console.log("\nSQL 查询结果：");
-
-                // 将结果先去掉 RowDataPacket，再转换为 json 对象
-                let newRes = JSON.parse(JSON.stringify(response1));
-                console.log(newRes);
-
-                // 判断姓名重复与否
-                let userNameRepeat = false;
-                for(let item in newRes) {
-                  if(newRes[item].user_name == username) {
-                    userNameRepeat = true;
-                  }
-                }
-
-                // 如果姓名重复
-                if(userNameRepeat) {
-                  res.end("注册失败，姓名重复！");
-                  return;
-                } else if(newRes.length > 300) { // 如果注册名额已满
-                  res.end("注册失败，名额已满！");
-                  return;
-                } else { // 可以注册
-                  resolve();
-                }
-                
-              }
-            });
-
-          }).then( () => {
-            
-            console.log("\n第二步：");
-            
-            // 新增的 SQL 语句及新增的字段信息
-            let addSql = "INSERT INTO user(user_name,user_password, time) VALUES(?,?,?)";
-            let addSqlParams = [result.username, result.password, time];
-
-            // 连接 SQL 并实施语句
-            connection.query(addSql, addSqlParams, function (error2, response2) {
-              if (error2) { // 如果 SQL 语句错误
-                console.log("新增错误：");
-                console.log(error2);
-                return;
-              } else {
-                console.log("\nSQL 查询结果：");
-                console.log(response2);
-
-                console.log("\n注册成功！");
-
-                // 返回数据
-                res.write(JSON.stringify({
-                  code: "0",
-                  message: "注册成功！"
-                }));
-
-                // 结束响应
-                res.end();
-              }
-            });
-
-          })
-          // Promise 结束
-        }
-        // 注册流程结束
+        // 结束响应
+        res.end();
       }
-      // 接口信息处理完毕
     })
-    // 数据接收完毕
+  }
 
-  } else if (req.method == "GET") { // 接口 GET 形式
+} else if (pathName == "/login") { // 登录
 
-    console.log("\n【GET 形式】");
+  console.log("\n【API - 登录】");
 
-    // 解析 url 接口
-    let pathName = url.parse(req.url).pathname;
+} else if (pathName == "/register") { // 注册
 
-    console.log("\n接口为：" + pathName);
+  console.log("\n【API - 注册】");
 
-    if (pathName == "/getMessage") { // 获取留言信息
+}
 
-      console.log("\n【API - 获取留言信息】");
 
-      // 解析 url 参数部分
-      let params = url.parse(req.url, true).query;
 
-      console.log("\n参数为：");
-      console.log(params);
+// ... 其他代码省略，请自行前往章节 4.2 后端接口 获取其他代码
 
-      // 新增的 SQL 语句及新增的字段信息
-      let readSql = "SELECT * FROM message";
 
-      // 连接 SQL 并实施语句
-      connection.query(readSql, function (error1, response1) {
-        if (error1) {
-          throw error1; 
-        } else {
-          
-          let newRes = JSON.parse(JSON.stringify(response1));
-          console.log(newRes);
 
-          // 返回数据
-          res.write(JSON.stringify({
-            code: "1",
-            message: "查询成功！",
-            data: newRes
-          }));
-  
-          // 结束响应
-          res.end();
-        }
-      });
-      // 查询完毕
-    } else if(pathName == "/") { // 首页
-      res.writeHead(200, {
-        "Content-Type": "text/html;charset=UTF-8"
-      });
+if (pathName == "/getMessage") { // 获取留言信息
 
-      res.write('<h1 style="text-align:center">jsliang 前端有限公司服务已开启！</h1><h2 style="text-align:center">详情可见：<a href="https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md" target="_blank">Node 基础</a></h2>');
+  console.log("\n【API - 获取留言信息】");
 
+  // 解析 url 参数部分
+  let params = url.parse(req.url, true).query;
+
+  console.log("\n参数为：");
+  console.log(params);
+
+  // 新增的 SQL 语句及新增的字段信息
+  let readSql = "SELECT * FROM message";
+
+  // 连接 SQL 并实施语句
+  connection.query(readSql, function (error1, response1) {
+    if (error1) {
+      throw error1; 
+    } else {
+      
+      let newRes = JSON.parse(JSON.stringify(response1));
+      console.log(newRes);
+
+      // 返回数据
+      res.write(JSON.stringify({
+        code: "1",
+        message: "查询成功！",
+        data: newRes
+      }));
+
+      // 结束响应
       res.end();
     }
+  });
+  // 查询完毕
+} else if(pathName == "/") { // 首页
+  res.writeHead(200, {
+    "Content-Type": "text/html;charset=UTF-8"
+  });
 
-  }
+  res.write('<h1 style="text-align:center">jsliang 前端有限公司服务已开启！</h1><h2 style="text-align:center">详情可见：<a href="https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md" target="_blank">Node 基础</a></h2>');
 
-}).listen(8888); // 监听的端口
-
-// 获取当前时间
-function getNowFormatDate() {
-  var date = new Date();
-  var year = date.getFullYear(); // 年
-  var month = date.getMonth() + 1; // 月
-  var strDate = date.getDate(); // 日
-  var hour = date.getHours(); // 时
-  var minute = date.getMinutes(); // 分
-  var second = date.getMinutes(); // 秒
-  if (month >= 1 && month <= 9) {
-    month = "0" + month;
-  }
-  if (strDate >= 0 && strDate <= 9) {
-    strDate = "0" + strDate;
-  }
-  // 返回 yyyy-mm-dd hh:mm:ss 形式
-  var currentdate = year + "-" + month + "-" + strDate + " " + hour + ":" + minute + ":" + second;
-  return currentdate;
+  res.end();
 }
 ```
+
+<br>
+
+&emsp;敲完代码再看下功能是否实现：
+
+![图](../../public-repertory/img/other-node-NodeBase-20.gif)
+
+&emsp;综上，我们完成了所有的功能模块：注册、登录以及留言。
 
 <br>
  
@@ -3775,7 +3044,7 @@ function getNowFormatDate() {
 
 <br>
 
-&emsp;工欲善其事，必先利其器。  
+&emsp;**工欲善其事，必先利其器。**  
 &emsp;掌控好了工具，可以方便你更快地进行开发。
 
 <br>
@@ -3896,7 +3165,13 @@ function getNowFormatDate() {
 
 <br>
 
-&emsp;综上，搞定一切！
+&emsp;综上，搞定一切！  
+&emsp;兴许在上面代码的摧残下，能看到这里的小伙伴已经寥寥无几了，但我坚信我该交代的基本都交代了，如果小伙伴看完真觉得不错，那就点个赞或者给个 star 吧！你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md)  
+&emsp;如果小伙伴要评论的话，可以加个暗语：`Node 基础，***`
+
+* Node 基础，我完成了！
+
+&emsp;**so, that's all, thanks~**
 
 <br>
 
