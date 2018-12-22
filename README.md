@@ -2,7 +2,8 @@ Document Library - 文档库
 ===
 
 > 始建于 `2018-08-20`，开始目的是做学习笔记。  
-> 如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/WritingIdeas.md)** 进行查看。
+> 如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/WritingIdeas.md)** 进行查看。  
+> 如想知道 **jsliang** 各种新奇玩意，请前往 **[网站清单]()** 进行查看。
 
 * Here is the jsliang's learning and working experience document on programming. If you have doubts about this, please send an email to 1741020489@qq.com.
 * 这里存放了jsliang的学习、工作中关于编程的经验文档。如果你对此有疑惑，请发邮件到1741020489@qq.com。
