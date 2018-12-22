@@ -12,7 +12,7 @@ Document Library - 文档库
 
 &emsp;如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/WritingIdeas.md)** 进行查看。  
 
-&emsp;如想知道 **jsliang** 各种新奇玩意，请前往 **[网站清单]()** 进行查看。
+&emsp;如想知道 **jsliang** 各种新奇玩意，请前往 **[网站清单](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/README.md)** 进行查看。
 
 &emsp;建文档库的初始目的是记录一下 **jsliang** 的在折腾学习某个黑科技的时候的操作笔记，如果你学习而不写文章、不做笔记，某天你突发奇想，又要用到某个之前你用过的黑科技……那样的话，还需要百度或者 google 一遍，太累了！
 
