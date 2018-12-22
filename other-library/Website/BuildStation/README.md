@@ -54,7 +54,7 @@
 * 阿里云服务器。**jsliang** 目前正在使用的服务器就是云服务器。也许有的小伙伴们应该了解过云服务器，也知道在双 11 双 12 的时候，不仅有疯狂的淘宝购物，还有阿里云服务器的推送，说不定小伙伴已经买了一台给自己了，但是一直没用上。  
 
 > 如果小伙伴们第一次接触过阿里云，可以点击下面链接，领最高 1888 的云产品通用代金券：  
-> * [阿里云服务器新用户推广](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)  
+> * [阿里云服务器新用户推广](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)（回头记得点击下面的链接，领云服务器优惠）  
 > 
 > 如果小伙伴想买一台云服务器，推荐使用 **jsliang** 的推广链接：  
 > * [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)  
@@ -380,7 +380,9 @@ server {
 
 <br>
 
-&emsp;
+&emsp;关于 MySQL 的安装，我在另一篇文章中有记录：
+
+* [MySQL 的安装及配置](https://github.com/LiangJunrong/document-library/blob/master/other-library/SQL/MySQL.md)
 
 <br>
 
