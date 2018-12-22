@@ -28,7 +28,10 @@
 
 <br>
 
-&emsp;
+&emsp;作为一枚程序猿，  
+&emsp;第一句编程必须是 `Hello World!`，  
+&emsp;第一个愿望必须是 `My Blog`，  
+&emsp;如果不是，当我没说。
 
 <br>
 
