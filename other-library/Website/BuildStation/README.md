@@ -28,6 +28,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 云服务器及域名](#chapter-three) |
+| &emsp;[3.1 云服务器](#chapter-three-one) |
+| &emsp;[3.2 域名](#chapter-three-two) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Nginx 代理前端页面](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 MySQL 安装及部署](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Node 提供接口服务](#chapter-six) |
@@ -68,9 +70,61 @@
 
 <br>
 
+&emsp;云服务器和域名都是需要备案的：[阿里云备案管理](https://bsn.console.aliyun.com/?spm=5176.100251.aliyun_topbar.16.188a4f15763rAj#/bsnApply?_k=bai4u6)  
+&emsp;小伙伴可以通过上面链接了解下备案相关知识。
+
+<br>
+
+# <a name="chapter-three-one" id="chapter-three-one">3.1 云服务器</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
 &emsp;如果你已经通过上面推送购买了云服务器，或者你本身就有云服务器，那么我们开始讲解下 **jsliang** 对云服务器的使用：
 
+&emsp;我们了解下在哪里可以看到自己的云服务器：
 
+1. 在阿里云首页点击控制台。
+
+![图](../../../public-repertory/img/other-build-station-1.png)
+
+<br>
+
+2. 点击左侧展开侧边栏，点击云服务器 ECS。
+
+![图](../../../public-repertory/img/other-build-station-2.png)
+
+<br>
+
+3. 点击实例，选择云服务器所在地区，便出现了自己买的云服务器实例。
+
+![图](../../../public-repertory/img/other-build-station-3.png)
+
+<br>
+
+&emsp;我们需要记住有四大块：
+
+* **IP 地址**。**IP 地址**可以让你通过 Win + R，输入 mstsc 后，在远程桌面中，通过输入公网地址以及密码，访问你的云服务器，[方法详情](https://yq.aliyun.com/articles/224155)。
+* **远程连接**。**远程连接**可以直接通过网页的形式连接云服务器，对它进行操作。
+* **实例状态**。**更多 -> 实例状态**可以停止、开启、重启云服务器。
+* **磁盘和镜像**。
+  * 如果你感觉 Windows 云服务器满足不了你了，或者你想更换 Windows 系统的其他版本，那么你可以通过 **更多 -> 磁盘和镜像 -> 更换系统盘** 来更换系统（请先在实例状态中停止云服务器）。
+  * 如果你觉得你的云服务器爆满了，想重新折腾过，那么可以通过 **更多 -> 磁盘和镜像 -> 重新初始化磁盘** 进行服务器的重置。
+
+> 这里我们讲解的是 Windows 系统对 Windows 云服务器的操作，因为 Windows 系统方便操作，所以有着其他系统的云服务器的小伙伴，可以考虑将云服务器改成 Windows 系统或者百度、google 查找其他云服务器的部署方式。
+
+&emsp;现在，我们讲解了云服务器的基本操作，我们暂且先放一边，讲解下域名部分。
+
+<br>
+
+# <a name="chapter-three-two" id="chapter-three-two">3.2 域名</a>
+
+> [返回目录](#catalog-chapter-three)
+
+<br>
+
+&emsp;
 
 <br>
 
