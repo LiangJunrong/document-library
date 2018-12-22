@@ -46,6 +46,20 @@
 &emsp;第一个愿望必须是 `My Blog`，  
 &emsp;如果不是，当我没说。
 
+&emsp;关于云服务器。  
+&emsp;作为一枚能 “折腾” (能作死) 的人，**jsliang** 玩过腾讯云服务器和阿里云服务器。  
+* 腾讯云服务器。如果你是大学生，那么腾讯云不可错过，[\[云+校园\]学生云服务器体验套餐 10 元/月](https://cloud.tencent.com/act/campus?fromSource=gwzcw.596698.596698.596698)。这个活动，其实一开始的价格是 1元/月，**jsliang** 用了两年，直至 **jsliang** 毕业。后来，enm... 你知道的，变成了 10 元/月，一年就是 120 元，云服务器配置是 1 核 2 G + 1 M带宽，对于初学者来说，完全够用了。
+* 阿里云服务器。即是我目前正在使用的云服务器。也许有的小伙伴们也知道，双 11 双 12 不仅有疯狂的淘宝购物，还有阿里云服务器的推送，说不定已经买了一台给自己用。  
+
+> 如果小伙伴们没有接触过阿里云，可以使用我的推广链接，领最高 1888 的云产品通用代金券：  
+> * [阿里云服务器新用户推广](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)  
+> 
+> 当然，这篇文章的主题是云服务器，小伙伴们如果想配置一台自己的云服务器，可以点击链接：  
+> * [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)  
+> 
+> 如果小伙伴想给自己的企业买，推荐企业级高性能服务器：  
+> * [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
+
 <br>
 
 # <a name="chapter-three" id="chapter-three">三 云服务器及域名</a>
@@ -54,21 +68,9 @@
 
 <br>
 
-&emsp;作为一枚能 “折腾” (能作死) 的人，**jsliang** 玩过腾讯云服务器和阿里云服务器。  
-* 腾讯云服务器。如果你是大学生，那么腾讯云不可错过，[\[云+校园\]学生云服务器体验套餐 10 元/月](https://cloud.tencent.com/act/campus?fromSource=gwzcw.596698.596698.596698)。这个活动，初始的价格是 1元/月，**jsliang** 用了两年，直至 **jsliang** 毕业。后来变成了 10 元/月，一年就是 120 元，1 核 2 G、1 M带宽，对于初学者来说，完全够用了。
-* 阿里云服务器。即是我目前正在使用的云服务器。也许有的小伙伴们也知道，双 11 双 12 不仅有疯狂的淘宝购物，还有阿里云服务器的推送，说不定还买了一台给自己用。  
+&emsp;如果你已经通过上面推送购买了云服务器，或者你本身就有云服务器，那么我们开始讲解下 **jsliang** 对云服务器的使用：
 
-&emsp;如果小伙伴们没有接触过阿里云，可以使用我的推广链接，领最高 1888 的云产品通用代金券：
 
-* [阿里云服务器新用户推广](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)
-
-&emsp;当然，这篇文章的主题是云服务器，那么必不可少还有阿里云服务器的推送：
-
-* [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
-
-&emsp;如果小伙伴想给自己的企业买，推荐企业级高性能服务器：
-
-* [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
 
 <br>
 
