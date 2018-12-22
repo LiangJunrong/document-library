@@ -1,20 +1,20 @@
 Document Library - 文档库
 ===
 
-> 始建于 `2018-08-20`，开始目的是做学习笔记。  
-> 如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/WritingIdeas.md)** 进行查看。  
-> 如想知道 **jsliang** 各种新奇玩意，请前往 **[网站清单]()** 进行查看。
-
 * Here is the jsliang's learning and working experience document on programming. If you have doubts about this, please send an email to 1741020489@qq.com.
 * 这里存放了jsliang的学习、工作中关于编程的经验文档。如果你对此有疑惑，请发邮件到1741020489@qq.com。
 
 <br>
 
-&emsp;如果你在学习某个黑科技，你一定要写文档。  
+# 一 前言
 
-&emsp;不管你是要写给别人看，还是记录一下自己的操作笔记。
+&emsp;本文档库始建于 `2018-08-20`，开始目的是做学习笔记。  
 
-&emsp;假如你不写，某天你又要用到某个之前你用过的黑科技，那，你要再去找过资料么？
+&emsp;如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/WritingIdeas.md)** 进行查看。  
+
+&emsp;如想知道 **jsliang** 各种新奇玩意，请前往 **[网站清单]()** 进行查看。
+
+&emsp;建文档库的初始目的是记录一下 **jsliang** 的在折腾学习某个黑科技的时候的操作笔记，如果你学习而不写文章、不做笔记，某天你突发奇想，又要用到某个之前你用过的黑科技……那样的话，还需要百度或者 google 一遍，太累了！
 
 &emsp;所以，集一生洪荒之力，写一个编程文档库，存放，我编程生涯的点点滴滴。
 
@@ -22,7 +22,7 @@ Document Library - 文档库
 
 <br>
 
-# 一 文件目录
+# 二 文件目录
 | 文件名             | 存放内容                          |
 | ------------------ | --------------------------------- |
 | CSS-library        | CSS 文档仓库                       |
@@ -33,13 +33,16 @@ Document Library - 文档库
 
 <br>
 
-# 二 反馈 QQ 群
+# 三 反馈 QQ 群
 
-&emsp;如果对该文档库的某篇文章存有疑惑，请加 QQ 群：`798961601`。将根据小伙伴的疑问进行解答，谢谢~
+&emsp;如果对该文档库的某篇文章存有疑惑，  
+&emsp;如果有些问题想看下 **jsliang** 折腾过没有，  
+&emsp;请加 QQ 群：`798961601`。  
+&emsp;将第一时间根据小伙伴的疑问进行解答，谢谢~
 
 <br>
 
-# 三 推荐学习方法
+# 四 推荐学习方法
   
 &emsp;建议小伙伴们有机会可以给自己配个显示器，也就5/600，用起来也舒服。  
 &emsp;**jsliang** 的就是一台手提（ 16G 6核 12线程 7200RMB ） + 一个显示器 （ 21.5寸 1080P 650RMB )。对搞前端的来说，这个价还是用得起的，而且自己的配置，自己用得会比较舒服。  
@@ -55,7 +58,7 @@ Document Library - 文档库
 
 <br>
 
-# 四 打赏
+# 五 打赏
   
 &emsp;撰文不易，如果文章对小伙伴有帮助，希望小伙伴们给勤劳敲代码、辛苦撰文的 **jsliang** 进行微信/支付宝打赏，你们的每一次打赏都是最好的鼓励，谢谢~
 
