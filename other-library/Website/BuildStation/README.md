@@ -177,7 +177,8 @@
 
 * [Nginx 下载](http://nginx.org/en/download.html)
 
-> 由于云服务器默认只有一个 IE，所以我们本地直接下载吧（可能这也是我为什么用 Windows 的原因，因为方便复制本机内容粘贴到云服务器上去）。
+> 由于云服务器浏览器时 IE，enm...所以我们本地直接下载吧！  
+> PS：可能这也是我为什么用 Windows 的原因，因为方便复制本机内容粘贴到云服务器上去。
 
 ![图](../../../public-repertory/img/other-build-station-8.png)
 
@@ -195,11 +196,110 @@
 
 <br>
 
-&emsp;在这里，我们要了解 Nginx/conf/nginx.conf 是我们要修改的配置，而 vhost 是我们要新建的目录，目录下就是我们二级域名配置文件，例如 `compony.jsliang.top` 对应的就是 `company_jsliang.conf` 文件。
+&emsp;在这里，我们要先了解到：Nginx/conf/nginx.conf 是我们要修改的配置，而 vhost 是我们要新建的目录，目录下就是我们二级域名配置文件，例如 `compony.jsliang.top` 对应的就是 `company_jsliang.conf` 文件。
 
-&emsp;**然后**，我们打开文件 Nginx/conf/nginx.conf。
+&emsp;**然后**，我们打开文件 Nginx/conf/nginx.conf 进行配置，配置的文件已有注释，故这里不再哆嗦：
 
-![图](../../../public-repertory/img/other-build-station-11.png)
+> Nginx/conf/nginx.conf
+
+```
+#user nobody;
+
+# 跟 CPU 有关，不用修改
+worker_processes 1;
+events {
+  # nginx 最大负载量
+  worker_connections 1024;
+}
+http {
+  
+  # mime type 映射
+  include mime.types;
+  default_type application/octet-stream;
+  
+  # 启动高效传输文件的模式
+  sendfile on;
+  
+  # 长连接 timeout
+  keepalive_timeout 65;
+  
+  # http 结构下可以有多个 server。请求进来后，确定哪一个 server 由server_name 决定，这里我们通过 include **文件 来进行多网址配置
+  server {
+    
+    # 监听端口
+    listen 80 default_server;
+    
+    # 识别的域名
+    server_name localhost default_server;
+    
+    # 一个关键配置，与 URL 参数乱码问题有关
+    #charset utf-8;
+    root html;
+    
+    # 监听的文件
+    location / {
+      index index.html index.htm;
+    }
+    
+    # 404页面
+    # error_page 404 /404.html;
+    # 重定向端口错误页面到50*.html页面
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+      root html;
+    }
+  }
+  
+  # 把其他 server 配置写到其他文件，方便管理
+  include ../vhost/*.conf;
+}
+```
+
+<br>
+
+&emsp;在上面，我们通过最后一句话 `include ../vhost/*.conf` 可以知道，我们将配置文件放到了 vhost 目录中，从而方便我们下次新增二级域名。
+
+&emsp;如果小伙伴希望多了解点 Nginx 的知识，可以看下下面的文章。  
+&emsp;如果小伙伴们单纯就想快点部署完，请跳过这段话。
+
+* [Nginx 多域名配置](http://www.jb51.net/article/119047.htm)
+* [worker_processes：进程数（1）](https://www.cnblogs.com/aaron-agu/p/8003831.html)
+* [worker_connections：最大负载量（1024）](https://segmentfault.com/q/1010000009620656)
+* [sendfile：启动高效传输文件的模式（on）](https://blog.csdn.net/u011363729/article/details/70808585)
+* [keepalive_timeout：长连接（65）](https://blog.csdn.net/senlin1202/article/details/54617635)
+* [include：（mime.types）](https://my.oschina.net/plutonji/blog/527797)
+* [proxy_pass：要转发的地址（http://www.a.com:3000）](https://blog.csdn.net/zhongzh86/article/details/70173174)
+
+&emsp;**再接着**，我们在 Nginx 目录下新建 vhost 目录，然后新增 `company_jsliang.conf`、`work_jsliang.conf` ……等目录，命名不重要，好记且它是 `*.conf` 就行。
+
+> *.conf
+
+```
+server {
+  # 监听的端口，80 即可
+  listen 80;
+  
+  # 监听的网址，这里填写你的网址，我的就有 company.jsliang.top 等……请确保该域名已经在阿里云、腾讯云、百度云等进行了域名解析。
+  server_name company.jsliang.top;
+  
+  # 监听的目录
+  root C:\WebFrontEnd\company;
+  
+  # 监听的文件
+  location / {
+    index index.html index.htm;
+  }
+}
+```
+
+<br>
+
+&emsp;看到这个，小伙伴们可能就明白了：当我们访问 `company.jsliang.top` 时，Nginx 就会监听我们在 C 盘下 `C:\WebFrontEnd\company` 目录下的 `index` 或者 `index.html` 或者 `index.htm`。  
+&emsp;当小伙伴们回想起我们在域名解析时的操作时，会更加清晰：
+
+* 域名解析到公网 IP -> Nginx 监听到了来自浏览器的请求 -> Nginx 查找关于这个请求的配置 -> Nginx 找到这个配置，发现应该定位到 ** 目录 -> Nginx 将信息返回给浏览器。
+
+&emsp;配置完成后，我们将文件复制并替换到云服务器上去。
 
 <br>
 
