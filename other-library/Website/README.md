@@ -20,7 +20,7 @@
 | 目录                                                   | 介绍                                       |
 | ------------------------------------------------------ | ------------------------------------------ |
 | [jsliang.top](http://jsliang.top/)                     | jsliang 的网站列表                         |
-| [cs.jsliang.top](http://cv.jsliang.top/#/)             | 通过 ECharts + Vue 打造个人线上简历        |
+| [cv.jsliang.top](http://cv.jsliang.top/#/)             | 通过 ECharts + Vue 打造个人线上简历        |
 | [playregex.jsliang.top](http://playregex.jsliang.top/) | 通过游戏来了解正则表达式                   |
 | [lucky.jsliang.top](http://lucky.jsliang.top/)         | 悠闲刮刮乐，仅供娱乐                       |
 | [deadline.jsliang.top](http://deadline.jsliang.top/)   | jsliang 的工作时间轴                       |
