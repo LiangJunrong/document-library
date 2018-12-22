@@ -301,11 +301,72 @@ server {
 
 &emsp;配置完成后，我们将文件复制并替换到云服务器上去。
 
+> 记得在 WebFrontEnd 上存放你的前端网页文件喔，要不然最后运行 Nginx 你会发现好像没成功一样~
+
+&emsp;**再然后**，我们进入目录 `C:\Windows\System32\drivers\etc`，修改下 `hosts` 配置并保存：
+
+![图](../../../public-repertory/img/other-build-station-11.png)
+
 <br>
 
-&emsp;
+> hosts
 
-&emsp;**后记**，附上我学习 Nginx 的时候的参考：
+```
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+#	127.0.0.1       localhost
+#	::1             localhost
+
+127.0.0.1  jsliang.top
+127.0.0.1  company.jsliang.top
+127.0.0.1  cv.jsliang.top
+127.0.0.1  deadline.jsliang.top
+127.0.0.1  game.jsliang.top
+127.0.0.1  lucky.jsliang.top
+127.0.0.1  playregex.top
+127.0.0.1  webpack.jsliang.top
+127.0.0.1  work.jsliang.top
+```
+
+<br>
+
+&emsp;最后，我们再双击 Nginx 目录中的 nginx.exe，运行 Nginx。  
+&emsp;这时候，有的小伙伴可能发现有一个小框一闪而过，然后以为没打开成功？别急，打开 Windows 任务管理器你会发现它已成功运行了。
+
+![图](../../../public-repertory/img/other-build-station-12.png)
+
+<br>
+
+> 如果小伙伴要新增一个二级域名，那就需要去 Windows 任务管理器将 Nginx 的两个进程结束，新增完毕后再重启 Nginx。
+
+![图](../../../public-repertory/img/other-build-station-13.png)
+
+<br>
+
+&emsp;这时候，我们打开 `company.jsliang.top` 进行查看，发现它已成功部署啦：
+
+![图](../../../public-repertory/img/other-build-station-14.png)
+
+<br>
+
+&emsp;**后记**，附上我学习 Nginx 的时候的其他参考：
 
 * [Nginx中文文档](http://www.nginx.cn/doc/)
 * [Nginx 在 Windows 上安装及 Nginx 的配置及优化](https://www.cnblogs.com/Chiler/p/8027167.html)
