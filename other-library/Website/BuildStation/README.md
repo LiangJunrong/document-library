@@ -165,7 +165,51 @@
 
 &emsp;**然后**，我们打开 C 盘，创建这几个目录：
 
+![图](../../../public-repertory/img/other-build-station-7.png)
 
+* **WebFrontEnd**：存放前端文件位置
+* **WebBackEnd**：存放后端文件位置
+* **Nginx**：存放 Nginx 安装目录以及配置
+* **Node**：存放 Node 安装位置
+* **MySQL**：存放 MySQL 安装位置
+
+&emsp;**然后**，我们进行 Nginx 的安装及配置：
+
+* [Nginx 下载](http://nginx.org/en/download.html)
+
+> 由于云服务器默认只有一个 IE，所以我们本地直接下载吧（可能这也是我为什么用 Windows 的原因，因为方便复制本机内容粘贴到云服务器上去）。
+
+![图](../../../public-repertory/img/other-build-station-8.png)
+
+<br>
+
+&emsp;我们下载稳定版本，即 `nginx/Windows-1.42.2`，它会弹窗让你下载 `zip` 包，我们先在本机解压配置好，最后再复制到云服务器上的 Nginx 文件目录中。
+
+![图](../../../public-repertory/img/other-build-station-9.png)
+
+<br>
+
+&emsp;**接着**，我们进行 Nginx 的配置解析，先在本地熟悉下目录。
+
+![图](../../../public-repertory/img/other-build-station-10.png)
+
+<br>
+
+&emsp;在这里，我们要了解 Nginx/conf/nginx.conf 是我们要修改的配置，而 vhost 是我们要新建的目录，目录下就是我们二级域名配置文件，例如 `compony.jsliang.top` 对应的就是 `company_jsliang.conf` 文件。
+
+&emsp;**然后**，我们打开文件 Nginx/conf/nginx.conf。
+
+![图](../../../public-repertory/img/other-build-station-11.png)
+
+<br>
+
+&emsp;
+
+&emsp;**后记**，附上我学习 Nginx 的时候的参考：
+
+* [Nginx中文文档](http://www.nginx.cn/doc/)
+* [Nginx 在 Windows 上安装及 Nginx 的配置及优化](https://www.cnblogs.com/Chiler/p/8027167.html)
+* [Nginx 基本配置与参数说明](http://www.nginx.cn/76.html)
 
 <br>
 
