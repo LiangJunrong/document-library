@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-21 13:34:13**  
-> Recently revised in **2018-12-22 17:12:02**
+> Recently revised in **2018-12-22 20:15:57**
 
 <br>
 
@@ -160,6 +160,11 @@
 
 &emsp;现在我们开始配置 Nginx。  
 &emsp;**首先**，远程连接我们的云服务器。[操作方法](https://yq.aliyun.com/articles/224155)  
+> 云服务器操作系统：Windows Server 2008 R2 企业版 64位中文版  
+> 开放端口：80、-1、22、3389
+
+&emsp;**然后**，我们打开 C 盘，创建这几个目录：
+
 
 
 <br>
