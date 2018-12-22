@@ -1,4 +1,4 @@
-建站
+云服务器建站
 ===
 
 > Create by **jsliang** on **2018-12-21 13:34:13**  
@@ -124,7 +124,29 @@
 
 <br>
 
-&emsp;
+&emsp;在你使用域名之前，记得给域名备个案；[阿里云备案管理](https://beian.aliyun.com/)  
+&emsp;如果你没有域名，可自行购买：[万网域名注册](https://wanwang.aliyun.com/?spm=5176.8142029.digitalization.9.69a26d3envis4t)
+
+&emsp;现在我们进入[域名控制台](https://dc.console.aliyun.com/next/index?spm=5176.2020520101.aliyun_sidebar.aliyun_sidebar_domain.1a344df5h27HR0#/domain/list/all-domain)：
+
+![图](../../../public-repertory/img/other-build-station-4.png)
+
+&emsp;除了备案，其他的都不用理会了，我们直接点击解析
+
+![图](../../../public-repertory/img/other-build-station-5.png)
+
+&emsp;上面的图片中显示的，都是 **jsliang** 在 **jsliang.top** 进行的解析记录。其中：
+
+* **主机记录**：二级域名开头，例如 `game` 对应的就是 `http://game.jsliang.top` 这个二级域名。
+* **记录值**：就是小伙伴云服务器的公网地址，在上面章节中提到过云服务器的 IP 地址。这是个很重要的玩意，请勿泄露。
+
+&emsp;很好，现在我们点击 **添加记录**：
+
+![图](../../../public-repertory/img/other-build-station-6.png)
+
+&emsp;我们只需要填上 **主机记录** 以及 **记录值**，然后点击 **确定** 就可以完成一条二级域名的添加了。
+
+> 下面会讲解到如何通过云服务器的 Nginx 配置，使二级域名导向服务器中的指定目录。
 
 <br>
 
