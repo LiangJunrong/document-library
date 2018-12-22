@@ -6,6 +6,19 @@
 
 <br>
 
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/BuildStation/README.md)**
+
+<br>
+
+&emsp;**本篇文章重点**：
+
+* 云服务器购买及使用
+* 域名备案及解析
+* Nginx 配置多个二级域名及解析网页
+* Node 服务端的部署及 MySQL 的安装
+
+<br>
+
 # <a name="chapter-one" id="chapter-one">一 目录</a>
 
 &emsp;**不折腾的前端，和咸鱼有什么区别**
@@ -14,7 +27,7 @@
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 云服务器购买及使用](#chapter-three) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 云服务器及域名](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Nginx 代理前端页面](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 MySQL 安装及部署](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Node 提供接口服务](#chapter-six) |
@@ -35,13 +48,27 @@
 
 <br>
 
-# <a name="chapter-three" id="chapter-three">三 云服务器购买及使用</a>
+# <a name="chapter-three" id="chapter-three">三 云服务器及域名</a>
 
 > [返回目录](#catalog-chapter-three)
 
 <br>
 
-&emsp;
+&emsp;作为一枚能 “折腾” (能作死) 的人，**jsliang** 玩过腾讯云服务器和阿里云服务器。  
+* 腾讯云服务器。如果你是大学生，那么腾讯云不可错过，[\[云+校园\]学生云服务器体验套餐 10 元/月](https://cloud.tencent.com/act/campus?fromSource=gwzcw.596698.596698.596698)。这个活动，初始的价格是 1元/月，**jsliang** 用了两年，直至 **jsliang** 毕业。后来变成了 10 元/月，一年就是 120 元，1 核 2 G、1 M带宽，对于初学者来说，完全够用了。
+* 阿里云服务器。即是我目前正在使用的云服务器。也许有的小伙伴们也知道，双 11 双 12 不仅有疯狂的淘宝购物，还有阿里云服务器的推送，说不定还买了一台给自己用。  
+
+&emsp;如果小伙伴们没有接触过阿里云，可以使用我的推广链接，领最高 1888 的云产品通用代金券：
+
+* [阿里云服务器新用户推广](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)
+
+&emsp;当然，这篇文章的主题是云服务器，那么必不可少还有阿里云服务器的推送：
+
+* [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+
+&emsp;如果小伙伴想给自己的企业买，推荐企业级高性能服务器：
+
+* [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
 
 <br>
 
