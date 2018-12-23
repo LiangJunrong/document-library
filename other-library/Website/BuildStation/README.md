@@ -398,13 +398,13 @@ server {
 
 <br>
 
-&emsp;我们先下载 Node 的 msi 安装包：[下载地址](http://nodejs.cn/download/)
+&emsp;我们先下载 Node 的 msi 安装包，并复制到云服务器上：[下载地址](http://nodejs.cn/download/)
 
 ![图](../../../public-repertory/img/other-build-station-15.png)
 
 <br>
 
-&emsp;在这里要注意的是，我们下载的是 64 位的 msi 安装包，因为在上面的 Nginx 配置前，我们讲过我们的云服务器是 `Windows Server 2008 R2 企业版 64位中文版`。
+&emsp;在这里要注意的是，我们下载的是 64 位的 msi 安装包，因为在上面的 Nginx 配置的时候，我们讲过我们的云服务器是 `Windows Server 2008 R2 企业版 64位中文版`。
 
 &emsp;我们只需要一路 Next，在配置安装位置的时候，将位置放在我们建好的 Node 目录中即可。
 

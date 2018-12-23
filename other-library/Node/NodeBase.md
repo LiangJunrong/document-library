@@ -52,7 +52,8 @@ Node 基础
 | &emsp;<a name="catalog-chapter-five-one" id="catalog-chapter-five-one"></a>[5.1 supervisor - 监听 Node 改动](#chapter-five-one) |
 | &emsp;<a name="catalog-chapter-five-two" id="catalog-chapter-five-two"></a>[5.2 PM2 - Node 进程管理](#chapter-five-two) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 参考资料](#chapter-six) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 总结](#chapter-seven) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 线上部署](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 归纳总结](#chapter-eight) |
 
 <br>
 
@@ -3163,9 +3164,31 @@ if (pathName == "/getMessage") { // 获取留言信息
 
 <br>
  
-# <a name="chapter-seven" id="chapter-seven">七 总结</a>
+# <a name="chapter-seven" id="chapter-seven">七 线上部署</a>
 
 > [返回目录](#catalog-chapter-seven)
+
+<br>
+
+&emsp;
+
+> 如果小伙伴需要订购云服务器，但却不知道怎么选择，可以加 **jsliang** QQ：`1741020489` 联系我，下面是一些优惠推广：  
+> 
+> 如果小伙伴们第一次接触过阿里云，可以点击下面链接，领最高 1888 的云产品通用代金券：  
+> * [阿里云新用户推广](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)（领完新用户优惠券记得回头点击下面的链接，领云服务器优惠）  
+> 
+> 如果小伙伴想买一台云服务器，推荐使用 **jsliang** 的推广链接：  
+> * [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)  
+> ![图](../../../public-repertory/img/seek-ali.png)
+> 
+> 如果小伙伴想给自己的企业/公司买一台，推荐企业级高性能服务器：  
+> * [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
+
+<br>
+ 
+# <a name="chapter-eight" id="chapter-eight">八 归纳总结</a>
+
+> [返回目录](#catalog-chapter-eight)
 
 <br>
 
