@@ -60,6 +60,7 @@
 > 
 > 如果小伙伴想买一台云服务器，推荐使用 **jsliang** 的推广链接：  
 > * [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)  
+> ![图](../../../public-repertory/img/seek-ali.png)
 > 
 > 如果小伙伴想给自己的企业/公司买一台，推荐企业级高性能服务器：  
 > * [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
@@ -105,7 +106,7 @@
 
 <br>
 
-&emsp;我们需要记住有四大块：
+&emsp;我们需要记住有五大块：
 
 * **IP 地址**。**IP 地址** 可以让你通过 Win + R，输入 mstsc 后，在远程桌面中，通过输入公网地址以及密码，访问你的云服务器，[方法详情](https://yq.aliyun.com/articles/224155)。
 * **远程连接**。**远程连接** 可以直接通过网页的形式连接云服务器，对它进行操作。
