@@ -387,7 +387,9 @@ server {
 &emsp;关于 MySQL 的安装，我在另一篇文章中有记录：
 
 * [MySQL 的安装及配置](https://github.com/LiangJunrong/document-library/blob/master/other-library/SQL/MySQL.md)
- 
+
+&emsp;现在，我们直接在本地[下载安装包](http://cdn.mysql.com//Downloads/MySQLInstaller/mysql-installer-community-5.7.16.0.msi)，下载完后直接复制到云服务器上，按照教程一步一步配置即可。
+
 <br>
 
 # <a name="chapter-six" id="chapter-six">六 Node 提供接口服务</a>
@@ -396,7 +398,24 @@ server {
 
 <br>
 
-&emsp;
+&emsp;我们先下载 Node 的 msi 安装包：[下载地址](http://nodejs.cn/download/)
+
+![图](../../../public-repertory/img/other-build-station-15.png)
+
+<br>
+
+&emsp;在这里要注意的是，我们下载的是 64 位的 msi 安装包，因为在上面的 Nginx 配置前，我们讲过我们的云服务器是 `Windows Server 2008 R2 企业版 64位中文版`。
+
+&emsp;我们只需要一路 Next，在配置安装位置的时候，将位置放在我们建好的 Node 目录中即可。
+
+![图](../../../public-repertory/img/other-build-station-16.png)
+
+<br>
+
+&emsp;安装完毕之后，我们查看 Node 目录，发现它已经有文件了。  
+&emsp;然后，我们通过 `win + r -> cmd -> cd C:\WebBackEnd -> node -v` 查看我们的 Node 版本，**jsliang** 这里显示的是 `v10.14.2`。
+
+&emsp;至此，我们的 Node 配置完毕，如果小伙伴们想知道 Node 如何连接 MySQL，Node 如何使用，请查看 [Node 基础](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md)。
 
 <br>
 
@@ -406,7 +425,8 @@ server {
 
 <br>
 
-&emsp;
+&emsp;经过一系列的折腾，我们的云服务器终于配置完毕了，接下来就可以愉快玩耍啦~  
+&emsp;当然，如果小伙伴嫌自己配置麻烦，可以去阿里云的云服务器市场看看有没有装好的 Node + MySQL 环境喔~
 
 <br>
 
