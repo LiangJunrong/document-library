@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2018-12-17 08:35:46**
+> Recently revised in **2018-12-23 21:05:20**
 
 <br>
 
@@ -16,6 +16,19 @@
 | [邵威儒](https://github.com/iamswr) |
 | [HESUIJUN](https://github.com/HESUIJUN) |
 | [豆包君](https://github.com/danygitgit) |
+
+<br>
+
+# 2018-12-24
+
+&emsp;这一周缴费
+
+* - [x] [Liutaochange](https://github.com/liutaochange) 参与周竞赛，已交 35 元。
+* - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
+
+&emsp;上一周的情况
+
+&emsp;明日统计
 
 <br>
 
