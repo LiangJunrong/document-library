@@ -53,7 +53,7 @@
 * 腾讯云服务器。如果你是大学生，那么腾讯云不可错过，[\[云+校园\]学生云服务器体验套餐 10 元/月](https://cloud.tencent.com/act/campus?fromSource=gwzcw.596698.596698.596698)。这个活动，其实一开始的价格是 1元/月，1 年也就 12 元，一餐饭的价格都不到，**jsliang** 用了两年，直至 **jsliang** 毕业。后来，enm... 你知道的，变成了 10 元/月，腾讯云的意图我就不猜了，一年就是 120 元，云服务器配置是 1 核 2 G + 1 M带宽，对于初学者来说，完全够用了。
 * 阿里云服务器。**jsliang** 目前正在使用的服务器就是云服务器。也许有的小伙伴们应该了解过云服务器，也知道在双 11 双 12 的时候，不仅有疯狂的淘宝购物，还有阿里云服务器的推送，说不定小伙伴已经买了一台给自己了，但是一直没用上。  
 
-> 如果小伙伴需要订购云服务器，但却不知道怎么选择，可以加 **jsliang** QQ：`1741020489` 联系我，下面是一些优惠推广：  
+> 如果小伙伴需要订购云服务器，但却不知道怎么选择，可以加 **jsliang** QQ：`1741020489` 咨询我，下面是一些优惠推广：  
 > 
 > 如果小伙伴们第一次接触过阿里云，可以点击下面链接，领最高 1888 的云产品通用代金券：  
 > * [阿里云新用户推广](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)（领完新用户优惠券记得回头点击下面的链接，领云服务器优惠）  
@@ -74,7 +74,7 @@
 <br>
 
 &emsp;云服务器和域名都是需要备案的：[阿里云备案管理](https://bsn.console.aliyun.com/?spm=5176.100251.aliyun_topbar.16.188a4f15763rAj#/bsnApply?_k=bai4u6)  
-&emsp;小伙伴可以通过上面链接了解下备案相关知识。
+&emsp;小伙伴可以通过上面链接了解下备案相关知识。  
 
 <br>
 
@@ -116,7 +116,7 @@
   * 如果你觉得你的云服务器爆满了，想重新折腾过，那么可以通过 **更多 -> 磁盘和镜像 -> 重新初始化磁盘** 进行服务器的重置。[方法详情](https://jingyan.baidu.com/article/d3b74d64c5af051f76e60955.html)
 * **网路和安全组**。点击 **更多 -> 网路和安全组 -> 安全组配置 -> 配置规则 -> 添加安全组规则**，从而添加 80 端口的安全组。[方法详情](https://help.aliyun.com/document_detail/25471.html?spm=a2c4g.11186623.6.727.ea541f6cm2tsLh)
 
-> 这里我们讲解的是 Windows 系统对 Windows 云服务器的操作，因为 Windows 系统方便操作，所以有着其他系统的云服务器的小伙伴，可以考虑将云服务器改成 Windows 系统或者百度、google 查找其他云服务器的部署方式。
+> 这里我们讲解的是 Windows 系统对 Windows 云服务器的操作，因为 Windows 系统方便操作，所以有着其他系统的云服务器的小伙伴，可以考虑将云服务器改成 Windows 系统，或者百度、google 查找其他云服务器的部署方式。
 
 &emsp;现在，我们讲解了云服务器的基本操作，我们暂且将云服务器这块内容先放一边，讲解下域名部分。
 
@@ -135,7 +135,7 @@
 
 ![图](../../../public-repertory/img/other-build-station-4.png)
 
-&emsp;除了备案，其他的都不用理会了，我们直接点击解析
+&emsp;除了备案，其他的都不用理会了，我们直接点击解析：
 
 ![图](../../../public-repertory/img/other-build-station-5.png)
 
@@ -164,6 +164,8 @@
 
 &emsp;现在我们开始配置 Nginx。  
 &emsp;**首先**，远程连接我们的云服务器。[操作方法](https://yq.aliyun.com/articles/224155)  
+
+> 云服务器配置：  
 > 云服务器操作系统：Windows Server 2008 R2 企业版 64位中文版  
 > 开放端口：80、-1、22、3389
 
@@ -370,7 +372,7 @@ server {
 
 <br>
 
-&emsp;**后记**，附上我学习 Nginx 的时候的其他参考：
+&emsp;**后记**，附上我学习 Nginx 时的其他参考：
 
 * [Nginx中文文档](http://www.nginx.cn/doc/)
 * [Nginx 在 Windows 上安装及 Nginx 的配置及优化](https://www.cnblogs.com/Chiler/p/8027167.html)
@@ -398,7 +400,7 @@ server {
 
 <br>
 
-&emsp;我们先下载 Node 的 msi 安装包，并复制到云服务器上：[下载地址](http://nodejs.cn/download/)
+&emsp;**首先**，我们下载 Node 的 msi 安装包，并复制到云服务器上：[下载地址](http://nodejs.cn/download/)
 
 ![图](../../../public-repertory/img/other-build-station-15.png)
 
@@ -412,10 +414,13 @@ server {
 
 <br>
 
-&emsp;安装完毕之后，我们查看 Node 目录，发现它已经有文件了。  
-&emsp;然后，我们通过 `win + r -> cmd -> cd C:\WebBackEnd -> node -v` 查看我们的 Node 版本，**jsliang** 这里显示的是 `v10.14.2`。
+&emsp;**然后**，我们通过 `win + r -> cmd -> cd C:\WebBackEnd -> node -v` 查看我们的 Node 版本，**jsliang** 这里显示的是 `v10.14.2`，表明我们安装成功了。。
 
-&emsp;至此，我们的 Node 配置完毕，如果小伙伴们想知道 Node 如何连接 MySQL，Node 如何使用，请查看 [Node 基础](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md)。
+&emsp;**接着**，我们将我们的 Node 代码复制到 WebBackEnd/NodeBase 目录中，同时控制台 cd 到这个目录：`cd NodeBase`，然后 `npm i` 安装依赖包，并 `node index.js` 从而开启项目。  
+
+&emsp;**最后**，因为我们 Node 项目开启的是 8888 端口，所以我们需要在云服务器的配置规则上配置好 8888 端口：[方法详情](https://help.aliyun.com/document_detail/25471.html?spm=a2c4g.11186623.6.727.ea541f6cm2tsLh)
+
+&emsp;**至此**，我们的 Node 配置完毕并成功开启，如果小伙伴们想知道 Node 如何连接 MySQL、Node 如何使用、cnpm 以及 pm2 是什么，请查看 [Node 基础](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md)。
 
 > 记得 `npm i` 安装项目依赖包以及配置云服务器中相关的端口喔~
 
@@ -428,7 +433,9 @@ server {
 <br>
 
 &emsp;经过一系列的折腾，我们的云服务器终于配置完毕了，接下来就可以愉快玩耍啦~  
-&emsp;当然，如果小伙伴嫌自己配置麻烦，可以去阿里云的云服务器市场看看有没有装好的 Node + MySQL 环境喔~
+&emsp;当然，如果小伙伴嫌自己配置麻烦，可以去阿里云的云服务器市场看看有没有装好的 Node + MySQL 环境喔~  
+
+&emsp;最后叨一句：需要购买云服务器的小伙伴可以咨询我 QQ `1741020489` 哈~
 
 <br>
 
