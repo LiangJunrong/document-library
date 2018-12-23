@@ -3170,7 +3170,7 @@ if (pathName == "/getMessage") { // 获取留言信息
 
 <br>
 
-&emsp;
+&emsp;关于线上部署及域名、服务器相关的配置，**jsliang** 在另外一篇文章有所交代：[云服务器建站](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/BuildStation/README.md)
 
 > 如果小伙伴需要订购云服务器，但却不知道怎么选择，可以加 **jsliang** QQ：`1741020489` 联系我，下面是一些优惠推广：  
 > 
