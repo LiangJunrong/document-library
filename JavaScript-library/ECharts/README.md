@@ -1,8 +1,8 @@
-Echarts
+ECharts
 ===
 
 > Create by **jsliang** on **2018-11-28 10:53:08**  
-> Recently revised in **2018-11-28 10:53:11**
+> Recently revised in **2018-12-23 20:33:12**
 
 <br>
 
