@@ -2,9 +2,9 @@ Git 学习
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2018-10-27 22:02:15**
+> Recently revised in **2018-12-23 20:45:24**
 
-## 第一节 配置gitignore
+## 第一节 配置 .gitignore
 > create by **jsliang** on **2018年9月4日10:45:43**  
 
 &emsp;在我们使用Git的过程中，有时候喜欢建一些文件给自己查看使用而不是给大众使用，或者说像是 node_modules 这些文件不希望上传到代码仓库的，这时候就需要设置响应的忽略规则，来忽略这些文件的提交。
