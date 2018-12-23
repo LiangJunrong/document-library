@@ -8,15 +8,29 @@ Node 基础
 
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md)**
 
-&emsp;**jsliang 文档库撰文思路**：[链接](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/WritingIdeas.md)
+<br>
 
-&emsp;**Node 部署项目、云服务器以及域名的使用**：[链接](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/BuildStation/README.md)
+&emsp;**本文重点内容**：
 
-&emsp;**Node 基础代码**：[链接](https://github.com/LiangJunrong/Node/tree/FrontEndCodeBase)
+* Node 基础 - 通过对 Node 基础的了解学习，打下 Node 基础
+* Node API - 开启服务提供 API 给前端调用
+* Node 连接 MySQL - 通过 npm 安装 mysql，从而实现数据库的链接
+* Node 实战 - 企业官网从 0 开始，打造能注册、登录以及留言的企业官网
+* Node 部署 - 如何通过部署云服务器，让小伙伴们可以查看到你的网站
 
-&emsp;**Node 成品代码**：[链接](https://github.com/LiangJunrong/Node)  
+<br>
 
-&emsp;**Node 项目演示**：[链接](http://company.jsliang.top/)
+&emsp;**本文延伸链接**：
+
+* Node 部署项目、云服务器以及域名的使用：[链接](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/BuildStation/README.md)
+* 本文 Node 基础代码下载地址：[链接](https://github.com/LiangJunrong/Node/tree/FrontEndCodeBase)
+* 本文 Node 成品代码下载地址：[链接](https://github.com/LiangJunrong/Node)  
+
+<br>
+
+&emsp;**本文成品演示**：
+
+* Node 项目演示：[jsliang 前端有限公司](http://company.jsliang.top/)
 
 ![图](../../public-repertory/img/other-node-NodeBase-0.png)
 
@@ -42,7 +56,7 @@ Node 基础
 | &emsp;<a name="catalog-chapter-three-night" id="catalog-chapter-three-night"></a>[3.9 非阻塞 I/O 事件驱动](#chapter-three-night) |
 | &emsp;<a name="catalog-chapter-three-ten" id="catalog-chapter-three-ten"></a>[3.10 get 与 post](#chapter-three-ten) |
 | &emsp;<a name="catalog-chapter-three-eleven" id="catalog-chapter-three-eleven"></a>[3.11 Node 连接 MySQL](#chapter-three-eleven) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Web 实战 —— 仿企业官网](#chapter-four) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Web 实战 —— 企业官网](#chapter-four) |
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 编程环境](#chapter-four-one) |
 | &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 后端接口](#chapter-four-two) |
 | &emsp;<a name="catalog-chapter-four-three" id="catalog-chapter-four-three"></a>[4.3 注册功能](#chapter-four-three) |
@@ -2022,7 +2036,7 @@ connection.end();
 
 <br>
  
-# <a name="chapter-four" id="chapter-four">四 Web 实战 —— 仿企业官网</a>
+# <a name="chapter-four" id="chapter-four">四 Web 实战 —— 企业官网</a>
 
 > [返回目录](#catalog-chapter-four)
 
