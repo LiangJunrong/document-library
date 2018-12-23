@@ -5,7 +5,7 @@ JavaScript
 > Recently revised in **2018-12-23 20:43:18**
 
 * Here is an article about JavaScript
-* 这里存放了关于JavaScript的文章
+* 这里存放了关于 JavaScrip t的文章
 
 # 目录
 
