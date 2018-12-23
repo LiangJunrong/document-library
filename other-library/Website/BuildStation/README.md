@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-21 13:34:13**  
-> Recently revised in **2018-12-22 20:15:57**
+> Recently revised in **2018-12-23 09:48:57**
 
 <br>
 
@@ -53,13 +53,15 @@
 * 腾讯云服务器。如果你是大学生，那么腾讯云不可错过，[\[云+校园\]学生云服务器体验套餐 10 元/月](https://cloud.tencent.com/act/campus?fromSource=gwzcw.596698.596698.596698)。这个活动，其实一开始的价格是 1元/月，1 年也就 12 元，一餐饭的价格都不到，**jsliang** 用了两年，直至 **jsliang** 毕业。后来，enm... 你知道的，变成了 10 元/月，腾讯云的意图我就不猜了，一年就是 120 元，云服务器配置是 1 核 2 G + 1 M带宽，对于初学者来说，完全够用了。
 * 阿里云服务器。**jsliang** 目前正在使用的服务器就是云服务器。也许有的小伙伴们应该了解过云服务器，也知道在双 11 双 12 的时候，不仅有疯狂的淘宝购物，还有阿里云服务器的推送，说不定小伙伴已经买了一台给自己了，但是一直没用上。  
 
+> 如果小伙伴需要订购云服务器，但却不知道怎么选择，可以加 **jsliang** QQ：`1741020489` 联系我，下面是一些优惠推广：  
+> 
 > 如果小伙伴们第一次接触过阿里云，可以点击下面链接，领最高 1888 的云产品通用代金券：  
-> * [阿里云新用户推广](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)（回头记得点击下面的链接，领云服务器优惠）  
+> * [阿里云新用户推广](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)（领完新用户优惠券记得回头点击下面的链接，领云服务器优惠）  
 > 
 > 如果小伙伴想买一台云服务器，推荐使用 **jsliang** 的推广链接：  
 > * [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)  
 > 
-> 如果小伙伴想给自己的企业买，推荐企业级高性能服务器：  
+> 如果小伙伴想给自己的企业/公司买一台，推荐企业级高性能服务器：  
 > * [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
 
 <br>
