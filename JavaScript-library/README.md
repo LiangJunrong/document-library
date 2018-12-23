@@ -2,20 +2,21 @@ JavaScript
 ===
 
 > Create by **jsliang** on **2018-10-28 10:51:18**  
-> Recently revised in **2018-10-28 11:32:03**
+> Recently revised in **2018-12-23 20:43:18**
 
 * Here is an article about JavaScript
 * 这里存放了关于JavaScript的文章
 
-## 目录
-| 链接                                           | 说明                                |
-| ---------------------------------------------- | ----------------------------------- |
-| [设计模式](./design-pattern/design-pattern.md) | 在ES6环境中学习JavaScript的设计模式 |
-| [React](./Angular/readMe.md)                   | 在ES6环境中学习JavaScript的设计模式 |
-| [Angular](./React/readMe.md)                   | 在ES6环境中学习JavaScript的设计模式 |
-| [ECMAScript 2015](./ECMAScript2015/Promise.md) | 在ES6环境中学习JavaScript的设计模式 |
-| [More...]()                                    | 期待未来的学习                      |
+# 目录
 
+1. Angular
+2. ES6
+3. ECharts
+4. JavaScript
+5. React
+6. Vue
+7. 设计模式
+8. jQuery
 
 <br>
 
