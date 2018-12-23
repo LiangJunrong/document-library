@@ -2,10 +2,10 @@ CSS 仓库
 ===
 
 > Create by **jsliang** on **2018-10-28 10:49:09**  
-> Recently revised in **2018-10-28 11:31:00**
+> Recently revised in **2018-12-23 20:44:36**
 
 * Here is an article about CSS
-* 这里存放了关于CSS的文章
+* 这里存放了关于 CSS 的文章
 
 <br>
 
