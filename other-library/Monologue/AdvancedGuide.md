@@ -1,8 +1,15 @@
-前端进阶指南
+暴走前端
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
 > Recently revised in **2018-12-23 21:05:20**
+
+<br>
+
+&emsp;这是一个竞赛，  
+&emsp;只要你提供 GitHub 账号，  
+&emsp;就可以参加！  
+&emsp;详情咨询 **jsliang** QQ：`1741020489`
 
 <br>
 
