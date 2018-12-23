@@ -417,6 +417,8 @@ server {
 
 &emsp;至此，我们的 Node 配置完毕，如果小伙伴们想知道 Node 如何连接 MySQL，Node 如何使用，请查看 [Node 基础](https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/NodeBase.md)。
 
+> 记得 `npm i` 安装项目依赖包以及配置云服务器中相关的端口喔~
+
 <br>
 
 # <a name="chapter-seven" id="chapter-seven">七 总结</a>
