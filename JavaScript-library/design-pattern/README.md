@@ -1,8 +1,8 @@
 设计模式手册 - 0 - 目录和简介
 ===
 
-> create by **jsliang** on **2018年8月21日11:30:00**   
-> Recently revised in **2018-10-28 11:39:07**
+> create by **jsliang** on **2018-8-21 11:30:00**   
+> Recently revised in **2018-12-23 20:31:17**
 
 ## 项目实例
 * [点我前往](http://es6design.jsliang.top/)
