@@ -1048,7 +1048,6 @@ el: document.getElementById('app'),
         'my-header': MyHeader,
         'my-content': MyContent,
         'my-footer': myFooter,
-
       },
       template: `
         <div>

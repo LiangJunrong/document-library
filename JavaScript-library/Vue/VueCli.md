@@ -2,11 +2,11 @@ VueCli
 ===
 
 > Create by **jsliang** on **2018-11-8 21:12:34**  
-> Recently revised in **2018-11-8 21:12:37**
+> Recently revised in **2018-12-24 12:52:54**
 
 <br>
 
-&emsp;VueCLI 的学习
+&emsp;VueCli 的学习
 
 <br>
 
