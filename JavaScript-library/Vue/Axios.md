@@ -238,7 +238,7 @@ import axios from 'axios';
 // 请求配置
 const request = axios.create({
   // 本地开发 dev 的时候，不需要开启这个
-  // baseURL: 'http://172.26.167.5:8080',
+  // baseURL: 'http://172.****.****.5:8080',
   timeout: 5000,
   headers: {
     timestamp: "20181026094424",
