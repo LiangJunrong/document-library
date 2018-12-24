@@ -6,7 +6,7 @@ Document Library - 文档库
 
 <br>
 
-# 一 前言
+## 一 前言
 
 &emsp;本文档库始建于 `2018-08-20`，开始目的是做学习笔记。  
 
@@ -22,7 +22,7 @@ Document Library - 文档库
 
 <br>
 
-# 二 文件目录
+## 二 文件目录
 | 文件名             | 存放内容                          |
 | ------------------ | --------------------------------- |
 | CSS-library        | CSS 文档仓库                       |
@@ -33,7 +33,23 @@ Document Library - 文档库
 
 <br>
 
-# 三 反馈 QQ 群
+## 三 个人网站
+
+| 目录                                                   | 介绍                                       |
+| ------------------------------------------------------ | ------------------------------------------ |
+| [jsliang.top](http://jsliang.top/)                     | jsliang 的网站列表                         |
+| [cv.jsliang.top](http://cv.jsliang.top/#/)             | 通过 ECharts + Vue 打造个人线上简历        |
+| [playregex.jsliang.top](http://playregex.jsliang.top/) | 通过游戏来了解正则表达式                   |
+| [lucky.jsliang.top](http://lucky.jsliang.top/)         | 悠闲刮刮乐，仅供娱乐                       |
+| [deadline.jsliang.top](http://deadline.jsliang.top/)   | jsliang 的工作时间轴                       |
+| [webpack.jsliang.top](http://webpack.jsliang.top/)     | Webpack 学习成果，Webpack 多页面配置       |
+| [game.jsliang.top](http://game.jsliang.top/)           | 一个小游戏，只兼容 PC，适配移动端失败      |
+| [company.jsliang.top](http://company.jsliang.top/)     | Node 打造企业网站，支持注册、登录及留言    |
+| [work.jsliang.top](http://work.jsliang.top/)           | jsliang 工作成果，给领导或者工作小伙伴查看 |
+
+<br>
+
+## 四 反馈 QQ 群
 
 &emsp;如果对该文档库的某篇文章存有疑惑，  
 &emsp;如果有些问题想看下 **jsliang** 折腾过没有，  
@@ -42,7 +58,7 @@ Document Library - 文档库
 
 <br>
 
-# 四 推荐学习方法
+## 五 推荐学习方法
   
 &emsp;建议小伙伴们有机会可以给自己配个显示器，也就5/600，用起来也舒服。  
 &emsp;**jsliang** 的就是一台手提（ 16G 6核 12线程 7200RMB ） + 一个显示器 （ 21.5寸 1080P 650RMB )。对搞前端的来说，这个价还是用得起的，而且自己的配置，自己用得会比较舒服。  
@@ -58,7 +74,23 @@ Document Library - 文档库
 
 <br>
 
-# 五 打赏
+## 六 云服务器推广
+
+&emsp;如果小伙伴需要订购云服务器来存放像 jsliang 个人网站类的静态或者有 Node 后端的网页，但却不知道怎么选择，可以加 **jsliang** QQ：`1741020489` 咨询，下面是一些优惠推广：  
+> 
+> 如果小伙伴们第一次接触过阿里云，可以点击下面链接，领最高 1888 的云产品通用代金券：  
+> * [阿里云新用户推广](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)（领完新用户优惠券记得回头点击下面的链接，领云服务器优惠）  
+> 
+> 如果小伙伴想买一台云服务器，推荐使用 **jsliang** 的推广链接：  
+> * [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)  
+> ![图](./public-repertory/img/seek-ali.png)
+> 
+> 如果小伙伴想给自己的企业/公司买一台，推荐企业级高性能服务器：  
+> * [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
+
+<br>
+
+## 七 打赏
   
 &emsp;撰文不易，如果文章对小伙伴有帮助，希望小伙伴们给勤劳敲代码、辛苦撰文的 **jsliang** 进行微信/支付宝打赏，你们的每一次打赏都是最好的鼓励，谢谢~
 
@@ -68,7 +100,7 @@ Document Library - 文档库
 
 <br>
 
-# 五 文档协议 
+## 八 文档协议 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">document library of jsliang</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a>.
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
