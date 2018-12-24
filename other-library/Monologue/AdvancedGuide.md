@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2018-12-23 21:05:20**
+> Recently revised in **2018-12-24 08:06:09**
 
 <br>
 
@@ -32,10 +32,18 @@
 
 * - [x] [Liutaochange](https://github.com/liutaochange) 参与周竞赛，已交 35 元。
 * - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
+* - [x] [jerry](https://github.com/jgchenu) 参与周竞赛，已交 35 元。
+* - [x] [邵威儒](https://github.com/iamswr) 参与周竞赛，已交 35 元。
+* - [x] [HESUIJUN](https://github.com/HESUIJUN) 参与天竞赛
 
 &emsp;上一周的情况
 
-&emsp;明日统计
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 完成了 7 天的提交。
+* - [x] [Liutaochange](https://github.com/liutaochange) 完成了 7 天的提交。
+* - [ ] [jerry](https://github.com/jgchenu) 完成了 6 天的提交，有一天记录在了博客。
+* - [x] [豆包君](https://github.com/danygitgit) 完成了 7 天的提交。
+* - [ ] [邵威儒](https://github.com/iamswr) 完成了 5 天的提交，但是提交到 gitee 上了。
+* - [ ] [HESUIJUN](https://github.com/HESUIJUN) 完成了 3 天的提交。
 
 <br>
 
