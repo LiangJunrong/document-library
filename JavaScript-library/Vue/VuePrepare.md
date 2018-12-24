@@ -2,7 +2,7 @@ Vue 开发准备
 ===
 
 > Create by **jsliang** on **2018-12-24 11:54:30**  
-> Recently revised in **2018-12-24 11:54:37**
+> Recently revised in **2018-12-24 11:55:02**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
