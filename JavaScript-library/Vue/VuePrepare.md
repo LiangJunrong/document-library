@@ -20,6 +20,7 @@ Vue 开发准备
 | &emsp;[3.3 引用左上角图标](#chapter-three-three) |
 | &emsp;[3.4 按需引用 ElementUI](#chapter-three-four) |
 | &emsp;[3.5 Axios 封装使用](#chapter-three-five) |
+| &emsp;[3.6 配置使用 less](#chapter-three-six) |
 
 ## <a name="chapter-two" id="chapter-two">二 大体步骤</a>
 
@@ -314,6 +315,35 @@ dev: {
 ```
 
 5. 更多参考：[Axios 中文说明](https://www.kancloud.cn/yunye/axios/234845)
+
+### <a name="chapter-three-six" id="chapter-three-six">3.6 配置使用 less</a>
+
+> [返回目录](#chapter-one)
+
+1. 安装 less 和 less-loader：`cnpm i less less-loader -D`
+2. 添加 webpack 打包规则：
+
+> build/webpack.base.conf.js
+
+```
+{
+  test: /\.less$/,
+  loader: "style-loader!css-loader!less-loader"
+}
+```
+
+3. 在 style 中使用 less：
+
+```
+<style lang="less" scoped>
+.left {
+  border: 1px solid #ccc;
+  .left-one {
+    font-size: 10px;
+  }
+}
+</style>
+```
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
