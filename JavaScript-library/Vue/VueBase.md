@@ -4,22 +4,13 @@ Vue 基础
 > Create by **jsliang** on **2018-11-8 13:34:30**  
 > Recently revised in **2018-12-24 12:31:10**
 
-<br>
-
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)** 
-
-<br>
-
 
 &emsp;推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。
 
 ![图](../../public-repertory/img/js-vue-basic-learning-1.gif)
 
-<br>
-
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
-
-<br>
 
 &emsp;**不折腾的前端，和咸鱼有什么区别~**
 
@@ -58,13 +49,9 @@ Vue 基础
 | &emsp;&emsp;[2.12.2 组件 DOM 元素获取](#chapter-two-twelve-two) |
 | &emsp;&emsp;[2.12.3 Vue.nextTick()](#chapter-two-twelve-three) |
 
-<br>
-
 ## <a name="chapter-two" id="chapter-two">二 正文</a>
 
 > [返回目录](#catalog-chapter-two)
-
-<br>
 
 &emsp;万丈高楼平地起，地基还得自己起。
 
@@ -73,15 +60,11 @@ Vue 基础
 
 &emsp;**如版本更迭太大或者时间小伙伴们看到这篇文章太久没更新，小伙伴们请查看 Vue 官方文档学习最新的 Vue。**
 
-<br>
-
 ### <a name="chapter-two-one" id="chapter-two-one">2.1 初识 Vue</a>
 
 > [返回目录](#catalog-chapter-two-one)
 
-<br>
-
-&emsp;在一个夜黑风高的晚上，只见一道霹雳在空中闪过。紧接着某颗星星，忽如其来不断变大，变大，朝某个地点急速坠落……就在它降落成功那一刻，房子响起一声惊喜呼叫：“Vue 原来是这么用的，万丈高楼平地起，地基我能自己起。上海贼王，我当定了！”  
+&emsp;在一个夜黑风高的晚上，只见一道霹雳在空中闪过。紧接着某颗星星，忽如其来不断变大，变大，朝某个地点急速坠落……就在它降落成功那一刻，房子响起一声惊喜呼叫：“Vue 原来是这么用的，上海贼王，我当定了！”  
 
 &emsp;话不多说，我们一起来看代码实现：
 
