@@ -2,9 +2,7 @@ Axios
 ===
 
 > Create by **jsliang** on **2018-11-8 13:41:10**  
-> Recently revised in **2018-11-8 22:08:51**
-
-<br>
+> Recently revised in **2018-12-25 21:47:43**
 
 &emsp;饮水思源：[Axios 中文文档](https://www.kancloud.cn/yunye/axios/234845)
 
@@ -19,8 +17,6 @@ Axios
 * 自动转换 JSON 数据
 * 客户端支持防御 XSRF
 
-<br>
-
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
 | 目录 |
@@ -30,17 +26,11 @@ Axios
 | &emsp;<a name="catalog-chapter-two-one" id="catalog-chapter-two-one"></a>[2.1 get](#chapter-two-one) |
 | &emsp;<a name="catalog-chapter-two-two" id="catalog-chapter-two-two"></a>[2.1 post](#chapter-two-two) |
 
-<br>
-
 ## <a name="chapter-two" id="chapter-two">二 正文</a>
 
 > [返回目录](#catalog-chapter-two)
 
-<br>
-
 &emsp;axios 实战经验
-
-<br>
 
 ## <a name="chapter-two-one" id="chapter-two-one">2.1 get</a>
 
@@ -108,8 +98,6 @@ Axios
 </html>
 ```
 
-<br>
-
 &emsp;如上，我们使用 axios 非常简单，只需要引用它的 cdn，然后通过：
 
 ```
@@ -120,17 +108,11 @@ axios.get()
 
 &emsp;就可以直接调用 axios 获取数据。
 
-<br>
-
 ## <a name="chapter-two-two" id="chapter-two-two">2.2 post</a>
 
 > [返回目录](#catalog-chapter-two-two)
 
-<br>
-
 &emsp;post 请求讲解
-
-<br>
 
 # 三 杂记
 
@@ -282,8 +264,6 @@ export default {
   }
 }
 ```
-
-<br>
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
