@@ -4,7 +4,7 @@ Vue 基础
 > Create by **jsliang** on **2018-11-8 13:34:30**  
 > Recently revised in **2018-12-24 12:31:10**
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)** 
+&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)**
 
 &emsp;推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。
 
@@ -53,7 +53,9 @@ Vue 基础
 
 > [返回目录](#catalog-chapter-two)
 
-&emsp;万丈高楼平地起，地基还得自己起。
+&emsp;**饮水思源：[Vue 官方文档](https://cn.vuejs.org/v2/guide/)**
+
+&emsp;Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。
 
 &emsp;学习版本：`v2.5.16`  
 &emsp;编写时间：`2018-10-30`  
