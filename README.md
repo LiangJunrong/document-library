@@ -77,16 +77,32 @@ Document Library - 文档库
 ## 六 云服务器推广
 
 &emsp;如果小伙伴需要订购云服务器来存放像 jsliang 个人网站类的静态或者有 Node 后端的网页，但却不知道怎么选择，可以加 **jsliang** QQ：`1741020489` 咨询，下面是一些优惠推广：  
-> 
-> 如果小伙伴们第一次接触过阿里云，可以点击下面链接，领最高 1888 的云产品通用代金券：  
-> * [阿里云新用户推广](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)（领完新用户优惠券记得回头点击下面的链接，领云服务器优惠）  
-> 
-> 如果小伙伴想买一台云服务器，推荐使用 **jsliang** 的推广链接：  
-> * [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)  
-> ![图](./public-repertory/img/seek-ali.png)
-> 
-> 如果小伙伴想给自己的企业/公司买一台，推荐企业级高性能服务器：  
-> * [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
+
+&emsp;**腾讯云推广**：  
+
+&emsp;新用户点这里：  
+* [新客户无门槛 2775 元代金券](https://cloud.tencent.com/redirect.php?redirect=1025&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)  
+![图](./public-repertory/img/seek-tencent-1.jpg)
+
+&emsp;购买云服务器：  
+* [12 月优惠低至 168 元/年](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+![图](./public-repertory/img/seek-tencent-2.jpg)
+
+<br>
+
+&emsp;**阿里云推广**：  
+
+&emsp;新用户点这里：
+* [新用户云产品 1888 通用代金券](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)
+![图](./public-repertory/img/seek-ali-1.png)
+
+&emsp;购买云服务器：  
+* [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh) 
+![图](./public-repertory/img/seek-ali-2.png)
+
+&emsp;购买企业级云服务器：  
+* [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
+![图](./public-repertory/img/seek-ali-3.jpg)
 
 <br>
 
