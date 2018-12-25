@@ -2,7 +2,7 @@ JavaScript 之 构造函数与原型对象
 ===
 
 > Create by **jsliang** on **2018-12-11 09:27:44**  
-> Recently revised in **2018-12-11 13:06:06**
+> Recently revised in **2018-12-25 20:43:57**
 
 <br>
 
