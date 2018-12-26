@@ -10,7 +10,12 @@ VueCli
 
 &emsp;关于 Vue 系列学习。
 
-1. 学习 VueBase.md 
+1. 学习 VueBase.md
+2. 学习 VueRouter.md
+3. 学习 Axios.md
+4. 学习 VueCli.md
+5. 学习 VueDeploymentOptimization.md
+6. 学习 VuePrepare.md
 
 <br>
 
