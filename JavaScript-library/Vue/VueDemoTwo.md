@@ -161,7 +161,7 @@ data() {
 
 ```
 
-import NewsList from "@/components/NewsList/NewsList"
+import NewsList from "@/components/News/NewsList"
 
 routers: [
   {
@@ -172,3 +172,33 @@ routers: [
 ]
 ```
 
+> News/NewsList.vue
+
+```
+……省略
+```
+
+6. 关于 `:key="**"`，如果数据有对应的 id，则用它的 id。
+
+7. 时间过滤器：[Moments.js](http://momentjs.com/)
+
+* 安装 Monents.js：`npm install moment --save`
+
+> main.js
+
+```
+// 定义 moment 全局日期过滤器
+import Moment from 'moment';
+
+// {{ 'xxx' | converTime('YYYY-MM-DD') }}
+// {{ 'xxx' | converTime('YYYY年MM月DD日') }}
+Vue.filter("converTime", function(data, formatStr) {
+  return Moment(data).format(formatStr);
+});
+```
+
+> NewsList.vue
+
+```
+{{ news.add_time | converTime('YYYY-MM-DD') }}
+```
