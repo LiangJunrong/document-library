@@ -202,3 +202,46 @@ Vue.filter("converTime", function(data, formatStr) {
 ```
 {{ news.add_time | converTime('YYYY-MM-DD') }}
 ```
+
+8. 封装头部
+
+> components/common/NavBar.vue
+
+```
+<template>
+  <div>
+    <span @click="goBack">返回</span>
+    <span>{{title}}</span>
+  </div>
+</template>
+<script>
+  export default {
+    name: 'nav-bar',
+    props: ['title'],
+    methods: {
+      goBack() {
+        this.$router.go(-1);
+      }
+    }
+  }
+</script>
+<style scoped>
+
+</style>
+```
+
+> src/main.js
+
+```
+// 引入自己的 ul 和 li 组件
+import NabBar from '@/components/Common/NabBar'
+
+// 注册全局组件
+Vue.component(NabBar.name, NabBar);
+```
+
+> NewsList.vue
+
+```
+<nav-bar :title="新闻列表"></nav-bar>
+```
