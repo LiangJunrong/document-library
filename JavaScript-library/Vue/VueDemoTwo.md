@@ -132,9 +132,43 @@ data() {
 
 4. 重定向路由：
 
+> router/index.js
+
 routes: [
   {
     path: '/',
     redirect: { name: 'home' },
   }
 ]
+
+5. 通过 `<router-link>` 导向页面：
+
+> Home.vue
+
+```
+<router-link :to="grid.router">首页</router-link>
+
+data() {
+  return {
+    grids: [
+      {className: "cms-news", title: "新闻", router:{name: 'new.list'}}
+    ]
+  }
+}
+```
+
+> router/index.js
+
+```
+
+import NewsList from "@/components/NewsList/NewsList"
+
+routers: [
+  {
+    name: "news.list",
+    path: "/news/list",
+    component: NewsList
+  }
+]
+```
+
