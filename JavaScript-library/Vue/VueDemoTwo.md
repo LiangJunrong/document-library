@@ -110,6 +110,7 @@ Vue.component(MyLi.name, MyLi);
 ```
 <div class="grid">
   <my-ul>
+    <!-- :key 相当于给数据 grids 的每个元素做标识，如果 Vue 监听到某个元素不在了，单纯对这个元素做操作，而不是重新渲染加载 DOM，即先操作虚拟 DOM，最后再渲染到真实 DOM 上面 -->
     <my-li v-for="(grid, index) in grids" :key="index">
       <a href="grid.url">
         <span :class="grid.className"></span>
