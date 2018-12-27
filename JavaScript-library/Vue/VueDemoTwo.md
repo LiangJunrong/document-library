@@ -110,7 +110,7 @@ Vue.component(MyLi.name, MyLi);
 ```
 <div class="grid">
   <my-ul>
-    <my-li v-for="grid in grids">
+    <my-li v-for="(grid, index) in grids" :key="index">
       <a href="grid.url">
         <span :class="grid.className"></span>
         <span>{{grid.title}}</span>
