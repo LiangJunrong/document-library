@@ -129,3 +129,12 @@ data() {
   }
 }
 ```
+
+4. 重定向路由：
+
+routes: [
+  {
+    path: '/',
+    redirect: { name: 'home' },
+  }
+]
