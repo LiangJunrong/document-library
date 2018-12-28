@@ -635,3 +635,18 @@ afterEnter() {
   })
 }
 ```
+
+26. 离开页面
+
+```
+beforeRouteLeave(to, from, next) {
+  // 导航离开该组件的对应路由时调用
+  // 可以访问组件实例 this
+  if(confirm('亲，真的要离开吗？')) {
+
+  } else {
+    // 取消导航行为
+    next(false);
+  }
+}
+```
