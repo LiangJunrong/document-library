@@ -511,3 +511,113 @@ this.$refs.loadmore.onBottomLoaded();
 22. 过渡效果
 
 * [Vue 过渡动画](https://cn.vuejs.org/v2/guide/transitions.html)
+
+23. 父子组件通讯
+
+* 新建 `src/EventBus.js`
+
+> EventBus.js
+
+```
+import Vue from 'vue';
+
+// bus 公交车，基于事件的同一个载体对象
+let EventBus = new Vue();
+
+// $on(事件名, function() {}) -> $emit('事件名', 数据)
+export default EventBus;
+```
+
+> src/App.vue
+
+```
+import EventBus from './EventBus.js';
+
+export default {
+  created() {
+    EventBus.$on('addShopcart', (data) => {
+      console.log(data);
+      console.log(this);
+    })
+  }
+}
+```
+
+> src/components/Goods/GoodsDetail.vue
+
+```
+insertBall() {
+  // 通知 App 组件增加小球数量
+  EventBus.$emit('addShopcart', this.pickNum);
+}
+```
+
+24. 路由守卫判断来回的路由
+
+* [路由守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E5%85%A8%E5%B1%80%E5%AE%88%E5%8D%AB)
+
+```
+beforeRouteEnter (to, from, next) {
+  next(vm => {
+    // 通过 `vm` 访问组件实例
+  })
+}
+```
+
+25. 商品的增删改查
+
+> src/GoodsTools.js
+
+```
+let obj = {};
+
+// 获取所有商品数据
+obj.getGoodsList = function() {
+  return JSON.parse(window.localStorage.getItem('goodsList') || '{}');
+}
+
+// 保存商品
+obj.saveGoods = function(goodsList) {
+  // 本地存储
+  window.localStorage.setItem('goodsList', JSON.stringify(goodsList));
+}
+
+// 新增一个商品
+obj.add = function(goods) {
+  // 判断当前 goodsList 中是否包含该商品，有则追加，无则赋值
+  let goodsList = this.getGoodsList();
+  if(goodsList[goods.id]) {
+    // 有该 key 做追加
+    goodsList[goods.id] += goods.num;
+  } else {
+    goodsList[goods.id] = goods.num;
+  }
+
+  // 保存数据
+  this.saveGoods(goodsList);
+}
+
+// 获取购物车数量总数
+obj.getTotalCount = function() {
+  let goodsList = this.getGoodsList();
+  let values = Object.value(goodsList);
+  let sum = 0;
+  values.forEach(val => sum += val);
+  return sum;
+}
+
+export default obj;
+```
+
+> App.vue
+
+```
+import GoodsTools from './GoodsTools.js';
+
+export default {
+  created() {
+    // 初始化小球的数量
+    this.num = GoodsTools.getTotalCount();
+  }
+}
+```
