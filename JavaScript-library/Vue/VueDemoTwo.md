@@ -245,3 +245,17 @@ Vue.component(NabBar.name, NabBar);
 ```
 <nav-bar :title="新闻列表"></nav-bar>
 ```
+
+9. 点击切换不同页面
+
+> App.vue
+
+```
+@click = "changeHash"
+
+methods: {
+  changeHash() {
+    console.log(this.selected);
+  }
+}
+```
