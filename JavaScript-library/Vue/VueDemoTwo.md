@@ -297,3 +297,50 @@ export default new Router({
 ……
 ```
 
+11. 图文分享
+
+> Home.vue
+
+```
+{
+  className: "cms-photo",
+  title: "图文分享",
+  router: {
+    name: "photo.list",
+    params: {
+      categoryId: 0
+    }
+  }
+}
+```
+
+> router/index.js
+
+```
+{
+  name: "photo.list",
+  path: "/photo/list/:category",
+  component: PhotoList
+}
+```
+
+12. lazy load
+
+* 使用 MintUi 自带的 v-lazy 指令
+* 安装 v-lazy 包
+
+13. 路由守卫
+
+&emsp;[路由守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html)
+
+> PhotoList.vue
+
+```
+export default {
+  beforeRouteUpdate(to, from, next) {
+    // ...
+    console.log(to);
+    next();
+  }
+}
+```
