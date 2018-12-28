@@ -621,3 +621,17 @@ export default {
   }
 }
 ```
+
+> GoodsDetail.vue
+
+```
+import GoodsTools from '@/GoodsTools';
+
+afterEnter() {
+  // 添加到本地存储
+  GoodsTools.add({
+    id: this.goodsInfo.id,
+    num: this.pickNum
+  })
+}
+```
