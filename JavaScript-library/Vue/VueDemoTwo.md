@@ -378,3 +378,15 @@ export default {
 * 在 created() 中调用函数，查看 id，跳转到不同分类
 * 在用户修改 url 时，beforeRouteUpdate() 中调用函数，查看 id，跳转到不同分类
 * 在点击按钮上触发事件。
+
+16. 新闻详情
+
+* 通过 `v-html` 来渲染富文本
+
+> NewsDetail.vue
+
+```
+<div class="news-content" v-html="newsDetail.content"></div>
+```
+
+* 由于 `v-html` 是 `this.nextTick()` 中执行的，所以要注意下渲染机制。
