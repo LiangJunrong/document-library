@@ -373,4 +373,8 @@ export default {
 }
 ```
 
+15. 关于分类跳转
 
+* 在 created() 中调用函数，查看 id，跳转到不同分类
+* 在用户修改 url 时，beforeRouteUpdate() 中调用函数，查看 id，跳转到不同分类
+* 在点击按钮上触发事件。
