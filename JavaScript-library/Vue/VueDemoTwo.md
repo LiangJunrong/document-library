@@ -390,3 +390,51 @@ export default {
 ```
 
 * 由于 `v-html` 是 `this.nextTick()` 中执行的，所以要注意下渲染机制。
+
+17. 图片预览
+
+* [图片预览插件 - vue-preview](https://www.npmjs.com/package/vue-preview)
+
+> main.js
+
+```
+// 图片预览插件
+import VuePreview from 'vue-preview'
+
+// default install
+Vue.use(VuePreview);
+// 上面代码会内部运行下面代码
+Vue.component('vue-preview', componentObj);
+```
+
+18. 封装评论组件
+
+* 新建 src/components/Common/Comment.vue
+
+> Comment.vue
+
+```
+// 内容
+export default {
+  name: "comment"
+}
+```
+
+> main.js
+
+```
+import Comment from '@/components/Common/Comment';
+
+Vue.component(Comment.name, Comment);
+```
+
+> PhotoDetail.vue
+
+```
+<!-- 使用评论组件 -->
+<comment></comment>
+```
+
+* 关于使用组件
+  * artId - 详情 id
+  * pageIndex - 页数
