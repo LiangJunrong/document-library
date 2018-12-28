@@ -344,3 +344,33 @@ export default {
   }
 }
 ```
+
+14. 接口返回信息
+
+```
+{
+  Status: 1, //数据状态
+  Code: 200, //反码状态
+  Message: 'Successful', //描述信息
+  ClientTime: 1473765898, //客户端请求时间
+  ServerTime: 1473765935, //服务端响应时间
+  token: '38ce6474a370c3fe84ddf92403bec204cfcbe07b', //唯一token也可做加密key
+  data:{ //json数据，格式层级关系根据对应需求虽易定
+    key1: value1,
+    key2: value2,
+    key3: {
+    [
+      name: '小明',
+      sex: 1,
+    ],[
+      name: '小华',
+      sex: 1,
+    ],[
+      name: '小刚',
+      sex: 1,
+    ]}
+  }
+}
+```
+
+
