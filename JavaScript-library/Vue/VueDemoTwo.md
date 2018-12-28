@@ -468,7 +468,7 @@ export default {
 * 路人
 * 用户
 
-20. 加载中
+20. 加载中功能
 
 > src/main.js
 
@@ -488,3 +488,5 @@ Axios.intercepotrs.response.use(function(response) {
   return response;
 })
 ```
+
+21. 
