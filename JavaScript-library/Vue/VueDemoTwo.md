@@ -246,7 +246,7 @@ Vue.component(NabBar.name, NabBar);
 <nav-bar :title="新闻列表"></nav-bar>
 ```
 
-9. 点击切换不同页面
+9. 点击切换不同页面，MintUI 组件下边导航
 
 > App.vue
 
@@ -255,7 +255,45 @@ Vue.component(NabBar.name, NabBar);
 
 methods: {
   changeHash() {
-    console.log(this.selected);
+    // 在 Vue 完成渲染任务以后的行为
+    this.$nextTick(function() {
+      console.log(this.selected);
+      this.$router.push({
+        name: this.selected
+      })
+    })
   }
 }
 ```
+
+10. 点击跳转到文章详情
+
+> NewsList.vue
+
+```
+<router-link :to="{name: 'news.detail', query:{id:news.id}}"></router-link>
+```
+
+> index.js
+
+```
+import NewsDetail from '@/components/News/NewsDetail';
+
+export default new Router({
+  routes: [
+    // 新闻详情
+    {
+      name: 'news.detail',
+      path: '/news/detail',
+      component: NewsDetail
+    }
+  ]
+})
+```
+
+> NewsDetail
+
+```
+……
+```
+
