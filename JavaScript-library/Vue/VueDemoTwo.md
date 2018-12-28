@@ -493,4 +493,21 @@ Axios.intercepotrs.response.use(function(response) {
 
 [参考地址](http://mint-ui.github.io/docs/#/zh-cn2/loadmore)
 
-22. 
+```
+<!-- 
+  :auto-fill - 自动帮助发请求填充满父元素
+  :bottom-method - 拉动函数
+  :bottom-add-loaded - 为 true 终结拉动函数的调用
+ -->
+<mt-loadmore :auto-fill="false" :bottom-method="loadBottom" ref="loadmore" :buttom-all-loaded="isAllLoaded"></mt-loadmore>
+
+// loadmore 的禁止函数调用的属性来控制
+this.isAllLoaded = true;
+
+// 通知元素重新定位
+this.$refs.loadmore.onBottomLoaded();
+```
+
+22. 过渡效果
+
+* [Vue 过渡动画](https://cn.vuejs.org/v2/guide/transitions.html)
