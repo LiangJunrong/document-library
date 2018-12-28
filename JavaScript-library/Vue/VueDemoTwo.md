@@ -203,7 +203,15 @@ Vue.filter("converTime", function(data, formatStr) {
 {{ news.add_time | converTime('YYYY-MM-DD') }}
 ```
 
-8. 封装头部
+* 可以获取绝对时间或者相对时间
+
+```
+Vue.filter("relativeTime", function(previousTime) {
+  return Moment(previousTime).fromNow();
+})
+```
+
+1. 封装头部
 
 > components/common/NavBar.vue
 
@@ -432,9 +440,51 @@ Vue.component(Comment.name, Comment);
 
 ```
 <!-- 使用评论组件 -->
-<comment></comment>
+<comment :cid="$route.query.id"></comment>
+
+
+let id = this.$route.query.id;
 ```
 
 * 关于使用组件
   * artId - 详情 id
   * pageIndex - 页数
+
+> Comment.vue
+
+```
+export default {
+  name: "comment",
+  props: ['cid'], // 评论需要的 id
+  created() {
+    // 使用该组件的时候，是否有页码，如果有，就到那个页面，如果没有，就是第一页。
+    let id = this.$route.query.page || '1';
+  }
+}
+```
+
+19. 关于评论方式
+
+* 路人
+* 用户
+
+20. 加载中
+
+> src/main.js
+
+```
+// 配置请求拦截器，显示 loading 图标
+Axios.interceptors.request.use(function(config) {
+  MintUI.Indicator.open({
+    text: "加载中...",
+    spinnerType: "fading-circle"
+  })
+  return config;
+});
+
+// 配置响应拦截器，关闭 loading 图标
+Axios.intercepotrs.response.use(function(response) {
+  MintUI.Indicator.close();
+  return response;
+})
+```
