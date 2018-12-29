@@ -35,6 +35,15 @@ let store = new Vuex.Store({
       // 调用者传递增加的数量
       state.num += payload.num;
     }
+  },
+  // 行为，在行为中，可以存在异步操作，但是最终还是通知 mutations
+  actions: {
+    addNumByServerRate(store, payload) {
+      setTimeout(function() {
+        let rate = 1;
+        state.commit('addNum', {num: payload.num * rate});
+      }, 1000)
+    }
   }
 })
 
@@ -53,7 +62,14 @@ new Vue({
 export default {
   methods: {
     change() {
+      // 也可以改值，但不是官方推荐，会被寄刀片的
+      // this.$store.state.xxx
+
+      // 一般写代码都不直接提交，除非明知是同步操作，没有后台请求
       this.$store.commit('addNum', {num:5});
+
+      // 完美的套路
+      this.$store.dispatch('addNumByServerRate', { num: 10 });
     }
   },
   computed: {
