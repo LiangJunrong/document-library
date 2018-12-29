@@ -65,6 +65,71 @@ plugins: [
 2. `lavas init`
 3. 选择包含 app_shell，也包含了骨架屏的功能
 
+* Vue SSR 原理
+
+> index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HelloWorld</title>
+</head>
+<body>
+  <h1>显示区域</h1>
+  <div id="app"></div>
+
+  <!-- 类似于 router.link -->
+  <a href="javascript:void(0);" onclick="goHistory('/user')">去看 user 页面</a>
+  <a href="javascript:void(0);" onclick="goHistory('/goods')">去看 goods 页面</a>
+  
+  <script>
+    function goHistory(url) {
+      let text = '';
+
+      // 判断用户点击的是哪个按钮
+      switch(url) {
+        case '/user':
+          test = '用户页面';
+          alert('/user');
+          break;
+        case '/goods':
+          text = '商品页面';
+          alert('/goods');
+          break;
+      }
+
+      history.pushState( {}, '', url);
+
+      // 改变页面效果
+      document.getElementById("app").innerText = text;
+
+    }
+
+  </script>
+
+</body>
+</html>
+```
+
+> index.js
+
+```
+const http = require('http');
+const fs = require('fs');
+
+http.createServer( (req, res) => {
+  fs.readFile('./index.html', (err, data) => {
+    res.end(data);
+  })
+}).listen(8888);
+```
+
+* 启动 `node index.js`，这样，我们就可以监听到我们的多页面 SSR 了。
+
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
 > 基于 [https://github.om/LiangJunrong/document-library](https://github.om/LiangJunrong/document-library) 上的作品创作。  
