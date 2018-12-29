@@ -8,6 +8,36 @@ Vuex
 
 &emsp;Vuex 的学习
 
+> src/main.js
+
+```
+// 1. 引入 Vuex
+import Vuex from 'vuex';
+// 2. 安装插件
+Vue.use(Vuex);
+// 3. 创建 store
+let store = new Vuex.Store({
+  // 4. 配置 store 中的数据/存/取
+  state: {
+    number: 30
+  },
+  // 取数据
+  getters: {
+    getNum(state) {
+      return state.num;
+    }
+  },
+  // 操作数据
+  mutations: {
+    addNum(state, payload) {
+      // 调用者传递增加的数量
+      state.num += payload.num;
+    }
+  }
+})
+// 5. 将 store 对象关联到 Vue 实例
+```
+
 <br>
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
