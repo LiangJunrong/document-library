@@ -4,6 +4,8 @@ Vue SSR 服务端渲染
 > Create by **jsliang** on **2018-12-29 20:04:33**  
 > Recently revised in **2018-12-29 20:04:37**
 
+* [Vue.js 服务器端渲染指南](https://ssr.vuejs.org/zh/)
+
 * `vue-router` 默认 hash 模式 —— 使用 URL 的 hash 来模拟一个完整的 URL，于是当 URL 改变时，页面不会重新加载。
 
 * 为什么会有 SPA
