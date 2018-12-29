@@ -65,7 +65,7 @@ plugins: [
 2. `lavas init`
 3. 选择包含 app_shell，也包含了骨架屏的功能
 
-* Vue SSR 原理
+* history 源码
 
 > index.html
 
@@ -148,7 +148,7 @@ http.createServer( (req, res) => {
 }).listen(8888);
 ```
 
-* 启动 `node index.js`，这样，我们就可以监听到我们的多页面 SSR 了。
+* 启动 `node index.js`，这样，我们就可以监听到我们的页面了。
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
