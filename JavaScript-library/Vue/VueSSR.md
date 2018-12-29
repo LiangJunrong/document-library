@@ -164,6 +164,22 @@ http.createServer( (req, res) => {
 
 * 启动 `node index.js`，这样，我们就可以监听到我们的页面了。
 
+* 多页应用
+  * 核心思想：就是两个 Vue 项目，一次 Webpack 打包，关联用 url 联系
+  * Webpack 操作
+    * 多个入口： `{main1: './usermain.js', main2:'./goodsmain.js'}`
+    * 多个 html 插件
+  * 注意事项：
+  * `
+    // 文件名称
+    filename: filename + '.html',
+    // 页面模板需要加对应的 js 脚本，如果不加这行，则每个页面都会引入所有的 js 脚本
+    chunks: ['mainfest', 'vendor', filename],
+    inject: true
+  `
+  * 使用 CachesAPI 获取指定缓存的内容
+  * `caches.open('key').then(function(cachedRequests) { ... })`
+
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
 > 基于 [https://github.om/LiangJunrong/document-library](https://github.om/LiangJunrong/document-library) 上的作品创作。  
