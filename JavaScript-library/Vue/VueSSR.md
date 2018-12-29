@@ -59,6 +59,8 @@ plugins: [
 
 * [LAVAS - 基于 Vue.js 的 PWA 解决方案](https://lavas.baidu.com/)
 
+结合 Service Worker 做了用户体验优化，实现了离线浏览。
+
 1. `npm i lavas -g`
 2. `lavas init`
 3. 选择包含 app_shell，也包含了骨架屏的功能
