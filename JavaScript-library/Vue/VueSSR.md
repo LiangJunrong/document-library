@@ -64,6 +64,18 @@ plugins: [
 1. `npm i lavas -g`
 2. `lavas init`
 3. 选择包含 app_shell，也包含了骨架屏的功能
+4. 骨架屏的实现原理，就是在 Vue 真正渲染之前，先加载了默认的一套代码
+
+```
+<div id="app">
+  <div>预加载样式</div>
+</div>
+
+<script>先加载预加载样式的 js 文件</script>
+<script>然后加载 Vue 文件，渲染页面</script>
+```
+
+5. 所以，在我们请求加载数据，完成渲染之前，我们可以先使用骨架屏，然后等数据渲染完成之后，我们将骨架屏关掉。
 
 * history 源码
 
