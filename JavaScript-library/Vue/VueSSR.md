@@ -80,7 +80,13 @@ plugins: [
 
 5. 所以，在我们请求加载数据，完成渲染之前，我们可以先使用骨架屏，然后等数据渲染完成之后，我们将骨架屏关掉。
 6. 自己配置骨架屏：[Vue 页面骨架屏注入步骤详解](http://www.php.cn/js-tutorial-397329.html)
-7. [什么是 PWA](https://segmentfault.com/a/1190000012353473)
+
+* [什么是 PWA](https://segmentfault.com/a/1190000012353473)
+  * PWA （渐进式 Web Application）
+    * 慢慢收服你。
+    * 离线浏览 Web 应用，生成桌面应用，顶部通知（页面都可以不存在），预缓存（在页面没启动之前，请求资源保存到浏览器。从而在访问的时候，大幅提升速度），骨架屏，App shell（利用缓存机制保存 css + html + js 等等），分享，全屏图标。
+    * 这些东西，是产品经理设计的，因为这项 PWA 技术，经 Chrome 推出，但是一直没有火起来（手机端 55 以上支持这些所有技术）、IOS Safari 考虑支持。
+  * 英文 caniuse，中文 lavas 官网
 
 * history 源码
 
