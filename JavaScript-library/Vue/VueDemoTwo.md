@@ -674,3 +674,7 @@ export default {
   }
 }
 ```
+
+28. 滚动行为
+
+* [VueRouter 滚动行为](https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html)
