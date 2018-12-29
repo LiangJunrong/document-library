@@ -80,6 +80,22 @@ export default {
 }
 ```
 
+## 提取出来，提高解耦性
+
+* 新建 src/modules/numModule.js
+
+> modules/numModule.js
+
+```
+// 上面内容
+```
+
+> main.js
+
+```
+import numModule from '@/modules/numModule';
+```
+
 <br>
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
