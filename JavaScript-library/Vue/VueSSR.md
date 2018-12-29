@@ -106,9 +106,29 @@ plugins: [
 
       // 改变页面效果
       document.getElementById("app").innerText = text;
-
     }
+    
+    // 当页面加载的时候
+    window.onload = function() {
+      let text2 = '';
+      
+      // 获取当前 path 路径
+      var path = location.pathname;
+      switch(path) {
+        case '/user':
+          test = '用户页面';
+          alert('/user');
+          break;
+        case '/goods':
+          text = '商品页面';
+          alert('/goods');
+          break;
+      }
 
+      // 改变页面效果
+      document.getElementById("app").innerText = text2;
+    }
+    
   </script>
 
 </body>
