@@ -8,6 +8,8 @@ Vuex
 
 &emsp;Vuex 的学习
 
+* 安装 Vuex：`cnpm i vuex -S`
+
 > src/main.js
 
 ```
@@ -35,7 +37,31 @@ let store = new Vuex.Store({
     }
   }
 })
-// 5. 将 store 对象关联到 Vue 实例
+
+new Vue({
+  el: '#app',
+  // 5. 将 store 对象关联到 Vue 实例
+  store,
+  compontents: { App },
+  template: '<App/>'
+})
+```
+
+> App.vue
+
+```
+export default {
+  methods: {
+    change() {
+      this.$store.commit('addNum', {num:5});
+    }
+  },
+  computed: {
+    appShowNum() {
+      return this.$store.getters.getNum;
+    }
+  }
+}
 ```
 
 <br>
