@@ -650,3 +650,27 @@ beforeRouteLeave(to, from, next) {
   }
 }
 ```
+
+27. `<router-view></router-view>` 中获取其他组件的高度
+
+> App.vue
+
+```
+<div>
+  <header ref="appHeader"></header>
+  <router-view :apprefs="$refs"></router-view>
+  <footer ref="appFooter"></footer>
+</div>
+```
+
+> Content.vue
+
+```
+export default {
+  props: ['apprefs'],
+  mounted() {
+    console.log(this.apprefs.appHeader.$el.offsetHeight);
+    console.log(this.apprefs.appFooter.$el.offsetHeight);
+  }
+}
+```
