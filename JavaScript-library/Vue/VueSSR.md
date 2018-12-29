@@ -76,6 +76,8 @@ plugins: [
 ```
 
 5. 所以，在我们请求加载数据，完成渲染之前，我们可以先使用骨架屏，然后等数据渲染完成之后，我们将骨架屏关掉。
+6. 自己配置骨架屏：[Vue 页面骨架屏注入步骤详解](http://www.php.cn/js-tutorial-397329.html)
+7. [什么是 PWA](https://segmentfault.com/a/1190000012353473)
 
 * history 源码
 
