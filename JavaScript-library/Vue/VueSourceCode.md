@@ -2,7 +2,7 @@ Vue 源码剖析
 ===
 
 > Create by **jsliang** on **2018-12-29 23:21:20**  
-> Recently revised in **2018-12-30 17:11:47**
+> Recently revised in **2018-12-31 19:29:31**
 
 * 什么是 Flow 
   * Flow 是 facebook 出品的 JavaScript 静态类型检查工具。Vue.js 的源码利用了 Flow 做了静态类型检查，所以了解 Flow 有助于我们阅读源码。
