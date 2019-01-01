@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2018-12-24 08:06:09**
+> Recently revised in **2019-1-1 19:29:20**
 
 <br>
 
@@ -25,6 +25,12 @@
 | [豆包君](https://github.com/danygitgit) |
 
 <br>
+
+# 2018-12-31
+
+* - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
+* - [x] [jerry](https://github.com/jgchenu) 参与周竞赛，已交 35 元。
+* - [x] [邵威儒](https://github.com/iamswr) 参与周竞赛，已交 35 元。
 
 # 2018-12-24
 
