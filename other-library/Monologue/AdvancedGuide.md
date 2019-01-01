@@ -31,8 +31,6 @@
 &emsp;这一周参赛
 
 * - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
-* - [x] [jerry](https://github.com/jgchenu) 参与周竞赛，已交 35 元。
-* - [x] [邵威儒](https://github.com/iamswr) 参与周竞赛，已交 35 元。
 
 &emsp;上一周情况
 
