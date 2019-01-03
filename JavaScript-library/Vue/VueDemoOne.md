@@ -1,8 +1,8 @@
-功成千骨
+Vue Demo - 功成千骨
 ===
 
 > Create by **jsliang** on **2019-1-2 08:46:46**  
-> Recently revised in **2019-1-2 08:46:50**
+> Recently revised in **2019-1-3 21:03:20**
 
 抛开 Vue-Cli 开发一个 TodoList 并不断完善，实现本地存储，离线访问，并完成正在进行、完成列表、回收清单这三个功能模块：
 
@@ -39,7 +39,9 @@
 
 ![图](../../public-repertory/img/js-vue-demo-one-2.png)
 
-好的惨不忍睹，我们使用 PS 完善下：
+好的惨不忍睹，我们使用 PS 稍微完善下：
+
+![图](../../public-repertory/img/js-vue-demo-one-3.png)
 
 OK，下面我们就可以开心开始切图仔的工作啦！
 
