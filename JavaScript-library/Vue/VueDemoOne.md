@@ -39,11 +39,11 @@ Vue Demo - 功成千骨
 
 ![图](../../public-repertory/img/js-vue-demo-one-2.png)
 
-好的惨不忍睹，我们使用 PS 稍微完善下：
+好吧惨不忍睹，我们使用 PS 稍微完善下：
 
 ![图](../../public-repertory/img/js-vue-demo-one-3.png)
 
-OK，下面我们就可以开心开始切图仔的工作啦！
+OK，下面我们就可以开始切图仔的工作啦！
 
 ## <a name="chapter-four" id="chapter-four">四 骨架 - HTML</a>
 
