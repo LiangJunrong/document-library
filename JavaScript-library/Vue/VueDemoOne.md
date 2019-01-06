@@ -24,6 +24,9 @@ Vue Demo - 功成千骨
 | [二 前言](#chapter-two)                         |
 | [三 项目解析](#chapter-three)                       |
 | [四 骨架 - HTML](#chapter-four)                       |
+| [五 功能 - JS](#chapter-five)                       |
+| [六 皮肤 - CSS](#chapter-six)                       |
+| [七 总结](#chapter-seven)                       |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -160,6 +163,19 @@ OK，下面我们就可以开始切图仔的工作啦！
 ```
 
 > 此时，`index.css` 和 `index.js` 这两个文件，可以是空的，因为我们先架好骨架，再进行 CSS 的渲染以及 JS 的事件。
+
+## <a name="chapter-five" id="chapter-five">五 功能 - JS</a>
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-six" id="chapter-six">六 皮肤 - CSS</a>
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-seven" id="chapter-seven">七 总结</a>
+
+> [返回目录](#chapter-one)
+
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
