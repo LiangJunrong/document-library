@@ -28,6 +28,10 @@
 
 # 2019-1-7
 
+&emsp;这一周参赛
+
+* - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
+
 &emsp;上一周情况
 
 * - [x] [豆包君](https://github.com/danygitgit) 参赛 7 天，完成了 6 天的提交。
