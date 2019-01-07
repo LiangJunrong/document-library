@@ -71,9 +71,11 @@ OK，下面我们就可以开始切图仔的工作啦！
 <body>
   <!-- html 区 -->
   <div class="main-container">
+    <!-- 头部标题 -->
     <div class="header">
       <h3>功成千骨</h3>
     </div>
+    <!-- 内容区 -->
     <div class="content">
       <!-- 输入区 -->
       <div class="content-input-todo">
@@ -84,7 +86,7 @@ OK，下面我们就可以开始切图仔的工作啦！
       <div class="content-list">
         <!-- 待完成 -->
         <div class="content-list-todo">
-          <p>千军万马取敌首</p>
+          <h4>千军万马取敌首</h4>
           <ul>
             <li>
               <input type="checkbox">
@@ -105,7 +107,7 @@ OK，下面我们就可以开始切图仔的工作啦！
         </div>
         <!-- 已完成 -->
         <div class="content-list-finish">
-          <p>敌羞吾去脱他衣</p>
+          <h4>敌羞吾去脱他衣</h4>
           <ul>
             <li>
               <input type="checkbox">
@@ -126,7 +128,7 @@ OK，下面我们就可以开始切图仔的工作啦！
         </div>
         <!-- 回收站 -->
         <div class="content-list-recycle">
-          <p>溃不成军鸟兽散</p>
+          <h4>溃不成军鸟兽散</h4>
           <ul>
             <li>
               <input type="checkbox">
@@ -148,6 +150,7 @@ OK，下面我们就可以开始切图仔的工作啦！
       </div>
       <!--  -->
     </div>
+    <!-- 底部信息 -->
     <div class="footer">
       <p>不折腾的前端</p>
       <p>和咸鱼有什么区别</p>
@@ -171,89 +174,59 @@ OK，下面我们就可以开始切图仔的工作啦！
 
 > [返回目录](#chapter-one)
 
+* **步骤一 页面数据化**
+
 现在，我们进行页面的数据化，我们需要考虑有哪几块是需要变成数据的：**输入的内容**、**todo 项**、**完成项**、**未完成项**。
 
 那么，我们先进行简单抽取：
 
-> index.html 
+> index.html 代码片段
 
 ```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-  <title>功成千骨</title>
-
-  <!-- css 区 -->
-  <link rel="stylesheet" href="./css/index.css">
-
-</head>
-<body>
-  <!-- html 区 -->
-  <div class="main-container" id="app">
-    <div class="header">
-      <h3>功成千骨</h3>
+<!-- 内容区 -->
+<div class="content">
+  <!-- 输入区 -->
+  <div class="content-input-todo">
+    <input type="text" placeholder="第 n 个敌人" v-model="todo">
+    <button>进击</button>
+  </div>
+  <!-- 列表区 -->
+  <div class="content-list">
+    <!-- 待完成 -->
+    <div class="content-list-todo">
+      <p>千军万马取敌首</p>
+      <ul>
+        <li v-for="todoItem in todoInfos" :key="todoItem.id">
+          <input type="checkbox" v-model="todoItem.isChecked">
+          <span v-text="todoItem.todoTitle"></span>
+          <span>×</span>
+        </li>
+      </ul>
     </div>
-    <div class="content">
-      <!-- 输入区 -->
-      <div class="content-input-todo">
-        <input type="text" placeholder="第 n 个敌人" v-model="todo">
-        <button>进击</button>
-      </div>
-      <!-- 列表区 -->
-      <div class="content-list">
-        <!-- 待完成 -->
-        <div class="content-list-todo">
-          <p>千军万马取敌首</p>
-          <ul>
-            <li v-for="todoItem in todoInfos" :key="todoItem.id">
-              <input type="checkbox" v-model="todoItem.isChecked">
-              <span v-text="todoItem.todoTitle"></span>
-              <span>×</span>
-            </li>
-          </ul>
-        </div>
-        <!-- 已完成 -->
-        <div class="content-list-finish">
-          <p>敌羞吾去脱他衣</p>
-          <ul>
-            <li v-for="finishItem in finishInfos" :key="finishItem.id">
-              <input type="checkbox" v-model="finishItem.isChecked">
-              <span v-text="finishItem.todoTitle"></span>
-              <span>×</span>
-            </li>
-          </ul>
-        </div>
-        <!-- 回收站 -->
-        <div class="content-list-recycle">
-          <p>溃不成军鸟兽散</p>
-          <ul>
-            <li v-for="recycleItem in recycleInfos" :key="recycleItem.id">
-              <input type="checkbox" v-model="recycleItem.isChecked">
-              <span v-text="recycleItem.todoTitle"></span>
-              <span>×</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!--  -->
+    <!-- 已完成 -->
+    <div class="content-list-finish">
+      <p>敌羞吾去脱他衣</p>
+      <ul>
+        <li v-for="finishItem in finishInfos" :key="finishItem.id">
+          <input type="checkbox" v-model="finishItem.isChecked">
+          <span v-text="finishItem.todoTitle"></span>
+          <span>×</span>
+        </li>
+      </ul>
     </div>
-    <div class="footer">
-      <p>不折腾的前端</p>
-      <p>和咸鱼有什么区别</p>
-      <p>@2019 <a href="" target="_blank">jsliang 文档库</a></p>
+    <!-- 回收站 -->
+    <div class="content-list-recycle">
+      <p>溃不成军鸟兽散</p>
+      <ul>
+        <li v-for="recycleItem in recycleInfos" :key="recycleItem.id">
+          <input type="checkbox" v-model="recycleItem.isChecked">
+          <span v-text="recycleItem.todoTitle"></span>
+          <span>×</span>
+        </li>
+      </ul>
     </div>
   </div>
-
-  <!-- js 区 -->
-  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
-  <script src="./js/index.js"></script>
-
-</body>
-</html>
+</div>
 ```
 
 在这里，我们将页面数据化了，然后我们编写 `index.js` 的内容：
@@ -264,6 +237,7 @@ OK，下面我们就可以开始切图仔的工作啦！
 var app = new Vue({
   el: "#app",
   data: {
+    id: 1,
     todo: '',
     todoInfos: [
       {
@@ -320,6 +294,8 @@ var app = new Vue({
 })
 ```
 
+* **第二步 数据简化**
+
 在这里，我们观察下 `todoInfos`、`finishInfos`、`recycleInfos` 这三个数组，发现它们都是差不多的结构。那么，我们干脆将它合并？
 
 > index.js
@@ -328,153 +304,78 @@ var app = new Vue({
 var app = new Vue({
   el: "#app",
   data: {
+    id: 1,
     todo: '',
     todoInfos: [
       {
-        id: 7,
-        isChecked: false,
-        todoTitle: "敌军 1",
-        state: 0
-      },
-      {
-        id: 8,
-        isChecked: false,
-        todoTitle: "敌军 2",
-        state: 0
-      },
-      {
-        id: 9,
-        isChecked: false,
-        todoTitle: "敌军 3",
-        state: 0
-      },
-      {
-        id: 1,
-        isChecked: true,
-        todoTitle: "亡军 1",
-        state: 1
-      },
-      {
-        id: 2,
-        isChecked: true,
-        todoTitle: "亡军 2",
-        state: 1
-      },
-      {
-        id: 3,
-        isChecked: true,
-        todoTitle: "亡军 3",
-        state: 1
-      },
-      {
-        id: 4,
-        isChecked: false,
-        todoTitle: "逃军 1",
-        state: 2
-      },
-      {
-        id: 5,
-        isChecked: false,
-        todoTitle: "逃军 2",
-        state: 2
-      },
-      {
-        id: 6,
-        isChecked: false,
-        todoTitle: "逃军 3",
-        state: 2
+        id: 1, // id 唯一且自增
+        isChecked: false, // 未完成和放弃为 false，完成为 true
+        todoTitle: "敌军 1", // todo 标题
+        state: 0, // 0 - 未完成，1 - 完成，2 - 放弃完成
       },
     ]
-  }
+  },
 })
 ```
 
 这样一来，我们就可以通过 `state` 来区分这三块的数据：
 
-> index.html
+> index.html 代码片段
 
 ```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-  <title>功成千骨</title>
-
-  <!-- css 区 -->
-  <link rel="stylesheet" href="./css/index.css">
-
-</head>
-<body>
-  <!-- html 区 -->
-  <div class="main-container" id="app">
-    <div class="header">
-      <h3>功成千骨</h3>
+<!-- 内容区 -->
+<div class="content">
+  <!-- 输入区 -->
+  <div class="content-input-todo">
+    <input type="text" placeholder="第 n 个敌人" v-model="todo">
+    <button>进击</button>
+  </div>
+  <!-- 列表区 -->
+  <div class="content-list">
+    <!-- 待完成 -->
+    <div class="content-list-todo">
+      <h4>千军万马取敌首</h4>
+      <ul>
+        <li v-for="todoItem in todoInfos" :key="todoItem.id" v-if="todoItem.state == 0">
+          <input type="checkbox" v-model="todoItem.isChecked">
+          <span v-text="todoItem.todoTitle"></span>
+          <span>×</span>
+        </li>
+      </ul>
     </div>
-    <div class="content">
-      <!-- 输入区 -->
-      <div class="content-input-todo">
-        <input type="text" placeholder="第 n 个敌人" v-model="todo">
-        <button>进击</button>
-      </div>
-      <!-- 列表区 -->
-      <div class="content-list">
-        <!-- 待完成 -->
-        <div class="content-list-todo">
-          <p>千军万马取敌首</p>
-          <ul>
-            <li v-for="todoItem in todoInfos" :key="todoItem.id" v-if="todoItem.state == 0">
-              <input type="checkbox" v-model="todoItem.isChecked">
-              <span v-text="todoItem.todoTitle"></span>
-              <span>×</span>
-            </li>
-          </ul>
-        </div>
-        <!-- 已完成 -->
-        <div class="content-list-finish">
-          <p>敌羞吾去脱他衣</p>
-          <ul>
-            <li v-for="finishItem in todoInfos" :key="finishItem.id" v-if="finishItem.state == 1">
-              <input type="checkbox" v-model="finishItem.isChecked">
-              <span v-text="finishItem.todoTitle"></span>
-              <span>×</span>
-            </li>
-          </ul>
-        </div>
-        <!-- 回收站 -->
-        <div class="content-list-recycle">
-          <p>溃不成军鸟兽散</p>
-          <ul>
-            <li v-for="recycleItem in todoInfos" :key="recycleItem.id" v-if="recycleItem.state == 2">
-              <input type="checkbox" v-model="recycleItem.isChecked">
-              <span v-text="recycleItem.todoTitle"></span>
-              <span>×</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!--  -->
+    <!-- 已完成 -->
+    <div class="content-list-finish">
+      <h4>敌羞吾去脱他衣</h4>
+      <ul>
+        <li v-for="finishItem in todoInfos" :key="finishItem.id" v-if="finishItem.state == 1">
+          <input type="checkbox" v-model="finishItem.isChecked">
+          <span v-text="finishItem.todoTitle"></span>
+          <span>×</span>
+        </li>
+      </ul>
     </div>
-    <div class="footer">
-      <p>不折腾的前端</p>
-      <p>和咸鱼有什么区别</p>
-      <p>@2019 <a href="" target="_blank">jsliang 文档库</a></p>
+    <!-- 回收站 -->
+    <div class="content-list-recycle">
+      <h4>溃不成军鸟兽散</h4>
+      <ul>
+        <li v-for="recycleItem in todoInfos" :key="recycleItem.id" v-if="recycleItem.state == 2">
+          <input type="checkbox" v-model="recycleItem.isChecked">
+          <span v-text="recycleItem.todoTitle"></span>
+          <span>×</span>
+        </li>
+      </ul>
     </div>
   </div>
-
-  <!-- js 区 -->
-  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
-  <script src="./js/index.js"></script>
-
-</body>
-</html>
+</div>
 ```
 
 ![图](../../public-repertory/img/js-vue-demo-one-4.png)
 
-此时，我们的页面还是如修改之前一般。
+此时，我们的页面还是如修改之前一般。下面我们开始写方法。
+
+* **第三步 编写方法**
+
+
 
 ## <a name="chapter-six" id="chapter-six">六 皮肤 - CSS</a>
 
