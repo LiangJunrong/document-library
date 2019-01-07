@@ -1,17 +1,20 @@
 # Vue Demo - 功成千骨
 
 > Create by **jsliang** on **2019-1-2 08:46:46**  
-> Recently revised in **2019-1-7 19:36:30**
+> Recently revised in **2019-1-7 21:26:34**
 
-抛开 Vue-Cli 开发一个 TodoList 并不断完善，实现本地存储，离线访问，并完成正在进行、完成列表、回收清单这三个功能模块：
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueDemoOne.md)**
+
+抛开 Vue-Cli，使用最简单原始的方式开发一个 TodoList 并不断完善，完成正在进行、完成列表、回收站这三个功能模块，并实现下面这些功能：
 
 - 新增任务
+- 改变状态
 - 修改任务
 - 删除任务
 
 成品展示：
 
-![图](../../public-repertory/img/js-vue-demo-one-1.png)
+![图](../../public-repertory/img/js-vue-demo-one-1.gif)
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
