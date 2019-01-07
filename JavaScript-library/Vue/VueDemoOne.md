@@ -90,7 +90,7 @@ OK，下面我们就可以开始切图仔的工作啦！
       </div>
       <!-- 列表区 -->
       <div class="content-list">
-        <!-- 待完成 -->
+        <!-- 未完成 -->
         <div class="content-list-todo">
           <h4>千军万马取敌首</h4>
           <ul>
@@ -200,7 +200,7 @@ OK，下面我们就可以开始切图仔的工作啦！
   </div>
   <!-- 列表区 -->
   <div class="content-list">
-    <!-- 待完成 -->
+    <!-- 未完成 -->
     <div class="content-list-todo">
       <p>千军万马取敌首</p>
       <ul>
@@ -342,7 +342,7 @@ var app = new Vue({
   </div>
   <!-- 列表区 -->
   <div class="content-list">
-    <!-- 待完成 -->
+    <!-- 未完成 -->
     <div class="content-list-todo">
       <h4>千军万马取敌首</h4>
       <ul>
@@ -449,19 +449,77 @@ var app = new Vue({
 | --- | --- |
 | 未完成 | `isChecked: false`、`state: 0` |
 | 已完成 | `isChecked: true`、`state: 1` |
-| 待完成 | `isChecked: false`、`state: 2` |
+| 回收站 | `isChecked: false`、`state: 2` |
 
-OK，下面是 HTML 的代码变动：
+* **步骤一 未完成 -> 已完成**
 
-> index.html
+首先，我们实现 **未完成** -> **已完成** 的转变，这里只需要修改下 HTML 代码即可：
+
+> index.html 代码片段
 
 ```
-
+<!-- 未完成 -->
+<div class="content-list-todo">
+  <h4>千军万马取敌首</h4>
+  <ul>
+    <li v-for="todoItem in todoInfos" :key="todoItem.id" v-if="todoItem.state == 0">
+      <input type="checkbox" v-model="todoItem.isChecked" @change="todoItem.state = 1">
+      <span v-text="todoItem.todoTitle"></span>
+      <span>×</span>
+    </li>
+  </ul>
+</div>
+<!-- 已完成 -->
+<div class="content-list-finish">
+  <h4>敌羞吾去脱他衣</h4>
+  <ul>
+    <li v-for="finishItem in todoInfos" :key="finishItem.id" v-if="finishItem.state == 1">
+      <input type="checkbox" v-model="finishItem.isChecked" @change="finishItem.state = 0">
+      <span v-text="finishItem.todoTitle"></span>
+      <span>×</span>
+    </li>
+  </ul>
+</div>
 ```
 
-然后，我们顺带修改下 JS 的代码：
+我们可以查看下结果：
 
-> index.js
+![图](../../public-repertory/img/js-vue-demo-one-6.gif)
+
+* **步骤二 未完成、已完成 -> 回收站**
+
+> index.html 代码片段
+
+```
+<!-- 待完成 -->
+<div class="content-list-todo">
+  <h4>千军万马取敌首</h4>
+  <ul>
+    <li v-for="todoItem in todoInfos" :key="todoItem.id" v-if="todoItem.state == 0">
+      <input type="checkbox" v-model="todoItem.isChecked" @change="todoItem.state = 1">
+      <span v-text="todoItem.todoTitle"></span>
+      <span @click="todoItem.state = 2">×</span>
+    </li>
+  </ul>
+</div>
+<!-- 已完成 -->
+<div class="content-list-finish">
+  <h4>敌羞吾去脱他衣</h4>
+  <ul>
+    <li v-for="finishItem in todoInfos" :key="finishItem.id" v-if="finishItem.state == 1">
+      <input type="checkbox" v-model="finishItem.isChecked" @change="finishItem.state = 0">
+      <span v-text="finishItem.todoTitle"></span>
+      <span @click="finishItem.state = 2">×</span>
+    </li>
+  </ul>
+</div>
+```
+
+![图](../../public-repertory/img/js-vue-demo-one-7.gif)
+
+* **步骤三 回收站 -> 未完成/彻底删除**
+
+> index.html 代码片段
 
 ```
 
