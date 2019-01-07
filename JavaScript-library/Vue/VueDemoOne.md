@@ -1,7 +1,7 @@
 # Vue Demo - 功成千骨
 
 > Create by **jsliang** on **2019-1-2 08:46:46**  
-> Recently revised in **2019-1-7 08:17:42**
+> Recently revised in **2019-1-7 19:36:30**
 
 抛开 Vue-Cli 开发一个 TodoList 并不断完善，实现本地存储，离线访问，并完成正在进行、完成列表、回收清单这三个功能模块：
 
@@ -451,8 +451,6 @@ var app = new Vue({
 | 已完成 | `isChecked: true`、`state: 1` |
 | 回收站 | `isChecked: false`、`state: 2` |
 
-* **步骤一 未完成 -> 已完成**
-
 首先，我们实现 **未完成** -> **已完成** 的转变，这里只需要修改下 HTML 代码即可：
 
 > index.html 代码片段
@@ -486,7 +484,30 @@ var app = new Vue({
 
 ![图](../../public-repertory/img/js-vue-demo-one-6.gif)
 
-* **步骤二 未完成、已完成 -> 回收站**
+## <a name="chapter-five-five" id="chapter-five-five">5.5 修改内容</a>
+
+> [返回目录](#chapter-one)
+
+现在，我们实现点击 `todoTitle`，变成修改模式，修改完后点击其他地方，或者按下回车按钮，从而实现数据的修改：
+
+> index.html 代码片段
+
+```
+
+```
+
+> index.js 代码片段
+
+```
+```
+
+最后，我们查看下实现情况：
+
+![图](../../public-repertory/img/js-vue-demo-one-7.gif)
+
+## <a name="chapter-five-six" id="chapter-five-six">5.6 数据回收</a>
+
+> [返回目录](#chapter-one)
 
 > index.html 代码片段
 
@@ -515,27 +536,64 @@ var app = new Vue({
 </div>
 ```
 
-![图](../../public-repertory/img/js-vue-demo-one-7.gif)
-
-* **步骤三 回收站 -> 未完成/彻底删除**
-
-> index.html 代码片段
-
-```
-
-```
-
-## <a name="chapter-five-five" id="chapter-five-five">5.5 修改内容</a>
-
-> [返回目录](#chapter-one)
-
-## <a name="chapter-five-six" id="chapter-five-six">5.6 数据回收</a>
-
-> [返回目录](#chapter-one)
+![图](../../public-repertory/img/js-vue-demo-one-8.gif)
 
 ## <a name="chapter-five-seven" id="chapter-five-seven">5.7 彻底删除</a>
 
 > [返回目录](#chapter-one)
+
+> index.html 代码片段
+
+```
+<!-- 回收站 -->
+<div class="content-list-recycle">
+  <h4>溃不成军鸟兽散</h4>
+  <ul>
+    <li v-for="recycleItem in todoInfos" :key="recycleItem.id" v-if="recycleItem.state == 2">
+      <span @click="recycleItem.state = 0; recycleItem.isChecked = false">返回</span>
+      <span v-text="recycleItem.todoTitle"></span>
+      <span @click="deleteInfo(recycleItem)">×</span>
+    </li>
+  </ul>
+</div>
+```
+
+然后，我们通过编写 `deleteInfo` 来删除 `todoInfos` 中的数据：
+
+> index.js 代码片段
+
+```
+/**
+ * 这里使用了三种写法
+ * 1. map + splice
+ * 2. splice + findIndex
+ * 3. filter
+ */
+// // 1. map + splice 写法
+// deleteInfo(recycleItem) {
+//   this.todoInfos.map((item, index) => {
+//     if(item.id == recycleItem.id) {
+//       this.todoInfos.splice(index, 1);
+//     }
+//   })
+// },
+// // 2. splice + findIndex 写法
+// deleteInfo(recycleItem) {
+//   this.todoInfos.splice( this.todoInfos.findIndex( v => v.id === recycleItem.id), 1);
+// },
+// 3. filter 写法
+deleteInfo(recycleItem) {
+  this.todoInfos = this.todoInfos.filter( (x) => {
+    return x.id != recycleItem.id;
+  })
+}
+```
+
+兴致突来，想起 **茴字的四种写法**，于是，这里也奉上删除数据的三种写法，哪种喜欢用哪种吧，这里不估算性能损耗了。
+
+此时完成功能如下所示：
+
+![图](../../public-repertory/img/js-vue-demo-one-9.gif)
 
 ## <a name="chapter-six" id="chapter-six">六 皮肤 - CSS</a>
 
