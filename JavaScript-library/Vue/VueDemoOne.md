@@ -642,13 +642,17 @@ deleteInfo(recycleItem) {
 
 ![图](../../public-repertory/img/js-vue-demo-one-10.png)
 
-然后我们对着修改下 CSS：
+很好，然后我们对着修改下 CSS：
 
 > index.css
 
 ```
 
 ```
+
+大功告成，看下我们的成品：
+
+![图](../../public-repertory/img/js-vue-demo-one-11.png)
 
 ## <a name="chapter-seven" id="chapter-seven">七 总结</a>
 
