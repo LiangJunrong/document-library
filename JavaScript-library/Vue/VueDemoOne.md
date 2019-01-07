@@ -414,6 +414,7 @@ var app = new Vue({
       // {
       //   id: 10, // id 唯一且自增
       //   isChecked: false, // 未完成和放弃为 false，完成为 true
+      //   isEdit: false, // 是否在编辑
       //   todoTitle: "敌军 1", // todo 标题
       //   state: 0, // 0 - 未完成，1 - 完成，2 - 放弃完成
       // },
@@ -425,6 +426,7 @@ var app = new Vue({
       this.todoInfos.push({
         id: this.id,
         isChecked: false,
+        isEdit: false, // 是否在编辑
         todoTitle: this.todo,
         state: 0
       })
@@ -493,13 +495,45 @@ var app = new Vue({
 > index.html 代码片段
 
 ```
-
+<!-- 待完成 -->
+<div class="content-list-todo">
+  <h4>千军万马取敌首</h4>
+  <ul>
+    <li v-for="todoItem in todoInfos" :key="todoItem.id" v-if="todoItem.state == 0">
+      <input type="checkbox" v-model="todoItem.isChecked" @change="todoItem.state = 1">
+      <span v-if="!todoItem.isEdit" v-text="todoItem.todoTitle" @click="todoItem.isEdit = true"></span>
+      <input v-if="todoItem.isEdit" @blur="todoItem.isEdit = false" type="text" v-model="todoItem.todoTitle">
+      <span @click="todoItem.state = 2">×</span>
+    </li>
+  </ul>
+</div>
+<!-- 已完成 -->
+<div class="content-list-finish">
+  <h4>敌羞吾去脱他衣</h4>
+  <ul>
+    <li v-for="finishItem in todoInfos" :key="finishItem.id" v-if="finishItem.state == 1">
+      <input type="checkbox" v-model="finishItem.isChecked" @change="finishItem.state = 0">
+      <span v-if="!finishItem.isEdit" v-text="finishItem.todoTitle" @click="finishItem.isEdit = true"></span>
+      <input v-if="finishItem.isEdit" @blur="finishItem.isEdit = false" v-model="finishItem.todoTitle" type="text">
+      <span @click="finishItem.state = 2">×</span>
+    </li>
+  </ul>
+</div>
+<!-- 回收站 -->
+<div class="content-list-recycle">
+  <h4>溃不成军鸟兽散</h4>
+  <ul>
+    <li v-for="recycleItem in todoInfos" :key="recycleItem.id" v-if="recycleItem.state == 2">
+      <span @click="recycleItem.state = 0; recycleItem.isChecked = false">返回</span>
+      <span v-if="!recycleItem.isEdit" v-text="recycleItem.todoTitle" @click="recycleItem.isEdit = true"></span>
+      <input v-if="recycleItem.isEdit" type="text" @blur="recycleItem.isEdit = false" v-model="recycleItem.todoTitle">
+      <span @click="deleteInfo(recycleItem)">×</span>
+    </li>
+  </ul>
+</div>
 ```
 
-> index.js 代码片段
-
-```
-```
+在这里，我们仅需要改变下 `isEdit` 的状态，即可以实现数据的修改。
 
 最后，我们查看下实现情况：
 
@@ -599,9 +633,25 @@ deleteInfo(recycleItem) {
 
 > [返回目录](#chapter-one)
 
+那么我们回来我们的大难题，就是给这个页面增加皮肤。
+
+我们网上盗个皮肤下来吧：
+
+![图](../../public-repertory/img/js-vue-demo-one-10.png)
+
+然后我们对着修改下 CSS：
+
+> index.css
+
+```
+
+```
+
 ## <a name="chapter-seven" id="chapter-seven">七 总结</a>
 
 > [返回目录](#chapter-one)
+
+到此，我们就写完了这个简单的小 Demo 啦~
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
