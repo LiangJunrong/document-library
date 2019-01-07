@@ -443,6 +443,30 @@ var app = new Vue({
 
 > [返回目录](#chapter-one)
 
+下面我们进行 `isChecked` 与 `state` 的改变，从而让数据在这三种状态中变化：
+
+| 栏目 | 状态 |
+| --- | --- |
+| 未完成 | `isChecked: false`、`state: 0` |
+| 已完成 | `isChecked: true`、`state: 1` |
+| 待完成 | `isChecked: false`、`state: 2` |
+
+OK，下面是 HTML 的代码变动：
+
+> index.html
+
+```
+
+```
+
+然后，我们顺带修改下 JS 的代码：
+
+> index.js
+
+```
+
+```
+
 ## <a name="chapter-five-five" id="chapter-five-five">5.5 修改内容</a>
 
 > [返回目录](#chapter-one)
