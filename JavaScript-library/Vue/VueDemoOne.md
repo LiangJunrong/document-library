@@ -25,6 +25,13 @@ Vue Demo - 功成千骨
 | [三 项目解析](#chapter-three)                       |
 | [四 骨架 - HTML](#chapter-four)                       |
 | [五 功能 - JS](#chapter-five)                       |
+| &emsp;[5.1 页面数据化](#chapter-five-one)                       |
+| &emsp;[5.2 数据简化](#chapter-five-two)                       |
+| &emsp;[5.3 添加数据](#chapter-five-three)                       |
+| &emsp;[5.4 改变状态](#chapter-five-four)                       |
+| &emsp;[5.5 修改内容](#chapter-five-five)                       |
+| &emsp;[5.6 数据回收](#chapter-five-six)                       |
+| &emsp;[5.7 彻底删除](#chapter-five-seven)                       |
 | [六 皮肤 - CSS](#chapter-six)                       |
 | [七 总结](#chapter-seven)                       |
 
@@ -174,7 +181,9 @@ OK，下面我们就可以开始切图仔的工作啦！
 
 > [返回目录](#chapter-one)
 
-* **步骤一 页面数据化**
+## <a name="chapter-five-one" id="chapter-five-one">5.1 页面数据化</a>
+
+> [返回目录](#chapter-one)
 
 现在，我们进行页面的数据化，我们需要考虑有哪几块是需要变成数据的：**输入的内容**、**todo 项**、**完成项**、**未完成项**。
 
@@ -294,7 +303,9 @@ var app = new Vue({
 })
 ```
 
-* **第二步 数据简化**
+## <a name="chapter-five-two" id="chapter-five-two">5.2 数据简化</a>
+
+> [返回目录](#chapter-one)
 
 在这里，我们观察下 `todoInfos`、`finishInfos`、`recycleInfos` 这三个数组，发现它们都是差不多的结构。那么，我们干脆将它合并？
 
@@ -304,11 +315,11 @@ var app = new Vue({
 var app = new Vue({
   el: "#app",
   data: {
-    id: 1,
-    todo: '',
+    id: 1, // 自增，确保能快速找到数据
+    todo: '', // 双向绑定输入框
     todoInfos: [
       {
-        id: 1, // id 唯一且自增
+        id: 10, // id 唯一且自增
         isChecked: false, // 未完成和放弃为 false，完成为 true
         todoTitle: "敌军 1", // todo 标题
         state: 0, // 0 - 未完成，1 - 完成，2 - 放弃完成
@@ -373,9 +384,77 @@ var app = new Vue({
 
 此时，我们的页面还是如修改之前一般。下面我们开始写方法。
 
-* **第三步 编写方法**
+## <a name="chapter-five-three" id="chapter-five-three">5.3 添加数据</a>
 
+> [返回目录](#chapter-one)
 
+首先，我们往 HTML 中添加点击事件：
+
+> index.html 代码片段
+
+```
+<!-- 输入区 -->
+<div class="content-input-todo">
+  <input type="text" placeholder="第 n 个敌人" v-model="todo">
+  <button @click="addTodoItem">进击</button>
+</div>
+```
+
+然后，我们往 JS 中添加点击方法：
+
+> index.js
+
+```
+var app = new Vue({
+  el: "#app",
+  data: {
+    id: 1, // 自增，确保能快速找到数据
+    todo: '', // 双向绑定输入框
+    todoInfos: [
+      // 已不需要，注释掉
+      // {
+      //   id: 10, // id 唯一且自增
+      //   isChecked: false, // 未完成和放弃为 false，完成为 true
+      //   todoTitle: "敌军 1", // todo 标题
+      //   state: 0, // 0 - 未完成，1 - 完成，2 - 放弃完成
+      // },
+    ]
+  },
+  methods: {
+    addTodoItem() {
+      // 每次点击，往数组中添加一组数据
+      this.todoInfos.push({
+        id: this.id,
+        isChecked: false,
+        todoTitle: this.todo,
+        state: 0
+      })
+      // id 自增
+      this.id++;
+    }
+  }
+})
+```
+
+最后，我们查看下新增功能是否实现：
+
+![图](../../public-repertory/img/js-vue-demo-one-5.gif)
+
+## <a name="chapter-five-four" id="chapter-five-four">5.4 改变状态</a>
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-five-five" id="chapter-five-five">5.5 修改内容</a>
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-five-six" id="chapter-five-six">5.6 数据回收</a>
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-five-seven" id="chapter-five-seven">5.7 彻底删除</a>
+
+> [返回目录](#chapter-one)
 
 ## <a name="chapter-six" id="chapter-six">六 皮肤 - CSS</a>
 
