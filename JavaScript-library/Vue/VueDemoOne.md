@@ -2,7 +2,7 @@ Vue Demo - 功成千骨
 ===
 
 > Create by **jsliang** on **2019-1-2 08:46:46**  
-> Recently revised in **2019-1-5 17:12:23**
+> Recently revised in **2019-1-7 08:17:42**
 
 抛开 Vue-Cli 开发一个 TodoList 并不断完善，实现本地存储，离线访问，并完成正在进行、完成列表、回收清单这三个功能模块：
 
