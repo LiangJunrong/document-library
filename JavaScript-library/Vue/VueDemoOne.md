@@ -1,14 +1,13 @@
-Vue Demo - 功成千骨
-===
+# Vue Demo - 功成千骨
 
 > Create by **jsliang** on **2019-1-2 08:46:46**  
 > Recently revised in **2019-1-7 08:17:42**
 
 抛开 Vue-Cli 开发一个 TodoList 并不断完善，实现本地存储，离线访问，并完成正在进行、完成列表、回收清单这三个功能模块：
 
-* 新增任务
-* 修改任务
-* 删除任务
+- 新增任务
+- 修改任务
+- 删除任务
 
 成品展示：
 
@@ -18,22 +17,22 @@ Vue Demo - 功成千骨
 
 **不折腾的前端，和咸鱼有什么区别**
 
-| 目录                                                |
-| --------------------------------------------------- |
-| [一 目录](#chapter-one)                             |
-| [二 前言](#chapter-two)                         |
-| [三 项目解析](#chapter-three)                       |
-| [四 骨架 - HTML](#chapter-four)                       |
-| [五 功能 - JS](#chapter-five)                       |
-| &emsp;[5.1 页面数据化](#chapter-five-one)                       |
-| &emsp;[5.2 数据简化](#chapter-five-two)                       |
-| &emsp;[5.3 添加数据](#chapter-five-three)                       |
-| &emsp;[5.4 改变状态](#chapter-five-four)                       |
-| &emsp;[5.5 修改内容](#chapter-five-five)                       |
-| &emsp;[5.6 数据回收](#chapter-five-six)                       |
-| &emsp;[5.7 彻底删除](#chapter-five-seven)                       |
-| [六 皮肤 - CSS](#chapter-six)                       |
-| [七 总结](#chapter-seven)                       |
+| 目录                                      |
+| ----------------------------------------- |
+| [一 目录](#chapter-one)                   |
+| [二 前言](#chapter-two)                   |
+| [三 项目解析](#chapter-three)             |
+| [四 骨架 - HTML](#chapter-four)           |
+| [五 功能 - JS](#chapter-five)             |
+| &emsp;[5.1 页面数据化](#chapter-five-one) |
+| &emsp;[5.2 数据简化](#chapter-five-two)   |
+| &emsp;[5.3 添加数据](#chapter-five-three) |
+| &emsp;[5.4 改变状态](#chapter-five-four)  |
+| &emsp;[5.5 修改内容](#chapter-five-five)  |
+| &emsp;[5.6 数据回收](#chapter-five-six)   |
+| &emsp;[5.7 彻底删除](#chapter-five-seven) |
+| [六 皮肤 - CSS](#chapter-six)             |
+| [七 总结](#chapter-seven)                 |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -463,7 +462,6 @@ var app = new Vue({
 ## <a name="chapter-seven" id="chapter-seven">七 总结</a>
 
 > [返回目录](#chapter-one)
-
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
