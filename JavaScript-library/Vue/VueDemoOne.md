@@ -1,7 +1,7 @@
 # Vue Demo - 功成千骨
 
 > Create by **jsliang** on **2019-1-2 08:46:46**  
-> Recently revised in **2019-1-7 21:26:34**
+> Recently revised in **2019-1-8 13:12:24**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueDemoOne.md)**
 
@@ -74,6 +74,7 @@ OK，下面我们就可以开始切图仔的工作啦！
   <title>功成千骨</title>
 
   <!-- css 区 -->
+  <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/index.css">
 
 </head>
