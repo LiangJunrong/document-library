@@ -3,7 +3,7 @@
 > Create by **jsliang** on **2019-1-2 08:46:46**  
 > Recently revised in **2019-1-8 13:12:24**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueDemoOne.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习折腾的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueDemoOne.md)**
 
 抛开 Vue-Cli，使用最简单原始的方式开发一个 TodoList 并不断完善，完成正在进行、完成列表、回收站这三个功能模块，并实现下面这些功能：
 
@@ -16,13 +16,9 @@
 
 ![图](../../public-repertory/img/js-vue-demo-one-1.gif)
 
-* **代码地址**：
+* **代码地址**：[功成千骨 - 代码地址](https://github.com/LiangJunrong/achievement-of-thousands-of-bones)
 
-[功成千骨 - 代码地址](https://github.com/LiangJunrong/achievement-of-thousands-of-bones)
-
-* **项目地址**：
-
-[功成千骨 - 线上地址]()
+* **项目地址**：[功成千骨 - 线上地址](http://vuetodo.jsliang.top/)
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -43,6 +39,8 @@
 | &emsp;[5.6 数据回收](#chapter-five-six)   |
 | &emsp;[5.7 彻底删除](#chapter-five-seven) |
 | [六 皮肤 - CSS](#chapter-six)             |
+| &emsp;[6.1 重置样式](#chapter-six-one)    |
+| &emsp;[6.2 偷天换日](#chapter-six-two)    |
 | [七 总结](#chapter-seven)                 |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
@@ -459,10 +457,10 @@ var app = new Vue({
 
 下面我们进行 `isChecked` 与 `state` 的改变，从而让数据在这三种状态中变化：
 
-| 栏目 | 状态 |
-| --- | --- |
+| 栏目   | 状态                           |
+| ------ | ------------------------------ |
 | 未完成 | `isChecked: false`、`state: 0` |
-| 已完成 | `isChecked: true`、`state: 1` |
+| 已完成 | `isChecked: true`、`state: 1`  |
 | 回收站 | `isChecked: false`、`state: 2` |
 
 首先，我们实现 **未完成** -> **已完成** 的转变，这里只需要修改下 HTML 代码即可：
