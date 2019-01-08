@@ -12,9 +12,17 @@
 - 修改任务
 - 删除任务
 
-成品展示：
+* **成品展示**：
 
 ![图](../../public-repertory/img/js-vue-demo-one-1.gif)
+
+* **代码地址**：
+
+[功成千骨 - 代码地址](https://github.com/LiangJunrong/achievement-of-thousands-of-bones)
+
+* **项目地址**：
+
+[功成千骨 - 线上地址]()
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
