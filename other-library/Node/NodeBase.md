@@ -3186,17 +3186,33 @@ if (pathName == "/getMessage") { // 获取留言信息
 
 &emsp;关于线上部署及域名、服务器相关的配置，**jsliang** 在另外一篇文章有所交代：[云服务器建站](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/BuildStation/README.md)。
 
-> 如果小伙伴第一次接触云服务器，或者需要订购云服务器，但却不知道怎么选择，可以加 QQ：`1741020489` 来咨询我，下面是一些优惠推广：  
-> 
-> 1、阿里云新人最高 1888 的云产品通用代金券：  
-> * [阿里云新用户推广](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)（领完新用户优惠券记得回头点击下面的链接，领云服务器优惠）  
-> 
-> 2、个人用云服务器优惠推广：  
-> * [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)  
-> ![图](../../public-repertory/img/seek-ali.png)
-> 
-> 3、公司/企业用云服务器优惠推广：  
-> * [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
+&emsp;如果小伙伴需要订购云服务器来存放像 jsliang 个人网站类的静态或者有 Node 后端的网页，但却不知道怎么选择，可以加 **jsliang** QQ：`1741020489` 咨询，下面是一些优惠推广：  
+
+&emsp;**腾讯云推广**：  
+
+&emsp;新用户点这里：  
+* [新客户无门槛 2775 元代金券](https://cloud.tencent.com/redirect.php?redirect=1025&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)  
+![图](../../../public-repertory/img/seek-tencent-1.jpg)
+
+&emsp;购买云服务器：  
+* [12 月优惠低至 168 元/年](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+![图](../../../public-repertory/img/seek-tencent-2.jpg)
+
+<br>
+
+&emsp;**阿里云推广**：  
+
+&emsp;新用户点这里：
+* [新用户云产品 1888 通用代金券](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)
+![图](../../../public-repertory/img/seek-ali-1.png)
+
+&emsp;购买云服务器：  
+* [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh) 
+![图](../../../public-repertory/img/seek-ali-2.png)
+
+&emsp;购买企业级云服务器：  
+* [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
+![图](../../../public-repertory/img/seek-ali-3.jpg)
 
 <br>
  
