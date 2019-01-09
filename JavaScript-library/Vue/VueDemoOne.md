@@ -110,7 +110,7 @@
     <div class="content">
       <!-- 输入区 -->
       <div class="content-input-todo">
-        <input type="text" placeholder="第 n 个敌人">
+        <input type="text" placeholder="第 n 个敌人" "v-model="todo">
         <button>进击</button>
       </div>
       <!-- 列表区 -->
@@ -229,7 +229,7 @@
 <div class="content">
   <!-- 输入区 -->
   <div class="content-input-todo">
-    <input type="text" placeholder="第 n 个敌人">
+    <input type="text" placeholder="第 n 个敌人" v-model="todo">
     <button>进击</button>
   </div>
   <!-- 列表区 -->
@@ -393,7 +393,7 @@ var app = new Vue({
 <div class="content">
   <!-- 输入区 -->
   <div class="content-input-todo">
-    <input type="text" placeholder="第 n 个敌人">
+    <input type="text" placeholder="第 n 个敌人" v-model="todo">
     <button>进击</button>
   </div>
   <!-- 列表区 -->
@@ -448,19 +448,19 @@ var app = new Vue({
 
 > [返回目录](#chapter-one)
 
-首先，我们往 HTML 中添加点击事件：
+**首先**，我们往 HTML 中添加点击事件，当然，如果每次都要点击按钮，就太麻烦了，干脆我们再加个键盘回车事件：
 
 > index.html 代码片段
 
 ```
 <!-- 输入区 -->
 <div class="content-input-todo">
-  <input type="text" placeholder="第 n 个敌人" v-model="todo">
+  <input type="text" placeholder="第 n 个敌人" v-model="todo" @keyup.enter="addTodoItem">
   <button @click="addTodoItem">进击</button>
 </div>
 ```
 
-然后，我们往 JS 中添加点击方法：
+**然后**，我们往 JS 中添加点击方法：
 
 > index.js
 
@@ -468,15 +468,15 @@ var app = new Vue({
 var app = new Vue({
   el: "#app",
   data: {
-    id: 1, // 自增，确保能快速找到数据
-    todo: '', // 双向绑定输入框
+    id: 1,
+    todo: "",
     todoInfos: [
       // 已不需要，注释掉
       // {
-      //   id: 10, // id 唯一且自增
-      //   isChecked: false, // 未完成和放弃为 false，完成为 true
+      //   id: 7, // id 唯一且自增
+      //   isChecked: false,  // 未完成和放弃为 false，完成为 true
       //   isEdit: false, // 是否在编辑
-      //   todoTitle: "敌军 1", // todo 标题
+      //   todoTitle: "敌军 1",
       //   state: 0, // 0 - 未完成，1 - 完成，2 - 放弃完成
       // },
     ]
@@ -485,22 +485,24 @@ var app = new Vue({
     addTodoItem() {
       // 每次点击，往数组中添加一组数据
       this.todoInfos.push({
-        id: this.id,
-        isChecked: false,
+        id: this.id, // id 唯一且自增
+        isChecked: false, // 未完成和放弃为 false，完成为 true
         isEdit: false, // 是否在编辑
-        todoTitle: this.todo,
-        state: 0
+        todoTitle: this.todo,  // todo 标题
+        state: 0, // 0 - 未完成，1 - 完成，2 - 放弃完成
       })
       // id 自增
       this.id++;
-    }
+      // 清空输入框
+      this.todo = "";
+    },
   }
 })
 ```
 
-最后，我们查看下新增功能是否实现：
+**最后**，我们查看下新增功能是否实现：
 
-![图](../../public-repertory/img/js-vue-demo-one-5.gif)
+![图](../../public-repertory/img/js-vue-demo-one-7.gif)
 
 ## <a name="chapter-five-four" id="chapter-five-four">5.4 改变状态</a>
 
