@@ -65,9 +65,17 @@
 
 惨不忍睹，我们还是按照这形式，将 HTML 搭建出来，并用 JS 实现功能先吧，后期再填充 CSS 了。
 
+下面是目录结构：
+
+![图](../../public-repertory/img/js-vue-demo-one-3.png)
+
 ## <a name="chapter-four" id="chapter-four">四 骨架 - HTML</a>
 
 > [返回目录](#chapter-one)
+
+现在，我们先完成 `index.html` 架构。
+
+然后 `index.css` 和 `index.js` 这两个文件，可以是空的，因为我们先架好骨架，再进行 JS 的事件以及 CSS 的渲染。
 
 > index.html
 
@@ -84,6 +92,11 @@
   <!-- css 区 -->
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/index.css">
+  <style>
+    .content-list {
+      display: flex;
+    }
+  </style>
 
 </head>
 <body>
@@ -108,18 +121,18 @@
           <ul>
             <li>
               <input type="checkbox">
-              <span>敌军 1</span>
-              <span>×</span>
+              <span class="todo-title">敌军 1</span>
+              <span class="icon-recycle">×</span>
             </li>
             <li>
               <input type="checkbox">
-              <span>敌军 2</span>
-              <span>×</span>
+              <span class="todo-title">敌军 2</span>
+              <span class="icon-recycle">>×</span>
             </li>
             <li>
               <input type="checkbox">
-              <span>敌军 3</span>
-              <span>×</span>
+              <span class="todo-title">敌军 3</span>
+              <span class="icon-recycle">×</span>
             </li>
           </ul>
         </div>
@@ -129,18 +142,18 @@
           <ul>
             <li>
               <input type="checkbox">
-              <span>亡军 1</span>
-              <span>×</span>
+              <span class="todo-title">亡军 1</span>
+              <span class="icon-recycle">×</span>
             </li>
             <li>
               <input type="checkbox">
-              <span>亡军 2</span>
-              <span>×</span>
+              <span class="todo-title">亡军 2</span>
+              <span class="icon-recycle">×</span>
             </li>
             <li>
               <input type="checkbox">
-              <span>亡军 3</span>
-              <span>×</span>
+              <span class="todo-title">亡军 3</span>
+              <span class="icon-recycle">×</span>
             </li>
           </ul>
         </div>
@@ -149,19 +162,19 @@
           <h4>溃不成军鸟兽散</h4>
           <ul>
             <li>
-              <input type="checkbox">
-              <span>逃军 1</span>
-              <span>×</span>
+              <span class="content-list-recycle-back">返回</span>
+              <span class="todo-title">逃军 1</span>
+              <span class="icon-delete">×</span>
             </li>
             <li>
-              <input type="checkbox">
-              <span>逃军 2</span>
-              <span>×</span>
+              <span class="content-list-recycle-back">返回</span>
+              <span class="todo-title">逃军 2</span>
+              <span class="icon-delete">×</span>
             </li>
             <li>
-              <input type="checkbox">
-              <span>逃军 3</span>
-              <span>×</span>
+              <span class="content-list-recycle-back">返回</span>
+              <span class="todo-title">逃军 3</span>
+              <span class="icon-delete">×</span>
             </li>
           </ul>
         </div>
@@ -184,7 +197,7 @@
 </html>
 ```
 
-> 此时，`index.css` 和 `index.js` 这两个文件，可以是空的，因为我们先架好骨架，再进行 CSS 的渲染以及 JS 的事件。
+此时页面内容如下所示：
 
 ![图](../../public-repertory/img/js-vue-demo-one-4.png)
 
@@ -194,7 +207,7 @@
 
 搭建好网页的骨架，我们先让它跑起来吧。
 
-你可以上面的步骤想象成造了一个骷髅人，然后现在你要施法，要让骷髅人跑起来了。
+你可以上面的 HTML 步骤想象成造了一个骷髅人，然后现在你要施法，要让骷髅人跑起来了。
 
 奔跑吧，骷髅人~
 
