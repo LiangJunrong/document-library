@@ -242,7 +242,7 @@
         <li v-for="todoItem in todoInfos" :key="todoItem.id">
           <input type="checkbox" v-model="todoItem.isChecked">
           <span class="todo-title" v-text="todoItem.todoTitle"></span>
-          <span class="icon-recycle"></span>
+          <span class="icon-recycle">x</span>
         </li>
       </ul>
     </div>
@@ -254,7 +254,7 @@
         <li v-for="finishItem in finishInfos" :key="finishItem.id">
           <input type="checkbox" v-model="finishItem.isChecked">
           <span class="todo-title" v-text="finishItem.todoTitle"></span>
-          <span  class="icon-recycle"></span>
+          <span class="icon-recycle">x</span>
         </li>
       </ul>
     </div>
@@ -266,7 +266,7 @@
         <li v-for="recycleItem in recycleInfos" :key="recycleItem.id">
           <span class="content-list-recycle-back">返回</span>
           <span class="todo-title" v-text="recycleItem.todoTitle"></span>
-          <span  class="icon-delete"></span>
+          <span class="icon-delete">x</span>
         </li>
       </ul>
     </div>
@@ -406,7 +406,7 @@ var app = new Vue({
         <li v-for="todoItem in todoInfos" :key="todoItem.id" v-if="todoItem.state == 0">
           <input type="checkbox" v-model="todoItem.isChecked">
           <span class="todo-title" v-if="!todoItem.isEdit" v-text="todoItem.todoTitle"></span>
-          <span class="icon-recycle"></span>
+          <span class="icon-recycle">x</span>
         </li>
       </ul>
     </div>
@@ -418,7 +418,7 @@ var app = new Vue({
         <li v-for="finishItem in todoInfos" :key="finishItem.id" v-if="finishItem.state == 1">
           <input type="checkbox" v-model="finishItem.isChecked">
           <span class="todo-title" v-if="!finishItem.isEdit" v-text="finishItem.todoTitle"></span>
-          <span  class="icon-recycle"></span>
+          <span class="icon-recycle">x</span>
         </li>
       </ul>
     </div>
@@ -430,7 +430,7 @@ var app = new Vue({
         <li v-for="recycleItem in todoInfos" :key="recycleItem.id" v-if="recycleItem.state == 2">
           <span class="content-list-recycle-back">返回</span>
           <span class="todo-title" v-if="!recycleItem.isEdit" v-text="recycleItem.todoTitle"></span>
-          <span  class="icon-delete"></span>
+          <span class="icon-delete">x</span>
         </li>
       </ul>
     </div>
@@ -529,7 +529,7 @@ var app = new Vue({
     <li v-for="todoItem in todoInfos" :key="todoItem.id" v-if="todoItem.state == 0">
       <input type="checkbox" v-model="todoItem.isChecked" @change="todoItem.state = 1">
       <span class="todo-title" v-if="!todoItem.isEdit" v-text="todoItem.todoTitle"></span>
-      <span class="icon-recycle"></span>
+      <span class="icon-recycle">x</span>
     </li>
   </ul>
 </div>
@@ -541,7 +541,7 @@ var app = new Vue({
     <li v-for="finishItem in todoInfos" :key="finishItem.id" v-if="finishItem.state == 1">
       <input type="checkbox" v-model="finishItem.isChecked" @change="finishItem.state = 0">
       <span class="todo-title" v-if="!finishItem.isEdit" v-text="finishItem.todoTitle"></span>
-      <span  class="icon-recycle"></span>
+      <span class="icon-recycle">x</span>
     </li>
   </ul>
 </div>
@@ -573,7 +573,7 @@ OK，成功完成 **待完成** -> **已完成** 的转变。
         <input type="checkbox" v-model="todoItem.isChecked" @change="todoItem.state = 1">
         <span class="todo-title" v-text="todoItem.todoTitle" v-if="!todoItem.isEdit" @click="todoItem.isEdit = true"></span>
         <input v-if="todoItem.isEdit" @blur="todoItem.isEdit = false" @keyup.enter="todoItem.isEdit = false" type="text" v-model="todoItem.todoTitle">
-        <span class="icon-recycle"></span>
+        <span class="icon-recycle">x</span>
       </li>
     </ul>
   </div>
@@ -586,7 +586,7 @@ OK，成功完成 **待完成** -> **已完成** 的转变。
         <input type="checkbox" v-model="finishItem.isChecked" @change="finishItem.state = 0">
         <span class="todo-title" v-text="finishItem.todoTitle" v-if="!finishItem.isEdit" @click="finishItem.isEdit = true"></span>
         <input v-if="finishItem.isEdit" @blur="finishItem.isEdit = false"  @keyup.enter="finishItem.isEdit = false" v-model="finishItem.todoTitle" type="text">
-        <span  class="icon-recycle"></span>
+        <span class="icon-recycle">x</span>
       </li>
     </ul>
   </div>
@@ -599,7 +599,7 @@ OK，成功完成 **待完成** -> **已完成** 的转变。
         <span class="content-list-recycle-back">返回</span>
         <span class="todo-title" v-text="recycleItem.todoTitle" v-if="!recycleItem.isEdit" @click="recycleItem.isEdit = true"></span>
         <input v-if="recycleItem.isEdit" type="text" @blur="recycleItem.isEdit = false" @keyup.enter="recycleItem.isEdit = false" v-model="recycleItem.todoTitle">
-        <span  class="icon-delete"></span>
+        <span class="icon-delete">x</span>
       </li>
     </ul>
   </div>
@@ -616,38 +616,50 @@ OK，成功完成 **待完成** -> **已完成** 的转变。
 
 > [返回目录](#chapter-one)
 
+同理，如果我们要将数据扔进回收站中去，那就需要将 `state` 改为 2 即可。
+
+如果数据是从回收站返回待完成，我们只需要将 `state` 改为 0 即可。
+
 > index.html 代码片段
 
 ```
-<!-- 待完成 -->
+<!-- 未完成 -->
 <div class="content-list-todo">
   <h4>千军万马取敌首</h4>
+  <p>（待完成）</p>
   <ul>
     <li v-for="todoItem in todoInfos" :key="todoItem.id" v-if="todoItem.state == 0">
       <input type="checkbox" v-model="todoItem.isChecked" @change="todoItem.state = 1">
-      <span v-text="todoItem.todoTitle"></span>
-      <span @click="todoItem.state = 2">×</span>
+      <span class="todo-title" v-text="todoItem.todoTitle" v-if="!todoItem.isEdit" @click="todoItem.isEdit = true"></span>
+      <input v-if="todoItem.isEdit" @blur="todoItem.isEdit = false" @keyup.enter="todoItem.isEdit = false" type="text" v-model="todoItem.todoTitle">
+      <span class="icon-recycle" @click="todoItem.state = 2">x</span>
     </li>
   </ul>
 </div>
 <!-- 已完成 -->
 <div class="content-list-finish">
   <h4>敌羞吾去脱他衣</h4>
+  <p>（已完成）</p>
   <ul>
     <li v-for="finishItem in todoInfos" :key="finishItem.id" v-if="finishItem.state == 1">
       <input type="checkbox" v-model="finishItem.isChecked" @change="finishItem.state = 0">
-      <span v-text="finishItem.todoTitle"></span>
-      <span @click="finishItem.state = 2">×</span>
+      <span class="todo-title" v-text="finishItem.todoTitle" v-if="!finishItem.isEdit" @click="finishItem.isEdit = true"></span>
+      <input v-if="finishItem.isEdit" @blur="finishItem.isEdit = false" @keyup.enter="finishItem.isEdit = false" v-model="finishItem.todoTitle" type="text">
+      <span class="icon-recycle" @click="finishItem.state = 2">x</span>
     </li>
   </ul>
 </div>
 ```
 
-![图](../../public-repertory/img/js-vue-demo-one-8.gif)
+实现结果：
+
+![图](../../public-repertory/img/js-vue-demo-one-10.gif)
 
 ## <a name="chapter-five-seven" id="chapter-five-seven">5.7 彻底删除</a>
 
 > [返回目录](#chapter-one)
+
+**首先**，我们给 HTML 添加点击事件，将参数传递给方法体中
 
 > index.html 代码片段
 
@@ -655,44 +667,62 @@ OK，成功完成 **待完成** -> **已完成** 的转变。
 <!-- 回收站 -->
 <div class="content-list-recycle">
   <h4>溃不成军鸟兽散</h4>
+  <p>（回收站）</p>
   <ul>
     <li v-for="recycleItem in todoInfos" :key="recycleItem.id" v-if="recycleItem.state == 2">
-      <span @click="recycleItem.state = 0; recycleItem.isChecked = false">返回</span>
-      <span v-text="recycleItem.todoTitle"></span>
-      <span @click="deleteInfo(recycleItem)">×</span>
+      <span class="content-list-recycle-back" @click="recycleItem.state = 0; recycleItem.isChecked = false">返回</span>
+      <span class="todo-title" v-text="recycleItem.todoTitle" v-if="!recycleItem.isEdit" @click="recycleItem.isEdit = true"></span>
+      <input v-if="recycleItem.isEdit" type="text" @blur="recycleItem.isEdit = false" @keyup.enter="recycleItem.isEdit = false" v-model="recycleItem.todoTitle">
+      <span class="icon-delete" @click="deleteInfo(recycleItem)">x</span>
     </li>
   </ul>
 </div>
 ```
 
-然后，我们通过编写 `deleteInfo` 来删除 `todoInfos` 中的数据：
+**然后**，我们通过编写 `deleteInfo` 来删除 `todoInfos` 中的数据：
 
 > index.js 代码片段
 
 ```
-/**
- * 这里使用了三种写法
- * 1. map + splice
- * 2. splice + findIndex
- * 3. filter
- */
-// // 1. map + splice 写法
-// deleteInfo(recycleItem) {
-//   this.todoInfos.map((item, index) => {
-//     if(item.id == recycleItem.id) {
-//       this.todoInfos.splice(index, 1);
-//     }
-//   })
-// },
-// // 2. splice + findIndex 写法
-// deleteInfo(recycleItem) {
-//   this.todoInfos.splice( this.todoInfos.findIndex( v => v.id === recycleItem.id), 1);
-// },
-// 3. filter 写法
-deleteInfo(recycleItem) {
-  this.todoInfos = this.todoInfos.filter( (x) => {
-    return x.id != recycleItem.id;
-  })
+methods: {
+  addTodoItem() {
+    // 每次点击，往数组中添加一组数据
+    this.todoInfos.push({
+      id: this.id, // id 唯一且自增
+      isChecked: false, // 未完成和放弃为 false，完成为 true
+      isEdit: false, // 是否在编辑
+      todoTitle: this.todo,  // todo 标题
+      state: 0, // 0 - 未完成，1 - 完成，2 - 放弃完成
+    })
+    // id 自增
+    this.id++;
+    // 清空输入框
+    this.todo = "";
+  },
+  /**
+   * 这里使用了三种写法
+   * 1. map + splice
+   * 2. splice + findIndex
+   * 3. filter
+   */
+  // // 1. map + splice 写法
+  // deleteInfo(recycleItem) {
+  //   this.todoInfos.map((item, index) => {
+  //     if(item.id == recycleItem.id) {
+  //       this.todoInfos.splice(index, 1);
+  //     }
+  //   })
+  // },
+  // // 2. splice + findIndex 写法
+  // deleteInfo(recycleItem) {
+  //   this.todoInfos.splice( this.todoInfos.findIndex( v => v.id === recycleItem.id), 1);
+  // },
+  // 3. filter 写法
+  deleteInfo(recycleItem) {
+    this.todoInfos = this.todoInfos.filter( (x) => {
+      return x.id != recycleItem.id;
+    })
+  }
 }
 ```
 
@@ -700,7 +730,9 @@ deleteInfo(recycleItem) {
 
 此时完成功能如下所示：
 
-![图](../../public-repertory/img/js-vue-demo-one-9.gif)
+![图](../../public-repertory/img/js-vue-demo-one-11.gif)
+
+到此，我们完成了所有的功能实现~
 
 ## <a name="chapter-six" id="chapter-six">六 皮肤 - CSS</a>
 
