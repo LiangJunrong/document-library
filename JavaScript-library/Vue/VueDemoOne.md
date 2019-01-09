@@ -239,10 +239,9 @@
       <h4>千军万马取敌首</h4>
       <p>（待完成）</p>
       <ul>
-        <li v-for="todoItem in todoInfos" :key="todoItem.id" v-if="todoItem.state == 0">
+        <li v-for="todoItem in todoInfos" :key="todoItem.id">
           <input type="checkbox" v-model="todoItem.isChecked">
           <span class="todo-title" v-if="!todoItem.isEdit" v-text="todoItem.todoTitle"></span>
-          <input v-if="todoItem.isEdit" type="text" v-model="todoItem.todoTitle">
           <span class="icon-recycle"></span>
         </li>
       </ul>
@@ -252,10 +251,9 @@
       <h4>敌羞吾去脱他衣</h4>
       <p>（已完成）</p>
       <ul>
-        <li v-for="finishItem in todoInfos" :key="finishItem.id" v-if="finishItem.state == 1">
+        <li v-for="finishItem in finishInfos" :key="finishItem.id">
           <input type="checkbox" v-model="finishItem.isChecked">
           <span class="todo-title" v-if="!finishItem.isEdit" v-text="finishItem.todoTitle"></span>
-          <input v-if="finishItem.isEdit" v-model="finishItem.todoTitle" type="text">
           <span  class="icon-recycle"></span>
         </li>
       </ul>
@@ -265,10 +263,9 @@
       <h4>溃不成军鸟兽散</h4>
       <p>（回收站）</p>
       <ul>
-        <li v-for="recycleItem in todoInfos" :key="recycleItem.id" v-if="recycleItem.state == 2">
-          <span class="content-list-recycle-back"></span>
+        <li v-for="recycleItem in recycleInfos" :key="recycleItem.id">
+          <span class="content-list-recycle-back">返回</span>
           <span class="todo-title" v-if="!recycleItem.isEdit" v-text="recycleItem.todoTitle"></span>
-          <input v-if="recycleItem.isEdit" type="text" v-model="recycleItem.todoTitle">
           <span  class="icon-delete"></span>
         </li>
       </ul>
@@ -277,7 +274,7 @@
 </div>
 ```
 
-在这里，我们将页面数据化了，然后我们编写 `index.js` 的内容：
+在这里，我们将页面数据化了，现在看下我们的 `index.js` 内容：
 
 > index.js
 
@@ -286,7 +283,7 @@ var app = new Vue({
   el: "#app",
   data: {
     id: 1,
-    todo: '',
+    todo: "",
     todoInfos: [
       {
         id: 7,
@@ -342,11 +339,15 @@ var app = new Vue({
 })
 ```
 
+这样，我们就通过 `v-for` 完成了数据的渲染，同时页面和之前的一样：
+
+![图](../../public-repertory/img/js-vue-demo-one-5.png)
+
 ## <a name="chapter-five-two" id="chapter-five-two">5.2 数据简化</a>
 
 > [返回目录](#chapter-one)
 
-在这里，我们观察下 `todoInfos`、`finishInfos`、`recycleInfos` 这三个数组，发现它们都是差不多的结构。那么，我们干脆将它合并？
+在这里，我们稍微暂停下，观察 `todoInfos`、`finishInfos`、`recycleInfos` 这三个数组，发现它们都是差不多的结构。那么，我们干脆将它合并？
 
 > index.js
 
@@ -354,25 +355,36 @@ var app = new Vue({
 var app = new Vue({
   el: "#app",
   data: {
-    id: 1, // 自增，确保能快速找到数据
-    todo: '', // 双向绑定输入框
+    id: 1,
+    todo: "",
     todoInfos: [
       {
-        id: 1, // id 唯一且自增
-        isChecked: false, // 未完成和放弃为 false，完成为 true
+        id: 7, // id 唯一且自增
+        isChecked: false,  // 未完成和放弃为 false，完成为 true
         isEdit: false, // 是否在编辑
-        todoTitle: "敌军 1", // todo 标题
+        todoTitle: "敌军 1",
         state: 0, // 0 - 未完成，1 - 完成，2 - 放弃完成
       },
       {
-        // ...省略，自行填充
-      }
+        id: 8, // id 唯一且自增
+        isChecked: false, // 未完成和放弃为 false，完成为 true
+        isEdit: false, // 是否在编辑
+        todoTitle: "敌军 2", // todo 标题
+        state: 1, // 0 - 未完成，1 - 完成，2 - 放弃完成
+      },
+      {
+        id: 9, // id 唯一且自增
+        isChecked: false, // 未完成和放弃为 false，完成为 true
+        isEdit: false, // 是否在编辑
+        todoTitle: "敌军 3", // todo 标题
+        state: 2, // 0 - 未完成，1 - 完成，2 - 放弃完成
+      },
     ]
-  },
+  }
 })
 ```
 
-这样一来，我们就可以通过 `state` 来区分这三块的数据：
+这样一来，我们就可以修改 HTML，让它通过 `state` 来区分这三块的数据：
 
 > index.html 代码片段
 
@@ -381,7 +393,7 @@ var app = new Vue({
 <div class="content">
   <!-- 输入区 -->
   <div class="content-input-todo">
-    <input type="text" placeholder="第 n 个敌人" v-model="todo">
+    <input type="text" placeholder="第 n 个敌人">
     <button>进击</button>
   </div>
   <!-- 列表区 -->
@@ -389,33 +401,36 @@ var app = new Vue({
     <!-- 未完成 -->
     <div class="content-list-todo">
       <h4>千军万马取敌首</h4>
+      <p>（待完成）</p>
       <ul>
         <li v-for="todoItem in todoInfos" :key="todoItem.id" v-if="todoItem.state == 0">
           <input type="checkbox" v-model="todoItem.isChecked">
-          <span v-text="todoItem.todoTitle"></span>
-          <span>×</span>
+          <span class="todo-title" v-if="!todoItem.isEdit" v-text="todoItem.todoTitle"></span>
+          <span class="icon-recycle"></span>
         </li>
       </ul>
     </div>
     <!-- 已完成 -->
     <div class="content-list-finish">
       <h4>敌羞吾去脱他衣</h4>
+      <p>（已完成）</p>
       <ul>
         <li v-for="finishItem in todoInfos" :key="finishItem.id" v-if="finishItem.state == 1">
           <input type="checkbox" v-model="finishItem.isChecked">
-          <span v-text="finishItem.todoTitle"></span>
-          <span>×</span>
+          <span class="todo-title" v-if="!finishItem.isEdit" v-text="finishItem.todoTitle"></span>
+          <span  class="icon-recycle"></span>
         </li>
       </ul>
     </div>
     <!-- 回收站 -->
     <div class="content-list-recycle">
       <h4>溃不成军鸟兽散</h4>
+      <p>（回收站）</p>
       <ul>
         <li v-for="recycleItem in todoInfos" :key="recycleItem.id" v-if="recycleItem.state == 2">
-          <input type="checkbox" v-model="recycleItem.isChecked">
-          <span v-text="recycleItem.todoTitle"></span>
-          <span>×</span>
+          <span class="content-list-recycle-back">返回</span>
+          <span class="todo-title" v-if="!recycleItem.isEdit" v-text="recycleItem.todoTitle"></span>
+          <span  class="icon-delete"></span>
         </li>
       </ul>
     </div>
@@ -423,9 +438,11 @@ var app = new Vue({
 </div>
 ```
 
-![图](../../public-repertory/img/js-vue-demo-one-4.png)
+![图](../../public-repertory/img/js-vue-demo-one-6.png)
 
-此时，我们的页面还是如修改之前一般。下面我们开始写方法。
+此时，我们的页面还是如修改之前一般，但是已经实现了数据化。
+
+下面我们开始写增删改数据的功能方法。
 
 ## <a name="chapter-five-three" id="chapter-five-three">5.3 添加数据</a>
 
