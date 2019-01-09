@@ -88,7 +88,7 @@
 </head>
 <body>
   <!-- html 区 -->
-  <div class="main-container">
+  <div class="main-container" id="app">
     <!-- 头部标题 -->
     <div class="header">
       <h3>功成千骨</h3>
@@ -191,6 +191,12 @@
 ## <a name="chapter-five" id="chapter-five">五 功能 - JS</a>
 
 > [返回目录](#chapter-one)
+
+搭建好网页的骨架，我们先让它跑起来吧。
+
+你可以上面的步骤想象成造了一个骷髅人，然后现在你要施法，要让骷髅人跑起来了。
+
+奔跑吧，骷髅人~
 
 ## <a name="chapter-five-one" id="chapter-five-one">5.1 页面数据化</a>
 
@@ -330,11 +336,15 @@ var app = new Vue({
     todo: '', // 双向绑定输入框
     todoInfos: [
       {
-        id: 10, // id 唯一且自增
+        id: 1, // id 唯一且自增
         isChecked: false, // 未完成和放弃为 false，完成为 true
+        isEdit: false, // 是否在编辑
         todoTitle: "敌军 1", // todo 标题
         state: 0, // 0 - 未完成，1 - 完成，2 - 放弃完成
       },
+      {
+        // ...省略，自行填充
+      }
     ]
   },
 })
