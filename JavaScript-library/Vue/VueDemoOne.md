@@ -47,7 +47,9 @@
 
 > [返回目录](#chapter-one)
 
-经过系列的折腾，并且参照不同大佬的“新人作” - TodoList 的各种写法，综合起来，从 0 到 1 不依赖 Vue-Cli 打造一个属于自己的 TodoList，后期加以 Node 的框架 Koa 连接 MySQL 提供接口，从而实现面向大众的 TodoList！
+经过系列的折腾，并且参照不同大佬的“新人作”，将五花八门的 TodoList 各种写法综合起来，从 0 到 1 不依赖 Vue-Cli 打造一个属于自己的 TodoList，后期将加以 Node 的框架 Koa 连接 MySQL 提供接口，从而实现面向大众的 TodoList！
+
+> 本文的基础知识在：[学习系列 之 Vue 基础](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)
 
 ## <a name="chapter-three" id="chapter-three">三 项目解析</a>
 
@@ -57,11 +59,11 @@
 
 ![图](../../public-repertory/img/js-vue-demo-one-2.png)
 
-好吧惨不忍睹，我们使用 PS 稍微完善下：
+额(⊙o⊙)…
 
-![图](../../public-repertory/img/js-vue-demo-one-3.png)
+好吧-_-||
 
-OK，下面我们就可以开始切图仔的工作啦！
+惨不忍睹，我们还是按照这形式，将 HTML 搭建出来，并用 JS 实现功能先吧，后期再填充 CSS 了。
 
 ## <a name="chapter-four" id="chapter-four">四 骨架 - HTML</a>
 
