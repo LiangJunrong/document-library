@@ -49,7 +49,7 @@
 
 经过系列的折腾，并且参照不同大佬的“新人作”，将五花八门的 TodoList 各种写法综合起来，从 0 到 1 不依赖 Vue-Cli 打造一个属于自己的 TodoList，后期将加以 Node 的框架 Koa 连接 MySQL 提供接口，从而实现面向大众的 TodoList！
 
-> 本文的基础知识在：[学习系列 之 Vue 基础](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)
+> 欲练此功，必先自宫，额(⊙o⊙)…不对，必先学习 [Vue 系列之 Vue 基础](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)。
 
 ## <a name="chapter-three" id="chapter-three">三 项目解析</a>
 
