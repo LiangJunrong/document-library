@@ -2,17 +2,17 @@ Vue 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:34:30**  
-> Recently revised in **2019-1-10 13:07:24**
+> Recently revised in **2019-1-10 16:36:31**
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)**
 
-&emsp;推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。
+推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。
 
 ![图](../../public-repertory/img/js-vue-basic-learning-1.gif)
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
-&emsp;**不折腾的前端，和咸鱼有什么区别~**
+**不折腾的前端，和咸鱼有什么区别~**
 
 | 目录 |
 | --- |
@@ -53,22 +53,22 @@ Vue 基础
 
 > [返回目录](#catalog-chapter-two)
 
-&emsp;**饮水思源：[Vue 官方文档](https://cn.vuejs.org/v2/guide/)**
+**饮水思源：[Vue 官方文档](https://cn.vuejs.org/v2/guide/)**
 
-&emsp;Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。
+Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。
 
-&emsp;学习版本：`v2.5.16`  
-&emsp;编写时间：`2018-10-30`  
+学习版本：`v2.5.21`  
+编写时间：`2019-1-10`  
 
-&emsp;**如版本更迭太大或者时间小伙伴们看到这篇文章太久没更新，小伙伴们请查看 Vue 官方文档学习最新的 Vue。**
+> 如版本更迭太大或者时间小伙伴们看到这篇文章太久没更新，小伙伴们请查看 Vue 官方文档学习最新的 Vue。
 
 ### <a name="chapter-two-one" id="chapter-two-one">2.1 初识 Vue</a>
 
 > [返回目录](#catalog-chapter-two-one)
 
-&emsp;在一个夜黑风高的晚上，只见一道霹雳在空中闪过。紧接着某颗星星，忽如其来不断变大，变大，朝某个地点急速坠落……就在它降落成功那一刻，房子响起一声惊喜呼叫：“Vue 原来是这么用的，上海贼王，我当定了！”  
+那么，Vue 是怎么折腾的呢？
 
-&emsp;话不多说，我们一起来看代码实现：
+话不多说，我们直接来看代码实现：
 
 > index.html
 
