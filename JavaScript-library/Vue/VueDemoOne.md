@@ -833,6 +833,8 @@ body {
   background: url("../img/background.jpg") no-repeat center;
   background-size: 100% 100%;
 }
+
+/* 多项选项框 */
 input[type="checkbox"] {
   width: 25px;
   height: 25px;
@@ -849,6 +851,19 @@ input[type="checkbox"]:checked {
   background: url("../img/icon-checked.png") no-repeat center;
   background-size: 100%;
 }
+
+/* 共用标题样式 */
+.todo-title {
+  margin-top: 10px;
+  word-break: normal; 
+  width: 75%; 
+  display: block; 
+  white-space: pre-wrap;
+  word-wrap: break-word ;
+  overflow: hidden ;
+}
+
+/* 图标样式 */
 .icon-recycle {
   width: 25px;
   height: 25px;
@@ -861,14 +876,12 @@ input[type="checkbox"]:checked {
   background: url("../img/icon-delete.png") no-repeat center;
   background-size: 100%;
 }
-.todo-title {
-  margin-top: 10px;
-  word-break: normal; 
-  width: 75%; 
-  display: block; 
-  white-space: pre-wrap;
-  word-wrap: break-word ;
-  overflow: hidden ;
+.content-list-recycle-back {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url("../img/icon-back.png") no-repeat center;
+  background-size: 100%;
 }
 
 /* 页面主体 */
@@ -890,6 +903,8 @@ input[type="checkbox"]:checked {
 .content {
   text-align: center;
 }
+
+/* 内容区 - 输入区 */
 .content-input-todo {
   height: 40px;
 }
@@ -908,6 +923,8 @@ input[type="checkbox"]:checked {
   color: #fff;
   outline: none;
 }
+
+/* 内容区 - 列表区 */
 .content-list {
   display: flex;
   margin-top: 30px;
@@ -942,14 +959,6 @@ input[type="checkbox"]:checked {
   background: rgba(255, 255, 255, 0);
   color: #000;
   border-bottom: 1px solid #ccc;
-}
-/* 返回按钮 */
-.content-list-recycle-back {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background: url("../img/icon-back.png") no-repeat center;
-  background-size: 100%;
 }
 
 /* 底部区 */
