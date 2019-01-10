@@ -2,7 +2,7 @@ Vue 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:34:30**  
-> Recently revised in **2018-12-24 12:31:10**
+> Recently revised in **2019-1-10 13:07:24**
 
 &emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)**
 
