@@ -975,45 +975,60 @@ input[type="checkbox"]:checked {
 
 > [返回目录](#chapter-one)
 
-到此，我们就写完了这个简单的**小** Demo 啦~
+到此，我们就写完了这个简单的**小** Demo 咯~
 
-下面将代码地址和项目地址贴出来，需要 **参考** 的小伙伴自行下载或者观看咯~
+下面将代码地址和项目地址贴出来，需要 **参考** 的小伙伴自行下载或者观看。
 
 * **代码地址**：[功成千骨 - 代码地址](https://github.com/LiangJunrong/achievement-of-thousands-of-bones)
 
 * **项目地址**：[功成千骨 - 线上地址](http://vuetodo.jsliang.top/)
 
+当然，还没完！
+
+我们还可以折腾更多：
+
+* 使用 `ElementUI` 或者 `Bootstrap` 进行多端适配
+* 使用 `localStorage` 来进行本地版开发
+* 使用 `Node` 来进行数据多端使用
+* 使用 **可视化配置**，将 DOM 元素的 CSS 抽取成数据，让用户可以配置自己的 Todolist
+* 使用 `HTML5` 的 `manifest` 来开发 **离线存储**
+* ……
+
+那么，后面有机会折腾，咱再相会 Todolist ，打造升级版本的啦~
+
 ---
 
 > 后记
 
-&emsp;如果小伙伴需要存放 [jsliang.top](http://jsliang.top/) 这样的纯静态页面或者 [company.jsliang.top](http://company.jsliang.top/) 这样的具有 Node 后端支持的页面，推荐购买云服务器来存放，如果小伙伴们不知道该怎么选择，可以加 **jsliang** QQ：`1741020489` 咨询
+如果小伙伴需要存放 [jsliang.top](http://jsliang.top/) 这样的纯静态页面或者 [company.jsliang.top](http://company.jsliang.top/) 这样的具有 Node 后端支持的页面，推荐购买云服务器来存放。
+
+如果小伙伴们不知道该怎么选择，可以加 **jsliang** QQ：`1741020489` 咨询。
 
 下面是优惠推广详情：  
 
-&emsp;**腾讯云推广**：  
+**腾讯云推广**：  
 
-&emsp;新用户点这里：  
+新用户点这里：  
 * [新客户无门槛 2775 元代金券](https://cloud.tencent.com/redirect.php?redirect=1025&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)  
 ![图](../../public-repertory/img/seek-tencent-1.jpg)
 
-&emsp;购买云服务器：  
+购买云服务器：  
 * [12 月优惠低至 168 元/年](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
 ![图](../../public-repertory/img/seek-tencent-2.jpg)
 
 <br>
 
-&emsp;**阿里云推广**：  
+**阿里云推广**：  
 
-&emsp;新用户点这里：
+新用户点这里：
 * [新用户云产品 1888 通用代金券](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)
 ![图](../../public-repertory/img/seek-ali-1.png)
 
-&emsp;购买云服务器：  
+购买云服务器：  
 * [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh) 
 ![图](../../public-repertory/img/seek-ali-2.png)
 
-&emsp;购买企业级云服务器：  
+购买企业级云服务器：  
 * [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
 ![图](../../public-repertory/img/seek-ali-3.jpg)
 
