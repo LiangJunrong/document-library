@@ -1,7 +1,7 @@
 # Vue Demo - 功成千骨
 
 > Create by **jsliang** on **2019-1-2 08:46:46**  
-> Recently revised in **2019-1-8 13:12:24**
+> Recently revised in **2019-1-10 08:19:41**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习折腾的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueDemoOne.md)**
 
@@ -214,7 +214,7 @@
 
 奔跑吧，骷髅人~
 
-## <a name="chapter-five-one" id="chapter-five-one">5.1 页面数据化</a>
+### <a name="chapter-five-one" id="chapter-five-one">5.1 页面数据化</a>
 
 > [返回目录](#chapter-one)
 
@@ -343,7 +343,7 @@ var app = new Vue({
 
 ![图](../../public-repertory/img/js-vue-demo-one-5.png)
 
-## <a name="chapter-five-two" id="chapter-five-two">5.2 数据简化</a>
+### <a name="chapter-five-two" id="chapter-five-two">5.2 数据简化</a>
 
 > [返回目录](#chapter-one)
 
@@ -444,7 +444,7 @@ var app = new Vue({
 
 下面我们开始写增删改数据的功能方法。
 
-## <a name="chapter-five-three" id="chapter-five-three">5.3 添加数据</a>
+### <a name="chapter-five-three" id="chapter-five-three">5.3 添加数据</a>
 
 > [返回目录](#chapter-one)
 
@@ -504,7 +504,7 @@ var app = new Vue({
 
 ![图](../../public-repertory/img/js-vue-demo-one-7.gif)
 
-## <a name="chapter-five-four" id="chapter-five-four">5.4 改变状态</a>
+### <a name="chapter-five-four" id="chapter-five-four">5.4 改变状态</a>
 
 > [返回目录](#chapter-one)
 
@@ -553,7 +553,7 @@ var app = new Vue({
 
 OK，成功完成 **待完成** -> **已完成** 的转变。
 
-## <a name="chapter-five-five" id="chapter-five-five">5.5 修改内容</a>
+### <a name="chapter-five-five" id="chapter-five-five">5.5 修改内容</a>
 
 > [返回目录](#chapter-one)
 
@@ -612,7 +612,7 @@ OK，成功完成 **待完成** -> **已完成** 的转变。
 
 ![图](../../public-repertory/img/js-vue-demo-one-9.gif)
 
-## <a name="chapter-five-six" id="chapter-five-six">5.6 数据回收</a>
+### <a name="chapter-five-six" id="chapter-five-six">5.6 数据回收</a>
 
 > [返回目录](#chapter-one)
 
@@ -655,7 +655,7 @@ OK，成功完成 **待完成** -> **已完成** 的转变。
 
 ![图](../../public-repertory/img/js-vue-demo-one-10.gif)
 
-## <a name="chapter-five-seven" id="chapter-five-seven">5.7 彻底删除</a>
+### <a name="chapter-five-seven" id="chapter-five-seven">5.7 彻底删除</a>
 
 > [返回目录](#chapter-one)
 
@@ -726,7 +726,7 @@ methods: {
 }
 ```
 
-兴致突来，想起 **茴字的四种写法**，于是，这里也奉上删除数据的三种写法，哪种喜欢用哪种吧，这里不估算性能损耗了。
+兴致突来，想起 **茴字的四种写法**，于是，这里也奉上删除数据的三种写法，这里就不估算性能损耗了，哪种喜欢就用哪种吧。
 
 此时完成功能如下所示：
 
@@ -738,9 +738,85 @@ methods: {
 
 > [返回目录](#chapter-one)
 
-那么我们回来我们的大难题，就是给这个页面增加皮肤。
+那么，我们回来我们的大难题，就是给这个页面增加皮肤，让这个页面漂亮点。
 
-我们网上盗个皮肤下来吧：
+### <a name="chapter-six-one" id="chapter-six-one">6.1 重置样式</a>
+
+> [返回目录](#chapter-one)
+
+enm......因为不同浏览器对于一些 DOM 元素的渲染不同，所以我们先重置下浏览器样式吧：
+
+> reset.css
+
+```
+/* 
+  * reset 的目的不是让默认样式在所有浏览器下一致，而是减少默认样式有可能带来的问题。
+  * The purpose of reset is not to allow default styles to be consistent across all browsers, but to reduce the potential problems of default styles.
+  * create by jsliang
+*/
+
+/** 清除内外边距 - clearance of inner and outer margins **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* 结构元素 - structural elements */
+dl, dt, dd, ul, ol, li, /* 列表元素 - list elements */
+pre, /* 文本格式元素 - text formatting elements */
+form, fieldset, legend, button, input, textarea, /* 表单元素 - from elements */
+th, td /* 表格元素 - table elements */ {
+  margin: 0;
+  padding: 0;
+}
+
+/** 设置默认字体 - setting the default font **/
+body, button, input, select, textarea {
+  font: 18px/1.5 '黑体', Helvetica, sans-serif;
+}
+h1, h2, h3, h4, h5, h6, button, input, select, textarea { font-size: 100%; }
+
+/** 重置列表元素 - reset the list element **/
+ul, ol { list-style: none; }
+
+/** 重置文本格式元素 - reset the text format element **/
+a, a:hover { text-decoration: none; }
+
+/** 重置表单元素 - reset the form element **/
+button { cursor: pointer; }
+input { font-size: 18px; outline: none; }
+
+/** 重置表格元素 - reset the table element **/
+table { border-collapse: collapse; border-spacing: 0; }
+
+/** 图片自适应 - image responsize **/
+img { border: 0; display: inline-block; width: 100%; max-width: 100%; height: auto; vertical-align: middle; }
+
+/* 
+    * 默认box-sizing是content-box，该属性导致padding会撑大div，使用border-box可以解决该问题
+    * set border-box for box-sizing when you use div, it solve the problem when you add padding and don't want to make the div width bigger
+*/
+div, input { box-sizing: border-box; }
+
+/** 清除浮动 - clear float **/
+.jsliang-clear:after, .clear:after {
+  content: '\20';
+  display: block;
+  height: 0;
+  clear: both;
+}
+.jsliang-clear, .clear {
+  *zoom: 1;
+}
+
+/** 设置input的placeholder - set input placeholder **/
+input::-webkit-input-placeholder { color: #919191; font-size: 16px } /* Webkit browsers */
+input::-moz-placeholder { color: #919191; font-size: 16px } /* Mozilla Firefox */
+input::-ms-input-placeholder { color: #919191; font-size: 16px } /* Internet Explorer */
+```
+
+### <a name="chapter-six-two" id="chapter-six-two">6.2 偷天换日</a>
+
+> [返回目录](#chapter-one)
+
+然后，我们就面临一个问题，要怎么美化呢？
+
+脑阔疼，我们还是去网上盗个皮肤下来吧：
 
 ![图](../../public-repertory/img/js-vue-demo-one-10.png)
 
@@ -749,7 +825,146 @@ methods: {
 > index.css
 
 ```
+/* 共用 */
+html, body {
+  height: 100%;
+}
+body {
+  background: url("../img/background.jpg") no-repeat center;
+  background-size: 100% 100%;
+}
+input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  -webkit-appearance: none;
+  border: 1px solid deepskyblue;
+  border-radius: 2px;
+  outline: none;
+}
+input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+input[type="checkbox"]:checked {
+  background: url("../img/icon-checked.png") no-repeat center;
+  background-size: 100%;
+}
+.icon-recycle {
+  width: 25px;
+  height: 25px;
+  background: url("../img/icon-recycle.png") no-repeat center;
+  background-size: 100%;
+}
+.icon-delete {
+  width: 25px;
+  height: 25px;
+  background: url("../img/icon-delete.png") no-repeat center;
+  background-size: 100%;
+}
+.todo-title {
+  margin-top: 10px;
+  word-break: normal; 
+  width: 75%; 
+  display: block; 
+  white-space: pre-wrap;
+  word-wrap: break-word ;
+  overflow: hidden ;
+}
 
+/* 页面主体 */
+.main-container {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 头部标题 */
+.header {
+  width: 100%;
+  height: 150px;
+  background: url("../img/title.png") no-repeat center;
+}
+
+/* 内容区 */
+.content {
+  text-align: center;
+}
+.content-input-todo {
+  height: 40px;
+}
+.content-input-todo input {
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: none;
+  border-radius: 20px;
+}
+.content-input-todo button {
+  width: 100px;
+  padding: 5px;
+  border-radius: 20px;
+  background: #36AF9E;
+  color: #fff;
+  outline: none;
+}
+.content-list {
+  display: flex;
+  margin-top: 30px;
+}
+.content-list div {
+  width: 380px;
+  margin-right: 20px;
+  border: 1px solid #ccc;
+  padding: 30px;
+  border: 15px solid transparent;
+  border-image: url("../img/border.png") 60 60 stretch;
+}
+.content-list div ul {
+  text-align: left;
+}
+.content-list div ul li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+}
+.content-list div ul li:hover {
+  cursor: pointer;
+}
+.content-list div ul li input[type="checkbox"] {
+  margin-right: 10px;
+}
+.content-list div ul li input[type="text"] {
+  outline: none;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+  color: #000;
+  border-bottom: 1px solid #ccc;
+}
+/* 返回按钮 */
+.content-list-recycle-back {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url("../img/icon-back.png") no-repeat center;
+  background-size: 100%;
+}
+
+/* 底部区 */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.footer a {
+  color: deepskyblue;
+}
+.footer a:hover {
+  color: deepskyblue;
+}
 ```
 
 大功告成，看下我们的成品：
@@ -760,7 +975,47 @@ methods: {
 
 > [返回目录](#chapter-one)
 
-到此，我们就写完了这个简单的小 Demo 啦~
+到此，我们就写完了这个简单的**小** Demo 啦~
+
+下面将代码地址和项目地址贴出来，需要 **参考** 的小伙伴自行下载或者观看咯~
+
+* **代码地址**：[功成千骨 - 代码地址](https://github.com/LiangJunrong/achievement-of-thousands-of-bones)
+
+* **项目地址**：[功成千骨 - 线上地址](http://vuetodo.jsliang.top/)
+
+---
+
+> 后记
+
+&emsp;如果小伙伴需要存放 [jsliang.top](http://jsliang.top/) 这样的纯静态页面或者 [company.jsliang.top](http://company.jsliang.top/) 这样的具有 Node 后端支持的页面，推荐购买云服务器来存放，如果小伙伴们不知道该怎么选择，可以加 **jsliang** QQ：`1741020489` 咨询
+
+下面是优惠推广详情：  
+
+&emsp;**腾讯云推广**：  
+
+&emsp;新用户点这里：  
+* [新客户无门槛 2775 元代金券](https://cloud.tencent.com/redirect.php?redirect=1025&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)  
+![图](../../public-repertory/img/seek-tencent-1.jpg)
+
+&emsp;购买云服务器：  
+* [12 月优惠低至 168 元/年](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+![图](../../public-repertory/img/seek-tencent-2.jpg)
+
+<br>
+
+&emsp;**阿里云推广**：  
+
+&emsp;新用户点这里：
+* [新用户云产品 1888 通用代金券](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)
+![图](../../public-repertory/img/seek-ali-1.png)
+
+&emsp;购买云服务器：  
+* [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh) 
+![图](../../public-repertory/img/seek-ali-2.png)
+
+&emsp;购买企业级云服务器：  
+* [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
+![图](../../public-repertory/img/seek-ali-3.jpg)
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
