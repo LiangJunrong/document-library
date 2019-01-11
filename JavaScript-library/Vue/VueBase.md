@@ -789,21 +789,17 @@ v-bind 和 v-model 的区别：
 
 > [返回目录](#catalog-chapter-two-seven)
 
-<br>
+敲黑板！敲黑板！敲黑板！  
 
-&emsp;敲黑板！敲黑板！敲黑板！  
-&emsp;组件是 Vue 学习的重点，组件化的 SPA 或者 SSR 页面的制作，使得我们开发起来更加随心应手。
-
-<br>
+组件是 Vue 学习的重点，组件化的 SPA 或者 SSR 页面的制作，使得我们开发起来更加随心应手。
 
 #### <a name="chapter-two-seven-one" id="chapter-two-seven-one">2.7.1 初始组件</a>
 
 > [返回目录](#catalog-chapter-two-seven)
 
-<br>
+在上面的章节中，我们一直使用 `template: `` ` 的形式，编写 `html` 标签。但是，随着项目的不断扩大，如果全部代码都写在一个 `template` 中，那么我们修改起来就复杂了。所以，我们应该想办法对它进行划分，例如将一个页面划分为 `header`、`content`、`footer` 三部分。这样，我们需要修改 `nav` 的时候，只需要在 `header` 中修改就可以了。  
 
-&emsp;在上面的章节中，我们一直使用 `template: `` ` 的形式，编写 `html` 标签。但是，随着项目的不断扩大，如果全部代码都写在一个 `template` 中，那么我们修改起来就复杂了。所以，我们应该想办法对它进行划分，例如将一个页面划分为 `header`、`content`、`footer` 三部分。这样，我们需要修改 `nav` 的时候，只需要在 `header` 中修改就可以了。  
-&emsp;这样的思想，在 `Vue` 中体现为组件（组合起来的部件）。那么，在 `Vue` 中，需要如何做，才能比较好的做到组件的划分呢？  
+> 页面结构
 
 ```
 - app
@@ -812,11 +808,15 @@ v-bind 和 v-model 的区别：
  - footer
 ```
 
-<br>
+这样的思想，在 `Vue` 中体现为组件（组合起来的部件）。那么，在 `Vue` 中，需要如何做，才能比较好的做到组件的划分呢？  
 
-&emsp;如上面代码所示，在 Vue 的定义上，我们将首个 `template` 挂载到了 id 为 app 的节点上。然后，我们将 `template` 划分为三个块：`header`、`content`、`footer`。在这里，我们将 #app 的 `template` 叫做父组件，`header` 等叫子组件，就好比父亲下面有三个儿子一样。
+**首先**，我们捋捋逻辑：
 
-&emsp;首先，我们尝试从 `new Vue` 中抽离单个组件出来：
+在前面的章节中，在 Vue 的定义上，我们将首个 `template` 挂载到了 id 为 `app` 的节点上。然后将 `template` 划分为三个块：`header`、`content`、`footer`。
+
+> 在这里，我们将 `#app` 的 `template` 叫做父组件，`header` 等叫子组件，就好比父亲下面有三个儿子一样。
+
+**然后**，我们尝试从 `new Vue` 中抽离单个组件出来：
 
 > index.html
 
@@ -828,45 +828,77 @@ v-bind 和 v-model 的区别：
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+
     // 声明入口组件
     var App = {
       template: `<h1>我是入口组件</h1>`
     }
 
     new Vue({
+      // 3. el - 挂载目标，即渲染在哪个挂载点
       el: document.getElementById('app'),
-      components: { // 抽离要用的组件们
+      // 4. template - 模板，即渲染到挂载点的内容
+      // 最外层必须有一层包裹，例如 <div>
+      template: '<app/>',
+      // 5. data - 数据，即在操作中需要用到的数据
+      // 可以理解为在 jQuery 中 var text = "Hello World!"
+      // {{ text }} 为数据渲染到 DOM 的方式之一
+      data() {
+        return {
+          // template 中要使用的数据
+        }
+      },
+      // 6. methods - 方法，即我们的页面事件
+      // 可以理解为在 jQuery 中定义 Function
+      methods: {
+        
+      },
+      // 7. components - 组件名称
+      components: {
         // key 是组件名，value 是组件对象
         app: App
-      },
-      template: '<app/>', // 使用入口文件
+      }
     })
+
   </script>
 </body>
 
 </html>
 ```
 
-<br>
+这时候页面如下所示：
 
-&emsp;运行后，我们可以在浏览器中看到 `index.html` 显示为 `h1` 的 `我是入口组件` 字样。  
-&emsp;在这里，我们进行了三部曲：
+![图](../../public-repertory/img/js-vue-basic-7.png)
+
+**接着**，我们分析下进行的三部曲：
 
 1. 在 `component` 中定义并抽离 `App`
 2. 在 `new Vue` 外定义 `App`
 3. 在 `template` 中使用 `App`
 
-&emsp;这样，我们就做到了单个组件的抽离，及 `new Vue` 是 `App` 的父组件，`App` 是 `new Vue` 的子组件。
+这样，我们就做到了单个组件的抽离，及 `new Vue` 是 `App` 的父组件，`App` 是 `new Vue` 的子组件。
 
-&emsp;做到了单个组件的抽离，现在我们实现多个组件的抽离：
+**最后**，既然上面做到了单个组件的抽离，现在我们实现多个组件的抽离：
 
 > index.html
 
@@ -923,9 +955,11 @@ v-bind 和 v-model 的区别：
 </html>
 ```
 
-<br>
+这样，我们就做到了组件的抽离。
 
-&emsp;这样，我们就做到了组件的抽离。注意：`template` 有且只有一个根节点，如果没有根节点，Vue 会给你报错。
+![图](../../public-repertory/img/js-vue-basic-8.png)
+
+**注意：`template` 有且只有一个根节点，如果没有根节点，Vue 会给你报错。**
 
 ```
   template: `
@@ -935,11 +969,25 @@ v-bind 和 v-model 的区别：
   `
 ```
 
-&emsp;上面那种写法是错误的，谨记。
+上面那种写法是错误的，谨记。
 
-&emsp;做到这里，我们又可以愉快玩耍了，而且 `myHeader`、`myContent`、`myFooter` 中是可以跟 `new Vue` 一样写 `data`、`methods` 的哦~
+做到这里，我们又可以愉快玩耍了，而且 `myHeader`、`myContent`、`myFooter` 中是可以跟 `new Vue` 一样写 `data`、`methods` 的哦~
 
-<br>
+> 例如：
+
+```
+var MyHeader = {
+  data() {
+    return {
+      // ... 定义数据
+    }
+  },
+  template: `<h1>我是头部</h1>`,
+  methods: {
+    // 定义方法
+  }
+};
+```
 
 #### <a name="chapter-two-seven-two" id="chapter-two-seven-two">2.7.2 父子组件通讯</a>
 
