@@ -424,7 +424,9 @@ el: document.getElementById('app'),
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习 - 2018-10-29 13:27:49</title>
+  
+  <title>Vue 学习</title>
+
   <style>
     /* 颜色样式：红、绿、蓝 */
     .color-red {
@@ -439,19 +441,30 @@ el: document.getElementById('app'),
       color: green;
     }
   </style>
+
 </head>
 
 <body>
-  <!-- 挂载地点 -->
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <!-- cdn 引用 -->
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+
     new Vue({
-      // 挂载到 id 为 app 的节点上
+      // 3. el - 挂载目标，即渲染在哪个挂载点
       el: document.getElementById('app'),
-      // 挂载的模板内容
+      // 4. template - 模板，即渲染到挂载点的内容
+      // 最外层必须有一层包裹，例如 <div>
       template: `
         <div>
 
@@ -502,9 +515,13 @@ el: document.getElementById('app'),
 
         </div>
       `,
-      data: function () { // 数据挂载
+      // 5. data - 数据，即在操作中需要用到的数据
+      // 可以理解为在 jQuery 中 var text = "Hello World!"
+      // {{ text }} 为数据渲染到 DOM 的方式之一
+      data() {
         return {
-          
+          // template 中要使用的数据
+
           // v-text 及 v-html 使用数据
           vTextOrHtml: '<span style="color: red">我是红的</p>',
           
@@ -546,45 +563,27 @@ el: document.getElementById('app'),
               classStyle: "color-green"
             }
           ]
-        }
-      },
-      /* 
-       * 方法 - methods
-       * 如果你在页面中，想给 v-on:click(@click) 事件绑定方法
-       * 那么，该方法需要在 methods 中编写
-       */
-      methods: {
-        // 点击修改 v-bind 的值
-        changevBindValue: function (e) {
           
-          console.log(e.target); // <button>v-on:click - 点击通过事件改变 vBind 的值</button>
-          
-          console.log(this.vBind); // Hello v-bind
-          // 将 `Hello v-bind` 换为 `Hello @click`
-          
-          this.vBind = "Hello @click!";
         }
       }
     })
+
   </script>
 </body>
 
 </html>
 ```
 
-<br>
+我们看下页面：
 
-&emsp;我们看下页面：
+![图](../../public-repertory/img/js-vue-basic-5.png)
 
-![图](../../public-repertory/img/js-vue-basic-learning-6.png)
-
-<br>
-
-&emsp;在这里，我们对代码进行下讲解：
+在这里，我们对代码进行下讲解：
 
 ```
 <div>
   <!-- 
+    1. v-html
     这里直接将 vTextOrHtml 中的文本
     当成 string 渲染到页面中去
    -->
@@ -593,6 +592,7 @@ el: document.getElementById('app'),
   <br/>
 
   <!-- 
+    2. v-html
     这里在渲染 vTextOrHtml 的过程中，
     如果遇到标签，则对标签页进行渲染 
    -->
@@ -601,6 +601,7 @@ el: document.getElementById('app'),
   <br/>
 
   <!-- 
+    3. v-if/v-else-if/v-if
     判断 data 中 vIf 的值是多少，
     这里有三种情况：v-if、v-else-if、v-else。
     如果项目中有更多情况，则再添加 v-else-if 即可
@@ -612,6 +613,7 @@ el: document.getElementById('app'),
   <br/>
 
   <!-- 
+    4. v-show
     判断 isTrue 是真还是假，
     它不同于 v-if 的方面是：
     v-if 如果是假，则在 Element 中没有渲染
@@ -622,6 +624,7 @@ el: document.getElementById('app'),
   <br/>
 
   <!-- 
+    5. v-bind
     v-bind 有两种格式：
     1. v-bind:value - 全写
     2. :value - 简写
@@ -635,6 +638,7 @@ el: document.getElementById('app'),
   <br/>
 
   <!-- 
+    6. v-on
     v-on:click 有两种格式：
     1. v-on:click - 全写
     2. @click - 简写
@@ -646,6 +650,7 @@ el: document.getElementById('app'),
   <br/>
 
   <!-- 
+    7. v-model
     v-model 是双向数据绑定，
     在这里，上面 input 的修改
     会影响到下面 p 显示的内容
@@ -656,6 +661,7 @@ el: document.getElementById('app'),
   <br/>
 
   <!-- 
+    8. v-for
     v-for 循环体遍历输出
    -->
   <ul v-for="(item, index) in vFor" :class="item.classStyle">
@@ -666,23 +672,23 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;v-bind 和 v-model 的区别：
+v-bind 和 v-model 的区别：
 
 * v-bind：将 Vue 中的数据同步到页面，即该值大部分用于前端向浏览器传固定数据。v-bind 可以给任何属性赋值，是从 Vue 到页面的单向数据流，即 Vue -> html。
 * v-model：双向数据绑定，前端向浏览器传数据，用户操作浏览器的更改前端可以察觉到。v-model 只能给具有 value 属性的元素进行双向数据绑定（必须使用的是有 value 属性的元素），即 Vue -> html -> Vue
 
-&emsp;**关于 Vue 的指令，这里咱先对它进行了个全面的简单了解，知道它是如何使用的。想详细学习的小伙伴，记得前往官方文档：[Vue 文档](https://cn.vuejs.org/v2/guide/)**
-
-<br>
+> 关于 Vue 的指令，这里咱先对它进行了个全面的简单了解，知道它是如何使用的。  
+> 想详细学习的小伙伴，记得前往官方文档：[Vue 文档](https://cn.vuejs.org/v2/guide/)
 
 ### <a name="chapter-two-six" id="chapter-two-six">2.6 事件 - methods</a>
 
 > [返回目录](#catalog-chapter-two-six)
 
-<br>
+在上一章 `2.5` 中，我们通过在 `button` 中使用 `v-on:click` 时，给它绑定了事件方法。
 
-&emsp;在上一章 `2.5` 中，我们通过在 `button` 中使用 `v-on:click` 时，给它绑定了事件方法。但是，在 `2.5` 中，我们大体讲述了事件方法的使用，但是我们只是一知半解。  
-&emsp;在这里，我们抽取出来做下讲解：
+但是，在 `2.5` 中，我们大体讲述了事件方法的使用，但是我们只是一知半解。  
+
+在这里，我们抽取出来做下讲解：
 
 > index.html
 
@@ -694,45 +700,71 @@ el: document.getElementById('app'),
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+
     new Vue({
+      // 3. el - 挂载目标，即渲染在哪个挂载点
       el: document.getElementById('app'),
+      // 4. template - 模板，即渲染到挂载点的内容
+      // 最外层必须有一层包裹，例如 <div>
       template: `
         <button @click="addStyle">添加行内样式</button>
       `,
-      data: function () { // 数据挂载
+      // 5. data - 数据，即在操作中需要用到的数据
+      // 可以理解为在 jQuery 中 var text = "Hello World!"
+      // {{ text }} 为数据渲染到 DOM 的方式之一
+      data() {
         return {
-
+          // template 中要使用的数据
         }
       },
-      methods: { // 方法
-        addStyle: function(e) {
+      // 6. methods - 方法，即我们的页面事件
+      // 可以理解为在 jQuery 中定义 Function
+      methods: {
+        addStyle(e) {
           e.toElement.style.background = "red"
         }
       }
     })
+
   </script>
 </body>
+
+</html>
 ```
 
-<br>
+此时页面的点击效果如下所示：
 
-&emsp;在上面的 `<button>` 中，我们通过 `@click` 绑定了事件 `addStyle`：
+![图](../../public-repertory/img/js-vue-basic-6.gif)
+
+此刻我们分析下页面：
+
+1. **首先**，在上面的 `<button>` 中，我们通过 `@click` 绑定了事件 `addStyle`：
 
 ```
 <button @click="addStyle">添加行内样式</button>
 ```
 
-<br>
-
-&emsp;而方法的编写，需要写到与 `data` 同级的 `methods` 中：
+2. **接着**，方法的编写，需要写到与 `data` 同级的 `methods` 中：
 
 ```
  methods: { // 方法
@@ -742,9 +774,7 @@ el: document.getElementById('app'),
 }
 ```
 
-<br>
-
-&emsp;然后，我们通过传递参数 `e`，可以获取到点击的时候的元素，通过查找，我们发现它的样式所在的目录结构如下：
+3. **然后**，我们通过传递参数 `e`，可以获取到点击的时候的元素，通过查找，我们发现它的样式所在的目录结构如下：
 
 ```
 - button
@@ -753,9 +783,7 @@ el: document.getElementById('app'),
       - background
 ```
 
-&emsp;最后，我们在用户点击按钮的时候，直接修改了它的背景。
-
-<br>
+4. **最后**，我们在用户点击按钮的时候，直接修改了它的背景。
 
 ### <a name="chapter-two-seven" id="chapter-two-seven">2.7 组件 - components</a>
 
