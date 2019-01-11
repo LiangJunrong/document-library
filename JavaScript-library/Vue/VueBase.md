@@ -288,15 +288,16 @@ el: document.getElementById('app'),
 
 <br>
 
-&emsp;如果小伙伴有点印象，应该还记得，我们在章节 `2.2` 中通过 `{{}}` 这个插值表达式的使用，在 `data` 中对其里面的数据进行操作。  
-&emsp;下面，我们进一步讲解这个插值表达式 `{{}}` 还可以进行哪种骚操作：
+如果小伙伴有点印象，应该还记得，我们在章节 `2.2` 中通过 `{{}}` 这个插值表达式的使用，在 `data` 中对其里面的数据进行操作。  
+
+下面，我们进一步讲解这个插值表达式 `{{}}` 还可以进行哪种骚操作：
 
 * 对象：{{ {name: 'jack'} }}
 * 字符串 {{ 'Hello World!' }}
 * 布尔值： {{ isTrue == -1 }}
 * 三元表达式： {{ isTrue ? '正确' : '错误' }}
 
-&emsp;下面我们通过代码进行操作演示：
+光字面理解是不够的，我们通过代码进行操作演示：
 
 > index.html
 
@@ -308,52 +309,64 @@ el: document.getElementById('app'),
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习 - 2018-10-29 13:27:49</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
 
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+
     new Vue({
-
+      // 3. el - 挂载目标，即渲染在哪个挂载点
       el: document.getElementById('app'),
-
+      // 4. template - 模板，即渲染到挂载点的内容
+      // 最外层必须有一层包裹，例如 <div>
       template: `
-          <div>
-            <p>{{ text }}</p>
-            <p>{{ {name: 'jack'} }}</p>
-            <p>{{ 'Hello World!' }}</p>
-            <p>{{ isTrue == -1 }}</p>
-            <p>{{ isTrue ? '真' : '假' }}</p>
-          </div>
+        <div>
+          <p>{{ text }}</p>
+          <p>{{ {name: 'jack'} }}</p>
+          <p>{{ 'Hello World!' }}</p>
+          <p>{{ isTrue == -1 }}</p>
+          <p>{{ isTrue ? '真' : '假' }}</p>
+        </div>
       `,
-
-      data: function() {
+      // 5. data - 数据，即在操作中需要用到的数据
+      // 可以理解为在 jQuery 中 var text = "Hello World!"
+      // {{ text }} 为数据渲染到 DOM 的方式之一
+      data() {
         return {
+          // template 中要使用的数据
           text: 'Hello World!',
           isTrue: true
         }
       }
     })
+
   </script>
 </body>
 
 </html>
 ```
 
-<br>
+它在浏览器的展示为：
 
-&emsp;它在浏览器的展示为：
+![图](../../public-repertory/img/js-vue-basic-4.png)
 
-![图](../../public-repertory/img/js-vue-basic-learning-5.png)
-
-<br>
-
-&emsp;关键代码讲解：
+关键代码讲解：
 
 ```
 <div>
@@ -378,11 +391,7 @@ el: document.getElementById('app'),
 </div>
 ```
 
-<br>
-
-&emsp;通过三元表达式的运用，我们可以做到一些判断：数组最后一个元素、是否动态显示隐藏等。
-
-<br>
+通过三元表达式的运用，我们可以做到一些判断：数组最后一个元素、是否动态显示隐藏等。
 
 ### <a name="chapter-two-five" id="chapter-two-five">2.5 指令 - v-*</a>
 
