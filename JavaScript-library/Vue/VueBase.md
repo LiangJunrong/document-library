@@ -397,9 +397,7 @@ el: document.getElementById('app'),
 
 > [返回目录](#catalog-chapter-two-five)
 
-<br>
-
-&emsp;在 Vue 中，如果单单使用 `{{}}` 这种插值表达式，是满足不了我们对数据的操作欲望的。所以，Vue 以 `v-if`、`v-bind` 等形式，提供了一些对于页面 + 数据的更为方便的操作：指令  
+在 Vue 中，如果单单使用 `{{}}` 这种插值表达式，是满足不了我们对数据的操作欲望的。所以，Vue 以 `v-if`、`v-bind` 等形式，提供了一些对于页面 + 数据的更为方便的操作：指令  
 
 * `v-text`
 * `v-html`
@@ -412,9 +410,9 @@ el: document.getElementById('app'),
 * `v-model`
 * `v-for`
 
-<br>
+> 这里采用一个页面展示所有指令，如果小伙伴想逐个详细了解指令，推荐去官网查看学习：[Vue 指令](https://cn.vuejs.org/v2/guide/syntax.html)
 
-&emsp;那么，上面的指令都是怎么使用的呢？这里通过一个 `index.html` 及一张图向大家演示其基本用法：
+那么，上面的指令都是怎么使用的呢？这里通过一个 `index.html` 及一张图向大家演示其基本用法：
 
 > index.html
 
