@@ -105,8 +105,8 @@ Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进
 
     new Vue({
       // 3. el - 挂载目标，即渲染在哪个挂载点
-      el: document.getElementById('app'),
-      // 4. template - 模板，即渲染到挂载点的内容。
+      el: '#app',
+      // 4. template - 模板，即渲染到挂载点的内容
       // 最外层必须有一层包裹，例如 <div>
       template: `
         <div>
@@ -147,8 +147,6 @@ Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进
 <div id="app"></div>
 ```
 
-<br>
-
 3. 最后，我们通过 New 一个 Vue 实例对象，对我们 id 为 `app` 的 DOM 节点进行操作：
 
 ```
@@ -167,19 +165,15 @@ new Vue({
 
 <br>
 
-&emsp;这样，我们最终就显示了 Vue 的简单引用，是不是觉得非常简单：
+这样，我们最终就显示了 Vue 的简单引用，是不是觉得非常简单：
 
 ![图](../../public-repertory/img/js-vue-basic-2.png)
-
-<br>
 
 ### <a name="chapter-two-two" id="chapter-two-two">2.2 挂载数据 - data</a>
 
 > [返回目录](#catalog-chapter-two-two)
 
-<br>
-
-&emsp;如果 Vue 仅仅是只有 `template` 这个模板装载，那么它跟 jQuery 就显得没多大差别了，下面我们使用下 Vue 的 `data` 进行数据渲染：
+如果 Vue 仅仅是只有 `template` 这个模板装载，那么它跟 jQuery 就显得没多大差别了，下面我们使用下 Vue 的 `data` 进行数据渲染：
 
 > index.html
 
@@ -191,59 +185,64 @@ new Vue({
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
-  <!-- 2. 挂载点。可以理解为被操作的对象 -->
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <!-- 1. 开发环境版本，包含了有帮助的命令行警告 -->
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-  <!-- 生产环境版本，优化了尺寸和速度 -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
-
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+
     new Vue({
-      // el：发生行为的目的地，即我们的挂载点
-      el: "#app",
-      /*
-        * template：模板，即我们要渲染进挂载点的页面标签。
-        * 最外一层必须有一层包裹，例如 <div> 
-        */
+      // 3. el - 挂载目标，即渲染在哪个挂载点
+      el: '#app',
+      // 4. template - 模板，即渲染到挂载点的内容
+      // 最外层必须有一层包裹，例如 <div>
       template: `
-          <div>
-            <p>{{ text }}</p>
-          </div>
+        <div>
+          <p>{{ text }}</p>
+        </div>
       `,
-      data: function() {
+      // 5. data - 数据，即在操作中需要用到的数据
+      // 可以理解为在 jQuery 中 var text = "Hello World!"
+      // {{ text }} 为数据渲染到 DOM 的方式之一
+      data() {
         return {
           // template 中要使用的数据
           text: 'Hello World!'
         }
       }
     })
+
   </script>
 </body>
 
 </html>
 ```
 
-<br>
-
-&emsp;在这里，我们可以看到，我们在 `template` 中加了一个 `<p>` 标签，通过 `{{ text }}` 形式，引入了一个叫 `text` 的 `data` 数据：
+在这里，我们可以看到，我们在 `template` 中加了一个 `<p>` 标签，通过 `{{ text }}` 形式，引入了一个叫 `text` 的 `data` 数据：
 
 ```
 <p>{{ text }}</p>
 ```
 
-<br>
-
-&emsp;接着我们在 `<scirpt>` 中定义了 `text` 的内容，从而实现数据渲染：
+接着我们在 `<scirpt>` 中定义了 `text` 的内容，从而实现数据渲染：
 
 ```
-data: function() {
+data() {
   return {
     // template 中要使用的数据
     text: 'Hello World!'
@@ -251,13 +250,9 @@ data: function() {
 }
 ```
 
-<br>
+这样，我们就知道了，我们不仅可以通过模板 `template` 来渲染 `<div>` 标签，我们也可以将 js 中定义的数据或者变量，通过操作 `data` 从而改变 html 里面的内容。
 
-&emsp;这样，我们就知道了，我们不仅可以通过模板 `template` 来渲染 `<div>` 标签，我们也可以将 js 中定义的数据或者变量，通过操作 `data` 从而改变 html 里面的内容。
-
-![图](../../public-repertory/img/js-vue-basic-learning-4.png)
-
-<br>
+![图](../../public-repertory/img/js-vue-basic-3.png)
 
 ### <a name="chapter-two-three" id="chapter-two-three">2.3 进一步优化 el</a>
 
