@@ -2,13 +2,13 @@ Vue 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:34:30**  
-> Recently revised in **2019-1-10 16:36:31**
+> Recently revised in **2019-1-11 08:48:03**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)**
 
 推荐通过 `目录` 以及使用 `返回目录` 按钮，获得更好的阅读体验。
 
-![图](../../public-repertory/img/js-vue-basic-learning-1.gif)
+![图](../../public-repertory/img/js-vue-basic-1.gif)
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -48,6 +48,8 @@ Vue 基础
 | &emsp;&emsp;[2.12.1 单个 DOM 元素获取](#chapter-two-twelve-one) |
 | &emsp;&emsp;[2.12.2 组件 DOM 元素获取](#chapter-two-twelve-two) |
 | &emsp;&emsp;[2.12.3 Vue.nextTick()](#chapter-two-twelve-three) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 实战](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 总结](#chapter-four) |
 
 ## <a name="chapter-two" id="chapter-two">二 正文</a>
 
@@ -80,33 +82,39 @@ Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
-  <!-- 2. 挂载点。可以理解为被操作的对象 -->
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <!-- 1. 开发环境版本，包含了有帮助的命令行警告 -->
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-  <!-- 生产环境版本，优化了尺寸和速度 -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
-
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+
     new Vue({
-      // 3. el：发生行为的目的地，即我们的挂载点
-      el: "#app",
-      /*
-       * 4. template：模板，即我们要渲染进挂载点的页面标签。
-       * 最外一层必须有一层包裹，例如 <div> 
-       */
+      // 3. el - 挂载目标，即渲染在哪个挂载点
+      el: document.getElementById('app'),
+      // 4. template - 模板，即渲染到挂载点的内容。
+      // 最外层必须有一层包裹，例如 <div>
       template: `
-          <div>
-            <p>Hello World</p>
-          </div>
-        `,
+        <div>
+          <p>Hello World</p>
+        </div>
+      `
     })
+
   </script>
 </body>
 
@@ -115,41 +123,45 @@ Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进
 
 <br>
 
-&emsp;现在，我们解析下代码运行：
+现在，我们解析下代码运行：
 
-1. 首先，创建一个空白的 html 模板文件，通过 CDN 引用 Vue（开发版本：开发中有友好的错误提示。生产版本：上线部署使用的版本，代码包比较小）：
+1. 首先，创建一个空白的 html 模板文件，通过 CDN 引用 Vue：
+
+> Vue 一般分两个版本：  
+> 开发版本：开发中有友好的错误提示。  
+> 生产版本：上线部署使用的版本，代码包比较小
+
+> index.html 代码片段
 
 ```
-<!-- 开发环境版本，包含了有帮助的命令行警告 -->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 1. 引用 Vue -->
+<!-- Vue CDN - 提供 Vue 服务 -->
+<script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
 ```
-
-<br>
 
 2. 然后，我们编写一个挂载点，即我们的 Vue，最终会在哪个 DOM 里面进行操作：
 
 ```
-<!-- 挂载点。可以理解为被操作的对象 -->
+<!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+<!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
 <div id="app"></div>
 ```
 
 <br>
 
-3. 最后，我们通过 New 一个 Vue 实例对象，对我们 id 为 app 的 DOM 节点进行操作：
+3. 最后，我们通过 New 一个 Vue 实例对象，对我们 id 为 `app` 的 DOM 节点进行操作：
 
 ```
 new Vue({
-  // el：element。发生行为的目的地，即我们的挂载点
-  el: "#app",
-  /*
-    * template：模板，即我们要渲染进挂载点的页面标签。
-    * 最外一层必须有一层包裹，例如 <div> 
-    */
+  // 3. el - 挂载目标，即渲染在哪个挂载点
+  el: document.getElementById('app'),
+  // 4. template - 模板，即渲染到挂载点的内容。
+  // 最外层必须有一层包裹，例如 <div>
   template: `
-      <div>
-        <p>Hello World</p>
-      </div>
-    `,
+    <div>
+      <p>Hello World</p>
+    </div>
+  `
 })
 ```
 
@@ -157,7 +169,7 @@ new Vue({
 
 &emsp;这样，我们最终就显示了 Vue 的简单引用，是不是觉得非常简单：
 
-![图](../../public-repertory/img/js-vue-basic-learning-3.png)
+![图](../../public-repertory/img/js-vue-basic-2.png)
 
 <br>
 
@@ -2422,7 +2434,65 @@ console.log(this.$refs.temp.$el);
 &emsp;如上，通过 Vue 的全局 API `Vue.nextTick()`，我们在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。  
 &emsp;这个操作我们可想象下 `Promise` 的执行流程，会获得更好的体验。
 
+## <a name="chapter-three" id="chapter-three">三 实战</a>
+
+> [返回目录](#catalog-chapter-three)
+
+那么，学到这里，我们应该进行一个简单的操练，来回顾我们所学知识了：
+
+* [Vue Todolist - 功成千骨教学文章](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueDemoOne.md)
+
+* [Vue Todolist - 功成千骨代码地址](https://github.com/LiangJunrong/achievement-of-thousands-of-bones)
+
+* [Vue Todolist - 功成千骨页面演示](http://vuetodo.jsliang.top/)
+
+![图](../../public-repertory/img/js-vue-demo-one-1.gif)
+
+## <a name="chapter-four" id="chapter-four">四 总结</a>
+
+> [返回目录](#catalog-chapter-four)
+
+如上，我们入门了基础的 Vue，可能小伙伴们会觉得还是很晕。
+
+但是，没关系，我们接下来在讲解 VueRouter、VueCli 的时候还是会使用 Vue 基础语法的，正如那句话：**万丈高楼平地起，地基还得自己起**。
+
+多实操，多做笔记，总能熟练上去的，加油~
+
+---
+
+> 后记
+
+如果小伙伴需要存放 [jsliang.top](http://jsliang.top/) 这样的纯静态页面或者 [company.jsliang.top](http://company.jsliang.top/) 这样的具有 Node 后端支持的页面，推荐购买云服务器来存放。
+
+如果小伙伴们不知道该怎么选择，可以加 **jsliang** QQ：`1741020489` 咨询。
+
+下面是优惠推广详情：  
+
+**腾讯云推广**：  
+
+新用户点这里：  
+* [新客户无门槛 2775 元代金券](https://cloud.tencent.com/redirect.php?redirect=1025&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)  
+![图](../../public-repertory/img/seek-tencent-1.jpg)
+
+购买云服务器：  
+* [12 月优惠低至 168 元/年](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+![图](../../public-repertory/img/seek-tencent-2.jpg)
+
 <br>
+
+**阿里云推广**：  
+
+新用户点这里：
+* [新用户云产品 1888 通用代金券](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)
+![图](../../public-repertory/img/seek-ali-1.png)
+
+购买云服务器：  
+* [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh) 
+![图](../../public-repertory/img/seek-ali-2.png)
+
+购买企业级云服务器：  
+* [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
+![图](../../public-repertory/img/seek-ali-3.jpg)
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
