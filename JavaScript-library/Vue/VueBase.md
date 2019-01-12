@@ -1323,9 +1323,7 @@ var MyHeader = {
 
 > [返回目录](#catalog-chapter-two-eight)
 
-<br>
-
-&emsp;然后，在尝试了局部 `filters` 的好处之后，我们还可以试试它的全局过滤器写法：
+然后，在尝试了局部 `filters` 的好处之后，我们还可以试试它的全局过滤器写法：
 
 > index.html
 
@@ -1337,27 +1335,62 @@ var MyHeader = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
 
     // 全局过滤器
     Vue.filter('addDot', function(money) {
       return (money / 1000000 + ".000000");
     })
-
+    
     new Vue({
+      // 3. el - 挂载目标，即渲染在哪个挂载点
       el: document.getElementById('app'),
+      // 4. template - 模板，即渲染到挂载点的内容
+      // 最外层必须有一层包裹，例如 <div>
       template: `
         <p>我是钱多多，我有 {{money}} 多一点： ￥{{money | addDot}}，跟我混有出息~</p>
       `,
-      data: {
-        money: 1000000
+      // 5. data - 数据，即在操作中需要用到的数据
+      // 可以理解为在 jQuery 中 var text = "Hello World!"
+      // {{ text }} 为数据渲染到 DOM 的方式之一
+      data() {
+        return {
+          // template 中要使用的数据
+          money: 1000000
+        }
+      },
+      // 6. methods - 方法，即我们的页面事件
+      // 可以理解为在 jQuery 中定义 Function
+      methods: {
+        
+      },
+      // 7. components - 组件名称
+      components: {
+        // key 是组件名，value 是组件对象
+
+      },
+      // 8. 组件内的过滤器
+      filters: {
+        
       }
     })
 
@@ -1367,15 +1400,9 @@ var MyHeader = {
 </html>
 ```
 
-<br>
+最后在页面中显示为：
 
-&emsp;最后在页面中显示为：
-
-```
-我是钱多多，我有 1000000 多一点： ￥1.000000，跟我混有出息~
-```
-
-<br>
+![图](../../public-repertory/img/js-vue-basic-12.png)
 
 ### <a name="chapter-two-night" id="chapter-two-night">2.9 监听数据 - watch</a>
 
