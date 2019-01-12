@@ -2280,7 +2280,7 @@ var App = {
 
 在解析代码前，我们先查看它的输出：
 
-![图](../../public-repertory/img/js-vue-basic-learning-13.png)
+![图](../../public-repertory/img/js-vue-basic-20.png)
 
 可以看出，`beforeUpdate` 可以获取原 DOM，而 `updated` 可以获取新 DOM。 
 
