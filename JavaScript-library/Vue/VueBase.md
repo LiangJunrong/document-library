@@ -1301,7 +1301,7 @@ var MyHeader = {
         // key 是组件名，value 是组件对象
 
       },
-      // 8. 组件内的过滤器
+      // 8. filters - 组件内的过滤器
       filters: {
         addDot(money) {
           return (money / 1000000 + ".000000");
@@ -1388,7 +1388,7 @@ var MyHeader = {
         // key 是组件名，value 是组件对象
 
       },
-      // 8. 组件内的过滤器
+      // 8. filters - 组件内的过滤器
       filters: {
         
       }
@@ -1404,24 +1404,19 @@ var MyHeader = {
 
 ![图](../../public-repertory/img/js-vue-basic-12.png)
 
-### <a name="chapter-two-night" id="chapter-two-night">2.9 监听数据 - watch</a>
+### <a name="chapter-two-night" id="chapter-two-night">2.9 监听数据</a>
 
 > [返回目录](#catalog-chapter-two-night)
 
-<br>
+在 `Vue` 中，我们通过 `v-model` 做了双向数据绑定，即在页面的 `<input>` 中输入的值，在我们的 `Vue` 中可以获得数据；在 `Vue` 中定义的数据，也会即时渲染到页面中。  
 
-&emsp;在 `Vue` 中，我们通过 `v-model` 做了双向数据绑定，即在页面的 `<input>` 中输入的值，在我们的 `Vue` 中可以获得数据；在 `Vue` 中定义的数据，也会即时渲染到页面中。  
-&emsp;但是，在代码中，我们怎样才能获取到它即时输入的数据呢？
+但是，在代码中，我们怎样才能获取到它即时输入的数据呢？
 
-<br>
-
-#### <a name="chapter-two-night-one" id="chapter-two-night-one">2.9.1 浅度监听</a>
+#### <a name="chapter-two-night-one" id="chapter-two-night-one">2.9.1 侦听属性 - watch</a>
 
 > [返回目录](#catalog-chapter-two-night)
 
-<br>
-
-&emsp;话不多说，先上代码：
+话不多说，先上代码：
 
 > index.html
 
@@ -1433,26 +1428,62 @@ var MyHeader = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
-
+    
     new Vue({
+      // 3. el - 挂载目标，即渲染在哪个挂载点
       el: document.getElementById('app'),
+      // 4. template - 模板，即渲染到挂载点的内容
+      // 最外层必须有一层包裹，例如 <div>
       template: `
         <div>
           <input type="text" v-model="money" />
           <span>{{money}}</span>
         </div>
       `,
-      data: {
-        money: ''
+      // 5. data - 数据，即在操作中需要用到的数据
+      // 可以理解为在 jQuery 中 var text = "Hello World!"
+      // {{ text }} 为数据渲染到 DOM 的方式之一
+      data() {
+        return {
+          // template 中要使用的数据
+          money: ''
+        }
       },
+      // 6. methods - 方法，即我们的页面事件
+      // 可以理解为在 jQuery 中定义 Function
+      methods: {
+        
+      },
+      // 7. components - 组件名称
+      components: {
+        // key 是组件名，value 是组件对象
+
+      },
+      // 8. filters - 组件内的过滤器
+      filters: {
+        
+      },
+      // 9. watch - 侦听属性
       watch: {
         // key: data 属性的属性名
         money(newVal, oldVal) {
@@ -1467,35 +1498,15 @@ var MyHeader = {
 </html>
 ```
 
-<br>
+这样，当我们输入 11 个 1 的过程中，浏览器的 `Console` 对应输出为：
 
-&emsp;这样，当我们输入 11 个 1 的过程中，浏览器的 `Console` 对应输出为：
-
-> Console
-
-```
-1 
-11 1
-111 11
-1111 111
-11111 1111
-111111 11111
-1111111 111111
-11111111 1111111
-111111111 11111111
-1111111111 111111111
-11111111111 1111111111
-```
-
-<br>
+![图](../../public-repertory/img/js-vue-basic-13.gif)
 
 #### <a name="chapter-two-night-two" id="chapter-two-night-two">2.9.2 深度监听</a>
 
 > [返回目录](#catalog-chapter-two-night)
 
-<br>
-
-&emsp;在上面，我们讲了通过 `watch` 来监听 `data` 中 `number`、`string` 等字段的改变。但是，如果我们需要监听的是 `array` 等复杂的数据，却发现上面的手段无效。  
+在上面，我们讲了通过 `watch` 来监听 `data` 中 `number`、`string` 等字段的改变。但是，如果我们需要监听的是 `array` 等复杂的数据，却发现上面的手段无效。  
 &emsp;而 `watch` 之所以没法监视复杂类型，是因为它监听的是对象的地址，而我们的地址没改，改的是同地址属性的值，导致我们没法监听到数据的变化。所以，对于数组等复杂类型，我们需要开启深度监视。
 
 > index.html
