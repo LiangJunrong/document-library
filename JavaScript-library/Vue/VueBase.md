@@ -1635,19 +1635,13 @@ watch: {
 
 > [返回目录](#catalog-chapter-two-ten)
 
-<br>
-
-&emsp;在日常工作中，我们对一些常用的功能，例如：侧边栏、顶部导航栏等，会进行常用的封装，等我们想用的时候，就可以直接引用。那么，在 Vue 中，想实现这类功能，我们还需要了解什么？
-
-<br>
+在日常工作中，我们对一些常用的功能，例如：侧边栏、顶部导航栏等，会进行常用的封装，等我们想用的时候，就可以直接引用。那么，在 Vue 中，想实现这类功能，我们还需要了解什么？
 
 #### <a name="chapter-two-ten-one" id="chapter-two-ten-one">2.10.1 slot 单个传递</a>
 
 > [返回目录](#catalog-chapter-two-ten)
 
-<br>
-
-&emsp;话不多说，先上代码：
+话不多说，先上代码：
 
 > index.html
 
@@ -1659,14 +1653,27 @@ watch: {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script> 
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
+  <script>
+    
     var myLi = {
       template: `
         <li><slot></slot></li>
@@ -1689,13 +1696,46 @@ watch: {
     };
 
     new Vue({
+      // 3. el - 挂载目标，即渲染在哪个挂载点
       el: document.getElementById('app'),
-      components: {
-        app: App
-      },
+      // 4. template - 模板，即渲染到挂载点的内容
+      // 最外层必须有一层包裹，例如 <div>
       template: `
         <app/>
-      `
+      `,
+      // 5. data - 数据，即在操作中需要用到的数据
+      // 可以理解为在 jQuery 中 var text = "Hello World!"
+      // {{ text }} 为数据渲染到 DOM 的方式之一
+      data() {
+        return {
+          // template 中要使用的数据
+
+        }
+      },
+      // 6. methods - 方法，即我们的页面事件
+      // 可以理解为在 jQuery 中定义 Function
+      methods: {
+        
+      },
+      // 7. components - 组件名称
+      components: {
+        // key 是组件名，value 是组件对象
+        app: App
+      },
+      // 8. filters - 组件内的过滤器
+      filters: {
+        
+      },
+      // 9. watch - 侦听属性
+      watch: {
+        // key: data 属性的属性名
+
+      },
+      // 10. computed - 计算属性
+      computed: {
+        // 如果原值不变，computed 会执行缓存，即不调用方法
+        
+      }
     })
 
   </script>
@@ -1704,15 +1744,13 @@ watch: {
 </html>
 ```
 
-<br>
+其结果如下图所示：
 
-&emsp;其结果如下图所示：
+![图](../../public-repertory/img/js-vue-basic-15.png)
 
-![图](../../public-repertory/img/js-vue-basic-learning-9.png)
+那么，上面代码中，我们干了什么？
 
-<br>
-
-&emsp;如上代码及其结果图，我们的 `new Vue` 中挂载了一个组件 `App`。
+**首先**，如上代码及其结果图，我们的 `new Vue` 中挂载了一个组件 `App`。
 
 ```
 new Vue({
@@ -1726,7 +1764,7 @@ new Vue({
 })
 ```
 
-&emsp;然后，该 `App` 的目的，是想动态引用一个 `li` 组件
+**然后**，该 `App` 的目的，是想动态引用一个 `li` 组件
 
 ```
 var App = {
@@ -1743,7 +1781,7 @@ var App = {
 };
 ```
 
-&emsp;接着，我们在全局定义 `myLi` 组件的同时，通过 `<slot></slot>` 插槽，使它能够动态地加载 `dom` 节点。
+**接着**，我们在全局定义 `myLi` 组件的同时，通过 `<slot></slot>` 插槽，使它能够动态地加载 `dom` 节点。
 
 ```
 var myLi = {
@@ -1755,7 +1793,7 @@ var myLi = {
 Vue.component('my-li', myLi);
 ```
 
-&emsp;最后，我们在 `App` 中，传递给它不同的 `dom` 节点，从而动态生成 `App`。
+**最后**，我们在 `App` 中，传递给它不同的 `dom` 节点，从而动态生成 `App`。
 
 ```
 var App = {
@@ -1772,17 +1810,13 @@ var App = {
 };
 ```
 
-&emsp;这样，我们就思路清晰地知道，如何通过 `<slot></slot>` 来动态地加载 `dom` 节点，对我们 Vue 开发又有了更好的帮助。
-
-<br>
+这样，我们就思路清晰地知道，如何通过 `<slot></slot>` 来动态地加载 `dom` 节点，对我们 Vue 开发又有了更好的帮助。
 
 #### <a name="chapter-two-ten-two" id="chapter-two-ten-two">2.10.2 具名 slot</a>
 
 > [返回目录](#catalog-chapter-two-ten)
 
-<br>
-
-&emsp;在上面中，我们谈论到了单个插槽 `slot` 的用法。但是，如果组件想根据父组件是否传递某个变量来存放插槽的数量，要怎么做呢？
+在上面中，我们谈论到了单个插槽 `slot` 的用法。但是，如果组件想根据父组件是否传递某个变量来存放插槽的数量，要怎么做呢？
 
 > index.html
 
@@ -1794,14 +1828,27 @@ var App = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+    
     var mySlot = {
       template: `
         <ul>
@@ -1836,13 +1883,46 @@ var App = {
     };
 
     new Vue({
+      // 3. el - 挂载目标，即渲染在哪个挂载点
       el: document.getElementById('app'),
-      components: {
-        app: App
-      },
+      // 4. template - 模板，即渲染到挂载点的内容
+      // 最外层必须有一层包裹，例如 <div>
       template: `
         <app/>
-      `
+      `,
+      // 5. data - 数据，即在操作中需要用到的数据
+      // 可以理解为在 jQuery 中 var text = "Hello World!"
+      // {{ text }} 为数据渲染到 DOM 的方式之一
+      data() {
+        return {
+          // template 中要使用的数据
+
+        }
+      },
+      // 6. methods - 方法，即我们的页面事件
+      // 可以理解为在 jQuery 中定义 Function
+      methods: {
+        
+      },
+      // 7. components - 组件名称
+      components: {
+        // key 是组件名，value 是组件对象
+        app: App
+      },
+      // 8. filters - 组件内的过滤器
+      filters: {
+        
+      },
+      // 9. watch - 侦听属性
+      watch: {
+        // key: data 属性的属性名
+
+      },
+      // 10. computed - 计算属性
+      computed: {
+        // 如果原值不变，computed 会执行缓存，即不调用方法
+        
+      }
     })
 
   </script>
@@ -1851,13 +1931,13 @@ var App = {
 </html>
 ```
 
-&emsp;效果图如下：
+效果图如下：
 
-![图](../../public-repertory/img/js-vue-basic-learning-10.png)
+![图](../../public-repertory/img/js-vue-basic-16.png)
 
-<br>
+下面我们分析下，我们在代码中做了啥：
 
-&emsp;首先，我们通过下面代码可以知道，第一个 `li` 的 `slot` 是未命名的默认 `slot`，所以它在页面中展示为 `p` 的数据。
+**首先**，我们通过下面代码可以知道，第一个 `li` 的 `slot` 是未命名的默认 `slot`，所以它在页面中展示为 `p` 的数据。
 
 ```
 var mySlot = {
@@ -1883,61 +1963,54 @@ var App = {
 };
 ```
 
-&emsp;然后，再观察下 `App` 中的代码 `<button slot="one">按钮</button>` 和 `<a href="javascript:void(0)" slot="two">链接</a>`，发现它们使用了 `slot="***"`，这说明了它指定了要求组件中 `<slot name="***"></slot>` 的代码接收。所以第二行第三行显示为按钮和链接。  
-&emsp;最后，由于最后一个 `li` 中 `<slot name="three"></slot>`，这个 `name="three"` 在 `App` 组件中没有用到，所以它表现为空。
+**然后**，再观察下 `App` 中的代码 `<button slot="one">按钮</button>` 和 `<a href="javascript:void(0)" slot="two">链接</a>`，发现它们使用了 `slot="***"`，这说明了它指定了要求组件中 `<slot name="***"></slot>` 的代码接收。所以第二行第三行显示为按钮和链接。  
 
-<br>
+**最后**，由于最后一个 `li` 中 `<slot name="three"></slot>`，这个 `name="three"` 在 `App` 组件中没有用到，所以它表现为空。
 
 ### <a name="chapter-two-eleven" id="chapter-two-eleven">2.11 Vue 组件生命周期</a>
 
 > [返回目录](#catalog-chapter-two-eleven)
 
-<br>
+在 Vue 中，什么时候进行虚拟 `dom` 渲染成 `dom`，或者什么时候销毁代码，都是有对应的钩子的：
 
-&emsp;在 Vue 中，什么时候进行虚拟 `dom` 渲染成 `dom`，或者什么时候销毁代码，都是有对应的钩子的：
+---
 
 * beforeCreate
 * created
 
-<br>
+---
 
 * beforeMount
 * mounted
 
-<br>
+---
 
 * beforeUpdate
 * updated
 
-<br>
+---
 
 * activated
 * deactivated
 
-<br>
+---
 
 * beforeDestory
 * destory
 
-<br>
+---
 
-&emsp;关于生命周期，Vue 官方文档是有相关图示及文档的：[官方文档 - Vue 生命周期](https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90)
+关于生命周期，Vue 官方文档是有相关图示及文档的：[官方文档 - Vue 生命周期](https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90)
 
-![图](../../public-repertory/img/js-vue-basic-learning-11.png)
+![图](../../public-repertory/img/js-vue-basic-17.png)
 
-<br>
-
-&emsp;下面我们通过代码演示，讲解这 5 组生命周期的用法。
-
-<br>
+下面我们通过代码演示，讲解这 5 组生命周期的用法。
 
 #### <a name="chapter-two-eleven-one" id="chapter-two-eleven-one">2.11.1 beforeCreate & created</a>
 
 > [返回目录](#catalog-chapter-two-eleven)
 
-<br>
-
-&emsp;话不多说，先上代码：
+话不多说，先上代码：
 
 > index.html
 
@@ -1949,14 +2022,27 @@ var App = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+    
     var lifeCycle = {
       template: `
         <div>
@@ -2004,27 +2090,24 @@ var App = {
         <app/>
       `
     })
-
+    
   </script>
 </body>
 
 </html>
 ```
 
-<br>
+在代码中可以看到，我们在 `App` 中引用了 `lifeCycle` 这个组件。  
 
-&emsp;在代码中可以看到，我们在 `App` 中引用了 `lifeCycle` 这个组件。  
-&emsp;我们通过钩子函数 `beforeCreate`（组件创建之前） 与 `created`（组件创建之后），结合 `console` 发现，这两个钩子函数对于 `data` 来说，一个在 `data` 挂载前（beforeCreate），所以打印出来的是：`undefined`，而另外一个发生在 `data` 挂载后，所以打印出来的是：`Hello World!`。
+我们通过钩子函数 `beforeCreate`（组件创建之前） 与 `created`（组件创建之后），结合 `console` 发现，这两个钩子函数对于 `data` 来说，一个在 `data` 挂载前（beforeCreate），所以打印出来的是：`undefined`，而另外一个发生在 `data` 挂载后，所以打印出来的是：`Hello World!`。
 
-<br>
+![图](../../public-repertory/img/js-vue-basic-18.png)
 
 #### <a name="chapter-two-eleven-two" id="chapter-two-eleven-two">2.11.2 beforeMount & mounted</a>
 
 > [返回目录](#catalog-chapter-two-eleven)
 
-<br>
-
-&emsp;话不多说，先上代码：
+话不多说，先上代码：
 
 > index.html
 
@@ -2036,14 +2119,27 @@ var App = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+    
     var lifeCycle = {
       template: `
         <div>
@@ -2092,14 +2188,13 @@ var App = {
 </html>
 ```
 
-&emsp;那么，虽说它们的作用，一个是 Vue 起作用之前，一个是 Vue 起作用，装载数据到 DOM 之后。  
-&emsp;我们应该怎样才能观察到它的作用？
+那么，虽说它们的作用，一个是 Vue 起作用之前，一个是 Vue 起作用，装载数据到 DOM 之后。  
 
-![图](../../public-repertory/img/js-vue-basic-learning-12.png)
+我们应该怎样才能观察到它的作用？
 
-<br>
+![图](../../public-repertory/img/js-vue-basic-19.png)
 
-&emsp;看到上图的红框，也许你会恍然大悟：“喔，`beforeMount` 就是我装载之前的钩子函数，而 `mounted` 是我装载之后的钩子函数，它是 Vue 作用以后的 DOM”
+看到上图的红框，也许你会恍然大悟：“喔，`beforeMount` 就是我装载之前的钩子函数，而 `mounted` 是我装载之后的钩子函数，它是 Vue 作用以后的 DOM”
 
 <br>
 
@@ -2107,9 +2202,7 @@ var App = {
 
 > [返回目录](#catalog-chapter-two-eleven)
 
-<br>
-
-&emsp;话不多说，先上代码：
+话不多说，先上代码：
 
 > index.html
 
@@ -2121,14 +2214,27 @@ var App = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+    
     var lifeCycle = {
       template: `
         <div id="update">
@@ -2184,33 +2290,25 @@ var App = {
 </html>
 ```
 
-<br>
-
-&emsp;在解析代码前，我们先查看它的输出：
+在解析代码前，我们先查看它的输出：
 
 ![图](../../public-repertory/img/js-vue-basic-learning-13.png)
 
-<br>
+可以看出，`beforeUpdate` 可以获取原 DOM，而 `updated` 可以获取新 DOM。 
 
-&emsp;可以看出，`beforeUpdate` 可以获取原 DOM，而 `updated` 可以获取新 DOM。  
-&emsp;它们在上面代码中变现为：获取 `<button>` 按钮触发的事件前后 DOM 的变化，通过这个变化，我们可以在当中做一些操作，从而更好的满足我们的业务需求。
-
-<br>
+它们在上面代码中变现为：获取 `<button>` 按钮触发的事件前后 DOM 的变化，通过这个变化，我们可以在当中做一些操作，从而更好的满足我们的业务需求。
 
 * 小结：（ `beforeMount` & `mounted` ） VS （ `beforeUpdate` & `updated` ） 
 
-&emsp;那么问题来了，`beforeMount` 这组和 `beforeUpdate` 都能监控到 DOM 的变化，它们有什么区别呢？  
-&emsp;答案是，一般我们如果需要在页面加载的时候，监控 DOM 的变化，那就使用 `beforeMount` 和 `mounted`；但是，如果我们想监控用户的操作（点击事件等），那么，我们就需要使用 `beforeUpdate` 和 `updated`，因为它们不像 `beforeMount` 和 `mounted` 只会在页面挂载初期执行一次，它们可以根据用户的操作被执行多次。
+那么问题来了，`beforeMount` 这组和 `beforeUpdate` 都能监控到 DOM 的变化，它们有什么区别呢？  
 
-<br>
+答案是，一般我们如果需要在页面加载的时候，监控 DOM 的变化，那就使用 `beforeMount` 和 `mounted`；但是，如果我们想监控用户的操作（点击事件等），那么，我们就需要使用 `beforeUpdate` 和 `updated`，因为它们不像 `beforeMount` 和 `mounted` 只会在页面挂载初期执行一次，它们可以根据用户的操作被执行多次。
 
 #### <a name="chapter-two-eleven-four" id="chapter-two-eleven-four">2.11.4 beforeDestory & destory</a>
 
 > [返回目录](#catalog-chapter-two-eleven)
 
-<br>
-
-&emsp;话不多说，先上代码：
+话不多说，先上代码：
 
 > index.html
 
@@ -2222,14 +2320,27 @@ var App = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+    
     var lifeCycle = {
       template: `
         <div id="update">
@@ -2280,27 +2391,19 @@ var App = {
 </html>
 ```
 
-<br>
+在这里，我们在点击 `<button>` 的时候，控制台显示为：
 
-&emsp;在这里，我们在点击 `<button>` 的时候，控制台显示为：
+![图](../../public-repertory/img/js-vue-basic-21.png)
 
-![图](../../public-repertory/img/js-vue-basic-learning-14.png)
+可以看出，当我们点击 `<button>` 的时候，我们的 `isExist` 状态（第一次时）被改变为 `false`，从而触发了 `lifeCycle` 的销毁钩子函数，在控制台打印了上面两行话。  
 
-<br>
-
-&emsp;可以看出，当我们点击 `<button>` 的时候，我们的 `isExist` 状态（第一次时）被改变为 `false`，从而触发了 `lifeCycle` 的销毁钩子函数，在控制台打印了上面两行话。  
-&emsp;相应的，如果是当 `isExist` 状态变为 `true` 的时候，会触发我们的 `beforeCreate` 和 `created` 这两个钩子函数，有兴趣的小伙伴可以尝试一下，这里不做过多演示。
-
-<br>
-
+相应的，如果是当 `isExist` 状态变为 `true` 的时候，会触发我们的 `beforeCreate` 和 `created` 这两个钩子函数，有兴趣的小伙伴可以尝试一下，这里不做过多演示。
 
 #### <a name="chapter-two-eleven-five" id="chapter-two-eleven-five">2.11.5 activated & deactivated</a>
 
 > [返回目录](#catalog-chapter-two-eleven)
 
-<br>
-
-&emsp;经过长期的工作，我们知道，如果频繁的操作 DOM，进行影响到钩子函数 `beforeCreate` 和 `created` 及 `beforeDestory` 和 `destory` 的操作，是对我们的性能会产生影响的。我们要如何防止某部分代码的频繁操作 DOM，并且监听到它的操作呢？
+经过长期的工作，我们知道，如果频繁的操作 DOM，进行影响到钩子函数 `beforeCreate` 和 `created` 及 `beforeDestory` 和 `destory` 的操作，是对我们的性能会产生影响的。我们要如何防止某部分代码的频繁操作 DOM，并且监听到它的操作呢？
 
 > index.html
 
@@ -2312,14 +2415,27 @@ var App = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+    
     var lifeCycle = {
       template: `
         <div id="update">
@@ -2369,22 +2485,15 @@ var App = {
 </html>
 ```
 
-<br>
+在代码中，我们通过 `<keep-alive></keep-alive>` 这个 Vue 的内置组件，对我们子组件进行了包裹。  
 
-&emsp;在代码中，我们通过 `<keep-alive></keep-alive>` 这个 Vue 的内置组件，对我们子组件进行了包裹。  
-&emsp;然后，当我们进入页面和点击按钮时，做到了 `activated` 和 `deactivated` 这两个钩子函数的触发：
+然后，当我们进入页面和点击按钮时，做到了 `activated` 和 `deactivated` 这两个钩子函数的触发：
 
-![图](../../public-repertory/img/js-vue-basic-learning-15.png)
+![图](../../public-repertory/img/js-vue-basic-22.png)
 
-<br>
-
-&emsp;可以看出，当我们进来页面的时候，它就告诉我们，该组件被激活了。当我们第一次点击 `<button>` 按钮的时候，`isExist` 的状态变成了 `false`，即该组件被停用了。最后，我们再次点击了 `<button>`，这时候控制台再次打印 `组件被激活了`。
-
-<br>
+可以看出，当我们进来页面的时候，它就告诉我们，该组件被激活了。当我们第一次点击 `<button>` 按钮的时候，`isExist` 的状态变成了 `false`，即该组件被停用了。最后，我们再次点击了 `<button>`，这时候控制台再次打印 `组件被激活了`。
 
 * 小结：这时候，希望小伙伴回到生命周期章节的开头，看官方关于生命周期的解析图，它将有助于我们更加理解声明周期。如果还是不够清晰，可以点击图片旁边的按钮，进入官方文档，查看官方关于生命周期的解析。[【返回加深学习】](#chapter-two-eleven)
-
-<br>
 
 ### <a name="chapter-two-twelve" id="chapter-two-twelve">2.12 获取 DOM 元素</a>
 
