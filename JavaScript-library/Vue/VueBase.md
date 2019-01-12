@@ -2499,19 +2499,13 @@ var App = {
 
 > [返回目录](#catalog-chapter-two-twelve)
 
-<br>
-
-&emsp;在日常开发中，可能有小伙伴会想到操作 DOM 元素。如果用原生的 `document.getElementById` 吧，可能太 `low` 了，所以，有没有类似于 jQuery 的 `$("#id")` 之类的呢？
-
-<br>
+在日常开发中，可能有小伙伴会想到操作 DOM 元素。如果用原生的 `document.getElementById` 吧，可能太 `low` 了，所以，有没有类似于 jQuery 的 `$("#id")` 之类的呢？
 
 #### <a name="chapter-two-twelve-one" id="chapter-two-twelve-one">2.12.1 单个 DOM 元素获取</a>
 
 > [返回目录](#catalog-chapter-two-twelve)
 
-<br>
-
-&emsp;话不多说，先上代码：
+话不多说，先上代码：
 
 > index.html
 
@@ -2523,15 +2517,27 @@ var App = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
-
+    
     var App = {
       template: `
         <div>
@@ -2570,21 +2576,21 @@ var App = {
 </html>
 ```
 
-<br>
+我们先查看下页面：
 
-&emsp;首先，我们在组件的 DOM 部分（`<button>`），写上 ref = "btn"。  
-&emsp;然后，我们发现只有在 `mounted` 数据装载之后这个钩子函数中，通过组件对象 `this.$refs.btn` 可以获取到元素  
-&emsp;这样，我们就知道在一些场景，如何可以方便地通过 Vue 获取到 DOM 元素了。
+![图](../../public-repertory/img/js-vue-basic-23.png)
 
-<br>
+**首先**，我们在组件的 DOM 部分（`<button>`），写上 ref = "btn"。  
+
+**然后**，我们发现只有在 `mounted` 数据装载之后这个钩子函数中，通过组件对象 `this.$refs.btn` 可以获取到元素  
+
+**这样**，我们就知道在一些场景，如何可以方便地通过 Vue 获取到 DOM 元素了。
 
 #### <a name="chapter-two-twelve-two" id="chapter-two-twelve-two">2.12.2 组件 DOM 元素获取</a>
 
 > [返回目录](#catalog-chapter-two-twelve)
 
-<br>
-
-&emsp;在上面，我们获取到了单个 DOM 节点的部分，假如我们需要获取到整个子组件，那么要怎么做呢？
+在上面，我们获取到了单个 DOM 节点的部分，假如我们需要获取到整个子组件，那么要怎么做呢？
 
 > index.html
 
@@ -2596,14 +2602,27 @@ var App = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+    
     var tempComponent = {
       template: `
         <div>我是临时组件</div>
@@ -2638,22 +2657,18 @@ var App = {
 </html>
 ```
 
-<br>
+我们先不急着分析，先看控制台打印出了什么；
 
-&emsp;我们先不急着分析，先看控制台打印出了什么；
+![图](../../public-repertory/img/js-vue-basic-24.png)
 
-![图](../../public-repertory/img/js-vue-basic-learning-16.png)
-
-<br>
-
-&emsp;在这里可以看到它打印出了一堆关于该组件的东西，其中
+在这里可以看到它打印出了一堆关于该组件的东西，其中
 
 * `$children` - 当前组件的子组件
 * `$el` - 当前组件的元素节点
 * `$parent` - 当前组件的父组件
 * `$root` - 获取 `new Vue` 实例
 
-&emsp;然后发现元素 `$el`是 DOM 节点的内容，我们尝试打印出来看一下：
+然后发现元素 `$el`是 DOM 节点的内容，我们尝试打印出来看一下：
 
 ```
 console.log(this.$refs.temp.$el);
@@ -2665,20 +2680,15 @@ console.log(this.$refs.temp.$el);
 <div>我是临时组件</div>
 ```
 
-<br>
-
-&emsp;通过 Console 可以看出，`$el` 就可以打印出其中的 `<button>` 元素了。
-
-<br>
+通过 Console 可以看出，`$el` 就可以打印出其中的 `<button>` 元素了。
 
 #### <a name="chapter-two-twelve-three" id="chapter-two-twelve-three">2.12.3 Vue.nextTick()</a>
 
 > [返回目录](#catalog-chapter-two-twelve)
 
-<br>
+当然，我们有时候操作 DOM，是想在 `data` 数据变更的时候进行操作，如果是使用上面方法，有些时候是搞不定的。  
 
-&emsp;当然，我们有时候操作 DOM，是想在 `data` 数据变更的时候进行操作，如果是使用上面方法，有些时候是搞不定的。  
-&emsp;那么，我们应该怎么做呢？
+那么，我们应该怎么做呢？
 
 > index.html
 
@@ -2690,15 +2700,27 @@ console.log(this.$refs.temp.$el);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
-
+    
     var App = {
       template: `
         <div>
@@ -2732,10 +2754,9 @@ console.log(this.$refs.temp.$el);
 </html>
 ```
 
-<br>
+如上，通过 Vue 的全局 API `Vue.nextTick()`，我们在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。  
 
-&emsp;如上，通过 Vue 的全局 API `Vue.nextTick()`，我们在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。  
-&emsp;这个操作我们可想象下 `Promise` 的执行流程，会获得更好的体验。
+这个操作我们可想象下 `Promise` 的执行流程，会获得更好的体验。
 
 ## <a name="chapter-three" id="chapter-three">三 实战</a>
 
