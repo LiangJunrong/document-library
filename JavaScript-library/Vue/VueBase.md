@@ -1087,9 +1087,7 @@ var MyHeader = {
 
 > [返回目录](#catalog-chapter-two-seven)
 
-<br>
-
-&emsp;在上面中，我们提到：
+在上面中，我们提到：
 
 ```
 - App
@@ -1098,10 +1096,11 @@ var MyHeader = {
  - my-footer
 ```
 
-<br>
+在 `App` 这个组件上，我们挂载了三个子组件：`myHeader`、`myContent`、`myFooter`。  
 
-&emsp;在 `App` 这个组件上，我们挂载了三个子组件：`myHeader`、`myContent`、`myFooter`。  
-&emsp;但是，如果某天，出现了一个女孩（共有组件），这个女孩的名字叫：`beautifulGirl`。然后不仅三个儿子（子组件）想追求她，就连父亲（父组件）也想追求她（够疯狂）。那么，在 `Vue` 中，是通过什么方式，使父亲和儿子都有机会接触到这个女孩呢？（父子组件如何能够都可以使用共用组件）
+* 但是，如果某天，出现了一个女孩（共有组件），这个女孩的名字叫：`beautifulGirl`。然后不仅三个儿子（子组件）想追求她，就连父亲（父组件）也想追求她（够疯狂）。
+
+那么，在 `Vue` 中，是通过什么方式，使父亲和儿子都有机会接触到这个女孩呢？（父子组件如何能够都可以使用共用组件）
 
 > index.html
 
@@ -1113,14 +1112,27 @@ var MyHeader = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+
     // 声明头部组件
     var MyHeader = {
       template: `
@@ -1148,61 +1160,62 @@ var MyHeader = {
     })
 
     new Vue({
+      // 3. el - 挂载目标，即渲染在哪个挂载点
       el: document.getElementById('app'),
-      components: { // 声明要用的组件们
-        // key 是组件名，value 是组件对象
-        'my-header': MyHeader,
-        'my-content': MyContent,
-        'my-footer': myFooter,
-      },
+      // 4. template - 模板，即渲染到挂载点的内容
+      // 最外层必须有一层包裹，例如 <div>
       template: `
         <div>
           <my-header/>
           <my-content/>
           <my-footer/>
         </div>
-      `
+      `,
+      // 5. data - 数据，即在操作中需要用到的数据
+      // 可以理解为在 jQuery 中 var text = "Hello World!"
+      // {{ text }} 为数据渲染到 DOM 的方式之一
+      data() {
+        return {
+          // template 中要使用的数据
+        }
+      },
+      // 6. methods - 方法，即我们的页面事件
+      // 可以理解为在 jQuery 中定义 Function
+      methods: {
+        
+      },
+      // 7. components - 组件名称
+      components: {
+        // key 是组件名，value 是组件对象
+        'my-header': MyHeader,
+        'my-content': MyContent,
+        'my-footer': myFooter,
+      }
     })
+
   </script>
 </body>
 
 </html>
 ```
 
-<br>
+在这里，我们通过 `Vue.component('组件名',{ })` 的形式，注册了个全局组件 `beautiful-girl`，这样，父子组件都可以直接调用该组件，从而在浏览器显示为：
 
-&emsp;在这里，我们通过 `Vue.component('组件名',{ })` 的形式，注册了个全局组件 `beautiful-girl`，这样，父子组件都可以直接调用该组件，从而在浏览器显示为：
+![图](../../public-repertory/img/js-vue-basic-10.png)
 
-```
-我是父组件，我想了解—— 美丽女孩 ——
-我是头部，我想了解—— 美丽女孩 ——
-我是内容区，我想了解—— 美丽女孩 ——
-我是底部，我想了解—— 美丽女孩 ——
-```
-
-<br>
-
-&emsp;现在，父亲和儿子都可以和漂亮女孩沟通了。究竟是父亲给他们的儿子找了个后妈，还是他们儿子找到自己所爱呢？敬请期待……
-
-<br>
+现在，父亲和儿子都可以和漂亮女孩沟通了。究竟是父亲给他们的儿子找了个后妈，还是他们儿子找到自己所爱呢？敬请期待……
 
 ### <a name="chapter-two-eight" id="chapter-two-eight">2.8 过滤器 - filter</a>
 
 > [返回目录](#catalog-chapter-two-eight)
 
-<br>
-
-&emsp;在工作中，我们经常需要对一些后端传回来的数据进行过滤。例如：我司 Java 小哥传回来的金钱，就是分进制的，即：1元 = 100分。所以传回个 2000，其实是 20 元。那么，在 Vue 中，我们该如何对数据进行过滤呢？  
-
-<br>
+在工作中，我们经常需要对一些后端传回来的数据进行过滤。例如：我司 Java 小哥传回来的金钱，就是分进制的，即：1元 = 100分。所以传回个 2000，其实是 20 元。那么，在 Vue 中，我们该如何对数据进行过滤呢？  
 
 #### <a name="chapter-two-eight-one" id="chapter-two-eight-one">2.8.1 局部过滤</a>
 
 > [返回目录](#catalog-chapter-two-eight)
 
-<br>
-
-&emsp;话不多说，先上代码：
+话不多说，先上代码：
 
 > index.html
 
@@ -1214,24 +1227,81 @@ var MyHeader = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
 
+    // 声明头部组件
+    var MyHeader = {
+      template: `
+        <div>我是头部，我想了解<beautiful-girl></beautiful-girl></div>
+      `
+    };
+    
+    // 声明内容组件
+    var MyContent = {
+      template: `
+        <div>我是内容区，我想了解<beautiful-girl></beautiful-girl></div>
+      `
+    };
+
+    // 声明底部组件
+    var myFooter = {
+      template: `
+        <div>我是底部，我想了解<beautiful-girl></beautiful-girl></div>
+      `
+    }
+
+    // 声明共用组件
+    Vue.component('beautiful-girl', {
+      template: `<span>—— 美丽女孩 ——</span>`
+    })
+
     new Vue({
+      // 3. el - 挂载目标，即渲染在哪个挂载点
       el: document.getElementById('app'),
+      // 4. template - 模板，即渲染到挂载点的内容
+      // 最外层必须有一层包裹，例如 <div>
       template: `
         <p>我是钱多多，我有 {{money}} 多一点： ￥{{money | addDot}}，跟我混有出息~</p>
       `,
-      data: {
-        money: 1000000
+      // 5. data - 数据，即在操作中需要用到的数据
+      // 可以理解为在 jQuery 中 var text = "Hello World!"
+      // {{ text }} 为数据渲染到 DOM 的方式之一
+      data() {
+        return {
+          // template 中要使用的数据
+          money: 1000000
+        }
       },
-      // 组件内的过滤器
+      // 6. methods - 方法，即我们的页面事件
+      // 可以理解为在 jQuery 中定义 Function
+      methods: {
+        
+      },
+      // 7. components - 组件名称
+      components: {
+        // key 是组件名，value 是组件对象
+
+      },
+      // 8. 组件内的过滤器
       filters: {
         addDot(money) {
           return (money / 1000000 + ".000000");
@@ -1245,11 +1315,9 @@ var MyHeader = {
 </html>
 ```
 
-<br>
+在上面，我们通过 `filters` 中的 `addDot` 方法，对数据进行了过滤，将 `money` 的数据，从 `10000000` 变成了 `1.000000`。
 
-&emsp;在上面，我们通过 `filters` 中的 `addDot` 方法，对数据进行了过滤，将 `money` 的数据，从 `10000000` 变成了 `1.000000`。
-
-<br>
+![图](../../public-repertory/img/js-vue-basic-11.png)
 
 #### <a name="chapter-two-eight-two" id="chapter-two-eight-two">2.8.2 全局过滤</a>
 
