@@ -121,8 +121,6 @@ Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进
 </html>
 ```
 
-<br>
-
 现在，我们解析下代码运行：
 
 1. 首先，创建一个空白的 html 模板文件，通过 CDN 引用 Vue：
@@ -162,8 +160,6 @@ new Vue({
   `
 })
 ```
-
-<br>
 
 这样，我们最终就显示了 Vue 的简单引用，是不是觉得非常简单：
 
@@ -258,8 +254,6 @@ data() {
 
 > [返回目录](#catalog-chapter-two-three)
 
-<br>
-
 在 `2.1` 章节 及 `2.2` 章节中，我们使用 `el` 的方式是：
 
 ```
@@ -285,8 +279,6 @@ el: document.getElementById('app'),
 ### <a name="chapter-two-four" id="chapter-two-four">2.4 插值表达式 - {{ }}</a>
 
 > [返回目录](#catalog-chapter-two-four)
-
-<br>
 
 如果小伙伴有点印象，应该还记得，我们在章节 `2.2` 中通过 `{{}}` 这个插值表达式的使用，在 `data` 中对其里面的数据进行操作。  
 
@@ -669,8 +661,6 @@ el: document.getElementById('app'),
   </ul>
 </div>
 ```
-
-<br>
 
 v-bind 和 v-model 的区别：
 
@@ -2195,8 +2185,6 @@ var App = {
 ![图](../../public-repertory/img/js-vue-basic-19.png)
 
 看到上图的红框，也许你会恍然大悟：“喔，`beforeMount` 就是我装载之前的钩子函数，而 `mounted` 是我装载之后的钩子函数，它是 Vue 作用以后的 DOM”
-
-<br>
 
 #### <a name="chapter-two-eleven-three" id="chapter-two-eleven-three">2.11.3 beforeUpdate & updated</a>
 
