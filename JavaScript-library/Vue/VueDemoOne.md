@@ -818,7 +818,7 @@ input::-ms-input-placeholder { color: #919191; font-size: 16px } /* Internet Exp
 
 脑阔疼，我们还是去网上盗个皮肤下来吧：
 
-![图](../../public-repertory/img/js-vue-demo-one-10.png)
+![图](../../public-repertory/img/js-vue-demo-one-12.png)
 
 很好，然后我们对着修改下 CSS：
 
@@ -978,7 +978,7 @@ input[type="checkbox"]:checked {
 
 大功告成，看下我们的成品：
 
-![图](../../public-repertory/img/js-vue-demo-one-11.png)
+![图](../../public-repertory/img/js-vue-demo-one-13.png)
 
 ## <a name="chapter-seven" id="chapter-seven">七 总结</a>
 
