@@ -140,7 +140,7 @@ Vue Router
 &emsp;我们在展示的页面后面敲上 `/login`，页面就会加载 `Login` 子组件。例如 **jsliang** 的就是 `http://127.0.0.1:8080/#/login`。  
 &emsp;此刻页面显示为：
 
-![图](../../public-repertory/img/js-vue-basic-learning-17.png)
+![图](../../public-repertory/img/js-vue-router-1.png)
 
 <br>
 
@@ -243,7 +243,7 @@ Vue Router
 
 &emsp;下面我们查看下该代码是否能正确运行：
 
-![图](../../public-repertory/img/js-vue-basic-learning-18.gif)
+![图](../../public-repertory/img/js-vue-router-2.gif)
 
 <br>
 
@@ -465,7 +465,7 @@ Vue Router
 
 &emsp;下面我们先查看其结果：
 
-![图](../../public-repertory/img/js-vue-basic-learning-19.gif)
+![图](../../public-repertory/img/js-vue-router-3.gif)
 
 <br>
 
@@ -649,7 +649,7 @@ path: '/myRegister/:id/:name'
 
 &emsp;先看看代码的实现效果：
 
-![图](../../public-repertory/img/js-vue-basic-learning-20.gif)
+![图](../../public-repertory/img/js-vue-router-4.gif)
 
 <br>
 
@@ -820,7 +820,7 @@ template: `
 
 &emsp;看下代码成果：
 
-![图](../../public-repertory/img/js-vue-basic-learning-21.gif)
+![图](../../public-repertory/img/js-vue-router-5.gif)
 
 <br>
 
