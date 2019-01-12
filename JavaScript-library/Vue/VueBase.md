@@ -31,10 +31,10 @@ Vue 基础
 | &emsp;<a name="catalog-chapter-two-eight" id="catalog-chapter-two-eight"></a>[2.8 过滤器 - filter](#chapter-two-eight) |
 | &emsp;&emsp;[2.8.1 局部过滤](#chapter-two-eight-one) |
 | &emsp;&emsp;[2.8.2 全局过滤](#chapter-two-eight-two) |
-| &emsp;<a name="catalog-chapter-two-night" id="catalog-chapter-two-night"></a>[2.9 监听数据 - watch](#chapter-two-night) |
-| &emsp;&emsp;[2.9.1 浅度监听](#chapter-two-night-one) |
-| &emsp;&emsp;[2.9.2 深度监听](#chapter-two-night-two) |
-| &emsp;&emsp;[2.9.3 同时监听多个属性 - computed](#chapter-two-night-three) |
+| &emsp;<a name="catalog-chapter-two-night" id="catalog-chapter-two-night"></a>[2.9 监听数据](#chapter-two-night) |
+| &emsp;&emsp;[2.9.1 侦听属性 - watch](#chapter-two-night-one) |
+| &emsp;&emsp;[2.9.2 计算属性 - computed](#chapter-two-night-two) |
+| &emsp;&emsp;[2.9.3 watch、computed 与 methods 对比](#chapter-two-night-three) |
 | &emsp;<a name="catalog-chapter-two-ten" id="catalog-chapter-two-ten"></a>[2.10 传递 DOM - slot](#chapter-two-ten) |
 | &emsp;&emsp;[2.10.1 slot 单个传递](#chapter-two-ten-one) |
 | &emsp;&emsp;[2.10.2 具名 slot](#chapter-two-ten-two) |
@@ -1502,92 +1502,11 @@ var MyHeader = {
 
 ![图](../../public-repertory/img/js-vue-basic-13.gif)
 
-#### <a name="chapter-two-night-two" id="chapter-two-night-two">2.9.2 深度监听</a>
+#### <a name="chapter-two-night-two" id="chapter-two-night-two">2.9.2 计算属性 - computed</a>
 
 > [返回目录](#catalog-chapter-two-night)
 
-在上面，我们讲了通过 `watch` 来监听 `data` 中 `number`、`string` 等字段的改变。但是，如果我们需要监听的是 `array` 等复杂的数据，却发现上面的手段无效。  
-&emsp;而 `watch` 之所以没法监视复杂类型，是因为它监听的是对象的地址，而我们的地址没改，改的是同地址属性的值，导致我们没法监听到数据的变化。所以，对于数组等复杂类型，我们需要开启深度监视。
-
-> index.html
-
-```
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
-</head>
-
-<body>
-  <div id="app"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script>
-
-    new Vue({
-      el: document.getElementById('app'),
-      template: `
-        <div>
-          <p>监听数组数据</p>
-          <div  v-for="(student, index) in students">
-            {{student.name}} - {{student.age}}
-            <button @click="deleteRealName(index)">删除</button>
-          </div>
-        </div>
-      `,
-      data: {
-        students: [
-          {
-            name: "jsliang",
-            age: 23
-          }, {
-            name: "梁峻荣",
-            age: 23
-          }
-        ]
-      },
-      watch: {
-        // 深度监视：object || array
-        students: {
-          deep: true,
-          handler(newVal, oldVal) {
-            console.log("深度监视-执行了数组删除：");
-            console.log(newVal);
-          }
-        }
-      },
-      methods: {
-        deleteRealName(index) {
-            this.students.splice(index, 1);
-        }
-      }
-    })
-
-  </script>
-</body>
-
-</html>
-```
-
-<br>
-
-&emsp;为方便理解，下面演示下 GIF 图：
-
-![图](../../public-repertory/img/js-vue-basic-learning-7.gif)
-
-<br>
-
-#### <a name="chapter-two-night-three" id="chapter-two-night-three">2.9.3 同时监听多个属性 - computed</a>
-
-> [返回目录](#catalog-chapter-two-night)
-
-<br>
-
-&emsp;为了方便我们的监听操作，Vue 定义了个方法：`computed`，我们可以通过 `computed`，监控我们在 `data` 中定义的全部数据。
+在上面，我们讲了通过 `watch` 来监听 `data` 中 `number`、`string` 等字段的改变。但是，在 Vue 中，为了方便我们的监听操作，Vue 还定义了个方法：`computed`，我们可以通过 `computed`，监控我们在 `data` 中定义的全部数据。
 
 > index.html
 
@@ -1624,7 +1543,8 @@ var MyHeader = {
       data: {
         number1: 0,
         number2: 0,
-        number3: 0
+        number3: 0,
+        result: '',
       },
       computed: {
         // 如果原值不变，缓存不调函数的优化机制
@@ -1644,13 +1564,70 @@ var MyHeader = {
 </html>
 ```
 
-<br>
+其结果如下面 GIF 图所示：
 
-&emsp;其结果如下面 GIF 图所示：
+![图](../../public-repertory/img/js-vue-basic-14.gif)
 
-![图](../../public-repertory/img/js-vue-basic-learning-8.gif)
+#### <a name="chapter-two-night-three" id="chapter-two-night-three">2.9.3 watch、computed 与 methods 对比</a>
 
-<br>
+> [返回目录](#catalog-chapter-two-night)
+
+在上面，我们涉及了两个知识点：`watch` 与 `computed`。
+
+那么，又到 “玄学” 的时刻了，都是跟监听数据打交道，我们平时使用 Vue 的时候，什么时候使用 `watch`，什么时候使用 `computed`？然后，如果我们在加上 methods，那么什么时候我们又用 methods 呢？
+
+**首先**，我们对比下 `computed` 与 `methods`：
+
+* `computed` 是根据 `data` 中的数据变化，而进行的操作。即 `this.任意数据` 改变了，那么，`computed` 就会进行改变；而如果 `this.任务数据` 不变，那么 `computed` 就会执行它的缓存策略，不会更新
+* `methods` 一般是根据点击之类的事件来触发的，例如用户通过 `@click="方法"` 来进行数据的改变。
+
+**然后**，我们对比下 `computed` 与 `watch`：
+
+如果上面章节的 `computed` 方法换成 `watch`：
+
+> index.html 代码片段
+
+```
+// 9. watch - 侦听属性
+watch: {
+  // key: data 属性的属性名
+  result(newVal, oldVal) {
+    console.log(newVal, oldVal);
+    this.result = this.number1 + this.number2 * this.number3;
+  }
+},
+```
+
+你会发现，`result` 数据不变化了，因为这是 `computed` 才特有的玩意，如果你需要将上面章节的 `computed` 方法换成 `watch`，那么你需要：
+
+> index.html 代码片段
+
+```
+// 9. watch - 侦听属性
+watch: {
+  // key: data 属性的属性名
+  number1(val) {
+    this.result = parseInt(this.number1) + parseInt(this.number2) * parseInt(this.number3);
+  },
+  number2(val) {
+    this.result = parseInt(this.number1) + parseInt(this.number2) * parseInt(this.number3);
+  },
+  number3(val) {
+    this.result = parseInt(this.number1) + parseInt(this.number2) * parseInt(this.number3);
+  }
+},
+```
+
+如此，小伙伴应该了解到，`watch` 如果需要完成 `computed` 的功能，那么，它需要监听每一个需要改变的属性。
+
+所以，在这里，我们大致描述下 `watch` 与 `computed` 的区分：
+
+* `computed` 强调计算，例如 `c = a + b`，`b` 是外界传来不断变化的，因为你只要显示 `c`，所以使用 `computed`。而 `watch` 属性强调自身值的变化前后的动作，如果需要完成 `c = a + b`，那么你需要 `watch` 数据 `a` 与 `b` 的变化，在这两者变化的时候，在方法中执行 `c = a + b`。
+* `watch` 在处理异步操作或者开销较大的操作上有优势。
+  * 执行异步操作不能串行返回结果，使用 `watch`；
+  * 开销较大的操作，避免堵塞主线程，使用 `watch`；
+  * 简单且串行返回的，使用 `computed`。
+* `computed` 对绑定的值有依赖，如果每次操作的值不变化，则不进行计算，具有缓存特性。watch 会侦听前后变化的状态，无论操作的值是否变化，都会执行定义的函数体，所以会有 data(newVal, oldVal)。
 
 ### <a name="chapter-two-ten" id="chapter-two-ten">2.10 传递 DOM - slot</a>
 
