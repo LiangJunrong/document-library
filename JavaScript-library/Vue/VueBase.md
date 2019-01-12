@@ -993,7 +993,7 @@ var MyHeader = {
 
 > [返回目录](#catalog-chapter-two-seven)
 
-既然前面章节已经划分了父子组件，那么在这里，我们讲下更有趣的事：父子组件通讯。  
+既然前面章节已经划分了父子组件，那么在这里，我们讲件更有趣的事：父子组件通讯。  
 
 在组件间，我们 `new Vue` 相当于父亲（父组件），他有自己的 `data`。然后，子组件也会有自己的 `data`。
 
@@ -1011,14 +1011,28 @@ var MyHeader = {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue学习</title>
+  
+  <title>Vue 学习</title>
+
 </head>
 
 <body>
+
+  <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
+  <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
   <div id="app"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 1. 引用 Vue -->
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  <!-- Vue Router CDN - 管理路由 -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+  <!-- Axios CDN - 调用接口 -->
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+  
   <script>
+
+    // 子组件
     var Son = {
       template: `
         <div>我的名字：{{name}}</div>
@@ -1027,29 +1041,47 @@ var MyHeader = {
     }
 
     new Vue({
+      // 3. el - 挂载目标，即渲染在哪个挂载点
       el: document.getElementById('app'),
-      components: {
-        son: Son
-      },
+      // 4. template - 模板，即渲染到挂载点的内容
+      // 最外层必须有一层包裹，例如 <div>
       template: `
         <son :name="name"></son>
       `,
-      data: {
-        name: '皮皮虾'
+      // 5. data - 数据，即在操作中需要用到的数据
+      // 可以理解为在 jQuery 中 var text = "Hello World!"
+      // {{ text }} 为数据渲染到 DOM 的方式之一
+      data() {
+        return {
+          // template 中要使用的数据
+          name: '皮皮虾'
+        }
+      },
+      // 6. methods - 方法，即我们的页面事件
+      // 可以理解为在 jQuery 中定义 Function
+      methods: {
+        
+      },
+      // 7. components - 组件名称
+      components: {
+        // key 是组件名，value 是组件对象
+        son: Son
       }
     })
+
   </script>
 </body>
 
 </html>
 ```
 
-<br>
+编写完代码后，我们可以在浏览器看到，浏览器显示出了：`我的名字：皮皮虾`，这几个大字。
 
-&emsp;编写完代码后，我们可以在浏览器看到，浏览器显示出了：`我的名字：皮皮虾`，这几个大字，哦了，原来父亲的儿子姓 `皮`。同时，我们也就知道了，在父组件中的数据，通过 `v-bind:***` 的形式，将父组件中的 `data`，发送给子组件。而子组件呢，通过 `props` 的定义，获取到了父亲的数据。  
-&emsp;这样我们就做到了父组件传递数据给子组件。
+![图](../../public-repertory/img/js-vue-basic-9.png)
 
-<br>
+哦了，原来父亲的儿子姓 `皮`。同时，我们也就知道了，在父组件中的数据，通过 `v-bind:***` 的形式，将父组件中的 `data`，发送给子组件。而子组件呢，通过 `props` 的定义，获取到了父亲的数据。  
+
+这样我们就做到了父组件传递数据给子组件。
 
 #### <a name="chapter-two-seven-three" id="chapter-two-seven-three">2.7.3 共用组件</a>
 
