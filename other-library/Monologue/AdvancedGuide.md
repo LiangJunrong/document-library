@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-1-6 16:35:47**
+> Recently revised in **2019-1-13 19:06:38**
 
 <br>
 
@@ -25,6 +25,16 @@
 | [豆包君](https://github.com/danygitgit) |
 
 <br>
+
+# 2019-1-13
+
+&emsp;这一周参赛
+
+* 暂无
+
+&emsp;上一周情况
+
+* - [x] [豆包君](https://github.com/danygitgit) 参赛 7 天，完成了 7 天的提交。
 
 # 2019-1-7
 
