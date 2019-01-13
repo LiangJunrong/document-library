@@ -2,7 +2,7 @@ Vue Router
 ===
 
 > Create by **jsliang** on **2018-11-8 13:39:39**  
-> Recently revised in **2018-12-29 17:22:37**
+> Recently revised in **2019-1-13 19:05:12**
 
 <br>
 
