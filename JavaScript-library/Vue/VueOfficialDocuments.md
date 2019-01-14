@@ -84,13 +84,23 @@ Vue 官方文档二三事
 
 > [返回目录](#catalog-chapter-two)
 
-* push() - 向数组尾部添加元素
-* pop() - 删除并导出数组最后一个元素
-* shift() - 删除并导出数组第一个元素
-* unshift() - 向数组开头添加元素
-* splice() - 向数组中添加/删除元素并返回新的数组
-* sort() - 排序
-* reverse() - 反转数组
+1. 改变原数组的方法
+
+* `push()` - 向数组尾部添加元素
+* `pop()` - 删除并导出数组最后一个元素
+* `shift()` - 删除并导出数组第一个元素
+* `unshift()` - 向数组开头添加元素
+* `splice()` - 向数组中添加/删除元素并返回新的数组
+* `sort()` - 排序
+* `reverse()` - 反转数组
+
+2. 不改变原数组的方法
+
+* `filter()` - 过滤数组
+* `concat()` - 拼接两至多个数组
+* `slice()` - 获取数组指定位置数据
+
+> 不改变原数组的方法比改变原数组的方法高效，至于怎么姿势才爽，那就看个人感受了。
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
