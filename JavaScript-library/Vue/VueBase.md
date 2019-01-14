@@ -24,7 +24,7 @@ Vue 基础
 | &emsp;<a name="catalog-chapter-two-four" id="catalog-chapter-two-four"></a>[2.4 插值表达式 - {{ }}](#chapter-two-four) |
 | &emsp;<a name="catalog-chapter-two-five" id="catalog-chapter-two-five"></a>[2.5 指令 - v-*](#chapter-two-five) |
 | &emsp;<a name="catalog-chapter-two-six" id="catalog-chapter-two-six"></a>[2.6 事件 - methods](#chapter-two-six) |
-| &emsp;<a name="catalog-chapter-two-seven" id="catalog-chapter-two-seven"></a>[2.7 模板 - template](#chapter-two-seven) |
+| &emsp;<a name="catalog-chapter-two-seven" id="catalog-chapter-two-seven"></a>[2.7 组件 - components](#chapter-two-seven) |
 | &emsp;&emsp;[2.7.1 初识组件](#chapter-two-seven-one) |
 | &emsp;&emsp;[2.7.2 父子组件通讯](#chapter-two-seven-two) |
 | &emsp;&emsp;[2.7.3 共用组件](#chapter-two-seven-three) |
