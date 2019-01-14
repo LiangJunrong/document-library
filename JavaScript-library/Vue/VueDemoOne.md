@@ -1011,35 +1011,7 @@ input[type="checkbox"]:checked {
 
 如果小伙伴需要存放 [jsliang.top](http://jsliang.top/) 这样的纯静态页面或者 [company.jsliang.top](http://company.jsliang.top/) 这样的具有 Node 后端支持的页面，推荐购买云服务器来存放。
 
-如果小伙伴们不知道该怎么选择，可以加 **jsliang** QQ：`1741020489` 咨询。
-
-下面是优惠推广详情：  
-
-**腾讯云推广**：  
-
-新用户点这里：  
-* [新客户无门槛 2775 元代金券](https://cloud.tencent.com/redirect.php?redirect=1025&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)  
-![图](../../public-repertory/img/seek-tencent-1.jpg)
-
-购买云服务器：  
-* [12 月优惠低至 168 元/年](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
-![图](../../public-repertory/img/seek-tencent-2.jpg)
-
-<br>
-
-**阿里云推广**：  
-
-新用户点这里：
-* [新用户云产品 1888 通用代金券](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=w7hismrh)
-![图](../../public-repertory/img/seek-ali-1.png)
-
-购买云服务器：  
-* [高性能云服务器 - 低至 293元/年](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh) 
-![图](../../public-repertory/img/seek-ali-2.png)
-
-购买企业级云服务器：  
-* [企业级高性能云服务器](https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=w7hismrh)
-![图](../../public-repertory/img/seek-ali-3.jpg)
+如果小伙伴们不知道该怎么选择云服务器，可以查看 [详细介绍](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md) 或者加 **jsliang** QQ：`1741020489` 咨询。
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
