@@ -2,7 +2,7 @@ Vue 官方文档二三事
 ===
 
 > Create by **jsliang** on **2019-1-14 10:40:32**  
-> Recently revised in **2019-1-14 12:44:13**
+> Recently revised in **2019-1-14 14:09:54**
 
 记录在阅读 Vue、VueRouter、VueCli 等官方文档时的一些笔记，仅供参考，不做发表。
 
@@ -25,6 +25,9 @@ Vue 官方文档二三事
 
 > [返回目录](#catalog-chapter-two)
 
+* [Vue 教程](https://cn.vuejs.org/v2/guide/)
+* [Vue API](https://cn.vuejs.org/v2/api/)
+
 ### <a name="chapter-two-one" id="chapter-two-one">2.1 安装</a>
 
 > [返回目录](#catalog-chapter-two)
@@ -39,21 +42,18 @@ Vue 官方文档二三事
 
 > [返回目录](#catalog-chapter-two)
 
-| 名称 | 作用 |
-| --- | --- |
-| `{{}}` | 将数据解析为纯文本，与 `v-text` 的区别就是花括号会显示 `{{}}` |
-| `v-text` | 将数据解析为纯文本。 |
-| `v-html` | 输出真正的 HTML，HTML 标签可以使用 |
-| `v-bind` | 属性字段可以通过 `v-bind` 或者其简写 `:bind` 绑定到 HTML 上，例如 `<a>` 标签的 `url` 或者自定义属性 `:disabled` 等…… |
-| `v-if` | 通过值 `true` 或者 `false` 来添加/删除标签，一般会结合三元表达式。与 `v-show` 的区别是，`v-if` 的标签，如果为 `false` 是直接删掉该节点，而 `v-show` 是通过 `display:none` 来控制标签 |
-| `v-else-if` | 结合 `v-if` 使用 |
-| `v-else` | 结合 `v-if` 使用 |
-| `v-show` |  通过值 `true` 或者 `false` 来显示/隐藏标签，一般会结合三元表达式。|
-| `v-on` | 事件方法可以通过 `v-on` 或者其简写 `@` 来绑定到 HTML 上，例如点击事件 `@click` 或者鼠标回车事件 `v-on:keyup.enter` |
-| `v-for` | 常见形式：`v-for="(item, index) in items`。`item` 是单个元素，`index` 是数组下标。其他形式：`v-for="item of items` |
-|  |  |
+* `{{}}` - 将数据解析为纯文本，与 `v-text` 的区别就是花括号会显示 `{{}}`
+* `v-text` - 将数据解析为纯文本。
+* `v-html` - 输出真正的 HTML，HTML 标签可以使用.
+* `v-bind` - 属性字段可以通过 `v-bind` 或者其简写 `:bind` 绑定到 HTML 上，例如 `<a>` 标签的 `url` 或者自定义属性 `:disabled` 等…… 
+* `v-if` - 通过值 `true` 或者 `false` 来添加/删除标签，一般会结合三元表达式。与 `v-show` 的区别是，`v-if` 的标签，如果为 `false` 是直接删掉该节点，而 `v-show` 是通过 `display:none` 来控制标签。
+* `v-else-if` - 结合 `v-if` 使用。
+* `v-else` - 结合 `v-if` 使用。
+* `v-show` -  通过值 `true` 或者 `false` 来显示/隐藏标签，一般会结合三元表达式。
+* `v-on` - 事件方法可以通过 `v-on` 或者其简写 `@` 来绑定到 HTML 上，例如点击事件 `@click` 或者鼠标回车事件 `v-on:keyup.enter`。
+* `v-for` - 常见形式：`v-for="(item, index) in items`。`item` 是单个元素，`index` 是数组下标。其他形式：`v-for="item of items`。
 
-* 小 tips
+> 小 tips
 
 1. `v-if` VS `v-show`：一般来说，`v-if` 有更高的切换开销，而 `v-show` 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 `v-show` 较好；如果在运行时条件很少改变，则使用 `v-if` 较好。
 2. `v-if` + `v-for`：永远不要把 `v-if` 和 `v-for` 同时用在同一个元素上，例如：`v-for="user in users" v-if="user.isActive"` 就是不推荐的。如果你打死都要这么做，那么 `v-for` 具有比 `v-if` 更高的优先级。
@@ -69,7 +69,7 @@ Vue 官方文档二三事
   * 执行异步操作不能串行返回结果，使用 `watch`；
   * 开销较大的操作，避免堵塞主线程，使用 `watch`；
   * 简单且串行返回的，使用 `computed`。
-* `computed` 对绑定的值有依赖，如果每次操作的值不变化，则不进行计算，具有缓存特性。watch 会侦听前后变化的状态，无论操作的值是否变化，都会执行定义的函数体，所以会有 data(newVal, oldVal)。
+* `computed` 对绑定的值有依赖，如果每次操作的值不变化，则不进行计算，具有缓存特性。`watch` 会侦听前后变化的状态，无论操作的值是否变化，都会执行定义的函数体，所以会有 data(newVal, oldVal)。
 
 ### <a name="chapter-two-five" id="chapter-two-five">2.5 样式</a>
 
