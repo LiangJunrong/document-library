@@ -17,6 +17,7 @@ Vue 官方文档二三事
 | &emsp;[2.3 生命周期钩子](#chapter-two-three) |
 | &emsp;[2.4 数据监听](#chapter-two-four) |
 | &emsp;[2.5 样式](#chapter-two-five) |
+| &emsp;[2.6 数组操作](#chapter-two-six) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 VueRouter](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 VueCli](#chapter-four) |
 
@@ -44,11 +45,18 @@ Vue 官方文档二三事
 | `v-text` | 将数据解析为纯文本。 |
 | `v-html` | 输出真正的 HTML，HTML 标签可以使用 |
 | `v-bind` | 属性字段可以通过 `v-bind` 或者其简写 `:bind` 绑定到 HTML 上，例如 `<a>` 标签的 `url` 或者自定义属性 `:disabled` 等…… |
-| `v-if` | 通过值 `true` 或者 `false` 来显示/隐藏标签，一般会结合三元表达式。与 `v-show` 的区别是，`v-if` 的标签，如果为 `false` 是直接删掉该节点，而 `v-show` 是通过 `display:none` 来控制标签 |
+| `v-if` | 通过值 `true` 或者 `false` 来添加/删除标签，一般会结合三元表达式。与 `v-show` 的区别是，`v-if` 的标签，如果为 `false` 是直接删掉该节点，而 `v-show` 是通过 `display:none` 来控制标签 |
+| `v-else-if` | 结合 `v-if` 使用 |
+| `v-else` | 结合 `v-if` 使用 |
 | `v-show` |  通过值 `true` 或者 `false` 来显示/隐藏标签，一般会结合三元表达式。|
 | `v-on` | 事件方法可以通过 `v-on` 或者其简写 `@` 来绑定到 HTML 上，例如点击事件 `@click` 或者鼠标回车事件 `v-on:keyup.enter` |
+| `v-for` | 常见形式：`v-for="(item, index) in items`。`item` 是单个元素，`index` 是数组下标。其他形式：`v-for="item of items` |
 |  |  |
-|  |  |
+
+* 小 tips
+
+1. `v-if` VS `v-show`：一般来说，`v-if` 有更高的切换开销，而 `v-show` 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 `v-show` 较好；如果在运行时条件很少改变，则使用 `v-if` 较好。
+2. `v-if` + `v-for`：永远不要把 `v-if` 和 `v-for` 同时用在同一个元素上，例如：`v-for="user in users" v-if="user.isActive"` 就是不推荐的。如果你打死都要这么做，那么 `v-for` 具有比 `v-if` 更高的优先级。
 
 ### <a name="chapter-two-four" id="chapter-two-four">2.4 数据监听</a>
 
@@ -72,6 +80,17 @@ Vue 官方文档二三事
 | `:class` | 动态绑定 Class，可以通过多分类：`:class="{ a: true, 'b', c: false }`，或者结合计算属性 `:class="computedClass`，或者通过三元表达式：`:class="{ a ? a == 1 : a == 2 }"` |
 | `:style` | 动态绑定行内样式，如果是 `font-size` 之类的，最好通过驼峰式 `fontSize` 来编写。如果采用 `:style="{styleOne, styleTwo}"` 的形式，当遇到 `transform` 时，Vue 会自动添加相应的前缀。 |
 
+### <a name="chapter-two-six" id="chapter-two-six">2.6 数组操作</a>
+
+> [返回目录](#catalog-chapter-two)
+
+* push() - 向数组尾部添加元素
+* pop() - 删除并导出数组最后一个元素
+* shift() - 删除并导出数组第一个元素
+* unshift() - 向数组开头添加元素
+* splice() - 向数组中添加/删除元素并返回新的数组
+* sort() - 排序
+* reverse() - 反转数组
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
