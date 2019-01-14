@@ -2,7 +2,7 @@ jsliang 日常
 ===
 
 > Create by **jsliang** on **2018-12-21 11:29:02**  
-> Recently revised in **2018-12-23 21:07:50**
+> Recently revised in **2019-1-14 10:00:03**
 
 <br>
 
@@ -20,6 +20,7 @@ jsliang 日常
 
 ## 学习计划
 
+* 【2019-01-14】折腾完 [Vue 基础](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md) + [Vue 基础实战](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueDemoOne.md)，准备折腾 Vue-Router、Vue-Cli 等系列……
 * 【2018-12-21】目前准备折腾完善 Vue 部分的文章。
 * 【2018-10-29】我怀念之前写 Vue + Node 的日子了，现在一直用着 jQuery，感觉好 low，没有一点技术提升，于是开始跟着技术胖的视频，折腾 [Vue + Koa2 + MongoDB 搭建商城](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/ShoppingMall/ShoppingMall.md)。  
 &emsp;**然后**，发现 Vue 基础知识不够，于是看着开课吧的视频学习 Vue 基础，写了 [Vue 开篇](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/README.md)、[Vue 基础](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)、[Vue Router](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueRouter.md)、[VueCli](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueCli.md)、[Axios](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/Axios.md) 等 Vue 系列文章。  
