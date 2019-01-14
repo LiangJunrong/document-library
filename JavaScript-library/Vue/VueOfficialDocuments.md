@@ -53,7 +53,14 @@ Vue 官方文档二三事
 
 > [返回目录](#catalog-chapter-two)
 
+**`watch` 与 `computed`**：
 
+* `computed` 强调计算，例如 `c = a + b`，`b` 是外界传来不断变化的，因为你只要显示 `c`，所以使用 `computed`。而 `watch` 属性强调自身值的变化前后的动作，如果需要完成 `c = a + b`，那么你需要 `watch` 数据 `a` 与 `b` 的变化，在这两者变化的时候，在方法中执行 `c = a + b`。
+* `watch` 在处理异步操作或者开销较大的操作上有优势。
+  * 执行异步操作不能串行返回结果，使用 `watch`；
+  * 开销较大的操作，避免堵塞主线程，使用 `watch`；
+  * 简单且串行返回的，使用 `computed`。
+* `computed` 对绑定的值有依赖，如果每次操作的值不变化，则不进行计算，具有缓存特性。watch 会侦听前后变化的状态，无论操作的值是否变化，都会执行定义的函数体，所以会有 data(newVal, oldVal)。
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
