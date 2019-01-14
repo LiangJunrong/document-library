@@ -20,6 +20,7 @@ Vue 官方文档二三事
 | &emsp;[2.6 数组操作](#chapter-two-six) |
 | &emsp;[2.7 事件修饰符](#chapter-two-seven) |
 | &emsp;[2.8 按键修饰符](#chapter-two-eight) |
+| &emsp;[2.9 父子组件及其通讯](#chapter-two-night) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 VueRouter](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 VueCli](#chapter-four) |
 
@@ -135,6 +136,17 @@ Vue 官方文档二三事
 * `.ctrl` - Ctrl 键
 * `.alt` - Alt 键
 * `.shift` - Shift 键
+
+### <a name="chapter-two-night" id="chapter-two-night">2.9 父子组件及其通讯</a>
+
+> [返回目录](#catalog-chapter-three)
+
+* 组件的写法
+* 全局组件与局部组件
+* 父组件传递数据给子组件
+* 子组件传递数据给父组件
+* 父子组件 `v-model` 实现
+* `<slot></slot>` 插槽与 `:is` 的灵活应用
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
