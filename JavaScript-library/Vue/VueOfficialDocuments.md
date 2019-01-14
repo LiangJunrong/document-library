@@ -19,6 +19,7 @@ Vue 官方文档二三事
 | &emsp;[2.5 样式](#chapter-two-five) |
 | &emsp;[2.6 数组操作](#chapter-two-six) |
 | &emsp;[2.7 事件修饰符](#chapter-two-seven) |
+| &emsp;[2.8 按键修饰符](#chapter-two-eight) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 VueRouter](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 VueCli](#chapter-four) |
 
@@ -113,6 +114,25 @@ Vue 官方文档二三事
 * `.self` - 只触发该 DOM 本身的事件。相比于 `.stop` 阻止事件冒泡，`.self` 忽略事件冒泡和捕获的影响。
 * `.once` - 事件将只会触发一次。例如：`@click.once='doOnce'`，`doOnce` 只会执行一次。
 * `.passive` - 不要阻止事件的默认行为。例如：`v-on:scroll.passive="onScroll"`，在进行滚动的时候同时执行 `onScroll`，而不是等 `onScroll` 执行完再滚动。
+
+### <a name="chapter-two-eight" id="chapter-two-eight">2.8 按键修饰符</a>
+
+> [返回目录](#catalog-chapter-three)
+
+> `v-on:keyup.13` = `@click.enter`
+
+* `.enter` - 回车
+* `.tab` - Tab 键
+* `.delete` - Back Space 或者 Delete
+* `.esc` - Esc 键
+* `.space` - 空格键
+* `.up` - 上箭头
+* `.down` - 下箭头
+* `.left` - 左箭头
+* `.right` - 右箭头
+* `.ctrl` - Ctrl 键
+* `.alt` - Alt 键
+* `.shift` - Shift 键
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
