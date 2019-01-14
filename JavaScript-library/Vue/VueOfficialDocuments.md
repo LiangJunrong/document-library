@@ -16,6 +16,7 @@ Vue 官方文档二三事
 | &emsp;[2.2 指令](#chapter-two-two) |
 | &emsp;[2.3 生命周期钩子](#chapter-two-three) |
 | &emsp;[2.4 数据监听](#chapter-two-four) |
+| &emsp;[2.5 样式](#chapter-two-five) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 VueRouter](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 VueCli](#chapter-four) |
 
@@ -61,6 +62,16 @@ Vue 官方文档二三事
   * 开销较大的操作，避免堵塞主线程，使用 `watch`；
   * 简单且串行返回的，使用 `computed`。
 * `computed` 对绑定的值有依赖，如果每次操作的值不变化，则不进行计算，具有缓存特性。watch 会侦听前后变化的状态，无论操作的值是否变化，都会执行定义的函数体，所以会有 data(newVal, oldVal)。
+
+### <a name="chapter-two-five" id="chapter-two-five">2.5 样式</a>
+
+> [返回目录](#catalog-chapter-two)
+
+| 类型 | 说明 |
+| --- | --- |
+| `:class` | 动态绑定 Class，可以通过多分类：`:class="{ a: true, 'b', c: false }`，或者结合计算属性 `:class="computedClass`，或者通过三元表达式：`:class="{ a ? a == 1 : a == 2 }"` |
+| `:style` | 动态绑定行内样式，如果是 `font-size` 之类的，最好通过驼峰式 `fontSize` 来编写。如果采用 `:style="{styleOne, styleTwo}"` 的形式，当遇到 `transform` 时，Vue 会自动添加相应的前缀。 |
+
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
