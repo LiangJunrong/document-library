@@ -145,8 +145,12 @@ Vue 官方文档二三事
 * 全局组件与局部组件
 * 父组件传递数据给子组件
 * 子组件传递数据给父组件
-* 父子组件 `v-model` 实现
-* `<slot></slot>` 插槽与 `:is` 的灵活应用
+* 父子组件的 `v-model` 实现
+* `<slot>` - 默认插槽与其具名插槽
+* `:is` 的灵活应用
+* `<keep-alive>` 缓存状态，避免重新渲染
+
+> 静态赋值 `props`：`title="My name is jsliang"`；动态赋值 `props`：`:title="article.title + ' by ' + article.name`；`props` 可以传入 `String`、`Number`、`Boolean`、`Array`、`Object`、`Date`、`Function`、`Symbol` 并且对其进行以上类型验证。
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
