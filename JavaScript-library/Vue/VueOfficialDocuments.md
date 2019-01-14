@@ -18,6 +18,7 @@ Vue 官方文档二三事
 | &emsp;[2.4 数据监听](#chapter-two-four) |
 | &emsp;[2.5 样式](#chapter-two-five) |
 | &emsp;[2.6 数组操作](#chapter-two-six) |
+| &emsp;[2.7 事件修饰符](#chapter-two-seven) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 VueRouter](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 VueCli](#chapter-four) |
 
@@ -50,7 +51,7 @@ Vue 官方文档二三事
 * `v-else-if` - 结合 `v-if` 使用。
 * `v-else` - 结合 `v-if` 使用。
 * `v-show` -  通过值 `true` 或者 `false` 来显示/隐藏标签，一般会结合三元表达式。
-* `v-on` - 事件方法可以通过 `v-on` 或者其简写 `@` 来绑定到 HTML 上，例如点击事件 `@click` 或者鼠标回车事件 `v-on:keyup.enter`。
+* `v-on` - 事件方法可以通过 `v-on` 或者其简写 `@` 来绑定到 HTML 上，例如点击事件 `@click` 或者鼠标回车事件 `v-on:keyup.enter`。`v-on` 与 `methods` 是一对搭档。
 * `v-for` - 常见形式：`v-for="(item, index) in items`。`item` 是单个元素，`index` 是数组下标。其他形式：`v-for="item of items`。
 
 > 小 tips
@@ -101,6 +102,17 @@ Vue 官方文档二三事
 * `slice()` - 获取数组指定位置数据
 
 > 不改变原数组的方法比改变原数组的方法高效，至于怎么姿势才爽，那就看个人感受了。
+
+### <a name="chapter-two-seven" id="chapter-two-seven">2.7 事件修饰符</a>
+
+> [返回目录](#catalog-chapter-two)
+
+* `.stop` - 阻止事件冒泡。例如：`@click.stop="say"` 阻止 `say` 方法传递到上一级 DOM。
+* `.prevent` - 阻止默认事件。例如：`@click.prevent="say"`，阻止点击事件，然后执行 `say`。
+* `.capture` - 给元素添加监听器，在一个 HTML 模块中，如果有 4 层嵌套，前 2 层使用了 `.capture` 修饰符，第 3/4 层未使用，点击第 4 层触发点击事件，则顺序为：1 -> 2 -> 4 -> 3，因为 `.capture` 会先触发。
+* `.self` - 只触发该 DOM 本身的事件。相比于 `.stop` 阻止事件冒泡，`.self` 忽略事件冒泡和捕获的影响。
+* `.once` - 事件将只会触发一次。例如：`@click.once='doOnce'`，`doOnce` 只会执行一次。
+* `.passive` - 不要阻止事件的默认行为。例如：`v-on:scroll.passive="onScroll"`，在进行滚动的时候同时执行 `onScroll`，而不是等 `onScroll` 执行完再滚动。
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
