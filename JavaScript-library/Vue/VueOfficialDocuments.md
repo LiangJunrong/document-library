@@ -54,11 +54,13 @@ Vue 官方文档二三事
 * `v-show` -  通过值 `true` 或者 `false` 来显示/隐藏标签，一般会结合三元表达式。
 * `v-on` - 事件方法可以通过 `v-on` 或者其简写 `@` 来绑定到 HTML 上，例如点击事件 `@click` 或者鼠标回车事件 `v-on:keyup.enter`。`v-on` 与 `methods` 是一对搭档。
 * `v-for` - 常见形式：`v-for="(item, index) in items`。`item` 是单个元素，`index` 是数组下标。其他形式：`v-for="item of items`。
+* `v-model` - 双向数据绑定，通常与 `<input>`、`<textarea>` 及 `<select>` 进行绑定。
 
 > 小 tips
 
 1. `v-if` VS `v-show`：一般来说，`v-if` 有更高的切换开销，而 `v-show` 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 `v-show` 较好；如果在运行时条件很少改变，则使用 `v-if` 较好。
 2. `v-if` + `v-for`：永远不要把 `v-if` 和 `v-for` 同时用在同一个元素上，例如：`v-for="user in users" v-if="user.isActive"` 就是不推荐的。如果你打死都要这么做，那么 `v-for` 具有比 `v-if` 更高的优先级。
+3. `v-model`：有三个修饰符可以善于利用：`v-model.lazy` 将 `input` 更新换为 `change` 更新；`v-model.number` 直接绑定数字，结合 `<input type="number">` 更好使用；`v-model.trim` 自定过滤首尾空白字符。
 
 ### <a name="chapter-two-four" id="chapter-two-four">2.4 数据监听</a>
 
