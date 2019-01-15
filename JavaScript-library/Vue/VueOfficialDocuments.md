@@ -22,6 +22,8 @@ Vue 官方文档二三事
 | &emsp;[2.8 按键修饰符](#chapter-two-eight) |
 | &emsp;[2.9 父子组件及其通讯](#chapter-two-night) |
 | &emsp;[2.10 过渡动画](#chapter-two-ten) |
+| &emsp;[2.11 混入](#chapter-two-eleven) |
+| &emsp;[2.12 自定义指令](#chapter-two-twelve) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 VueRouter](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 VueCli](#chapter-four) |
 
@@ -166,6 +168,80 @@ Vue 官方文档二三事
 * 过渡模式：`in-out` 与 `out-in`
 * 数字过渡
 * 颜色过渡
+
+### <a name="chapter-two-eleven" id="chapter-two-eleven">2.11 混入</a>
+
+> [返回目录](#catalog-chapter-two)
+
+在 Vue 中，有一群万金油般存在，高尚的临时工：`mixins`。
+
+> **临时工**：城管临时工，干着城管的活，日常冲在第一线，有问题直接背锅。
+
+`mixins`，在官方的称呼是：**混入**。
+
+然而，在个人理解上，更宁愿称呼它为：**模具**。
+
+什么意思呢？就是当你发现 `new Vue()` 中的 `data`、`methods`，在多个页面重复使用的时候，你可以将它们抽取出来，然后跟 **模具** 一样，给需要使用的每个页面，先盖个章，留个某某到此一游的印迹，再在此基础上进行开发。
+
+举个例子：你有一个字段 `pageNo: 1`，在文章列表页、商品页都定义了，你抽取出来，存放到 `mixins.js` 中，然后在这两个页面通过 `mixins: mymixin` 盖个章，让这两个页面初始数据都存有 `pageNo: 1`。
+
+> 以后，你就是我的小弟了~
+
+> 项目目录
+
+```
+- src
+ - mixins
+ - utils
+```
+
+> src/mixins/mixins.js
+
+```
+export default {
+  data() {
+    return {
+      message: 'hello',
+      foo: 'abc'
+    }
+  }
+}
+```
+
+> HomeHeader.vue
+
+```
+import mymixin from '../src/mixins/mixins'
+
+new Vue({
+  mixins: mymixin,
+  data: function () {
+    return {
+      message: 'goodbye',
+      bar: 'def'
+    }
+  },
+  created: function () {
+    console.log(this.$data)
+    // => { message: "goodbye", foo: "abc", bar: "def" }
+  }
+})
+```
+
+* 选项混入
+* 全局混入
+
+### <a name="chapter-two-twelve" id="chapter-two-twelve">2.11 自定义指令</a>
+
+> [返回目录](#catalog-chapter-two)
+
+* 局部指令：`directives`
+* 全局指令：`Vue.directive`
+* 自定义指令钩子函数：`bind`、`inserted`、`update`、`componentUpdated`、`unbind`
+
+**作用**：
+
+1. `foucs` 自动聚焦
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
