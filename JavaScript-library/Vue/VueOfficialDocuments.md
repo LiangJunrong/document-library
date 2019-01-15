@@ -24,6 +24,7 @@ Vue 官方文档二三事
 | &emsp;[2.10 过渡动画](#chapter-two-ten) |
 | &emsp;[2.11 混入](#chapter-two-eleven) |
 | &emsp;[2.12 自定义指令](#chapter-two-twelve) |
+| &emsp;[2.13 过滤器](#chapter-two-thirteen) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 VueRouter](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 VueCli](#chapter-four) |
 
@@ -309,7 +310,15 @@ new Vue({
 
 **作用**：
 
-1. `foucs` 自动聚焦
+1. `focus` 自动聚焦
+
+### <a name="chapter-two-thirteen" id="chapter-two-thirteen">2.13 过滤器</a>
+
+> [返回目录](#catalog-chapter-two)
+
+* 使用方法：`{{ message | messageFilter }}`，然后定义 `filters: { messageFilter(value) { // ...代码 } }`
+* 局部过滤器
+* 全局过滤器
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
