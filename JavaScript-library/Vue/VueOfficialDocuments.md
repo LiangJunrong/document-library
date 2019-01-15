@@ -319,6 +319,7 @@ new Vue({
 * 使用方法：`{{ message | messageFilter }}`，然后定义 `filters: { messageFilter(value) { // ...代码 } }`
 * 局部过滤器
 * 全局过滤器
+* 串联过滤器
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
