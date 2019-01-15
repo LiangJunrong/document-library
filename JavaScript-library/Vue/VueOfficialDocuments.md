@@ -231,6 +231,74 @@ new Vue({
 * 选项混入
 * 全局混入
 
+> 1. extends 类似于 mixins
+> 2. extends 支持单个对象，mixins 支持数组
+> 3. ~~Vue.extend > Vue.component > extends > mixins，即开发的时候同时使用 extends 和 mixins，注意覆盖顺序~~
+
+> 测试代码.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Vue 学习</title>
+
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <!-- Vue CDN - 提供 Vue 服务 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+  
+  <script>
+
+    var extend = {
+      data() {
+        return {
+          number: 1
+        }
+      }
+    }
+
+    var mixin = {
+      data() {
+        return {
+          number: 2
+        }
+      }
+    }
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          number: 3
+        }
+      },
+      extends: extend,
+      mixins: [mixin],
+      created() {
+        // 在这里不推荐同时使用 extends 与 mixins，因为会混淆
+        // 如果代码是这样子的，则这里输出的是 3
+        // 如果 new Vue 中没定义 number，则输出的是 2（mixins 中的值）
+        // 如果 mixins 中没定义 number，则输出的是 1（extend 中的值）
+        console.log(this.number); // Console：3
+      }
+    })
+
+  </script>
+</body>
+
+</html>
+```
+
 ### <a name="chapter-two-twelve" id="chapter-two-twelve">2.11 自定义指令</a>
 
 > [返回目录](#catalog-chapter-two)
