@@ -21,6 +21,7 @@ Vue 官方文档二三事
 | &emsp;[2.7 事件修饰符](#chapter-two-seven) |
 | &emsp;[2.8 按键修饰符](#chapter-two-eight) |
 | &emsp;[2.9 父子组件及其通讯](#chapter-two-night) |
+| &emsp;[2.10 过渡动画](#chapter-two-ten) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 VueRouter](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 VueCli](#chapter-four) |
 
@@ -120,7 +121,7 @@ Vue 官方文档二三事
 
 ### <a name="chapter-two-eight" id="chapter-two-eight">2.8 按键修饰符</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-two)
 
 > `v-on:keyup.13` = `@click.enter`
 
@@ -139,7 +140,7 @@ Vue 官方文档二三事
 
 ### <a name="chapter-two-night" id="chapter-two-night">2.9 父子组件及其通讯</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#catalog-chapter-two)
 
 * 组件的写法
 * 全局组件与局部组件
@@ -151,6 +152,20 @@ Vue 官方文档二三事
 * `<keep-alive>` 缓存状态，避免重新渲染
 
 > 静态赋值 `props`：`title="My name is jsliang"`；动态赋值 `props`：`:title="article.title + ' by ' + article.name`；`props` 可以传入 `String`、`Number`、`Boolean`、`Array`、`Object`、`Date`、`Function`、`Symbol` 并且对其进行以上类型验证。
+
+### <a name="chapter-two-ten" id="chapter-two-ten">2.10 过渡动画</a>
+
+> [返回目录](#catalog-chapter-two)
+
+* 单组件过渡 `<transition>`
+* 过渡 6 状态：`v-enter`、`v-enter-active`、`v-enter-to`、`v-leave`、`v-leave-active`、`v-leave-to`
+* 过渡系统 + 第三方 CSS 动画库（[Animate.css](https://daneden.github.io/animate.css/)）
+* 过渡时间：`:duration`
+* 过渡钩子：`@:before-enter`、`@:enter`、`@:after-enter`、`@:enter-cancelled`、`@:before-leave`、`@:leave`、`@:after-leave`、`@:leave-cancelled`
+* `key` 在 `<transition>` 的作用
+* 过渡模式：`in-out` 与 `out-in`
+* 数字过渡
+* 颜色过渡
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
