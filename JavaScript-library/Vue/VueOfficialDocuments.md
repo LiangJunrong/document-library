@@ -74,8 +74,14 @@ npm i @vue/cli -g
 > 小 tips
 
 1. **v-if** 和 **v-show**：一般来说，`v-if` 有更高的切换开销，而 `v-show` 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 `v-show` 较好；如果在运行时条件很少改变，则使用 `v-if` 较好。
-2. **v-if** 和 **v-for**：永远不要把 `v-if` 和 `v-for` 同时用在同一个元素上，例如：`v-for="user in users" v-if="user.isActive"` 就是不推荐的。如果你打死都要这么做，那么 `v-for` 具有比 `v-if` 更高的优先级。
+2. **v-if** 和 **v-for**：永远不要把 `v-if` 和 `v-for` 同时用在同一个元素上，例如：`v-for="user in users" v-if="user.isActive"` 就是不推荐的。建议可以通过 HTML5 的标签 `<template>` 来分开这两者，其作用类似于微信小程序的 `<block>`。如果你打死都要这么做，那么 `v-for` 具有比 `v-if` 更高的优先级。
 3. **v-model**：善用三个修饰符：`v-model.lazy` 将 `input` 更新换为 `change` 更新；`v-model.number` 直接绑定数字，结合 `<input type="number">` 更好使用；`v-model.trim` 自动过滤首尾空白字符。
+
+### <a name="chapter-two-three" id="chapter-two-three">2.3 生命周期钩子</a>
+
+> [返回目录](#catalog-chapter-two)
+
+![图](../../public-repertory/img/js-vue-basic-17.png)
 
 ### <a name="chapter-two-four" id="chapter-two-four">2.4 数据监听</a>
 
@@ -315,7 +321,7 @@ new Vue({
 </html>
 ```
 
-### <a name="chapter-two-twelve" id="chapter-two-twelve">2.11 自定义指令</a>
+### <a name="chapter-two-twelve" id="chapter-two-twelve">2.12 自定义指令</a>
 
 > [返回目录](#catalog-chapter-two)
 
