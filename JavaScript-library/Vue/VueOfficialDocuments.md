@@ -69,11 +69,13 @@ npm i @vue/cli -g
 
 > 详细介绍：[API - Vue.js](https://cn.vuejs.org/v2/api/#%E6%8C%87%E4%BB%A4)
 
+---
+
 > 小 tips
 
-1. `v-if` VS `v-show`：一般来说，`v-if` 有更高的切换开销，而 `v-show` 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 `v-show` 较好；如果在运行时条件很少改变，则使用 `v-if` 较好。
-2. `v-if` + `v-for`：永远不要把 `v-if` 和 `v-for` 同时用在同一个元素上，例如：`v-for="user in users" v-if="user.isActive"` 就是不推荐的。如果你打死都要这么做，那么 `v-for` 具有比 `v-if` 更高的优先级。
-3. `v-model`：有三个修饰符可以善于利用：`v-model.lazy` 将 `input` 更新换为 `change` 更新；`v-model.number` 直接绑定数字，结合 `<input type="number">` 更好使用；`v-model.trim` 自定过滤首尾空白字符。
+1. **v-if** 和 **v-show**：一般来说，`v-if` 有更高的切换开销，而 `v-show` 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 `v-show` 较好；如果在运行时条件很少改变，则使用 `v-if` 较好。
+2. **v-if** 和 **v-for**：永远不要把 `v-if` 和 `v-for` 同时用在同一个元素上，例如：`v-for="user in users" v-if="user.isActive"` 就是不推荐的。如果你打死都要这么做，那么 `v-for` 具有比 `v-if` 更高的优先级。
+3. **v-model**：善用三个修饰符：`v-model.lazy` 将 `input` 更新换为 `change` 更新；`v-model.number` 直接绑定数字，结合 `<input type="number">` 更好使用；`v-model.trim` 自动过滤首尾空白字符。
 
 ### <a name="chapter-two-four" id="chapter-two-four">2.4 数据监听</a>
 
