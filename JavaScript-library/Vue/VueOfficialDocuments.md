@@ -2,7 +2,7 @@ Vue 官方文档二三事
 ===
 
 > Create by **jsliang** on **2019-1-14 10:40:32**  
-> Recently revised in **2019-1-16 07:55:58**
+> Recently revised in **2019-1-16 17:23:38**
 
 记录在阅读 Vue、VueRouter、VueCli 等官方文档时的一些笔记，仅供参考，不做发表。
 
@@ -27,6 +27,7 @@ Vue 官方文档二三事
 | &emsp;[2.13 过滤器](#chapter-two-thirteen) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Vue Router](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Vue Cli](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 风格规范](#chapter-five) |
 
 ## <a name="chapter-two" id="chapter-two">二 Vue</a>
 
@@ -166,7 +167,7 @@ npm i @vue/cli -g
 
 > [返回目录](#catalog-chapter-two)
 
-* 组件的写法
+* 基础组件的写法
 * 全局组件与局部组件
 * 父组件传递数据给子组件
 * 子组件传递数据给父组件
@@ -341,6 +342,24 @@ new Vue({
 * 局部过滤器
 * 全局过滤器
 * 串联过滤器
+
+## <a name="chapter-three" id="chapter-three">三 Vue Router</a>
+
+> [返回目录](#catalog-chapter-three)
+
+* 正在更新……
+
+## <a name="chapter-four" id="chapter-four">四 Vue Cli</a>
+
+> [返回目录](#catalog-chapter-four)
+
+* 正在更新……
+
+## <a name="chapter-five" id="chapter-five">五 风格规范</a>
+
+> [返回目录](#catalog-chapter-five)
+
+1. 使用多个单词构成组件名（根组件 `App` 除外）。例如：`todo-item`、`TodoItem`
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
