@@ -81,14 +81,19 @@ npm i @vue/cli -g
 
 > [返回目录](#catalog-chapter-two)
 
-**`watch` 与 `computed`**：
+**watch** 与 **computed**：
 
-* `computed` 强调计算，例如 `c = a + b`，`b` 是外界传来不断变化的，因为你只要显示 `c`，所以使用 `computed`。而 `watch` 属性强调自身值的变化前后的动作，如果需要完成 `c = a + b`，那么你需要 `watch` 数据 `a` 与 `b` 的变化，在这两者变化的时候，在方法中执行 `c = a + b`。
-* `watch` 在处理异步操作或者开销较大的操作上有优势。
-  * 执行异步操作不能串行返回结果，使用 `watch`；
-  * 开销较大的操作，避免堵塞主线程，使用 `watch`；
-  * 简单且串行返回的，使用 `computed`。
-* `computed` 对绑定的值有依赖，如果每次操作的值不变化，则不进行计算，具有缓存特性。`watch` 会侦听前后变化的状态，无论操作的值是否变化，都会执行定义的函数体，所以会有 data(newVal, oldVal)。
+1. 对比一：
+* `computed` 强调计算。例如 `c = a + b`，因为你只要显示 `c`，所以不需要理会 `a` 与 `b` 的值是否动态传入，只需要使用 `computed` 监察 `c` 即可。
+* `watch` 属性强调自身值的变化前后的动作。如果需要完成 `c = a + b`，那么你需要 `watch` 数据 `a` 与 `b` 的变化，在这两者变化的时候，在方法中执行 `c = a + b`。
+
+2. 对比二：
+* `watch` 在处理异步操作或者开销较大的操作上有优势。执行异步操作不能串行返回结果、执行开销较大的操作避免堵塞主线程的时候，使用 `watch`。
+* 简单且串行返回的，使用 `computed`。
+
+3. 对比三：
+* `computed` 对绑定的值有依赖，如果每次操作的值不变化，则不进行计算，具有缓存特性。
+* `watch` 会侦听前后变化的状态，无论操作的值是否变化，都会执行定义的函数体，所以会有 `data(newVal, oldVal)`。
 
 ### <a name="chapter-two-five" id="chapter-two-five">2.5 样式</a>
 
@@ -96,7 +101,7 @@ npm i @vue/cli -g
 
 | 类型 | 说明 |
 | --- | --- |
-| `:class` | 动态绑定 Class，可以通过多分类：`:class="{ a: true, 'b', c: false }`，或者结合计算属性 `:class="computedClass`，或者通过三元表达式：`:class="{ a ? a == 1 : a == 2 }"` |
+| `:class` | 动态绑定 Class，可以通过多分类：`:class="{ a: true, 'b', c: false }`，或者结合计算属性 `:class="computedClass"`，或者通过三元表达式：`:class="{ a ? a == 1 : a == 2 }"` |
 | `:style` | 动态绑定行内样式，如果是 `font-size` 之类的，最好通过驼峰式 `fontSize` 来编写。如果采用 `:style="{styleOne, styleTwo}"` 的形式，当遇到 `transform` 时，Vue 会自动添加相应的前缀。 |
 
 ### <a name="chapter-two-six" id="chapter-two-six">2.6 数组操作</a>
