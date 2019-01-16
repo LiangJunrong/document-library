@@ -25,12 +25,14 @@ Vue 官方文档二三事
 | &emsp;[2.11 混入](#chapter-two-eleven) |
 | &emsp;[2.12 自定义指令](#chapter-two-twelve) |
 | &emsp;[2.13 过滤器](#chapter-two-thirteen) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 VueRouter](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 VueCli](#chapter-four) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Vue Router](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Vue Cli](#chapter-four) |
 
 ## <a name="chapter-two" id="chapter-two">二 Vue</a>
 
 > [返回目录](#catalog-chapter-two)
+
+本章节内容参考自：
 
 * [Vue 教程](https://cn.vuejs.org/v2/guide/)
 * [Vue API](https://cn.vuejs.org/v2/api/)
@@ -39,27 +41,33 @@ Vue 官方文档二三事
 
 > [返回目录](#catalog-chapter-two)
 
-* 如果是 0 基础，最好安装 CDN：[BootCDN](https://www.bootcdn.cn/vue/)。
-  
-> 这里不推荐官网的 jsDelivr 提供的 CDN，因为打开它的官网都加载好久，这 CDN 好不好用就不敢保证了。
+* 如果是 0 基础，推荐通过 CDN 引用 Vue：[BootCDN](https://www.bootcdn.cn/vue/)。
 
-* 如果有 Node + Webpack 基础，可以直接用命令行工具：[Vue Cli](https://cli.vuejs.org/zh/guide/)
+```
+<script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+```
+
+* 如果有 Node + Webpack 基础，推荐使用命令行工具：[Vue Cli](https://cli.vuejs.org/zh/guide/)
+
+```
+npm i @vue/cli -g
+```
 
 ### <a name="chapter-two-two" id="chapter-two-two">2.2 指令</a>
 
 > [返回目录](#catalog-chapter-two)
 
-* `{{}}` - 将数据解析为纯文本，与 `v-text` 的区别就是花括号会显示 `{{}}`
-* `v-text` - 将数据解析为纯文本。
-* `v-html` - 输出真正的 HTML，HTML 标签可以使用.
-* `v-bind` - 属性字段可以通过 `v-bind` 或者其简写 `:bind` 绑定到 HTML 上，例如 `<a>` 标签的 `url` 或者自定义属性 `:disabled` 等…… 
-* `v-if` - 通过值 `true` 或者 `false` 来添加/删除标签，一般会结合三元表达式。与 `v-show` 的区别是，`v-if` 的标签，如果为 `false` 是直接删掉该节点，而 `v-show` 是通过 `display:none` 来控制标签。
-* `v-else-if` - 结合 `v-if` 使用。
-* `v-else` - 结合 `v-if` 使用。
-* `v-show` -  通过值 `true` 或者 `false` 来显示/隐藏标签，一般会结合三元表达式。
-* `v-on` - 事件方法可以通过 `v-on` 或者其简写 `@` 来绑定到 HTML 上，例如点击事件 `@click` 或者鼠标回车事件 `v-on:keyup.enter`。`v-on` 与 `methods` 是一对搭档。
-* `v-for` - 常见形式：`v-for="(item, index) in items`。`item` 是单个元素，`index` 是数组下标。其他形式：`v-for="item of items`。
-* `v-model` - 双向数据绑定，通常与 `<input>`、`<textarea>` 及 `<select>` 进行绑定。
+* **v-text** - 将数据解析为纯文本。另外还可以使用 `{{}}`，它也会将数据解析为纯文本，与 `v-text` 的区别就是花括号在网络加载慢的时候会显示 `{{ *** }}`。
+* **v-html** - 输出真正的 HTML，在 `v-html` 中可以使用 HTML 标签，但是请注意防范 XSS 攻击。
+* **v-if** - 通过值 `true` 或者 `false` 来 **添加/删除标签**，一般会结合三元表达式使用。与 `v-show` 的区别是，`v-if` 的标签，如果为 `false` 是直接删掉该节点，而 `v-show` 是通过 `display:none` 来控制标签。同时，`v-if` 与 `v-else-if`、`v-else` 可以配套使用。
+* **v-show** -  通过值 `true` 或者 `false` 来切换 `display` **显示/隐藏标签**，一般会结合三元表达式。
+* **v-for** - 常见形式：`v-for="(item, index) in items`。`item` 是单个元素，`index` 是数组下标。其他形式：`v-for="item of items`。
+* **v-bind** - 可以通过 `v-bind` 或者其简写 `:bind` 绑定到 HTML 的属性字段上，例如 `<a>` 标签动态绑定 `url` 的时候 `:url` 或者自定义属性 `:disabled` 或者动态绑定 `class`、`style` 中使用 `:class`、`style` 等…… 
+* **v-on** - 可以通过 `v-on` 或者其简写 `@` 来绑定到 HTML 事件上，例如点击事件 `@click` 或者鼠标回车事件 `v-on:keyup.enter`。`v-on` 与 `methods` 是一对搭档。
+* **v-model** - 双向数据绑定。通常与 `<input>`、`<textarea>` 及 `<select>` 进行绑定。
+* **v-once** - 只渲染元素和组件一次。之后重新渲染，该元素及其子元素会被视为静态内容忽略。
+
+> 详细介绍：[API - Vue.js](https://cn.vuejs.org/v2/api/#%E6%8C%87%E4%BB%A4)
 
 > 小 tips
 
