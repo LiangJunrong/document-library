@@ -359,8 +359,7 @@ new Vue({
 
 > [返回目录](#catalog-chapter-five)
 
-1. **组件名应该始终是多个单词的，根组件 App 除外**
-   1. 例如：`todo-item`、`TodoItem`。
+1. **组件名应该始终是多个单词的，根组件 App 除外**。例如：`todo-item`、`TodoItem`。
 2. 
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
