@@ -390,7 +390,41 @@ props: {
 }
 ```
 
-* **总是用 `key` 配合 `v-for`**。`key` 的作用：1.`key` 的特殊属性主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。2. 在 `v-for` 中使用 `key`，方便 Vue 跟踪每个节点，从而重用和重新排序现有元素。
+* **总是用 `key` 配合 `v-for`**。`key` 的作用：1.`key` 的特殊属性主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。2. 在 `v-for` 中使用 `key`，方便 Vue 跟踪每个节点，从而重用和重新排序现有元素。例如：
+
+```
+<ul>
+  <li v-for="item in items" :key="item.id">...</li>
+</ul>
+
+<transition>
+  <span :key="text">{{ text }}</span>
+</transition>
+```
+
+* **永远不要把 `v-if` 和 `v-for` 同时用在同一个元素上**。例如：
+
+```
+<ul v-if="shouldShowUsers">
+  <li
+    v-for="user in users"
+    :key="user.id"
+  >
+    {{ user.name }}
+  </li>
+</ul>
+```
+
+* **为组件样式设置作用域**。给每个组件的 CSS 使用 `scoped`，避免组件之间的样式互相影响。
+
+```
+<style module>
+.button {
+  border: none;
+  border-radius: 2px;
+}
+</style>
+```
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
