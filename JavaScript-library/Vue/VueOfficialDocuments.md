@@ -359,8 +359,38 @@ new Vue({
 
 > [返回目录](#catalog-chapter-five)
 
-1. **组件名应该始终是多个单词的，根组件 App 除外**。例如：`todo-item`、`TodoItem`。
-2. 
+* **组件名应该始终是多个单词的，根组件 App 除外**。这样做可以避免跟现有的以及未来的 HTML 元素相冲突，因为所有的 HTML 元素名称都是单个单词的。例如：`todo-item`、`TodoItem`。
+
+* **组件的 `data` 必须是一个函数**。当在组件中使用 data 属性的时候 (除了 new Vue 外的任何地方)，它的值必须是返回一个对象的函数。例如：
+
+```
+data() {
+  return {
+    name: 'jsliang'
+  }
+}
+```
+
+* **Prop 定义应该尽量详细**。在你提交的代码中，prop 的定义应该尽量详细，至少需要指定其类型。例如：
+
+```
+props: {
+  status: {
+    type: String,
+    required: true,
+    validator: function (value) {
+      return [
+        'syncing',
+        'synced',
+        'version-conflict',
+        'error'
+      ].indexOf(value) !== -1
+    }
+  }
+}
+```
+
+* **总是用 `key` 配合 `v-for`**。`key` 的作用：1.`key` 的特殊属性主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。2. 在 `v-for` 中使用 `key`，方便 Vue 跟踪每个节点，从而重用和重新排序现有元素。
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
