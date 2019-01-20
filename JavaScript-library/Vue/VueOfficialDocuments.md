@@ -426,6 +426,26 @@ props: {
 </style>
 ```
 
+* **只要有能够拼接文件的构建系统，就把每个组件单独分成文件**。例如：
+
+```
+components/
+|- TodoList.vue
+|- TodoItem.vue
+```
+
+* **单文件组件的文件名应该要么始终是单词大写开头 (PascalCase)，要么始终是横线连接 (kebab-case)**。例如：
+
+```
+components/
+|- MyComponent.vue
+
+或者
+
+components/
+|- my-component.vue
+```
+
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
 > 基于 [https://github.om/LiangJunrong/document-library](https://github.om/LiangJunrong/document-library) 上的作品创作。  
