@@ -2,14 +2,14 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-1-14 08:09:50**
+> Recently revised in **2019-1-21 08:04:46**
 
 <br>
 
 &emsp;这是一个竞赛，  
 &emsp;只要你提供 GitHub 账号，  
 &emsp;就可以参加！  
-&emsp;详情咨询 **jsliang** QQ：`1741020489`
+&emsp;详情咨询 **jsliang** QQ：`1741020489`。
 
 <br>
 
@@ -17,39 +17,64 @@
 
 | GitHub 名 |
 | --- |
-| [梁峻荣](https://github.com/LiangJunrong) |
-| [Liutaochange](https://github.com/liutaochange) |
-| [jerry](https://github.com/jgchenu) |
-| [邵威儒](https://github.com/iamswr) |
-| [HESUIJUN](https://github.com/HESUIJUN) |
-| [豆包君](https://github.com/danygitgit) |
+| 1. [梁峻荣](https://github.com/LiangJunrong) |
+| 2. [Liutaochange](https://github.com/liutaochange) |
+| 3. [jerry](https://github.com/jgchenu) |
+| 4. [邵威儒](https://github.com/iamswr) |
+| 5. [HESUIJUN](https://github.com/HESUIJUN) |
+| 6. [豆包君](https://github.com/danygitgit) |
+| 7. [huqi](https://github.com/hu-qi) |
 
 <br>
+
+# 2019-1-21
+
+&emsp;这一周参赛
+
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参与周竞赛，已交 35 元。
+* - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
+* - [x] [huqi](https://github.com/hu-qi) 参与周竞赛，尚未交款。
+
+&emsp;上一周情况
+
+* - [x] [豆包君](https://github.com/danygitgit) 参赛 7 天，完成了 5 天的提交。
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参赛 7 天，完成了 6 天的提交。
+
+---
 
 # 2019-1-13
 
 &emsp;这一周参赛
 
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参与周竞赛，已交 35 元。
 * - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
 
 &emsp;上一周情况
 
 * - [x] [豆包君](https://github.com/danygitgit) 参赛 7 天，完成了 7 天的提交。
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参赛 7 天，完成了 7 天的提交。
+
+---
 
 # 2019-1-7
 
 &emsp;这一周参赛
 
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参与周竞赛，已交 35 元。
 * - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
 
 &emsp;上一周情况
 
 * - [x] [豆包君](https://github.com/danygitgit) 参赛 7 天，完成了 6 天的提交。
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参赛 7 天，完成了 7 天的提交。
+
+---
 
 # 2018-12-31
 
 &emsp;这一周参赛
 
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参与周竞赛，已交 35 元。
 * - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
 
 &emsp;上一周情况
@@ -61,10 +86,13 @@
 * - [x] [邵威儒](https://github.com/iamswr) 参赛 7 天，完成了 6 天的提交。
 * - [ ] [HESUIJUN](https://github.com/HESUIJUN) 参赛 1 天，提交 1 天。
 
+---
+
 # 2018-12-24
 
 &emsp;这一周缴费
 
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参与周竞赛，已交 35 元。
 * - [x] [Liutaochange](https://github.com/liutaochange) 参与周竞赛，已交 35 元。
 * - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
 * - [x] [jerry](https://github.com/jgchenu) 参与周竞赛，已交 35 元。
@@ -80,7 +108,7 @@
 * - [ ] [邵威儒](https://github.com/iamswr) 完成了 5 天的提交，但是提交到 gitee 上了。
 * - [ ] [HESUIJUN](https://github.com/HESUIJUN) 完成了 3 天的提交。
 
-<br>
+---
 
 # 2018-12-17
 
