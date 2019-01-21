@@ -359,6 +359,8 @@ new Vue({
 
 > [返回目录](#catalog-chapter-five)
 
+下面精简来自 [Vue 风格指南](https://cn.vuejs.org/v2/style-guide) 的条例，如需详细了解请访问 [Vue 风格指南](https://cn.vuejs.org/v2/style-guide)。
+
 * **组件名应该始终是多个单词的，根组件 App 除外**。这样做可以避免跟现有的以及未来的 HTML 元素相冲突，因为所有的 HTML 元素名称都是单个单词的。例如：`todo-item`、`TodoItem`。
 
 * **组件的 `data` 必须是一个函数**。当在组件中使用 data 属性的时候 (除了 new Vue 外的任何地方)，它的值必须是返回一个对象的函数。例如：
@@ -501,7 +503,116 @@ components/
 |- TermsCheckbox.vue
 ```
 
-* 
+* **在单文件组件、字符串模板和 JSX 中没有内容的组件应该是自闭合的，且使用 PascalCase 形式命名。然后在 DOM 模板中不应该闭合，且使用 kebab-case 形式命名**。例如：
+
+```
+<!-- 在单文件组件、字符串模板和 JSX 中 -->
+<MyComponent/>
+
+<!-- 在 DOM 模板中 -->
+<my-component></my-component>
+```
+
+* **组件名应该倾向于完整单词而不是缩写**。例如：
+
+```
+components/
+|- StudentDashboardSettings.vue
+|- UserProfileOptions.vue
+
+而不是
+
+components/
+|- SdSettings.vue
+|- UProfOpts.vue
+```
+
+* **Prop 在声明的时候采用 camelCase，在使用的时候采用 kekab-case**。例如：
+
+```
+props: {
+  greetingText: String
+}
+
+<WelcomeMessage greeting-text="hi"/>
+```
+
+* **多特性的元素应该分多行撰写，因为好看**。例如：
+
+```
+<img
+  src="https://vuejs.org/images/logo.png"
+  alt="Vue Logo"
+>
+```
+
+* **尽量别在组件模板中 bb 太多**。例如：
+
+```
+<!-- 在模板中 -->
+{{ normalizedFullName }}
+
+// 复杂表达式已经移入一个计算属性
+computed: {
+  normalizedFullName: function () {
+    return this.fullName.split(' ').map(function (word) {
+      return word[0].toUpperCase() + word.slice(1)
+    }).join(' ')
+  }
+}
+
+而不是
+
+{{
+  fullName.split(' ').map(function (word) {
+    return word[0].toUpperCase() + word.slice(1)
+  }).join(' ')
+}}
+```
+
+* **尽可能让你的代码简洁易懂**，例如：
+
+```
+computed: {
+  basePrice: function () {
+    return this.manufactureCost / (1 - this.profitMargin)
+  },
+  discount: function () {
+    return this.basePrice * (this.discountPercent || 0)
+  },
+  finalPrice: function () {
+    return this.basePrice - this.discount
+  }
+}
+
+而不是
+
+computed: {
+  price: function () {
+    var basePrice = this.manufactureCost / (1 - this.profitMargin)
+    return (
+      basePrice -
+      basePrice * (this.discountPercent || 0)
+    )
+  }
+}
+```
+
+* **尽可能在 HTML、CSS 中使用双引号（"），在 JS 中使用单引号（'）**。例如：
+
+```
+<input type="text">
+
+<AppSidebar :style="{ width: sidebarWidth + 'px' }">
+
+而不是
+
+<input type=text>
+
+<AppSidebar :style={width:sidebarWidth+'px'}>
+```
+
+* **尽可能统一指令书写形式，即统一用 @ 及 : 或者统一用 v-bind 及 v-on**。
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
