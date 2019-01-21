@@ -28,6 +28,11 @@ Vue 官方文档二三事
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Vue Router](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Vue Cli](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 风格规范](#chapter-five) |
+| &emsp;[5.1 命名规范](#chapter-five-one) |
+| &emsp;[5.2 全局规范](#chapter-five-two) |
+| &emsp;[5.3 HTMl 规范](#chapter-five-three) |
+| &emsp;[5.4 JS 规范](#chapter-five-four) |
+| &emsp;[5.5 CSS 规范](#chapter-five-five) |
 
 ## <a name="chapter-two" id="chapter-two">二 Vue</a>
 
@@ -362,74 +367,15 @@ new Vue({
 
 下面精简来自 [Vue 风格指南](https://cn.vuejs.org/v2/style-guide) 的条例，如需详细了解请访问 [Vue 风格指南](https://cn.vuejs.org/v2/style-guide)。
 
-* **组件名应该始终是多个单词的，根组件 App 除外**。这样做可以避免跟现有的以及未来的 HTML 元素相冲突，因为所有的 HTML 元素名称都是单个单词的。例如：`todo-item`、`TodoItem`。
+> 并不期望你能规规矩矩遵守，只是想让你有一套自己的编写风格，而不是一个项目一套风格，从而害人害己。
 
-* **组件的 `data` 必须是一个函数**。当在组件中使用 data 属性的时候 (除了 new Vue 外的任何地方)，它的值必须是返回一个对象的函数。例如：
+### <a name="chapter-five-one" id="chapter-five-one">5.1 命名规范</a>
 
-```
-data() {
-  return {
-    name: 'jsliang'
-  }
-}
-```
+> [返回目录](#catalog-chapter-five)
 
-* **Prop 定义应该尽量详细**。在你提交的代码中，prop 的定义应该尽量详细，至少需要指定其类型。例如：
+1. **组件名应该始终是多个单词的，根组件 App 除外**。这样做可以避免跟现有的以及未来的 HTML 元素相冲突，因为所有的 HTML 元素名称都是单个单词的。例如：`todo-item`、`TodoItem`。
 
-```
-props: {
-  status: {
-    type: String,
-    required: true,
-    validator: function (value) {
-      return [
-        'syncing',
-        'synced',
-        'version-conflict',
-        'error'
-      ].indexOf(value) !== -1
-    }
-  }
-}
-```
-
-* **总是用 `key` 配合 `v-for`**。`key` 的作用：1.`key` 的特殊属性主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。2. 在 `v-for` 中使用 `key`，方便 Vue 跟踪每个节点，从而重用和重新排序现有元素。例如：
-
-```
-<ul>
-  <li v-for="item in items" :key="item.id">...</li>
-</ul>
-
-<transition>
-  <span :key="text">{{ text }}</span>
-</transition>
-```
-
-* **永远不要把 `v-if` 和 `v-for` 同时用在同一个元素上**。例如：
-
-```
-<ul v-if="shouldShowUsers">
-  <li
-    v-for="user in users"
-    :key="user.id"
-  >
-    {{ user.name }}
-  </li>
-</ul>
-```
-
-* **为组件样式设置作用域**。给每个组件的 CSS 使用 `scoped`，避免组件之间的样式互相影响。
-
-```
-<style module>
-.button {
-  border: none;
-  border-radius: 2px;
-}
-</style>
-```
-
-* **只要有能够拼接文件的构建系统，就把每个组件单独分成文件**。例如：
+2. **只要有能够拼接文件的构建系统，就把每个组件单独分成文件**。例如：
 
 ```
 components/
@@ -437,7 +383,7 @@ components/
 |- TodoItem.vue
 ```
 
-* **单文件组件的文件名应该要么始终是单词大写开头 (PascalCase)，要么始终是横线连接 (kebab-case)**。例如：
+3. **单文件组件的文件名应该要么始终是单词大写开头 `PascalCase`，要么始终是横线连接 `kebab-case`**。例如：
 
 ```
 components/
@@ -449,7 +395,7 @@ components/
 |- my-component.vue
 ```
 
-* **基础文件名，即应用特定样式和约定的基础组件 (也就是展示类的、无逻辑的或无状态的组件) 应该全部以一个特定的前缀开头，比如 Base、App 或 V**。例如：
+4. **基础文件名，即应用特定样式和约定的基础组件 (也就是展示类的、无逻辑的或无状态的组件) 应该全部以一个特定的前缀开头，比如 `Base`、`App` 或 `V`**。例如：
 
 ```
 components/
@@ -465,7 +411,7 @@ components/
 |- VIcon.vue
 ```
 
-* **如果某个组件，像菜单栏、左侧菜单一样，全局中只拥有一个，那就以 The 前缀命名**。例如：
+5. **如果某个组件，像菜单栏、左侧菜单一样，全局中只拥有一个，那就以 `The` 前缀命名**。例如：
 
 ```
 components/
@@ -473,7 +419,7 @@ components/
 |- TheSidebar.vue
 ```
 
-* **和父组件紧密耦合的子组件应该以父组件名作为前缀命名**。例如：
+6. **和父组件紧密耦合的子组件应该以父组件名作为前缀命名**。例如：
 
 ```
 components/
@@ -482,7 +428,7 @@ components/
 |- TodoListItemButton.vue
 ```
 
-* **组件名应该以高级别的 (通常是一般化描述的) 单词开头，以描述性的修饰词结尾**。例如：
+7. **组件名应该以高级别的 (通常是一般化描述的) 单词开头，以描述性的修饰词结尾；并且组件名应该倾向于完整单词而不是缩写**。例如：
 
 ```
 components/
@@ -497,62 +443,29 @@ components/
 
 components/
 |- ClearSearchButton.vue
-|- ExcludeFromSearchInput.vue
+|- ExcFromSearchInput.vue
 |- LaunchOnStartupCheckbox.vue
 |- RunSearchButton.vue
 |- SearchInput.vue
 |- TermsCheckbox.vue
 ```
 
-* **在单文件组件、字符串模板和 JSX 中没有内容的组件应该是自闭合的，且使用 PascalCase 形式命名。然后在 DOM 模板中不应该闭合，且使用 kebab-case 形式命名**。例如：
+### <a name="chapter-five-two" id="chapter-five-two">5.2 全局规范</a>
+
+> [返回目录](#catalog-chapter-five)
+
+1. **尽量别在组件模板中使用 JS 来 bb 套太多话语，毕竟 HTML 就尽量让它做 HTML 该有的事；更好的分类能使代码更加简洁易懂；并且将组件模板中多特性的元素分多行来写，看起来会更舒服点**。例如：
 
 ```
-<!-- 在单文件组件、字符串模板和 JSX 中 -->
-<MyComponent/>
-
-<!-- 在 DOM 模板中 -->
-<my-component></my-component>
-```
-
-* **组件名应该倾向于完整单词而不是缩写**。例如：
-
-```
-components/
-|- StudentDashboardSettings.vue
-|- UserProfileOptions.vue
-
-而不是
-
-components/
-|- SdSettings.vue
-|- UProfOpts.vue
-```
-
-* **Prop 在声明的时候采用 camelCase，在使用的时候采用 kekab-case**。例如：
-
-```
-props: {
-  greetingText: String
-}
-
-<WelcomeMessage greeting-text="hi"/>
-```
-
-* **多特性的元素应该分多行撰写，因为好看**。例如：
-
-```
+|- HTML
 <img
   src="https://vuejs.org/images/logo.png"
   alt="Vue Logo"
 >
-```
-
-* **尽量别在组件模板中 bb 太多**。例如：
-
-```
-<!-- 在模板中 -->
 {{ normalizedFullName }}
 
+
+|- JS
 // 复杂表达式已经移入一个计算属性
 computed: {
   normalizedFullName: function () {
@@ -564,6 +477,7 @@ computed: {
 
 而不是
 
+|- HTML
 {{
   fullName.split(' ').map(function (word) {
     return word[0].toUpperCase() + word.slice(1)
@@ -571,35 +485,7 @@ computed: {
 }}
 ```
 
-* **尽可能让你的代码简洁易懂**，例如：
-
-```
-computed: {
-  basePrice: function () {
-    return this.manufactureCost / (1 - this.profitMargin)
-  },
-  discount: function () {
-    return this.basePrice * (this.discountPercent || 0)
-  },
-  finalPrice: function () {
-    return this.basePrice - this.discount
-  }
-}
-
-而不是
-
-computed: {
-  price: function () {
-    var basePrice = this.manufactureCost / (1 - this.profitMargin)
-    return (
-      basePrice -
-      basePrice * (this.discountPercent || 0)
-    )
-  }
-}
-```
-
-* **尽可能在 HTML、CSS 中使用双引号（"），在 JS 中使用单引号（'）**。例如：
+2.  **尽可能在 HTML、CSS 中使用双引号（"），在 JS 中使用单引号（'）**。例如：
 
 ```
 <input type="text">
@@ -613,7 +499,97 @@ computed: {
 <AppSidebar :style={width:sidebarWidth+'px'}>
 ```
 
-* **尽可能统一指令书写形式，即统一用 @ 及 : 或者统一用 v-bind 及 v-on**。
+### <a name="chapter-five-three" id="chapter-five-three">5.3 HTMl 规范</a>
+
+> [返回目录](#catalog-chapter-five)
+
+1. **在单文件组件、字符串模板和 `JSX` 中没有内容的组件应该是自闭合的，且使用 `PascalCase` 形式命名。然后在 `DOM` 模板中不应该闭合，且使用 `kebab-case` 形式命名**。例如：
+
+```
+<!-- 在单文件组件、字符串模板和 JSX 中 -->
+<MyComponent/>
+
+<!-- 在 DOM 模板中 -->
+<my-component></my-component>
+```
+
+2. **尽可能统一指令书写形式，例如统一用简写形式 `@` 及 `:` 或者统一用全拼形式 `v-bind` 及 `v-on`**。
+
+### <a name="chapter-five-four" id="chapter-five-four">5.4 JS 规范</a>
+
+> [返回目录](#catalog-chapter-five)
+
+1. **组件的 `data` 必须是一个函数**。当在组件中使用 `data` 属性的时候 (除了 new Vue 外的任何地方)，它的值必须是返回一个对象的函数。例如：
+
+```
+data() {
+  return {
+    name: 'jsliang'
+  }
+}
+```
+
+2. **`Prop` 的定义应该尽量详细，至少指定其类型。并且在声明的时候采用 `camelCase`，在使用的时候采用 `kekab-case`**。例如：
+
+```
+<WelcomeMessage greeting-text="hi"/>
+
+props: {
+  status: {
+    type: String,
+    required: true,
+    validator: function (value) {
+      return [
+        'syncing',
+        'synced',
+        'version-conflict',
+        'error'
+      ].indexOf(value) !== -1
+    }
+  },
+  greetingText: String
+}
+```
+
+3. **总是用 `key` 配合 `v-for`**。`key` 的作用：a.`key` 的特殊属性主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。b. 在 `v-for` 中使用 `key`，方便 Vue 跟踪每个节点，从而重用和重新排序现有元素。例如：
+
+```
+<ul>
+  <li v-for="item in items" :key="item.id">...</li>
+</ul>
+
+<transition>
+  <span :key="text">{{ text }}</span>
+</transition>
+```
+
+4. **永远不要把 `v-if` 和 `v-for` 同时用在同一个元素上**。例如：
+
+```
+<ul v-if="shouldShowUsers">
+  <li
+    v-for="user in users"
+    :key="user.id"
+  >
+    {{ user.name }}
+  </li>
+</ul>
+```
+
+### <a name="chapter-five-five" id="chapter-five-five">5.5 CSS 规范</a>
+
+> [返回目录](#catalog-chapter-five)
+
+1. **为组件样式设置作用域**。给每个组件的 CSS 使用 `scoped`，避免组件之间的样式互相影响。
+
+```
+<style module>
+.button {
+  border: none;
+  border-radius: 2px;
+}
+</style>
+```
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
