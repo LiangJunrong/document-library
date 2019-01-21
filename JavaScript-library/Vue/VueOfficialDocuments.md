@@ -2,7 +2,7 @@ Vue 官方文档二三事
 ===
 
 > Create by **jsliang** on **2019-1-14 10:40:32**  
-> Recently revised in **2019-1-21 12:52:58**
+> Recently revised in **2019-1-21 22:12:11**
 
 记录在阅读 Vue、VueRouter、VueCli 等官方文档时的一些笔记，仅供参考，不做意见发表。
 
@@ -359,7 +359,9 @@ new Vue({
 
 > [返回目录](#catalog-chapter-four)
 
-* 正在更新……
+* 安装：`npm install -g @vue/cli`
+* 创建项目：`vue create my-project` 或者 `vue ui`
+* 兼容 VueCli 2.0 版本：`npm i @vue/cli-init`，然后就可以使用 `vue init webpack` 了。
 
 ## <a name="chapter-five" id="chapter-five">五 风格规范</a>
 
