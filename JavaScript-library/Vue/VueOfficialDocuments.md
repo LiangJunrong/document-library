@@ -446,6 +446,63 @@ components/
 |- my-component.vue
 ```
 
+* **基础文件名，即应用特定样式和约定的基础组件 (也就是展示类的、无逻辑的或无状态的组件) 应该全部以一个特定的前缀开头，比如 Base、App 或 V**。例如：
+
+```
+components/
+|- BaseButton.vue
+|- BaseTable.vue
+|- BaseIcon.vue
+
+或者
+
+components/
+|- VButton.vue
+|- VTable.vue
+|- VIcon.vue
+```
+
+* **如果某个组件，像菜单栏、左侧菜单一样，全局中只拥有一个，那就以 The 前缀命名**。例如：
+
+```
+components/
+|- TheHeading.vue
+|- TheSidebar.vue
+```
+
+* **和父组件紧密耦合的子组件应该以父组件名作为前缀命名**。例如：
+
+```
+components/
+|- TodoList.vue
+|- TodoListItem.vue
+|- TodoListItemButton.vue
+```
+
+* **组件名应该以高级别的 (通常是一般化描述的) 单词开头，以描述性的修饰词结尾**。例如：
+
+```
+components/
+|- SearchButtonClear.vue
+|- SearchButtonRun.vue
+|- SearchInputQuery.vue
+|- SearchInputExcludeGlob.vue
+|- SettingsCheckboxTerms.vue
+|- SettingsCheckboxLaunchOnStartup.vue
+
+而不是
+
+components/
+|- ClearSearchButton.vue
+|- ExcludeFromSearchInput.vue
+|- LaunchOnStartupCheckbox.vue
+|- RunSearchButton.vue
+|- SearchInput.vue
+|- TermsCheckbox.vue
+```
+
+* 
+
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
 > 基于 [https://github.om/LiangJunrong/document-library](https://github.om/LiangJunrong/document-library) 上的作品创作。  
