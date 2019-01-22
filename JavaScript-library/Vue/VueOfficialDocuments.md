@@ -399,7 +399,15 @@ new Vue({
 
 > [返回目录](#catalog-chapter-five)
 
+* 为什么使用 Vuex ？
 
+1. 数据的综合交错，很容易使代码难以维护。
+2. 数据传参非常繁琐，尤其是兄弟组件。
+
+* 什么情况下使用 Vuex ？
+
+1. 开发大型应用
+2. 数据庞大且繁杂
 
 ## <a name="chapter-six" id="chapter-six">六 风格规范</a>
 
