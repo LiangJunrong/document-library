@@ -2,7 +2,7 @@ Vue 官方文档二三事
 ===
 
 > Create by **jsliang** on **2019-1-14 10:40:32**  
-> Recently revised in **2019-1-21 22:12:11**
+> Recently revised in **2019-1-22 08:31:29**
 
 记录在阅读 Vue、VueRouter、VueCli 等官方文档时的一些笔记，仅供参考，不做意见发表。
 
