@@ -353,7 +353,8 @@ new Vue({
 
 > [返回目录](#catalog-chapter-three)
 
-* 正在更新……
+* Vue Router 的基础使用
+* 动态路由匹配，动态设置匹配路径，动态匹配任意路径
 
 ## <a name="chapter-four" id="chapter-four">四 Vue Cli</a>
 
