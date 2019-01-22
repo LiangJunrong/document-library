@@ -27,12 +27,13 @@ Vue 官方文档二三事
 | &emsp;[2.13 过滤器](#chapter-two-thirteen) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Vue Router](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Vue Cli](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 风格规范](#chapter-five) |
-| &emsp;[5.1 命名规范](#chapter-five-one) |
-| &emsp;[5.2 全局规范](#chapter-five-two) |
-| &emsp;[5.3 HTMl 规范](#chapter-five-three) |
-| &emsp;[5.4 JS 规范](#chapter-five-four) |
-| &emsp;[5.5 CSS 规范](#chapter-five-five) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 Vuex](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 风格规范](#chapter-six) |
+| &emsp;[6.1 命名规范](#chapter-six-one) |
+| &emsp;[6.2 全局规范](#chapter-six-two) |
+| &emsp;[6.3 HTMl 规范](#chapter-six-three) |
+| &emsp;[6.4 JS 规范](#chapter-six-four) |
+| &emsp;[6.5 CSS 规范](#chapter-six-five) |
 
 ## <a name="chapter-two" id="chapter-two">二 Vue</a>
 
@@ -394,17 +395,23 @@ new Vue({
 * 创建项目：`vue create my-project` 或者 `vue ui`
 * 兼容 VueCli 2.0 版本：`npm i @vue/cli-init`，然后就可以使用 `vue init webpack` 了。
 
-## <a name="chapter-five" id="chapter-five">五 风格规范</a>
+## <a name="chapter-five" id="chapter-five">五 Vuex</a>
 
 > [返回目录](#catalog-chapter-five)
+
+
+
+## <a name="chapter-six" id="chapter-six">六 风格规范</a>
+
+> [返回目录](#catalog-chapter-six)
 
 下面精简来自 [Vue 风格指南](https://cn.vuejs.org/v2/style-guide) 的条例，如需详细了解请访问 [Vue 风格指南](https://cn.vuejs.org/v2/style-guide)。
 
 > 并不期望你能规规矩矩遵守，只是想让你有一套自己的编写风格，而不是一个项目一套风格，从而害人害己。
 
-### <a name="chapter-five-one" id="chapter-five-one">5.1 命名规范</a>
+### <a name="chapter-six-one" id="chapter-six-one">6.1 命名规范</a>
 
-> [返回目录](#catalog-chapter-five)
+> [返回目录](#catalog-chapter-six)
 
 1. **组件名应该始终是多个单词的，根组件 App 除外**。这样做可以避免跟现有的以及未来的 HTML 元素相冲突，因为所有的 HTML 元素名称都是单个单词的。例如：`todo-item`、`TodoItem`。
 
@@ -483,9 +490,9 @@ components/
 |- TermsCheckbox.vue
 ```
 
-### <a name="chapter-five-two" id="chapter-five-two">5.2 全局规范</a>
+### <a name="chapter-six-two" id="chapter-six-two">6.2 全局规范</a>
 
-> [返回目录](#catalog-chapter-five)
+> [返回目录](#catalog-chapter-six)
 
 1. **尽量别在组件模板中使用 JS 来 bb 套太多话语，毕竟 HTML 就尽量让它做 HTML 该有的事；更好的分类能使代码更加简洁易懂；并且将组件模板中多特性的元素分多行来写，看起来会更舒服点**。例如：
 
@@ -532,9 +539,9 @@ computed: {
 <AppSidebar :style={width:sidebarWidth+'px'}>
 ```
 
-### <a name="chapter-five-three" id="chapter-five-three">5.3 HTMl 规范</a>
+### <a name="chapter-six-three" id="chapter-six-three">6.3 HTMl 规范</a>
 
-> [返回目录](#catalog-chapter-five)
+> [返回目录](#catalog-chapter-six)
 
 1. **在单文件组件、字符串模板和 `JSX` 中没有内容的组件应该是自闭合的，且使用 `PascalCase` 形式命名。然后在 `DOM` 模板中不应该闭合，且使用 `kebab-case` 形式命名**。例如：
 
@@ -548,9 +555,9 @@ computed: {
 
 2. **尽可能统一指令书写形式，例如统一用简写形式 `@` 及 `:` 或者统一用全拼形式 `v-bind` 及 `v-on`**。
 
-### <a name="chapter-five-four" id="chapter-five-four">5.4 JS 规范</a>
+### <a name="chapter-six-four" id="chapter-six-four">6.4 JS 规范</a>
 
-> [返回目录](#catalog-chapter-five)
+> [返回目录](#catalog-chapter-six)
 
 1. **组件的 `data` 必须是一个函数**。当在组件中使用 `data` 属性的时候 (除了 new Vue 外的任何地方)，它的值必须是返回一个对象的函数。例如：
 
@@ -609,9 +616,9 @@ props: {
 </ul>
 ```
 
-### <a name="chapter-five-five" id="chapter-five-five">5.5 CSS 规范</a>
+### <a name="chapter-six-five" id="chapter-six-five">6.5 CSS 规范</a>
 
-> [返回目录](#catalog-chapter-five)
+> [返回目录](#catalog-chapter-six)
 
 1. **为组件样式设置作用域**。给每个组件的 CSS 使用 `scoped`，避免组件之间的样式互相影响。
 
