@@ -362,7 +362,29 @@ new Vue({
 * 路由可以通过 `redirect` 进行重定向，或者通过 `alias` 取别名，从而自由地将 UI 结构映射到任意的 URL。
 * 路由还可以进行传参，通过取代与 `$route` 的耦合或者通过 `props` 解耦。其中有三种模式：布尔模式、对象模式以及函数模式。
 * Vue Router 的默认模式是 hash 模式，我们可以通过 `mode`，将其设置为 history 模式。
-* 
+* 通过 `router.beforeEach((to, from, next) => { ... })` 来注册全局路由守卫，它会在访问某个路由前进行拦截。其中 `to` 为即将进入的目标，`from` 为当前路由即将离开的位置，`next` 类似于 Promise 的 `resolve`。在 2.5+ 版本添加了 `router.beforeResolve`，作用类似于 `router.beforeEach`
+* 路由全局后置钩子：`router.afterEach((to, from) => {})`。
+* 可以针对某个路由进行守卫，即在 `new VueRouter({})` 中通过 `beforeEnter: (to, from, next) => {}` 进行守卫。
+* 可以直接在路由组件中定义：`beforeRouteEnter`、`beforeRouteUpdate` 以及 `beforeRouteLeave`。
+* 完整的导航解析流程：
+1. 导航被触发。
+2. 在失活的组件里调用离开守卫。
+3. 调用全局的 `beforeEach` 守卫。
+4. 在重用的组件里调用 `beforeRouteUpdate` 守卫。
+5. 在路由配置里调用 `beforeEnter`。
+6. 解析异步路由组件。
+7. 在被激活的组件里调用 `beforeRouteEnter`。
+8. 调用全局的 `beforeResolve` 守卫。
+9. 导航被确认。
+10. 调用全局的 `afterEach` 钩子。
+11. 触发 DOM 更新。
+12. 用创建好的实例调用 `beforeRouteEnter` 守卫中传给 `next` 的回调函数。
+
+* Vue Router 通过定义 `meta`，可以制定路由鉴权，缓存，标题信息等。
+* 通过给 `<router-view>` 添加 `<transition>` 包裹，并给 `<transition>` 设置不同的 `name`，则添加过渡效果。同时，可以根据当前路由与目标路由的关系，动态设置过渡效果。
+* Vue Router 的引用，可以让我们动态设置数据是在导航完成之后获取还是在导航完成之前获取。
+* 路由可以设置滚动行为，在切换到新路由时，可以滚动到顶部或者保持原先的滚动位置。
+* 当路由过多，组件过大的时候，我们应该把不同的路由对应的组件分割成不同的代码块，从而使这些路由被访问的时候才加载对应组件，从而提高加载效率。使用 `const Foo = () => import('./Foo.vue')` 即可。
 
 ## <a name="chapter-four" id="chapter-four">四 Vue Cli</a>
 
