@@ -356,7 +356,13 @@ new Vue({
 * Vue Router 的基础使用。
 * 动态路由匹配，动态设置匹配路径，动态匹配任意路径。
 * 路由可以嵌套匹配，每个页面都可以有自己的 `<router-view></router-view>`。
-* 编程式导航：不仅可以通过 `<router-link :to="..."></router-link>` 来定义导航链接，也可以通过 `router.push("...")` 的形式来实现。
+* 编程式导航：不仅可以通过 `<router-link :to="..."></router-link>` 来定义导航链接，也可以通过 `router.push("...")` 的形式来实现。同时，我们还可以采用 `router.replace("...")` 来实现路由替换，通过 `router.go(n)` 来实现前进或者后退多少步路由。
+* 命名路由的两种形式：在 `<router-link>` 中通过 `:to="{name, params}"` 或者在 `router.push()` 中通过 `{name, params}` 来定义。
+* 一个页面可以同时存在多个 `<router-view>`，只需要通过给它们命名 `name` 就可以实现。
+* 路由可以通过 `redirect` 进行重定向，或者通过 `alias` 取别名，从而自由地将 UI 结构映射到任意的 URL。
+* 路由还可以进行传参，通过取代与 `$route` 的耦合或者通过 `props` 解耦。其中有三种模式：布尔模式、对象模式以及函数模式。
+* Vue Router 的默认模式是 hash 模式，我们可以通过 `mode`，将其设置为 history 模式。
+* 
 
 ## <a name="chapter-four" id="chapter-four">四 Vue Cli</a>
 
