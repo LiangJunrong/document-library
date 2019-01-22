@@ -353,8 +353,10 @@ new Vue({
 
 > [返回目录](#catalog-chapter-three)
 
-* Vue Router 的基础使用
-* 动态路由匹配，动态设置匹配路径，动态匹配任意路径
+* Vue Router 的基础使用。
+* 动态路由匹配，动态设置匹配路径，动态匹配任意路径。
+* 路由可以嵌套匹配，每个页面都可以有自己的 `<router-view></router-view>`。
+* 编程式导航：不仅可以通过 `<router-link :to="..."></router-link>` 来定义导航链接，也可以通过 `router.push("...")` 的形式来实现。
 
 ## <a name="chapter-four" id="chapter-four">四 Vue Cli</a>
 
