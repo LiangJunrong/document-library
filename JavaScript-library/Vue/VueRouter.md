@@ -4,8 +4,6 @@ Vue Router
 > Create by **jsliang** on **2018-11-8 13:39:39**  
 > Recently revised in **2019-1-23 08:26:17**
 
-<br>
-
 &emsp;**饮水思源：[Vue Router 官方文档](https://router.vuejs.org/zh/)**
 
 &emsp;Vue Router 是 Vue.js 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌。包含的功能有：
@@ -18,8 +16,6 @@ Vue Router
 * 带有自动激活的 CSS class 的链接
 * HTML5 历史模式或 hash 模式，在 IE9 中自动降级
 * 自定义的滚动条行为
-
-<br>
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -38,8 +34,6 @@ Vue Router
 ## <a name="chapter-two-one" id="chapter-two-one">2.1 初识 Vue Router</a>
 
 > [返回目录](#catalog-chapter-two-one)
-
-<br>
 
 &emsp;在介绍路由的时候，我们先理清下传统开发方式的路由和 SPA 页面的路由：
 * 传统开发方式中，url 改变后，立刻发起请求，响应整个页面，渲染整个页面。
