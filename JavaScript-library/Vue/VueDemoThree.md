@@ -4,16 +4,16 @@ Vue Demo Three
 > Create by **jsliang** on **2019-1-23 12:56:37**  
 > Recently revised in **2019-1-23 12:56:41**
 
-该 Demo，可分为三大部分：
+该 Demo，可分为四大部分：
 
-部分一：文章推荐
+部分一：文章系统
 
 1. 文章详情
 2. 文章评论
 3. 文章评论回复
 4. 文章评论违法被举报删除
 
-部分二：恶搞商城
+部分二：商城系统
 
 1. 用户可以上传商品
 2. 用户可以查看商品详情
@@ -43,6 +43,15 @@ Vue Demo Three
 1. 用户信息来源于微信/QQ
 2. 用户可有个人座右铭
 3. 用户拥有文章发表权以及商品发表权
+
+部分五：土豪系统
+
+1. 积分累计到一定程度开启土豪系统
+2. 土豪可以看到普通用户看不到的页面
+3. 土豪可以 8 折垄断商品
+4. 土豪可以花费积分购买排名
+5. 土豪可以打赏其他用户
+6. 土豪被举报将扣除全部积分
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
