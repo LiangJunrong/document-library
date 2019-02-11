@@ -10,6 +10,8 @@ AngularJS 诞生于 2009 年，由 Misko Hevery 等人创建，后为 Google 所
 
 AngularJS 有着诸多特性，最为核心的是：MVVM、模块化、自动化双向数据绑定、语义化标签、依赖注入等等。
 
+由于 AngularJS 有着诸多不便，AngularJS 在 2.0 版本进行了重写，于是有了现在的 Angular。
+
 ## 目录
 
 | 章节名 | 导航                                |
