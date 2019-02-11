@@ -2,12 +2,14 @@
 ===
 
 > create by **jsliang** on **2018-8-21 11:30:00**   
-> Recently revised in **2018-12-23 20:31:17**
+> Recently revised in **2019-2-11 11:12:507**
 
 ## 项目实例
+
 * [点我前往](http://es6design.jsliang.top/)
 
 ## 目录
+
 | 章节名  | 导航                                                   |
 | ------- | ------------------------------------------------------ |
 | 第一章  | [部署开发环境](./design-pattern-chapter1.md)           |

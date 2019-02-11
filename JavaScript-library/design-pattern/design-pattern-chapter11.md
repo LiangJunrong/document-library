@@ -5,6 +5,7 @@
 > Recently revised in **2018-10-28 10:54:44**
 
 ## 第十章 状态模式
+
 * 一个对象有状态变化
 * 每次状态变化都会触发一个逻辑
 * 不能总是用 if...else... 来控制
@@ -14,6 +15,7 @@
 <br>
 
 ### 11.1 UML图
+
 ![图](../../public-repertory/img/js-design-pattern-chapter11-1.png)
 
 <br>

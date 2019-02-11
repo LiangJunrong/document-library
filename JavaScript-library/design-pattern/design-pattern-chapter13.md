@@ -5,7 +5,9 @@
 > Recently revised in **2018-10-28 10:54:44**
 
 ## 第十三章 综合应用-购物车
+
 &emsp;最后，我们使用 jQuery 做一个模拟购物车的示例。
+
 * 功能如下：
 1. 显示购物列表
 2. 加入购物车
@@ -23,6 +25,7 @@
 <br>
 
 ### 13.1 UML类图
+
 ![图](../../public-repertory/img/js-design-pattern-chapter13-1.png)
 
 <br>
