@@ -2,10 +2,10 @@ JavaScript
 ===
 
 > Create by **jsliang** on **2018-10-28 10:51:18**  
-> Recently revised in **2018-12-23 20:43:18**
+> Recently revised in **2019-2-11 11:16:55**
 
 * Here is an article about JavaScript
-* 这里存放了关于 JavaScrip t的文章
+* 这里存放了关于 JavaScript 的文章
 
 # 目录
 
