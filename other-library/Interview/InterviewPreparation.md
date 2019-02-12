@@ -71,7 +71,43 @@ CSS 内容
 
 > [返回目录](#catalog-chapter-five)
 
+1. 原型与原型链
 
+* 实例的 `__proto__` 属性（原型）等于其构造函数的 `prototype` 属性。
+
+```
+// 首先记住三条公式
+Object.__proto__=== Function.prototype
+Function.prototype.__proto__=== Object.prototype
+Object.prototype.__proto__ === null
+
+
+
+// 然后理解下面的题目
+function Person(name) {
+    this.name = name
+}
+let p = new Person('Tom');
+
+// 问：1. p.__proto__等于什么？
+// 答：Person.prototype
+
+// 问：2. Person.__proto__等于什么？
+// 答：Function.prototype
+
+
+
+// 最后思考为什么下面题目是这个答案？
+var foo = {},
+    F = function(){};
+Object.prototype.a = 'value a';
+Function.prototype.b = 'value b';
+
+console.log(foo.a); // value a
+console.log(foo.b); // undefined
+console.log(F.a); // value a
+console.log(F.b); // value b
+```
 
 ## <a name="chapter-six" id="chapter-six">六 其他</a>
 
