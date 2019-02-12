@@ -82,6 +82,23 @@ CSS 内容
 * 可以复用，减少代码冗余度
 * 高内聚低耦合
 
+3. 手写个面向对象代码？
+
+```
+function Person(name, phone) {
+  this.name = name;
+  this.phone = phone;
+  this.eat = function() {
+    console.log(name + " 吃饭");
+  }
+
+  return this;
+}
+
+let p1 = new Person("jsliang", "18818881888");
+console.log(p1.name); // jsliang
+p1.eat(); // jsliang 吃饭
+```
 
 ### 原型与原型链
 
