@@ -2,7 +2,7 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2018-12-23 20:53:34**  
-> Recently revised in **2019-2-12 08:31:00**
+> Recently revised in **2019-2-13 08:29:43**
 
 **时刻准备好自己的简历，因为你不知道前端什么时候会被炒鱿鱼，也不知道你什么时候会萌生辞职想法，只有准备好自己的简历，你才知道哪一刻跑路是最佳选择。**
 
@@ -155,5 +155,10 @@ console.log(F.b); // value b
 9. 从输入 URL 到页面加载发生了什么
 10. 网页具体是如何渲染的
 11. 前端性能优化（[地址1](https://csspod.com/frontend-performance-best-practices/)、[地址2](https://juejin.im/post/5bbaa549e51d450e827b6b13)）
+
+快速记忆：
+
+1. 三次握手：① 客户机 -> SYN -> 服务器；② 客户机 <- SYN + ACK <- 服务器；③ 客户机 -> ACK -> 服务器。
+2. URL 的组成：协议 + 服务器地址（域名 或 IP + 端口） + 路径 + 文件名
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
