@@ -71,6 +71,8 @@ CSS 内容
 
 > [返回目录](#catalog-chapter-five)
 
+### 面向对象与面向过程
+
 1. 什么是面向过程与面向对象？
 
 * 面向过程就是做围墙的时候，由你本身操作，叠第一层的时候：放砖头，糊水泥，放砖头，糊水泥；然后第二层的时候，继续放砖头，糊水泥，放砖头，糊水泥……
@@ -137,6 +139,40 @@ console.log(foo.b); // undefined
 console.log(F.a); // value a
 console.log(F.b); // value b
 ```
+
+### Vue
+
+* Vue 的生命周期
+
+1. 创建前/后：在 **beforeCreated** 阶段，Vue 实例的挂载元素 el 和数据对象 data 都为 undefined，还未初始化。在 **created** 阶段，Vue 实例的数据对象 data 有了，$el 还没有。
+2. 载入前/后：在 **beforeMount** 阶段，Vue 实例的 $el 和 data 都初始化了，但还是挂载之前为虚拟的 DOM 节点，data.message 还未替换。在 **mounted** 阶段，Vue 实例挂载完成，data.message 成功渲染。
+3. 更新前/后：当 data 变化时，会触发 **beforeUpdate** 和 **updated** 方法。
+4. 销毁前/后：在执行 **destroy** 方法后，对 data 的改变不会再触发周期函数，说明此时 Vue 实例已经解除了事件监听以及和 DOM 的绑定，但是 DOM 结构依然存在。
+
+* 对 Vue 双向数据绑定原理的理解
+
+Vue 采用 **数据劫持** 结合 **发布者-订阅者** 模式的方式，通过 `Object.defineProperty()` 来劫持各个属性的 setter 以及 getter，在数据表动时发布消息给订阅者，触发相应的监听回调。
+
+1. 第一步：需要 observe 的数据对象进行递归遍历，包括子属性对象的属性，都加上 setter 和 getter。这样的话，给这个对象的某个值赋值，就会触发 setter，那么就能监听到了数据变化。
+2. 第二步：compile 解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新数据。
+3. 第三步：Watcher 订阅者是 Observer 和 Compile 之间通信的桥梁，主要做的事情有：
+   1. 在自身实例化时往属性订阅器（dep）里面添加自己。
+   2. 自身必须有一个 update() 方法
+   3. 待属性变动 `dep.notice()` 通知时，能调用自身的 `update()` 方法，并触发 Compile 中绑定的回调，则功成身退。
+4. 第四步：MVVM 作为数据绑定的入口，整合 Observer、Compile 和 Watcher 三者，通过 Observer 来监听自己的 model 数据变化，通过 Compile 来解析编译模板指令，最终利用 Watcher 搭起 Observer 和 Compile 之间的桥梁，达到数据变化 -> 视图更新；视图交互变化（input） -> 数据 model 变更的双向绑定效果。
+
+* Vue template 编译的理解
+
+Vue 中 template 就是先转化成 AST 树，再得到 render 函数返回 VNode（Vue 的虚拟 DOM 节点）。
+
+1. 通过 compile 编译器把 template 编译成 AST 语法树（abstract syntax tree - 源代码的抽象语法结构的树状表现形式），compile 是 createCompiler 的返回值，createCompiler 是用以创建编译器的。另外 compile 还负责合并 option。
+2. AST 会经过 generate（将 AST 语法树转换成 render function 字符串的过程）得到 render 函数，render 的返回值是 VNode，VNode 是 Vue 的虚拟 DOM 节点，里面有标签名、子节点、文本等待。
+
+* event & v-model: 事件和v-model的实现原理
+* slot & keep-alive: 内置组件的实现原理
+* transition: 过渡的实现原理
+* vue-router: 官方路由的实现原理
+* vuex: 官方状态管理的实现原理
 
 ## <a name="chapter-six" id="chapter-six">六 其他</a>
 
