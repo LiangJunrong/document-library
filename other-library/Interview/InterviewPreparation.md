@@ -14,6 +14,8 @@ jsliang 的 2019 面试准备
 * 问：如何看待网上搜出来的永远看不完的题海？ 答：不变应万变
 * 问：如何对待面试题？ 答：题目到知识再到题目
 
+> 参考1：[《一位前端 2018 绝地求生记》](https://juejin.im/post/5c36fe50518825253b5e94f4)
+
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -65,11 +67,24 @@ HTML 内容
 
 > [返回目录](#catalog-chapter-four)
 
-CSS 内容
+### CSS 书籍
+
+* 《CSS 权威指南》
+* 《CSS 揭秘》
+* 《CSS 世界》
 
 ## <a name="chapter-five" id="chapter-five">五 JavaScript</a>
 
 > [返回目录](#catalog-chapter-five)
+
+### JavaScript 书籍
+
+* 《JavaScript 高级程序（第三版）》
+* 《你不知道的 JavaScript》
+* 《JavaScript 忍者秘籍》
+* 《ES6 标准入门》——阮一峰
+* 《JavaScript 设计模式》——张容铭
+* 《JavaScript 设计模式与开发实践》——曾探
 
 ### 面向对象与面向过程
 
@@ -178,7 +193,12 @@ Vue 中 template 就是先转化成 AST 树，再得到 render 函数返回 VNod
 
 > [返回目录](#catalog-chapter-six)
 
-大纲整理：
+### 推荐
+
+1. 技术胖
+2. 慕课网
+
+### 大纲整理
 
 1. 闭包
 2. this 指向问题
