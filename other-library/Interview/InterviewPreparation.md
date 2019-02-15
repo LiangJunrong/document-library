@@ -203,7 +203,30 @@ Vue 采用 **数据劫持** 结合 **发布者-订阅者** 模式的方式，通
 > js 实现简单的双向绑定
 
 ```
-
+<body>
+  <div id="app">
+    <input type="text" id="txt">
+    <p id="show"></p>
+  </div>
+  
+  <script>
+    window.onload = function() {
+      let obj = {};
+      Object.defineProperty(obj, "txt", {
+        get: function() {
+          return obj;
+        },
+        set: function(newValue) {
+          document.getElementById("txt").value = newValue;
+          document.getElementById("show").innerHTML  = newValue;
+        }
+      })
+      document.addEventListener("keyup", function(e) {
+        obj.txt = e.target.value;
+      })
+    }
+  </script>
+</body>
 ```
 
 * Vue template 编译的理解
