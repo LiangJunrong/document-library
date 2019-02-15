@@ -2,7 +2,7 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2018-12-23 20:53:34**  
-> Recently revised in **2019-2-14 08:19:06**
+> Recently revised in **2019-2-15 08:32:41**
 
 **时刻准备好自己的简历，不管是互联网经济不佳面临裁员，还是因为内部斗争严重想挪窝，只有随时更新自己，把自己的简历准备好，你才知道哪一刻跑路是最佳选择。**
 
@@ -188,6 +188,10 @@ Vue 中 template 就是先转化成 AST 树，再得到 render 函数返回 VNod
 * transition: 过渡的实现原理
 * vue-router: 官方路由的实现原理
 * vuex: 官方状态管理的实现原理
+
+* 虚拟 DOM
+
+Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM 元素，实际上 `createElement` 描述为 `createNodeDescription`，因为它所包含的信息会告诉 Vue 页面上需要渲染什么样的节点。因此，我们将这样的节点描述为 “虚拟节点”（Virtual Node），简称 VNode。“虚拟 DOM” 是我们对由 Vue 组件树建立的整个 VNode 树的称呼。
 
 ## <a name="chapter-six" id="chapter-six">六 其他</a>
 
