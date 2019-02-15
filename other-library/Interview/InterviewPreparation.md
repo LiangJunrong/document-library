@@ -157,9 +157,19 @@ console.log(F.b); // value b
 
 ### Vue
 
+* 对 MVVM 的理解
+
+在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互，Model 和 ViewModel 之间的交互时双向的，因此 View 数据会同步到 Model 中，而 Model 数据的变化也会立即反应到 View 上。
+
+ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而 View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需要关注业务逻辑，不需要手动操作 DOM，不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。
+
+1. M - Model。Model 代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑。
+2. V - View。View 代表 UI 组件，它负责将数据模型转化为 UI 展现出来。
+3. VM - ViewModel。ViewModel 监听模型数据的改变和控制视图行为、处理用户交互，简单理解就是一个同步 View 和 Model 的对象，连接 Model 和 View。
+
 * Vue 的生命周期
 
-1. 创建前/后：在 **beforeCreated** 阶段，Vue 实例的挂载元素 el 和数据对象 data 都为 undefined，还未初始化。在 **created** 阶段，Vue 实例的数据对象 data 有了，$el 还没有。
+1. 创建前/后：在 **beforeCreated** 阶段，Vue 实例的挂载元素 $el 和数据对象 data 都为 undefined，还未初始化。在 **created** 阶段，Vue 实例的数据对象 data 有了，$el 还没有。
 2. 载入前/后：在 **beforeMount** 阶段，Vue 实例的 $el 和 data 都初始化了，但还是挂载之前为虚拟的 DOM 节点，data.message 还未替换。在 **mounted** 阶段，Vue 实例挂载完成，data.message 成功渲染。
 3. 更新前/后：当 data 变化时，会触发 **beforeUpdate** 和 **updated** 方法。
 4. 销毁前/后：在执行 **destroy** 方法后，对 data 的改变不会再触发周期函数，说明此时 Vue 实例已经解除了事件监听以及和 DOM 的绑定，但是 DOM 结构依然存在。
@@ -192,6 +202,11 @@ Vue 中 template 就是先转化成 AST 树，再得到 render 函数返回 VNod
 * 虚拟 DOM
 
 Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM 元素，实际上 `createElement` 描述为 `createNodeDescription`，因为它所包含的信息会告诉 Vue 页面上需要渲染什么样的节点。因此，我们将这样的节点描述为 “虚拟节点”（Virtual Node），简称 VNode。“虚拟 DOM” 是我们对由 Vue 组件树建立的整个 VNode 树的称呼。
+
+* 零碎知识点
+
+1. 父子组件通讯：父组件使用 `props` 将数据传给子组件；然后子组件通过 `$emit` 触发父元素的自定义事件。[最佳阐释](https://blog.csdn.net/sllailcp/article/details/78595077)
+2. 
 
 ## <a name="chapter-six" id="chapter-six">六 其他</a>
 
