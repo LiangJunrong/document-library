@@ -4,13 +4,13 @@ jsliang 的 2019 面试准备
 > Create by **jsliang** on **2018-12-23 20:53:34**  
 > Recently revised in **2019-2-16 21:55:43**
 
-**时刻准备好自己的简历，不管是互联网经济不佳面临裁员，还是因为内部斗争严重想挪窝，只有随时更新自己，把自己的简历准备好，你才知道哪一刻跑路是最佳选择。**
-
 **尚未完善，参考该文章需注意，可能会看得毫无逻辑！！！**
 
 **尚未完善，参考该文章需注意，可能会看得毫无逻辑！！！**
 
 **尚未完善，参考该文章需注意，可能会看得毫无逻辑！！！**
+
+**时刻准备好自己的简历，不管是互联网经济不佳面临裁员，还是因为内部斗争严重想换份工作，只有随时更新自己，把自己的简历准备好，你才知道哪一刻跑路是最佳选择。**
 
 本文的知识点将涉及 HTML、CSS、JS、HTTP、Vue、Webpack、打包工具、性能优化等，没有前置条件，看得懂可以瞅瞅复习下，看不懂可以瞅瞅学习下。
 
@@ -20,17 +20,21 @@ jsliang 的 2019 面试准备
 * 问：如何看待网上搜出来的永远看不完的题海？ 答：不变应万变
 * 问：如何对待面试题？ 答：题目到知识再到题目
 
-> 参考1：[《一位前端 2018 绝地求生记》](https://juejin.im/post/5c36fe50518825253b5e94f4)
+然后在复习面试题的过程中，个人有些小看法：
 
-> 个人感言一：  
-> 为什么我总是比不上别人优秀？  
-> 当编写业务代码中，碰到某个业务 bug 时，我会习惯性地百度这个业务 bug，网友是怎么解决的。但是，学霸级的程序猿，会多走一步，百度下产生这个业务 bug 的底层原因是什么。所以，日积月累，我的确比不上人家了。
+* 个人感言一：为什么我总是比不上别人优秀？  
 
-> 个人感言二：  
-> 辞职并不是件便捷的事。  
-> way 1：面试成功，跟自己公司递辞呈，走流程，同时跟对面 hr 申请一个月后入职。  
-> way 2：面试成功，跟自己公司递辞呈，询问能不能快速离职，收到回复跟对面 hr 确认时间。  
-> way 3：先递辞呈，同时面试，面试成功的，一律申请走完原公司一个月的流程之后的日子入职。
+当编写业务代码中，碰到某个业务 bug 时，我会习惯性地百度这个业务 bug，网友是怎么解决的。但是，学霸级的程序猿，会多走一步，百度下产生这个业务 bug 的底层原因是什么。所以，日积月累，我的确比不上人家了。
+
+* 个人感言二：辞职并不是件便捷的事。  
+
+way 1：面试成功，跟自己公司递辞呈，走流程，同时跟对面 hr 申请一个月后入职。  
+
+way 2：面试成功，跟自己公司递辞呈，询问能不能快速离职，收到回复跟对面 hr 确认时间。  
+
+way 3：先递辞呈，同时面试，面试成功的，一律申请走完原公司一个月的流程之后的日子入职。
+
+最后在这里祝各位小伙伴能找到称心如意的工作~
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -44,6 +48,8 @@ jsliang 的 2019 面试准备
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 CSS](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 JavaScript](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六  其他](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 总结](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 参考文献](#chapter-eight) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -482,5 +488,28 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 
 1. 三次握手：① 客户机 -> SYN -> 服务器；② 客户机 <- SYN + ACK <- 服务器；③ 客户机 -> ACK -> 服务器。
 2. URL 的组成：协议 + 服务器地址（域名 或 IP + 端口） + 路径 + 文件名
+
+## <a name="chapter-seven" id="chapter-seven">七 总结</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+在观看这篇文章的过程中，小伙伴可能会有这些疑问：
+
+1. 你这杂七杂八的都写了什么呀？看完我晕乎了！
+
+回答：每个人的学习经历是不同的，所拥有的技术、知识点等都是不同的，所以在这篇文章中，**jsliang** 在充实自己的同时，其实也是在挖掘自己的不足，例如面向对象造轮子，例如算法问题等……**jsliang** 充分意识到自己的不足，并打算在之后进行补充学习以及应用到工作中。
+
+## <a name="chapter-eight" id="chapter-eight">八 参考文献</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+* 面试文章：
+
+1. [《一位前端 2018 绝地求生记》](https://juejin.im/post/5c36fe50518825253b5e94f4)
+
+* JS 文章：
+
+1. [《小邵教你玩转ES6》](https://juejin.im/post/5b7b95206fb9a019bd2463d8)
+2. [《小邵教你玩转JS面向对象》](https://juejin.im/post/5b8a8724f265da435450c591)
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
