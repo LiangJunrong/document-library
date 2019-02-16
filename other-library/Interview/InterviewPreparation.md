@@ -155,6 +155,71 @@ console.log(F.a); // value a
 console.log(F.b); // value b
 ```
 
+### 杂问
+
+* 现在我们有一段代码：
+
+```
+for(var i = 0; i < 3; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+}
+```
+
+请问这段代码输出什么？ 
+
+> 答案：3 个 3。  
+> 解析：首先，`for` 循环是同步代码，先执行三遍 `for`，i 提升到了 3；然后，再执行异步代码 `setTimeout`，这时候输出的 i，只能是 3 个 3 了。
+
+那么，我们有什么办法依次输出 0 1 2 么？
+
+1. 使用 let：
+
+```
+$(function() {
+  for(let i = 0; i < 3; i++) {
+    setTimeout(function() {
+      console.log(i);
+    }, 1000);
+  }
+})
+```
+
+在这里，每个 let 和代码块结合起来形成块级作用域，当 setTimeout() 打印时，会寻找最近的块级作用域中的 i，所以依次打印出 0 1 2。
+
+如果这样讲不明白，我们可以执行下下面这段代码：
+
+```
+$(function() {
+  for(let i = 0; i < 3; i++) {
+    console.log("定时器外部：" + i);
+    setTimeout(function() {
+      console.log(i);
+    }, 1000);
+  }
+})
+```
+
+此时浏览器依次输出的是：
+
+```
+定时器外部：0
+定时器外部：1
+定时器外部：2
+0
+1
+2
+```
+
+即代码还是先执行 `for` 循环，但是当 `for` 结束执行到了 `setTimeout` 的时候，它会做个标记，这样到了 `console.log(i)` 中，i 就能找到这个块中最近的变量定义。
+
+### ES6
+
+* var、let 以及 const
+
+
+
 ### Vue
 
 * 对 MVVM 的理解
