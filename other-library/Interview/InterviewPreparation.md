@@ -64,7 +64,16 @@ enm...所以心也委屈了。
 
 > [返回目录](#catalog-chapter-three)
 
-HTML 内容
+* input 标签自带的默认监听事件都有哪些？
+
+1. onfocus 获取焦点时触发
+2. onblur 失去焦点时触发
+3. onchange 失去焦点并且 input 的 value 值改变
+4. onkeydown 在输入时按键按下
+5. onkeyup 在输入时按键抬起
+6. onclick 主要是 button 点击事件
+7. onselect 在 input 中的值被选中触发
+8. oninput 当 input 的 value 值改变触发，不用等失去焦点（不同于 onchange 事件）
 
 ## <a name="chapter-four" id="chapter-four">四 CSS</a>
 
@@ -330,6 +339,8 @@ Vue 采用 **数据劫持** 结合 **发布者-订阅者** 模式的方式，通
   </script>
 </body>
 ```
+
+> Object.defineProperty 接收三个参数：对象，属性名，配置对象
 
 * Vue template 编译的理解
 
