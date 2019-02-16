@@ -340,7 +340,8 @@ Vue 采用 **数据劫持** 结合 **发布者-订阅者** 模式的方式，通
 </body>
 ```
 
-> Object.defineProperty 接收三个参数：对象，属性名，配置对象
+> Object.defineProperty 接收三个参数：对象，属性名，配置对象  
+> 这里使用的是 Object.defineProperty，这是 Vue 2.0 进行双向数据绑定的写法。在 Vue 3.0 中，它使用 Proxy 进行数据劫持。
 
 * Vue template 编译的理解
 
