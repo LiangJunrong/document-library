@@ -257,8 +257,6 @@ let { name, age } = { name:"jsliang", age: 23 }
 // 根据 key 值匹配，相当于 let name = "jsliang", age = 23
 ```
 
-
-
 ### Vue
 
 * 对 MVVM 的理解
