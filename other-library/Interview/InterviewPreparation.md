@@ -94,6 +94,10 @@ enm...所以心也委屈了。
 7. onselect 在 input 中的值被选中触发
 8. oninput 当 input 的 value 值改变触发，不用等失去焦点（不同于 onchange 事件）
 
+* HTML5 中新增了哪些标签？
+
+新增标签大致有：`<header>`、`<footer>`、`<aside>`、`<nav>`、`<video>`、`<audio>`、`<canvas>`等等
+
 ## <a name="chapter-four" id="chapter-four">四 CSS</a>
 
 > [返回目录](#catalog-chapter-four)
@@ -173,6 +177,120 @@ BFC 就是 块级格式上下文，它是一个独立的渲染区域，让处于
 2. css reset 一般会清除掉一些问题，减少 BFC 的使用。
 
 > 参考文献：[《我对BFC的理解》](https://www.cnblogs.com/dojo-lzz/p/3999013.html)
+
+### Flex 及垂直居中问题
+
+* 什么是 Flex 布局？
+
+Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。
+
+* Flex 布局有哪些便利
+
+```
+/* 设置 Flex 模式 */
+display: flex;
+
+/* 决定元素是横排还是竖着排，要不要倒序 */
+flex-direction: column;
+
+/* 决定元素换行格式，一行排不下的时候如何排 */
+flex-wrap: wrap;
+
+/* flex-flow = flex-direction + flex-wrap */
+flex-flow: column wrap;
+
+/* 同一排下对齐方式，空格如何隔开各个元素 */
+justify-content: space-between;
+
+/* 同一排下元素如何对齐，顶部对齐、中部对齐还是其他 */
+align-items: center;
+
+/* 多行对齐方式 */
+align-content: space-between;
+```
+
+* 如何通过 Flex 实现元素水平垂直居中？
+
+> HTML
+
+```
+<div class="container">
+  <div class="child"></div>
+</div>
+```
+
+> CSS
+
+```
+.container {
+  margin: 0 auto;
+  width: 300px;
+  height: 200px;
+  background: deepskyblue;
+  display: flex;
+  /* 实现元素水平居中 */
+  justify-content: center;
+  /* 实现元素垂直居中 */
+  align-items: center;
+}
+.child {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+}
+```
+
+* 除了 Flex，还能使用其他形式进行水平垂直居中吗？
+
+> HTML
+
+```
+<div class="container">
+  <div class="child"></div>
+</div>
+```
+
+> CSS
+
+```
+.container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: pink;
+  margin: 0 auto;
+}
+.child {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  /* 下面两种方式均可 */
+  /* margin-top: -50px;
+  margin-left: -50px; */
+  transform: translate(-50%, -50%);
+  background: #fff;
+}
+```
+
+* 除此之外再谈谈 CSS 水平居中或者垂直居中？
+
+水平居中：
+
+1. 行内元素：`display: inline-block; text-align: center;`
+2. 块级元素：`margin: 0 auto;`
+3. Flex：`display: flex; justify-content: center;`
+
+垂直居中：
+
+1. 行高 = 元素高：`line-height: height`
+2. Flex：`display: flex; align-items: center;`
+
+> 参考文献：  
+> ① [《CSS实现垂直居中的常用方法》](https://www.cnblogs.com/yugege/p/5246652.html)  
+> ② [《CSS 用 position: absolute 与 transform 来居中块级元素的问题》](https://segmentfault.com/q/1010000005151903)
+
 
 ## <a name="chapter-five" id="chapter-five">五 JavaScript</a>
 
@@ -588,6 +706,8 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 * CSS 文章
 
 1. [《我对BFC的理解》](https://www.cnblogs.com/dojo-lzz/p/3999013.html)
+2. [《CSS实现垂直居中的常用方法》](https://www.cnblogs.com/yugege/p/5246652.html)
+3. [《CSS 用 position: absolute 与 transform 来居中块级元素的问题》](https://segmentfault.com/q/1010000005151903)
 
 * JS 文章：
 
