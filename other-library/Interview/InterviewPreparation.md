@@ -2,7 +2,7 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2018-12-23 20:53:34**  
-> Recently revised in **2019-2-16 21:55:43**
+> Recently revised in **2019-2-17 10:27:39**
 
 **尚未完善，参考该文章需注意，可能会看得毫无逻辑！！！**
 
@@ -75,7 +75,7 @@ way 3：先递辞呈，同时面试，面试成功的，一律申请走完原公
 
 enm...所以心也委屈了。
 
-> 关于 2018 的努力：  
+> 在 2018 的努力下，GitHub 破 600 近 700 star，掘金破 10 万阅读量，3000 粉丝：  
 > GitHub 见证：[点击查看](https://github.com/LiangJunrong)  
 > 掘金见证：[点击查看](https://juejin.im/user/584613ba128fe10058b3cf68)
 
@@ -103,6 +103,51 @@ enm...所以心也委屈了。
 * 《CSS 权威指南》
 * 《CSS 揭秘》
 * 《CSS 世界》
+
+### 盒模型
+
+在工作的过程中，也许小伙伴需要 div 块的总宽度为 100px，然后发现总是被 margin 撑高，这是因为盒模型定义的问题：
+
+CSS 中有个属性叫 `box-sizing`。
+
+```
+box-sizing: border-box
+box-sizing: content-box
+```
+
+1. `border-box` 中，整个 `div` 的宽、高，包括 `margin`、`padding`、`border`。  
+2. `content-box` 中，整个 `div` 的宽、高，则不包括上面元素。 
+
+![图](../../public-repertory/img/other-WechatApplet-bug-8.jpg)
+
+如上图，如果一个 `div` ，你的代码如下：
+```
+div {
+  box-sizing: border-box;
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
+```
+
+那么，你的整个宽高还是 `100px`。  
+
+但是，如果你的代码如下：
+
+```
+div {
+  box-sizing: content-box;
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
+```
+
+那么，你的整个盒子宽高是 `120px`。
+
+如果你在设计页面中，发现内容区被撑爆了，那么，请检查下现在的 `border-box` 是什么。
 
 ## <a name="chapter-five" id="chapter-five">五 JavaScript</a>
 
