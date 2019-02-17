@@ -291,6 +291,9 @@ align-content: space-between;
 > ① [《CSS实现垂直居中的常用方法》](https://www.cnblogs.com/yugege/p/5246652.html)  
 > ② [《CSS 用 position: absolute 与 transform 来居中块级元素的问题》](https://segmentfault.com/q/1010000005151903)
 
+### 选择器优先级
+
+在 CSS 的选择器中，它会按照优先级**从右向左解析**：!important -> 行内样式 -> #id -> .class -> tag -> * -> 继承 -> 默认
 
 ## <a name="chapter-five" id="chapter-five">五 JavaScript</a>
 
@@ -586,8 +589,8 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 
 ### 推荐
 
-1. 技术胖
-2. 慕课网
+1. [技术胖](https://jspang.com/)
+2. [慕课网](https://www.imooc.com/)
 
 ### 大纲整理
 
@@ -604,6 +607,24 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 11. 前端性能优化（[《前端性能优化最佳实践》](https://csspod.com/frontend-performance-best-practices/)、[《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)）
 
 ### 网络知识
+
+#### HTTP 状态码
+
+首先，我们大致区分下状态码：
+
+1. 1**开头 - 信息提示
+2. 2**开头 - 请求成功
+3. 3**开头 - 请求被重定向
+4. 4**开头 - 请求错误
+5. 5**开头 - 服务器错误
+
+然后，常见的状态码：
+
+1. 200 - 请求成功，Ajax 接受到信息了。
+2. 400 - 服务器不理解请求，工作中常见于跨域的时候后端给我报 400！
+3. 403 - 服务器拒绝请求。
+4. 404 - 请求页面错误。
+5. 500 - 服务器内部错误，无法完成请求。
 
 #### DNS
 
@@ -699,28 +720,28 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 
 > [返回目录](#catalog-chapter-eight)
 
-* 面试文章：
+### 面试文章：
 
 1. [《一位前端 2018 绝地求生记》](https://juejin.im/post/5c36fe50518825253b5e94f4)
 
-* CSS 文章
+### CSS 文章
 
 1. [《我对BFC的理解》](https://www.cnblogs.com/dojo-lzz/p/3999013.html)
 2. [《CSS实现垂直居中的常用方法》](https://www.cnblogs.com/yugege/p/5246652.html)
 3. [《CSS 用 position: absolute 与 transform 来居中块级元素的问题》](https://segmentfault.com/q/1010000005151903)
 
-* JS 文章：
+### JS 文章：
 
 1. [《小邵教你玩转ES6》](https://juejin.im/post/5b7b95206fb9a019bd2463d8)
 2. [《小邵教你玩转JS面向对象》](https://juejin.im/post/5b8a8724f265da435450c591)
 3. [《实现双向绑定Proxy比defineproperty优劣如何》](https://www.jianshu.com/p/2df6dcddb0d7)
 4. [《Vue 中关于 $emit 的用法》](https://blog.csdn.net/sllailcp/article/details/78595077)
 
-* 其他
+### 其他
 
-1. jsliang 的 GitHub：[点击查看](https://github.com/LiangJunrong)  
+1. jsliang 的 GitHub：[点击查看](https://github.com/LiangJunrong) 
 2. jsliang 的 掘金：[点击查看](https://juejin.im/user/584613ba128fe10058b3cf68)
-3. [《前端性能优化最佳实践》](https://csspod.com/frontend-performance-best-practices/)
-4. [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
+3.  [《前端性能优化最佳实践》](https://csspod.com/frontend-performance-best-practices/)
+4.  [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
