@@ -2,7 +2,7 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2018-12-23 20:53:34**  
-> Recently revised in **2019-2-17 10:27:39**
+> Recently revised in **2019-2-17 11:59:57**
 
 **尚未完善，参考该文章需注意，可能会看得毫无逻辑！！！**
 
@@ -10,7 +10,7 @@ jsliang 的 2019 面试准备
 
 **尚未完善，参考该文章需注意，可能会看得毫无逻辑！！！**
 
-**时刻准备好自己的简历，不管是互联网经济不佳面临裁员，还是因为内部斗争严重想换份工作，只有随时更新自己，把自己的简历准备好，你才知道哪一刻跑路是最佳选择。**
+**时刻准备好自己的简历，不管是互联网经济不佳面临裁员，还是因为公司内部斗争严重想换份工作，只有随时更新自己，把自己的简历准备好，你才知道哪一刻跑路是最佳选择。**
 
 本文的知识点将涉及 HTML、CSS、JS、HTTP、Vue、Webpack、打包工具、性能优化等，没有前置条件，看得懂可以瞅瞅复习下，看不懂可以瞅瞅学习下。
 
@@ -24,7 +24,7 @@ jsliang 的 2019 面试准备
 
 * 个人感言一：为什么我总是比不上别人优秀？  
 
-当编写业务代码中，碰到某个业务 bug 时，我会习惯性地百度这个业务 bug，网友是怎么解决的。但是，学霸级的程序猿，会多走一步，百度下产生这个业务 bug 的底层原因是什么。所以，日积月累，我的确比不上人家了。
+当编写业务代码中，碰到某个业务 bug 时，我会习惯性地百度这个业务 bug，看看网友是怎么解决的。但是，学霸级的程序猿，会多走一步，他们会思考产生这个业务 bug 的底层原因是什么，下次碰到类似的是如何应用该技术解决。所以，日积月累，我的确比不上人家了。
 
 * 个人感言二：辞职并不是件便捷的事。  
 
@@ -492,7 +492,7 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 3. 更新前/后：在数据更新之前调用，即发生在虚拟 DOM 重新渲染和打补丁之前，调用 **beforeUpdate**。在虚拟 DOM 重新渲染和打补丁之后，会触发 **updated** 方法。
 4. 销毁前/后：在执行实例销毁之前调用 **beforeDestory**，此时实例仍然可以调用。在执行 **destroy** 方法后，对 data 的改变不会再触发周期函数，说明此时 Vue 实例已经解除了事件监听以及和 DOM 的绑定，但是 DOM 结构依然存在。
 
-Vue 生命周期问题系列
+* Vue 生命周期问题系列
 
 > 1. 什么是 Vue 生命周期  
 > 答：Vue 实例从创建到销毁的过程，就是生命周期。从开始创建、初始化数据、编译模板、挂载 DOM -> 渲染、更新 -> 渲染、销毁等一系列过程，称之为 Vue 的生命周期。
@@ -577,7 +577,7 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 
 * 零碎知识点
 
-1. 父子组件通讯：父组件使用 `props` 将数据传给子组件；然后子组件通过 `$emit` 触发父元素的自定义事件。[最佳阐释](https://blog.csdn.net/sllailcp/article/details/78595077)
+1. 父子组件通讯：父组件使用 `props` 将数据传给子组件；然后子组件通过 `$emit` 触发父元素的自定义事件。[《Vue 中关于 $emit 的用法》](https://blog.csdn.net/sllailcp/article/details/78595077)
 2. 
 
 ## <a name="chapter-six" id="chapter-six">六 其他</a>
@@ -601,7 +601,7 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 8. 字符串操作
 9. 从输入 URL 到页面加载发生了什么
 10. 网页具体是如何渲染的
-11. 前端性能优化（[地址1](https://csspod.com/frontend-performance-best-practices/)、[地址2](https://juejin.im/post/5bbaa549e51d450e827b6b13)）
+11. 前端性能优化（[《前端性能优化最佳实践》](https://csspod.com/frontend-performance-best-practices/)、[《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)）
 
 ### 网络知识
 
@@ -714,5 +714,13 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 1. [《小邵教你玩转ES6》](https://juejin.im/post/5b7b95206fb9a019bd2463d8)
 2. [《小邵教你玩转JS面向对象》](https://juejin.im/post/5b8a8724f265da435450c591)
 3. [《实现双向绑定Proxy比defineproperty优劣如何》](https://www.jianshu.com/p/2df6dcddb0d7)
+4. [《Vue 中关于 $emit 的用法》](https://blog.csdn.net/sllailcp/article/details/78595077)
+
+* 其他
+
+1. jsliang 的 GitHub：[点击查看](https://github.com/LiangJunrong)  
+2. jsliang 的 掘金：[点击查看](https://juejin.im/user/584613ba128fe10058b3cf68)
+3. [《前端性能优化最佳实践》](https://csspod.com/frontend-performance-best-practices/)
+4. [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
