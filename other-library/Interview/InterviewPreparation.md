@@ -149,6 +149,31 @@ div {
 
 如果你在设计页面中，发现内容区被撑爆了，那么，请检查下现在的 `border-box` 是什么。
 
+### BFC
+
+* 什么是 BFC？
+
+BFC 就是 块级格式上下文，它是一个独立的渲染区域，让处于 BFC 内部的元素和外部的元素相互隔离，使内外元素的定位不会相互影响。
+
+一定的 CSS 声明可以生成 BFC，浏览器对生成的 BFC 有一系列的渲染规则，利用这些渲染规则可以达到一定的布局效果。
+
+* 为什么需要 BFC 呢？
+
+1. 它可以防止 margin 元素重叠（div 中包含 ul，而 div 与 ul 之间的垂直距离，取决于 div、ul、li 三者之间的最大外边距，这时候给 ul 一个 display:inline-block 即可解决这个问题）
+2. 清除内部浮动（div 中包含 ul，而 ul 采用 float:left，那么 div 将变成一长条，这时候给 div 加上规则使其变成 BFC 即可）
+
+* 如何产生 BFC？
+
+1. display:inline-block
+2. position: absolute/fixed
+
+* 工作中一般可能不会顾及这个：
+
+1. float 很少使用了，尽可能使用 flex
+2. css reset 一般会清除掉一些问题，减少 BFC 的使用。
+
+> 参考文献：[《我对BFC的理解》](https://www.cnblogs.com/dojo-lzz/p/3999013.html)
+
 ## <a name="chapter-five" id="chapter-five">五 JavaScript</a>
 
 > [返回目录](#catalog-chapter-five)
@@ -550,7 +575,7 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 
 1. 你这杂七杂八的都写了什么呀？看完我晕乎了！
 
-回答：每个人的学习经历是不同的，所拥有的技术、知识点等都是不同的，所以在这篇文章中，**jsliang** 在充实自己的同时，其实也是在挖掘自己的不足，例如面向对象造轮子，例如算法问题等……**jsliang** 充分意识到自己的不足，并打算在之后进行补充学习以及应用到工作中。
+回答：每个人的学习经历是不同的，所拥有的技术、知识点以及工作经验等都是不同的，所以在这篇文章中，**jsliang** 在充实自己的同时，其实也是在挖掘自己的不足，例如面向对象造轮子，例如算法问题等……**jsliang** 充分意识到自己的不足，并打算在之后进行补充学习以及应用到工作中。
 
 ## <a name="chapter-eight" id="chapter-eight">八 参考文献</a>
 
@@ -559,6 +584,10 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 * 面试文章：
 
 1. [《一位前端 2018 绝地求生记》](https://juejin.im/post/5c36fe50518825253b5e94f4)
+
+* CSS 文章
+
+1. [《我对BFC的理解》](https://www.cnblogs.com/dojo-lzz/p/3999013.html)
 
 * JS 文章：
 
