@@ -377,6 +377,35 @@ console.log(F.a); // value a
 console.log(F.b); // value b
 ```
 
+### this 指向和闭包
+
+谁调用了函数，this 就指向谁。
+
+* 如何修改 this 的指向问题：
+
+1. call - fn.call(target, 1, 2)
+2. apply - fn.apply(target, [1, 2])
+3. bind - fn.bind(target)(1, 2)
+
+### 数组
+
+在 JavaScript 中，用得较多的之一无疑是数组操作，这里过一遍数据的一些用法：
+
+* map: 遍历数组，返回回调返回值组成的新数组
+* forEach: 无法break，可以用try/catch中throw new Error来停止
+* filter: 过滤
+* some: 有一项返回true，则整体为true
+* every: 有一项返回false，则整体为false
+* join: 通过指定连接符生成字符串
+* push / pop: 末尾推入和弹出，改变原数组， 返回推入/弹出项
+* unshift / shift: 头部推入和弹出，改变原数组，返回操作项
+* sort(fn) / reverse: 排序与反转，改变原数组
+* concat: 连接数组，不影响原数组， 浅拷贝
+* slice(start, end): 返回截断后的新数组，不改变原数组
+* splice(start, number, value...): 返回删除元素组成的数组，value 为插入项，改变原数组
+* indexOf / lastIndexOf(value, fromIndex): 查找数组项，返回对应的下标
+* reduce / reduceRight(fn(prev, cur)， defaultPrev): 两两执行，prev 为上次化简函数的return值，cur 为当前值(从第二项开始)
+
 ### 杂问
 
 * 现在我们有一段代码：
@@ -394,7 +423,7 @@ for(var i = 0; i < 3; i++) {
 > 答案：3 个 3。  
 > 解析：首先，`for` 循环是同步代码，先执行三遍 `for`，i 提升到了 3；然后，再执行异步代码 `setTimeout`，这时候输出的 i，只能是 3 个 3 了。
 
-那么，我们有什么办法依次输出 0 1 2 么？
+* 那么，我们有什么办法依次输出 0 1 2 么？
 
 1. 使用 let：
 
@@ -435,6 +464,20 @@ $(function() {
 ```
 
 即代码还是先执行 `for` 循环，但是当 `for` 结束执行到了 `setTimeout` 的时候，它会做个标记，这样到了 `console.log(i)` 中，i 就能找到这个块中最近的变量定义。
+
+2. 使用立即执行函数解决闭包问题
+
+```
+$(function() {
+  for(let i = 0; i < 3; i++) {
+    (function(i){
+      setTimeout(function() {
+        console.log(i);
+      }, 1000);
+    })(i)
+  }
+})
+```
 
 ### ES6
 
@@ -667,6 +710,13 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 7. paint：遍历 render tree，并调动硬件图形 API 来绘制每个节点。
 
 ![图](../../public-repertory/img/other-InterviewPreparation-01.png)
+
+### 重绘与回流
+
+* **重绘(repaint)**：当元素样式的改变不影响布局时，浏览器将使用重绘对元素进行更新，此时由于只需要 UI 层面的重新像素绘制，因此**损耗较少**。
+* **回流(reflow)**：当元素的尺寸、结构或者触发某些属性时，浏览器会重新渲染页面，称为回流。此时，浏览器需要重新经过计算，计算后还需要重新页面布局，因此是较重的操作。常见的有：页面初次渲染、浏览器窗口大小改变、元素尺寸/位置/内容发生改变、元素字体大小变化、添加或者删除可见的 DOM 元素以及激活 CSS 伪类（:hover……）等等
+
+**回流必定会触发重绘，重绘不一定会触发回流。重绘的开销较小，回流的代价较高。**
 
 ### 性能优化
 
