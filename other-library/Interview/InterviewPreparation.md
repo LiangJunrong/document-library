@@ -2,13 +2,29 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2018-12-23 20:53:34**  
-> Recently revised in **2019-2-17 11:59:57**
+> Recently revised in **2019-2-18 21:14:58**
 
 **尚未完善，参考该文章需注意，可能会看得毫无逻辑！！！**
 
 **尚未完善，参考该文章需注意，可能会看得毫无逻辑！！！**
 
 **尚未完善，参考该文章需注意，可能会看得毫无逻辑！！！**
+
+1. js 模块化（commonJS 与 ES6 modules 的区别）
+2. Promise 及其源码实现原理
+3. 知道 异步 与 同步
+4. 微任务与宏任务
+5. MVVM 的实现原理
+6. 闭包（词法作用域）
+7. this（了解 this，说一下作用，Vue 的 this.变量，this 指 Vue 的实例，Vue 里写个 setTimeout，发现 this 改变，call、apply、=>）
+8. CommonJS 在 Webpack 打包出来是怎样的
+9. Vue 生命周期（每当执行到一到函数的时候，执行 callback）
+10. 原型链
+11. Object.create()
+12. 深度拷贝，浅拷贝（JS 关于深度拷贝的，不是偷懒，是相对地址和绝对地址）
+13. https 本质上是什么？
+14. 从输入 url 到页面出来经过了什么。
+15. 项目是什么项目，经历了什么，怎么解决。
 
 **时刻准备好自己的简历，不管是互联网经济不佳面临裁员，还是因为公司内部斗争严重想换份工作，只有随时更新自己，把自己的简历准备好，你才知道哪一刻跑路是最佳选择。**
 
@@ -687,6 +703,12 @@ Vue 中 template 就是先转化成 AST 树，再得到 render 函数返回 VNod
 * transition: 过渡的实现原理
 * vue-router: 官方路由的实现原理
 * vuex: 官方状态管理的实现原理
+
+* Vue.nextTick
+
+待补充
+
+> 参考文献：[《Vue.nextTick 的原理和用途》](https://segmentfault.com/a/1190000012861862)
 
 * 虚拟 DOM
 
