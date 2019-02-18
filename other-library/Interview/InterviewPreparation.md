@@ -406,6 +406,73 @@ console.log(F.b); // value b
 * indexOf / lastIndexOf(value, fromIndex): 查找数组项，返回对应的下标
 * reduce / reduceRight(fn(prev, cur)， defaultPrev): 两两执行，prev 为上次化简函数的return值，cur 为当前值(从第二项开始)
 
+### 深拷贝与浅拷贝
+
+* 什么是深拷贝？什么是浅拷贝？
+
+简单来说，有两个对象 A 和 B，B = A，当你修改 A 时，B 的值也跟着发生了变化，这时候就叫浅拷贝。如果不发生变化，就叫深拷贝。
+
+* 为什么会出现深拷贝与浅拷贝？
+
+1. 首先我们需要知道**基本数据类型（number、string、boolean、null、undefined）**与**引用数据类型（无序对象，数据以及函数）**。
+2. 然后在基本数据类型中，例如：`let a = 1; let b = a; a = 2; console.log(b)`。当我们尝试这样子写时，b 在栈内存中开辟了一个新内存，所以 b 的值不会改变，仍是 1.
+3. 接着在引用数据类型中，例如 `let a = [1, 2, 3], b = a; a[0] = 3; console.log(b)`。当我们尝试这样子写时，b 会偷懒，引用跟 a 同一块的内存地址，从而 a 的修改会影响 b，使得 b 变成 [3, 1, 3]。
+4. 最后，我们可以知道在引用数据类型中，会产生浅拷贝的问题。
+
+* 如何实现深拷贝？
+
+1. 首先我们尝试使用递归去解决深拷贝：
+
+```js
+function deepClone(obj) {
+  let objClone = Array.isArray(obj) ? [] : {};
+  if(obj && typeof obj === "object") {
+    for(key in obj) {
+      if(obj.hasOwnProperty(key)) {
+        // 判断 obj 子元素是否为对象，如果是，递归复制
+        if(obj[key] && typeof obj[key] === "object") {
+          objClone[key] = deepClone(obj[key]);
+        } else {
+          // 如果不是，简单复制
+          objClone[key] = obj[key];
+        }
+      }
+    }
+  }
+  return objClone;
+}
+
+let a = [1, 2, 3, 4];
+let b = deepClone(a);
+a[0] = 2;
+console.log(a, b);
+
+// Console
+// a = [2, 2, 3, 4];
+// b = [1, 2, 3, 4];
+```
+
+2. 使用 JSON 对象的 parse 和 stringify
+
+> **注意：采用 JSON 进行的深拷贝，无法拷贝到 undefined、function、symbol 这类数据，它是有小 bug 的深拷贝。**
+
+```js
+function deepClone(obj) {
+ let _obj = JSON.stringify(obj);
+ let objClone = JSON.parse(_obj);
+ return objClone
+}
+let a = [0, 1, [2, 3], 4];
+let b = deepClone(a);
+a[0] = 1;
+a[2][0] = 1;
+console.log(a, b);
+
+// Console
+// a = [1, 1, [1, 3], 4];
+// b = [0, 1, [2, 3], 4];
+```
+
 ### 杂问
 
 * 现在我们有一段代码：
