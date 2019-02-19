@@ -1004,7 +1004,13 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 
 1. jsliang 的 GitHub：[点击查看](https://github.com/LiangJunrong) 
 2. jsliang 的 掘金：[点击查看](https://juejin.im/user/584613ba128fe10058b3cf68)
-3.  [《前端性能优化最佳实践》](https://csspod.com/frontend-performance-best-practices/)
-4.  [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
+3. [《前端性能优化最佳实践》](https://csspod.com/frontend-performance-best-practices/)
+4. [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
+5. [《到底什么是前端工程化、模块化、组件化》](https://www.cnblogs.com/allenlei/p/6195235.html)  
+6. [《【前端工程化系列】简谈前端模块化开发与开发规范》](https://www.cnblogs.com/code-klaus/p/9011911.html)  
+7. [《个人关于模块化的理解》](https://www.cnblogs.com/doublenet/p/4918306.html)  
+8. [《组件化开发和模块化开发概念辨析》](https://blog.csdn.net/blog_jihq/article/details/79191008)  
+9. [《JavaScript模块化 --- Commonjs、AMD、CMD、es6 modules》](https://www.cnblogs.com/zhuzhenwei918/p/7426904.html)  
+10. [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)  
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
