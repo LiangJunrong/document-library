@@ -411,6 +411,18 @@ console.log(F.b); // value b
 
 ### 闭包
 
+简单定义：函数 A 里面包含了 函数 B，而 函数 B 里面使用了 函数 A 的变量，那么 函数 B 被称为闭包。
+
+```
+function A() {
+  var a = 1;
+  function B() {
+    console.log(a);
+  }
+  return B();
+}
+```
+
 * 闭包经典问题：现在我们有一段代码：
 
 ```
