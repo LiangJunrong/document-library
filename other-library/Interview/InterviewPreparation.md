@@ -772,78 +772,7 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 4. MVVM 的实现原理
 5. 闭包（词法作用域）
 
-6. this（了解 this，说一下作用，Vue 的 this.变量，this 指 Vue 的实例，Vue 里写个 setTimeout，发现 this 改变，call、apply、=>）
 
-###
-
-在这里，查看原型链 prototype 的时候，就需要理解 prototype 有几种继承方式，然后会接触到 constructor，接着会看到 new，而 new 会了解还有 this，最后查阅 this 就想知道 apply() 与 call() 以及箭头函数 =>
-
-**首先**，咱讲讲原型以及原型链。
-
-1. 实例的 `__proto__` 属性（原型）等于其构造函数的 `prototype` 属性。
-
-```
-function Person(name){
-    this.name = name
-}
-
-Person.prototype = {
-    eat:function(){
-        console.log('吃饭')
-    },
-    sleep:function(){
-        console.log('睡觉')
-    }
-};
-
-let p = new Person('梁峻荣',28);
-
-// 访问原型对象
-console.log(Person.prototype);
-console.log(p.__proto__); // __proto__仅用于测试，不能写在正式代码中
-
-/* Console
-  * {eat: ƒ, sleep: ƒ}
-  * {eat: ƒ, sleep: ƒ}
-*/
-```
-
-2. 这样，我们就方便理解下面的三条公式了：
-
-```
-Object.__proto__ === Function.prototype;
-Function.prototype.__proto__ === Object.prototype;
-Object.prototype.__proto__ === null;
-```
-
-
-
-```
-// 然后理解下面的题目
-function Person(name) {
-    this.name = name
-}
-let p = new Person('Tom');
-
-// 问：1. p.__proto__等于什么？
-// 答：Person.prototype
-
-// 问：2. Person.__proto__等于什么？
-// 答：Function.prototype
-
-
-
-// 最后思考为什么下面题目是这个答案？
-var foo = {},
-    F = function(){};
-Object.prototype.a = 'value a';
-Function.prototype.b = 'value b';
-
-console.log(foo.a); // value a
-console.log(foo.b); // undefined
-console.log(F.a); // value a
-console.log(F.b); // value b
-```
 
 7.  CommonJS 在 Webpack 打包出来是怎样的
 8.  Vue 生命周期（每当执行到一到函数的时候，执行 callback）
