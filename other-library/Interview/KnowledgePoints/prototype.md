@@ -14,6 +14,8 @@
 2. Vue 的 this.变量，this 指向 Vue 的哪里。（指 Vue 的实例）
 3. Vue 里写个 setTimeout，发现 this 改变（`call()`、`apply()`、`=>`）
 
+然后，我爬上了一座高山……
+
 ## 一、题目
 
 * 题目 1
@@ -61,7 +63,7 @@ F.b();
 
 请写出上面编程的输出结果是什么？
 
-* 题目三
+* 题目 3
 
 ```js
 function Person(name) {
@@ -74,7 +76,7 @@ let p = new Person('Tom');
 
 问题2：Person.__proto__等于什么？
 
-* 题目四
+* 题目 4
 
 ```js
 var foo = {},
@@ -84,6 +86,7 @@ Function.prototype.b = 'value b';
 
 console.log(foo.a);
 console.log(foo.b);
+
 console.log(F.a);
 console.log(F.b);
 ```
@@ -137,19 +140,70 @@ F.b => value b
 
 然后，接触到了 `constructor`，于是百度查看 `constructor`。
 
-接着，又会看到了 `new`，于是百度查看 JS 的 `new` 理念。
-最后 `new` 会了解还有 `this`，所以去查找了 `this`。
-最后的最后，查阅 `this` 就又想想知道 `apply() `与 `call()` 以及箭头函数 `=>`。
+接着，又看到了 `new`，于是百度查看 JS 的 `new` 理念。
+
+最后，接触 `new` 会了解还有 `this`，所以去查找了 `this`。
+
+最后的最后，查阅 `this` 就又想知道 `apply() `与 `call()` 以及箭头函数 `=>`。
 
 所以，下面我们逐步来谈：
 
 ![图](../../../public-repertory/img/other-interview-1-prototype.png)
 
+**据说上面这张图有助于帮助了解 `__proto__`、`prototype` 以及 `constructor`，至于有没有，一千个观众眼里有一千个哈姆勒特。**
+
 **首先**，为什么需要原型及原型链？
 
-尚未完成，正在整理。
+我们查看一个例子：
 
-1. 实例的 `__proto__` 属性（原型）等于其构造函数的 `prototype` 属性。
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.eat = function() {
+    console.log(age + "岁的" + name + "在吃饭。");
+  }
+}
+
+let p1 = new Person("jsliang", 24);
+let p2 = new Person("jsliang", 24);
+
+console.log(p1.eat === p2.eat); // false
+```
+
+可以看到，对于同一个函数，我们通过 new 生成出来的实例，都会开出新的一块堆区，所以上面代码中 person 1 和 person 2 的吃饭是不同的。
+
+拥有属于自己的东西（例如房子、汽车），这样很好。但它也有不好，毕竟总共就那么点地儿（内存），你不停地建房子，到最后是不是没有空地了？（内存不足）
+
+所以，咱要想个法子，建个类似于共享库的对象（例如把楼房建高），这样就可以在需要的时候，调用一个类似共享库的对象（社区），让实例能够沿着某个线索去找到自己归处。
+
+而这个线索，在前端中就是原型链 `prototype`。
+
+```js
+function Person(name) {
+  this.name = name;
+}
+
+// 通过构造函数的 Person 的 prototype 属性找到 Person 的原型对象
+Person.prototype.eat = function() {
+  console.log("吃饭");
+}
+
+let p1 = new Person("jsliang", 24);
+let p2 = new Person("梁峻荣", 24);
+
+console.log(p1.eat === p2.eat); // true
+```
+
+看！这样我们就通过分享的形式，让这两个实例对象指向相同的位置了（社区）。
+
+说到这里，我们就兴趣来了，`prototype` 是什么玩意？居然这么神奇！
+
+1. 牢记一条公式：
+
+**实例的 `__proto__` 属性（原型）等于其构造函数的 `prototype` 属性。**
+
+那么，它是几个意思呢？我们看下面代码：
 
 ```js
 function Person(name){
@@ -157,12 +211,12 @@ function Person(name){
 }
 
 Person.prototype = {
-    eat:function(){
-        console.log('吃饭')
-    },
-    sleep:function(){
-        console.log('睡觉')
-    }
+  eat:function(){
+    console.log('吃饭')
+  },
+  sleep:function(){
+    console.log('睡觉')
+  }
 };
 
 let p = new Person('梁峻荣',28);
@@ -176,6 +230,15 @@ console.log(p.__proto__); // __proto__仅用于测试，不能写在正式代码
   * {eat: ƒ, sleep: ƒ}
 */
 ```
+
+是的，在上面例子中，函数 Person 与变量 p 的联系就是：`Person.prototype === p.__proto__`。
+
+> 一般来说，为了区分于普通函数，我们会将构造函数的首字母大写。  
+> 不信你将 Person 改为 person，但我不保证你工作中这么写会被队友群殴。
+
+![图](../../../public-repertory/img/other-interview-2-prototype.png)
+
+这时候上面这张图的前面部分，我们会不会有种豁然开朗的感觉。
 
 2. 这样，我们就方便理解下面的三条公式了：
 
