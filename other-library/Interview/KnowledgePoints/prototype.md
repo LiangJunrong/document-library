@@ -4,7 +4,15 @@
 > Create by **jsliang** on **2019-2-21 08:42:02**  
 > Recently revised in **2019-2-21 09:07:31**
 
-缘由：小伙伴在帮我摸底面试的时候，询问我：能否谈谈 this 的作用？（了解 this，说一下作用，Vue 的 this.变量，this 指 Vue 的实例，Vue 里写个 setTimeout，发现 this 改变，call、apply、=>）
+**起源：**
+
+广州小伙伴在帮我进行摸底面试的时候，提出了问题：能否谈谈 this 的作用？
+
+题目的目的：
+
+1. 了解 this，说一下 this 的作用。
+2. Vue 的 this.变量，this 指向 Vue 的哪里。（指 Vue 的实例）
+3. Vue 里写个 setTimeout，发现 this 改变（`call()`、`apply()`、`=>`）
 
 ## 一、题目
 
