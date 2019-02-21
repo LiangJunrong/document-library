@@ -752,6 +752,27 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 
 ### 大纲整理
 
+```js
+// 题目 1
+["1", "2", "3"].map(parseInt); // 1 NaN NaN
+
+// 题目 2
+var val = 'smtg';
+console.log('Value is ' + (val === 'smtg') ? 'Something' : 'Nothing'); // Something。是的，没有 Value is
+
+// 题目 3
+var name = 'World!';
+(function() {
+  if(typeof name === 'undefined') {
+    var name = 'Jack';
+    console.log('Hello, ' + name);
+  } else {
+    console.log("Goodbye！");
+  }
+})()
+// Console：Hello, Jack
+```
+
 1. 闭包
 2. this 指向问题
 3. 原型和原型链
