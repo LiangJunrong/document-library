@@ -342,9 +342,156 @@ console.log(p.__proto__); // __proto__仅用于测试，不能写在正式代码
 
 现在理解地妥妥的了吧！
 
+但是，你注意到 `new` 过程中的点 4 了吗？！！！
+
+
 ### 3.4 问题三：call 又是啥
 
-但是，你注意到 new 过程中的点 4 了吗？！！！
+**首先**，我们要知道 `call()` 方法是存在于 `Funciton` 中的，`Function.prototype.call` 是 `ƒ call() { [native code] }`，小伙伴可以去控制台打印一下。
+
+**然后**，我们观察下面的代码：
+
+```js
+function fn1() {
+  console.log(1);
+  this.num = 111;
+  this.sayHey = function() {
+    console.log("say hey.");
+  }
+}
+function fn2() {
+  console.log(2);
+  this.num = 222;
+  this.sayHello = function() {
+    console.log("say hello.");
+  }
+}
+fn1.call(fn2); // 1
+
+fn1(); // 1
+fn1.num; // undefined
+fn1.sayHey(); // fn1.sayHey is not a function
+
+fn2(); // 2
+fn2.num; // 111
+fn2.sayHello(); // fn2.sayHello is not a function
+
+fn2.sayHey(); //say hey.
+```
+
+通过 `fn1.call(fn2)`，我们发现 `fn1`、`fn2` 都被改变了，`call()` 就好比一个小孩，破坏了 `fn1` 和 `fn2` 和睦的家庭。
+
+现在，`fn1` 除了打印自己的 console，其他的一无所有。而 `fn2` 拥有了 `fn1` console 之外的所有东西：`num` 以及 `sayHello`。
+
+> 记住：在这里，`call()` 改变了 this 的指向。
+
+**然后**，我们应该顺势看下它源码，搞懂它究竟怎么实现的，但是 **jsliang** 太菜，看不懂网上关于它源码流程的文章，所以咱们还是多上几个例子，搞懂 `call()` 能做啥吧~
+
+* 例子 1：
+
+```js
+function Product(name, price) {
+  this.name = name;
+  this.price = price;
+}
+
+function Food(name, price) {
+  Product.call(this, name, price);
+  this.category = 'food';
+}
+
+let food1 = new Food('chees', 5);
+
+food1; // Food {name: "chees", price: 5, category: "food"}
+```
+
+可以看出，通过在 `Food` 构造方法里面调用 `call()`，成功使 `Food` 拓展了 `name` 以及 `price` 这两个字段。所以：
+
+**准则一：可以使用 `call()` 方法调用父构造函数。**
+
+* 例子 2：
+
+```js
+var animals = [
+  {
+    species: 'Lion',
+    name: 'King'
+  },
+  {
+    species: 'Whale',
+    name: 'Fail'
+  }
+]
+
+for(var i = 0; i < animals.length; i++) {
+  (function(i) {
+    this.print = function() {
+      console.log('#' + i + ' ' + this.species + ": " + this.name);
+    }
+    this.print();
+  }).call(animals[i], i);
+}
+
+// #0 Lion: King
+// #1 Whale: Fail
+```
+
+可以看到，在匿名函数中，我们通过 `call()`，成功将 `animals`中的 `this` 指向到了匿名函数中，从而循环打印出了值。
+
+**准则二：使用 `call()` 方法调用匿名函数。**
+
+* 例子 3：
+
+```
+function greet() {
+  var reply = [this.animal, 'typically sleep between', this.sleepDuration].join(' ');
+  console.log(reply);
+}
+
+var obj = {
+  animal: 'cats',
+  sleepDuration: '12 and 16 hours'
+};
+
+greet.call(obj);  // cats typically sleep between 12 and 16 hours
+```
+
+**准则三：使用 `call()` 方法调用函数并且指定上下文的 `this`。**
+
+**最后**，讲到这里，小伙伴们应该知道 `call()` 的一些用途了。
+
+说道 `call()`，我们还要讲讲跟它相似的 `apply()`，其实这两者都是相似的，只是 `apply()` 调用的方式不同，例如：
+
+```js
+function add(a, b){
+  return a + b;  
+}
+function sub(a, b){
+  return a - b;  
+}
+
+// apply() 的用法
+var a1 = add.apply(sub, [4, 2]); // sub 调用 add 的方法
+var a2 = sub.apply(add, [4, 2]);
+
+a1; // 6     
+a2; // 2
+
+// call() 的用法
+var a1 = add.call(sub, 4, 2);
+```
+
+是的，`apply()` 只能调用两个参数：新 `this` 对象和一个数组 `argArray`。即：`function.call(thisObj, [arg1, arg2]);`
+
+同时，还有个箭头函数（`=>`）与 `call()`、`apply()` 牵扯上了，我们就通过下面的 `this`，顺带讲解下吧~
+
+### 3.5 问题三：this 指向哪
+
+**首先**，我们还记得，在查看了解 `call()` 的时候，发现 [MDN Function.prototype.call()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call) 中关于 `call()` 的定义如下： 
+
+**call() 方法调用一个函数, 其具有一个指定的 this 值和分别地提供的参数(参数的列表)。**
+
+所以，我们先了解下 `this` 吧。
 
 JavaScript 中每一个 Function 对象都有一个 `apply()` 方法和一个 `call()` 方法，就是说 **NO1 造物神** 为了完成 `new` 的操作，还做出了这两个小伙伴，它们的使用方法是：
 
@@ -361,7 +508,8 @@ function.call(thisObj, [, arg1[, arg2[, ...argN]]]);
 * [《JavaScript 世界万物诞生记》](https://zhuanlan.zhihu.com/p/22989691)
 * [《小邵教你玩转JS面向对象》](https://juejin.im/post/5b8a8724f265da435450c591)
 * [《js中的new()到底做了些什么？？》](https://www.cnblogs.com/faith3/p/6209741.html)
-* 
+* [《MDN Function.prototype.call()》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+* [《JavaScript中的call、apply、bind深入理解》](https://www.jianshu.com/p/00dc4ad9b83f)
 
 ### 五 工具
 
