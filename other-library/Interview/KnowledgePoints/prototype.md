@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-2-21 08:42:02**  
-> Recently revised in **2019-2-22 15:28:12**
+> Recently revised in **2019-2-22 16:18:17**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -18,7 +18,7 @@
 | &emsp;<a name="catalog-chapter-five-one" id="catalog-chapter-five-one"></a>[5.1 问题少年：旅途开始](#chapter-five-one) |
 | &emsp;<a name="catalog-chapter-five-two" id="catalog-chapter-five-two"></a>[5.2 原型及原型链](#chapter-five-two) |
 | &emsp;<a name="catalog-chapter-five-three" id="catalog-chapter-five-three"></a>[5.3 new 为何物](#chapter-five-three) |
-| &emsp;<a name="catalog-chapter-five-four" id="catalog-chapter-five-four"></a>[5.4 call 又是啥](#chapter-five-four) |
+| &emsp;<a name="catalog-chapter-five-four" id="catalog-chapter-five-four"></a>[5.4 call() 又是啥](#chapter-five-four) |
 | &emsp;<a name="catalog-chapter-five-five" id="catalog-chapter-five-five"></a>[5.5 this 指向哪](#chapter-five-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六  总结](#chapter-six) |
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 参考文献](#chapter-seven) |
@@ -28,7 +28,7 @@
 
 > [返回目录](#chapter-one)
 
-广州小伙伴在帮我进行面试摸底的时候，提出了问题：能否谈谈 this 的作用？
+广州小伙伴在帮我进行面试摸底的时候，提出了问题：**能否谈谈 this 的作用？**
 
 题目的目的：
 
@@ -37,7 +37,7 @@
 3. Vue 里写个 setTimeout，发现 this 改变（`call()`、`apply()`、`=>`）
 4. ……大致如此……
 
-但是，我发现了一条不归路！
+但是，我发现了我走了一条不归路，无意间我看了下 `prototype`！
 
 然后，我爬上了一座高山……
 
@@ -45,7 +45,7 @@
 
 > [返回目录](#chapter-one)
 
-相信有的小伙伴自信的能做出下面这些题~
+相信有的小伙伴能自信地做出下面这些题~
 
 * 题目 1
 
@@ -385,9 +385,13 @@ console.log(p.__proto__); // __proto__仅用于测试，不能写在正式代码
 
 但是，你注意到 `new` 过程中的点 4 了吗？！！！
 
-### <a name="chapter-five-four" id="chapter-five-four">5.4 call 又是啥</a>
+### <a name="chapter-five-four" id="chapter-five-four">5.4 call() 又是啥</a>
 
 > [返回目录](#chapter-one)
+
+在点 4 中，我们使用了 `call()` 这个方法。
+
+那么，`call()` 又是啥？
 
 **首先**，我们要知道 `call()` 方法是存在于 `Funciton` 中的，`Function.prototype.call` 是 `ƒ call() { [native code] }`，小伙伴可以去控制台打印一下。
 
@@ -421,7 +425,7 @@ fn2.sayHello(); // fn2.sayHello is not a function
 fn2.sayHey(); //say hey.
 ```
 
-通过 `fn1.call(fn2)`，我们发现 `fn1`、`fn2` 都被改变了，`call()` 就好比一个小孩，破坏了 `fn1` 和 `fn2` 和睦的家庭。
+通过 `fn1.call(fn2)`，我们发现 `fn1`、`fn2` 都被改变了，`call()` 就好比一个小三，破坏了 `fn1` 和 `fn2` 和睦的家庭。
 
 现在，`fn1` 除了打印自己的 console，其他的一无所有。而 `fn2` 拥有了 `fn1` console 之外的所有东西：`num` 以及 `sayHello`。
 
@@ -502,7 +506,7 @@ greet.call(obj);  // cats typically sleep between 12 and 16 hours
 
 **最后**，讲到这里，小伙伴们应该知道 `call()` 的一些用途了。
 
-说道 `call()`，我们还要讲讲跟它相似的 `apply()`，其实这两者都是相似的，只是 `apply()` 调用的方式不同，例如：
+说到 `call()`，我们还要讲讲跟它相似的 `apply()`，其实这两者都是相似的，只是 `apply()` 调用的方式不同，例如：
 
 ```js
 function add(a, b){
@@ -709,6 +713,18 @@ thingOne.action();
 ## <a name="chapter-six" id="chapter-six">六 总结</a>
 
 > [返回目录](#chapter-one)
+
+在开始的时候，也许有的小伙伴，看着看着会迷晕了自己！
+
+不要紧，我也是！
+
+当我跟着自己的思路，一步一步敲下来之后，我才发觉自己仿佛打通了任督二脉，对一些题目有了自己的理解。
+
+所以，最重要的还是 **折腾** 啦！
+
+毕竟：
+
+**不折腾的前端，和咸鱼有什么区别！**
 
 ## <a name="chapter-seven" id="chapter-seven">七 参考资料</a>
 
