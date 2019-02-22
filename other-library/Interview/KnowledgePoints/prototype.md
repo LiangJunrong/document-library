@@ -4,7 +4,29 @@
 > Create by **jsliang** on **2019-2-21 08:42:02**  
 > Recently revised in **2019-2-22 15:28:12**
 
-**起源：**
+## <a name="chapter-one" id="chapter-one">一 目录</a>
+
+**不折腾的前端，和咸鱼有什么区别**
+
+| 目录 |
+| --- | 
+| [一 目录](#chapter-one) | 
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 题目](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 解题](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 知识拓展](#chapter-five) |
+| &emsp;<a name="catalog-chapter-five-one" id="catalog-chapter-five-one"></a>[5.1 问题少年：旅途开始](#chapter-five-one) |
+| &emsp;<a name="catalog-chapter-five-two" id="catalog-chapter-five-two"></a>[5.2 原型及原型链](#chapter-five-two) |
+| &emsp;<a name="catalog-chapter-five-three" id="catalog-chapter-five-three"></a>[5.3 new 为何物](#chapter-five-three) |
+| &emsp;<a name="catalog-chapter-five-four" id="catalog-chapter-five-four"></a>[5.4 call 又是啥](#chapter-five-four) |
+| &emsp;<a name="catalog-chapter-five-five" id="catalog-chapter-five-five"></a>[5.5 this 指向哪](#chapter-five-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六  总结](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 参考文献](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 工具](#chapter-eight) |
+
+## <a name="chapter-two" id="chapter-two">二 前言</a>
+
+> [返回目录](#chapter-one)
 
 广州小伙伴在帮我进行面试摸底的时候，提出了问题：能否谈谈 this 的作用？
 
@@ -19,7 +41,11 @@
 
 然后，我爬上了一座高山……
 
-## 一、题目
+## <a name="chapter-three" id="chapter-three">三 题目</a>
+
+> [返回目录](#chapter-one)
+
+相信有的小伙伴自信的能做出下面这些题~
 
 * 题目 1
 
@@ -96,7 +122,9 @@ console.log(F.b);
 
 请写出上面编程的输出结果是什么？
 
-## 二、解题
+## <a name="chapter-four" id="chapter-four">四 解题</a>
+
+> [返回目录](#chapter-one)
 
 * 题目 1 答案：
 
@@ -133,7 +161,11 @@ F.a => value a
 F.b => value b
 ```
 
-## 三、拓展
+如果小伙伴们查看完答案，仍不知道怎么回事，那么，我们扩展下自己的知识点，畅快了解更多地知识吧！
+
+## <a name="chapter-five" id="chapter-five">五 知识拓展</a>
+
+> [返回目录](#chapter-one)
 
 原型和原型链估计是老生常谈的话题了，但是还是有很多小白（例如 **jsliang** 自己）就时常懵逼在这里。
 
@@ -141,7 +173,9 @@ F.b => value b
 
 > 首图祭祖，让暴风雨来得更猛烈些吧！
 
-### 3.1 问题少年：旅途开始
+### <a name="chapter-five-one" id="chapter-five-one">5.1 问题少年：旅途开始</a>
+
+> [返回目录](#chapter-one)
 
 因为爱（了解来龙去脉），所以 **jsliang** 开始学习（百度）之旅，了解原型和原型链。
 
@@ -153,7 +187,9 @@ F.b => value b
 
 **最后**，当我们查找 `call()` 的时候，它又涉及到了 `this`，所以我们 “顺便” 查阅 `this` 吧。
 
-### 3.2 问题一：原型及原型链
+### <a name="chapter-five-two" id="chapter-five-two">5.1 原型及原型链</a>
+
+> [返回目录](#chapter-one)
 
 **首先**，为什么需要原型及原型链？
 
@@ -174,7 +210,7 @@ let p2 = new Person("jsliang", 24);
 console.log(p1.eat === p2.eat); // false
 ```
 
-可以看到，对于同一个函数，我们通过 new 生成出来的实例，都会开出新的一块堆区，所以上面代码中 person 1 和 person 2 的吃饭是不同的。
+可以看到，对于同一个函数，我们通过 `new` 生成出来的实例，都会开出新的一块堆区，所以上面代码中 person 1 和 person 2 的吃饭是不同的。
 
 拥有属于自己的东西（例如房子、汽车），这样很好。但它也有不好，毕竟总共就那么点地儿（内存），你不停地建房子，到最后是不是没有空地了？（内存不足）
 
@@ -212,7 +248,7 @@ console.log(p1.eat === p2.eat); // true
 * JS 说，神你要有更多的想法啊，我把万能术 `__proto__` 借你用了。所以神根据 `Object`，使用 `__proto__` 做了个机器 No2，即 `No2.__proto__ == No1`，并规定所有的东西，通过 `__proto__` 可以连接机器，再找到自己，包括 `Object` 也是，于是 **Object 成为所有对象的原型**，`Object.__proto__.__proto__ == No1`，然后 `String`、`Number`、`Boolean`、 `Array` 这些物种也是如此。
 * JS 说，神你的机器好厉害喔！你的机器能不能做出更多的机器啊？神咧嘴一笑：你通过万能术创造了我，我通过自己原型创造了对象。如此，那我造个机器 Function，`Function.prototype == No2, Function.__proto__ == No2`，即 `Function.prototype == Function.__proto__` 吧！这样 No2 就成了造机器的机器，它负责管理 Object、Function、String、Number、Boolean、Array 这几个。
 
-**最后**，说到这里，我们应该很了解上面那副图，并有点豁然开朗的感觉，能清楚地了解下面几条公式了：
+**最后**，说到这里，我们应该很了解开局祭祖的那副图，并有点豁然开朗的感觉，能清楚地了解下面几条公式了：
 
 ```
 Object.__proto__ === Function.prototype;
@@ -220,7 +256,9 @@ Function.prototype.__proto__ === Object.prototype;
 Object.prototype.__proto__ === null;
 ```
 
-### 3.3 问题二：new 为何物
+### <a name="chapter-five-three" id="chapter-five-three">5.3 new 为何物</a>
+
+> [返回目录](#chapter-one)
 
 这时候，我们知道 `prototype` 以及 `__proto__` 是啥了，让我们回归之前的代码：
 
@@ -347,8 +385,9 @@ console.log(p.__proto__); // __proto__仅用于测试，不能写在正式代码
 
 但是，你注意到 `new` 过程中的点 4 了吗？！！！
 
+### <a name="chapter-five-four" id="chapter-five-four">5.4 call 又是啥</a>
 
-### 3.4 问题三：call 又是啥
+> [返回目录](#chapter-one)
 
 **首先**，我们要知道 `call()` 方法是存在于 `Funciton` 中的，`Function.prototype.call` 是 `ƒ call() { [native code] }`，小伙伴可以去控制台打印一下。
 
@@ -526,7 +565,9 @@ var a1 = add.call(sub, 4, 2);
 
 再回想下，为什么会有 `call()`、`apply()` 呢，我们还会发现它牵扯上了 `this` 以及箭头函数（`=>`），所以下面我们来了解了解吧~
 
-### 3.5 问题三：this 指向哪
+### <a name="chapter-five-five" id="chapter-five-five">5.5 this 指向哪</a>
+
+> [返回目录](#chapter-one)
 
 * **在绝大多数情况下，函数的调用方式决定了 `this` 的值。它在全局执行环境中 `this` 都指向全局对象**
 
@@ -665,7 +706,15 @@ thingOne.action();
 
 以上，是不是感觉鬼门关走了一遭，终于成功见到了曙光！！！
 
-### 四 参考资料
+## <a name="chapter-six" id="chapter-six">六 总结</a>
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-seven" id="chapter-seven">七 参考资料</a>
+
+> [返回目录](#chapter-one)
+
+下面列举本文精选参考文章，其中一些不重要的零零散散 30 来篇文章已被刷选。
 
 * [《JavaScript 世界万物诞生记》](https://zhuanlan.zhihu.com/p/22989691)
 * [《小邵教你玩转JS面向对象》](https://juejin.im/post/5b8a8724f265da435450c591)
@@ -674,7 +723,9 @@ thingOne.action();
 * [《JavaScript中的call、apply、bind深入理解》](https://www.jianshu.com/p/00dc4ad9b83f)
 * [《箭头函数 - 廖雪峰》](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000)
 
-### 五 工具
+## <a name="chapter-eight" id="chapter-eight">八 工具</a>
+
+> [返回目录](#chapter-one)
 
 * [在线作图 Process On](https://www.processon.com)
 
