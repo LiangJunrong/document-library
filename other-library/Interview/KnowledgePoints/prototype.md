@@ -2,7 +2,15 @@
 ===
 
 > Create by **jsliang** on **2019-2-21 08:42:02**  
-> Recently revised in **2019-2-22 16:18:17**
+> Recently revised in **2019-2-22 17:16:26**
+
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址]([https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletFunctionList.md](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/prototype.md))**
+
+**注意：本文可能不会让大佬级别的小伙伴感到满意。**
+
+**毕竟这是 jsliang 个人自我探索，其中很多 jsliang 觉得还是需要给自己时间沉淀，然后再进一步修改！**
+
+**但是 jsliang 觉得本文已经尽力展示了我对 `prototype`、`__proto__`、`new`、`call()`、`apply()`、`bind()`、`this` 的理解，如果小伙伴们觉得有更好的想法，欢迎留言，谢谢！**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
