@@ -134,19 +134,21 @@ F.b => value b
 
 原型和原型链估计是老生常谈的话题了，但是还是有很多小白（例如 **jsliang** 自己）就时常懵逼在这里。
 
-### 3.1 旅途开始
+![图](../../../public-repertory/img/other-interview-1-prototype.png)
 
-因此，为了了解原型和原型链，**jsliang** 开始学习（百度）之旅。
+> 首图祭祖，让暴风雨来得更猛烈些吧！
 
-**首先**，查看原型链 `prototype` 的时候，**jsliang** 去理解了 `prototype` 有几种继承方式。
+### 3.1 问题少年：旅途开始
 
-**然后**，接触到了 `constructor`，于是百度查看 `constructor`。
+因为爱（了解来龙去脉），所以 **jsliang** 开始学习（百度）之旅，了解原型和原型链。
 
-**接着**，又看到了 `new`，于是百度查看 JS 的 `new` 理念。
+**首先**，**jsliang** 去了解查看原型链 `prototype`。
 
-**最后**，接触 `new` 会了解还有 `call()`，而 `call()`、`apply()` 以及箭头函数 `=>` 又是相似的东西。
+**然后**，在了解途中看到了 `new`，于是百度查看 JS 的 `new` 理念。
 
-**最后的最后**，当我们查找 `call()` 的时候，它又涉及到了 `this`，所以我们 “顺便” 查阅 `this` 吧。
+**接着**，接触 `new` 会了解还有 `call()`，而 `call()`、`apply()` 以及箭头函数 `=>` 又是相似的东西。
+
+**最后**，当我们查找 `call()` 的时候，它又涉及到了 `this`，所以我们 “顺便” 查阅 `this` 吧。
 
 ### 3.2 问题一：原型及原型链
 
@@ -344,11 +346,25 @@ console.log(p.__proto__); // __proto__仅用于测试，不能写在正式代码
 
 但是，你注意到 new 过程中的点 4 了吗？！！！
 
+JavaScript 中每一个 Function 对象都有一个 `apply()` 方法和一个 `call()` 方法，就是说 **NO1 造物神** 为了完成 `new` 的操作，还做出了这两个小伙伴，它们的使用方法是：
+
+```js
+// apply() 方法
+function.apply(thisObj, [, argArray]);
+
+// call() 方法
+function.call(thisObj, [, arg1[, arg2[, ...argN]]]);
+```
 
 ### 四 参考资料
 
 * [《JavaScript 世界万物诞生记》](https://zhuanlan.zhihu.com/p/22989691)
+* [《小邵教你玩转JS面向对象》](https://juejin.im/post/5b8a8724f265da435450c591)
 * [《js中的new()到底做了些什么？？》](https://www.cnblogs.com/faith3/p/6209741.html)
 * 
+
+### 五 工具
+
+* [在线作图 Process On](https://www.processon.com)
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
