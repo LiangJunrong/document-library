@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-2-21 08:42:02**  
-> Recently revised in **2019-2-21 14:29:45**
+> Recently revised in **2019-2-22 09:06:02**
 
 **起源：**
 
@@ -201,9 +201,11 @@ console.log(p1.eat === p2.eat); // true
 
 孩子没娘，说来话长。首先我们要从 JavaScript 这玩意的诞生说起，但是放这里的话，故事主线就太长了，所以这里有个剧场版[《JavaScript 世界万物诞生记》](https://zhuanlan.zhihu.com/p/22989691)，感兴趣的小伙伴可以去了解一下。这里我们还是回归本话题：
 
-**首先**，JS 初开，JS 世界迎来第一位居民：null。null 这玩意呢，我们委屈下神话人物，就用女娲来代替吧。
-
-**然后**，女娲寂寞了，所以无中生有，能出了个女娲，女娲就想能不能再造了个人，这一造，果真出来个。这个人可谓开辟了历史的奇迹，但是历史终归被湮没，所以我们可以不记得它叫什么，不过人类这个种族出来了，所以在 JS 中，我们把这个种族叫做 Object。于是，**Object 是所有对象的原型**。就是说，`Object.prototype.__proto__ = null`
+* JS 说，我好寂寞，因为 JS 的本源是空的，即：null。
+* JS 说，要有神，所以它通过 `__proto__` 产生了 No1 这号神，即：`No1.__proto__ == null`
+* JS 说，神你要有自己的想法啊，所以神自己想了个方法，通过 `prototype` 创建了对象 `Object`，即：`Object.prototype == No1, No1.__proto__ == null`，于是 `Object.prototype.__proto__ == null`。
+* JS 说，神你要有更多的想法啊，我把 `__proto__` 借你用了，所以神基于 `Object`，使用 `__proto__` 做了个机器 No2，即 `No2.__proto__ == No1`，并规定所有的东西，通过 `__proto__` 可以连接机器，包括 `Object` 也是，于是 **Object 成为所有对象的原型**，`Object.__proto__.__proto__ == No1`，然后 `String`、`Number`、`Boolean`、 `Array` 这些物种也是如此。
+* JS 说，神你的机器好厉害喔！你的机器能不能做出更多的机器啊？神咧嘴一笑：你通过造神术创造了我，我通过造物数创造了对象。如此，那我造个机器 Function，`Function.prototype == No2, Function.__proto__ == No2`，即 `Function.prototype == Function.__proto__` 吧！这样 No2 就能创造更多的机器了。
 
 1. 牢记一条公式：
 
