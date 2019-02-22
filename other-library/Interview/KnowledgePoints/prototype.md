@@ -483,24 +483,60 @@ var a1 = add.call(sub, 4, 2);
 
 是的，`apply()` 只能调用两个参数：新 `this` 对象和一个数组 `argArray`。即：`function.call(thisObj, [arg1, arg2]);`
 
-同时，还有个箭头函数（`=>`）与 `call()`、`apply()` 牵扯上了，我们就通过下面的 `this`，顺带讲解下吧~
+同时，那么，为什么会有 `call()`、`apply()` 呢，这时候就牵扯上了 `this` 以及箭头函数（`=>`），所以下面我们来了解了解吧~
 
 ### 3.5 问题三：this 指向哪
 
-**首先**，我们还记得，在查看了解 `call()` 的时候，发现 [MDN Function.prototype.call()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call) 中关于 `call()` 的定义如下： 
-
-**call() 方法调用一个函数, 其具有一个指定的 this 值和分别地提供的参数(参数的列表)。**
-
-所以，我们先了解下 `this` 吧。
-
-JavaScript 中每一个 Function 对象都有一个 `apply()` 方法和一个 `call()` 方法，就是说 **NO1 造物神** 为了完成 `new` 的操作，还做出了这两个小伙伴，它们的使用方法是：
+* **一般 `this` 指向问题，会发生在回调函数中。所以我们在写回调函数时，要注意一下 `this` 的指向问题。**
+* **111**
 
 ```js
-// apply() 方法
-function.apply(thisObj, [, argArray]);
+var obj = {
+  birth: 1995,
+  getAge: function() {
+    var b = this.birth; // 1995;
+    var fn = function() {
+      return this.birth; // this 指向 window 或者 undefined
+    };
+    return fn();
+  }
+}
 
-// call() 方法
-function.call(thisObj, [, arg1[, arg2[, ...argN]]]);
+obj.getAge(); // undefined
+```
+
+当然，我们是有补救措施的：
+
+```js
+var obj = {
+  birth: 1995,
+  getAge: function() {
+    var b = this.birth; // 1995
+	  var that = this;
+    var fn = function() {
+      return that.birth; // this 指向 window 或者 undefined
+    };
+    return fn();
+  }
+}
+
+obj.getAge(); // 1995
+```
+
+我们通过了 `var that = this`，成功在 `fn` 中引用到了 `obj` 的 `birth`。
+
+除此之外，我们还可以使用箭头函数 `=>`：
+
+```js
+var obj = {
+  birth: 1995,
+  getAge: function() {
+    var b = this.birth; // 1995
+    var fn = () => this.birth;
+    return fn();
+  }
+}
+obj.getAge(); // 1995
 ```
 
 ### 四 参考资料
