@@ -442,7 +442,7 @@ for(var i = 0; i < animals.length; i++) {
 
 * 例子 3：
 
-```
+```js
 function greet() {
   var reply = [this.animal, 'typically sleep between', this.sleepDuration].join(' ');
   console.log(reply);
@@ -487,8 +487,37 @@ var a1 = add.call(sub, 4, 2);
 
 ### 3.5 问题三：this 指向哪
 
+* **在绝大多数情况下，函数的调用方式决定了 `this` 的值。它在全局执行环境中 `this` 都指向全局对象**
+
+怎么理解呢，我们举个例子：
+
+```js
+// 在浏览器中， window 对象同时也是全局对象
+conosle.log(this === window); // true
+
+a = 'apple';
+conosle.log(window.a); // apple
+
+this.b = "banana";
+console.log(window.b); // banana
+console.log(b); // banana
+```
+
+但是，日常工作中，大多数的 `this`，都是在函数内部被调用的，而：
+
+* **在函数内部，`this` 的值取决于函数被调用的方式。**
+
+```js
+function showAge(age) {
+  this.newAge = age;
+  console.log(newAge);
+}
+showAge("24"); // 24
+```
+
+然而，问题总会有的：
+
 * **一般 `this` 指向问题，会发生在回调函数中。所以我们在写回调函数时，要注意一下 `this` 的指向问题。**
-* **111**
 
 ```js
 var obj = {
@@ -496,7 +525,12 @@ var obj = {
   getAge: function() {
     var b = this.birth; // 1995;
     var fn = function() {
-      return this.birth; // this 指向 window 或者 undefined
+      return this.birth; 
+      // this 指向被改变了！
+      // 因为这里重新定义了个 function，
+      // 假设它内部有属于自己的 this1，
+      // 然后 getAge 的 this 为 this2，
+      // 那么，fn 当然奉行就近原则，使用自己的 this，即：this1
     };
     return fn();
   }
@@ -505,16 +539,37 @@ var obj = {
 obj.getAge(); // undefined
 ```
 
-当然，我们是有补救措施的：
+在这里我们可以看到， `fn` 中的 `this` 指向变成 `undefined` 了。
+
+当然，我们是有补救措施的。
+
+**首先**，我们使用上面提及的 `call()` ：
 
 ```js
 var obj = {
   birth: 1995,
   getAge: function() {
     var b = this.birth; // 1995
-	  var that = this;
     var fn = function() {
-      return that.birth; // this 指向 window 或者 undefined
+      return this.birth; 
+    };
+    return fn.call(obj); // 通过 call()，将 obj 的 this 指向了 fn 中
+  }
+}
+
+obj.getAge(); // 1995
+```
+
+**然后**，我们使用 `that` 来接盘 `this`：
+
+```js
+var obj = {
+  birth: 1995,
+  getAge: function() {
+    var b = this.birth; // 1995
+    var that = this; // 将 this 指向丢给 that
+    var fn = function() {
+      return that.birth; // 通过 that 来寻找到 birth
     };
     return fn();
   }
@@ -525,7 +580,7 @@ obj.getAge(); // 1995
 
 我们通过了 `var that = this`，成功在 `fn` 中引用到了 `obj` 的 `birth`。
 
-除此之外，我们还可以使用箭头函数 `=>`：
+**最后**，我们还可以使用箭头函数 `=>`：
 
 ```js
 var obj = {
@@ -539,6 +594,34 @@ var obj = {
 obj.getAge(); // 1995
 ```
 
+讲到这里，我们再回首 `new` 那块我们不懂的代码：
+
+```js
+// 1. 首先有个类型机器
+function ClassMachine() {
+  console.log("类型创造机器");
+}
+// 2. 然后我们定义一个对象物品
+let thingOne = {};
+// 3. 对象物品通过万能术 __proto__ 指向了类型机器的原型（即 No 2 始机器）
+thingOne.__proto__ = ClassMachine.prototype;
+// 4. ？？？
+ClassMachine.call(thingOne);
+// 5. 定义了类型机器的动作
+ClassMachine.prototype.action = function(){
+  console.log("动作创造机器");
+}
+// 6. 这个对象物品执行了动作
+thingOne.action();
+/*
+ * Console：
+ * 类型创造机器
+ * 动作创造机器
+*/
+```
+
+是不是感觉鬼门关走了一遭，终于成功见到了曙光！！！
+
 ### 四 参考资料
 
 * [《JavaScript 世界万物诞生记》](https://zhuanlan.zhihu.com/p/22989691)
@@ -546,6 +629,7 @@ obj.getAge(); // 1995
 * [《js中的new()到底做了些什么？？》](https://www.cnblogs.com/faith3/p/6209741.html)
 * [《MDN Function.prototype.call()》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
 * [《JavaScript中的call、apply、bind深入理解》](https://www.jianshu.com/p/00dc4ad9b83f)
+* [《箭头函数 - 廖雪峰》](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000)
 
 ### 五 工具
 
