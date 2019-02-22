@@ -483,7 +483,45 @@ var a1 = add.call(sub, 4, 2);
 
 是的，`apply()` 只能调用两个参数：新 `this` 对象和一个数组 `argArray`。即：`function.call(thisObj, [arg1, arg2]);`
 
-同时，那么，为什么会有 `call()`、`apply()` 呢，这时候就牵扯上了 `this` 以及箭头函数（`=>`），所以下面我们来了解了解吧~
+以上，**我们知道 `apply()` 和 `call()` 都是为了改变某个函数运行时的上下文而存在的（就是为了改变函数内部的 `this` 指向）**。然后，因为这两个方法会立即调用，所以为了弥补它们的缺失，还有个方法 `bind()`，它不会立即调用：
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>call()、apply() 以及 bind()</title>
+</head>
+<body>
+  <div id="box">我是一个盒子！</div>
+  
+  <script>
+    window.onload = function() {
+      var fn = {
+        num: 2,
+        fun: function() {
+          document.getElementById("box").onclick = (function() {
+            console.log(this.num);
+          }).bind(this);
+          // }).call(this);
+          // }).apply(this);
+        }
+        /*
+         * 这里的 this 是 fun，所以可以正确地访问 num,
+         * 如果使用 bind()，会在点击之后打印 2；
+         * 如果使用 call() 或者 apply()，那么在刷新网页的时候就会打印 2
+        */
+      }
+      fn.fun();
+    }
+  </script>
+</body>
+</html>
+```
+
+最后，为什么会有 `call()`、`apply()` 呢，这时候就牵扯上了 `this` 以及箭头函数（`=>`），所以下面我们来了解了解吧~
 
 ### 3.5 问题三：this 指向哪
 
@@ -620,7 +658,9 @@ thingOne.action();
 */
 ```
 
-是不是感觉鬼门关走了一遭，终于成功见到了曙光！！！
+很容易理解啊，在第四步中，我们将 `ClassMachine` 的 `this` 变成了 `thingOne` 的 `this` 了！
+
+以上，是不是感觉鬼门关走了一遭，终于成功见到了曙光！！！
 
 ### 四 参考资料
 
