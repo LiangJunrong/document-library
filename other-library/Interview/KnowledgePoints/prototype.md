@@ -2,17 +2,20 @@
 ===
 
 > Create by **jsliang** on **2019-2-21 08:42:02**  
-> Recently revised in **2019-2-22 09:06:02**
+> Recently revised in **2019-2-22 15:28:12**
 
 **起源：**
 
-广州小伙伴在帮我进行摸底面试的时候，提出了问题：能否谈谈 this 的作用？
+广州小伙伴在帮我进行面试摸底的时候，提出了问题：能否谈谈 this 的作用？
 
 题目的目的：
 
 1. 了解 this，说一下 this 的作用。
 2. Vue 的 this.变量，this 指向 Vue 的哪里。（指 Vue 的实例）
 3. Vue 里写个 setTimeout，发现 this 改变（`call()`、`apply()`、`=>`）
+4. ……大致如此……
+
+但是，我发现了一条不归路！
 
 然后，我爬上了一座高山……
 
@@ -98,18 +101,18 @@ console.log(F.b);
 * 题目 1 答案：
 
 ```js
-b.n = 1;
-b.m = undefined;
+b.n -> 1
+b.m -> undefined;
 
-c.n = 2;
-c.m = 3;
+c.n -> 2;
+c.m -> 3;
 ```
 
 * 题目 2 答案：
 
 ```js
-f.a(); -> a
-f.b(); -> f.b is not a function
+f.a() -> a
+f.b() -> f.b is not a function
 
 F.a() -> a
 F.b() -> b
