@@ -10,7 +10,7 @@
 
 **毕竟这是 jsliang 个人自我探索，其中很多 jsliang 觉得还是需要给自己时间沉淀，然后再进一步修改！**
 
-**但是 jsliang 觉得本文已经尽力展示了我对 `prototype`、`__proto__`、`new`、`call()`、`apply()`、`bind()`、`this` 的理解，可能在大佬眼里会有点苍白无力，如果小伙伴们觉得有更好的想法，欢迎留言，谢谢！**
+**但是 jsliang 觉得本文已经尽力展示了我对 `prototype`、`__proto__`、`new`、`call()`、`apply()`、`bind()`、`this` 的理解，可能在大佬眼里会有点苍白无力，如果小伙伴们觉得有更好的想法/解释，欢迎留言，谢谢！**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
