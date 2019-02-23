@@ -49,7 +49,6 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | &emsp;<a name="catalog-chapter-two-one" id="catalog-chapter-two-one"></a>[2.1 跳槽原委](#chapter-two-one) |
 | &emsp;<a name="catalog-chapter-two-two" id="catalog-chapter-two-two"></a>[2.2 开篇点题](#chapter-two-two) |
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 HTML](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 CSS](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 JavaScript](#chapter-five) |
@@ -402,6 +401,8 @@ p1.eat(); // jsliang 吃饭
 
 简单定义：函数 A 里面包含了 函数 B，而 函数 B 里面使用了 函数 A 的变量，那么 函数 B 被称为闭包。
 
+又或者：闭包就是能够读取其他函数内部变量的函数
+
 ```
 function A() {
   var a = 1;
@@ -701,6 +702,12 @@ Vue 中 template 就是先转化成 AST 树，再得到 render 函数返回 VNod
 1. 通过 compile 编译器把 template 编译成 AST 语法树（abstract syntax tree - 源代码的抽象语法结构的树状表现形式），compile 是 createCompiler 的返回值，createCompiler 是用以创建编译器的。另外 compile 还负责合并 option。
 2. AST 会经过 generate（将 AST 语法树转换成 render function 字符串的过程）得到 render 函数，render 的返回值是 VNode，VNode 是 Vue 的虚拟 DOM 节点，里面有标签名、子节点、文本等待。
 
+* Vue 中为何使用 key
+
+key 的作用就是在更新组件时判断两个节点是否相同。相同就复用，不相同就删除旧的创建新的。
+
+> 对于 diff 过程来说 key 是起不到提速作用的，详见：[key 的作用](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/1#issuecomment-465894196)
+
 * event & v-model: 事件和v-model的实现原理
 * slot & keep-alive: 内置组件的实现原理
 * transition: 过渡的实现原理
@@ -820,6 +827,10 @@ var name = 'World!';
 > ⑥ [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)  
 
 ### 网络知识
+
+#### 网络分层协议
+
+* [网络分层TCP/IP 与HTTP](https://juejin.im/post/5a98e1f7f265da237410694e)
 
 #### HTTP 状态码
 
