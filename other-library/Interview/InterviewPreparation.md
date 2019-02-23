@@ -201,7 +201,7 @@ BFC 就是 块级格式上下文，它是一个独立的渲染区域，让处于
 
 * 如何产生 BFC？
 
-1. display:inline-block
+1. display: inline-block
 2. position: absolute/fixed
 
 * 工作中一般可能不会顾及这个：
@@ -354,6 +354,8 @@ align-content: space-between;
 * 可以复用，减少代码冗余度
 * 高内聚低耦合
 
+简单来说，就是增加代码的可复用性，减少咱们的工作，使代码更加流畅。
+
 3. 手写个面向对象代码？
 
 ```
@@ -374,51 +376,20 @@ p1.eat(); // jsliang 吃饭
 
 ### 原型与原型链
 
+关于 `prototype`、`__proto__`、`new`、`call()`、`apply()`、`bind()`、`this` 这些的知识点，由于篇幅太长，**jsliang** 已经抽离了出来，并做了简洁详细讲解，详见：
+
+* [2019 面试准备 - JS 原型与原型链](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/prototype.md)
+
+下面放出知识点：
+
+![图](../../public-repertory/img/other-interview-1-prototype.png)
+
+![图](../../public-repertory/img/other-interview-2-prototype.png)
+
 * 实例的 `__proto__` 属性（原型）等于其构造函数的 `prototype` 属性。
-
-```
-// 首先记住三条公式
-Object.__proto__ === Function.prototype
-Function.prototype.__proto__ === Object.prototype
-Object.prototype.__proto__ === null
-
-
-
-// 然后理解下面的题目
-function Person(name) {
-    this.name = name
-}
-let p = new Person('Tom');
-
-// 问：1. p.__proto__等于什么？
-// 答：Person.prototype
-
-// 问：2. Person.__proto__等于什么？
-// 答：Function.prototype
-
-
-
-// 最后思考为什么下面题目是这个答案？
-var foo = {},
-    F = function(){};
-Object.prototype.a = 'value a';
-Function.prototype.b = 'value b';
-
-console.log(foo.a); // value a
-console.log(foo.b); // undefined
-console.log(F.a); // value a
-console.log(F.b); // value b
-```
-
-### this 指向
-
-谁调用了函数，this 就指向谁。
-
-* 如何修改 this 的指向问题：
-
-1. call - fn.call(target, 1, 2)
-2. apply - fn.apply(target, [1, 2])
-3. bind - fn.bind(target)(1, 2)
+* Object.__proto__ === Function.prototype
+* Function.prototype.__proto__ === Object.prototype
+* Object.prototype.__proto__ === null
 
 ### 闭包
 
