@@ -4,7 +4,7 @@
 > Create by **jsliang** on **2019-2-21 08:42:02**  
 > Recently revised in **2019-2-23 09:44:08**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址]([https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletFunctionList.md](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/prototype.md))**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/prototype.md)**
 
 **注意：本文可能不会让大佬级别的小伙伴感到满意。**
 
@@ -291,6 +291,8 @@ console.log(p1.eat === p2.eat); // true
 **首先**，我们来讲讲函数：**函数分为构造函数和普通函数**。
 
 怎么回事呢？**No2 始机器** 在创造机器 Function 的过程中，创造了过多的机器，为了方便区分这些机器，**No1 神** 将机器分为两类：**创造物种类的 Function 叫做构造函数（通常面向对象），创造动作类的 Function 叫做普通函数（通常面向过程）**。打个比喻：`function Birl() {}` 、`function Person() {}` 这类以首字母大写形式来定义的，用来定义某个类型物种的，就叫做 **构造函数**。而 `function fly() {}`、`function eat() {}` 这类以首字母小写形式来定义的，用来定义某个动作的，就叫做普通函数。
+
+> 注意，它们本质还是 Function 中出来的，只是为了方便区分，我们如此命名
 
 **然后**，我们尝试制作一个会飞的鸟：
 
