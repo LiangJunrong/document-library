@@ -6,11 +6,19 @@
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/JS-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)**
 
-**注意：本文可能不会让大佬级别的小伙伴感到满意。**
+**本文涉及知识点**：
 
-**毕竟这是 jsliang 个人自我探索，其中很多 jsliang 觉得还是需要给自己时间沉淀，然后再进一步修改！**
+* `prototype`
+* `__proto__`
+* `new`
+* `call()`/`apply()`/`bind()`
+* `this`
 
-**但是 jsliang 觉得本文已经尽力展示了我对 `prototype`、`__proto__`、`new`、`call()`、`apply()`、`bind()`、`this` 的理解，可能在大佬眼里会有点苍白无力，如果小伙伴们觉得有更好的想法/解释，欢迎留言，谢谢！**
+**在本文中，jsliang 会讲解通过自我探索后关于上述知识点的个人理解，如有纰漏、疏忽或者误解，欢迎各位小伙伴留言指出。**
+
+> 如果小伙伴对文章存有疑问，想快速得到回复。  
+> 或者小伙伴对 jsliang 个人的前端文档库感兴趣，也想将自己的前端知识整理出来。  
+> 欢迎加 QQ 群一起探讨：`798961601`。
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -754,5 +762,11 @@ thingOne.action();
 > [返回目录](#chapter-one)
 
 * [在线作图 Process On](https://www.processon.com)
+
+> **jsliang** 广告推送：  
+> 也许小伙伴想了解下云服务器  
+> 或者小伙伴想买一台云服务器  
+> 或者小伙伴需要续费云服务器  
+> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
