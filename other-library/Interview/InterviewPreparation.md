@@ -20,9 +20,9 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 
 在熟悉了三个月的业务，公司给的任务能顺利完成后，我觉得自己不够努力，外面的前端翻天覆地，我的技术却只是梭哈 jQuery！
 
-于是 2018 年 8 月，**jsliang** 开始写 Markdown，将 5 月份到 8 月份记录到 Word 文档上的笔记整理成了[jsliang 的文档库](https://github.com/LiangJunrong/document-library)，并在[jsliang 的掘金](https://juejin.im/user/584613ba128fe10058b3cf68)发表了第一篇文章。
+于是 2018 年 8 月，**jsliang** 开始写 Markdown，将 5 月份到 8 月份记录到 Word 文档上的笔记整理成了 [jsliang 的文档库](https://github.com/LiangJunrong/document-library)，并在 [jsliang 的掘金](https://juejin.im/user/584613ba128fe10058b3cf68) 发表了第一篇文章。
 
-迄今，**jsliang** 大致经历了以下这些：
+8 月至今，**jsliang** 大致经历了以下这些：
 
 1. 学 Webpack，并用 Webpack 构建一个多页面配置。然后幸运的是，刚好碰到公司的一个扒站任务，于是整个前端小组直接用了我的 Webpack + jQuery + VS Code 的 Live Share 套路进行协同开发！
 2. 学 微信小程序，并将它应用到电信开发的微信小程序项目翼小微中。
@@ -40,6 +40,9 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| &emsp;<a name="catalog-chapter-two-one" id="catalog-chapter-two-one"></a>[2.1 跳槽原委](#chapter-two-one) |
+| &emsp;<a name="catalog-chapter-two-two" id="catalog-chapter-two-two"></a>[2.2 开篇点题](#chapter-two-two) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 HTML](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 CSS](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 JavaScript](#chapter-five) |
@@ -52,6 +55,10 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 > [返回目录](#catalog-chapter-two)
 
 **时刻准备好自己的简历，不管是互联网经济不佳面临裁员，还是因为公司内部斗争严重想换份工作，只有随时更新自己，把自己的简历准备好，你才知道哪一刻跑路是最佳选择。**
+
+## <a name="chapter-two-one" id="chapter-two-one">2.1 跳槽原委</a>
+
+> [返回目录](#catalog-chapter-two)
 
 跳槽的两个原因：
 
@@ -71,11 +78,15 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 
 其中 2018 年 8 月刚转正，也不敢说自己技术值得提薪，然后 2019 年 1 月底跟人事交谈的时候，说的是年终述职演讲得好的给提薪，2 月表示提薪名单没我份……
 
-enm...所以心也委屈了。
+最后，**jsliang** 曾跟项目总监私下谈话，建议可以发展一些新产品，这样公司或许能获取一些新收入，我也可以进一步挑战我的技术。但是，由于我司大部分依赖于电信进行市场扩张，所以，enm...所以心也委屈了。
 
 > 在 2018 的努力下，GitHub 破 600 近 700 star，掘金破 10 万阅读量，3000 粉丝：  
 > GitHub 见证：[点击查看](https://github.com/LiangJunrong)  
 > 掘金见证：[点击查看](https://juejin.im/user/584613ba128fe10058b3cf68)
+
+## <a name="chapter-two-two" id="chapter-two-two">2.2 开篇点题</a>
+
+> [返回目录](#catalog-chapter-two)
 
 本文的知识点将涉及 HTML、CSS、JS、HTTP、Vue、Webpack、打包工具、性能优化等，没有前置条件，看得懂可以瞅瞅复习下，看不懂可以瞅瞅学习下。
 
