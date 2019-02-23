@@ -4,7 +4,7 @@
 > Create by **jsliang** on **2019-2-23 20:55:34**  
 > Recently revised in **2019-2-23 20:55:38**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/prototype.md)**)
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/prototype.md)**
 
 **本文将从 `防抖` 与 `节流` 出发，从中讲解到 `浏览器解析 URL`、`DNS`、`浏览器渲染页面` 以及 `重绘` 与 `回流` 等知识。**
 
