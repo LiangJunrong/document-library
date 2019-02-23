@@ -1,8 +1,8 @@
 jsliang 的 2019 面试准备
 ===
 
-> Create by **jsliang** on **2018-12-23 20:53:34**  
-> Recently revised in **2019-2-18 21:14:58**
+> Create by **jsliang** on **2018-2-11 15:30:34**  
+> Recently revised in **2019-2-23 09:56:32**
 
 Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜前端大佬技术胖（*jspang*）的原因，又因为自己学的是 JavaScript，所以给自己取了个 **jsliang**（*JavaScriptLiang*） 的网名，希望自己能在前端路上走得更远，并携手小伙伴一起前行。
 
