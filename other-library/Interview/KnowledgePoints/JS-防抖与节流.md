@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-2-23 20:55:34**  
-> Recently revised in **2019-2-23 20:55:38**
+> Recently revised in **2019-2-23 21:31:32**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md)**
 
@@ -14,7 +14,11 @@
 * **重绘与回流**
 * **防抖与节流**
 
-**因为纯属个人理解，有疏漏或者误解是正常的，欢迎指出，喷子勿扰。**
+**在本文中，jsliang 会讲解通过自我探索后关于上述知识点的个人理解，如有纰漏、疏忽或者误解，欢迎各位小伙伴留言指出。**
+
+> 如果小伙伴对文章存有疑问，想快速得到回复。  
+> 或者小伙伴对 jsliang 个人的前端文档库感兴趣，也想将自己的前端知识整理出来。  
+> 欢迎加 QQ 群一起探讨：`798961601`。
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
