@@ -4,91 +4,6 @@ jsliang 的 2019 面试准备
 > Create by **jsliang** on **2018-2-11 15:30:34**  
 > Recently revised in **2019-2-24 14:00:34**
 
-周末工作：
-
-* [x] 整理一下已收集的面试资料
-* [x] 梳理一下知识点，将大纲目录列举出来
-* [ ] 整理一下自己所做的项目，列出编写流程，其中困点、难点，以及自己的项目开发所用的一套
-* [ ] 如果前三点都做好了，那么在细化一两个常用点
-
-面试题大纲：
-
-* HTML
-  * HTML 书籍推荐
-  * HTML 语义化
-  * HTML5 新标签
-  * 常见浏览器及其内核
-  * cookies、sessionStorage、localStorage
-* CSS
-  * CSS 书籍推荐
-  * CSS reset
-  * CSS 盒模型
-  * CSS 单位
-  * CSS 选择器
-  * CSS 常见布局
-  * CSS3 新特性
-  * BFC
-  * box-sizing
-  * 行内元素和块级元素
-  * 行内样式、内嵌式、链接式以及导入式
-  * 水平垂直居中
-* JavaScript
-  * JS 书籍推荐
-  * JS 引用方式
-  * 原型与原型链
-  * 作用域与闭包
-  * 浅拷贝与深拷贝
-  * 模块化与组件化
-  * 面向对象与面向过程
-  * JS 继承
-  * 防抖与节流
-  * ES6
-  * 函数柯里化
-  * 数组操作
-* Vue
-  * MVVM
-  * 生命周期
-  * 双向数据绑定
-  * Virtual DOM
-  * template 编译
-  * key
-  * nextTick
-  * 虚拟 DOM
-  * 父子组件通讯
-  * Vue-Router
-  * Vuex
-* 微信小程序
-  * 文件主要目录及文件作用
-  * 微信小程序生命周期
-  * 微信小程序提供的常用 API
-  * 如何封装数据请求
-  * 页面数据传递
-  * 加载性能优化的方法
-  * 微信小程序与原生 APP、Vue、H5 差异
-  * 微信小程序原理
-  * 微信小程序异步请求
-* 浏览器
-  * 浏览器架构
-  * 从输入 URL 到展示
-  * Event Loop
-  * 重绘与回流
-  * 数据存储
-  * 内存管理与垃圾回收
-  * 内存泄漏
-* 网络协议
-  * 网络分层
-  * HTTP/HTTPS
-  * HTTP 状态码
-  * TCP 三次握手与四次挥手
-  * 跨域
-  * 安全
-* 性能优化
-  * HTML 优化
-  * CSS 优化
-  * JavaScript 优化
-* 其他
-  * 算法与数据结构
-
 ```目标岗位 1
 岗位职责：
 1、独立完成公司中后台项目的前端开发
@@ -166,11 +81,82 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;<a name="catalog-chapter-two-one" id="catalog-chapter-two-one"></a>[2.1 跳槽原委](#chapter-two-one) |
 | &emsp;<a name="catalog-chapter-two-two" id="catalog-chapter-two-two"></a>[2.2 开篇点题](#chapter-two-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 HTML](#chapter-three) |
+| &emsp;[3.1 HTML 学习推荐](#chapter-three-one) |
+| &emsp;[3.2 HTML 语义化](#chapter-three-two) |
+| &emsp;[3.3 HTML5 新标签](#chapter-three-three) |
+| &emsp;[3.4 常见浏览器及其内核](#chapter-three-four) |
+| &emsp;[3.5 cookies、sessionStorage、localStorage](#chapter-three-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 CSS](#chapter-four) |
+| &emsp;[4.1 CSS 学习推荐](#chapter-four-one) |
+| &emsp;[4.2 CSS reset](#chapter-four-two) |
+| &emsp;[4.3 CSS 盒模型](#chapter-four-three) |
+| &emsp;[4.4 CSS 单位](#chapter-four-four) |
+| &emsp;[4.5 CSS 选择器](#chapter-four-five) |
+| &emsp;[4.6 CSS 常见布局](#chapter-four-six) |
+| &emsp;[4.7 CSS3 新特性](#chapter-four-seven) |
+| &emsp;[4.8 BFC](#chapter-four-eight) |
+| &emsp;[4.9 box-sizing](#chapter-four-night) |
+| &emsp;[4.10 行内元素和块级元素](#chapter-four-ten) |
+| &emsp;[4.11 行内样式、内嵌式、链接式以及导入式](#chapter-four-eleven) |
+| &emsp;[4.12 水平垂直居中](#chapter-four-twelve) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 JavaScript](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六  其他](#chapter-six) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 总结](#chapter-seven) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 参考文献](#chapter-eight) |
+| &emsp;[5.1 JS 学习推荐](#chapter-five-one) |
+| &emsp;[5.2 JS 引用方式](#chapter-five-two) |
+| &emsp;[5.3 原型与原型链](#chapter-five-three) |
+| &emsp;[5.4 作用域与闭包](#chapter-five-four) |
+| &emsp;[5.5 浅拷贝与深拷贝](#chapter-five-five) |
+| &emsp;[5.6 模块化与组件化](#chapter-five-six) |
+| &emsp;[5.7 面向对象与面向过程](#chapter-five-seven) |
+| &emsp;[5.8 JS 继承](#chapter-five-eight) |
+| &emsp;[5.9 防抖与节流](#chapter-five-night) |
+| &emsp;[5.10 ES6](#chapter-five-ten) |
+| &emsp;[5.11 函数柯里化](#chapter-five-eleven) |
+| &emsp;[5.12 数组操作](#chapter-five-twelve) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六  Vue](#chapter-six) |
+| &emsp;[6.1 MVVM](#chapter-six-one) |
+| &emsp;[6.2 生命周期](#chapter-six-two) |
+| &emsp;[6.3 双向数据绑定](#chapter-six-three) |
+| &emsp;[6.4 Virtual DOM](#chapter-six-four) |
+| &emsp;[6.5 template 编译](#chapter-six-five) |
+| &emsp;[6.6 key](#chapter-six-six) |
+| &emsp;[6.7 nextTick](#chapter-six-seven) |
+| &emsp;[6.8 虚拟 DOM](#chapter-six-eight) |
+| &emsp;[6.9 父子组件通讯](#chapter-six-night) |
+| &emsp;[6.10 Vue-Router](#chapter-six-ten) |
+| &emsp;[6.11 Vuex](#chapter-six-eleven) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 微信小程序](#chapter-seven) |
+| &emsp;[7.1 文件主要目录及文件作用](#chapter-seven-one) |
+| &emsp;[7.2 微信小程序生命周期](#chapter-seven-two) |
+| &emsp;[7.3 微信小程序提供的常用 API](#chapter-seven-three) |
+| &emsp;[7.4 如何封装数据请求](#chapter-seven-four) |
+| &emsp;[7.5 页面数据传递](#chapter-seven-five) |
+| &emsp;[7.6 加载性能优化的方法](#chapter-seven-six) |
+| &emsp;[7.7 微信小程序与原生 APP、Vue、H5 差异](#chapter-seven-seven) |
+| &emsp;[7.8 微信小程序原理](#chapter-seven-eight) |
+| &emsp;[7.9 微信小程序异步请求](#chapter-seven-night) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 浏览器](#chapter-eight) |
+| &emsp;[8.1 浏览器架构](#chapter-eight-one) |
+| &emsp;[8.2 从输入 URL 到展示](#chapter-eight-two) |
+| &emsp;[8.3 Event Loop](#chapter-eight-three) |
+| &emsp;[8.4 重绘与回流](#chapter-eight-four) |
+| &emsp;[8.5 数据存储](#chapter-eight-five) |
+| &emsp;[8.6 内存管理与垃圾回收](#chapter-eight-six) |
+| &emsp;[8.7 内存泄漏](#chapter-eight-seven) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 网络协议](#chapter-night) |
+| &emsp;[9.1 网络分层](#chapter-night-one) |
+| &emsp;[9.2 HTTP/HTTPS](#chapter-night-two) |
+| &emsp;[9.3 HTTP 状态码](#chapter-night-three) |
+| &emsp;[9.4 TCP 三次握手与四次挥手](#chapter-night-four) |
+| &emsp;[9.5 跨域](#chapter-night-five) |
+| &emsp;[9.6 安全](#chapter-night-sixe) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 性能优化](#chapter-ten) |
+| &emsp;[10.1 HTML 优化](#chapter-ten-one) |
+| &emsp;[10.2 CSS 优化](#chapter-ten-two) |
+| &emsp;[10.3 JavaScript 优化](#chapter-ten-three) |
+| <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 算法](#chapter-eleven) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 数据结构](#chapter-twelve) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 总结](#chapter-thirteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 参考文献](#chapter-fourteen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
