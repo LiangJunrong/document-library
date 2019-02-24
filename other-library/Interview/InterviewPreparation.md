@@ -117,7 +117,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[10.2 CSS 优化](#chapter-ten-two) |
 | &emsp;[10.3 JavaScript 优化](#chapter-ten-three) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 算法](#chapter-eleven) |
-| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 数据结构](#chapter-twelve) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 其他](#chapter-twelve) |
 | <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 总结](#chapter-thirteen) |
 | <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 参考文献](#chapter-fourteen) |
 | &emsp;[14.1 关于面试](#chapter-fourteen-one) |
@@ -245,32 +245,71 @@ way 3：先递辞呈，同时面试，面试成功的，一律申请走完原公
 
 > [返回目录](#catalog-chapter-three)
 
-* input 标签自带的默认监听事件都有哪些？
+HTML 属于结构层，负责描绘出内容的结构。
 
-1. onfocus 获取焦点时触发
-2. onblur 失去焦点时触发
-3. onchange 失去焦点并且 input 的 value 值改变
-4. onkeydown 在输入时按键按下
-5. onkeyup 在输入时按键抬起
-6. onclick 主要是 button 点击事件
-7. onselect 在 input 中的值被选中触发
-8. oninput 当 input 的 value 值改变触发，不用等失去焦点（不同于 onchange 事件）
+CSS 属于表示层，负责如何显示有关内容。
+
+JavaScript 属于行为层，负责内容应如何对事件做出反应。
+
+### <a name="chapter-three-one" id="chapter-three-one">3.1 HTML 学习推荐</a>
+
+> [返回目录](#catalog-chapter-three)
+
+暂无内容，有待补充
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 HTML 语义化</a>
+
+> [返回目录](#catalog-chapter-three)
+
+暂无内容，有待补充
+
+### <a name="chapter-three-three" id="chapter-three-three">3.3 HTML5 新标签</a>
+
+> [返回目录](#catalog-chapter-three)
 
 * HTML5 中新增了哪些标签？
 
 新增标签大致有：`<header>`、`<footer>`、`<aside>`、`<nav>`、`<video>`、`<audio>`、`<canvas>`等等
 
-## <a name="chapter-four" id="chapter-four">四 CSS</a>
+### <a name="chapter-three-four" id="chapter-three-four">3.4 常见浏览器及其内核</a>
+
+> [返回目录](#catalog-chapter-three)
+
+暂无内容，有待补充
+
+### <a name="chapter-three-five" id="chapter-three-five">3.5 cookies、sessionStorage、localStorage</a>
+
+> [返回目录](#catalog-chapter-three)
+
+暂无内容，有待补充
+
+### <a name="chapter-four" id="chapter-four">四 CSS</a>
 
 > [返回目录](#catalog-chapter-four)
 
-### CSS 书籍
+HTML 属于结构层，负责描绘出内容的结构。
+
+CSS 属于表示层，负责如何显示有关内容。
+
+JavaScript 属于行为层，负责内容应如何对事件做出反应。
+
+### <a name="chapter-four-one" id="chapter-four-one">4.1 CSS 学习推荐</a>
+
+> [返回目录](#catalog-chapter-four)
 
 * 《CSS 权威指南》
 * 《CSS 揭秘》
 * 《CSS 世界》
 
-### 盒模型
+### <a name="chapter-four-two" id="chapter-four-two">4.2 CSS reset</a>
+
+> [返回目录](#catalog-chapter-four)
+
+暂无内容，有待补充
+
+### <a name="chapter-four-three" id="chapter-four-three">4.3 CSS 盒模型</a>
+
+> [返回目录](#catalog-chapter-four)
 
 在工作的过程中，也许小伙伴需要 div 块的总宽度为 100px，然后发现总是被 margin 撑高，这是因为盒模型定义的问题：
 
@@ -315,7 +354,31 @@ div {
 
 如果你在设计页面中，发现内容区被撑爆了，那么，请检查下现在的 `border-box` 是什么。
 
-### BFC
+### <a name="chapter-four-four" id="chapter-four-four">4.4 CSS 单位</a>
+
+> [返回目录](#catalog-chapter-four)
+
+暂无内容，有待补充
+
+### <a name="chapter-four-five" id="chapter-four-five">4.5 CSS 选择器</a>
+
+> [返回目录](#catalog-chapter-four)
+
+在 CSS 的选择器中，它会按照优先级**从右向左解析**：!important -> 行内样式 -> #id -> .class -> tag -> * -> 继承 -> 默认
+
+### <a name="chapter-four-six" id="chapter-four-six">4.6 CSS 常见布局</a>
+
+> [返回目录](#catalog-chapter-four)
+
+暂无内容，有待补充
+
+### <a name="chapter-four-seven" id="chapter-four-seven">4.7 CSS3 新特性</a>
+
+> [返回目录](#catalog-chapter-four)
+
+暂无内容，有待补充
+
+### <a name="chapter-four-eight" id="chapter-four-eight">4.8 BFC</a>
 
 * 什么是 BFC？
 
@@ -340,7 +403,29 @@ BFC 就是 块级格式上下文，它是一个独立的渲染区域，让处于
 
 > 参考文献：[《我对BFC的理解》](https://www.cnblogs.com/dojo-lzz/p/3999013.html)
 
-### Flex 及垂直居中问题
+> [返回目录](#catalog-chapter-four)
+
+### <a name="chapter-four-night" id="chapter-four-night">4.9 box-sizing</a>
+
+> [返回目录](#catalog-chapter-four)
+
+暂无内容，有待补充
+
+### <a name="chapter-four-ten" id="chapter-four-ten">4.10 行内元素和块级元素</a>
+
+> [返回目录](#catalog-chapter-four)
+
+暂无内容，有待补充
+
+### <a name="chapter-four-eleven" id="chapter-four-eleven">4.11 行内样式、内嵌式、链接式以及导入式</a>
+
+> [返回目录](#catalog-chapter-four)
+
+暂无内容，有待补充
+
+### <a name="chapter-four-twelve" id="chapter-four-twelve">4.12 水平垂直居中</a>
+
+> [返回目录](#catalog-chapter-four)
 
 * 什么是 Flex 布局？
 
@@ -452,10 +537,6 @@ align-content: space-between;
 > 参考文献：  
 > ① [《CSS实现垂直居中的常用方法》](https://www.cnblogs.com/yugege/p/5246652.html)  
 > ② [《CSS 用 position: absolute 与 transform 来居中块级元素的问题》](https://segmentfault.com/q/1010000005151903)
-
-### 选择器优先级
-
-在 CSS 的选择器中，它会按照优先级**从右向左解析**：!important -> 行内样式 -> #id -> .class -> tag -> * -> 继承 -> 默认
 
 ## <a name="chapter-five" id="chapter-five">五 JavaScript</a>
 
@@ -1066,6 +1147,12 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 1. 三次握手：① 客户机 -> SYN -> 服务器；② 客户机 <- SYN + ACK <- 服务器；③ 客户机 -> ACK -> 服务器。
 2. URL 的组成：协议 + 服务器地址（域名 或 IP + 端口） + 路径 + 文件名。
 3. WebSocket 可以实现 Web 浏览器与服务器进行长时间的连接。
+
+## <a name="chapter-twelve" id="chapter-twelve">十二 其他</a>
+
+> [返回目录](#catalog-chapter-twelve)
+
+### 人事问题
 
 ## <a name="chapter-thirteen" id="chapter-thirteen">十三 总结</a>
 
