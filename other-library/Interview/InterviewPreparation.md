@@ -120,6 +120,10 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 数据结构](#chapter-twelve) |
 | <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 总结](#chapter-thirteen) |
 | <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 参考文献](#chapter-fourteen) |
+| &emsp;[14.1 关于面试](#chapter-fourteen-one) |
+| &emsp;[14.2 关于 CSS](#chapter-fourteen-two) |
+| &emsp;[14.3 关于 JS](#chapter-fourteen-three) |
+| &emsp;[14.4 关于其他](#chapter-fourteen-four) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -1073,39 +1077,58 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 
 回答：每个人的学习经历是不同的，所拥有的技术、知识点以及工作经验等都是不同的，所以在这篇文章中，**jsliang** 在充实自己的同时，其实也是在挖掘自己的不足，例如面向对象造轮子，例如算法问题等……**jsliang** 充分意识到自己的不足，并打算在之后进行补充学习以及应用到工作中。
 
-## <a name="chapter-eight" id="chapter-eight">八 参考文献</a>
+> 如果小伙伴对文章存有疑问，想快速得到回复。  
+> 或者小伙伴对 jsliang 个人的前端文档库感兴趣，也想将自己的前端知识整理出来。  
+> 欢迎加 QQ 群一起探讨：`798961601`。
 
-> [返回目录](#catalog-chapter-eight)
+## <a name="chapter-fourteen" id="chapter-fourteen">十四 参考文献</a>
 
-### 面试文章：
+> [返回目录](#catalog-chapter-fourteen)
+
+本文中的许多内容，也许小伙伴看了会觉得眼熟，因为它们大部分是 **jsliang** 参考大量文献，再经过刷选整理，最后根据自己理解后的一些阐述，下面是个人觉得非常优秀的文章。
+
+### <a name="chapter-fourteen-one" id="chapter-fourteen-one">14.1 关于面试</a>
+
+> [返回目录](#catalog-chapter-fourteen)
 
 1. [《一位前端 2018 绝地求生记》](https://juejin.im/post/5c36fe50518825253b5e94f4)
 2. [《中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)》](https://juejin.im/post/5c64d15d6fb9a049d37f9c20)
+3. [《InterviewMap》](https://yuchengkai.cn/docs/frontend/)
 
-### CSS 文章
+### <a name="chapter-fourteen-two" id="chapter-fourteen-two">14.2 关于 CSS</a>
+
+> [返回目录](#catalog-chapter-fourteen)
 
 1. [《我对BFC的理解》](https://www.cnblogs.com/dojo-lzz/p/3999013.html)
 2. [《CSS实现垂直居中的常用方法》](https://www.cnblogs.com/yugege/p/5246652.html)
 3. [《CSS 用 position: absolute 与 transform 来居中块级元素的问题》](https://segmentfault.com/q/1010000005151903)
 
-### JS 文章：
+### <a name="chapter-fourteen-three" id="chapter-fourteen-three">14.3 关于 JS</a>
+
+> [返回目录](#catalog-chapter-fourteen)
 
 1. [《小邵教你玩转ES6》](https://juejin.im/post/5b7b95206fb9a019bd2463d8)
 2. [《小邵教你玩转JS面向对象》](https://juejin.im/post/5b8a8724f265da435450c591)
 3. [《实现双向绑定Proxy比defineproperty优劣如何》](https://www.jianshu.com/p/2df6dcddb0d7)
 4. [《Vue 中关于 $emit 的用法》](https://blog.csdn.net/sllailcp/article/details/78595077)
 
-### 其他
+## <a name="chapter-fourteen-four" id="chapter-fourteen-four">14.4 关于其他</a>
 
-1. jsliang 的 GitHub：[点击查看](https://github.com/LiangJunrong) 
-2. jsliang 的 掘金：[点击查看](https://juejin.im/user/584613ba128fe10058b3cf68)
-3. [《前端性能优化最佳实践》](https://csspod.com/frontend-performance-best-practices/)
-4. [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
-5. [《到底什么是前端工程化、模块化、组件化》](https://www.cnblogs.com/allenlei/p/6195235.html)  
-6. [《【前端工程化系列】简谈前端模块化开发与开发规范》](https://www.cnblogs.com/code-klaus/p/9011911.html)  
-7. [《个人关于模块化的理解》](https://www.cnblogs.com/doublenet/p/4918306.html)  
-8. [《组件化开发和模块化开发概念辨析》](https://blog.csdn.net/blog_jihq/article/details/79191008)  
-9. [《JavaScript模块化 --- Commonjs、AMD、CMD、es6 modules》](https://www.cnblogs.com/zhuzhenwei918/p/7426904.html)  
-10. [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)  
+> [返回目录](#catalog-chapter-fourteen)
+
+1. [《前端性能优化最佳实践》](https://csspod.com/frontend-performance-best-practices/)
+2. [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
+3. [《到底什么是前端工程化、模块化、组件化》](https://www.cnblogs.com/allenlei/p/6195235.html)  
+4. [《【前端工程化系列】简谈前端模块化开发与开发规范》](https://www.cnblogs.com/code-klaus/p/9011911.html)  
+5. [《个人关于模块化的理解》](https://www.cnblogs.com/doublenet/p/4918306.html)  
+6. [《组件化开发和模块化开发概念辨析》](https://blog.csdn.net/blog_jihq/article/details/79191008)  
+7. [《JavaScript模块化 --- Commonjs、AMD、CMD、es6 modules》](https://www.cnblogs.com/zhuzhenwei918/p/7426904.html)  
+8.  [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)  
+
+> **jsliang** 广告推送：  
+> 也许小伙伴想了解下云服务器  
+> 或者小伙伴想买一台云服务器  
+> 或者小伙伴需要续费云服务器  
+> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
