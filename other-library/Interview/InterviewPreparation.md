@@ -111,7 +111,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[9.3 HTTP 状态码](#chapter-night-three) |
 | &emsp;[9.4 TCP 三次握手与四次挥手](#chapter-night-four) |
 | &emsp;[9.5 跨域](#chapter-night-five) |
-| &emsp;[9.6 安全](#chapter-night-sixe) |
+| &emsp;[9.6 网络安全](#chapter-night-six) |
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 性能优化](#chapter-ten) |
 | &emsp;[10.1 HTML 优化](#chapter-ten-one) |
 | &emsp;[10.2 CSS 优化](#chapter-ten-two) |
@@ -131,7 +131,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 
 **时刻准备好自己的简历，不管是互联网经济不佳面临裁员，还是因为公司内部斗争严重想换份工作，只有随时更新自己，把自己的简历准备好，你才知道哪一刻跑路是最佳选择。**
 
-## <a name="chapter-two-one" id="chapter-two-one">2.1 跳槽原委</a>
+### <a name="chapter-two-one" id="chapter-two-one">2.1 跳槽原委</a>
 
 > [返回目录](#catalog-chapter-two)
 
@@ -159,7 +159,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 > GitHub 见证：[点击查看](https://github.com/LiangJunrong)  
 > 掘金见证：[点击查看](https://juejin.im/user/584613ba128fe10058b3cf68)
 
-## <a name="chapter-two-two" id="chapter-two-two">2.2 进击目标</a>
+### <a name="chapter-two-two" id="chapter-two-two">2.2 进击目标</a>
 
 > [返回目录](#catalog-chapter-two)
 
@@ -213,7 +213,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 7. 2年以上专业岗位工作经验，有相关作品可展示优先。
 ```
 
-## <a name="chapter-two-three" id="chapter-two-three">2.3 开篇点题</a>
+### <a name="chapter-two-three" id="chapter-two-three">2.3 开篇点题</a>
 
 > [返回目录](#catalog-chapter-two)
 
@@ -283,7 +283,7 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 暂无内容，有待补充
 
-### <a name="chapter-four" id="chapter-four">四 CSS</a>
+## <a name="chapter-four" id="chapter-four">四 CSS</a>
 
 > [返回目录](#catalog-chapter-four)
 
@@ -542,7 +542,15 @@ align-content: space-between;
 
 > [返回目录](#catalog-chapter-five)
 
-### JavaScript 书籍
+HTML 属于结构层，负责描绘出内容的结构。
+
+CSS 属于表示层，负责如何显示有关内容。
+
+JavaScript 属于行为层，负责内容应如何对事件做出反应。
+
+### <a name="chapter-five-one" id="chapter-five-one">5.1 JS 学习推荐</a>
+
+> [返回目录](#catalog-chapter-five)
 
 * 《JavaScript 高级程序（第三版）》
 * 《你不知道的 JavaScript》
@@ -551,40 +559,15 @@ align-content: space-between;
 * 《JavaScript 设计模式》——张容铭
 * 《JavaScript 设计模式与开发实践》——曾探
 
-### 面向对象与面向过程
+### <a name="chapter-five-two" id="chapter-five-two">5.2 JS 引用方式</a>
 
-1. 什么是面向过程与面向对象？
+> [返回目录](#catalog-chapter-five)
 
-* 面向过程就是做围墙的时候，由你本身操作，叠第一层的时候：放砖头，糊水泥，放砖头，糊水泥；然后第二层的时候，继续放砖头，糊水泥，放砖头，糊水泥……
-* 面向对象就是做围墙的时候，由他人帮你完成，将做第一层的做法抽取出来，就是放砖头是第一个动作，糊水泥是第二个动作，然后给这两个动作加上步数，最后告诉机器人有 n 层，交给机器人帮你工作就行了。
+暂无内容，有待补充
 
-2. 为什么需要面向对象写法？
+### <a name="chapter-five-three" id="chapter-five-three">5.3 原型与原型链</a>
 
-* 更方便
-* 可以复用，减少代码冗余度
-* 高内聚低耦合
-
-简单来说，就是增加代码的可复用性，减少咱们的工作，使代码更加流畅。
-
-3. 手写个面向对象代码？
-
-```
-function Person(name, phone) {
-  this.name = name;
-  this.phone = phone;
-  this.eat = function() {
-    console.log(name + " 吃饭");
-  }
-
-  return this;
-}
-
-let p1 = new Person("jsliang", "18818881888");
-console.log(p1.name); // jsliang
-p1.eat(); // jsliang 吃饭
-```
-
-### 原型与原型链
+> [返回目录](#catalog-chapter-five)
 
 关于 `prototype`、`__proto__`、`new`、`call()`、`apply()`、`bind()`、`this` 这些的知识点，由于篇幅太长，**jsliang** 已经抽离了出来，并做了简洁详细讲解，详见：
 
@@ -601,7 +584,9 @@ p1.eat(); // jsliang 吃饭
 * Function.prototype.__proto__ === Object.prototype
 * Object.prototype.__proto__ === null
 
-### 闭包
+### <a name="chapter-five-four" id="chapter-five-four">5.4 作用域与闭包</a>
+
+> [返回目录](#catalog-chapter-five)
 
 简单定义：函数 A 里面包含了 函数 B，而 函数 B 里面使用了 函数 A 的变量，那么 函数 B 被称为闭包。
 
@@ -688,26 +673,9 @@ $(function() {
 })
 ```
 
-### 数组
+### <a name="chapter-five-five" id="chapter-five-five">5.5 浅拷贝与深拷贝</a>
 
-在 JavaScript 中，用得较多的之一无疑是数组操作，这里过一遍数据的一些用法：
-
-* map: 遍历数组，返回回调返回值组成的新数组
-* forEach: 无法break，可以用try/catch中throw new Error来停止
-* filter: 过滤
-* some: 有一项返回true，则整体为true
-* every: 有一项返回false，则整体为false
-* join: 通过指定连接符生成字符串
-* push / pop: 末尾推入和弹出，改变原数组， 返回推入/弹出项
-* unshift / shift: 头部推入和弹出，改变原数组，返回操作项
-* sort(fn) / reverse: 排序与反转，改变原数组
-* concat: 连接数组，不影响原数组， 浅拷贝
-* slice(start, end): 返回截断后的新数组，不改变原数组
-* splice(start, number, value...): 返回删除元素组成的数组，value 为插入项，改变原数组
-* indexOf / lastIndexOf(value, fromIndex): 查找数组项，返回对应的下标
-* reduce / reduceRight(fn(prev, cur)， defaultPrev): 两两执行，prev 为上次化简函数的return值，cur 为当前值(从第二项开始)
-
-### 深拷贝与浅拷贝
+> [返回目录](#catalog-chapter-five)
 
 * 什么是深拷贝？什么是浅拷贝？
 
@@ -774,7 +742,92 @@ console.log(a, b);
 // b = [0, 1, [2, 3], 4];
 ```
 
-### ES6
+### <a name="chapter-five-six" id="chapter-five-six">5.6 模块化与组件化</a>
+
+> [返回目录](#catalog-chapter-five)
+
+在前端发展中，随着前后端分离，前端社区的不断壮大，前端能做的事情越来越多，承受的任务越来越重，代码也就越来越长了。就好比 **jsliang** 个人使用 jQuery 开发的时候，动不动就上千行代码，这在一个编辑器上看起来就有点乱了。如果碰上没有代码折叠的编辑器，你就更加难受了。
+
+> 有的小伙伴的编辑器不是 VS Code，也不能进行代码折叠
+
+所以，面对越来越多的代码，我们就急需将这些代码分门别类，将代码按功能划分，将同一功能的代码整合在一起，于是就有了模块化开发：一个文件就是一个模块，当我们需要某个文件的时候，我们只需要引用这个模块即可……
+
+**首先**，是 CommonJS 的提出，在 Node.js 以及 Webpack 都支持 CommonJS，它规定了一个文件就是一个模块，文件内部定义的变量属于这个模块，不会对外暴露从而污染全局变量的规则。在 CommonJS 中，通过 exports 或者 module.exports 进行导出，通过 require 进行 **同步加载** 所需要依赖的模块。由于它是同步加载模块的形式，所以比较通用于服务器端。
+
+**然后**，根据 CommonJS 只能同步加载的问题，AMD 根据浏览器的特性，进行了非同步加载模块的提出。同时，AMD 有个问题，就是在使用 require.js 的时候，必须提前加载所有模块。
+
+**接着**，根据 AMD 的问题，CMD 提出来了：通过按需加载的形式，哪里需要就调用哪里，而不用等到所有的模块都加载了再解析。
+
+**最后**，ECMA 国际推出了 ES6 的 modules。在 ES6 中，通过 export 关键字导出模块，通过 import 关键字引用代码。当然，由于浏览器厂商诸多，ES6 在浏览器的尚不支持，目前主流做法是先将 ES6 通过 babel 编译成 require。
+
+当然，JS 都进行模块化了，**jsliang** 想起自己项目中的那一坨 CSS，真心没有回顾的想法！所以我们还需要知道为了方便管理 CSS，大佬们还是有做事儿的：Less 以及 Sass，这两者使 CSS 的编写更有组织性和目的性了。
+
+说起模块化，我们又可以顺带提及组件化了，一开始为了区分这两者，**jsliang** 也是百度了大量文章，最后成功把自己整蒙了，还是说说感觉可以的解释：
+
+**组件化更关注的是 UI 部分：弹出框、头部，内容区、按钮等，都可以编写成组件，然后在适用的地方进行引用。而模块化更侧重于功能或者数据的封装，比如全局的 JSON 配置文件，比如通用的验证方法，比如规范时间戳等。**
+
+所以，说到这里，我们就可以提到前端工程化：将整个开发流程就行工程规划，从而提高整个团队的开发效率。
+
+在前端工程化中，最重要的就是提高整个团队在 **编码 -> 测试 -> 维护** 这三个阶段的生产效率。团队的协调至关重要，将每个任务细分给各个成员，从而获取极致的工作效率，是管理者最喜欢看到的。而在上面的模块化和组件化的应用，就属于前端工程化中的一部分，其目的就是在一些复杂的项目中，方便团队进行合作开发，提高生产效率。
+
+> 参考文献：  
+> ① [《到底什么是前端工程化、模块化、组件化》](https://www.cnblogs.com/allenlei/p/6195235.html)  
+> ② [《【前端工程化系列】简谈前端模块化开发与开发规范》](https://www.cnblogs.com/code-klaus/p/9011911.html)  
+> ③ [《个人关于模块化的理解》](https://www.cnblogs.com/doublenet/p/4918306.html)  
+> ④ [《组件化开发和模块化开发概念辨析》](https://blog.csdn.net/blog_jihq/article/details/79191008)  
+> ⑤ [《JavaScript模块化 --- Commonjs、AMD、CMD、es6 modules》](https://www.cnblogs.com/zhuzhenwei918/p/7426904.html)  
+> ⑥ [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)  
+
+### <a name="chapter-five-seven" id="chapter-five-seven">5.7 面向对象与面向过程</a>
+
+> [返回目录](#catalog-chapter-five)
+
+1. 什么是面向过程与面向对象？
+
+* 面向过程就是做围墙的时候，由你本身操作，叠第一层的时候：放砖头，糊水泥，放砖头，糊水泥；然后第二层的时候，继续放砖头，糊水泥，放砖头，糊水泥……
+* 面向对象就是做围墙的时候，由他人帮你完成，将做第一层的做法抽取出来，就是放砖头是第一个动作，糊水泥是第二个动作，然后给这两个动作加上步数，最后告诉机器人有 n 层，交给机器人帮你工作就行了。
+
+2. 为什么需要面向对象写法？
+
+* 更方便
+* 可以复用，减少代码冗余度
+* 高内聚低耦合
+
+简单来说，就是增加代码的可复用性，减少咱们的工作，使代码更加流畅。
+
+3. 手写个面向对象代码？
+
+```
+function Person(name, phone) {
+  this.name = name;
+  this.phone = phone;
+  this.eat = function() {
+    console.log(name + " 吃饭");
+  }
+
+  return this;
+}
+
+let p1 = new Person("jsliang", "18818881888");
+console.log(p1.name); // jsliang
+p1.eat(); // jsliang 吃饭
+```
+
+### <a name="chapter-five-eight" id="chapter-five-eight">5.8 JS 继承</a>
+
+> [返回目录](#catalog-chapter-five)
+
+暂无内容，有待补充
+
+### <a name="chapter-five-night" id="chapter-five-night">5.9 防抖与节流</a>
+
+> [返回目录](#catalog-chapter-five)
+
+暂无内容，有待补充
+
+### <a name="chapter-five-ten" id="chapter-five-ten">5.10 ES6</a>
+
+> [返回目录](#catalog-chapter-five)
 
 * var、let 以及 const
 
@@ -814,7 +867,46 @@ let { name, age } = { name:"jsliang", age: 23 }
 // 根据 key 值匹配，相当于 let name = "jsliang", age = 23
 ```
 
-### Vue
+### <a name="chapter-five-eleven" id="chapter-five-eleven">5.11 函数柯里化</a>
+
+> [返回目录](#catalog-chapter-five)
+
+暂无内容，有待补充
+
+### <a name="chapter-five-twelve" id="chapter-five-twelve">5.12 数组操作</a>
+
+> [返回目录](#catalog-chapter-five)
+
+在 JavaScript 中，用得较多的之一无疑是数组操作，这里过一遍数据的一些用法：
+
+* map: 遍历数组，返回回调返回值组成的新数组
+* forEach: 无法break，可以用try/catch中throw new Error来停止
+* filter: 过滤
+* some: 有一项返回true，则整体为true
+* every: 有一项返回false，则整体为false
+* join: 通过指定连接符生成字符串
+* push / pop: 末尾推入和弹出，改变原数组， 返回推入/弹出项
+* unshift / shift: 头部推入和弹出，改变原数组，返回操作项
+* sort(fn) / reverse: 排序与反转，改变原数组
+* concat: 连接数组，不影响原数组， 浅拷贝
+* slice(start, end): 返回截断后的新数组，不改变原数组
+* splice(start, number, value...): 返回删除元素组成的数组，value 为插入项，改变原数组
+* indexOf / lastIndexOf(value, fromIndex): 查找数组项，返回对应的下标
+* reduce / reduceRight(fn(prev, cur)， defaultPrev): 两两执行，prev 为上次化简函数的return值，cur 为当前值(从第二项开始)
+
+
+## <a name="chapter-six" id="chapter-six">六 Vue</a>
+
+> [返回目录](#catalog-chapter-six)
+
+推荐：
+
+1. [技术胖](https://jspang.com/)
+2. [慕课网](https://www.imooc.com/)
+
+### <a name="chapter-six-one" id="chapter-six-one">6.1 MVVM</a>
+
+> [返回目录](#catalog-chapter-six)
 
 * 对 MVVM 的理解
 
@@ -825,6 +917,10 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 1. M - Model。Model 代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑。
 2. V - View。View 代表 UI 组件，它负责将数据模型转化为 UI 展现出来。
 3. VM - ViewModel。ViewModel 监听模型数据的改变和控制视图行为、处理用户交互，简单理解就是一个同步 View 和 Model 的对象，连接 Model 和 View。
+
+### <a name="chapter-six-two" id="chapter-six-two">6.2 生命周期</a>
+
+> [返回目录](#catalog-chapter-six)
 
 * Vue 的生命周期
 
@@ -845,7 +941,11 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 > 答：会触发 4 个生命钩子：创建前/创建后、挂载前/挂载后
 
 > 4. DOM 渲染在哪个周期就已经完成？  
-> 答：在 `beforeMounted` 时它执行了 `render` 函数，对 $el 和 data 进行了初始化，但此时还是挂载到虚拟的 DOM 节点，然后它在 `mounted` 时就完成了 DOM 渲染，这时候我们一般还进行 Ajax 交互，
+> 答：在 `beforeMounted` 时它执行了 `render` 函数，对 $el 和 data 进行了初始化，但此时还是挂载到虚拟的 DOM 节点，然后它在 `mounted` 时就完成了 DOM 渲染，这时候我们一般还进行 Ajax 交互。
+
+### <a name="chapter-six-three" id="chapter-six-three">6.3 双向数据绑定</a>
+
+> [返回目录](#catalog-chapter-six)
 
 * 对 Vue 双向数据绑定原理的理解
 
@@ -899,6 +999,16 @@ Vue 采用 **数据劫持** 结合 **发布者-订阅者** 模式的方式，通
 
 > 参考自[《实现双向绑定Proxy比defineproperty优劣如何》](https://www.jianshu.com/p/2df6dcddb0d7)
 
+### <a name="chapter-six-four" id="chapter-six-four">6.4 Virtual DOM</a>
+
+> [返回目录](#catalog-chapter-six)
+
+暂无内容，有待补充
+
+### <a name="chapter-six-five" id="chapter-six-five">6.5 template 编译</a>
+
+> [返回目录](#catalog-chapter-six)
+
 * Vue template 编译的理解
 
 Vue 中 template 就是先转化成 AST 树，再得到 render 函数返回 VNode（Vue 的虚拟 DOM 节点）。
@@ -906,43 +1016,280 @@ Vue 中 template 就是先转化成 AST 树，再得到 render 函数返回 VNod
 1. 通过 compile 编译器把 template 编译成 AST 语法树（abstract syntax tree - 源代码的抽象语法结构的树状表现形式），compile 是 createCompiler 的返回值，createCompiler 是用以创建编译器的。另外 compile 还负责合并 option。
 2. AST 会经过 generate（将 AST 语法树转换成 render function 字符串的过程）得到 render 函数，render 的返回值是 VNode，VNode 是 Vue 的虚拟 DOM 节点，里面有标签名、子节点、文本等待。
 
-* Vue 中为何使用 key
+### <a name="chapter-six-six" id="chapter-six-six">6.6 key</a>
+
+> [返回目录](#catalog-chapter-six)
 
 key 的作用就是在更新组件时判断两个节点是否相同。相同就复用，不相同就删除旧的创建新的。
 
 > 对于 diff 过程来说 key 是起不到提速作用的，详见：[key 的作用](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/1#issuecomment-465894196)
 
-* event & v-model: 事件和v-model的实现原理
-* slot & keep-alive: 内置组件的实现原理
-* transition: 过渡的实现原理
-* vue-router: 官方路由的实现原理
-* vuex: 官方状态管理的实现原理
-
-* Vue.nextTick
-
-待补充
-
-> 参考文献：[《Vue.nextTick 的原理和用途》](https://segmentfault.com/a/1190000012861862)
-
-* 虚拟 DOM
-
-Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM 元素，实际上 `createElement` 描述为 `createNodeDescription`，因为它所包含的信息会告诉 Vue 页面上需要渲染什么样的节点。因此，我们将这样的节点描述为 “虚拟节点”（Virtual Node），简称 VNode。“虚拟 DOM” 是我们对由 Vue 组件树建立的整个 VNode 树的称呼。
-
-* 零碎知识点
-
-1. 父子组件通讯：父组件使用 `props` 将数据传给子组件；然后子组件通过 `$emit` 触发父元素的自定义事件。[《Vue 中关于 $emit 的用法》](https://blog.csdn.net/sllailcp/article/details/78595077)
-2. 
-
-## <a name="chapter-six" id="chapter-six">六 其他</a>
+### <a name="chapter-six-seven" id="chapter-six-seven">6.7 nextTick</a>
 
 > [返回目录](#catalog-chapter-six)
 
-### 推荐
+> 参考文献：[《Vue.nextTick 的原理和用途》](https://segmentfault.com/a/1190000012861862)
 
-1. [技术胖](https://jspang.com/)
-2. [慕课网](https://www.imooc.com/)
+### <a name="chapter-six-eight" id="chapter-six-eight">6.8 虚拟 DOM</a>
 
-### 大纲整理
+> [返回目录](#catalog-chapter-six)
+
+Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM 元素，实际上 `createElement` 描述为 `createNodeDescription`，因为它所包含的信息会告诉 Vue 页面上需要渲染什么样的节点。因此，我们将这样的节点描述为 “虚拟节点”（Virtual Node），简称 VNode。“虚拟 DOM” 是我们对由 Vue 组件树建立的整个 VNode 树的称呼。
+
+### <a name="chapter-six-night" id="chapter-six-night">6.9 父子组件通讯</a>
+
+> [返回目录](#catalog-chapter-six)
+
+父组件使用 `props` 将数据传给子组件；然后子组件通过 `$emit` 触发父元素的自定义事件。[《Vue 中关于 $emit 的用法》](https://blog.csdn.net/sllailcp/article/details/78595077)
+
+### <a name="chapter-six-ten" id="chapter-six-ten">6.10 Vue-Router</a>
+
+暂无内容，有待补充
+
+> [返回目录](#catalog-chapter-six)
+
+### <a name="chapter-six-eleven" id="chapter-six-eleven">6.11 Vuex</a>
+
+> [返回目录](#catalog-chapter-six)
+
+暂无内容，有待补充
+
+## <a name="chapter-seven" id="chapter-seven">七 微信小程序</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+### <a name="chapter-seven-one" id="chapter-seven-one">7.1 文件主要目录及文件作用</a>
+
+暂无内容，有待补充
+
+> [返回目录](#catalog-chapter-seven)
+
+暂无内容，有待补充
+
+### <a name="chapter-seven-two" id="chapter-seven-two">7.2 微信小程序生命周期</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+暂无内容，有待补充
+
+### <a name="chapter-seven-three" id="chapter-seven-three">7.3 微信小程序提供的常用 API</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+暂无内容，有待补充
+
+### <a name="chapter-seven-four" id="chapter-seven-four">7.4 如何封装数据请求</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+暂无内容，有待补充
+
+### <a name="chapter-seven-five" id="chapter-seven-five">7.5 页面数据传递</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+暂无内容，有待补充
+
+### <a name="chapter-seven-six" id="chapter-seven-six">7.6 加载性能优化的方法</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+暂无内容，有待补充
+
+### <a name="chapter-seven-seven" id="chapter-seven-seven">7.7 微信小程序与原生 APP、Vue、H5 差异</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+暂无内容，有待补充
+
+### <a name="chapter-seven-eight" id="chapter-seven-eight">7.8 微信小程序原理</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+暂无内容，有待补充
+
+### <a name="chapter-seven-night" id="chapter-seven-night">7.9 微信小程序异步请求</a>
+
+> [返回目录](#catalog-chapter-seven)
+
+暂无内容，有待补充
+
+## <a name="chapter-eight" id="chapter-eight">八 浏览器</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+### <a name="chapter-eight-one" id="chapter-eight-one">8.1 浏览器架构</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+暂无内容，有待补充
+
+### <a name="chapter-eight-two" id="chapter-eight-two">8.2 从输入 URL 到展示</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+暂无内容，有待补充
+
+### <a name="chapter-eight-three" id="chapter-eight-three">8.3 Event Loop</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+暂无内容，有待补充
+
+### <a name="chapter-eight-four" id="chapter-eight-four">8.4 重绘与回流</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+暂无内容，有待补充
+
+### <a name="chapter-eight-five" id="chapter-eight-five">8.5 数据存储</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+1. 存储于代码中，代码执行完毕释放内存。
+2. 存储于浏览器中，cookie 用于短期存储用户身份，登录状态等较小的信息；localStorage/sessionStorage 用于长期存储数据，浏览器关闭不影响它们的内存，相比于 cookie，storage 能存储较多；IndexedDB 是浏览器提供的接近于 NoSQL 的数据库，允许存储大量数据。
+3. 存储于数据库中。
+
+### <a name="chapter-eight-six" id="chapter-eight-six">8.6 内存管理与垃圾回收</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+V8 将内存分为两类：新生代内存空间和老生代内存空间。
+
+* 新生代内存空间：主要用来存放存活时间较短的对象。
+* 老生代内存空间：主要用来存放存活时间较长的对象。
+
+这两者通过不同的算法，对内存进行管理操作。
+
+### <a name="chapter-eight-seven" id="chapter-eight-seven">8.7 内存泄漏</a>
+
+> [返回目录](#catalog-chapter-eight)
+
+* 意外的全局变量：无法被回收。
+* 定时器：未被正确关闭，导致所引用的外部变量无法被释放。
+* 事件监听：没有正确销毁（低版本浏览器可能出现）。
+* 闭包：会导致父级中的变量无法被释放。
+* DOM 引用：DOM 被删除时，内存中的引用未被正确清空。
+
+* 如何查看内存变化情况？
+
+使用 Chrome 的 Timeline（新版本 Performance）进行内存标记，可视化查看内存的变化情况，找出异常点。
+
+## <a name="chapter-night" id="chapter-night">九 网络协议</a>
+
+> [返回目录](#catalog-chapter-night)
+
+### <a name="chapter-night-one" id="chapter-night-one">9.1 网络分层</a>
+
+> [返回目录](#catalog-chapter-night)
+
+* [网络分层TCP/IP 与HTTP](https://juejin.im/post/5a98e1f7f265da237410694e)
+
+### <a name="chapter-night-two" id="chapter-night-two">9.2 HTTP/HTTPS</a>
+
+> [返回目录](#catalog-chapter-night)
+
+暂无内容，有待补充
+
+### <a name="chapter-night-three" id="chapter-night-three">9.3 HTTP 状态码</a>
+
+> [返回目录](#catalog-chapter-night)
+
+首先，我们大致区分下状态码：
+
+1. 1**开头 - 信息提示
+2. 2**开头 - 请求成功
+3. 3**开头 - 请求被重定向
+4. 4**开头 - 请求错误
+5. 5**开头 - 服务器错误
+
+然后，常见的状态码：
+
+1. 200 - 请求成功，Ajax 接受到信息了。
+2. 400 - 服务器不理解请求，工作中常见于跨域的时候后端给我报 400！
+3. 403 - 服务器拒绝请求。
+4. 404 - 请求页面错误。
+5. 500 - 服务器内部错误，无法完成请求。
+
+### <a name="chapter-night-four" id="chapter-night-four">9.4 TCP 三次握手与四次挥手</a>
+
+> [返回目录](#catalog-chapter-night)
+
+1. 三次握手：① 客户机 -> SYN -> 服务器；② 客户机 <- SYN + ACK <- 服务器；③ 客户机 -> ACK -> 服务器。
+2. URL 的组成：协议 + 服务器地址（域名 或 IP + 端口） + 路径 + 文件名。
+3. WebSocket 可以实现 Web 浏览器与服务器进行长时间的连接。
+
+### <a name="chapter-night-five" id="chapter-night-five">9.5 跨域</a>
+
+> [返回目录](#catalog-chapter-night)
+
+暂无内容，有待补充
+
+### <a name="chapter-night-six" id="chapter-night-six">9.6 网络安全</a>
+
+> [返回目录](#catalog-chapter-night)
+
+* XSS 攻击：注入恶意代码
+
+1. 在输入框中被使用了 JS 代码进行了 Alert 弹窗！
+2. cookie 设置 httpOnly
+3. 转义页面上的输入内容和输出内容
+
+* CSRF：跨站请求伪造
+
+1. get 不修改数据
+2. 不被第三方网站访问到用户的 cookie
+3. 设置白名单，不被第三方网站请求
+4. 请求校验
+
+## <a name="chapter-ten" id="chapter-ten">十 性能优化</a>
+
+> [返回目录](#catalog-chapter-ten)
+
+### <a name="chapter-ten-one" id="chapter-ten-one">10.1 HTML 优化</a>
+
+> [返回目录](#catalog-chapter-ten)
+
+1. 避免 HTML 中书写 CSS 代码，因为这样难以维护。
+2. 使用 Viewport 加速页面的渲染。
+3. 使用语义化标签，减少 CSS 代码，增加可读性和 SEO。
+4. 减少标签的使用，DOM 解析是一个大量遍历的过程，减少不必要的标签，能降低遍历的次数。
+5. 避免 src、href 等的值为空，因为即时它们为空，浏览器也会发起 HTTP 请求。
+6. 减少 DNS 查询的次数。
+
+### <a name="chapter-ten-two" id="chapter-ten-two">10.2 CSS 优化</a>
+
+> [返回目录](#catalog-chapter-ten)
+
+1. 优化选择器路径：使用 `.c {}` 而不是 `.a .b .c {}`。
+2. 选择器合并：共同的属性内容提起出来，压缩空间和资源开销。
+3. 精准样式：使用 `padding-left: 10px` 而不是 `padding: 0 0 0 10px`。
+4. 雪碧图：将小的图标合并到一张图中，这样所有的图片只需要请求一次。
+5. 避免通配符：`.a .b * {}` 这样的选择器，根据从右到左的解析顺序在解析过程中遇到通配符 `* {}` 会遍历整个 DOM，性能大大损耗。
+6. 少用 float：`float` 在渲染时计算量比较大，可以使用 flex 布局。
+7. 为 0 值去单位：增加兼容性。
+8. 压缩文件大小，减少资源下载负担。
+
+### <a name="chapter-ten-three" id="chapter-ten-three">10.3 JavaScript 优化</a>
+
+> [返回目录](#catalog-chapter-ten)
+
+1. 尽可能把 `<script>` 标签放在 `body` 之后，避免 JS 的执行卡住 DOM 的渲染，最大程度保证页面尽快地展示出来。
+2. 尽可能合并 JS 代码：提取公共方法，进行面向对象设计等……
+3. CSS 能做的事情，尽量不用 JS 来做，毕竟 JS 的解析执行比较粗暴，而 CSS 效率更高。
+4. 尽可能逐条操作 DOM，并预定好 CSs 样式，从而减少 reflow 或者 repaint 的次数。
+5. 尽可能少地创建 DOM，而是在 HTML 和 CSS 中使用 `display: none` 来隐藏，按需显示。
+6. 压缩文件大小，减少资源下载负担。
+
+## <a name="chapter-eleven" id="chapter-eleven">十一 算法</a>
+
+> [返回目录](#catalog-chapter-eleven)
+
+暂无内容，有待补充
+
+## <a name="chapter-twelve" id="chapter-twelve">十二 其他</a>
+
+> [返回目录](#catalog-chapter-twelve)
 
 ```js
 // 题目 1
@@ -964,193 +1311,6 @@ var name = 'World!';
 })()
 // Console：Hello, Jack
 ```
-
-1. 闭包
-2. this 指向问题
-3. 原型和原型链
-4. 面向对象与设计模式
-5. Flex 布局
-6. macrotask 和 microtask
-7. http 协议，例如 keep-alive，例如状态码，例如三次握手四次挥手
-8. 字符串操作
-9. 从输入 URL 到页面加载发生了什么
-10. 网页具体是如何渲染的
-11. 前端性能优化（[《前端性能优化最佳实践》](https://csspod.com/frontend-performance-best-practices/)、[《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)）
-
----
-
-1. Promise 及其源码实现原理
-2. 知道 异步 与 同步
-3. 微任务与宏任务
-4. MVVM 的实现原理
-5. 闭包（词法作用域）
-
-
-
-7.  CommonJS 在 Webpack 打包出来是怎样的
-8.  Vue 生命周期（每当执行到一到函数的时候，执行 callback）
-9.  原型链
-10. Object.create()
-11. 深度拷贝，浅拷贝（JS 关于深度拷贝的，不是偷懒，是相对地址和绝对地址）
-12. https 本质上是什么？
-13. 从输入 url 到页面出来经过了什么。
-14. 项目是什么项目，经历了什么，怎么解决。
-
-### 模块化与组件化以及前端工程化
-
-在前端发展中，随着前后端分离，前端社区的不断壮大，前端能做的事情越来越多，承受的任务越来越重，代码也就越来越长了。就好比 **jsliang** 个人使用 jQuery 开发的时候，动不动就上千行代码，这在一个编辑器上看起来就有点乱了。如果碰上没有代码折叠的编辑器，你就更加难受了。
-
-> 有的小伙伴的编辑器不是 VS Code，也不能进行代码折叠
-
-所以，面对越来越多的代码，我们就急需将这些代码分门别类，将代码按功能划分，将同一功能的代码整合在一起，于是就有了模块化开发：一个文件就是一个模块，当我们需要某个文件的时候，我们只需要引用这个模块即可……
-
-**首先**，是 CommonJS 的提出，在 Node.js 以及 Webpack 都支持 CommonJS，它规定了一个文件就是一个模块，文件内部定义的变量属于这个模块，不会对外暴露从而污染全局变量的规则。在 CommonJS 中，通过 exports 或者 module.exports 进行导出，通过 require 进行 **同步加载** 所需要依赖的模块。由于它是同步加载模块的形式，所以比较通用于服务器端。
-
-**然后**，根据 CommonJS 只能同步加载的问题，AMD 根据浏览器的特性，进行了非同步加载模块的提出。同时，AMD 有个问题，就是在使用 require.js 的时候，必须提前加载所有模块。
-
-**接着**，根据 AMD 的问题，CMD 提出来了：通过按需加载的形式，哪里需要就调用哪里，而不用等到所有的模块都加载了再解析。
-
-**最后**，ECMA 国际推出了 ES6 的 modules。在 ES6 中，通过 export 关键字导出模块，通过 import 关键字引用代码。当然，由于浏览器厂商诸多，ES6 在浏览器的尚不支持，目前主流做法是先将 ES6 通过 babel 编译成 require。
-
-当然，JS 都进行模块化了，**jsliang** 想起自己项目中的那一坨 CSS，真心没有回顾的想法！所以我们还需要知道为了方便管理 CSS，大佬们还是有做事儿的：Less 以及 Sass，这两者使 CSS 的编写更有组织性和目的性了。
-
-说起模块化，我们又可以顺带提及组件化了，一开始为了区分这两者，**jsliang** 也是百度了大量文章，最后成功把自己整蒙了，还是说说感觉可以的解释：
-
-**组件化更关注的是 UI 部分：弹出框、头部，内容区、按钮等，都可以编写成组件，然后在适用的地方进行引用。而模块化更侧重于功能或者数据的封装，比如全局的 JSON 配置文件，比如通用的验证方法，比如规范时间戳等。**
-
-所以，说到这里，我们就可以提到前端工程化：将整个开发流程就行工程规划，从而提高整个团队的开发效率。
-
-在前端工程化中，最重要的就是提高整个团队在 **编码 -> 测试 -> 维护** 这三个阶段的生产效率。团队的协调至关重要，将每个任务细分给各个成员，从而获取极致的工作效率，是管理者最喜欢看到的。而在上面的模块化和组件化的应用，就属于前端工程化中的一部分，其目的就是在一些复杂的项目中，方便团队进行合作开发，提高生产效率。
-
-> 参考文献：  
-> ① [《到底什么是前端工程化、模块化、组件化》](https://www.cnblogs.com/allenlei/p/6195235.html)  
-> ② [《【前端工程化系列】简谈前端模块化开发与开发规范》](https://www.cnblogs.com/code-klaus/p/9011911.html)  
-> ③ [《个人关于模块化的理解》](https://www.cnblogs.com/doublenet/p/4918306.html)  
-> ④ [《组件化开发和模块化开发概念辨析》](https://blog.csdn.net/blog_jihq/article/details/79191008)  
-> ⑤ [《JavaScript模块化 --- Commonjs、AMD、CMD、es6 modules》](https://www.cnblogs.com/zhuzhenwei918/p/7426904.html)  
-> ⑥ [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)  
-
-### 网络知识
-
-#### 网络分层协议
-
-* [网络分层TCP/IP 与HTTP](https://juejin.im/post/5a98e1f7f265da237410694e)
-
-#### HTTP 状态码
-
-首先，我们大致区分下状态码：
-
-1. 1**开头 - 信息提示
-2. 2**开头 - 请求成功
-3. 3**开头 - 请求被重定向
-4. 4**开头 - 请求错误
-5. 5**开头 - 服务器错误
-
-然后，常见的状态码：
-
-1. 200 - 请求成功，Ajax 接受到信息了。
-2. 400 - 服务器不理解请求，工作中常见于跨域的时候后端给我报 400！
-3. 403 - 服务器拒绝请求。
-4. 404 - 请求页面错误。
-5. 500 - 服务器内部错误，无法完成请求。
-
-### get 与 post
-
-* get：缓存、请求长度受限、会被历史记录保存。
-* post：安全、数据量大、更多编码类型。
-
-### 浏览器存储
-
-1. 存储于代码中，代码执行完毕释放内存。
-2. 存储于浏览器中，cookie 用于短期存储用户身份，登录状态等较小的信息；localStorage/sessionStorage 用于长期存储数据，浏览器关闭不影响它们的内存，相比于 cookie，storage 能存储较多；IndexedDB 是浏览器提供的接近于 NoSQL 的数据库，允许存储大量数据。
-3. 存储于数据库中。
-
-### V8 内存管理与垃圾回收机制
-
-V8 将内存分为两类：新生代内存空间和老生代内存空间。
-
-* 新生代内存空间：主要用来存放存活时间较短的对象。
-* 老生代内存空间：主要用来存放存活时间较长的对象。
-
-这两者通过不同的算法，对内存进行管理操作。
-
-### 内存泄漏
-
-* 意外的全局变量：无法被回收。
-* 定时器：未被正确关闭，导致所引用的外部变量无法被释放。
-* 事件监听：没有正确销毁（低版本浏览器可能出现）。
-* 闭包：会导致父级中的变量无法被释放。
-* DOM 引用：DOM 被删除时，内存中的引用未被正确清空。
-
-* 如何查看内存变化情况？
-
-使用 Chrome 的 Timeline（新版本 Performance）进行内存标记，可视化查看内存的变化情况，找出异常点。
-
-### Event loop
-
-待补充
-
-### 跨域
-
-待补充
-
-### 网络安全
-
-* XSS 攻击：注入恶意代码
-
-1. 在输入框中被使用了 JS 代码进行了 Alert 弹窗！
-2. cookie 设置 httpOnly
-3. 转义页面上的输入内容和输出内容
-
-* CSRF：跨站请求伪造
-
-1. get 不修改数据
-2. 不被第三方网站访问到用户的 cookie
-3. 设置白名单，不被第三方网站请求
-4. 请求校验
-
-### 性能优化
-
-性能优化：
-
-#### CSS 部分
-
-1. 优化选择器路径：使用 `.c {}` 而不是 `.a .b .c {}`。
-2. 选择器合并：共同的属性内容提起出来，压缩空间和资源开销。
-3. 精准样式：使用 `padding-left: 10px` 而不是 `padding: 0 0 0 10px`。
-4. 雪碧图：将小的图标合并到一张图中，这样所有的图片只需要请求一次。
-5. 避免通配符：`.a .b * {}` 这样的选择器，根据从右到左的解析顺序在解析过程中遇到通配符 `* {}` 会遍历整个 DOM，性能大大损耗。
-6. 少用 float：`float` 在渲染时计算量比较大，可以使用 flex 布局。
-7. 为 0 值去单位：增加兼容性。
-8. 压缩文件大小，减少资源下载负担。
-
-#### JavaScript 部分
-
-1. 尽可能把 `<script>` 标签放在 `body` 之后，避免 JS 的执行卡住 DOM 的渲染，最大程度保证页面尽快地展示出来。
-2. 尽可能合并 JS 代码：提取公共方法，进行面向对象设计等……
-3. CSS 能做的事情，尽量不用 JS 来做，毕竟 JS 的解析执行比较粗暴，而 CSS 效率更高。
-4. 尽可能逐条操作 DOM，并预定好 CSs 样式，从而减少 reflow 或者 repaint 的次数。
-5. 尽可能少地创建 DOM，而是在 HTML 和 CSS 中使用 `display: none` 来隐藏，按需显示。
-6. 压缩文件大小，减少资源下载负担。
-
-#### HTML 部分
-
-1. 避免 HTML 中书写 CSS 代码，因为这样难以维护。
-2. 使用 Viewport 加速页面的渲染。
-3. 使用语义化标签，减少 CSS 代码，增加可读性和 SEO。
-4. 减少标签的使用，DOM 解析是一个大量遍历的过程，减少不必要的标签，能降低遍历的次数。
-5. 避免 src、href 等的值为空，因为即时它们为空，浏览器也会发起 HTTP 请求。
-6. 减少 DNS 查询的次数。
-
-### 快速记忆知识点
-
-1. 三次握手：① 客户机 -> SYN -> 服务器；② 客户机 <- SYN + ACK <- 服务器；③ 客户机 -> ACK -> 服务器。
-2. URL 的组成：协议 + 服务器地址（域名 或 IP + 端口） + 路径 + 文件名。
-3. WebSocket 可以实现 Web 浏览器与服务器进行长时间的连接。
-
-## <a name="chapter-twelve" id="chapter-twelve">十二 其他</a>
-
-> [返回目录](#catalog-chapter-twelve)
 
 ### 人事问题
 
@@ -1186,6 +1346,7 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 1. [《一位前端 2018 绝地求生记》](https://juejin.im/post/5c36fe50518825253b5e94f4)
 2. [《中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)》](https://juejin.im/post/5c64d15d6fb9a049d37f9c20)
 3. [《InterviewMap》](https://yuchengkai.cn/docs/frontend/)
+4. [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
 
 ### <a name="chapter-fourteen-two" id="chapter-fourteen-two">14.2 关于 CSS</a>
 
@@ -1204,18 +1365,17 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 3. [《实现双向绑定Proxy比defineproperty优劣如何》](https://www.jianshu.com/p/2df6dcddb0d7)
 4. [《Vue 中关于 $emit 的用法》](https://blog.csdn.net/sllailcp/article/details/78595077)
 
-## <a name="chapter-fourteen-four" id="chapter-fourteen-four">14.4 关于其他</a>
+### <a name="chapter-fourteen-four" id="chapter-fourteen-four">14.4 关于其他</a>
 
 > [返回目录](#catalog-chapter-fourteen)
 
 1. [《前端性能优化最佳实践》](https://csspod.com/frontend-performance-best-practices/)
-2. [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
-3. [《到底什么是前端工程化、模块化、组件化》](https://www.cnblogs.com/allenlei/p/6195235.html)  
-4. [《【前端工程化系列】简谈前端模块化开发与开发规范》](https://www.cnblogs.com/code-klaus/p/9011911.html)  
-5. [《个人关于模块化的理解》](https://www.cnblogs.com/doublenet/p/4918306.html)  
-6. [《组件化开发和模块化开发概念辨析》](https://blog.csdn.net/blog_jihq/article/details/79191008)  
-7. [《JavaScript模块化 --- Commonjs、AMD、CMD、es6 modules》](https://www.cnblogs.com/zhuzhenwei918/p/7426904.html)  
-8.  [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)  
+2. [《到底什么是前端工程化、模块化、组件化》](https://www.cnblogs.com/allenlei/p/6195235.html)  
+3. [《【前端工程化系列】简谈前端模块化开发与开发规范》](https://www.cnblogs.com/code-klaus/p/9011911.html)  
+4. [《个人关于模块化的理解》](https://www.cnblogs.com/doublenet/p/4918306.html)  
+5. [《组件化开发和模块化开发概念辨析》](https://blog.csdn.net/blog_jihq/article/details/79191008)  
+6. [《JavaScript模块化 --- Commonjs、AMD、CMD、es6 modules》](https://www.cnblogs.com/zhuzhenwei918/p/7426904.html)  
+7.  [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)  
 
 > **jsliang** 广告推送：  
 > 也许小伙伴想了解下云服务器  
