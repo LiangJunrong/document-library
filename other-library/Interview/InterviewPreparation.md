@@ -4,44 +4,6 @@ jsliang 的 2019 面试准备
 > Create by **jsliang** on **2018-2-11 15:30:34**  
 > Recently revised in **2019-2-24 14:00:34**
 
-```目标岗位 1
-岗位职责：
-1、独立完成公司中后台项目的前端开发
-2、与后端开发一起，确定接口协议
-3、独立完成接口文档的编写并组织评审
-4、深入解析代码, 提升代码执行效率, 加强代码兼容性
-5、对用户交互有深刻理解，能帮助产品优化交互体验
-
-任职要求：
-1、有2年以上前端开发经验
-2、对各种Web前端技术（JavaScript，CSS，语义化标签等等）有深刻理解；
-3、熟悉服务器端Web应用结构，有服务器端脚本语言经验更佳
-4、熟悉WEB应用的MVC，MVVM结构
-5、英文4级以上
-
-应具备的知识与技能：
-1、精通HTML5、CSS3等网页制作技术，熟悉页面架构和Flex布局；
-2、精通JavaScript、Ajax等Web开发技术
-3、熟练使用ES6,有Reactjs的使用经验；
-4、熟练使用Git,Webpack等工具；
-5、熟悉W3C标准，对表现与数据分离、Web语义化等有较为深刻的理解；
-6、思路清晰，具备良好的沟通能力和团队协作精神，善于学习、总结，乐于分享。
-```
-
-```目标岗位 2
-岗位职责：
-1. 负责web前端开发框架的搭建；
-2. 负责web前端研发（包括PC和Mobile）；
-
-能力要求：
-1. 扎实的html,js,css知识；
-2. 熟悉vue等前端开发框架；
-3. 熟悉bootstrap或elementui等前端UI库；
-4. 熟悉响应式网页开发；
-5. 能编写可维护性高的前端代码；
-7. 2年以上专业岗位工作经验，有相关作品可展示优先。
-```
-
 Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜前端大佬技术胖（*jspang*）的原因，又因为自己学的是 JavaScript，所以给自己取了个 **jsliang**（*JavaScriptLiang*） 的网名，希望自己能在前端路上走得更远，并携手小伙伴一起前行。
 
 **首先**，**jsliang** 高考后的暑期就听大学师兄的建议，开始学习编程，那时候学习了 C 语言，觉得世界上最神奇的事情不过如此，敲两下键盘，按下回车，电脑就会一闪一闪地响应我们！于是在大学的时候，陆陆续续学过 C、C#、.Net……等。
@@ -78,8 +40,9 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| &emsp;<a name="catalog-chapter-two-one" id="catalog-chapter-two-one"></a>[2.1 跳槽原委](#chapter-two-one) |
-| &emsp;<a name="catalog-chapter-two-two" id="catalog-chapter-two-two"></a>[2.2 开篇点题](#chapter-two-two) |
+| &emsp;[2.1 跳槽原委](#chapter-two-one) |
+| &emsp;[2.2 进击目标](#chapter-two-two) |
+| &emsp;[2.3 开篇点题](#chapter-two-three) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 HTML](#chapter-three) |
 | &emsp;[3.1 HTML 学习推荐](#chapter-three-one) |
 | &emsp;[3.2 HTML 语义化](#chapter-three-two) |
@@ -192,7 +155,61 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 > GitHub 见证：[点击查看](https://github.com/LiangJunrong)  
 > 掘金见证：[点击查看](https://juejin.im/user/584613ba128fe10058b3cf68)
 
-## <a name="chapter-two-two" id="chapter-two-two">2.2 开篇点题</a>
+## <a name="chapter-two-two" id="chapter-two-two">2.2 进击目标</a>
+
+> [返回目录](#catalog-chapter-two)
+
+* 目标城市：广州
+* 目标薪资：10K - 15K
+* 目前进击：
+
+```目标岗位 1
+公司：SheIn
+
+薪酬：10K - 15K
+
+岗位职责：
+1、独立完成公司中后台项目的前端开发
+2、与后端开发一起，确定接口协议
+3、独立完成接口文档的编写并组织评审
+4、深入解析代码, 提升代码执行效率, 加强代码兼容性
+5、对用户交互有深刻理解，能帮助产品优化交互体验
+
+任职要求：
+1、有2年以上前端开发经验
+2、对各种Web前端技术（JavaScript，CSS，语义化标签等等）有深刻理解；
+3、熟悉服务器端Web应用结构，有服务器端脚本语言经验更佳
+4、熟悉WEB应用的MVC，MVVM结构
+5、英文4级以上
+
+应具备的知识与技能：
+1、精通HTML5、CSS3等网页制作技术，熟悉页面架构和Flex布局；
+2、精通JavaScript、Ajax等Web开发技术
+3、熟练使用ES6,有Reactjs的使用经验；
+4、熟练使用Git,Webpack等工具；
+5、熟悉W3C标准，对表现与数据分离、Web语义化等有较为深刻的理解；
+6、思路清晰，具备良好的沟通能力和团队协作精神，善于学习、总结，乐于分享。
+```
+
+```目标岗位 2
+公司：广州幂玛网络科技有限公司
+
+薪酬：10K - 20K
+
+岗位职责：
+1. 负责web前端开发框架的搭建；
+2. 负责web前端研发（包括PC和Mobile）；
+
+能力要求：
+1. 扎实的html,js,css知识；
+2. 熟悉vue等前端开发框架；
+3. 熟悉bootstrap或elementui等前端UI库；
+4. 熟悉响应式网页开发；
+5. 能编写可维护性高的前端代码；
+7. 2年以上专业岗位工作经验，有相关作品可展示优先。
+```
+
+## <a name="chapter-two-three" id="chapter-two-three">2.3 开篇点题</a>
 
 > [返回目录](#catalog-chapter-two)
 
