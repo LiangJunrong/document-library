@@ -40,19 +40,19 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| &emsp;[2.1 跳槽原委](#chapter-two-one) |
-| &emsp;[2.2 进击目标](#chapter-two-two) |
-| &emsp;[2.3 开篇点题](#chapter-two-three) |
+| &emsp;[√] [2.1 跳槽原委](#chapter-two-one) |
+| &emsp;[√] [2.2 进击目标](#chapter-two-two) |
+| &emsp;[√] [2.3 开篇点题](#chapter-two-three) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 HTML](#chapter-three) |
 | &emsp;[3.1 HTML 学习推荐](#chapter-three-one) |
-| &emsp;[3.2 HTML 语义化](#chapter-three-two) |
-| &emsp;[3.3 HTML5 新标签](#chapter-three-three) |
+| &emsp;[√] [3.2 HTML 语义化](#chapter-three-two) |
+| &emsp;[√] [3.3 HTML5 新标签](#chapter-three-three) |
 | &emsp;[3.4 常见浏览器及其内核](#chapter-three-four) |
 | &emsp;[3.5 cookies、sessionStorage、localStorage](#chapter-three-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 CSS](#chapter-four) |
 | &emsp;[4.1 CSS 学习推荐](#chapter-four-one) |
 | &emsp;[4.2 CSS reset](#chapter-four-two) |
-| &emsp;[4.3 CSS 盒模型](#chapter-four-three) |
+| &emsp;[√] [4.3 CSS 盒模型](#chapter-four-three) |
 | &emsp;[4.4 CSS 单位](#chapter-four-four) |
 | &emsp;[4.5 CSS 选择器](#chapter-four-five) |
 | &emsp;[4.6 CSS 常见布局](#chapter-four-six) |
@@ -121,9 +121,10 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 总结](#chapter-thirteen) |
 | <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 参考文献](#chapter-fourteen) |
 | &emsp;[14.1 关于面试](#chapter-fourteen-one) |
-| &emsp;[14.2 关于 CSS](#chapter-fourteen-two) |
-| &emsp;[14.3 关于 JS](#chapter-fourteen-three) |
-| &emsp;[14.4 关于其他](#chapter-fourteen-four) |
+| &emsp;[14.2 关于 HTML](#chapter-fourteen-two) |
+| &emsp;[14.3 关于 CSS](#chapter-fourteen-three) |
+| &emsp;[14.4 关于 JS](#chapter-fourteen-four) |
+| &emsp;[14.5 关于其他](#chapter-fourteen-five) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -255,21 +256,23 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 > [返回目录](#catalog-chapter-three)
 
-暂无内容，有待补充
+* [《前端工程师手册》](https://leohxj.gitbooks.io/front-end-database/content/html-and-css-basic/index.html?tdsourcetag=s_pctim_aiomsg)
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 HTML 语义化</a>
 
 > [返回目录](#catalog-chapter-three)
 
-暂无内容，有待补充
+语义化的含义就是用正确的标签做正确的事情，HTML 语义化就是让页面的内容结构化，它有如下优点：
+
+1. 便于对浏览器、搜索引擎解析；
+2. 便于盲人浏览网页；
+3. 便于阅读源代码的人对网站进行分开，维护和理解；
 
 ### <a name="chapter-three-three" id="chapter-three-three">3.3 HTML5 新标签</a>
 
 > [返回目录](#catalog-chapter-three)
 
-* HTML5 中新增了哪些标签？
-
-新增标签大致有：`<header>`、`<footer>`、`<aside>`、`<nav>`、`<video>`、`<audio>`、`<canvas>`等等
+HTML5 中新增标签大致有：`<header>`、`<footer>`、`<aside>`、`<nav>`、`<video>`、`<audio>`、`<canvas>`等等。
 
 ### <a name="chapter-three-four" id="chapter-three-four">3.4 常见浏览器及其内核</a>
 
@@ -297,6 +300,7 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 > [返回目录](#catalog-chapter-four)
 
+* [《前端工程师手册》](https://leohxj.gitbooks.io/front-end-database/content/html-and-css-basic/index.html?tdsourcetag=s_pctim_aiomsg)
 * 《CSS 权威指南》
 * 《CSS 揭秘》
 * 《CSS 世界》
@@ -352,7 +356,7 @@ div {
 
 那么，你的整个盒子宽高是 `120px`。
 
-如果你在设计页面中，发现内容区被撑爆了，那么，请检查下现在的 `border-box` 是什么。
+如果你在设计页面中，发现内容区被撑爆了，那么，请检查下现在的 `border-box` 是什么，最好在引用 `reset.css` 的时候，就对 `border-box` 进行统一设置，方便管理。
 
 ### <a name="chapter-four-four" id="chapter-four-four">4.4 CSS 单位</a>
 
@@ -1348,7 +1352,13 @@ var name = 'World!';
 3. [《InterviewMap》](https://yuchengkai.cn/docs/frontend/)
 4. [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
 
-### <a name="chapter-fourteen-two" id="chapter-fourteen-two">14.2 关于 CSS</a>
+### <a name="chapter-fourteen-two" id="chapter-fourteen-two">14.2 关于 HTML</a>
+
+> [返回目录](#catalog-chapter-fourteen)
+
+* [《前端工程师手册》](https://leohxj.gitbooks.io/front-end-database/content/html-and-css-basic/index.html?tdsourcetag=s_pctim_aiomsg)
+
+### <a name="chapter-fourteen-three" id="chapter-fourteen-three">14.3 关于 CSS</a>
 
 > [返回目录](#catalog-chapter-fourteen)
 
@@ -1356,7 +1366,7 @@ var name = 'World!';
 2. [《CSS实现垂直居中的常用方法》](https://www.cnblogs.com/yugege/p/5246652.html)
 3. [《CSS 用 position: absolute 与 transform 来居中块级元素的问题》](https://segmentfault.com/q/1010000005151903)
 
-### <a name="chapter-fourteen-three" id="chapter-fourteen-three">14.3 关于 JS</a>
+### <a name="chapter-fourteen-four" id="chapter-fourteen-four">14.4 关于 JS</a>
 
 > [返回目录](#catalog-chapter-fourteen)
 
@@ -1371,7 +1381,7 @@ var name = 'World!';
 9.  [《JavaScript中的call、apply、bind深入理解》](https://www.jianshu.com/p/00dc4ad9b83f)
 10. [《箭头函数 - 廖雪峰》](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000)
 
-### <a name="chapter-fourteen-four" id="chapter-fourteen-four">14.4 关于其他</a>
+### <a name="chapter-fourteen-five" id="chapter-fourteen-five">14.5 关于其他</a>
 
 > [返回目录](#catalog-chapter-fourteen)
 
