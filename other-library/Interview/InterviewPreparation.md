@@ -51,7 +51,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[3.5 cookies、sessionStorage、localStorage](#chapter-three-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 CSS](#chapter-four) |
 | &emsp;[4.1 CSS 学习推荐](#chapter-four-one) |
-| &emsp;[4.2 CSS reset](#chapter-four-two) |
+| &emsp;[√] [4.2 CSS reset](#chapter-four-two) |
 | &emsp;[√] [4.3 CSS 盒模型](#chapter-four-three) |
 | &emsp;[4.4 CSS 单位](#chapter-four-four) |
 | &emsp;[4.5 CSS 选择器](#chapter-four-five) |
@@ -309,7 +309,13 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 > [返回目录](#catalog-chapter-four)
 
-暂无内容，有待补充
+在工作的过程中，会发现各式各样的浏览器对某个标签有自己独特的样式。
+
+但是在前端开发中，如果不采用统一标准，那么会产生千奇百怪的 bug。所以为了减少后期 bug 的出现，前端开发人员会重置一遍 CSS 样式，尽可能地使开发的网页在各个浏览器相差不大。
+
+下面是 **jsliang** 在开发前使用的样式重置，当然如果小伙伴有不同的想法，可以去 百度/必应/google 搜索并使用其他版本的样式重置：
+
+* [jsliang 的 CSS 样式重置](https://github.com/LiangJunrong/document-library/blob/master/CSS-library/CSSBase/CSSReset.md)
 
 ### <a name="chapter-four-three" id="chapter-four-three">4.3 CSS 盒模型</a>
 
