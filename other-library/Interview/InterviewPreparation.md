@@ -59,7 +59,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[4.7 CSS3 新特性](#chapter-four-seven) |
 | &emsp;[4.8 BFC](#chapter-four-eight) |
 | &emsp;[4.9 box-sizing](#chapter-four-night) |
-| &emsp;[4.10 行内元素和块级元素](#chapter-four-ten) |
+| &emsp;[√] [4.10 行内元素和块级元素](#chapter-four-ten) |
 | &emsp;[4.11 行内样式、内嵌式、链接式以及导入式](#chapter-four-eleven) |
 | &emsp;[4.12 水平垂直居中](#chapter-four-twelve) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 JavaScript](#chapter-five) |
@@ -313,7 +313,7 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 但是在前端开发中，如果不采用统一标准，那么会产生千奇百怪的 bug。所以为了减少后期 bug 的出现，前端开发人员会重置一遍 CSS 样式，尽可能地使开发的网页在各个浏览器相差不大。
 
-下面是 **jsliang** 在开发前使用的样式重置，当然如果小伙伴有不同的想法，可以去 百度/必应/google 搜索并使用其他版本的样式重置：
+下面是 **jsliang** 在使用的样式重置，当然如果小伙伴有不同的想法，可以去 **百度/必应/google** 搜索并使用其他版本的样式重置：
 
 * [jsliang 的 CSS 样式重置](https://github.com/LiangJunrong/document-library/blob/master/CSS-library/CSSBase/CSSReset.md)
 
@@ -374,6 +374,14 @@ div {
 
 > [返回目录](#catalog-chapter-four)
 
+选择器是匹配元素的一种模式。
+
+* 关于 CSS 解析器：
+
+
+
+* CSS 解析顺序
+
 在 CSS 的选择器中，它会按照优先级**从右向左解析**：!important -> 行内样式 -> #id -> .class -> tag -> * -> 继承 -> 默认
 
 ### <a name="chapter-four-six" id="chapter-four-six">4.6 CSS 常见布局</a>
@@ -425,7 +433,11 @@ BFC 就是 块级格式上下文，它是一个独立的渲染区域，让处于
 
 > [返回目录](#catalog-chapter-four)
 
-暂无内容，有待补充
+**行内元素**：宽度和高度由内容决定，与其他元素共占一行的元素，我们将其叫行内元素。例如：`<span>`、`<i>`、`<a>` 等……
+
+**块级元素**：默认宽度由父容器决定，默认高度由内容决定，独占一行并且可以设置宽高的元素，我们将其叫做块级元素。例如：`<p>`、`<div>`、`<ul>` 等……
+
+在日常开发中，我们经常使用 CSS 的 `display` 属性来打破两者的壁垒：`display: inline-block`，使它们拥有更多的状态。
 
 ### <a name="chapter-four-eleven" id="chapter-four-eleven">4.11 行内样式、内嵌式、链接式以及导入式</a>
 
