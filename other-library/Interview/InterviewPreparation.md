@@ -2,7 +2,7 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2018-2-11 15:30:34**  
-> Recently revised in **2019-2-24 14:00:34**
+> Recently revised in **2019-2-25 08:06:30**
 
 Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜前端大佬技术胖（*jspang*）的原因，又因为自己学的是 JavaScript，所以给自己取了个 **jsliang**（*JavaScriptLiang*） 的网名，希望自己能在前端路上走得更远，并携手小伙伴一起前行。
 
@@ -1360,10 +1360,16 @@ var name = 'World!';
 
 > [返回目录](#catalog-chapter-fourteen)
 
-1. [《小邵教你玩转ES6》](https://juejin.im/post/5b7b95206fb9a019bd2463d8)
-2. [《小邵教你玩转JS面向对象》](https://juejin.im/post/5b8a8724f265da435450c591)
-3. [《实现双向绑定Proxy比defineproperty优劣如何》](https://www.jianshu.com/p/2df6dcddb0d7)
-4. [《Vue 中关于 $emit 的用法》](https://blog.csdn.net/sllailcp/article/details/78595077)
+1. [【推荐】《JavaScript - MDN》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
+2. [《小邵教你玩转ES6》](https://juejin.im/post/5b7b95206fb9a019bd2463d8)
+3. [《小邵教你玩转JS面向对象》](https://juejin.im/post/5b8a8724f265da435450c591)
+4. [《实现双向绑定Proxy比defineproperty优劣如何》](https://www.jianshu.com/p/2df6dcddb0d7)
+5. [《Vue 中关于 $emit 的用法》](https://blog.csdn.net/sllailcp/article/details/78595077)
+6. [《JavaScript 世界万物诞生记》](https://zhuanlan.zhihu.com/p/22989691)
+7. [《js中的new()到底做了些什么？？》](https://www.cnblogs.com/faith3/p/6209741.html)
+8. [《MDN Function.prototype.call()》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+9.  [《JavaScript中的call、apply、bind深入理解》](https://www.jianshu.com/p/00dc4ad9b83f)
+10. [《箭头函数 - 廖雪峰》](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000)
 
 ### <a name="chapter-fourteen-four" id="chapter-fourteen-four">14.4 关于其他</a>
 
