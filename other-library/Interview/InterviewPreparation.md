@@ -54,7 +54,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[√] [4.2 CSS reset](#chapter-four-two) |
 | &emsp;[√] [4.3 CSS 盒模型](#chapter-four-three) |
 | &emsp;[4.4 CSS 单位](#chapter-four-four) |
-| &emsp;[4.5 CSS 选择器](#chapter-four-five) |
+| &emsp;[√] [4.5 CSS 选择器](#chapter-four-five) |
 | &emsp;[4.6 CSS 常见布局](#chapter-four-six) |
 | &emsp;[4.7 CSS3 新特性](#chapter-four-seven) |
 | &emsp;[4.8 BFC](#chapter-four-eight) |
