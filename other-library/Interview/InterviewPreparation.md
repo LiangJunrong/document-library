@@ -68,7 +68,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[√] [5.3 原型与原型链](#chapter-five-three) |
 | &emsp;[√] [5.4 作用域与闭包](#chapter-five-four) |
 | &emsp;[√] [5.5 浅拷贝与深拷贝](#chapter-five-five) |
-| &emsp;[5.6 模块化与组件化](#chapter-five-six) |
+| &emsp;[√] [5.6 模块化与组件化](#chapter-five-six) |
 | &emsp;[5.7 面向对象与面向过程](#chapter-five-seven) |
 | &emsp;[5.8 JS 继承](#chapter-five-eight) |
 | &emsp;[5.9 防抖与节流](#chapter-five-night) |
