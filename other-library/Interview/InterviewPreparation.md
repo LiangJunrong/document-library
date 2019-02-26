@@ -65,9 +65,9 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 JavaScript](#chapter-five) |
 | &emsp;[5.1 JS 学习推荐](#chapter-five-one) |
 | &emsp;[5.2 JS 引用方式](#chapter-five-two) |
-| &emsp;[5.3 原型与原型链](#chapter-five-three) |
+| &emsp;[√] [5.3 原型与原型链](#chapter-five-three) |
 | &emsp;[√] [5.4 作用域与闭包](#chapter-five-four) |
-| &emsp;[5.5 浅拷贝与深拷贝](#chapter-five-five) |
+| &emsp;[√] [5.5 浅拷贝与深拷贝](#chapter-five-five) |
 | &emsp;[5.6 模块化与组件化](#chapter-five-six) |
 | &emsp;[5.7 面向对象与面向过程](#chapter-five-seven) |
 | &emsp;[5.8 JS 继承](#chapter-five-eight) |
@@ -614,7 +614,7 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 * [2019 面试准备 - JS 原型与原型链](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/prototype.md)
 
-下面放出知识点：
+下面放出相关知识点：
 
 ![图](../../public-repertory/img/other-interview-1-prototype.png)
 
