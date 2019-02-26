@@ -2,7 +2,7 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2018-2-11 15:30:34**  
-> Recently revised in **2019-2-25 08:06:30**
+> Recently revised in **2019-2-26 09:30:34**
 
 Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜前端大佬技术胖（*jspang*）的原因，又因为自己学的是 JavaScript，所以给自己取了个 **jsliang**（*JavaScriptLiang*） 的网名，希望自己能在前端路上走得更远，并携手小伙伴一起前行。
 
@@ -378,11 +378,30 @@ div {
 
 * 关于 CSS 解析器：
 
+HTML 经过解析生成 DOM Tree（这个我们比较熟悉）；而在 CSS 解析完毕后，需要将解析的结果与 DOM Tree 的内容一起进行分析建立一棵 Render Tree，最终用来进行绘图。
 
+Render Tree 中的元素（WebKit 中称为「renderers」，Firefox 下为「frames」）与 DOM 元素相对应，但非一一对应：一个 DOM 元素可能会对应多个 renderer，如文本折行后，不同的「行」会成为 render tree 种不同的 renderer。也有的 DOM 元素被 Render Tree 完全无视，比如 display:none 的元素。
+
+在建立 Render Tree 时（WebKit 中的「Attachment」过程），浏览器就要为每个 DOM Tree 中的元素根据 CSS 的解析结果（Style Rules）来确定生成怎样的 renderer。对于每个 DOM 元素，必须在所有 Style Rules 中找到符合的 selector 并将对应的规则进行合并。选择器的「解析」实际是在这里执行的，在遍历 DOM Tree 时，从 Style Rules 中去寻找对应的 selector。
 
 * CSS 解析顺序
 
-在 CSS 的选择器中，它会按照优先级**从右向左解析**：!important -> 行内样式 -> #id -> .class -> tag -> * -> 继承 -> 默认
+在 CSS 的选择器中，它会按照优先级 **从右向左解析**，因为这样匹配元素的时候，能尽量少地查找，所以选择器最好写地简洁一点
+
+* CSS 常用选择器
+
+1. 通配符：`*`
+2. ID 选择器：`#ID`
+3. 类选择器：`.class`
+4. 元素选择器：`p`、`a` 等……
+5. 后代选择器：`p span`、`div a` 等……
+6. 伪类选择器：`a:hover` 等……
+7. 属性选择器：`input[type="text"]` 等……
+8. 子元素选择器：`li:firth-child`、`p:nth-child(1)` 等……
+
+* CSS 选择器权重
+
+!important -> 行内样式 -> #id -> .class -> 元素和伪元素 -> * -> 继承 -> 默认
 
 ### <a name="chapter-four-six" id="chapter-four-six">4.6 CSS 常见布局</a>
 
