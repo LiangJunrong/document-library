@@ -203,7 +203,7 @@ F.b => value b
 
 **最后**，当我们查找 `call()` 的时候，它又涉及到了 `this`，所以我们 “顺便” 查阅 `this` 吧。
 
-### <a name="chapter-five-two" id="chapter-five-two">5.1 原型及原型链</a>
+### <a name="chapter-five-two" id="chapter-five-two">5.2 原型及原型链</a>
 
 > [返回目录](#chapter-one)
 
