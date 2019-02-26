@@ -629,11 +629,47 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 > [返回目录](#catalog-chapter-five)
 
-简单定义：函数 A 里面包含了 函数 B，而 函数 B 里面使用了 函数 A 的变量，那么 函数 B 被称为闭包。
+在 JS 中，最容易混淆的就是作用域的情况。
+
+在传统的后端语言（例如 C 语言）中，一对花括号 `{}` 就是一个块级作用域，作用域内变量不会相互影响，但是在 JS 中，像 if 条件语句的 `{}` 就不算一个独立的作用域：
+
+```js
+var x = 1;
+console.log(x); // 1
+if(true) {
+  var x = 2;
+  console.log(x); // 2
+}
+console.log(x); // 2
+```
+
+所以有时候我们就需要变通，通过自执行函数创建临时作用域：
+
+```js
+function foo() {
+  var x = 1;
+  console.log(x); // 1
+  if(x) {
+    (function(x) {
+      console.log(x); // 1
+      var x = 2;
+      console.log(x); // 2
+    })(x)
+  }
+  console.log(x); // 1
+}
+foo();
+```
+
+说到创建临时作用域，我们就不得不谈一下闭包。
+
+那么，什么是闭包呢？
+
+**闭包简单定义**：函数 A 里面包含了 函数 B，而 函数 B 里面使用了 函数 A 的变量，那么 函数 B 被称为闭包。
 
 又或者：闭包就是能够读取其他函数内部变量的函数
 
-```
+```js
 function A() {
   var a = 1;
   function B() {
@@ -645,7 +681,7 @@ function A() {
 
 * 闭包经典问题：现在我们有一段代码：
 
-```
+```js
 for(var i = 0; i < 3; i++) {
   setTimeout(function() {
     console.log(i);
@@ -662,7 +698,7 @@ for(var i = 0; i < 3; i++) {
 
 1. 使用 let：
 
-```
+```js
 $(function() {
   for(let i = 0; i < 3; i++) {
     setTimeout(function() {
@@ -676,7 +712,7 @@ $(function() {
 
 如果这样讲不明白，我们可以执行下下面这段代码：
 
-```
+```js
 $(function() {
   for(let i = 0; i < 3; i++) {
     console.log("定时器外部：" + i);
@@ -689,7 +725,7 @@ $(function() {
 
 此时浏览器依次输出的是：
 
-```
+```Console
 定时器外部：0
 定时器外部：1
 定时器外部：2
@@ -702,7 +738,7 @@ $(function() {
 
 2. 使用立即执行函数解决闭包问题
 
-```
+```js
 $(function() {
   for(let i = 0; i < 3; i++) {
     (function(i){
