@@ -4,7 +4,7 @@
 > Create by **jsliang** on **2019-2-27 18:51:26**  
 > Recently revised in **2019-2-27 18:51:30**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/%E9%9D%A2%E8%AF%95-RoundOne.md)**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -36,10 +36,28 @@
 > [返回目录](#chapter-one)
 
 1. 由于这个公司规模大，看起来比较 nice，于是 7 点就出门了，8 点到公司附近，溜达了一圈，附近饭馆比较多，离地铁站 5 分钟左右，可能是工业区，人流还 OK。
-2. 溜达到 9:20，上楼跟前台小姐姐打招呼，然后拿了两份表：一份个人信息表，一个性格测试表（可能大点的公司都考虑你的性格，毕竟团队开发），印象深刻的是性格测试表还有错别字：“坚定” 写成了 “鉴定”，offer 没下来，就没有跟人事小姐姐吐槽了，免得给人坏印象。
+2. 溜达到 9:20，上楼跟前台小姐姐打招呼后，拿到了两份表：一份个人信息表，一个性格测试表（可能大点的公司都考虑你的性格，毕竟团队开发），印象深刻的是性格测试表还有错别字：“坚定” 写成了 “鉴定”。~~offer 没下来，就没有跟人事小姐姐吐槽了，免得给人坏印象。~~
 3. 交表，等待面试。
 
+### <a name="chapter-three-one" id="chapter-three-one">3.1 Job Description</a>
 
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 一面技术 - 前端架构师</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-three" id="chapter-three-three">3.3 二面技术 - 技术负责人</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-four" id="chapter-three-four">3.4 三面个人 - 人事小姐姐</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-five" id="chapter-three-five">3.5 四面个人 - 项目负责人</a>
+
+> [返回目录](#chapter-one)
 
 ## <a name="chapter-four" id="chapter-four">四 下午 16:00</a>
 
