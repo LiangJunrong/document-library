@@ -49,29 +49,7 @@
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 一面技术 - 前端架构师</a>
-
-> [返回目录](#chapter-one)
-
-### <a name="chapter-three-three" id="chapter-three-three">3.3 二面技术 - 技术负责人</a>
-
-> [返回目录](#chapter-one)
-
-### <a name="chapter-three-four" id="chapter-three-four">3.4 三面个人 - 人事小姐姐</a>
-
-> [返回目录](#chapter-one)
-
-### <a name="chapter-three-five" id="chapter-three-five">3.5 四面个人 - 项目负责人</a>
-
-> [返回目录](#chapter-one)
-
-## <a name="chapter-four" id="chapter-four">四 下午 16:00</a>
-
-> [返回目录](#chapter-one)
-
 ```目标岗位 1
-公司：SheIn
-
 薪酬：10K - 15K
 
 岗位职责：
@@ -97,9 +75,27 @@
 6、思路清晰，具备良好的沟通能力和团队协作精神，善于学习、总结，乐于分享。
 ```
 
-```目标岗位 2
-公司：广州幂玛网络科技有限公司
+### <a name="chapter-three-two" id="chapter-three-two">3.2 一面技术 - 前端架构师</a>
 
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-three" id="chapter-three-three">3.3 二面技术 - 技术负责人</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-four" id="chapter-three-four">3.4 三面个人 - 人事小姐姐</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-five" id="chapter-three-five">3.5 四面个人 - 项目负责人</a>
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-four" id="chapter-four">四 下午 16:00</a>
+
+> [返回目录](#chapter-one)
+
+```目标岗位 2
 薪酬：10K - 20K
 
 岗位职责：
