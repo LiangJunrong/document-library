@@ -19,7 +19,20 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 早上 10:00](#chapter-three) |
+| &emsp;[3.1 Job Description](#chapter-three-one) |
+| &emsp;[3.2 一面技术 - 前端架构师](#chapter-three-two) |
+| &emsp;[3.3 二面技术 - 技术负责人](#chapter-three-three) |
+| &emsp;[3.4 三面个人 - 人事小姐姐](#chapter-three-four) |
+| &emsp;[3.5 四面个人 - 项目负责人](#chapter-three-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 下午 16:00](#chapter-four) |
+| &emsp;[4.1 Job Description](#chapter-four-one) |
+| &emsp;[4.2 技术一面 - 笔试题考查](#chapter-four-two) |
+| &emsp;[4.3 技术二面 - 前端小姐姐](#chapter-four-three) |
+| &emsp;[4.4 整体三面 - 项目负责人](#chapter-four-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 总结](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 参考答案](#chapter-six) |
+| &emsp;[6.1 上午题解](#chapter-six-one) |
+| &emsp;[6.2 下午题解](#chapter-six-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -41,15 +54,16 @@
 
 > [返回目录](#chapter-one)
 
-1. 由于这个公司规模大，看起来比较 nice，于是 7 点就出门了，8 点到公司附近，溜达了一圈，附近饭馆比较多，离地铁站 5 分钟左右，可能是工业区，人流还 OK。
-2. 溜达到 9:20，上楼跟前台小姐姐打招呼后，拿到了两份表：一份个人信息表，一个性格测试表（可能大点的公司都考虑你的性格，毕竟团队开发），印象深刻的是性格测试表还有错别字：“坚定” 写成了 “鉴定”。~~offer 没下来，就没有跟人事小姐姐吐槽了，免得给人坏印象。~~
-3. 交表，等待面试。
+1. **公司规模**：员工 5000 +
+2. **行业**：跨境电商
+3. **面试前**：怕广州 3 号线塞车，又觉得这份工作不错，于是 7 点就出门，8 点到了这个公司附近，溜达了一圈，感觉附近饭馆比较多，并且离地铁站 5 分钟左右，还是挺不错的。溜达到 9:20，上楼跟前台小姐姐打招呼后，拿到了两份表：一份个人信息表，一个性格测试表（可能大点的公司都考虑你的性格，毕竟团队开发），印象深刻的是性格测试表还有错别字：“坚定” 写成了 “鉴定”。~~offer 没下来，就没敢跟人事小姐姐吐槽了，免得给人坏印象。~~
+4. **准备完毕**：交表，等待面试。
 
 ### <a name="chapter-three-one" id="chapter-three-one">3.1 Job Description</a>
 
 > [返回目录](#chapter-one)
 
-```目标岗位 1
+```岗位描述
 薪酬：10K - 15K
 
 岗位职责：
@@ -95,7 +109,15 @@
 
 > [返回目录](#chapter-one)
 
-```目标岗位 2
+1. **公司规模**：20 - 99人
+2. **行业**：游戏
+3. **面试前**：地处科大科技园那边，提前了一个钟到，不想提前上去（**jsliang** 觉得有时候提前上去，万一前面面试的还没搞完，会尴尬，一般都是提前半个钟到），无聊，就坐马路前看看车水马龙。
+
+### <a name="chapter-four-one" id="chapter-four-one">4.1 Job Description</a>
+
+> [返回目录](#chapter-one)
+
+```岗位描述
 薪酬：10K - 20K
 
 岗位职责：
@@ -110,6 +132,55 @@
 5. 能编写可维护性高的前端代码；
 7. 2年以上专业岗位工作经验，有相关作品可展示优先。
 ```
+
+### <a name="chapter-four-two" id="chapter-four-two">4.2 技术一面 - 笔试题考查</a>
+
+> [返回目录](#chapter-one)
+
+1. 描述一下渐进增强和优雅降级。
+2. CSS 中可以让文字垂直和水平方向上重叠的两个属性是什么？
+3. 如何解决使用 inline-block 引起的空白间隙的问题？
+4. 使用 CSS 创建一个三角形（一个箭头向右的三角图标）。
+5. 使用 CSS 实现三个 div 等比排列在一行，两列宽度固定中间自适应。
+6. 有一个长度为 100 的数组，请求出该数组的前 10 个元素之和。
+7. 写一个程序打印 1 到 100 这些数字，遇到数字为 3 的倍数，打印 “A” 替代该数字；遇到 5 的倍数，用 “B” 代替；遇到即是 3 的倍数又是 5 的倍数，打印 “AB”。
+8. 跨域通信有哪些方案，各有什么不同？
+9. 哪些常见操作会造成内存泄漏？
+10. 主流前端框架如 Angular/React/Vue 等之间有哪些差异及特点，选取一个描述其组件生命周期。
+
+### <a name="chapter-four-three" id="chapter-four-three">4.3 技术二面 - 前端小姐姐</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-four-four" id="chapter-four-four">4.4 整体三面 - 项目负责人</a>
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-five" id="chapter-five">五 总结</a>
+
+> [返回目录](#chapter-one)
+
+写到这里，感慨几许：
+
+**首先**，面试不一定造火箭，有可能是人家项目中真实存在这个情况。
+
+**然后**，面试第一目的肯定是拿到 offer，但是每次面试请尝试记住面试过程及面试题目，面试后总结出来，针对自己的不足进行知识拓展。
+
+**最后**，祝小伙伴们面试成功！
+
+## <a name="chapter-six" id="chapter-six">六 参考答案</a>
+
+> [返回目录](#chapter-one)
+
+给题不给解，结果会很可怕，所以这里简要写写面试中的那些答案：
+
+### <a name="chapter-six-one" id="chapter-six-one">6.1 上午题解</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-six-two" id="chapter-six-two">6.2 下午题解</a>
+
+> [返回目录](#chapter-one)
 
 > **jsliang** 广告推送：  
 > 也许小伙伴想了解下云服务器  
