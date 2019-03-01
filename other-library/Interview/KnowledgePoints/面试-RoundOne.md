@@ -2,13 +2,13 @@
 ===
 
 > Create by **jsliang** on **2019-2-27 18:51:26**  
-> Recently revised in **2019-2-28 08:08:12**
+> Recently revised in **2019-3-1 08:17:02**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/%E9%9D%A2%E8%AF%95-RoundOne.md)**
 
 并不是只有特定的季节才能跑路，只因为人跑得多了，这条路就定下来了。
 
-金三银四跑路季，**jsliang** 也去尝试了一波，然后写下这篇记录。
+金三银四跑路季，**jsliang** 也去尝试了一波，然后写下这篇文章。
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
