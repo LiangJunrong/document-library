@@ -43,6 +43,7 @@ jsliang 日常
 
 ## 学习计划
 
+* 【2019-03-02】3 月计划写完面经：总贴一篇，实战两篇；然后学习 Git 团队开发的使用；最后学 React 并折腾简单业务。
 * 【2019-01-14】折腾完 [Vue 基础](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md) + [Vue 基础实战](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueDemoOne.md)，准备折腾 Vue-Router、Vue-Cli 等系列……
 * 【2018-12-21】目前准备折腾完善 Vue 部分的文章。
 * 【2018-10-29】我怀念之前写 Vue + Node 的日子了，现在一直用着 jQuery，感觉好 low，没有一点技术提升，于是开始跟着技术胖的视频，折腾 [Vue + Koa2 + MongoDB 搭建商城](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/ShoppingMall/ShoppingMall.md)。  
