@@ -141,6 +141,20 @@ Base64 是一种用于传输 8 Bit 字节码的编码方式，通过对图片进
 1. Webpack 的 loader：url-loader
 2. 网上在线编码工具
 
+### <a name="chapter-three-six" id="chapter-three-six">3.6 WebP</a>
+
+> [返回目录](#chapter-one)
+
+**关键字**：年轻的全能型选手
+
+2010 年有 Google 提出，转为 Web 开发的一种旨在加快图片加载速度的图片格式，支持有损压缩和无损压缩。
+
+WebP 像 JPEG 一样对图片细节丰富，像 PNG 一样支持透明，像 GIF 一样可以显示动态图片。
+
+> 官方介绍：与 PNG 相比，WebP 无损图像的尺寸缩小了 26％。在等效的 SSIM 质量指数下，WebP 有损图像比同类 JPEG 图像小 25-34％。 无损 WebP 支持透明度（也称为 alpha 通道），仅需 22％ 的额外字节。对于有损 RGB 压缩可接受的情况，有损 WebP 也支持透明度，与 PNG 相比，通常提供 3 倍的文件大小。
+
+劣势：支持情况仅 Chrome、UC 等几家浏览器支持，所以局限性较大，目前暂不考虑使用。
+
 ## <a name="chapter-four" id="chapter-four">四 雪碧图</a>
 
 > [返回目录](#chapter-one)
@@ -173,9 +187,9 @@ Base64 是一种用于传输 8 Bit 字节码的编码方式，通过对图片进
 
 1. [《jpg、png、svg、gif等图片格式的区别》](https://www.jianshu.com/p/6e1941de7952)
 2. [《PNG、JPEG、GIF、SVG应该用哪个？》](https://www.jianshu.com/p/c66f52d875d9)
-3. [《》]()
-4. [《》]()
-5. [《》]()
+3. [《图片优化——质量与性能的博弈》](https://note.youdao.com/ynoteshare1/index.html?id=e10c4db3f3570478ad6534903b8ec79b&type=note#/)
+4. [《横向对比 gif、jpeg、png、svg，教你如何合理选择图像格式》](https://www.qifeiye.com/%E6%A8%AA%E5%90%91%E5%AF%B9%E6%AF%94gifjpegpngsvg%EF%BC%8C%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E5%90%88%E7%90%86%E9%80%89%E6%8B%A9%E5%9B%BE%E5%83%8F%E6%A0%BC%E5%BC%8F/)
+5. [《图像入门——2. 数字图像发展历史与图像处理概述》](https://blog.csdn.net/weixin_41929524/article/details/81078316)
 6. [《》]()
 7. [《》]()
 
