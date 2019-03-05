@@ -4,11 +4,13 @@
 > Create by **jsliang** on **2019-3-1 13:27:47**  
 > Recently revised in **2019-3-5 08:17:28**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/%E9%9D%A2%E8%AF%95-RoundOne.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/Other-%E5%9B%BE%E7%89%87.md)**
 
-在我们日常工作中，我们会经常使用图片：JPG、PNG、GIF、SVG……
+在我们日常工作中，我们会经常使用 JPG、PNG、GIF、SVG 等格式图片。
 
-然而，你真的懂吗？它们的区分，它们的使用场景……
+但是，你真的懂图片吗？不同格式图片的区分，它们的优劣势以及使用场景等……
+
+下面，**jsliang** 将根据搜集的资料，进行关于图片的科普。
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -27,6 +29,9 @@
 在 **jsliang** 2 月 27 日进行面试的时候，突然被一个问题问倒了：你熟悉图片吗？能讲讲 JPG、PNG、GIF、SVG 的适用场景吗？然后 PNG 为什么会有 PNG-8 和 PNG-24？
 
 于是，**爱折腾** 的我回头就是一个查资料，写下了这篇文章。
+
+1826 年，暗箱拍摄出世界上第一章图片。
+1861 年，第一张彩色照片诞生。
 
 ## <a name="chapter-three" id="chapter-three">三 正文</a>
 
@@ -189,9 +194,11 @@ WebP 像 JPEG 一样对图片细节丰富，像 PNG 一样支持透明，像 GIF
 2. [《PNG、JPEG、GIF、SVG应该用哪个？》](https://www.jianshu.com/p/c66f52d875d9)
 3. [《图片优化——质量与性能的博弈》](https://note.youdao.com/ynoteshare1/index.html?id=e10c4db3f3570478ad6534903b8ec79b&type=note#/)
 4. [《横向对比 gif、jpeg、png、svg，教你如何合理选择图像格式》](https://www.qifeiye.com/%E6%A8%AA%E5%90%91%E5%AF%B9%E6%AF%94gifjpegpngsvg%EF%BC%8C%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E5%90%88%E7%90%86%E9%80%89%E6%8B%A9%E5%9B%BE%E5%83%8F%E6%A0%BC%E5%BC%8F/)
-5. [《图像入门——2. 数字图像发展历史与图像处理概述》](https://blog.csdn.net/weixin_41929524/article/details/81078316)
+5. [《》]()
 6. [《》]()
 7. [《》]()
+8. [《》]()
+9. [《》]()
 
 > **jsliang** 广告推送：  
 > 也许小伙伴想了解下云服务器  
