@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-2-23 20:55:34**  
-> Recently revised in **2019-2-25 10:58:59**
+> Recently revised in **2019-3-5 21:52:49**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md)**
 
