@@ -6,19 +6,19 @@ jsliang 的 2019 面试准备
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/InterviewPreparation.md)**
 
-Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜前端大佬技术胖（*jspang*）的原因，又因为自己学的是 JavaScript，所以给自己取了个 **jsliang**（*JavaScriptLiang*） 的网名，希望自己能在前端路上走得更远，并携手小伙伴一起前行。
+Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜前端大佬技术胖（*jspang*）的原因，又因为自己学的是 JavaScript，所以给自己取了个 **jsliang**（*JavaScriptLiang*） 的网名，希望自己能在前端路上走得更远，并通过建立自己的前端知识体系分享给小伙伴，携手小伙伴们一起前行。
 
 **首先**，**jsliang** 高考后的暑期就听大学师兄的建议，开始学习编程，那时候学习了 C 语言，觉得世界上最神奇的事情不过如此，敲两下键盘，按下回车，电脑就会一闪一闪地响应我们！于是在大学的时候，陆陆续续学过 C、C#、.Net……等。
 
 > **-_-|| 由于都还给老师了，在这里就不多累述了。**
 
-**然后**，在大二就开始接触 HTML，那时候选修了《网页设计基础》，跟着老师做了个只有几个页面的静态网站。在大三的时候，参加了学校的特训班，分角色按流程从头到尾做了个实现了购物功能的网站。同时，由于在特训班的时候，看到后端使用 ThinkPHP（TP），觉得蛮不错的，于是自己捣鼓，使用 TP 3.2.3 + Bootstrap 3 + MySQL 打造了自己的博客（已下线）。
+**然后**，在大二就开始接触 HTML，那时候选修了《网页设计基础》，跟着老师做了个只有几个页面的静态网站。在大三的时候，参加了学校的特训班，分角色按流程从头到尾做了个实现了购物功能的网站。同时，由于在特训班的时候，看到后端使用 ThinkPHP（简称 TP），觉得蛮不错的，于是自己捣鼓，使用 TP 3.2.3 + Bootstrap 3 + MySQL 打造了自己的博客（已下线）。
 
-**接着**，由于选了门 Node.js 的课，所以也跟着大佬的步伐接触了下 Vue、Koa 这些，那时候对 npm 等诸多不懂，为了折腾这个于是我的世界打开了个大门。
+**接着**，由于选修了门 Node.js 的课，所以也跟着大佬的步伐接触了下 Vue、Koa 这些，那时候对 npm 等诸多不懂，为了折腾这个，我的前端世界自此打开了个大门。
 
 **最后**，我在自己的毕业设计中使用 Node.js + Vue + ElementUI + MongoDB 打造了个校园外卖、快递代拿社区单页应用。
 
-在 2018 年 5 月的时候，直接出来面试，不像其他大佬的毕业等于失业，很幸运地 **jsliang** 面试第一家就给了 offer，于是就进了这家公司，那时候感觉自己只懂 ES5、jQuery、HTML/HTML5、CSS/CSS3 的皮毛。
+在 2018 年 5 月的时候，直接出来面试。不像其他大佬的毕业等于失业，很幸运地 **jsliang** 面试第一家就给了 offer，于是就进了这家公司，那时候感觉自己只懂 ES5、jQuery、HTML/HTML5、CSS/CSS3 的皮毛。
 
 在熟悉了三个月的业务，公司给的任务能顺利完成后，我觉得自己不够努力，外面的前端翻天覆地，我的技术却只是梭哈 jQuery！
 
@@ -32,7 +32,9 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 4. 学 Node，然后搭了个企业网站（http://company.jsliang.top），并写了篇小文章（目前最高成就，获得了 1100 多赞）。
 5. 学 Vue，由于之前的 Vue 工作上有好多没有，逐渐淡忘了，所以从基础开始，准备写一套《Vue 从 0 到 1》。
 
-以上，就是 jsliang 的编程生涯。
+以上，就是 **jsliang** 的编程生涯。
+
+今儿，在这里写写 **jsliang** 为了跳槽，根据个人想法进行的一些前端面试资料整理，小伙伴们觉得不错的点个赞或者去 GitHub 点个 star，觉得有误请指出，谢谢~
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -1395,11 +1397,20 @@ var name = 'World!';
 
 在观看这篇文章的过程中，小伙伴可能会有这些疑问：
 
-1. 你这杂七杂八的都写了什么呀？看完我晕乎了！
+1. 看完觉得不胜过瘾？
+
+**回答**：系列套餐你值得拥有！
+
+* [2019 面试准备 - Round One](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/%E9%9D%A2%E8%AF%95-RoundOne.md)
+* [2019 面试准备 - JS 原型与原型链](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/JS-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
+* [2019 面试准备 - JS 防抖与节流](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md)
+* [2019 面试准备 - 图片](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/Other-%E5%9B%BE%E7%89%87.md)
+
+2. 你这杂七杂八的都写了什么呀？看完我晕乎了！
 
 **回答**：每个人的学习经历是不同的，所拥有的技术、知识点以及工作经验等都是不同的，所以在这篇文章中，**jsliang** 在充实自己的同时，其实也是在挖掘自己的不足，例如面向对象造轮子，例如算法问题等……**jsliang** 充分意识到了自己的不足，并打算在之后进行补充学习以及应用到工作中。
 
-2. 好像你这里写得也不是很全啊？看完我还是一知半解的！
+3. 好像你这里写得也不是很全啊？看完我还是一知半解的！
 
 **回答**：每个人的目的都是不同的，有些知识点可能 **jsliang** 也不感兴趣，并且每个面试官都可能有自己的一套面试题，如果 **jsliang** 能将所有的面试题都写出来，那还需要面试官做啥呢？大家都像考国家证书一样直接电脑考试吧~（我也期待！！！）
 
@@ -1464,10 +1475,15 @@ var name = 'World!';
 6. [《JavaScript模块化 --- Commonjs、AMD、CMD、es6 modules》](https://www.cnblogs.com/zhuzhenwei918/p/7426904.html)  
 7.  [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)  
 
+---
+
 > **jsliang** 广告推送：  
 > 也许小伙伴想了解下云服务器  
 > 或者小伙伴想买一台云服务器  
 > 或者小伙伴需要续费云服务器  
 > 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
+
+[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
