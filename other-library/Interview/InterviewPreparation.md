@@ -2,7 +2,9 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2018-2-11 15:30:34**  
-> Recently revised in **2019-2-26 09:30:34**
+> Recently revised in **2019-3-5 22:39:08**
+
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/InterviewPreparation.md)**
 
 Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜前端大佬技术胖（*jspang*）的原因，又因为自己学的是 JavaScript，所以给自己取了个 **jsliang**（*JavaScriptLiang*） 的网名，希望自己能在前端路上走得更远，并携手小伙伴一起前行。
 
