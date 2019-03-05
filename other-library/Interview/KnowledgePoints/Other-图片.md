@@ -26,12 +26,11 @@
 
 > [返回目录](#chapter-one)
 
-在 **jsliang** 2 月 27 日进行面试的时候，突然被一个问题问倒了：你熟悉图片吗？能讲讲 JPG、PNG、GIF、SVG 的适用场景吗？然后 PNG 为什么会有 PNG-8 和 PNG-24？
+在 **jsliang** 2 月 27 日进行面试的时候，突然被一个问题问倒了：你熟悉图片吗？能讲讲 JPG、PNG、GIF 的适用场景吗？然后 PNG 为什么会有 PNG-8 和 PNG-24？知道 SVG 吗？能讲讲它们与 JPG、PNG、GIF 的差别吗？……
+
+刚开始 **jsliang** 还能回答下，后来就感觉招架不住了！
 
 于是，**爱折腾** 的我回头就是一个查资料，写下了这篇文章。
-
-1826 年，暗箱拍摄出世界上第一章图片。
-1861 年，第一张彩色照片诞生。
 
 ## <a name="chapter-three" id="chapter-three">三 正文</a>
 
@@ -47,7 +46,13 @@
 
 一个二进制位表示两种颜色（0|1 ——对应—— 黑|白），如果一种图片格式对应的二进制位数有 n 个，那么它就可以呈现 2^n 中颜色。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 JPEG</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 BMP</a>
+
+> [返回目录](#chapter-one)
+
+
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 JPEG</a>
 
 > [返回目录](#chapter-one)
 
@@ -63,7 +68,7 @@ JPEG/JPG 支持最高级别的压缩，但是属于有损压缩，所以当压�
 
 在合适的场景下，即便我们将图片体积压缩至原有体积的 50% 以下，JPG 仍能保持住 60% 的品质，且因为 JPG 格式以 24 位图存储单个图，可以呈现多达 1600 万种颜色，足以满足大多数场景，例如：大的背景图、轮播图或者 Banner 图。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 PNG</a>
+### <a name="chapter-three-three" id="chapter-three-three">3.3 PNG</a>
 
 > [返回目录](#chapter-one)
 
@@ -85,7 +90,7 @@ PNG（可移植网络图形格式）是一种无损压缩的高保真的图片�
 1. 小的 Logo，颜色简单且对比强烈的图片或者背景。
 2. 颜色简单、对比度强的透明小图。
 
-### <a name="chapter-three-three" id="chapter-three-three">3.3 GIF</a>
+### <a name="chapter-three-four" id="chapter-three-four">3.4 GIF</a>
 
 > [返回目录](#chapter-one)
 
@@ -95,7 +100,7 @@ GIF 格式，不仅仅支持静止图片，也可以支持动画，并且支持�
 
 GIF 格式的压缩率一般在 50% 左右，
 
-### <a name="chapter-three-four" id="chapter-three-four">3.4 SVG</a>
+### <a name="chapter-three-five" id="chapter-three-five">3.5 SVG</a>
 
 > [返回目录](#chapter-one)
 
@@ -117,7 +122,7 @@ SVG 常见图片：（见 GitHub 地址）
 
 [阿里巴巴矢量图标](https://www.iconfont.cn/)
 
-### <a name="chapter-three-five" id="chapter-three-five">3.5 Base64</a>
+### <a name="chapter-three-six" id="chapter-three-six">3.6 Base64</a>
 
 > [返回目录](#chapter-one)
 
@@ -146,7 +151,7 @@ Base64 是一种用于传输 8 Bit 字节码的编码方式，通过对图片进
 1. Webpack 的 loader：url-loader
 2. 网上在线编码工具
 
-### <a name="chapter-three-six" id="chapter-three-six">3.6 WebP</a>
+### <a name="chapter-three-seven" id="chapter-three-seven">3.7 WebP</a>
 
 > [返回目录](#chapter-one)
 
