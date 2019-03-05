@@ -182,7 +182,7 @@ Base64 是一种用于传输 8 Bit 字节码的编码方式，通过对图片进
 3. 图片的更新频率非常低（不需要我们重复编码和修改文件内容，维护成本较低）
 
 > 为什么大图不使用 Base64？  
-> 因为 Base64 编码后，图片大小会膨胀为源文件的 4/3，如果将大图编码到 HTML 或者 CSS 中，这样后者的体积增加，几遍减少了 HTTP 请求，也无法弥补庞大的体积带来的性能开销。
+> 因为 Base64 编码后，图片大小会膨胀为源文件的 4/3，如果将大图编码到 HTML 或者 CSS 中，这样后者的体积增加，即便减少了 HTTP 请求，也无法弥补庞大的体积带来的性能开销。
 
 **如何获取**：
 
@@ -240,6 +240,28 @@ WebP 像 JPEG 一样对图片细节丰富，像 PNG 一样支持透明，像 GIF
 > [返回目录](#chapter-one)
 
 至此，我们对图片的介绍就结束了，下面列出本文及前端开发中推荐的关于图片的一些资源：
+
+* **常用优秀资源**：
+
+1. SVG loading 效果：[SVG-Loaders](https://github.com/SamHerbert/SVG-Loaders)
+2. 矢量图标库：[Iconfont-阿里巴巴矢量图标库](https://www.iconfont.cn/)
+3. 在线制作 Logo：[U 钙网](http://www.uugai.com/logoa/yulan.php)
+4. 压缩 PNG 或者 JPG：[TinyPNG](https://tinypng.com/)
+
+* **获取图片素材**：
+
+1. 千库网：[地址](http://588ku.com/)
+2. 包图网：[地址](https://ibaotu.com/)
+
+* **在线转换工具**：
+
+1. [JPG、PNG 转 SVG](http://www.bejson.com/convert/image_to_svg/)
+2. [JPG、PNG、GIF 转 Base64](http://imgbase64.duoshitong.com/)
+3. [JPG、PNG、GIF 转 ICO](http://www.bitbug.net/)
+
+* **其他资料支持**：
+
+5. Can I Use —— 查看各种浏览器支持程度：[caniuse.com](https://caniuse.com)
 
 ## <a name="chapter-five" id="chapter-five">五 参考文献</a>
 
