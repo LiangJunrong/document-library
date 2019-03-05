@@ -20,7 +20,17 @@
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-three) |
+| &emsp;[3.1 BMP](#chapter-three-one) |
+| &emsp;[3.2 JPEG](#chapter-three-two) |
+| &emsp;[3.3 PNG](#chapter-three-three) |
+| &emsp;[3.4 GIF](#chapter-three-four) |
+| &emsp;[3.5 SVG](#chapter-three-five) |
+| &emsp;[3.6 Base64](#chapter-three-six) |
+| &emsp;[3.7 WebP](#chapter-three-seven) |
+| &emsp;[3.8 雪碧图](#chapter-three-eight) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 总结](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 参考文献](#chapter-five) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -73,15 +83,20 @@ OK，知道了这些基础知识，我们就按图片出现的顺序，一一讲
 
 **关键字**：有损压缩、体积小、加载快、不支持透明
 
-JPEG/JPG 格式，是应用最广泛的图片格式之一，采用特殊的有损压缩算法，将不易被人眼察觉的图像颜色删除，从而达到较大的压缩比。
+**简要介绍**：
 
-因为 JPEG/JPG 格式的文件尺寸较小，下载速度快，所以是互联网最广泛使用的格式。
+JPEG/JPG 格式，是应用最广泛的图片格式之一，特点如下：
 
-JPEG/JPG 适合做相片等，而不适合做 Logo 和线图，因为看起来模糊且比 GIF 占用的文件大。
+1. JPEG/JPG 采用特殊的有损压缩算法，将不易被人眼察觉的图像颜色删除，从而达到较大的压缩比，因此它的压缩文件尺寸较小，下载速度快，成为互联网最广泛使用的格式。
+2. JPEG/JPG 因为属于有损压缩，所以当压缩级别逐渐增大的时候，图片质量会逐渐损耗，所以压缩要适当。
 
-JPEG/JPG 支持最高级别的压缩，但是属于有损压缩，所以当压缩级别逐渐增大的时候，图片质量会逐渐损耗。
+> 在合适的场景下，即便我们将图片体积压缩至原有体积的 50% 以下，JPG 仍能保持住 60% 的品质，且因为 JPG 格式以 24 位图存储单个图，可以呈现多达 1600 万种颜色，足以满足大多数场景，
 
-在合适的场景下，即便我们将图片体积压缩至原有体积的 50% 以下，JPG 仍能保持住 60% 的品质，且因为 JPG 格式以 24 位图存储单个图，可以呈现多达 1600 万种颜色，足以满足大多数场景，例如：大的背景图、轮播图或者 Banner 图。
+**适用场景**：
+
+1. 大的背景图
+2. 轮播图
+3. Banner 图
 
 ### <a name="chapter-three-three" id="chapter-three-three">3.3 PNG</a>
 
@@ -89,31 +104,44 @@ JPEG/JPG 支持最高级别的压缩，但是属于有损压缩，所以当压�
 
 **关键字**：无损压缩、质量高、体积大、支持透明
 
-PNG 格式，压缩比高于 GIF，支持图像透明，可以利用 Alpha 通道调节图像的透明度。
+**简要介绍**：
 
-PNG 分 PNG-8 和 PNG-24。PNG-8 是无损压缩的索引色彩模式；而 PNG-24 则是无损压缩的直接色彩模式。PNG-8 是 GIF 格式很好的替代，虽然不能像 GIF 一样有动画，也不兼容 IE6 等老旧浏览器。PNG-24 比 JPEG、GIF、PNG-8 占用更大的存储空间。
+PNG（可移植网络图形格式）是一种无损压缩的高保真的图片格式，它的压缩比高于 GIF，支持图像透明，可以利用 Alpha 通道调节图像透的明度。
 
-PNG（可移植网络图形格式）是一种无损压缩的高保真的图片格式。PNG-8 和 PNG-24，其中的 8 和 24 都是二进制位数，按照前置中讲到的对应关系，PNG-8 组多支持 256 中颜色，而 24 位则可以呈现 1600 万种颜色。
+PNG 分 PNG-8 和 PNG-24。
+
+* **PNG-8**：PNG-8 是无损压缩的索引色彩模式。PNG-8 是 GIF 格式很好的替代，虽然不能像 GIF 一样有动画，也不兼容 IE6 等老旧浏览器。PNG-8 最多支持 256 中颜色。
+* **PNG-24**：PNG-24 是无损压缩的直接色彩模式。PNG-24 会比 JPEG、GIF、PNG-8 占用更大的存储空间。PNG-24 可以呈现 1600 万种颜色。
+
+> 2^8 = 256，2^24 = 1677216
+
+**适用场景**：
+
+* 普遍场景
+
+1. 小的 Logo，颜色简单且对比强烈的图片或者背景。
+2. 颜色简单、对比度强的透明小图。
 
 * 什么时候使用 PNG-8，什么时候使用 PNG-24 呢？
 
 1. 理论上，位数最大的就是最好的，直接上 PNG-24；但是实际上，为了避免体积过大的问题，一般在适合使用 PNG 的场景中，优先选择比较小巧的 PNG-8。
 2. 如何确定是使用 PNG-8 还是 PNG-24，这就看你的 UI 设计师或者负责人能接受那个了，除非你设计功底好，要不然不要做这个选择！
 
-* 应用场景？
-
-1. 小的 Logo，颜色简单且对比强烈的图片或者背景。
-2. 颜色简单、对比度强的透明小图。
-
 ### <a name="chapter-three-four" id="chapter-three-four">3.4 GIF</a>
 
 > [返回目录](#chapter-one)
 
-诞生于 1987 年 CompuServe 公司。
+**关键字**：支持动画
+
+**简要介绍**：
 
 GIF 格式，不仅仅支持静止图片，也可以支持动画，并且支持透明背景图像，适用于多种操作系统，体积很小，网上小动画很多是 GIF 格式。但是色域不太广，只支持 256 种颜色，这意味着颜色种类少。
 
-GIF 格式的压缩率一般在 50% 左右，
+> GIF 格式的压缩率一般在 50% 左右。
+
+**适用场景**：
+
+1. 动图
 
 ### <a name="chapter-three-five" id="chapter-three-five">3.5 SVG</a>
 
@@ -121,21 +149,19 @@ GIF 格式的压缩率一般在 50% 左右，
 
 **关键字**：文本文件、体积小、不失真、兼容性好
 
-SVG 格式，可缩放的矢量图形。与 JPG、PNG、GIF 等位图不同，SVG 可以直接用代码来描绘图像，并通过任意文字处理工具打开 SVG 图像，通过改变部分代码来使图像具有交互功能，并可以随时插入到 HTML 中通过浏览器来观看。
+**简要介绍**：
+
+SVG（可缩放矢量图形）是一种基于 XML 语法的图像格式，是可缩放的矢量图形。与 JPG、PNG、GIF 等位图不同，SVG 可以直接用代码来描绘图像，并通过任意文字处理工具打开 SVG 图像，通过改变部分代码来使图像具有交互功能，并可以随时插入到 HTML 中通过浏览器来观看。
 
 SVG 格式的图片可以任意放大图形显示，并且不会损失图片质量；SVG 格式可编辑和可搜寻；SVG 格式平均来讲，比 JPG 和 GIF 格式文件要小，并且下载也比较快。
 
 SVG 文件通常是极小的，但是当图形的复杂度变高的时候，SVG 文件大小会随之上升，因为 SVG 在渲染的时候需要比像素图更多的计算能力，这也意味着性能的损耗。所以在 Logo 等图上，应尽可能简洁。
 
-SVG（可缩放矢量图形）是一种基于 XML 语法的图像格式。
+**适用场景**：
 
-SVG 比起 PNG 和 JPG 来说，文件体积更小，可压缩性更强。
-
-SVG 常见图片：（见 GitHub 地址）
-
-[在线 JPG、PNG 转 SVG 工具](http://www.bejson.com/convert/image_to_svg/)
-
-[阿里巴巴矢量图标](https://www.iconfont.cn/)
+1. SVG loading 效果图：[SVG-Loaders](https://github.com/SamHerbert/SVG-Loaders)
+2. 转换工具：[在线 JPG、PNG 转 SVG 工具](http://www.bejson.com/convert/image_to_svg/)
+3. 矢量图标库：[阿里巴巴矢量图标](https://www.iconfont.cn/)
 
 ### <a name="chapter-three-six" id="chapter-three-six">3.6 Base64</a>
 
@@ -143,28 +169,25 @@ SVG 常见图片：（见 GitHub 地址）
 
 **关键字**：文本文件、依赖编码、小图标解决方案
 
+**简要介绍**：
+
 Base64 并非一种图片格式，而是一种编码方式，它类似于雪碧图，是作为小图标解决方案而存在的。和雪碧图一样，Base64 图片的出现，也是为了减少加载网页图片时对服务器的请求次数，从而提升网页性能。Base64 是作为雪碧图的补充而存在的。
 
 Base64 是一种用于传输 8 Bit 字节码的编码方式，通过对图片进行 Base64 编码，我们可以直接将编码结果写入 HTML 或者写入 CSS，从而减少 HTTP 请求的次数。
 
-```Base64 代码
+**适用场景**：
 
-```
-
-* 为什么大图不使用 Base64？
-
-因为 Base64 编码后，图片大小会膨胀为源文件的 4/3，如果将大图编码到 HTML 或者 CSS 中，这样后者的体积增加，几遍减少了 HTTP 请求，也无法弥补庞大的体积带来的性能开销。
-
-* 什么时候使用 Base64？
-
-1. 图片的实际尺寸很小。尽可能在图片不超过 2KB 的情况下（掘金）。
+1. 图片的实际尺寸很小。尽可能在图片不超过 2KB 的情况下（可查看掘金的 Base64 图）。
 2. 图片无法以雪碧图的形式与其他小图结合（合成雪碧图仍是主要的减少 HTTP 请求的途径，Base64 是雪碧图的补充）。
 3. 图片的更新频率非常低（不需要我们重复编码和修改文件内容，维护成本较低）
 
-* 如何获取 Base64？
+> 为什么大图不使用 Base64？  
+> 因为 Base64 编码后，图片大小会膨胀为源文件的 4/3，如果将大图编码到 HTML 或者 CSS 中，这样后者的体积增加，几遍减少了 HTTP 请求，也无法弥补庞大的体积带来的性能开销。
 
-1. Webpack 的 loader：url-loader
-2. 网上在线编码工具
+**如何获取**：
+
+1. Webpack 的 loader：[url-loader](https://www.npmjs.com/package/url-loader)
+2. 在线编码工具：[图片转换Base64](http://imgbase64.duoshitong.com/)
 
 ### <a name="chapter-three-seven" id="chapter-three-seven">3.7 WebP</a>
 
@@ -172,15 +195,21 @@ Base64 是一种用于传输 8 Bit 字节码的编码方式，通过对图片进
 
 **关键字**：年轻的全能型选手
 
-2010 年有 Google 提出，转为 Web 开发的一种旨在加快图片加载速度的图片格式，支持有损压缩和无损压缩。
+**简要介绍**：
+
+2010 年由 Google 提出，转为 Web 开发的一种旨在加快图片加载速度的图片格式，支持有损压缩和无损压缩。
 
 WebP 像 JPEG 一样对图片细节丰富，像 PNG 一样支持透明，像 GIF 一样可以显示动态图片。
 
 > 官方介绍：与 PNG 相比，WebP 无损图像的尺寸缩小了 26％。在等效的 SSIM 质量指数下，WebP 有损图像比同类 JPEG 图像小 25-34％。 无损 WebP 支持透明度（也称为 alpha 通道），仅需 22％ 的额外字节。对于有损 RGB 压缩可接受的情况，有损 WebP 也支持透明度，与 PNG 相比，通常提供 3 倍的文件大小。
 
-劣势：支持情况仅 Chrome、UC 等几家浏览器支持，所以局限性较大，目前暂不考虑使用。
+**适用场景**：
 
-## <a name="chapter-four" id="chapter-four">四 雪碧图</a>
+由于 WebP 支持情况仅 Chrome、UC 等几家浏览器支持，所以局限性较大，目前暂不考虑使用。
+
+> 参考自 Can I Use 网站中的浏览器支持程度：[webp](https://caniuse.com/#search=webp)
+
+### <a name="chapter-three-eight" id="chapter-three-eight">3.8 雪碧图</a>
 
 > [返回目录](#chapter-one)
 
@@ -206,7 +235,13 @@ WebP 像 JPEG 一样对图片细节丰富，像 PNG 一样支持透明，像 GIF
 
 > MDN 定义：图像精灵（sprite，意为精灵），被运用于众多使用大量小图标的网页应用之上。它可取图像的一部分来使用，使得使用一个图像文件替代多个小文件成为可能。相较于一个小图标一个图像文件，单独一张图片所需的 HTTP 请求更少，对内存和带宽更加友好。
 
-## <a name="chapter-night" id="chapter-night">九 参考文献</a>
+## <a name="chapter-four" id="chapter-four">四 总结</a>
+
+> [返回目录](#chapter-one)
+
+至此，我们对图片的介绍就结束了，下面列出本文及前端开发中推荐的关于图片的一些资源：
+
+## <a name="chapter-five" id="chapter-five">五 参考文献</a>
 
 > [返回目录](#chapter-one)
 
@@ -214,11 +249,9 @@ WebP 像 JPEG 一样对图片细节丰富，像 PNG 一样支持透明，像 GIF
 2. [《PNG、JPEG、GIF、SVG应该用哪个？》](https://www.jianshu.com/p/c66f52d875d9)
 3. [《图片优化——质量与性能的博弈》](https://note.youdao.com/ynoteshare1/index.html?id=e10c4db3f3570478ad6534903b8ec79b&type=note#/)
 4. [《横向对比 gif、jpeg、png、svg，教你如何合理选择图像格式》](https://www.qifeiye.com/%E6%A8%AA%E5%90%91%E5%AF%B9%E6%AF%94gifjpegpngsvg%EF%BC%8C%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E5%90%88%E7%90%86%E9%80%89%E6%8B%A9%E5%9B%BE%E5%83%8F%E6%A0%BC%E5%BC%8F/)
-5. [《》]()
-6. [《》]()
-7. [《》]()
-8. [《》]()
-9. [《》]()
+5. [《JPG？GIF？PNG？前端如何选择图片格式？》](https://www.jianshu.com/p/ab96bf20f90e)
+6. [《矢量图与位图的区别》](https://zhidao.baidu.com/question/109059224.html)
+7. [《无损压缩和有损压缩是数码图像文件压缩的两种类型。》](https://baike.baidu.com/item/%E6%97%A0%E6%8D%9F%E3%80%81%E6%9C%89%E6%8D%9F%E5%8E%8B%E7%BC%A9/9695933?fr=aladdin)
 
 > **jsliang** 广告推送：  
 > 也许小伙伴想了解下云服务器  
