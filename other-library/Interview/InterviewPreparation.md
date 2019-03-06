@@ -67,12 +67,12 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[√] [4.11 水平垂直居中](#chapter-four-eleven) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 JavaScript](#chapter-five) |
 | &emsp;[√] [5.1 JS 学习推荐](#chapter-five-one) |
-| &emsp;[5.2 JS 引用方式](#chapter-five-two) |
+| &emsp;[√] [5.2 JS 引用方式](#chapter-five-two) |
 | &emsp;[√] [5.3 原型与原型链](#chapter-five-three) |
 | &emsp;[√] [5.4 作用域与闭包](#chapter-five-four) |
 | &emsp;[√] [5.5 浅拷贝与深拷贝](#chapter-five-five) |
 | &emsp;[√] [5.6 模块化与组件化](#chapter-five-six) |
-| &emsp;[5.7 面向对象与面向过程](#chapter-five-seven) |
+| &emsp;[√] [5.7 面向对象与面向过程](#chapter-five-seven) |
 | &emsp;[5.8 JS 继承](#chapter-five-eight) |
 | &emsp;[5.9 防抖与节流](#chapter-five-night) |
 | &emsp;[5.10 ES6](#chapter-five-ten) |
@@ -792,7 +792,39 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 > [返回目录](#catalog-chapter-five)
 
-暂无内容，有待补充
+* **行内引入**：
+
+```html
+<body>
+  <input type="button" onclick="alert('行内引入')" value="按钮"/>
+  <button onclick="alert(123)">点击我</button>
+</body>
+```
+
+* **内部引入**：
+
+```html
+<script>
+  window.onload = function() {
+    alert("js 内部引入！");
+  }
+</script>
+```
+
+* **外部引入**：
+
+```html
+<body>
+  <div></div>
+
+  <script type="text/javascript" src="./js/index.js"></script>
+</body>
+```
+
+**注意**：
+
+1. 不推荐写行内或者在 HTML 中插入 `<script>`，因为浏览器解析顺序缘故，如果解析到死循环之类的 JS 代码，会卡住页面。
+2. 建议在 onload 事件之后，即等 HTML、CSS 渲染完毕再执行代码。
 
 ### <a name="chapter-five-three" id="chapter-five-three">5.3 原型与原型链</a>
 
