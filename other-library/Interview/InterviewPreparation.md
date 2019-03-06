@@ -60,7 +60,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[√] [4.4 CSS 单位](#chapter-four-four) |
 | &emsp;[√] [4.5 CSS 选择器](#chapter-four-five) |
 | &emsp;[√] [4.6 CSS 常见布局](#chapter-four-six) |
-| &emsp;[4.7 CSS3 新特性](#chapter-four-seven) |
+| &emsp;[√] [4.7 CSS3 新特性](#chapter-four-seven) |
 | &emsp;[4.8 BFC](#chapter-four-eight) |
 | &emsp;[4.9 box-sizing](#chapter-four-night) |
 | &emsp;[√] [4.10 行内元素和块级元素](#chapter-four-ten) |
@@ -506,17 +506,59 @@ Render Tree 中的元素与 DOM 元素相对应，但非一一对应：一个 DO
 
 > [返回目录](#catalog-chapter-four)
 
-* **经典**：CSS3 相关属性你了解吗，说说都有哪些？能说说你工作中常用的一些 CSS3 属性吗？
+**经典**：CSS3 相关属性你了解吗，说说都有哪些？能说说你工作中常用的一些 CSS3 属性吗？
 
 那么，CSS3 新特性都有哪些呢？
 
 * transition：过渡
-* animation：动画
 * transform：旋转、缩放、移动或者倾斜
+* animation：动画
 * gradient：渐变
 * shadow：阴影
+* border-radius：圆角
 
+为了方便记忆，咱将它们扔到同一个 HTML 文件上，小伙伴拷贝到本地上打开，可以看到一个拥有渐变的小球，做着横向运动，如果你鼠标移动到它上面，它的宽度会放大，并且进行倾斜。
 
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>CSS3 新特性</title>
+<style> 
+  div {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background: linear-gradient(red, orange);
+    box-shadow: 10px 10px 5px #888888;
+    position: relative;
+    transition: width 2s;
+    animation: mymove 5s infinite;
+  }
+  div:hover {
+    width:300px;
+    transform: rotate(7deg);
+  }
+  @keyframes mymove {
+    from { left: 0px; }
+    to { left: 200px; }
+  }
+</style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>
+```
+
+> 参考 1：[《CSS3 圆角》](http://www.runoob.com/css3/css3-border-radius.html)  
+> 参考 2：[《CSS3 渐变（Gradients）》](http://www.runoob.com/css3/css3-gradients.html)  
+> 参考 3：[《CSS3 transition 属性》](http://www.runoob.com/cssref/css3-pr-transition.html)  
+> 参考 4：[《CSS3 transform 属性》](http://www.runoob.com/cssref/css3-pr-transform.html)  
+> 参考 5：[《CSS3 animation（动画） 属性》](http://www.runoob.com/cssref/css3-pr-animation.html)  
+> 参考 6：[《CSS3 box-shadow 属性》](http://www.w3school.com.cn/cssref/pr_box-shadow.asp)  
+> 参考 7：[《个人总结（css3新特性）》](https://segmentfault.com/a/1190000010780991)  
 
 ### <a name="chapter-four-eight" id="chapter-four-eight">4.8 BFC</a>
 
@@ -1551,6 +1593,13 @@ var name = 'World!';
 2. [《CSS实现垂直居中的常用方法》](https://www.cnblogs.com/yugege/p/5246652.html)
 3. [《CSS 用 position: absolute 与 transform 来居中块级元素的问题》](https://segmentfault.com/q/1010000005151903)
 4. [《css常见布局》](https://blog.csdn.net/liwei26/article/details/78976444)
+5. [《CSS3 圆角》](http://www.runoob.com/css3/css3-border-radius.html)  
+6. [《CSS3 渐变（Gradients）》](http://www.runoob.com/css3/css3-gradients.html)
+7. [《CSS3 transition 属性》](http://www.runoob.com/cssref/css3-pr-transition.html)
+8. [《CSS3 transform 属性》](http://www.runoob.com/cssref/css3-pr-transform.html) 
+9. [《CSS3 animation（动画） 属性》](http://www.runoob.com/cssref/css3-pr-animation.html)
+10. [《CSS3 box-shadow 属性》](http://www.w3school.com.cn/cssref/pr_box-shadow.asp) 
+11. [《个人总结（css3新特性）》](https://segmentfault.com/a/1190000010780991)  
 
 ### <a name="chapter-fourteen-four" id="chapter-fourteen-four">14.4 关于 JS</a>
 
