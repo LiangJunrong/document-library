@@ -2,7 +2,7 @@ Vue 部署优化
 ===
 
 > Create by **jsliang** on **2018-12-7 14:53:566**  
-> Recently revised in **2018-12-7 15:37:11**
+> Recently revised in **2019-3-6 10:57:46**
 
 <br>
 
@@ -152,7 +152,28 @@ productionSourceMap: false,
 
 <br>
 
-# 四 优化图片
+# 四 开启 uglifyjs-webpack-plugin 的 cache
+
+> build/webpack.prod.conf.js
+
+```js
+new UglifyJsPlugin({
+  cache: true,
+  uglifyOptions: {
+    compress: {
+      warnings: false
+    }
+  },
+  sourceMap: config.build.productionSourceMap,
+  parallel: true
+}),
+```
+
+开启后打包第二次的时间是第一次的一半。
+
+<br>
+
+# 五 优化图片
 
 &emsp;平时我们切图、下载图的 png、jpg 图片，都异常的大，所以我们需要对图片进行压缩：
 
@@ -162,7 +183,7 @@ productionSourceMap: false,
 
 <br>
 
-# 五 参考文献：
+# 六 参考文献：
 
 1. [vuejs项目性能优化总结 | 简书 - Evtion](https://www.jianshu.com/p/41075f1f5297)
 
