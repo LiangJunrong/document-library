@@ -66,7 +66,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[√] [4.10 行内样式、内嵌式、链接式以及导入式](#chapter-four-ten) |
 | &emsp;[√] [4.11 水平垂直居中](#chapter-four-eleven) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 JavaScript](#chapter-five) |
-| &emsp;[5.1 JS 学习推荐](#chapter-five-one) |
+| &emsp;[√] [5.1 JS 学习推荐](#chapter-five-one) |
 | &emsp;[5.2 JS 引用方式](#chapter-five-two) |
 | &emsp;[√] [5.3 原型与原型链](#chapter-five-three) |
 | &emsp;[√] [5.4 作用域与闭包](#chapter-five-four) |
