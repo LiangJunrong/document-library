@@ -61,11 +61,10 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[√] [4.5 CSS 选择器](#chapter-four-five) |
 | &emsp;[√] [4.6 CSS 常见布局](#chapter-four-six) |
 | &emsp;[√] [4.7 CSS3 新特性](#chapter-four-seven) |
-| &emsp;[4.8 BFC](#chapter-four-eight) |
-| &emsp;[4.9 box-sizing](#chapter-four-night) |
-| &emsp;[√] [4.10 行内元素和块级元素](#chapter-four-ten) |
-| &emsp;[4.11 行内样式、内嵌式、链接式以及导入式](#chapter-four-eleven) |
-| &emsp;[4.12 水平垂直居中](#chapter-four-twelve) |
+| &emsp;[√] [4.8 BFC](#chapter-four-eight) |
+| &emsp;[√] [4.9 行内元素和块级元素](#chapter-four-night) |
+| &emsp;[√] [4.10 行内样式、内嵌式、链接式以及导入式](#chapter-four-ten) |
+| &emsp;[√] [4.11 水平垂直居中](#chapter-four-eleven) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 JavaScript](#chapter-five) |
 | &emsp;[5.1 JS 学习推荐](#chapter-five-one) |
 | &emsp;[5.2 JS 引用方式](#chapter-five-two) |
@@ -562,6 +561,8 @@ Render Tree 中的元素与 DOM 元素相对应，但非一一对应：一个 DO
 
 ### <a name="chapter-four-eight" id="chapter-four-eight">4.8 BFC</a>
 
+> [返回目录](#catalog-chapter-four)
+
 * 什么是 BFC？
 
 BFC 就是 块级格式上下文，它是一个独立的渲染区域，让处于 BFC 内部的元素和外部的元素相互隔离，使内外元素的定位不会相互影响。
@@ -587,13 +588,7 @@ BFC 就是 块级格式上下文，它是一个独立的渲染区域，让处于
 
 > [返回目录](#catalog-chapter-four)
 
-### <a name="chapter-four-night" id="chapter-four-night">4.9 box-sizing</a>
-
-> [返回目录](#catalog-chapter-four)
-
-暂无内容，有待补充
-
-### <a name="chapter-four-ten" id="chapter-four-ten">4.10 行内元素和块级元素</a>
+### <a name="chapter-four-night" id="chapter-four-night">4.9 行内元素和块级元素</a>
 
 > [返回目录](#catalog-chapter-four)
 
@@ -603,15 +598,63 @@ BFC 就是 块级格式上下文，它是一个独立的渲染区域，让处于
 
 在日常开发中，我们经常使用 CSS 的 `display` 属性来打破两者的壁垒：`display: inline-block`，使它们拥有更多的状态。
 
-### <a name="chapter-four-eleven" id="chapter-four-eleven">4.11 行内样式、内嵌式、链接式以及导入式</a>
+### <a name="chapter-four-ten" id="chapter-four-ten">4.10 行内样式、内嵌式、链接式以及导入式</a>
 
 > [返回目录](#catalog-chapter-four)
 
-暂无内容，有待补充
+在引用 CSS 上，分为四种形式：**行内样式**、**内嵌式**、**链接式**以及**导入式**，下面介绍这四种模式。
 
-### <a name="chapter-four-twelve" id="chapter-four-twelve">4.12 水平垂直居中</a>
+* **行内样式**
+
+直接对 HTML 的标记使用 style 属性，然后将 CSS 代码直接写进去：
+
+```html
+<p style="color: #fff; backgournd: deepskyblue;"></p>
+```
+
+* **内嵌式**
+
+将 CSS 写 `<head>` 与 `</head>` 之间，并且用 `<style>` 和 `</style>` 标记进行声明：
+
+```html
+<head>
+  <style>
+    p {
+      color: #fff;
+      background: deepskyblue;
+    }
+  </style>
+</head>
+```
+
+* **链接式**
+
+通过将 `<style>` 上的 CSS 提起到指定的 CSS 文件上，然后通过 `<link>` 的方式在 HTML 上链接起来。
+
+```html
+<head>
+  <link href="reset.css" type="text/css" rel="stylesheet">
+</head>
+```
+
+* **导入样式**
+
+```html
+<head>
+  <style>
+    @import url(reset.css);
+  </style>
+</head>
+```
+
+* **各种方式的优先级**
+
+在优先级上，**行内样式** > **链接式** > **内嵌式** > **@import 导入式**。
+
+### <a name="chapter-four-eleven" id="chapter-four-eleven">4.11 水平垂直居中</a>
 
 > [返回目录](#catalog-chapter-four)
+
 
 * 什么是 Flex 布局？
 
