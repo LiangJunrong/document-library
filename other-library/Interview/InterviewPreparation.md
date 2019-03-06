@@ -328,6 +328,9 @@ localStorage.setItem('name', 'jsliang'); // 设置 name 的值为 jsliang
 localStorage.removeItem('name'); // 删除 name 的值
 ```
 
+> 参考 1：[《前端分享之cookie的使用及单点登录》](https://segmentfault.com/a/1190000011295587)  
+> 参考 2：[《Cookie、session和localStorage、以及sessionStorage之间的区别》](https://www.cnblogs.com/zr123/p/8086525.html)
+
 ## <a name="chapter-four" id="chapter-four">四 CSS</a>
 
 > [返回目录](#catalog-chapter-four)
@@ -1515,8 +1518,9 @@ var name = 'World!';
 4. [《个人关于模块化的理解》](https://www.cnblogs.com/doublenet/p/4918306.html)  
 5. [《组件化开发和模块化开发概念辨析》](https://blog.csdn.net/blog_jihq/article/details/79191008)  
 6. [《JavaScript模块化 --- Commonjs、AMD、CMD、es6 modules》](https://www.cnblogs.com/zhuzhenwei918/p/7426904.html)  
-7.  [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)  
-
+7.  [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)
+8.  [《前端分享之cookie的使用及单点登录》](https://segmentfault.com/a/1190000011295587) 
+9.  [《Cookie、session和localStorage、以及sessionStorage之间的区别》](https://www.cnblogs.com/zr123/p/8086525.html)
 ---
 
 > **jsliang** 广告推送：  
