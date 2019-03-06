@@ -48,11 +48,11 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[√] [2.2 进击目标](#chapter-two-two) |
 | &emsp;[√] [2.3 开篇点题](#chapter-two-three) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 HTML](#chapter-three) |
-| &emsp;[3.1 HTML 学习推荐](#chapter-three-one) |
+| &emsp;[√] [3.1 HTML 学习推荐](#chapter-three-one) |
 | &emsp;[√] [3.2 HTML 语义化](#chapter-three-two) |
 | &emsp;[√] [3.3 HTML5 新标签](#chapter-three-three) |
-| &emsp;[3.4 常见浏览器及其内核](#chapter-three-four) |
-| &emsp;[3.5 cookies、sessionStorage、localStorage](#chapter-three-five) |
+| &emsp;[√] [3.4 常见浏览器及其内核](#chapter-three-four) |
+| &emsp;[√] [3.5 cookies、session、sessionStorage、localStorage](#chapter-three-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 CSS](#chapter-four) |
 | &emsp;[4.1 CSS 学习推荐](#chapter-four-one) |
 | &emsp;[√] [4.2 CSS reset](#chapter-four-two) |
@@ -271,13 +271,62 @@ HTML5 中新增标签大致有：`<header>`、`<footer>`、`<aside>`、`<nav>`�
 
 > [返回目录](#catalog-chapter-three)
 
-暂无内容，有待补充
+| | Chrome | Firefox | Safari | IE | Opera |
+| --- | --- | --- | --- | --- | --- |
+| 排版引擎 | Blink | Gecko | Webkit | Trident | Blink |
+| JS 引擎 | V8 | SpiderMonkey | Nitro | Chakra | V8 |
 
-### <a name="chapter-three-five" id="chapter-three-five">3.5 cookies、sessionStorage、localStorage</a>
+> 国内一些浏览器使用较多的是 Webkit 内核。
+
+* 针对不同浏览器内核，HTML 辨别：
+
+1. IE 内核浏览器识别：`<!--[if IE]><![endif]-->`
+2. 非 IE 内核浏览器识别：`<!--[if !IE]><![endif]-->`
+
+* 针对不同浏览器内核，CSS 辨别：
+
+```css
+/* 设置文字不可选取 */
+* {
+  -moz-user-select: none; /* 火狐 浏览器 */
+  -webkit-user-select: none; /* Webkit 浏览器 */
+  -o-user-select: none; /* Opera 浏览器 */
+  -ms-user-select: none; /* IE10 浏览器 */
+  -khtml-user-select: none; /* 早期浏览器 */
+  user-select: none; /* 默认 */
+}
+```
+
+### <a name="chapter-three-five" id="chapter-three-five">3.5 cookies、session、sessionStorage、localStorage</a>
 
 > [返回目录](#catalog-chapter-three)
 
-暂无内容，有待补充
+* **cookies**：存储于浏览器端的数据。可以设置 cookies 的到期时间，如果不设置时间，则在浏览器关闭窗口的时候会消失。
+
+* **session**：存储于服务器端的数据。session 存储特定用户会话所需的属性和配置信息。
+
+* **cookies** 和 **session** 的区别在于：
+
+1. cookies 数据存放在客户的浏览器上，session 数据存放在服务器上。
+2. 前端都是裸君子，没有安全可言，cookies 可能会被黑客利用作数据欺骗。所以重要信息记得存 session。
+3. session 如果在生效期内量过大，会占用服务器性能。
+4. 单个 cookies 保存的数据不能超过 4 K，很多浏览器限制一个站点保存最多 20 个 cookies。
+
+---
+
+* **sessionStorage**：生命周期存在于标签页或窗口，用于本地存储一个会话（session）中的数据，这些数据会随着窗口或者标签页的关闭而被清空。
+
+* **localStorage**：生命周期是永久的，除非用户主动清除浏览器上存储的 localStorage 信息，否则它将会永久存在。
+
+* **sessionStorage** 和 **localStorage** 操作方法：`setItem`、`getItem` 以及 `removeItem`。
+
+> 以 localStorage 为例：
+
+```js
+localStorage.getItem('name'); // 获取 name 的值
+localStorage.setItem('name', 'jsliang'); // 设置 name 的值为 jsliang
+localStorage.removeItem('name'); // 删除 name 的值
+```
 
 ## <a name="chapter-four" id="chapter-four">四 CSS</a>
 
