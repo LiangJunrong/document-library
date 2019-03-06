@@ -54,12 +54,12 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[√] [3.4 常见浏览器及其内核](#chapter-three-four) |
 | &emsp;[√] [3.5 cookies、session、sessionStorage、localStorage](#chapter-three-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 CSS](#chapter-four) |
-| &emsp;[4.1 CSS 学习推荐](#chapter-four-one) |
+| &emsp;[√] [4.1 CSS 学习推荐](#chapter-four-one) |
 | &emsp;[√] [4.2 CSS reset](#chapter-four-two) |
 | &emsp;[√] [4.3 CSS 盒模型](#chapter-four-three) |
-| &emsp;[4.4 CSS 单位](#chapter-four-four) |
+| &emsp;[√] [4.4 CSS 单位](#chapter-four-four) |
 | &emsp;[√] [4.5 CSS 选择器](#chapter-four-five) |
-| &emsp;[4.6 CSS 常见布局](#chapter-four-six) |
+| &emsp;[√] [4.6 CSS 常见布局](#chapter-four-six) |
 | &emsp;[4.7 CSS3 新特性](#chapter-four-seven) |
 | &emsp;[4.8 BFC](#chapter-four-eight) |
 | &emsp;[4.9 box-sizing](#chapter-four-night) |
@@ -346,9 +346,9 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 > [返回目录](#catalog-chapter-four)
 
 * [《前端工程师手册》](https://leohxj.gitbooks.io/front-end-database/content/html-and-css-basic/index.html?tdsourcetag=s_pctim_aiomsg)
-* 《CSS 权威指南》
-* 《CSS 揭秘》
-* 《CSS 世界》
+* [《CSS 权威指南》](https://baike.baidu.com/item/CSS%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/6229475?fr=aladdin)
+* [《CSS 揭秘》](https://baike.baidu.com/item/CSS%E6%8F%AD%E7%A7%98)
+* [《CSS 世界》](https://baike.baidu.com/item/CSS%E4%B8%96%E7%95%8C)
 
 ### <a name="chapter-four-two" id="chapter-four-two">4.2 CSS reset</a>
 
@@ -413,7 +413,17 @@ div {
 
 > [返回目录](#catalog-chapter-four)
 
-暂无内容，有待补充
+在 CSS 中，除了我们常用的 `px`，还有其他单位小伙伴们可以了解一下：
+
+| 单位 | 描述 |
+| --- | --- |
+| % | 百分比 |
+| px | 像素。计算机屏幕上的一个点为 `1px`。 |
+| em | 相对单位。相对于父元素计算，假如某个 p 元素为 `font-size: 12px`，在它内部有个 span 标签，设置 `font-size: 2em`，那么，这时候的 span 字体大小为：`12 * 2 = 24px` |
+| rem | 相对单位。相对于根元素 html 的 `font-size`，假如 html 为 `font-size: 12px`，那么，在其当中的 div 设置为 `font-size: 2rem`，就是当中的 div 为 `24px`。 |
+| rpx | 微信小程序相对单位。1rpx = 屏幕宽度 / 750 px。在 750px 的设计稿上，1rpx = 1px。 |
+
+> 除此之外还有 pt、ex 等单位，但由于不太好换算，故在此不提。
 
 ### <a name="chapter-four-five" id="chapter-four-five">4.5 CSS 选择器</a>
 
@@ -423,15 +433,15 @@ div {
 
 * 关于 CSS 解析器：
 
-HTML 经过解析生成 DOM Tree（这个我们比较熟悉）；而在 CSS 解析完毕后，需要将解析的结果与 DOM Tree 的内容一起进行分析建立一棵 Render Tree，最终用来进行绘图。
+HTML 经过解析生成 DOM Tree；而在 CSS 解析完毕后，需要将解析的结果与 DOM Tree 的内容一起进行分析建立一棵 Render Tree，最终用来进行绘图。
 
-Render Tree 中的元素（WebKit 中称为「renderers」，Firefox 下为「frames」）与 DOM 元素相对应，但非一一对应：一个 DOM 元素可能会对应多个 renderer，如文本折行后，不同的「行」会成为 render tree 种不同的 renderer。也有的 DOM 元素被 Render Tree 完全无视，比如 display:none 的元素。
+Render Tree 中的元素与 DOM 元素相对应，但非一一对应：一个 DOM 元素可能会对应多个 renderer，如文本折行后，不同的「行」会成为 render tree 种不同的 renderer。也有的 DOM 元素被 Render Tree 完全无视，比如 display:none 的元素。
 
-在建立 Render Tree 时（WebKit 中的「Attachment」过程），浏览器就要为每个 DOM Tree 中的元素根据 CSS 的解析结果（Style Rules）来确定生成怎样的 renderer。对于每个 DOM 元素，必须在所有 Style Rules 中找到符合的 selector 并将对应的规则进行合并。选择器的「解析」实际是在这里执行的，在遍历 DOM Tree 时，从 Style Rules 中去寻找对应的 selector。
+在建立 Render Tree 时，浏览器就要为每个 DOM Tree 中的元素根据 CSS 的解析结果来确定生成怎样的 renderer。对于每个 DOM 元素，必须在所有 Style Rules 中找到符合的 selector 并将对应的规则进行合并。选择器的「解析」实际是在这里执行的，在遍历 DOM Tree 时，从 Style Rules 中去寻找对应的 selector。
 
 * CSS 解析顺序
 
-在 CSS 的选择器中，它会按照优先级 **从右向左解析**，因为这样匹配元素的时候，能尽量少地查找，所以选择器最好写地简洁一点
+在 CSS 的选择器中，它会按照优先级 **从右向左解析**，因为这样匹配元素的时候，能尽量少地查找，所以选择器最好写地简洁一点。
 
 * CSS 常用选择器
 
@@ -452,13 +462,61 @@ Render Tree 中的元素（WebKit 中称为「renderers」，Firefox 下为「fr
 
 > [返回目录](#catalog-chapter-four)
 
-暂无内容，有待补充
+1. 水平垂直居中。这种布局老生常谈，**jsliang** 在本文也有提到，详解请 [点击链接](chapter-four-twelve)
+2. 两列布局。一侧固定，另一侧自适应。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Two Column Layout</title>
+  <style>
+    .container {
+      display: flex;
+    }
+    .child-one {
+      width: 300px;
+      height: 300px;
+      background: red;
+    }
+    .child-two {
+      width: 100%;
+      height: 300px;
+      background: deepskyblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="child-one"></div>
+    <div class="child-two"></div>
+  </div>
+</body>
+</html>
+```
+
+3. 三列布局。类似于两列布局，新增多一个固定宽的 `<div>` 块而已。当然，小伙伴们可能会说：**jsliang** 你要考虑 `flex` 的兼容性啊！enm...**支持所有最新版本的浏览器！请更新你的浏览器哦亲~**
+
+> 避免被寄刀片，附上 `float` 布局：[《css常见布局》](https://blog.csdn.net/liwei26/article/details/78976444)
 
 ### <a name="chapter-four-seven" id="chapter-four-seven">4.7 CSS3 新特性</a>
 
 > [返回目录](#catalog-chapter-four)
 
-暂无内容，有待补充
+* **经典**：CSS3 相关属性你了解吗，说说都有哪些？能说说你工作中常用的一些 CSS3 属性吗？
+
+那么，CSS3 新特性都有哪些呢？
+
+* transition：过渡
+* animation：动画
+* transform：旋转、缩放、移动或者倾斜
+* gradient：渐变
+* shadow：阴影
+
+
 
 ### <a name="chapter-four-eight" id="chapter-four-eight">4.8 BFC</a>
 
@@ -1492,6 +1550,7 @@ var name = 'World!';
 1. [《我对BFC的理解》](https://www.cnblogs.com/dojo-lzz/p/3999013.html)
 2. [《CSS实现垂直居中的常用方法》](https://www.cnblogs.com/yugege/p/5246652.html)
 3. [《CSS 用 position: absolute 与 transform 来居中块级元素的问题》](https://segmentfault.com/q/1010000005151903)
+4. [《css常见布局》](https://blog.csdn.net/liwei26/article/details/78976444)
 
 ### <a name="chapter-fourteen-four" id="chapter-fourteen-four">14.4 关于 JS</a>
 
