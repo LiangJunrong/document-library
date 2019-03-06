@@ -784,9 +784,9 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 * 《JavaScript 高级程序（第三版）》
 * 《你不知道的 JavaScript》
 * 《JavaScript 忍者秘籍》
-* 《ES6 标准入门》——阮一峰
-* 《JavaScript 设计模式》——张容铭
-* 《JavaScript 设计模式与开发实践》——曾探
+* 《ES6 标准入门》—— 阮一峰
+* 《JavaScript 设计模式》—— 张容铭
+* 《JavaScript 设计模式与开发实践》—— 曾探
 
 ### <a name="chapter-five-two" id="chapter-five-two">5.2 JS 引用方式</a>
 
@@ -1672,6 +1672,7 @@ var name = 'World!';
 7.  [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)
 8.  [《前端分享之cookie的使用及单点登录》](https://segmentfault.com/a/1190000011295587) 
 9.  [《Cookie、session和localStorage、以及sessionStorage之间的区别》](https://www.cnblogs.com/zr123/p/8086525.html)
+
 ---
 
 > **jsliang** 广告推送：  
