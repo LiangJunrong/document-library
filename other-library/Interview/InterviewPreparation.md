@@ -247,6 +247,7 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 > [返回目录](#catalog-chapter-three)
 
 * [《前端工程师手册》](https://leohxj.gitbooks.io/front-end-database/content/html-and-css-basic/index.html?tdsourcetag=s_pctim_aiomsg)
+* [《HTML 教程- (HTML5 标准) - 菜鸟教程》](http://www.runoob.com/html/html-tutorial.html)
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 HTML 语义化</a>
 
@@ -257,6 +258,8 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 1. 便于对浏览器、搜索引擎解析；
 2. 便于盲人浏览网页；
 3. 便于阅读源代码的人对网站进行分开，维护和理解；
+
+简单来说，能用 `<header>`、`<footer>` 等 H5 新标签的就不用 `<div class="header">`，不要使用 `<div>` 来存放段落等……
 
 ### <a name="chapter-three-three" id="chapter-three-three">3.3 HTML5 新标签</a>
 
