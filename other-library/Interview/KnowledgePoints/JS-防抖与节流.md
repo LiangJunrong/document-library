@@ -33,10 +33,11 @@
 | &emsp;[3.2 节流](#chapter-three-two) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 重绘与回流](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 浏览器解析 URL](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六  DNS](#chapter-six) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 浏览器渲染页面](#chapter-seven) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 总结](#chapter-eight) |
-| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 参考文献](#chapter-night) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六  DNS 域名解析](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 TCP 三次握手与四次挥手](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 浏览器渲染页面](#chapter-eight) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 总结](#chapter-night) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 参考文献](#chapter-ten) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -278,15 +279,13 @@ OK，至此我们就讲完两个部分了，那么问题又来了：“浏览器
 
 OK，兴致来了，我们就先从 **浏览器解析 URL** 看起，先来看看当用户输入 URL，到浏览器呈现给用户页面，经历了以下过程：
 
-1. 用户输入 URL，浏览器获取到 URL。
-2. 浏览器（应用层）进行 DNS 解析（如果输入的是 IP 地址，此步骤省略）
-3. 根据解析出的 IP 地址 + 端口，浏览器（应用层）发起 HTTP 请求，请求中携带请求头（header）和请求体（body）。
-4. 请求到达传输层，TCP 协议为传输报文提供可靠的字节流传输服务，它通过三次握手等手段来保证传输过程的安全可靠，通过将大块数据的分割成一个个报文段的方式提供给大量数据的便携传输。
-5. 到网络层，网络层通过 ARP 寻址得到接受方的 Mac 地址，IP 协议把在传输层被分割成一个个数据包传送接受方。
-6. 数据到达数据链路层，请求阶段完成。
-7. 接收方在数据链路层收到数据包之后，层层传递到应用层，接受方应用程序就得到请求报文。
-8. 接收方收到发送方的 HTTP 请求之后，进行请求文件资源（如 HTML 文件）的寻找并响应报文。
-9. 发送方收到响应报文后，如果报文中的状态码表示请求成功，则接受返回的资源（如 HTML 文件），进行页面渲染。
+1. 用户输入 URL 地址。
+2. 对 URL 地址进行 DNS 域名解析。
+3. 建立 TCP 连接（三次握手）。
+4. 浏览器发起 HTTP 请求报文。
+5. 服务器返回 HTTP 响应报文。
+6. 关闭 TCP 连接（四次挥手）。
+7. 浏览器解析文档资源并渲染页面。
 
 讲到这里，突然想起一个对话：
 
@@ -296,13 +295,24 @@ OK，兴致来了，我们就先从 **浏览器解析 URL** 看起，先来看�
 
 enm...老师会不会被打我不知道，但是 **jsliang** 这样写会被怼我就清楚，所以，咱还是结合上面的图，进一步勾勒我们的结构：
 
+![图](../../../public-repertory/img/other-interview-debounce&throttle-4.png)
 
+很好，**jsliang** 感觉自己的画图技术又进了一步~
 
-在这里，咱也不是太过纠结具体实现。但是，DNS 和 HTTP 这块咱还是了解下吧？TCP 这种面试常考的咱也了解下吧？最后接收到报文后，浏览器的渲染工作咱也了解下吧？
+在这里我们可以清晰的了解到从 **用户输入 URL，到浏览器呈现给用户页面，经历了哪些过程**。
 
-OK，下面我们逐步讲解这四个知识点。
+那么剩下的就简单了：
 
-## <a name="chapter-six" id="chapter-six">六 DNS</a>
+1. 什么是 DNS 解析，它是怎么个流程？
+2. 什么是 TCP 三次握手，什么是 TCP 四次挥手，它们的流程是怎样的？
+3. 浏览器解析文档资源并渲染页面是个怎样的流程？
+
+Let's go~ 逐步完成下面三个知识点！
+
+> 参考文献 1：[《网页解析的全过程(输入url到展示页面)》](https://www.cnblogs.com/wpshan/p/6282061.html)  
+> 参考文献 2：[《浏览器渲染页面过程剖析》](https://www.jianshu.com/p/32ca5f1c0768)
+
+## <a name="chapter-six" id="chapter-six">六 DNS 域名解析</a>
 
 > [返回目录](#chapter-one)
 
@@ -318,7 +328,11 @@ OK，下面我们逐步讲解这四个知识点。
 8. 本地域名服务器接收到 IP 和 TTL 值，进行缓存，缓存的时间由 TTL 值控制。
 9. 将解析的结果返回给用户，用户根据 TTL 值缓存在本地系统缓存中，域名解析过程结束。
 
-## <a name="chapter-seven" id="chapter-seven">七 浏览器渲染页面</a>
+## <a name="chapter-seven" id="chapter-seven">七 TCP 三次握手与四次挥手</a>
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-eight" id="chapter-eight">八 浏览器渲染页面</a>
 
 > [返回目录](#chapter-one)
 
@@ -334,7 +348,7 @@ OK，下面我们逐步讲解这四个知识点。
 
 ![图](../../../public-repertory/img/other-InterviewPreparation-01.png)
 
-## <a name="chapter-eight" id="chapter-eight">八 总结</a>
+## <a name="chapter-night" id="chapter-night">九 总结</a>
 
 > [返回目录](#chapter-one)
 
@@ -350,7 +364,7 @@ OK，下面我们逐步讲解这四个知识点。
 
 最后祝小伙伴们找到合适的满意的工作~
 
-## <a name="chapter-night" id="chapter-night">九 参考文献</a>
+## <a name="chapter-ten" id="chapter-ten">十 参考文献</a>
 
 > [返回目录](#chapter-one)
 
@@ -360,6 +374,8 @@ OK，下面我们逐步讲解这四个知识点。
 4. [《闲聊 JS 中的 apply 和 call》](https://www.cnblogs.com/alai88/p/5518441.html)
 5. [《js 中 arguments 的用法》](https://www.cnblogs.com/LMJBlogs/p/6024148.html)
 6. [《防抖和节流的应用场景和实现》](https://www.codercto.com/a/35263.html)
+7. [《网页解析的全过程(输入url到展示页面)》](https://www.cnblogs.com/wpshan/p/6282061.html)
+8. [《浏览器渲染页面过程剖析》](https://www.jianshu.com/p/32ca5f1c0768)
 
 ---
 
