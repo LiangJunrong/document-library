@@ -29,6 +29,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 防抖与节流](#chapter-three) |
+| &emsp;[3.1 防抖](#chapter-three-one) |
+| &emsp;[3.2 节流](#chapter-three-two) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 重绘与回流](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 浏览器解析 URL](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六  DNS](#chapter-six) |
@@ -47,19 +49,23 @@
 
 所以，这时候，我们就要用到 **防抖与节流** 了。
 
-那么，讲到 **防抖与节流**，我们可以顺带探秘下 **重绘与回流**。说起 **重绘与回流**，我们就顺带把浏览器输入 URL 后发生的事情也关注一下，从而串起来构成本文的轮廓，方便 **jsliang** 和小伙伴们对知识的整理记忆。
+那么，讲到 **防抖与节流**，我们可以顺带探秘下 **重绘与回流**。说起 **重绘与回流**，我们就顺带把 **浏览器输入 URL 后发生的事情** 也关注一下，从而串起来构成本文的轮廓，方便 **jsliang** 和小伙伴们对知识的整理记忆。
 
 ## <a name="chapter-three" id="chapter-three">三 防抖与节流</a>
 
 > [返回目录](#chapter-one)
 
-1. 为什么会有防抖和节流？可以就和回流与重绘来解释。
-2. 工作中哪些内容使用了防抖和节流？举例工作中用户快速连续点击提交按钮
-  解决方案：
-* 使用 disabled
-* 用户点击的时候使用节流，2秒内不管怎么点击都只执行一次调用接口，同时更换按钮（需要准备两个按钮，一个点击提交，一个等待中），然后等接口调用完毕后，再把点击提交的按钮显示出来（如果界面卡到 2 秒内点击提交的按钮都不会消失，那这种方案有风险的）
-* 设置 flag，一开始的时候为 true，进入业务代码的时候判断 flag 情况，之后设置为 false，只有等接口返回信息后，再设置为 true。
-* 使用 Axios 的拦截器实现按钮多次提交请求。
+**通过代码去了解某样事物，往往是了解某个知识点最快的形式。**
+
+### <a name="chapter-three-one" id="chapter-three-one">3.1 防抖</a>
+
+> [返回目录](#chapter-one)
+
+下面我们有段防抖小案例代码。
+
+如果小伙伴们手头有电脑，并感兴趣想先自己瞅瞅，可以将代码复制到浏览器，尝试点击按钮，并关注下控制台，看看 Console 是如何打印的。
+
+如果小伙伴们手头没有电脑，那么咱一起先瞅瞅代码实现，再看看下面 GIF 演示。（这样效果没有自己敲的直白有效）
 
 ```html
 <!DOCTYPE html>
@@ -75,19 +81,19 @@
 
   <script>
     window.onload = function() {
-      // 防抖
+      // 1、获取这个按钮，并绑定事件
       var myDebounce = document.getElementById("debounce");
       myDebounce.addEventListener("click", debounce(sayDebounce));
     }
 
-    // 防抖
+    // 2、防抖功能函数，接受传参
     function debounce(fn) {
-      // 创建一个标记用来存放定时器的返回值
+      // 4、创建一个标记用来存放定时器的返回值
       let timeout = null;
       return function() {
-        // 每次当用户点击/输入的时候，把前一个定时器清除
+        // 5、每次当用户点击/输入的时候，把前一个定时器清除
         clearTimeout(timeout);
-        // 然后创建一个新的 setTimeout，
+        // 6、然后创建一个新的 setTimeout，
         // 这样就能保证点击按钮后的 interval 间隔内
         // 如果用户还点击了的话，就不会执行 fn 函数
         timeout = setTimeout(() => {
@@ -96,7 +102,9 @@
       };
     }
 
+    // 3、需要进行防抖的事件处理
     function sayDebounce() {
+      // ... 有些需要防抖的工作，在这里执行
       console.log("防抖成功！");
     }
 
@@ -105,10 +113,33 @@
 </html>
 ```
 
+很好，相信小伙伴们已经看完了代码，下面我们看看它的演示：
+
+![图](../../../public-repertory/img/other-interview-debounce&throttle-1.gif)
+
+这时候，我们可以抛出防抖的概念了：
+
+* **防抖**：**任务频繁触发的情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。**
+
+结合我们的代码，我们可以了解到，在触发点击事件后，如果用户再次点击了，我们会清空之前的定时器，重新生成一个定时器。意思就是：这件事儿需要等待，如果你反复催促，我就重新计时！
+
+空讲无益，show you 场景：
+
+* 有个输入框，输入之后会调用接口，获取联想词。但是，因为频繁调用接口不太好，所以我们在当中使用防抖。只有在用户输入完毕的一段时间后，才会调用接口，出现联想词。
+
+小伙伴们可以尝试看着上面的案例，先自己实现一遍，如果感觉不行，那就看：[《防抖和节流的应用场景和实现》](https://www.codercto.com/a/35263.html)
+
 > 知识点补充：何为 `arguments`，后端转前端的同学，可以将 `arguments` 理解为能实现重载函数功能的工具，例如 `function test()` 这个方法中，由于我们不确定变量有多少，比如 `test("jsliang", 24)`，又或者 `test("LiangJunrong", "jsliang")`，这时候只需要在函数 `test` 中用 `arguments` 接收就行了，`function test() { let arr1 = argument[0] }` 中，`arr1` 就可以获取到传进来的第一个变量。  
 > 所以 `fn.call(this, arguments)` 其实是将不确定变量替换到函数中了。  
-> 参考资料 1：[《闲聊JS中的apply和call》](https://www.cnblogs.com/alai88/p/5518441.html)  
-> 参考资料 2：[《js中arguments的用法》](https://www.cnblogs.com/LMJBlogs/p/6024148.html)
+
+> 参考资料 1：[《闲聊 JS 中的 apply 和 call》](https://www.cnblogs.com/alai88/p/5518441.html)  
+> 参考资料 2：[《js 中 arguments 的用法》](https://www.cnblogs.com/LMJBlogs/p/6024148.html)
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 节流</a>
+
+> [返回目录](#chapter-one)
+
+说完防抖，下面我们讲讲节流，规矩就不说了，先上代码：
 
 ```html
 <!DOCTYPE html>
@@ -125,30 +156,32 @@
 
   <script>
     window.onload = function() {
+      // 1、获取按钮，绑定点击事件
       var myThrottle = document.getElementById("throttle");
       myThrottle.addEventListener("click", throttle(sayThrottle));
     }
 
-    // 节流
+    // 2、节流函数体
     function throttle(fn) {
-      // 通过闭包保存一个标记
+      // 4、通过闭包保存一个标记
       let canRun = true;
       return function() {
-        // 在函数开头判断标志是否为 true，不为 true 则中断函数
+        // 5、在函数开头判断标志是否为 true，不为 true 则中断函数
         if(!canRun) {
           return;
         }
-        // 设置为 false，防止执行之前再被执行
+        // 6、将 canRun 设置为 false，防止执行之前再被执行
         canRun = false;
-        // 定时器
+        // 7、定时器
         setTimeout( () => {
           fn.call(this, arguments);
-          // 执行完事件（比如调用完接口）之后，重新将这个标志设置为 true
+          // 8、执行完事件（比如调用完接口）之后，重新将这个标志设置为 true
           canRun = true;
         }, 1000);
       };
     }
 
+    // 3、需要节流的事件
     function sayThrottle() {
       console.log("节流成功！");
     }
@@ -158,16 +191,43 @@
 </html>
 ```
 
+很好，看完代码的小伙伴应该大致清楚是怎么回事了，下面我们看 GIF 实现：
+
+![图](../../../public-repertory/img/other-interview-debounce&throttle-2.gif)
+
+可以明白，节流即是：
+
+* **节流**：**指定时间间隔内只会执行一次任务。**
+
+那么，节流在工作中的应用？
+
+1. 懒加载要监听计算滚动条的位置，使用节流按一定时间的频率获取。
+2. 用户点击提交按钮，假设我们知道接口大致的返回时间的情况下，我们使用节流，只允许一定时间内点击一次。
+
+这样，我们就掌握了在某些特定的工作场景，我们可以使用防抖与节流来减少不必要的消耗，为什么说上面的场景不节制会造成过多损耗呢？
+
+我们，下回讲解各种造成浏览器卡死的姿势……
+
 ## <a name="chapter-four" id="chapter-four">四 重绘与回流</a>
 
 > [返回目录](#chapter-one)
 
+说起卡死的姿势，我们先了解下 **重绘与回流**：
+
 * **重绘(repaint)**：当元素样式的改变不影响布局时，浏览器将使用重绘对元素进行更新，此时由于只需要 UI 层面的重新像素绘制，因此**损耗较少**。
 * **回流(reflow)**：当元素的尺寸、结构或者触发某些属性时，浏览器会重新渲染页面，称为回流。此时，浏览器需要重新经过计算，计算后还需要重新页面布局，因此是较重的操作。常见的有：页面初次渲染、浏览器窗口大小改变、元素尺寸/位置/内容发生改变、元素字体大小变化、添加或者删除可见的 DOM 元素以及激活 CSS 伪类（:hover……）等等
 
-**回流必定会触发重绘，重绘不一定会触发回流。重绘的开销较小，回流的代价较高。**
+> **回流必定会触发重绘，重绘不一定会触发回流。重绘的开销较小，回流的代价较高。**
 
-* 工作中关于重绘与回流的关注？
+看到这里，小伙伴们可能有点懵逼，你之前不讲着 **防抖与节流** 吗？那不是 JS 使用太多造成的卡顿吗？怎么我看 **重绘与回流** 是有关 CSS 的知识点？OK，下面有个工作场景：
+
+* 界面上有个 div 框，用户可以在 input 框中输入 div 框的一些信息，例如宽、高等，输入完毕立即改变属性。但是，因为改变之后还要随时存储到数据库中，所以需要调用接口。如果不加限制……
+
+是时候发挥 **文科生** 的联想记忆了，为什么需要 **节流**，因为有些事情会造成浏览器 **回流**，进一步造成浏览器开销增大，所以我们通过 **节流** 来防止这种增大浏览器开销的事情。
+
+这样，我们就可以形象的将 **防抖与节流** 与 **重绘与回流** 结合起来记忆。
+
+那么，最终我们还是要关注工作中关于重绘与回流的操作，并减少这些操作：
 
 1. 避免频繁操作样式，可汇总后统一一次修改
 2. 尽量使用 class 进行样式修改，而不是直接操作样式
@@ -177,7 +237,11 @@
 
 > [返回目录](#chapter-one)
 
-* 当用户输入 URL，到浏览器呈现给用户页面，经历了一下过程：
+经过上面的串联记忆，我们 get 到两个知识点：**防抖与节流** 与 **重绘与回流**。
+
+但是，我们还是好奇，浏览器到底做了什么，从而需要我们注意浏览器的开销？
+
+说到这点，我们还是先从 **浏览器解析 URL** 的步骤讲起。当用户输入 URL，到浏览器呈现给用户页面，经历了以下过程：
 
 1. 用户输入 URL，浏览器获取到 URL。
 2. 浏览器（应用层）进行 DNS 解析（如果输入的是 IP 地址，此步骤省略）
@@ -186,8 +250,12 @@
 5. 到网络层，网络层通过 ARP 寻址得到接受方的 Mac 地址，IP 协议把在传输层被分割成一个个数据包传送接受方。
 6. 数据到达数据链路层，请求阶段完成。
 7. 接收方在数据链路层收到数据包之后，层层传递到应用层，接受方应用程序就得到请求报文。
-8. 接收方收到发送方的 HTPP 请求之后，进行请求文件资源（如 HTML 文件）的寻找并响应报文。
+8. 接收方收到发送方的 HTTP 请求之后，进行请求文件资源（如 HTML 文件）的寻找并响应报文。
 9. 发送方收到响应报文后，如果报文中的状态码表示请求成功，则接受返回的资源（如 HTML 文件），进行页面渲染。
+
+在这里，咱也不是太过纠结具体实现。但是，DNS 和 HTTP 这块咱还是了解下吧？TCP 这种面试常考的咱也了解下吧？最后接收到报文后，浏览器的渲染工作咱也了解下吧？
+
+OK，下面我们逐步讲解这四个知识点。
 
 ## <a name="chapter-six" id="chapter-six">六 DNS</a>
 
@@ -225,6 +293,8 @@
 
 > [返回目录](#chapter-one)
 
+
+
 ## <a name="chapter-night" id="chapter-night">九 参考文献</a>
 
 > [返回目录](#chapter-one)
@@ -232,6 +302,9 @@
 1. [《函数防抖和节流》](https://www.jianshu.com/p/c8b86b09daf0)
 2. [《节流 & 防抖》](https://qishaoxuan.github.io/blog/js/throttleDebounce.html?tdsourcetag=s_pctim_aiomsg)
 3. [《JS奇淫巧技：防抖函数与节流函数》](https://www.cnblogs.com/chenqf/p/7986725.html)
+4. [《闲聊 JS 中的 apply 和 call》](https://www.cnblogs.com/alai88/p/5518441.html)
+5. [《js 中 arguments 的用法》](https://www.cnblogs.com/LMJBlogs/p/6024148.html)
+6. [《防抖和节流的应用场景和实现》](https://www.codercto.com/a/35263.html)
 
 ---
 
