@@ -1,6 +1,6 @@
 2019 面试准备 - JS 原型与原型链
 ===
-
+ 
 > Create by **jsliang** on **2019-2-21 08:42:02**  
 > Recently revised in **2019-2-23 09:44:08**
 
