@@ -2,7 +2,7 @@ Vue 开发准备
 ===
 
 > Create by **jsliang** on **2018-12-24 11:54:30**  
-> Recently revised in **2019-3-12 16:44:14**
+> Recently revised in **2019-3-12 16:44:30**
 
 在使用 VueCli 开发之前，有些步骤是重复的，如果一个一个重新写过比较麻烦，故在此记录一些常用步骤。
 
