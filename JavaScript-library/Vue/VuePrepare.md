@@ -2,7 +2,7 @@ Vue 开发准备
 ===
 
 > Create by **jsliang** on **2018-12-24 11:54:30**  
-> Recently revised in **2018-12-24 16:12:59**
+> Recently revised in **2019-3-12 16:43:35**
 
 在使用 VueCli 开发之前，有些步骤是重复的，如果一个一个重新写过比较麻烦，故在此记录一些常用步骤。
 
@@ -16,11 +16,12 @@ Vue 开发准备
 | [二 大体步骤](#chapter-two) |
 | [三 详细步骤](#chapter-three) |
 | &emsp;[3.1 安装 VueCli](#chapter-three-one) |
-| &emsp;[3.2 重置 CSS 样式](#chapter-three-two) |
-| &emsp;[3.3 引用左上角图标](#chapter-three-three) |
-| &emsp;[3.4 按需引用 ElementUI](#chapter-three-four) |
-| &emsp;[3.5 Axios 封装使用](#chapter-three-five) |
-| &emsp;[3.6 配置使用 less](#chapter-three-six) |
+| &emsp;[3.2 项目目录结构](#chapter-three-two) |
+| &emsp;[3.3 配置使用 less](#chapter-three-three) |
+| &emsp;[3.4 重置 CSS 样式](#chapter-three-four) |
+| &emsp;[3.5 引用左上角图标](#chapter-three-five) |
+| &emsp;[3.6 按需引用 ElementUI](#chapter-three-six) |
+| &emsp;[3.6 Axios 封装使用](#chapter-three-seven) |
 
 ## <a name="chapter-two" id="chapter-two">二 大体步骤</a>
 
@@ -45,7 +46,79 @@ Vue 开发准备
 3. 开启开发模式：`npm run dev`
 4. 打开浏览器，查看网页： `http://localhost:8080`
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 重置 CSS 样式</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 项目目录结构</a>
+
+> [返回目录](#chapter-one)
+
+```
+- build —————————————————————— 构建脚本目录
+  - build.js                —— 运行本地构建服务器，可以访问构建后的页面
+  - check-versions.js       —— 检查版本
+  - utils.js                —— 构建相关工具方法
+  - vue-loader.conf.js      —— 判断是否为生产环境
+  - webpack.base.conf.js    —— webpack 开发环境配置
+  - webpack.prod.conf.js    —— webpack 生产环境配置
+- config ————————————————————— 配置
+  - dev.env.js              —— 开发配置
+  - index.js                —— 配置总文件
+  - prod.env.js             —— 打包配置
+- node_modules ——————————————— Node 依赖包，请忽略
+- src ———————————————————————— 主要工作区
+  - api                     —— 接口统一管理文件夹
+    - api.js                —— 接口文件
+  - assets                  —— 需要压缩文件
+    - img                   —— 图片
+  - components              —— 共用组件
+  - pages                   —— 页面
+  - router                  —— 路由文件夹
+    - index.js              —— 路由文件
+  - utils                   —— 工具文件夹
+    - md5.js                —— md5 加密
+ App.vue ————————————————————— 根组件
+ main.js ————————————————————— 根组件配置
+- static ————————————————————— 静态资源文件，不会被打包
+  - css                     —— CSS 文件夹
+    - reset.css             —— 重置样式
+  - img                     —— 图片文件夹
+- .babelrc ——————————————————— babel 配置，转换 ES6/7 为 ES5
+- .editorconfig —————————————— 编辑器风格配置
+- .gitignore ————————————————— 忽略 git 上传文件
+- .postcssrc.js —————————————— 转换 CSS 的插件
+- index.html ————————————————— 首页
+- package.json ——————————————— 定义这个项目所需要的各种模块
+- README.md —————————————————— 开搞必读文档
+```
+
+### <a name="chapter-three-three" id="chapter-three-three">3.3 配置使用 less</a>
+
+> [返回目录](#chapter-one)
+
+1. 安装 less 和 less-loader：`cnpm i less less-loader -D`
+2. 添加 webpack 打包规则：
+
+> build/webpack.base.conf.js
+
+```
+{
+  test: /\.less$/,
+  loader: "style-loader!css-loader!less-loader"
+}
+```
+
+3. 在 style 中使用 less：
+
+```
+<style lang="less" scoped>
+.left {
+  border: 1px solid #ccc;
+  .left-one {
+    font-size: 10px;
+  }
+}
+</style>
+```
+
+### <a name="chapter-three-four" id="chapter-three-four">3.4 重置 CSS 样式</a>
 
 > [返回目录](#chapter-one)
 
@@ -124,7 +197,7 @@ input::-ms-input-placeholder { color: #919191; font-size: .26rem } /* Internet E
 import '../static/css/reset.css'
 ```
 
-### <a name="chapter-three-three" id="chapter-three-three">3.3 引用左上角图标</a>
+### <a name="chapter-three-five" id="chapter-three-five">3.5 引用左上角图标</a>
 
 > [返回目录](#chapter-one)
 
@@ -140,7 +213,7 @@ import '../static/css/reset.css'
 <link rel="shortcut icon" type=image/ico href=./static/img/icon.ico>
 ```
 
-### <a name="chapter-three-four" id="chapter-three-four">3.4 按需引用 ElementUI</a>
+### <a name="chapter-three-six" id="chapter-three-six">3.6 按需引用 ElementUI</a>
 
 > [返回目录](#chapter-one)
 
@@ -231,7 +304,7 @@ import 'element-ui/lib/theme-chalk/display.css';
 
 6. 更多使用：[ElementUI 组件](http://element-cn.eleme.io/#/zh-CN/component/installation)
 
-### <a name="chapter-three-five" id="chapter-three-five">3.5 Axios 封装使用</a>
+### <a name="chapter-three-seven" id="chapter-three-seven">3.7 Axios 封装使用</a>
 
 > [返回目录](#chapter-one)
 
@@ -316,36 +389,15 @@ dev: {
 
 5. 更多参考：[Axios 中文说明](https://www.kancloud.cn/yunye/axios/234845)
 
-### <a name="chapter-three-six" id="chapter-three-six">3.6 配置使用 less</a>
+---
 
-> [返回目录](#chapter-one)
+> **jsliang** 广告推送：  
+> 也许小伙伴想了解下云服务器  
+> 或者小伙伴想买一台云服务器  
+> 或者小伙伴需要续费云服务器  
+> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
 
-1. 安装 less 和 less-loader：`cnpm i less less-loader -D`
-2. 添加 webpack 打包规则：
+[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
 
-> build/webpack.base.conf.js
-
-```
-{
-  test: /\.less$/,
-  loader: "style-loader!css-loader!less-loader"
-}
-```
-
-3. 在 style 中使用 less：
-
-```
-<style lang="less" scoped>
-.left {
-  border: 1px solid #ccc;
-  .left-one {
-    font-size: 10px;
-  }
-}
-</style>
-```
-
-> [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
-> **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
-> 基于 [https://github.om/LiangJunrong/document-library](https://github.om/LiangJunrong/document-library) 上的作品创作。  
-> 本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
