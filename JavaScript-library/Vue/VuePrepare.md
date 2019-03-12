@@ -2,7 +2,7 @@ Vue 开发准备
 ===
 
 > Create by **jsliang** on **2018-12-24 11:54:30**  
-> Recently revised in **2019-3-12 16:44:30**
+> Recently revised in **2019-3-12 17:29:55**
 
 在使用 VueCli 开发之前，有些步骤是重复的，如果一个一个重新写过比较麻烦，故在此记录一些常用步骤。
 
@@ -111,7 +111,7 @@ Vue 开发准备
 
 3. 在 style 中使用 less：
 
-```css
+```html
 <style lang="less" scoped>
 .left {
   border: 1px solid #ccc;
@@ -119,6 +119,17 @@ Vue 开发准备
     font-size: 10px;
   }
 }
+</style>
+```
+
+4. 引用下边的 reset.less 和 common.less
+
+> App.vue
+
+```js
+<style lang="less">
+  @import './style/reset';
+  @import './style/common';
 </style>
 ```
 
@@ -222,25 +233,34 @@ import '../static/css/reset.css'
 > [返回目录](#chapter-one)
 
 * 安装 ElementUI：`npm i element-ui -S`
-* 完整使用 ElementUI：
+
+---
+
+* 如果需要完整使用 ElementUI：
 
 > src/main.js
 
 ```js
-import Vue from 'vue';
+import Vue from 'vue'
+import App from './App'
+import router from './router'
 
 // 引用 ElementUI
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import App from './App.vue';
 
 Vue.use(ElementUI);
 // 引用 ElementUI 结束
 
+Vue.config.productionTip = false
+
 new Vue({
   el: '#app',
-  render: h => h(App)
-});
+  router,
+  components: { App },
+  template: '<App/>'
+})
+
 ```
 
 > App.vue
@@ -253,6 +273,8 @@ new Vue({
   <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">右一</el-col>
 </el-row>
 ```
+
+---
 
 * 如果需要按需引用 ElementUI：
 
@@ -306,6 +328,8 @@ Vue.use(Row).use(Col);
   <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">右一</el-col>
 </el-row>
 ```
+
+---
 
 * 响应式布局下基于断点的隐藏类：
 
