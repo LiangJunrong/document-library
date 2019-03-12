@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-2-23 20:55:34**  
-> Recently revised in **2019-3-11 21:06:10**
+> Recently revised in **2019-3-12 09:09:14**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md)**
 
@@ -316,7 +316,17 @@ Let's go~ 逐步完成下面三个知识点！
 
 > [返回目录](#chapter-one)
 
-* 当用户在浏览器输入 `http://jsliang.top` 时，DNS 经历了以下步骤：
+**首先**，我们解决第一个问题：
+
+* 什么是 DNS 解析，它是怎么个流程？
+
+DNS（Domain Name System）是 **域名系统** 的英文缩写，提供的服务是用于将主机名和域名转换为 IP 地址的工作：
+
+域名：`http://jsliang.top` <---> DNS <---> IPV4：`119.147.15.13`
+
+> IPV4 是造假的，仅用来说明 DNS 解析后能返回 IP 地址
+
+所以，当用户在浏览器输入 `http://jsliang.top` 时，DNS 经历了以下步骤：
 
 1. 浏览器根据地址，在自身缓存中查找 DNS（域名服务器） 中的解析记录。如果存在，则直接返回 IP 地址；如果不存在，则查找操作系统中的 hosts 文件是否有该域名的 DNS 解析记录，如果有就返回。
 2. 在条件 1 中的浏览器缓存或者操作系统的 hosts 文件中都没有这个域名的 DNS 解析记录，或者已经过期，则向域名服务器发起请求解析这个域名。
@@ -328,9 +338,23 @@ Let's go~ 逐步完成下面三个知识点！
 8. 本地域名服务器接收到 IP 和 TTL 值，进行缓存，缓存的时间由 TTL 值控制。
 9. 将解析的结果返回给用户，用户根据 TTL 值缓存在本地系统缓存中，域名解析过程结束。
 
+看文字总是难以理解的，跟着 **jsliang** 画张图过一遍，就感觉清晰了：
+
+![图](../../../public-repertory/img/other-interview-debounce&throttle-5.png)
+
 ## <a name="chapter-seven" id="chapter-seven">七 TCP 三次握手与四次挥手</a>
 
 > [返回目录](#chapter-one)
+
+**然后**，我们解决第二个问题：
+
+* 什么是 TCP 三次握手，什么是 TCP 四次挥手，它们的流程是怎样的？
+
+什么是 TCP 呢？TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议。
+
+简单来说，它的作用就是将数据流从一台主机可靠地传输到另一台主机。
+
+至于具体的工作原理，这里暂时涉及不到，我们目前只想知道两个点：**三次握手与四次挥手**。
 
 
 
@@ -338,7 +362,11 @@ Let's go~ 逐步完成下面三个知识点！
 
 > [返回目录](#chapter-one)
 
-* 浏览器渲染页面的过程 - [详细讲解](https://juejin.im/post/5bbaa549e51d450e827b6b13)：
+**最后**，我们解决第二个问题：
+
+* 浏览器解析文档资源并渲染页面是个怎样的流程？
+
+浏览器渲染页面的过程：
 
 1. 浏览器通过 HTMLParser 根据深度遍历的原则把 HTML 解析成 DOM Tree。
 2. 浏览器通过 CSSParser 将 CSS 解析成 CSS Rule Tree（CSSOM Tree）。
@@ -349,6 +377,8 @@ Let's go~ 逐步完成下面三个知识点！
 7. paint：遍历 render tree，并调动硬件图形 API 来绘制每个节点。
 
 ![图](../../../public-repertory/img/other-InterviewPreparation-01.png)
+
+> 参考文献：[《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
 
 ## <a name="chapter-night" id="chapter-night">九 总结</a>
 
@@ -378,6 +408,7 @@ Let's go~ 逐步完成下面三个知识点！
 6. [《防抖和节流的应用场景和实现》](https://www.codercto.com/a/35263.html)
 7. [《网页解析的全过程(输入url到展示页面)》](https://www.cnblogs.com/wpshan/p/6282061.html)
 8. [《浏览器渲染页面过程剖析》](https://www.jianshu.com/p/32ca5f1c0768)
+9. [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
 
 ---
 
