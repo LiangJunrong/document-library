@@ -2,7 +2,7 @@ Vue 开发准备
 ===
 
 > Create by **jsliang** on **2018-12-24 11:54:30**  
-> Recently revised in **2019-3-12 16:43:35**
+> Recently revised in **2019-3-12 16:44:14**
 
 在使用 VueCli 开发之前，有些步骤是重复的，如果一个一个重新写过比较麻烦，故在此记录一些常用步骤。
 
@@ -21,7 +21,7 @@ Vue 开发准备
 | &emsp;[3.4 重置 CSS 样式](#chapter-three-four) |
 | &emsp;[3.5 引用左上角图标](#chapter-three-five) |
 | &emsp;[3.6 按需引用 ElementUI](#chapter-three-six) |
-| &emsp;[3.6 Axios 封装使用](#chapter-three-seven) |
+| &emsp;[3.7 Axios 封装使用](#chapter-three-seven) |
 
 ## <a name="chapter-two" id="chapter-two">二 大体步骤</a>
 
