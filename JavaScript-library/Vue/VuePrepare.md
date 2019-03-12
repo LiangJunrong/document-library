@@ -22,6 +22,7 @@ Vue 开发准备
 | &emsp;[3.5 引用左上角图标](#chapter-three-five) |
 | &emsp;[3.6 按需引用 ElementUI](#chapter-three-six) |
 | &emsp;[3.7 Axios 封装使用](#chapter-three-seven) |
+| &emsp;[3.8 动态引用组件](#chapter-three-eight) |
 
 ## <a name="chapter-two" id="chapter-two">二 大体步骤</a>
 
@@ -72,6 +73,9 @@ Vue 开发准备
   - pages                   —— 页面
   - router                  —— 路由文件夹
     - index.js              —— 路由文件
+  - style                   —— 样式文件
+    - reset.less            —— 重置样式
+    - common.less           —— 公共样式
   - utils                   —— 工具文件夹
     - md5.js                —— md5 加密
  App.vue ————————————————————— 根组件
@@ -98,7 +102,7 @@ Vue 开发准备
 
 > build/webpack.base.conf.js
 
-```
+```js
 {
   test: /\.less$/,
   loader: "style-loader!css-loader!less-loader"
@@ -107,7 +111,7 @@ Vue 开发准备
 
 3. 在 style 中使用 less：
 
-```
+```css
 <style lang="less" scoped>
 .left {
   border: 1px solid #ccc;
@@ -126,7 +130,7 @@ Vue 开发准备
 
 > static/css/reset.css
 
-```
+```css
 /* 
   * reset 的目的不是让默认样式在所有浏览器下一致，而是减少默认样式有可能带来的问题。
   * The purpose of reset is not to allow default styles to be consistent across all browsers, but to reduce the potential problems of default styles.
@@ -192,7 +196,7 @@ input::-ms-input-placeholder { color: #919191; font-size: .26rem } /* Internet E
 
 > src/main.js
 
-```
+```js
 // 引入样式重置
 import '../static/css/reset.css'
 ```
@@ -209,21 +213,55 @@ import '../static/css/reset.css'
 
 > index.html
 
-```
-<link rel="shortcut icon" type=image/ico href=./static/img/icon.ico>
+```html
+<link rel="shortcut icon" type="image/ico" href="./static/img/icon.ico">
 ```
 
 ### <a name="chapter-three-six" id="chapter-three-six">3.6 按需引用 ElementUI</a>
 
 > [返回目录](#chapter-one)
 
-1. 安装 ElementUI：`npm i element-ui -S`
-2. 安装 babel 插件：`cnpm i babel-plugin-component -D`
-3. 修改 `.babelrc`：
+* 安装 ElementUI：`npm i element-ui -S`
+* 完整使用 ElementUI：
+
+> src/main.js
+
+```js
+import Vue from 'vue';
+
+// 引用 ElementUI
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import App from './App.vue';
+
+Vue.use(ElementUI);
+// 引用 ElementUI 结束
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
+```
+
+> App.vue
+
+```html
+<el-row>
+  <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">左一</el-col>
+  <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">左二</el-col>
+  <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">右二</el-col>
+  <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">右一</el-col>
+</el-row>
+```
+
+* 如果需要按需引用 ElementUI：
+
+1. 安装 babel 插件：`cnpm i babel-plugin-component -D`
+2. 修改 `.babelrc`：
 
 > .babelrc
 
-```
+```json
 {
   "presets": [
     ["env", {
@@ -248,11 +286,11 @@ import '../static/css/reset.css'
 }
 ```
 
-4. 按需引入 `Row` 与 `Col`：
+3. 按需引入 `Row` 与 `Col`：
 
 > main.js
 
-```
+```js
 // 引入及使用 ElementUI
 import {Row, Col} from 'element-ui';
 Vue.use(Row).use(Col);
@@ -260,7 +298,7 @@ Vue.use(Row).use(Col);
 
 > App.vue
 
-```
+```html
 <el-row>
   <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">左一</el-col>
   <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">左二</el-col>
@@ -269,11 +307,11 @@ Vue.use(Row).use(Col);
 </el-row>
 ```
 
-5. 响应式布局下基于断点的隐藏类：
+* 响应式布局下基于断点的隐藏类：
 
 > main.js
 
-```
+```js
 // 引入基于断点的隐藏类
 import 'element-ui/lib/theme-chalk/display.css';
 ```
@@ -302,7 +340,7 @@ import 'element-ui/lib/theme-chalk/display.css';
 | lg | `>=1200px` |
 | xl | `>=1920px` |
 
-6. 更多使用：[ElementUI 组件](http://element-cn.eleme.io/#/zh-CN/component/installation)
+> 更多：[ElementUI 组件](http://element-cn.eleme.io/#/zh-CN/component/installation)
 
 ### <a name="chapter-three-seven" id="chapter-three-seven">3.7 Axios 封装使用</a>
 
@@ -313,7 +351,7 @@ import 'element-ui/lib/theme-chalk/display.css';
 
 > api.js
 
-```
+```js
 /**
  * 封装逻辑
  * 1. 引入 axios。
@@ -353,7 +391,7 @@ export const getUserName = data => request({
 
 > UserInfo.vue
 
-```
+```js
 // 引用接口
 import { getUserName } from "@/api/api"
 
@@ -376,7 +414,7 @@ export default {
 
 > config/index.js
 
-```
+```js
 dev: {
   proxyTable: {
    '/stat': { // restful 接口规律
@@ -388,6 +426,47 @@ dev: {
 ```
 
 5. 更多参考：[Axios 中文说明](https://www.kancloud.cn/yunye/axios/234845)
+
+### <a name="chapter-three-eight" id="chapter-three-eight">3.8 动态引用组件</a>
+
+> [返回目录](#chapter-one)
+
+修改路由文件：
+
+> code/src/router/index.js
+
+```js
+import Vue from 'vue'
+import Router from 'vue-router'
+
+const Login = () => import('@/pages/Home/Login')
+const Index = () => import('@/pages/Home/Index')
+
+const ListOnePageOne = () => import('@/pages/ListOne/PageOne')
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/Index',
+      component: Index,
+      children: [
+        {
+          path:'/',
+          component: ListOnePageOne,
+          meta: ["第一组第一页"],
+        }
+      ]
+    }
+  ]
+})
+```
 
 ---
 
