@@ -93,13 +93,11 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 微信小程序](#chapter-seven) |
 | &emsp;[√] [7.1 文件主要目录及文件作用](#chapter-seven-one) |
 | &emsp;[√] [7.2 微信小程序生命周期](#chapter-seven-two) |
-| &emsp;[7.3 微信小程序提供的常用 API](#chapter-seven-three) |
-| &emsp;[√] [7.4 如何封装数据请求](#chapter-seven-four) |
-| &emsp;[√] [7.5 页面数据传递](#chapter-seven-five) |
-| &emsp;[7.6 加载性能优化的方法](#chapter-seven-six) |
-| &emsp;[7.7 微信小程序与原生 APP、Vue、H5 差异](#chapter-seven-seven) |
-| &emsp;[7.8 微信小程序原理](#chapter-seven-eight) |
-| &emsp;[7.9 微信小程序异步请求](#chapter-seven-night) |
+| &emsp;[√] [7.3 如何封装数据请求](#chapter-seven-three) |
+| &emsp;[√] [7.4 页面数据传递](#chapter-seven-four) |
+| &emsp;[√] [7.5 加载性能优化的方法](#chapter-seven-five) |
+| &emsp;[√] [7.6 微信小程序与原生 APP、Vue、H5 差异](#chapter-seven-six) |
+| &emsp;[√] [7.7 微信小程序原理](#chapter-seven-seven) |
 | <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 浏览器](#chapter-eight) |
 | &emsp;[8.1 浏览器架构](#chapter-eight-one) |
 | &emsp;[8.2 从输入 URL 到展示](#chapter-eight-two) |
@@ -1396,29 +1394,16 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 
 ![图](../../../public-repertory/img/other-interview-2019-InterviewPreparation-1.png)
 
-### <a name="chapter-seven-three" id="chapter-seven-three">7.3 微信小程序提供的常用 API</a>
+### <a name="chapter-seven-three" id="chapter-seven-three">7.3 如何封装数据请求</a>
 
 > [返回目录](#catalog-chapter-seven)
 
-暂无内容，有待补充
-
-### <a name="chapter-seven-four" id="chapter-seven-four">7.4 如何封装数据请求</a>
-
-> [返回目录](#catalog-chapter-seven)
 
 1. 封装接口：
 
 > 项目/utils/api.js
 
 ```js
-/*
- * @Author: jsliang
- * @Date: 2019-3-13 13:30:14
- * @LastEditors: jsliang
- * @LastEditTime: 2019-3-13 13:30:20
- * @Description: 接口文件
- */
-
 // 将请求进行 Promise 封装
 const fetch = ({url, data}) => {
 
@@ -1501,7 +1486,7 @@ wxLogin({
 )
 ```
 
-### <a name="chapter-seven-five" id="chapter-seven-five">7.5 页面数据传递</a>
+### <a name="chapter-seven-four" id="chapter-seven-four">7.4 页面数据传递</a>
 
 > [返回目录](#catalog-chapter-seven)
 
@@ -1579,29 +1564,53 @@ Component({
 
 5. 通过接口调用传递参数
 
-### <a name="chapter-seven-six" id="chapter-seven-six">7.6 加载性能优化的方法</a>
+### <a name="chapter-seven-five" id="chapter-seven-five">7.5 加载性能优化的方法</a>
 
 > [返回目录](#catalog-chapter-seven)
 
-暂无内容，有待补充
+1. 通过 `this.$preload()` 预加载用户可能点击的第二个页面。
+2. 组件化页面，出现两次以上的部分都进行封装成组件。
+3. 提取共用的 CSS 样式。
+4. 优化图片：[TinyPNG](https://tinypng.com/)。
 
-### <a name="chapter-seven-seven" id="chapter-seven-seven">7.7 微信小程序与原生 APP、Vue、H5 差异</a>
-
-> [返回目录](#catalog-chapter-seven)
-
-暂无内容，有待补充
-
-### <a name="chapter-seven-eight" id="chapter-seven-eight">7.8 微信小程序原理</a>
+### <a name="chapter-seven-six" id="chapter-seven-six">7.6 微信小程序与原生 APP、Vue、H5 差异</a>
 
 > [返回目录](#catalog-chapter-seven)
 
-暂无内容，有待补充
+* 微信小程序优劣势：
 
-### <a name="chapter-seven-night" id="chapter-seven-night">7.9 微信小程序异步请求</a>
+**优势**：
+
+1. 无需下载
+2. 打开速度较快
+3. 开发成本低于原生 APP
+
+**劣势**：
+
+1. 限制多。页面大小不能超过 1M，不能打开超过 5 个层级的页面。
+2. 样式单一。小程序内部组件已经成宿，样式不可以修改。
+3. 推广面窄。跑不出微信，还不能跑入朋友圈。
+
+* 微信小程序 VS 原生 APP
+
+微信小程序有着低开发成本、低获客成本、无需下载的优势。
+
+* 微信小程序 VS H5
+
+1. 依赖环境不同。一个能在多种手机浏览器运行。一个只能在微信中的非完整的浏览器。
+2. 开发成本不同。一个可能在各种浏览器出问题。一个只能在微信中运行。
+
+* 微信小程序 VS Vue
+
+微信小程序看似就是阉割版的 Vue。
+
+### <a name="chapter-seven-seven" id="chapter-seven-seven">7.7 微信小程序原理</a>
 
 > [返回目录](#catalog-chapter-seven)
 
-暂无内容，有待补充
+1. 本质上就是一个单页面应用，所有的页面渲染和事件处理，都在一个页面中进行。
+2. 架构为数据驱动的模式，UI 和数据分离，所有页面的更新，都需要通过对数据的更改来实现。
+3. 微信小程序分为两个部分：webview 和 appService。其中 webview 主要用来展示 UI，appServer 用来处理业务逻辑、数据及接口调用。它们在两个进程中进行，通过系统层 JSBridge 实现通信，实现 UI 的渲染、事件的处理。
 
 ## <a name="chapter-eight" id="chapter-eight">八 浏览器</a>
 
@@ -1846,9 +1855,8 @@ var name = 'World!';
 3. [《InterviewMap》](https://yuchengkai.cn/docs/frontend/)
 4. [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
 5. [《微信小程序必知面试题》](https://www.jianshu.com/p/7821aab256a8)
-6. [《整理一些微信小程序面试资料》](https://blog.csdn.net/xchaha/article/details/81019945)
-7. [《微信小程序面试题，附答案》](http://www.bslxx.com/a/mianshiti/tiku/2017/1020/1027.html)
-8. [《小程序踩过的那些面试题坑，附答案解决方法》](http://www.bslxx.com/m/view.php?aid=2008)
+6. [《微信小程序面试题，附答案》](http://www.bslxx.com/a/mianshiti/tiku/2017/1020/1027.html)
+7. [《小程序踩过的那些面试题坑，附答案解决方法》](http://www.bslxx.com/m/view.php?aid=2008)
 
 ### <a name="chapter-fourteen-two" id="chapter-fourteen-two">14.2 关于 HTML</a>
 
