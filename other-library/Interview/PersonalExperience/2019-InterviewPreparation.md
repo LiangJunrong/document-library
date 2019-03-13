@@ -91,11 +91,11 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[6.10 Vue-Router](#chapter-six-ten) |
 | &emsp;[6.11 Vuex](#chapter-six-eleven) |
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 微信小程序](#chapter-seven) |
-| &emsp;[7.1 文件主要目录及文件作用](#chapter-seven-one) |
-| &emsp;[7.2 微信小程序生命周期](#chapter-seven-two) |
+| &emsp;[√] [7.1 文件主要目录及文件作用](#chapter-seven-one) |
+| &emsp;[√] [7.2 微信小程序生命周期](#chapter-seven-two) |
 | &emsp;[7.3 微信小程序提供的常用 API](#chapter-seven-three) |
-| &emsp;[7.4 如何封装数据请求](#chapter-seven-four) |
-| &emsp;[7.5 页面数据传递](#chapter-seven-five) |
+| &emsp;[√] [7.4 如何封装数据请求](#chapter-seven-four) |
+| &emsp;[√] [7.5 页面数据传递](#chapter-seven-five) |
 | &emsp;[7.6 加载性能优化的方法](#chapter-seven-six) |
 | &emsp;[7.7 微信小程序与原生 APP、Vue、H5 差异](#chapter-seven-seven) |
 | &emsp;[7.8 微信小程序原理](#chapter-seven-eight) |
@@ -1488,7 +1488,7 @@ import {
 
 ```js
 wxLogin({
-  jsCode: this.code
+  jsCode: this.data.code
 }).then(
   res => {
     console.log("【step 4】返回成功处理：");
@@ -1526,9 +1526,58 @@ wx.setStorageSync('userId', 'jsliang');
 wx.getStorageSync('userId');
 ```
 
-3. 通过接口调用传递参数
+3. WXML 传递数据到 JS
 
+> login.wxml
 
+```html
+<text bindtap="clickText" data-labelId="{{userId}}">点击传递数据到 JS</text>
+```
+
+> login.js
+
+```js
+clickText(e) {
+  console.log(e.currentTarget.labelid)
+}
+```
+
+4. 组件调用传参
+
+> 组件接收数据：component-tag-name
+
+```js
+Component({
+  properties: {
+    // 这里定义了innerText属性，属性值可以在组件使用时指定
+    innerText: {
+      type: String,
+      value: 'default value',
+    }
+  }
+})
+```
+
+> 使用组件的页面定义 json
+
+```json
+{
+  "usingComponents": {
+    "component-tag-name": "../component/component"
+  }
+}
+```
+
+> 使用组件的页面 HTML 代码
+
+```html
+<view>
+  <!-- 以下是对一个自定义组件的引用 -->
+  <component-tag-name inner-text="Some text"></component-tag-name>
+</view>
+```
+
+5. 通过接口调用传递参数
 
 ### <a name="chapter-seven-six" id="chapter-seven-six">7.6 加载性能优化的方法</a>
 
