@@ -596,6 +596,57 @@ output: {
 
 这样，打包出来的图片路径，就是相对路径了。
 
+### <a name="chapter-three-ten" id="chapter-three-ten">3.10 rem 适配</a>
+
+> [返回目录](#chapter-one)
+
+如果项目属于手机端，那么需要进行 rem 适配，即将固定宽度的 px 转换为 rem，为了方便计算，下面有一份 100px = 1rem 的 JS 适配代码，只需要将代码放到 `项目/src/utils/rem.js` 中，并在 `项目/src/main.js` 中引用即可。
+
+> 项目/src/main.js
+
+```js
+// 引用 rem 适配
+import './utils/rem'
+```
+
+> 项目/src/utils/rem.js
+
+```js
+/*
+ * 移动端 rem 适配，px:rem = 100:1
+ * 该适配兼容 UC 竖屏转横屏出现的 BUG
+ * 自定义设计稿的宽度：designWidth
+ * 最大宽度：maxWidth
+ * 这段 js 的最后面有两个参数记得要设置，一个为设计稿实际宽度，一个为制作稿最大宽度，例如设计稿为 750，最大宽度为 750，则为(750,750)
+*/
+! function (e, t) {
+    function n() {
+        var n = l.getBoundingClientRect().width;
+        t = t || 540, n > t && (n = t);
+        var i = 100 * n / e;
+        r.innerHTML = "html{font-size:" + i + "px;}"
+    }
+    var i, d = document,
+        o = window,
+        l = d.documentElement,
+        r = document.createElement("style");
+    if (l.firstElementChild) l.firstElementChild.appendChild(r);
+    else {
+        var a = d.createElement("div");
+        a.appendChild(r), d.write(a.innerHTML), a = null
+    }
+    n(), o.addEventListener("resize", function () {
+        clearTimeout(i), i = setTimeout(n, 300)
+    }, !1), o.addEventListener("pageshow", function (e) {
+        e.persisted && (clearTimeout(i), i = setTimeout(n, 300))
+    }, !1), "complete" === d.readyState ? d.body.style.fontSize = "16px" : d.addEventListener(
+        "DOMContentLoaded",
+        function (e) {
+            d.body.style.fontSize = "16px"
+        }, !1)
+}(750, 750);
+```
+
 ---
 
 > **jsliang** 广告推送：  
