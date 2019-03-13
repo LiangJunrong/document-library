@@ -377,7 +377,7 @@ box-sizing: content-box
 1. `border-box` 中，整个 `div` 的宽、高，包括 `margin`、`padding`、`border`。  
 2. `content-box` 中，整个 `div` 的宽、高，则不包括上面元素。 
 
-![图](../../public-repertory/img/other-WechatApplet-bug-8.jpg)
+![图](../../../public-repertory/img/other-WechatApplet-bug-8.jpg)
 
 如上图，如果一个 `div` ，你的代码如下：
 ```
@@ -836,9 +836,9 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 下面放出相关知识点：
 
-![图](../../public-repertory/img/other-interview-1-prototype.png)
+![图](../../../public-repertory/img/other-interview-1-prototype.png)
 
-![图](../../public-repertory/img/other-interview-2-prototype.png)
+![图](../../../public-repertory/img/other-interview-2-prototype.png)
 
 * 实例的 `__proto__` 属性（原型）等于其构造函数的 `prototype` 属性。
 * Object.__proto__ === Function.prototype
@@ -1359,17 +1359,42 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 
 ### <a name="chapter-seven-one" id="chapter-seven-one">7.1 文件主要目录及文件作用</a>
 
-暂无内容，有待补充
-
 > [返回目录](#catalog-chapter-seven)
 
-暂无内容，有待补充
+```
+- component —————————————————— 组件文件夹
+  - navBar                  —— 底部组件
+    - navBar.js             —— 底部组件的 JS 代码
+    - navBar.json           —— 底部组件的配置文件
+    - navBar.wxml           —— 底部组件的 HTML 代码
+    - navBar.wxss           —— 底部组件的 CSS 代码
+- pages  ————————————————————— 页面文件夹
+  - index                   —— 首页
+    - index.js              —— 首页的 JS 代码
+    - index.json            —— 首页的配置文件
+    - index.wxml            —— 首页的 HTML 代码
+    - index.wxss            —— 首页的 CSS 代码
+- public ————————————————————— 图片文件夹
+- utils —————————————————————— 工具文件夹
+  - api.js                  —— 控制 API 的文件
+  - md5.js                  —— 工具 - MD5 加密文件
+  - timestamp.js            —— 工具 - 时间戳文件
+- app.json ——————————————————— 设置全局的基础数据等
+- app.wxss ——————————————————— 公共样式，可通过 import 导入更多
+- project.config.json ———————— 项目配置文件
+```
 
 ### <a name="chapter-seven-two" id="chapter-seven-two">7.2 微信小程序生命周期</a>
 
 > [返回目录](#catalog-chapter-seven)
 
-暂无内容，有待补充
+* `onLoad()`：页面加载时触发。
+* `onShow()`：页面显示/切入前台时触发。
+* `onReady()`：页面初次渲染完成时触发。
+* `onHide()`：页面隐藏/切入后台时触发。
+* `onUnload()`：页面卸载时触发。
+
+![图](../../../public-repertory/img/other-interview-2019-InterviewPreparation-1.png)
 
 ### <a name="chapter-seven-three" id="chapter-seven-three">7.3 微信小程序提供的常用 API</a>
 
@@ -1381,13 +1406,129 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 
 > [返回目录](#catalog-chapter-seven)
 
-暂无内容，有待补充
+1. 封装接口：
+
+> 项目/utils/api.js
+
+```js
+/*
+ * @Author: jsliang
+ * @Date: 2019-3-13 13:30:14
+ * @LastEditors: jsliang
+ * @LastEditTime: 2019-3-13 13:30:20
+ * @Description: 接口文件
+ */
+
+// 将请求进行 Promise 封装
+const fetch = ({url, data}) => {
+
+  // 打印接口请求的信息
+  console.log(`【step 1】API 接口：${url}`);
+  console.log("【step 2】data 传参：");
+  console.log(data);
+
+  // 返回 Promise
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: getApp().globalData.api + url,
+      data: data,
+      success: res => {
+        
+        // 成功时的处理 
+        if (res.data.code == 0) {
+          console.log("【step 3】请求成功：");
+          console.log(res.data);
+          return resolve(res.data);
+        } else {
+          wx.showModal({
+            title: '请求失败',
+            content: res.data.message,
+            showCancel: false
+          });
+        }
+
+      },
+      fail: err => {
+        // 失败时的处理
+        console.log(err);
+        return reject(err);
+      }
+    })
+  })
+
+}
+
+/**
+ * code 换取 openId
+ * @data {
+ *   jsCode - wx.login() 返回的 code
+ * }
+ */
+export const wxLogin = data => {
+  return fetch({
+    url: "tbcUser/getWechatOpenId",
+    data: data
+  })
+}
+```
+
+2. 调用接口：
+
+> 项目/pages/login/login.js
+
+```js
+import {
+  wxLogin,
+} from '../../utils/api.js'
+```
+
+3. 使用接口：
+
+> 项目/pages/login/login.js
+
+```js
+wxLogin({
+  jsCode: this.code
+}).then(
+  res => {
+    console.log("【step 4】返回成功处理：");
+    console.log(res.data);
+  },
+  err => {
+    console.log("【step 4】返回失败处理：");
+    console.log(err);
+  }
+)
+```
 
 ### <a name="chapter-seven-five" id="chapter-seven-five">7.5 页面数据传递</a>
 
 > [返回目录](#catalog-chapter-seven)
 
-暂无内容，有待补充
+1. 通过 url 携带参数，在 `onLoad()` 中通过 `options` 获取 url 上的参数：
+
+> 代码演示
+
+```html
+<navigator url="../index/index?userId={{userId}}"></navigator>
+
+<!-- 这两段是分别在 HTML 和 JS 中的代码 -->
+
+onLoad: function(options) {
+  console.log(options.userId);
+}
+```
+
+2. 通过 Storage 来传递参数：
+
+```js
+wx.setStorageSync('userId', 'jsliang');
+wx.getStorageSync('userId');
+```
+
+3. 通过接口调用传递参数
+
+
 
 ### <a name="chapter-seven-six" id="chapter-seven-six">7.6 加载性能优化的方法</a>
 
@@ -1656,6 +1797,9 @@ var name = 'World!';
 3. [《InterviewMap》](https://yuchengkai.cn/docs/frontend/)
 4. [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
 5. [《微信小程序必知面试题》](https://www.jianshu.com/p/7821aab256a8)
+6. [《整理一些微信小程序面试资料》](https://blog.csdn.net/xchaha/article/details/81019945)
+7. [《微信小程序面试题，附答案》](http://www.bslxx.com/a/mianshiti/tiku/2017/1020/1027.html)
+8. [《小程序踩过的那些面试题坑，附答案解决方法》](http://www.bslxx.com/m/view.php?aid=2008)
 
 ### <a name="chapter-fourteen-two" id="chapter-fourteen-two">14.2 关于 HTML</a>
 
@@ -1716,7 +1860,7 @@ var name = 'World!';
 > 或者小伙伴需要续费云服务器  
 > 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
 
-[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
-[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+[![图](../../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
