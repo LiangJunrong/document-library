@@ -2,9 +2,9 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2018-2-11 15:30:34**  
-> Recently revised in **2019-3-6 13:49:43**
+> Recently revised in **2019-3-13 12:55:16**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md)**
+**如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md)**
 
 Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜前端大佬技术胖（*jspang*）的原因，又因为自己学的是 JavaScript，所以给自己取了个 **jsliang**（*JavaScriptLiang*） 的网名，希望自己能在前端路上走得更远，并通过建立自己的前端知识体系分享给小伙伴，携手小伙伴们一起前行。
 
@@ -1355,6 +1355,8 @@ Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM �
 
 > [返回目录](#catalog-chapter-seven)
 
+微信小程序，简称小程序，英文名 Mini Program，是一种不需要下载安装即可使用的应用，它实现了应用“触手可及”的梦想，用户扫一扫或搜一下即可打开应用。
+
 ### <a name="chapter-seven-one" id="chapter-seven-one">7.1 文件主要目录及文件作用</a>
 
 暂无内容，有待补充
@@ -1653,6 +1655,7 @@ var name = 'World!';
 2. [《中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)》](https://juejin.im/post/5c64d15d6fb9a049d37f9c20)
 3. [《InterviewMap》](https://yuchengkai.cn/docs/frontend/)
 4. [《一篇文章搞定前端面试》](https://juejin.im/post/5bbaa549e51d450e827b6b13)
+5. [《微信小程序必知面试题》](https://www.jianshu.com/p/7821aab256a8)
 
 ### <a name="chapter-fourteen-two" id="chapter-fourteen-two">14.2 关于 HTML</a>
 

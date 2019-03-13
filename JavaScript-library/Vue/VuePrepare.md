@@ -24,6 +24,7 @@ Vue 开发准备
 | &emsp;[3.7 Axios 封装使用](#chapter-three-seven) |
 | &emsp;[3.8 动态引用组件](#chapter-three-eight) |
 | &emsp;[3.9 图片的引用及打包](#chapter-three-night) |
+| &emsp;[3.10 rem 适配](#chapter-three-ten) |
 
 ## <a name="chapter-two" id="chapter-two">二 大体步骤</a>
 
