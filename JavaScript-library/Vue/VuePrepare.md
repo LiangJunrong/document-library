@@ -577,6 +577,25 @@ module.exports = {
 
 从代码中可以看出，对于 `static` 的资源，VueCli 在开发模式 `dev` 以及打包模式 `build` 中都进行了配置，它不会被 `webpack` 进行打包，属于 “静态资源”。
 
+但是，问题来了：
+
+**VueCli 打包的时候，生成的是图片的绝对路径，部署的时候无法解析到图片，需要配置成相对路径，需要怎么改呢？**
+
+> 项目/build/webpack.prod.conf.js
+
+```js
+output: {
+  publicPath: './',
+  path: config.build.assetsRoot,
+  filename: utils.assetsPath('js/[name].[chunkhash].js'),
+  chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+},
+```
+
+在 output 这块，新增代码 `publicPath: './'`。
+
+这样，打包出来的图片路径，就是相对路径了。
+
 ---
 
 > **jsliang** 广告推送：  
