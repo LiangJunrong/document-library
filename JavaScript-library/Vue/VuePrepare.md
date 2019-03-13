@@ -2,7 +2,7 @@ Vue 开发准备
 ===
 
 > Create by **jsliang** on **2018-12-24 11:54:30**  
-> Recently revised in **2019-3-12 17:29:55**
+> Recently revised in **2019-3-13 11:11:31**
 
 在使用 VueCli 开发之前，有些步骤是重复的，如果一个一个重新写过比较麻烦，故在此记录一些常用步骤。
 
@@ -23,6 +23,7 @@ Vue 开发准备
 | &emsp;[3.6 按需引用 ElementUI](#chapter-three-six) |
 | &emsp;[3.7 Axios 封装使用](#chapter-three-seven) |
 | &emsp;[3.8 动态引用组件](#chapter-three-eight) |
+| &emsp;[3.9 图片的引用及打包](#chapter-three-night) |
 
 ## <a name="chapter-two" id="chapter-two">二 大体步骤</a>
 
@@ -457,7 +458,7 @@ dev: {
 
 修改路由文件：
 
-> code/src/router/index.js
+> 项目/src/router/index.js
 
 ```js
 import Vue from 'vue'
@@ -491,6 +492,90 @@ export default new Router({
   ]
 })
 ```
+
+### <a name="chapter-three-night" id="chapter-three-night">3.9 图片的引用及打包</a>
+
+> [返回目录](#chapter-one)
+
+在 VueCli 中，图片可以存放在两个位置：
+
+* 静态目录，不会被打包：`项目/static/img`
+* 动态目录，将会被打包：`项目/src/assets/img`
+
+详细来说：
+
+* static 的目录中的图片，不会被 Webpack 相关机制理会，你引入的时候，是怎样的，它就是怎样的。
+* assets 中的图片，它会被 Webpack 处理，在配置了图片相关打包 loader 的情况下，它会在 `项目/build/webpack.base.conf.js` 中依据相关的 loader 限制，在一定大小下转换为 Base64。
+
+> 项目/build/webpack.base.conf.js
+
+```js
+{
+  test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+  loader: 'url-loader',
+  options: {
+    limit: 10000,
+    name: utils.assetsPath('img/[name].[hash:7].[ext]')
+  }
+},
+```
+
+从代码中可以看出可以看出，它对于小于 10K(10000/1024) 的图片，会打包成 base64，从而减少了我们在浏览器加载时的性能损耗。
+
+那么，在 VueCli 中应该如何引用图片呢？
+
+```html
+<template>
+  <div>
+      <van-row>
+        <!-- 不推荐通过下面的方式直接引用 assets 图片，因为 webpack 打包可能没法成功打包 -->
+        <van-col span="8"><img src="../../assets/img/emoticon_happy.png" alt="表情包"></van-col>
+        <van-col span="8"><img :src="icon1" alt="表情包"></van-col>
+        <van-col span="8"><img :src="icon2" alt="表情包"></van-col>
+      </van-row>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        icon1: require('../../assets/img/emoticon_cool.png'), // 引用 assets 下的图片
+        icon2: '/static/img/emoticon_cute.png' // 引用 static 下的图片
+      }
+    }
+  }
+</script>
+```
+
+说完 static 和 assets 的区别，以及对图片的引用，如果小伙伴们想验证下，那么可以看看 Webpack 在打包的时候对图片的处理：
+
+> 项目/config/index/js
+
+```js
+'use strict'
+
+const path = require('path')
+
+module.exports = {
+  dev: {
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    proxyTable: {},
+    //... 省略剩下的代码
+  },
+   build: {
+    index: path.resolve(__dirname, '../dist/index.html'),
+
+    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    // ...省略剩下的代码
+   }
+}
+```
+
+从代码中可以看出，对于 `static` 的资源，VueCli 在开发模式 `dev` 以及打包模式 `build` 中都进行了配置，它不会被 `webpack` 进行打包，属于 “静态资源”。
 
 ---
 
