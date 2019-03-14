@@ -84,10 +84,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[√] [6.5 template 编译](#chapter-six-five) |
 | &emsp;[√] [6.6 key](#chapter-six-six) |
 | &emsp;[√] [6.7 nextTick](#chapter-six-seven) |
-| &emsp;[6.8 虚拟 DOM](#chapter-six-eight) |
-| &emsp;[6.9 父子组件通讯](#chapter-six-night) |
-| &emsp;[6.10 Vue-Router](#chapter-six-ten) |
-| &emsp;[6.11 Vuex](#chapter-six-eleven) |
+| &emsp;[√] [6.8 父子组件通讯](#chapter-six-eight) |
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 微信小程序](#chapter-seven) |
 | &emsp;[√] [7.1 文件主要目录及文件作用](#chapter-seven-one) |
 | &emsp;[√] [7.2 微信小程序生命周期](#chapter-seven-two) |
@@ -97,24 +94,20 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[√] [7.6 微信小程序与原生 APP、Vue、H5 差异](#chapter-seven-six) |
 | &emsp;[√] [7.7 微信小程序原理](#chapter-seven-seven) |
 | <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 浏览器](#chapter-eight) |
-| &emsp;[8.1 浏览器架构](#chapter-eight-one) |
-| &emsp;[√] [8.2 浏览器解析 URL](#chapter-eight-two) |
-| &emsp;[8.3 Event Loop](#chapter-eight-three) |
-| &emsp;[√] [8.4 重绘与回流](#chapter-eight-four) |
-| &emsp;[8.5 数据存储](#chapter-eight-five) |
-| &emsp;[8.6 内存管理与垃圾回收](#chapter-eight-six) |
-| &emsp;[8.7 内存泄漏](#chapter-eight-seven) |
+| &emsp;[√] [8.1 浏览器解析 URL](#chapter-eight-one) |
+| &emsp;[√] [8.2 重绘与回流](#chapter-eight-two) |
+| &emsp;[√] [8.3 数据存储](#chapter-eight-three) |
+| &emsp;[√] [8.4 内存管理与垃圾回收](#chapter-eight-four) |
+| &emsp;[√] [8.5 内存泄漏](#chapter-eight-five) |
 | <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 网络协议](#chapter-night) |
-| &emsp;[9.1 网络分层](#chapter-night-one) |
-| &emsp;[9.2 HTTP/HTTPS](#chapter-night-two) |
-| &emsp;[9.3 HTTP 状态码](#chapter-night-three) |
+| &emsp;[√] [9.1 网络分层](#chapter-night-one) |
+| &emsp;[√] [9.2 HTTP/HTTPS](#chapter-night-two) |
+| &emsp;[√] [9.3 HTTP 状态码](#chapter-night-three) |
 | &emsp;[√] [9.4 TCP 三次握手与四次挥手](#chapter-night-four) |
-| &emsp;[9.5 跨域](#chapter-night-five) |
-| &emsp;[9.6 网络安全](#chapter-night-six) |
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 性能优化](#chapter-ten) |
-| &emsp;[10.1 HTML 优化](#chapter-ten-one) |
-| &emsp;[10.2 CSS 优化](#chapter-ten-two) |
-| &emsp;[10.3 JavaScript 优化](#chapter-ten-three) |
+| &emsp;[√] [10.1 HTML 优化](#chapter-ten-one) |
+| &emsp;[√] [10.2 CSS 优化](#chapter-ten-two) |
+| &emsp;[√] [10.3 JavaScript 优化](#chapter-ten-three) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 算法](#chapter-eleven) |
 | <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 其他](#chapter-twelve) |
 | <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 总结](#chapter-thirteen) |
@@ -1335,13 +1328,7 @@ Vue.nextTick().then(function () {
 
 或者自行查找更优秀的资源。
 
-### <a name="chapter-six-eight" id="chapter-six-eight">6.8 虚拟 DOM</a>
-
-> [返回目录](#catalog-chapter-six)
-
-
-
-### <a name="chapter-six-night" id="chapter-six-night">6.9 父子组件通讯</a>
+### <a name="chapter-six-eight" id="chapter-six-eight">6.8 父子组件通讯</a>
 
 > [返回目录](#catalog-chapter-six)
 
@@ -1355,19 +1342,85 @@ Vue.nextTick().then(function () {
 
 **假设在工作中，有三个 .vue 文件：A.vue、B.vue、C.vue。A.vue 是主页面，B.vue 和 C.vue 类似于头部导航条和底部导航栏。现在，B.vue 点击会切换路由，C.vue 需要获取 B.vue 传递的信息。**
 
+> A.vue
 
+```html
+<template>
+  <div>
+    <top-nav></top-nav>
+    <div class="container">
+      <router-view></router-view>
+    </div>
+    <bottom-nav></bottom-nav>
+  </div>
+</template>
+```
 
-### <a name="chapter-six-ten" id="chapter-six-ten">6.10 Vue-Router</a>
+> bus.js
 
-暂无内容，有待补充
+```js
+import Vue from 'vue';
+
+// 使用 Event Bus
+const bus = new Vue();
+
+export default bus;
+```
+
+> B.vue
+
+```html
+<template>
+  <div class="bottom-nav">
+    <div class="nav-one" @click="goToPage({path: '/HomeIndex', meta:'首页'})">
+      <i class="icon-home"></i>
+      <span>首页</span>
+    </div>
+  </div>
+</template>
+
+<script>
+  import bus from '../utils/bus'
+  export default {
+    methods: {
+      goToPage(route) {
+        this.$router.push(route.path);
+        bus.$emit('meta', route.meta);
+      }
+    }
+  }
+</script>
+```
+
+> C.vue
+
+```html
+<template>
+  <div class="top-nav">
+    <span class="title">{{title}}</span>
+  </div>
+</template>
+
+<script>
+  import bus from '../utils/bus'
+  export default {
+    data() {
+      return {
+        title: ''
+      }
+    },
+    created() {
+      bus.$on('meta', msg=> {
+        this.title = msg;
+      })
+    }
+  }
+</script>
+```
+
+### <a name="chapter-six-night" id="chapter-six-night">6.9 </a>
 
 > [返回目录](#catalog-chapter-six)
-
-### <a name="chapter-six-eleven" id="chapter-six-eleven">6.11 Vuex</a>
-
-> [返回目录](#catalog-chapter-six)
-
-暂无内容，有待补充
 
 ## <a name="chapter-seven" id="chapter-seven">七 微信小程序</a>
 
@@ -1636,13 +1689,7 @@ Component({
 
 > [返回目录](#catalog-chapter-eight)
 
-### <a name="chapter-eight-one" id="chapter-eight-one">8.1 浏览器架构</a>
-
-> [返回目录](#catalog-chapter-eight)
-
-暂无内容，有待补充
-
-### <a name="chapter-eight-two" id="chapter-eight-two">8.2 浏览器解析 URL</a>
+### <a name="chapter-eight-one" id="chapter-eight-one">8.1 浏览器解析 URL</a>
 
 > [返回目录](#catalog-chapter-eight)
 
@@ -1657,13 +1704,7 @@ Component({
 
 小伙伴们可以前往 [《面试知识点 - JS 防抖与节流》](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md) 查看。
 
-### <a name="chapter-eight-three" id="chapter-eight-three">8.3 Event Loop</a>
-
-> [返回目录](#catalog-chapter-eight)
-
-暂无内容，有待补充
-
-### <a name="chapter-eight-four" id="chapter-eight-four">8.4 重绘与回流</a>
+### <a name="chapter-eight-two" id="chapter-eight-two">8.2 重绘与回流</a>
 
 > [返回目录](#catalog-chapter-eight)
 
@@ -1678,7 +1719,7 @@ Component({
 
 小伙伴们可以前往 [《面试知识点 - JS 防抖与节流》](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md) 查看。
 
-### <a name="chapter-eight-five" id="chapter-eight-five">8.5 数据存储</a>
+### <a name="chapter-eight-three" id="chapter-eight-three">8.3 数据存储</a>
 
 > [返回目录](#catalog-chapter-eight)
 
@@ -1686,7 +1727,7 @@ Component({
 2. 存储于浏览器中，cookie 用于短期存储用户身份，登录状态等较小的信息；localStorage/sessionStorage 用于长期存储数据，浏览器关闭不影响它们的内存，相比于 cookie，storage 能存储较多；IndexedDB 是浏览器提供的接近于 NoSQL 的数据库，允许存储大量数据。
 3. 存储于数据库中。
 
-### <a name="chapter-eight-six" id="chapter-eight-six">8.6 内存管理与垃圾回收</a>
+### <a name="chapter-eight-four" id="chapter-eight-four">8.4 内存管理与垃圾回收</a>
 
 > [返回目录](#catalog-chapter-eight)
 
@@ -1697,7 +1738,7 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 
 这两者通过不同的算法，对内存进行管理操作。
 
-### <a name="chapter-eight-seven" id="chapter-eight-seven">8.7 内存泄漏</a>
+### <a name="chapter-eight-five" id="chapter-eight-five">8.5 内存泄漏</a>
 
 > [返回目录](#catalog-chapter-eight)
 
@@ -1719,13 +1760,35 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 
 > [返回目录](#catalog-chapter-night)
 
-* [网络分层TCP/IP 与HTTP](https://juejin.im/post/5a98e1f7f265da237410694e)
+目前网络分层可分为两种：OSI 模型和 TCP/IP 模型。
+
+* OSI 模型
+
+1. 应用层（Application）
+2. 表示层（Presentation）
+3. 会话层（Session）
+4. 传输层（Transport）
+5. 网络层（Network）
+6. 数据链路层（Data Link）
+7. 物理层（Physical）
+
+* TCP/IP 模型
+
+1. 应用层（Application）
+2. 传输层（Host-to-Host Transport）
+3. 互联网层（Internet）
+4. 网络接口层（Network Interface）
+
+更多详情可以查看下面这篇文章，里面讲得非常详细：
+
+* [《网络分层TCP/IP 与HTTP》](https://juejin.im/post/5a98e1f7f265da237410694e)
 
 ### <a name="chapter-night-two" id="chapter-night-two">9.2 HTTP/HTTPS</a>
 
 > [返回目录](#catalog-chapter-night)
 
-暂无内容，有待补充
+* **HTTP**：超文本传输协议（HTTP）是用于分布式，协作式和超媒体信息系统的应用协议。它是Web上数据交换的基础，是一种 client-server 协议，也就是说请求通常是由像浏览器这样的接受方发起的。
+* **HTTPS**：HTTPS（全称：Hypertext Transfer Protocol over Secure Socket Layer），是以安全为目标的 HTTP 通道，简单讲是 HTTP 的安全版。即 HTTP 下加入 SSL 层，HTTPS 的安全基础是 SSL，因此加密的详细内容就需要 SSL。 它是一个 URI scheme（抽象标识符体系），句法类同 http: 体系。用于安全的HTTP数据传输。https:URL 表明它使用了 HTTP，但 HTTPS 存在不同于 HTTP 的默认端口及一个加密/身份验证层（在 HTTP 与 TCP 之间）。这个系统的最初研发由网景公司进行，提供了身份验证与加密通讯方法，现在它被广泛用于万维网上安全敏感的通讯，例如交易支付方面。
 
 ### <a name="chapter-night-three" id="chapter-night-three">9.3 HTTP 状态码</a>
 
@@ -1747,6 +1810,8 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 4. 404 - 请求页面错误。
 5. 500 - 服务器内部错误，无法完成请求。
 
+最后，小伙伴们如果想要了解更多，还是需要自行查找资料的。
+
 ### <a name="chapter-night-four" id="chapter-night-four">9.4 TCP 三次握手与四次挥手</a>
 
 > [返回目录](#catalog-chapter-night)
@@ -1762,32 +1827,11 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 
 小伙伴们可以前往 [《面试知识点 - JS 防抖与节流》](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md) 查看。
 
-### <a name="chapter-night-five" id="chapter-night-five">9.5 跨域</a>
-
-> [返回目录](#catalog-chapter-night)
-
-暂无内容，有待补充
-
-### <a name="chapter-night-six" id="chapter-night-six">9.6 网络安全</a>
-
-> [返回目录](#catalog-chapter-night)
-
-* XSS 攻击：注入恶意代码
-
-1. 在输入框中被使用了 JS 代码进行了 Alert 弹窗！
-2. cookie 设置 httpOnly
-3. 转义页面上的输入内容和输出内容
-
-* CSRF：跨站请求伪造
-
-1. get 不修改数据
-2. 不被第三方网站访问到用户的 cookie
-3. 设置白名单，不被第三方网站请求
-4. 请求校验
-
 ## <a name="chapter-ten" id="chapter-ten">十 性能优化</a>
 
 > [返回目录](#catalog-chapter-ten)
+
+通过优化从而提高页面的加载速度。
 
 ### <a name="chapter-ten-one" id="chapter-ten-one">10.1 HTML 优化</a>
 
@@ -1828,34 +1872,19 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 
 > [返回目录](#catalog-chapter-eleven)
 
-暂无内容，有待补充
+在算法这块，**jsliang** 觉得自己还是比较薄弱的，如果小伙伴们跟 **jsliang** 一样，也想学点这方面知识，欢迎一起刷 LeetCode 共同进步：
+
+* [LeetCode](https://leetcode-cn.com/)
 
 ## <a name="chapter-twelve" id="chapter-twelve">十二 其他</a>
 
 > [返回目录](#catalog-chapter-twelve)
 
-```js
-// 题目 1
-["1", "2", "3"].map(parseInt); // 1 NaN NaN
+在 【其他】 这块，**jsliang** 原本想谈谈面试中的一些小技巧，例如谈薪；或者讲讲 HR 面需要询问的问题，例如工作时长、加班机制、调薪机制等……
 
-// 题目 2
-var val = 'smtg';
-console.log('Value is ' + (val === 'smtg') ? 'Something' : 'Nothing'); // Something。是的，没有 Value is
+但是最终看来，**jsliang** 的经历还是有所欠缺，所经历的面试不够 “盛大”，所以说出的话可能就是 “胡言乱语”，“误导观众”，故在此就不献丑了，如果小伙伴们想知道更多，可以通过 QQ 群：`798961601` 找到我。
 
-// 题目 3
-var name = 'World!';
-(function() {
-  if(typeof name === 'undefined') {
-    var name = 'Jack';
-    console.log('Hello, ' + name);
-  } else {
-    console.log("Goodbye！");
-  }
-})()
-// Console：Hello, Jack
-```
-
-### 人事问题
+> 目前 **jsliang** 在 2 天的请假中，去了 4 场面试，收获 3 份 offer，小伙伴如不知道简历怎么写、不知道面试要怎么震惊、面试总感觉没谱，可以先找我聊聊，讲讲 **jsliang** 个人经历，和听到的其他小伙伴的经历~
 
 ## <a name="chapter-thirteen" id="chapter-thirteen">十三 总结</a>
 
