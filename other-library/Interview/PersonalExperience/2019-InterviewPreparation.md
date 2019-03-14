@@ -1,40 +1,10 @@
 jsliang 的 2019 面试准备
 ===
 
-> Create by **jsliang** on **2018-2-11 15:30:34**  
-> Recently revised in **2019-3-14 08:06:19**
+> Create by **jsliang** on **2019-2-11 15:30:34**  
+> Recently revised in **2019-3-14 12:52:28**
 
-**如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md)**
-
-Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜前端大佬技术胖（*jspang*）的原因，又因为自己学的是 JavaScript，所以给自己取了个 **jsliang**（*JavaScriptLiang*） 的网名，希望自己能在前端路上走得更远，并通过建立自己的前端知识体系分享给小伙伴，携手小伙伴们一起前行。
-
-**首先**，**jsliang** 高考后的暑期就听大学师兄的建议，开始学习编程，那时候学习了 C 语言，觉得世界上最神奇的事情不过如此，敲两下键盘，按下回车，电脑就会一闪一闪地响应我们！于是在大学的时候，陆陆续续学过 C、C#、.Net……等。
-
-> **-_-|| 由于都还给老师了，在这里就不多累述了。**
-
-**然后**，在大二就开始接触 HTML，那时候选修了《网页设计基础》，跟着老师做了个只有几个页面的静态网站。在大三的时候，参加了学校的特训班，分角色按流程从头到尾做了个实现了购物功能的网站。同时，由于在特训班的时候，看到后端使用 ThinkPHP（简称 TP），觉得蛮不错的，于是自己捣鼓，使用 TP 3.2.3 + Bootstrap 3 + MySQL 打造了自己的博客（已下线）。
-
-**接着**，由于选修了门 Node.js 的课，所以也跟着大佬的步伐接触了下 Vue、Koa 这些，那时候对 npm 等诸多不懂，为了折腾这个，我的前端世界自此打开了个大门。
-
-**最后**，我在自己的毕业设计中使用 Node.js + Vue + ElementUI + MongoDB 打造了个校园外卖、快递代拿社区单页应用。
-
-在 2018 年 5 月的时候，直接出来面试。不像其他大佬的毕业等于失业，很幸运地 **jsliang** 面试第一家就给了 offer，于是就进了这家公司，那时候感觉自己只懂 ES5、jQuery、HTML/HTML5、CSS/CSS3 的皮毛。
-
-在熟悉了三个月的业务，公司给的任务能顺利完成后，我觉得自己不够努力，外面的前端翻天覆地，我的技术却只是梭哈 jQuery！
-
-于是 2018 年 8 月，**jsliang** 开始写 Markdown，将 5 月份到 8 月份记录到 Word 文档上的笔记整理成了 [jsliang 的文档库](https://github.com/LiangJunrong/document-library)，并在 [jsliang 的掘金](https://juejin.im/user/584613ba128fe10058b3cf68) 发表了第一篇文章。
-
-8 月至今，**jsliang** 大致经历了以下这些：
-
-1. 学 Webpack，并用 Webpack 构建一个多页面配置。然后幸运的是，刚好碰到公司的一个扒站任务，于是整个前端小组直接用了我的 Webpack + jQuery + VS Code 的 Live Share 套路进行协同开发！
-2. 学 微信小程序，并将它应用到电信开发的微信小程序项目翼小微中。
-3. 学 ECharts 报表，并用它做了个 Vue + ECharts 的报表，来展示爱音乐公司的运营数据。
-4. 学 Node，然后搭了个企业网站（http://company.jsliang.top），并写了篇小文章（目前最高成就，获得了 1100 多赞）。
-5. 学 Vue，由于之前的 Vue 工作上有好多没有，逐渐淡忘了，所以从基础开始，准备写一套《Vue 从 0 到 1》。
-
-以上，就是 **jsliang** 的编程生涯。
-
-今儿，在这里写写 **jsliang** 为了跳槽，根据个人想法进行的一些前端面试资料整理，小伙伴们觉得不错的点个赞或者去 GitHub 点个 star，觉得有误请指出，谢谢~
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md)**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -44,9 +14,10 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| &emsp;[2.1 跳槽原委](#chapter-two-one) |
-| &emsp;[2.2 进击目标](#chapter-two-two) |
-| &emsp;[2.3 开篇点题](#chapter-two-three) |
+| &emsp;[2.1 自我介绍](#chapter-two-one) |
+| &emsp;[2.2 跳槽原委](#chapter-two-two) |
+| &emsp;[2.3 进击目标](#chapter-two-three) |
+| &emsp;[2.4 开篇点题](#chapter-two-four) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 HTML](#chapter-three) |
 | &emsp;[3.1 HTML 学习推荐](#chapter-three-one) |
 | &emsp;[3.2 HTML 语义化](#chapter-three-two) |
@@ -124,7 +95,41 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 
 **请时刻准备好自己的简历，不管是互联网经济不佳面临裁员，还是因为公司内部斗争严重心乱如麻，还是因为厌倦了目前的一切……只有随时更新自己，把自己的简历准备好，你才知道哪一刻跑路是最佳选择。**
 
-### <a name="chapter-two-one" id="chapter-two-one">2.1 跳槽原委</a>
+### <a name="chapter-two-one" id="chapter-two-one">2.1 自我介绍</a>
+
+> [返回目录](#catalog-chapter-two)
+
+Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜前端大佬技术胖（*jspang*）的原因，又因为自己学的是 JavaScript，所以给自己取了个 **jsliang**（*JavaScriptLiang*） 的网名，希望自己能在前端路上走得更远，并通过建立自己的前端知识体系分享给小伙伴，携手小伙伴们一起前行。
+
+**首先**，**jsliang** 高考后的暑期就听大学师兄的建议，开始学习编程，那时候学习了 C 语言，觉得世界上最神奇的事情不过如此，敲两下键盘，按下回车，电脑就会一闪一闪地响应我们！于是在大学的时候，陆陆续续学过 C、C#、.Net……等。
+
+> **-_-|| 由于都还给老师了，在这里就不多累述了。**
+
+**然后**，在大二就开始接触 HTML，那时候选修了《网页设计基础》，跟着老师做了个只有几个页面的静态网站。在大三的时候，参加了学校的特训班，分角色按流程从头到尾做了个实现了购物功能的网站。同时，由于在特训班的时候，看到后端使用 ThinkPHP（简称 TP），觉得蛮不错的，于是自己捣鼓，使用 TP 3.2.3 + Bootstrap 3 + MySQL 打造了自己的博客（已下线）。
+
+**接着**，由于选修了门 Node.js 的课，所以也跟着大佬的步伐接触了下 Vue、Koa 这些，那时候对 npm 等诸多不懂，为了折腾这个，我的前端世界自此打开了个大门。
+
+**最后**，我在自己的毕业设计中使用 Node.js + Vue + ElementUI + MongoDB 打造了个校园外卖、快递代拿社区单页应用。
+
+在 2018 年 5 月的时候，直接出来面试。不像其他大佬的毕业等于失业，很幸运地 **jsliang** 面试第一家就给了 offer，于是就进了这家公司，那时候感觉自己只懂 ES5、jQuery、HTML/HTML5、CSS/CSS3 的皮毛。
+
+在熟悉了三个月的业务，公司给的任务能顺利完成后，我觉得自己不够努力，外面的前端翻天覆地，我的技术却只是梭哈 jQuery！
+
+于是 2018 年 8 月，**jsliang** 开始写 Markdown，将 5 月份到 8 月份记录到 Word 文档上的笔记整理成了 [jsliang 的文档库](https://github.com/LiangJunrong/document-library)，并在 [jsliang 的掘金](https://juejin.im/user/584613ba128fe10058b3cf68) 发表了第一篇文章。
+
+8 月至今，**jsliang** 大致经历了以下这些：
+
+1. 学 Webpack，并用 Webpack 构建一个多页面配置。然后幸运的是，刚好碰到公司的一个扒站任务，于是整个前端小组直接用了我的 Webpack + jQuery + VS Code 的 Live Share 套路进行协同开发！
+2. 学 微信小程序，并将它应用到电信开发的微信小程序项目翼小微中。
+3. 学 ECharts 报表，并用它做了个 Vue + ECharts 的报表，来展示爱音乐公司的运营数据。
+4. 学 Node，然后搭了个企业网站（http://company.jsliang.top），并写了篇小文章（目前最高成就，获得了 1100 多赞）。
+5. 学 Vue，由于之前的 Vue 工作上有好多没有，逐渐淡忘了，所以从基础开始，准备写一套《Vue 从 0 到 1》。
+
+以上，就是 **jsliang** 的编程生涯。
+
+今儿，在这里写写 **jsliang** 为了跳槽，根据个人想法进行的一些前端面试资料整理，小伙伴们觉得不错的点个赞或者去 GitHub 点个 star，觉得有误请指出，谢谢~
+
+### <a name="chapter-two-two" id="chapter-two-two">2.2 跳槽原委</a>
 
 > [返回目录](#catalog-chapter-two)
 
@@ -157,7 +162,7 @@ enm...所以心也委屈了。
 > GitHub 见证：[点击查看](https://github.com/LiangJunrong)  
 > 掘金见证：[点击查看](https://juejin.im/user/584613ba128fe10058b3cf68)
 
-### <a name="chapter-two-two" id="chapter-two-two">2.2 进击目标</a>
+### <a name="chapter-two-three" id="chapter-two-three">2.3 进击目标</a>
 
 > [返回目录](#catalog-chapter-two)
 
@@ -190,7 +195,7 @@ enm...所以心也委屈了。
    2. 要求必须懂安卓或者 IOS 开发。
    3. 要求必须精通 jQuery 全家桶(jQuery UI、jQuery Mobile 等……)。
 
-### <a name="chapter-two-three" id="chapter-two-three">2.3 开篇点题</a>
+### <a name="chapter-two-four" id="chapter-two-four">2.4 开篇点题</a>
 
 > [返回目录](#catalog-chapter-two)
 
