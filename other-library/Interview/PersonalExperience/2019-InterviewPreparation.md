@@ -2,7 +2,7 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2018-2-11 15:30:34**  
-> Recently revised in **2019-3-13 12:55:16**
+> Recently revised in **2019-3-14 08:06:19**
 
 **如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md)**
 
@@ -73,19 +73,17 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[√] [5.5 浅拷贝与深拷贝](#chapter-five-five) |
 | &emsp;[√] [5.6 模块化与组件化](#chapter-five-six) |
 | &emsp;[√] [5.7 面向对象与面向过程](#chapter-five-seven) |
-| &emsp;[5.8 JS 继承](#chapter-five-eight) |
-| &emsp;[5.9 防抖与节流](#chapter-five-night) |
-| &emsp;[5.10 ES6](#chapter-five-ten) |
-| &emsp;[5.11 函数柯里化](#chapter-five-eleven) |
-| &emsp;[5.12 数组操作](#chapter-five-twelve) |
+| &emsp;[√] [5.8 防抖与节流](#chapter-five-eight) |
+| &emsp;[√] [5.9 ES6](#chapter-five-night) |
+| &emsp;[√] [5.10 数组操作](#chapter-five-ten) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六  Vue](#chapter-six) |
-| &emsp;[6.1 MVVM](#chapter-six-one) |
-| &emsp;[6.2 生命周期](#chapter-six-two) |
-| &emsp;[6.3 双向数据绑定](#chapter-six-three) |
-| &emsp;[6.4 Virtual DOM](#chapter-six-four) |
-| &emsp;[6.5 template 编译](#chapter-six-five) |
-| &emsp;[6.6 key](#chapter-six-six) |
-| &emsp;[6.7 nextTick](#chapter-six-seven) |
+| &emsp;[√] [6.1 MVVM](#chapter-six-one) |
+| &emsp;[√] [6.2 生命周期](#chapter-six-two) |
+| &emsp;[√] [6.3 双向数据绑定](#chapter-six-three) |
+| &emsp;[√] [6.4 Virtual DOM](#chapter-six-four) |
+| &emsp;[√] [6.5 template 编译](#chapter-six-five) |
+| &emsp;[√] [6.6 key](#chapter-six-six) |
+| &emsp;[√] [6.7 nextTick](#chapter-six-seven) |
 | &emsp;[6.8 虚拟 DOM](#chapter-six-eight) |
 | &emsp;[6.9 父子组件通讯](#chapter-six-night) |
 | &emsp;[6.10 Vue-Router](#chapter-six-ten) |
@@ -100,9 +98,9 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[√] [7.7 微信小程序原理](#chapter-seven-seven) |
 | <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 浏览器](#chapter-eight) |
 | &emsp;[8.1 浏览器架构](#chapter-eight-one) |
-| &emsp;[8.2 从输入 URL 到展示](#chapter-eight-two) |
+| &emsp;[√] [8.2 浏览器解析 URL](#chapter-eight-two) |
 | &emsp;[8.3 Event Loop](#chapter-eight-three) |
-| &emsp;[8.4 重绘与回流](#chapter-eight-four) |
+| &emsp;[√] [8.4 重绘与回流](#chapter-eight-four) |
 | &emsp;[8.5 数据存储](#chapter-eight-five) |
 | &emsp;[8.6 内存管理与垃圾回收](#chapter-eight-six) |
 | &emsp;[8.7 内存泄漏](#chapter-eight-seven) |
@@ -110,7 +108,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 | &emsp;[9.1 网络分层](#chapter-night-one) |
 | &emsp;[9.2 HTTP/HTTPS](#chapter-night-two) |
 | &emsp;[9.3 HTTP 状态码](#chapter-night-three) |
-| &emsp;[9.4 TCP 三次握手与四次挥手](#chapter-night-four) |
+| &emsp;[√] [9.4 TCP 三次握手与四次挥手](#chapter-night-four) |
 | &emsp;[9.5 跨域](#chapter-night-five) |
 | &emsp;[9.6 网络安全](#chapter-night-six) |
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 性能优化](#chapter-ten) |
@@ -830,7 +828,7 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 关于 `prototype`、`__proto__`、`new`、`call()`、`apply()`、`bind()`、`this` 这些的知识点，由于篇幅太长，**jsliang** 已经抽离了出来，并做了简洁详细讲解，详见：
 
-* [2019 面试准备 - JS 原型与原型链](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/prototype.md)
+* [面试知识点 - JS 原型与原型链](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
 
 下面放出相关知识点：
 
@@ -1108,87 +1106,62 @@ console.log(p1.name); // jsliang
 p1.eat(); // jsliang 吃饭
 ```
 
-### <a name="chapter-five-eight" id="chapter-five-eight">5.8 JS 继承</a>
+当然，**jsliang** 只能写到这里了，再写下去就是设计模式等知识点了。
+
+所以希望小伙伴们还是了解下面向对象思想，有助于进一步提升自己。
+
+### <a name="chapter-five-eight" id="chapter-five-eight">5.8 防抖与节流</a>
 
 > [返回目录](#catalog-chapter-five)
 
-暂无内容，有待补充
+关于 **防抖与节流**，**jsliang** 特意将资料结合起来：
 
-### <a name="chapter-five-night" id="chapter-five-night">5.9 防抖与节流</a>
+* **防抖与节流**
+* **重绘与回流**
+* **浏览器解析 URL**
+* **DNS 域名解析**
+* **TCP 三次握手与四次挥手**
+* **浏览器渲染页面**
 
-> [返回目录](#catalog-chapter-five)
+小伙伴们可以前往 [《面试知识点 - JS 防抖与节流》](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md) 查看。
 
-暂无内容，有待补充
-
-### <a name="chapter-five-ten" id="chapter-five-ten">5.10 ES6</a>
-
-> [返回目录](#catalog-chapter-five)
-
-* var、let 以及 const
-
-* 解构赋值
-
-1. 解构数组：
-
-```
-let arr = [0, 1, 2];
-let [a, b, c] = arr;
-// 相当于 let a = arr[0]; b = arr[1]; c = arr[2];
-```
-
-2. 数组拼接
-
-```
-let a = [0, 1, 2];
-let b = [3, 4, 5];
-let c = [...a, ...b];
-// c = [0, 1, 2, 3, 4, 5]。相当于 c = a.concat(b);
-```
-
-3. 数组克隆
-
-```
-let a = [0, 1, 2, 3];
-let b = [...a];
-b.push(4);
-// b 输出为 0, 1, 2, 3, 4。a 输出为 0, 1, 2, 3
-// 但是如果 b = a，则 b 和 a 会引用同一块内存，从而导致 b 的修改会影响 a 的修改。
-```
-
-4. 对象的解构赋值
-
-```
-let { name, age } = { name:"jsliang", age: 23 }
-// 根据 key 值匹配，相当于 let name = "jsliang", age = 23
-```
-
-### <a name="chapter-five-eleven" id="chapter-five-eleven">5.11 函数柯里化</a>
+### <a name="chapter-five-night" id="chapter-five-night">5.9 ES6</a>
 
 > [返回目录](#catalog-chapter-five)
 
-暂无内容，有待补充
+ES6 是个大知识点，如果你面试的公司不是 “饱经沧桑” 的那种，那么一定会出点 ES6 问题，例如：
 
-### <a name="chapter-five-twelve" id="chapter-five-twelve">5.12 数组操作</a>
+* 说说 let、var、const 区别
+* 讲讲 Promise 及其使用
+
+因为 **jsliang** 感觉自己连 ES6 的门还没进，所以在这里就不 **自作聪明**，推荐下阮一峰大佬的教程：
+
+* [ECMAScript 6 入门 - 阮一峰](http://es6.ruanyifeng.com/)
+
+希望小伙伴们看完能有所收获，并在工作中大量使用。
+
+### <a name="chapter-five-ten" id="chapter-five-ten">5.10 数组操作</a>
 
 > [返回目录](#catalog-chapter-five)
 
-在 JavaScript 中，用得较多的之一无疑是数组操作，这里过一遍数据的一些用法：
+在 JavaScript 中，用得较多的之一无疑是数组操作，这里过一遍数组的一些用法：
 
-* map: 遍历数组，返回回调返回值组成的新数组
-* forEach: 无法break，可以用try/catch中throw new Error来停止
-* filter: 过滤
-* some: 有一项返回true，则整体为true
-* every: 有一项返回false，则整体为false
-* join: 通过指定连接符生成字符串
-* push / pop: 末尾推入和弹出，改变原数组， 返回推入/弹出项
-* unshift / shift: 头部推入和弹出，改变原数组，返回操作项
-* sort(fn) / reverse: 排序与反转，改变原数组
-* concat: 连接数组，不影响原数组， 浅拷贝
-* slice(start, end): 返回截断后的新数组，不改变原数组
-* splice(start, number, value...): 返回删除元素组成的数组，value 为插入项，改变原数组
-* indexOf / lastIndexOf(value, fromIndex): 查找数组项，返回对应的下标
-* reduce / reduceRight(fn(prev, cur)， defaultPrev): 两两执行，prev 为上次化简函数的return值，cur 为当前值(从第二项开始)
+* `map`: 遍历数组，返回回调返回值组成的新数组
+* `forEach`: 无法break，可以用try/catch中throw new Error来停止
+* `filter`: 过滤
+* `some`: 有一项返回true，则整体为true
+* `every`: 有一项返回false，则整体为false
+* `join`: 通过指定连接符生成字符串
+* `push / pop`: 末尾推入和弹出，改变原数组， 返回推入/弹出项
+* `unshift / shift`: 头部推入和弹出，改变原数组，返回操作项
+* `sort(fn) / reverse`: 排序与反转，改变原数组
+* `concat`: 连接数组，不影响原数组， 浅拷贝
+* `slice(start, end)`: 返回截断后的新数组，不改变原数组
+* `splice(start, number, value...)`: 返回删除元素组成的数组，value 为插入项，改变原数组
+* `indexOf / lastIndexOf(value, fromIndex)`: 查找数组项，返回对应的下标
+* `reduce / reduceRight(fn(prev, cur)， defaultPrev)`: 两两执行，prev 为上次化简函数的return值，cur 为当前值(从第二项开始)
 
+相信小伙伴在工作中耍的已经是一套一套的了，或者像 **jsliang** 一样只会简单的使用 `push`、`map` 这几个，感兴趣的小伙伴可以 百度/bing/google 找找一些 **奇技淫巧**，说不定对工作效率有很大提升~
 
 ## <a name="chapter-six" id="chapter-six">六 Vue</a>
 
@@ -1203,8 +1176,6 @@ let { name, age } = { name:"jsliang", age: 23 }
 
 > [返回目录](#catalog-chapter-six)
 
-* 对 MVVM 的理解
-
 在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互，Model 和 ViewModel 之间的交互时双向的，因此 View 数据会同步到 Model 中，而 Model 数据的变化也会立即反应到 View 上。
 
 ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而 View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需要关注业务逻辑，不需要手动操作 DOM，不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。
@@ -1217,32 +1188,32 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 
 > [返回目录](#catalog-chapter-six)
 
-* Vue 的生命周期
+* 请大致讲下 Vue 的生命周期？
 
 1. 创建前/后：在 **beforeCreated** 阶段，Vue 实例的挂载元素 `$el` 和数据对象 data 以及事件还未初始化。在 **created** 阶段，Vue 实例的数据对象 data 以及方法的运算有了，`$el` 还没有。
 2. 载入前/后：在 **beforeMount** 阶段，`render` 函数首次被调用，Vue 实例的 $el 和 data 都初始化了，但还是挂载在虚拟的 DOM 节点上。在 **mounted** 阶段，Vue 实例挂载到实际的 DOM 操作完成，一般在该过程进行 Ajax 交互。
 3. 更新前/后：在数据更新之前调用，即发生在虚拟 DOM 重新渲染和打补丁之前，调用 **beforeUpdate**。在虚拟 DOM 重新渲染和打补丁之后，会触发 **updated** 方法。
 4. 销毁前/后：在执行实例销毁之前调用 **beforeDestory**，此时实例仍然可以调用。在执行 **destroy** 方法后，对 data 的改变不会再触发周期函数，说明此时 Vue 实例已经解除了事件监听以及和 DOM 的绑定，但是 DOM 结构依然存在。
 
-* Vue 生命周期问题系列
+* 什么是 Vue 生命周期？  
 
-> 1. 什么是 Vue 生命周期  
-> 答：Vue 实例从创建到销毁的过程，就是生命周期。从开始创建、初始化数据、编译模板、挂载 DOM -> 渲染、更新 -> 渲染、销毁等一系列过程，称之为 Vue 的生命周期。
+Vue 实例从创建到销毁的过程，就是生命周期。从开始创建、初始化数据、编译模板、挂载 DOM -> 渲染、更新 -> 渲染、销毁等一系列过程，称之为 Vue 的生命周期。
 
-> 2. Vue 有几个生命周期，它们的作用主要是什么？  
-> 答：8 个，创建前/创建后、挂载前/挂载后、更新前/更新后、销毁前/销毁后。Vue 生命周期的作用是方便我们通过它的生命周期，在业务代码中更好地操作数据，实现相关功能。
+* Vue 有几个生命周期，它们的作用主要是什么？  
 
-> 3. 第一次页面加载会触发 Vue 哪几个钩子？  
-> 答：会触发 4 个生命钩子：创建前/创建后、挂载前/挂载后
+8 个，创建前/创建后、挂载前/挂载后、更新前/更新后、销毁前/销毁后。Vue 生命周期的作用是方便我们通过它的生命周期，在业务代码中更好地操作数据，实现相关功能。
 
-> 4. DOM 渲染在哪个周期就已经完成？  
-> 答：在 `beforeMounted` 时它执行了 `render` 函数，对 $el 和 data 进行了初始化，但此时还是挂载到虚拟的 DOM 节点，然后它在 `mounted` 时就完成了 DOM 渲染，这时候我们一般还进行 Ajax 交互。
+* 第一次页面加载会触发 Vue 哪几个钩子？  
+
+会触发 4 个生命钩子：创建前/创建后、挂载前/挂载后
+
+* DOM 渲染在哪个周期就已经完成？  
+
+在 `beforeMounted` 时它执行了 `render` 函数，对 $el 和 data 进行了初始化，但此时还是挂载到虚拟的 DOM 节点，然后它在 `mounted` 时就完成了 DOM 渲染，这时候我们一般还进行 Ajax 交互。
 
 ### <a name="chapter-six-three" id="chapter-six-three">6.3 双向数据绑定</a>
 
 > [返回目录](#catalog-chapter-six)
-
-* 对 Vue 双向数据绑定原理的理解
 
 Vue 采用 **数据劫持** 结合 **发布者-订阅者** 模式的方式，通过 `Object.defineProperty()` 来劫持各个属性的 setter 以及 getter，在数据变动时发布消息给订阅者，触发相应的监听回调。
 
@@ -1298,7 +1269,18 @@ Vue 采用 **数据劫持** 结合 **发布者-订阅者** 模式的方式，通
 
 > [返回目录](#catalog-chapter-six)
 
-暂无内容，有待补充
+Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM 元素，实际上 `createElement` 描述为 `createNodeDescription`，因为它所包含的信息会告诉 Vue 页面上需要渲染什么样的节点。
+
+因此，我们将这样的节点描述为 “虚拟节点”（Virtual Node），简称 VNode。“虚拟 DOM” 是我们对由 Vue 组件树建立的整个 VNode 树的称呼。
+
+作为一枚切图仔，很荣幸地跟小伙伴说：“其实我也不懂 Virtual DOM！”
+
+但是，总会有些面试场合会提到的，所以这里找了几篇资料，小伙伴们可以进一步学习：
+
+* [《Vue原理解析之Virtual Dom》](https://segmentfault.com/a/1190000008291645?utm_source=tag-newest)
+* [《virtual-dom(Vue实现)简析》](https://segmentfault.com/a/1190000010090659)
+
+其他的就需要小伙伴自己寻找了，如果觉得有不错的解析 Virtual DOM 的文档/视频，小伙伴也可以推荐过来哈~
 
 ### <a name="chapter-six-five" id="chapter-six-five">6.5 template 编译</a>
 
@@ -1323,19 +1305,57 @@ key 的作用就是在更新组件时判断两个节点是否相同。相同就�
 
 > [返回目录](#catalog-chapter-six)
 
-> 参考文献：[《Vue.nextTick 的原理和用途》](https://segmentfault.com/a/1190000012861862)
+* 用法：`Vue.nextTick( [callback, context] )`
+
+* 参数：
+  * `{Function} [callback]`
+  * `{Object} [context]`
+
+* 说明：在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。
+
+* 案例：
+
+```js
+// 修改数据
+vm.msg = 'Hello'
+// DOM 还没有更新
+Vue.nextTick(function () {
+  // DOM 更新了
+})
+
+// 作为一个 Promise 使用 (2.1.0 起新增，详见接下来的提示)
+Vue.nextTick().then(function () {
+  // DOM 更新了
+})
+```
+
+关于 nextTick 的更多理解，**jsliang** 就不献丑了，需要学习的小伙伴可以查看：
+
+* [《Vue.nextTick 的原理和用途》](https://segmentfault.com/a/1190000012861862)
+
+或者自行查找更优秀的资源。
 
 ### <a name="chapter-six-eight" id="chapter-six-eight">6.8 虚拟 DOM</a>
 
 > [返回目录](#catalog-chapter-six)
 
-Vue 在 `render` 中 `createElement` 的时候，并不是产生真实的 DOM 元素，实际上 `createElement` 描述为 `createNodeDescription`，因为它所包含的信息会告诉 Vue 页面上需要渲染什么样的节点。因此，我们将这样的节点描述为 “虚拟节点”（Virtual Node），简称 VNode。“虚拟 DOM” 是我们对由 Vue 组件树建立的整个 VNode 树的称呼。
+
 
 ### <a name="chapter-six-night" id="chapter-six-night">6.9 父子组件通讯</a>
 
 > [返回目录](#catalog-chapter-six)
 
-父组件使用 `props` 将数据传给子组件；然后子组件通过 `$emit` 触发父元素的自定义事件。[《Vue 中关于 $emit 的用法》](https://blog.csdn.net/sllailcp/article/details/78595077)
+关于 Vue 中的父子组件通讯，相信经常开发 Vue 的小伙伴比 **jsliang** 知道的多很多。
+
+没怎么使用 Vue 的小伙伴可以看下下面的文章，并尝试自己写一写：
+
+* [《Vue 中关于 $emit 的用法》](https://blog.csdn.net/sllailcp/article/details/78595077)
+
+下面咱讲下使用 bus.js 实现非父子组件通讯：
+
+**假设在工作中，有三个 .vue 文件：A.vue、B.vue、C.vue。A.vue 是主页面，B.vue 和 C.vue 类似于头部导航条和底部导航栏。现在，B.vue 点击会切换路由，C.vue 需要获取 B.vue 传递的信息。**
+
+
 
 ### <a name="chapter-six-ten" id="chapter-six-ten">6.10 Vue-Router</a>
 
@@ -1622,11 +1642,20 @@ Component({
 
 暂无内容，有待补充
 
-### <a name="chapter-eight-two" id="chapter-eight-two">8.2 从输入 URL 到展示</a>
+### <a name="chapter-eight-two" id="chapter-eight-two">8.2 浏览器解析 URL</a>
 
 > [返回目录](#catalog-chapter-eight)
 
-暂无内容，有待补充
+关于 **浏览器解析 URL**，**jsliang** 特意将资料结合起来：
+
+* **防抖与节流**
+* **重绘与回流**
+* **浏览器解析 URL**
+* **DNS 域名解析**
+* **TCP 三次握手与四次挥手**
+* **浏览器渲染页面**
+
+小伙伴们可以前往 [《面试知识点 - JS 防抖与节流》](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md) 查看。
 
 ### <a name="chapter-eight-three" id="chapter-eight-three">8.3 Event Loop</a>
 
@@ -1638,7 +1667,16 @@ Component({
 
 > [返回目录](#catalog-chapter-eight)
 
-暂无内容，有待补充
+关于 **重绘与回流**，**jsliang** 特意将资料结合起来：
+
+* **防抖与节流**
+* **重绘与回流**
+* **浏览器解析 URL**
+* **DNS 域名解析**
+* **TCP 三次握手与四次挥手**
+* **浏览器渲染页面**
+
+小伙伴们可以前往 [《面试知识点 - JS 防抖与节流》](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md) 查看。
 
 ### <a name="chapter-eight-five" id="chapter-eight-five">8.5 数据存储</a>
 
@@ -1713,9 +1751,16 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 
 > [返回目录](#catalog-chapter-night)
 
-1. 三次握手：① 客户机 -> SYN -> 服务器；② 客户机 <- SYN + ACK <- 服务器；③ 客户机 -> ACK -> 服务器。
-2. URL 的组成：协议 + 服务器地址（域名 或 IP + 端口） + 路径 + 文件名。
-3. WebSocket 可以实现 Web 浏览器与服务器进行长时间的连接。
+关于 **TCP 三次握手与四次挥手**，**jsliang** 特意将资料结合起来：
+
+* **防抖与节流**
+* **重绘与回流**
+* **浏览器解析 URL**
+* **DNS 域名解析**
+* **TCP 三次握手与四次挥手**
+* **浏览器渲染页面**
+
+小伙伴们可以前往 [《面试知识点 - JS 防抖与节流》](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md) 查看。
 
 ### <a name="chapter-night-five" id="chapter-night-five">9.5 跨域</a>
 
@@ -1822,12 +1867,13 @@ var name = 'World!';
 
 **回答**：系列套餐你值得拥有！
 
-* [2019 面试准备 - Round One](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/%E9%9D%A2%E8%AF%95-RoundOne.md)
-* [2019 面试准备 - JS 原型与原型链](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/JS-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
-* [2019 面试准备 - JS 防抖与节流](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md)
-* [2019 面试准备 - 图片](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/KnowledgePoints/Other-%E5%9B%BE%E7%89%87.md)
+* [2019 面试实战 - Round One](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-PracticalRoundOne.md)
+* [2019 面试实战 - Round Two](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-PracticalRoundTwo.md)
+* [面试知识点 - JS 原型与原型链](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
+* [面试知识点 - JS 防抖与节流](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md)
+* [面试知识点 - 图片](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/Other-%E5%9B%BE%E7%89%87.md)
 
-2. 你这杂七杂八的都写了什么呀？看完我晕乎了！
+1. 你这杂七杂八的都写了什么呀？看完我晕乎了！
 
 **回答**：每个人的学习经历是不同的，所拥有的技术、知识点以及工作经验等都是不同的，所以在这篇文章中，**jsliang** 在充实自己的同时，其实也是在挖掘自己的不足，例如面向对象造轮子，例如算法问题等……**jsliang** 充分意识到了自己的不足，并打算在之后进行补充学习以及应用到工作中。
 
