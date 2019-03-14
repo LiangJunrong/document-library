@@ -582,6 +582,8 @@ module.exports = {
 
 **VueCli 打包的时候，生成的是图片的绝对路径，部署的时候无法解析到图片，需要配置成相对路径，需要怎么改呢？**
 
+* 位置 1：
+
 > 项目/build/webpack.prod.conf.js
 
 ```js
@@ -594,6 +596,24 @@ output: {
 ```
 
 在 output 这块，新增代码 `publicPath: './'`。
+
+* 位置 2：
+
+> 项目/build/utils.js
+
+```js
+if (options.extract) {
+  return ExtractTextPlugin.extract({
+    use: loaders,
+    publicPath: '../../',
+    fallback: 'vue-style-loader'
+  })
+} else {
+  return ['vue-style-loader'].concat(loaders)
+}
+```
+
+在 `vue-style-loader` 这里，新增 `publicPath: '../../` 这行代码。
 
 这样，打包出来的图片路径，就是相对路径了。
 
