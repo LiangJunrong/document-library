@@ -6,6 +6,12 @@ jsliang 的 2019 面试准备
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md)**
 
+并不是只有特定的季节才能跑路，只因为人跑得多了，这条路就定下来了。
+
+金三银四跳槽季，**jsliang** 于 **2019年2月11日** 写下了这篇文章，开始准备自己的面试之旅。
+
+至 **2019年3月14日** 为止，**jsliang** 搭建出个人的面试知识体系，海量地翻阅了一些前辈留下的资料，结合个人需求进行了几场面试，从而进一步完善该文章并进行了发表，希望对准备跳槽或者正在跳槽中的小伙伴有所帮助。
+
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
 **不折腾的前端，和咸鱼有什么区别**
