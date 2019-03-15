@@ -38,7 +38,18 @@
 
 > [返回目录](#chapter-one)
 
+* **面试官**：“你好，先自我介绍一下。”
+* **我**：（噼里啪啦一顿介绍）
+* **面试官**：“好的，说一下你做小程序遇到的问题。”
+* **我**：“问题的话，就是没经验下，看文档开发小程序。然后做得最难的就是通讯录模块，新增/修改的时候需要使用二分法判断下拉到具体位置。**①**”
 
+> **①**：详情可见我的文章：[《微信小程序之奇技淫巧》](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletFunctionList.md)
+
+* **面试官**：“那你说一下做小程序碰到的样式问题。”
+* **我**：“最烦的就是改小程序内部的
+* **面试官**：
+* **我**：
+* **面试官**：
 
 ## <a name="chapter-four" id="chapter-four">四 总结</a>
 
