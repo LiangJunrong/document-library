@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-3-15 16:40:52**  
-> Recently revised in **2019-3-15 16:40:57**
+> Recently revised in **2019-3-16 21:29:33**
  
 **Hello 小伙伴们，如果觉得本文还不错，记得给 jsliang 的文档库点个 **star** ， 你们的 **star** 是我学习折腾的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-PracticalRoundTwo.md)**
 
@@ -46,7 +46,7 @@
 > **①**：详情可见我的文章：[《微信小程序之奇技淫巧》](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletFunctionList.md)
 
 * **面试官**：“那你说一下做小程序碰到的样式问题。”
-* **我**：“最烦的就是改小程序内部的
+* **我**：“最烦的就是改小程序内部的组件。”
 * **面试官**：
 * **我**：
 * **面试官**：
