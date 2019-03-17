@@ -2,7 +2,7 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2019-2-11 15:30:34**  
-> Recently revised in **2019-3-14 12:52:28**
+> Recently revised in **2019-3-17 21:30:36**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md)**
 
@@ -10,7 +10,7 @@ jsliang 的 2019 面试准备
 
 金三银四跳槽季，**jsliang** 于 **2019年2月11日** 写下了这篇文章，开始准备自己的面试之旅。
 
-至 **2019年3月14日** 为止，**jsliang** 搭建出个人的面试知识体系，海量地翻阅了一些前辈留下的资料，结合个人需求进行了几场面试，从而进一步完善该文章并进行了发表，希望对准备跳槽或者正在跳槽中的小伙伴有所帮助。
+至 **2019年3月17日** 为止，**jsliang** 搭建出个人的面试知识体系，海量地翻阅了一些前辈留下的资料，结合个人需求进行了几场面试，从而进一步完善该文章并进行了发表，希望对准备跳槽或者正在跳槽中的小伙伴有所帮助。
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -125,7 +125,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 
 于是 2018 年 8 月，**jsliang** 开始写 Markdown，将 5 月份到 8 月份记录到 Word 文档上的笔记整理成了 [jsliang 的文档库](https://github.com/LiangJunrong/document-library)，并在 [jsliang 的掘金](https://juejin.im/user/584613ba128fe10058b3cf68) 上发表了第一篇文章。
 
-8 月至今，**jsliang** 大致经历了以下这些：
+18 年 8 月至今，**jsliang** 大致经历了以下这些：
 
 1. 学 Webpack，并用 Webpack 构建一个多页面配置。然后幸运的是，刚好碰到公司的一个仿站任务，于是整个前端小组直接用了我的 Webpack + jQuery + VS Code 的 Live Share 套路进行协同开发！
 2. 学 微信小程序，并将它应用到电信开发的微信小程序项目翼小微中。
@@ -161,7 +161,7 @@ Hello 小伙伴们好，我叫梁峻荣，网名叫 **jsliang**，由于崇拜�
 
 2019 年 1 月底感觉自己项目也做了，凌晨 4/5/6 点的体育西路也看过了，技术也提升了，于是跟人事交谈，期望 2 月能加薪，人事表示年终述职演讲得好的给提薪，2 月开工的时候表示提薪名单没我份……
 
-> 你没看错，提薪全靠 PPT。  
+> 你没看错，提薪全靠 PPT。PPT 里提高了不给，没提就是没有。  
 > 当初想法很简单，你随便加个 5/600 我也满足了。
 
 **最后**，**jsliang** 曾跟项目总监私下谈话，建议可以发展一些新产品，这样公司或许能获取一些新收入，我也可以进一步挑战我的技术。但是，由于我司是个老牌子公司，并且大部分依赖于接手电信项目进行扩张……
@@ -1146,7 +1146,7 @@ ES6 是个大知识点，如果你面试的公司不是 “饱经沧桑” 的�
 
 因为 **jsliang** 感觉自己连 ES6 的门还没进，所以在这里就不 **自作聪明**，推荐下阮一峰大佬的教程：
 
-* [ECMAScript 6 入门 - 阮一峰](http://es6.ruanyifeng.com/)
+* [《ECMAScript 6 入门 - 阮一峰》](http://es6.ruanyifeng.com/)
 
 希望小伙伴们看完能有所收获，并在工作中大量使用。
 
@@ -1434,10 +1434,6 @@ export default bus;
   }
 </script>
 ```
-
-### <a name="chapter-six-night" id="chapter-six-night">6.9 </a>
-
-> [返回目录](#catalog-chapter-six)
 
 ## <a name="chapter-seven" id="chapter-seven">七 微信小程序</a>
 
@@ -1901,7 +1897,7 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 
 但是，最终看来，**jsliang** 的经历还是有所欠缺，所经历的面试不够 “盛大”，所以说出的话可能就是 “胡言乱语”、“误导观众”，故在此就不献丑了，如果小伙伴们想知道更多，可以通过 QQ 群：`798961601` 找到我。
 
-> ☆ 目前 **jsliang** 通过 2 天的请假，去了 4 场面试，收获了 3 份 offer。  
+> ☆ 目前 **jsliang** 通过 3 天的请假，去了 5 场面试，收获了 3 份 offer。  
 > ☆ 如果小伙伴不知道简历该怎么写、面试总是镇静不下来、总感觉面试没谱，可以先找 **jsliang** 聊聊，我会讲讲个人的面试经历，以及听到的其他小伙伴的经历~
 
 ## <a name="chapter-thirteen" id="chapter-thirteen">十三 总结</a>
@@ -1918,6 +1914,7 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 
 * [2019 面试实战 - Round One](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-PracticalRoundOne.md)
 * [2019 面试实战 - Round Two](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-PracticalRoundTwo.md)
+* [2019 面试实战 - Round Three](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-PracticalRoundThree.md)
 * [面试知识点 - JS 原型与原型链](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
 * [面试知识点 - JS 防抖与节流](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md)
 * [面试知识点 - 图片](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/Other-%E5%9B%BE%E7%89%87.md)
@@ -1930,13 +1927,17 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 
 所以 **jsliang** 的目的是通过这篇文章充实自己的同时，顺带挖掘自己的不足，例如面向对象造轮子、算法问题等让 **jsliang** 想进一步折腾，并应用到工作中。
 
-所以，小伙伴应该根据自己实际去扩展补充属于自己的知识点。了解自己的，只有自己！
+因此，小伙伴应该根据自己实际去扩展补充属于自己的知识点。
+
+毕竟了解自己的，只有自己！
 
 3. **好像你这里写得也不是很全啊？看完我还是一知半解的！**
 
 **回答**：
 
-每个人的目的都是不同的，不可能一篇文章写完所有知识点，同时有些知识点可能 **jsliang** 也不感兴趣，并且每个面试官都可能有自己的一套面试题，如果 **jsliang** 能将所有的面试题都写出来，那还需要面试官做啥呢？大家都像考国家证书一样直接电脑考试吧~（我也期待！！！）
+每个人的目的都是不同的，不可能一篇文章写完所有知识点，同时有些知识点可能 **jsliang** 也不感兴趣、或者 **jsliang** 的层次不够，接触不到。
+
+并且每个面试官都可能有自己的一套面试题，如果 **jsliang** 能将所有的面试题都写出来，那还需要面试官做啥，大家都像考国家证书一样直接电脑考试吧~（我也期待！！！）
 
 > 如果小伙伴对文章存有疑问，想快速得到回复。  
 > 或者小伙伴对 jsliang 个人的前端文档库感兴趣，也想将自己的前端知识整理出来。  
@@ -1967,23 +1968,30 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 
 > [返回目录](#catalog-chapter-fourteen)
 
-* [《前端工程师手册》](https://leohxj.gitbooks.io/front-end-database/content/html-and-css-basic/index.html?tdsourcetag=s_pctim_aiomsg)
+1. [《前端工程师手册》](https://leohxj.gitbooks.io/front-end-database/content/html-and-css-basic/index.html?tdsourcetag=s_pctim_aiomsg)
+2. [《HTML 教程- (HTML5 标准) - 菜鸟教程》](http://www.runoob.com/html/html-tutorial.html)
+3. [《前端分享之cookie的使用及单点登录》](https://segmentfault.com/a/1190000011295587)
+4. [《Cookie、session和localStorage、以及sessionStorage之间的区别》](https://www.cnblogs.com/zr123/p/8086525.html)
 
 ### <a name="chapter-fourteen-three" id="chapter-fourteen-three">14.3 关于 CSS</a>
 
 > [返回目录](#catalog-chapter-fourteen)
 
-1. [《我对BFC的理解》](https://www.cnblogs.com/dojo-lzz/p/3999013.html)
-2. [《CSS实现垂直居中的常用方法》](https://www.cnblogs.com/yugege/p/5246652.html)
-3. [《CSS 用 position: absolute 与 transform 来居中块级元素的问题》](https://segmentfault.com/q/1010000005151903)
-4. [《css常见布局》](https://blog.csdn.net/liwei26/article/details/78976444)
-5. [《CSS3 圆角》](http://www.runoob.com/css3/css3-border-radius.html)  
-6. [《CSS3 渐变（Gradients）》](http://www.runoob.com/css3/css3-gradients.html)
-7. [《CSS3 transition 属性》](http://www.runoob.com/cssref/css3-pr-transition.html)
-8. [《CSS3 transform 属性》](http://www.runoob.com/cssref/css3-pr-transform.html) 
-9. [《CSS3 animation（动画） 属性》](http://www.runoob.com/cssref/css3-pr-animation.html)
-10. [《CSS3 box-shadow 属性》](http://www.w3school.com.cn/cssref/pr_box-shadow.asp) 
-11. [《个人总结（css3新特性）》](https://segmentfault.com/a/1190000010780991)  
+1. [《前端工程师手册》](https://leohxj.gitbooks.io/front-end-database/content/html-and-css-basic/index.html?tdsourcetag=s_pctim_aiomsg)
+2. [《CSS 权威指南》](https://baike.baidu.com/item/CSS%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/6229475?fr=aladdin)
+3. [《CSS 揭秘》](https://baike.baidu.com/item/CSS%E6%8F%AD%E7%A7%98)
+4. [《CSS 世界》](https://baike.baidu.com/item/CSS%E4%B8%96%E7%95%8C)
+5. [《我对BFC的理解》](https://www.cnblogs.com/dojo-lzz/p/3999013.html)
+6. [《CSS实现垂直居中的常用方法》](https://www.cnblogs.com/yugege/p/5246652.html)
+7. [《CSS 用 position: absolute 与 transform 来居中块级元素的问题》](https://segmentfault.com/q/1010000005151903)
+8. [《css常见布局》](https://blog.csdn.net/liwei26/article/details/78976444)
+9. [《CSS3 圆角》](http://www.runoob.com/css3/css3-border-radius.html)  
+10. [《CSS3 渐变（Gradients）》](http://www.runoob.com/css3/css3-gradients.html)
+11. [《CSS3 transition 属性》](http://www.runoob.com/cssref/css3-pr-transition.html)
+12. [《CSS3 transform 属性》](http://www.runoob.com/cssref/css3-pr-transform.html) 
+13. [《CSS3 animation（动画） 属性》](http://www.runoob.com/cssref/css3-pr-animation.html)
+14. [《CSS3 box-shadow 属性》](http://www.w3school.com.cn/cssref/pr_box-shadow.asp) 
+15. [《个人总结（css3新特性）》](https://segmentfault.com/a/1190000010780991)
 
 ### <a name="chapter-fourteen-four" id="chapter-fourteen-four">14.4 关于 JS</a>
 
@@ -1999,6 +2007,10 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 8. [《MDN Function.prototype.call()》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
 9.  [《JavaScript中的call、apply、bind深入理解》](https://www.jianshu.com/p/00dc4ad9b83f)
 10. [《箭头函数 - 廖雪峰》](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000)
+11. [《ECMAScript 6 入门 - 阮一峰》](http://es6.ruanyifeng.com/)
+12. [《Vue原理解析之Virtual Dom》](https://segmentfault.com/a/1190000008291645?utm_source=tag-newest)
+13. [《virtual-dom(Vue实现)简析》](https://segmentfault.com/a/1190000010090659)
+14. [《Vue.nextTick 的原理和用途》](https://segmentfault.com/a/1190000012861862)
 
 ### <a name="chapter-fourteen-five" id="chapter-fourteen-five">14.5 关于其他</a>
 
@@ -2013,6 +2025,7 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 7.  [《浅谈什么是前端工程化》](https://www.cnblogs.com/fsyz/p/8274727.html)
 8.  [《前端分享之cookie的使用及单点登录》](https://segmentfault.com/a/1190000011295587) 
 9.  [《Cookie、session和localStorage、以及sessionStorage之间的区别》](https://www.cnblogs.com/zr123/p/8086525.html)
+10. [《网络分层TCP/IP 与HTTP》](https://juejin.im/post/5a98e1f7f265da237410694e)
 
 ---
 
