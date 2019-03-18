@@ -62,6 +62,18 @@ React Demo One - 仿简书项目
 16. redux-immutable
 17. axios
 
+* **开始准备**：
+
+1. 下载 Node.js
+2. 安装 React 脚手架：
+   1. `npm i create-react-app -g`
+   2. `create-react-app todolist`
+   3. `cd todolist`
+   4. `npm start`
+3. 查看 `localhost:3000`：
+
+![图](../../public-repertory/img/js-react-demo-one-1.png)
+
 ---
 
 > **jsliang** 广告推送：  
