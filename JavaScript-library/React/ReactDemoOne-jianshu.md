@@ -74,6 +74,29 @@ React Demo One - 仿简书项目
 
 ![图](../../public-repertory/img/js-react-demo-one-1.png)
 
+4. 项目目录解析：
+
+```shell
+- todolist
+  + node_modules —————————— 项目依赖的第三方的包
+  - public ———————————————— 共用文件
+    - favicon.ico        —— 网页标签左上角小图标
+    - index.html         —— 页面首页模板
+    - mainfest.json      —— 
+  - src
+    - App.css
+    - App.js 
+    - App.test.js
+    - index.css
+    - index.js
+    - logo.svg
+    - serviceWorker.js
+  - .gitignore ——————————— 配置文件。git 上传的时候忽略哪些文件
+  - package-lock.json ———— 锁定安装包的版本号，保证其他人在 npm i 的时候使用一致的 node 包
+  - package.json ————————— node 包文件，介绍项目以及说明一些依赖包等
+  - README.md ———————————— 项目介绍文件
+```
+
 ---
 
 > **jsliang** 广告推送：  
