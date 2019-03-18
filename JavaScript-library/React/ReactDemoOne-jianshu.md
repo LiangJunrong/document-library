@@ -2,7 +2,7 @@ React Demo One - 仿简书项目
 ===
 
 > Create by **jsliang** on **2019-3-18 08:37:10**  
-> Recently revised in **2019-3-18 08:37:14**
+> Recently revised in **2019-3-18 09:03:24**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md)**
 
@@ -29,10 +29,38 @@ React Demo One - 仿简书项目
 
 > [返回目录](#catalog-chapter-three)
 
-* 基础内容 -> 环境搭建 -> 基础语法 -> 原理进阶 -> 动画
-* Redux -> Redux 进阶
-* 实战项目 -> 环境搭建 -> Header -> 首页 -> 详情页
-* 登录校验 -> 上线
+* **课程结构**：
+
+1. 基础内容 -> 环境搭建 -> 基础语法 -> 原理进阶 -> 动画
+2. Redux -> Redux 进阶
+3. 实战项目 -> 环境搭建 -> Header -> 首页 -> 详情页
+4. 登录校验 -> 上线
+
+* **前置知识**：
+
+1. ES5/ES6
+2. webpack
+3. npm
+
+* **知识点**：
+
+1. create-react-app
+2. 组件化思维
+3. JSX
+4. 开发调试工具
+5. 虚拟 DOM
+6. 生命周期
+7. React-transition-group
+8. Redux
+9. Antd
+10. UI、容器组件
+11. 无状态组件
+12. redux-thunk
+13. redux-saga
+14. styled-components
+15. immutable.js
+16. redux-immutable
+17. axios
 
 ---
 
