@@ -291,7 +291,39 @@ ReactDOM.render(<App />, document.getElementById('root'));
 </html>
 ```
 
+在 App.js 中，小伙伴们可能注意到一点，有一行代码被注释了：
 
+```js
+import React, { Component } from 'react';
+
+class App extends React.Component {
+  // ...
+}
+```
+
+其实，这句话就等同于：
+
+```js
+import React from 'react';
+import { Component } from 'react';
+
+class App extends React.Component {
+  // ...
+}
+```
+
+然后，我们进一步拆分，可以将其化为下面等价：
+
+```js
+import React from 'react';
+const Component = React.Component;
+
+class App extends React.Component {
+  // ...
+}
+```
+
+最后，为什么写第一行代码，因为便捷啊！
 
 ---
 
