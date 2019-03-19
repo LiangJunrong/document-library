@@ -228,6 +228,71 @@ yarn-error.log*
 
 组件，即将页面切成几个部分，从而有利于页面的拼装。
 
+在 React 中，定义一个组件：
+
+> App.js
+
+```js
+// import React, { Component } from 'react';
+// 1. 引用 React
+import React from 'react';
+
+// 2. 定义一个 App 的类，继承于 React 的组件
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        Hello React!
+      </div>
+    );
+  }
+}
+
+// 3. 将这个 App 导出去
+export default App;
+```
+
+以上是 App.js 的一个定义，这样子表明一个组件的定义。下面我们看它如何被使用：
+
+> index.js
+
+```js
+// 1. 引入 React、ReactDOM
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// 2. 将 App.js 导入进来
+import App from './App';
+
+// 3. 通过 ReactDOM 将 App.js 以虚拟 DOM 的形式渲染到 root 根节点，该节点在 index.html 中
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+最后我们查看下 `index.html`
+
+> index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Todolist</title>
+  </head>
+  <body>
+    <noscript>你需要允许在 APP 中运行 JavaScript</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+
+
 ---
 
 > **jsliang** 广告推送：  
