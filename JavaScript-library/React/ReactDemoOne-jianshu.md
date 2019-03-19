@@ -377,6 +377,55 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 > 如果需要使用自定义组件，那么该组件不能小写开头 ~~app~~，而是使用 `App` 这样的大写开头形式。
 
+* **事件及双向数据绑定**：
+
+```js
+// Fragment 是一种占位符形式，类似于 Vue 的 Template
+import React, { Component, Fragment } from 'react';
+
+class TodoList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: '1312',
+      list: []
+    }
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <div>
+          {/* 单项数据绑定 */}
+          <input 
+            type="text" 
+            value={this.state.inputValue}
+            onChange={this.handleInputChange.bind(this)}
+          />
+          <button>提交</button>
+        </div>
+        <ul>
+          <li>吃饭</li>
+          <li>睡觉</li>
+          <li>打豆豆</li>
+        </ul>
+      </Fragment>
+    )
+  }
+
+  handleInputChange(e) {
+    console.log(e.target.value);
+    this.setState({
+      inputValue: e.target.value
+    })
+  }
+
+}
+
+export default TodoList;
+```
+
 * **参考文献**：
 
 1. [《React.Component 与 React.PureComponent（React之性能优化）》](https://www.cnblogs.com/clover77/p/9394514.html)
