@@ -380,7 +380,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 * **参考文献**：
 
 1. [《React.Component 与 React.PureComponent（React之性能优化）》](https://www.cnblogs.com/clover77/p/9394514.html)
-2. [《visual studio code + react 开发环境搭建》](https://blog.csdn.net/crazyhsf/article/details/81039059)
+2. [《visual studio code + react 开发环境搭建》](https://www.jianshu.com/p/ec7c2bab16cc)
 
 ---
 
