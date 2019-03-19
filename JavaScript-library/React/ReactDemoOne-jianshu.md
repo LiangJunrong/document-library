@@ -2,7 +2,7 @@ React Demo One - 仿简书项目
 ===
 
 > Create by **jsliang** on **2019-3-18 08:37:10**  
-> Recently revised in **2019-3-18 09:03:24**
+> Recently revised in **2019-3-19 08:00:57**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md)**
 
@@ -81,21 +81,39 @@ React Demo One - 仿简书项目
   + node_modules —————————— 项目依赖的第三方的包
   - public ———————————————— 共用文件
     - favicon.ico        —— 网页标签左上角小图标
-    - index.html         —— 页面首页模板
-    - mainfest.json      —— 
-  - src
-    - App.css
-    - App.js 
-    - App.test.js
-    - index.css
-    - index.js
-    - logo.svg
-    - serviceWorker.js
+    - index.html         —— 网站首页模板
+    - mainfest.json      —— 提供 meta 信息给项目，与 serviceWorker.js 相呼应，进行离线 APP 定义
+  - src ——————————————————— 重要的目录
+    - App.css            —— 主组件样式
+    - App.js             —— 主组件入口
+    - App.test.js        —— 自动化测试文件
+    - index.css          —— 全局 css 文件
+    - index.js           —— 所有代码的入口
+    - logo.svg           —— 页面的动态图
+    - serviceWorker.js   —— PWA。帮助开发手机 APP 应用，具有缓存作用
   - .gitignore ——————————— 配置文件。git 上传的时候忽略哪些文件
   - package-lock.json ———— 锁定安装包的版本号，保证其他人在 npm i 的时候使用一致的 node 包
   - package.json ————————— node 包文件，介绍项目以及说明一些依赖包等
   - README.md ———————————— 项目介绍文件
 ```
+
+下面对其进行精简：
+
+```shell
+- todolist
+  + node_modules —————————— 项目依赖的第三方的包
+  - public ———————————————— 共用文件
+    - favicon.ico        —— 网页标签左上角小图标
+    - index.html         —— 网站首页模板
+  - src ——————————————————— 重要的目录
+    - App.js             —— 主组件入口
+    - index.js           —— 所有代码的入口
+  - .gitignore ——————————— 配置文件。git 上传的时候忽略哪些文件
+  - package.json ————————— node 包文件，介绍项目以及说明一些依赖包等
+  - README.md ———————————— 项目介绍文件
+```
+
+详情
 
 ---
 
