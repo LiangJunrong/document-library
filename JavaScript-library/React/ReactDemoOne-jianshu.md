@@ -264,7 +264,7 @@ import ReactDOM from 'react-dom';
 // 2. 将 App.js 导入进来
 import App from './App';
 
-// 3. 通过 ReactDOM 将 App.js 以虚拟 DOM 的形式渲染到 root 根节点，该节点在 index.html 中
+// 3. 通过 ReactDOM 将 App.js 以虚拟 DOM 的形式渲染/挂载到 root 根节点，该节点在 index.html 中
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
@@ -277,7 +277,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="shortc ut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -324,6 +324,63 @@ class App extends React.Component {
 ```
 
 最后，为什么写第一行代码，因为便捷啊！
+
+* **JSX**：
+
+在上面代码中，不管是：
+
+```js
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+还是：
+
+```js
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        Hello React!
+      </div>
+    );
+  }
+}
+```
+
+等这些有关 DOM 的渲染，都需要用到 JSX，所以需要引入 React：
+
+```js
+import React from 'react';
+```
+
+那么，什么是 JSX 呢？
+
+React 的核心机制之一就是可以在内存中创建虚拟的 DOM 元素。React 利用虚拟 DOM 来减少对实际 DOM 的操作从而提升性能。 
+
+JSX 就是 Javascript 和 XML 结合的一种格式。React 发明了 JSX，利用HTML 语法来创建虚拟 DOM。当遇到 `<`，JSX 就当 HTML 解析，遇到 `{` 就当 JavaScript 解析。
+
+在 JSX 语法中，如果我们需要使用自己创建的组件，我们直接使用它的定义名即可，例如：
+
+```js
+// 1. 引入 React、ReactDOM
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// 2. 将 App.js 导入进来
+import App from './App';
+
+// 3. 通过 ReactDOM 将 App.js 以虚拟 DOM 的形式渲染/挂载到 root 根节点，该节点在 index.html 中
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+其中第三点即是自定义组件渲染到根节点。
+
+> 如果需要使用自定义组件，那么该组件不能小写开头 ~~app~~，而是使用 `App` 这样的大写开头形式。
+
+* **参考文献**：
+
+1. [《React.Component 与 React.PureComponent（React之性能优化）》](https://www.cnblogs.com/clover77/p/9394514.html)
+2. [《visual studio code + react 开发环境搭建》](https://blog.csdn.net/crazyhsf/article/details/81039059)
 
 ---
 
