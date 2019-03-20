@@ -1163,8 +1163,8 @@ ES6 是个大知识点，如果你面试的公司不是 “饱经沧桑” 的�
 * `some`: 有一项返回true，则整体为true
 * `every`: 有一项返回false，则整体为false
 * `join`: 通过指定连接符生成字符串
-* `push / pop`: 末尾推入和弹出，改变原数组， 返回推入/弹出项
-* `unshift / shift`: 头部推入和弹出，改变原数组，返回操作项
+* `push / pop`: 末尾推入和弹出，改变原数组， 返回推入/弹出项【有误】
+* `unshift / shift`: 头部推入和弹出，改变原数组，返回操作项【有误】
 * `sort(fn) / reverse`: 排序与反转，改变原数组
 * `concat`: 连接数组，不影响原数组， 浅拷贝
 * `slice(start, end)`: 返回截断后的新数组，不改变原数组
@@ -1738,7 +1738,7 @@ Component({
 > [返回目录](#catalog-chapter-eight)
 
 1. 存储于代码中，代码执行完毕释放内存。
-2. 存储于浏览器中，cookie 用于短期存储用户身份，登录状态等较小的信息；localStorage/sessionStorage 用于长期存储数据，浏览器关闭不影响它们的内存，相比于 cookie，storage 能存储较多；IndexedDB 是浏览器提供的接近于 NoSQL 的数据库，允许存储大量数据。
+2. 存储于浏览器中，cookie 用于短期存储用户身份，登录状态等较小的信息；localStorage 用于长期存储数据，浏览器关闭不影响它们的内存，相比于 cookie，storage 能存储较多；IndexedDB 是浏览器提供的接近于 NoSQL 的数据库，允许存储大量数据。
 3. 存储于数据库中。
 
 ### <a name="chapter-eight-four" id="chapter-eight-four">8.4 内存管理与垃圾回收</a>
@@ -2040,7 +2040,67 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 
 函数 A 里面包含了 函数 B，而 函数 B 里面使用了 函数 A 的变量，函数 B 被 return 了出去，那么 函数 B 被称为闭包。
 
+* **`box-sizing` 属性**：
 
+当值为 `border-box` 时，宽度 `width = content + padding + border`，包含内边距与边框。
+
+当值为 `content-box` 时，宽度 `width = content`，不包含内边距与边框。
+
+* **em**：
+
+`em` 是一个相对的大小，这里的相对于元素父元素的 `font-size`。
+
+* **Side Project**：
+
+Side Project 对应的中文就是副业、业余项目或者小项目。
+
+感兴趣的小伙伴可以去了解一下。
+
+* **`push` 与 `shift` 系列**：
+
+这里原文已备注是有误的，只是一时没空，没有修改。
+
+* **CSS 选择器加载顺序**：
+
+原文：!important -> 行内样式 -> #id -> .class -> 元素和伪元素 -> * -> 继承 -> 默认
+
+网友：“应该是最后的优先级最高。”
+
+这里最后的优先级最高应该是指同等级优先级覆盖。浏览器通过 CSSParser 将 CSS 解析成 CSS Rule Tree 的时候，没错的话应该是按照原文中的排序先加载，然后同等级的时候，后面的属性覆盖前面的属性。
+
+* **ARIA**：
+
+对于 HTML5 的语义化，ARIA 的意思是 Accessible Rich Internet Application，`aria-*` 的作用就是描述这个 Tag 在可视化的情境中的具体信息。例如：
+
+1. `aria-label`：为组件指定内置的文本标签，用来替代开发者没有使用 `<label>` 标签
+2. `aria-labelledby`：会读取与此具有相同的 `id` 名的值
+
+> 详情可参考张鑫旭的 [《WAI-ARIA无障碍网页应用属性完全展示》](https://www.zhangxinxu.com/wordpress/2012/03/wai-aria-%E6%97%A0%E9%9A%9C%E7%A2%8D%E9%98%85%E8%AF%BB/)
+
+* **sessionStorage 和 localStorage**：
+
+文章描述不够详细。
+
+* **两列布局/三列布局**：
+
+1. `child-tow` 中设置 `width: 100%` 的时候 `child-one` 的宽度会随机而变，设置 `flex: 1` 就不会。所以看个人需求进行设置。
+2. 文章中没有讲到应对兼容性怎么设置，可以考虑使用 `float` 进行相关的布局。
+
+* **浅拷贝与深拷贝**：
+
+可参考文章：[《深拷贝的终极探索（90%的人不知道）》](https://zhuanlan.zhihu.com/p/46789186)
+
+* **`Promise` 与 `async`/`await`**：
+
+文章描述不够详细。
+
+* **跨域**：
+
+本来打算写的，后面没时间，给我删了这块，评论区有篇文献参考：
+
+[《九种跨域方式实现原理（完整版）》](https://segmentfault.com/a/1190000018017118)
+
+以上，即为目前评论区的补充，感谢各位小伙伴的点赞支持。
 
 ---
 
