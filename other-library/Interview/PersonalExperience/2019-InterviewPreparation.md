@@ -2,7 +2,7 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2019-2-11 15:30:34**  
-> Recently revised in **2019-3-17 21:30:36**
+> Recently revised in **2019-3-20 08:15:50**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md)**
 
@@ -94,6 +94,7 @@ jsliang 的 2019 面试准备
 | &emsp;[14.3 关于 CSS](#chapter-fourteen-three) |
 | &emsp;[14.4 关于 JS](#chapter-fourteen-four) |
 | &emsp;[14.5 关于其他](#chapter-fourteen-five) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 网友反馈](#chapter-fifteen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -2026,6 +2027,20 @@ V8 将内存分为两类：新生代内存空间和老生代内存空间。
 8.  [《前端分享之cookie的使用及单点登录》](https://segmentfault.com/a/1190000011295587) 
 9.  [《Cookie、session和localStorage、以及sessionStorage之间的区别》](https://www.cnblogs.com/zr123/p/8086525.html)
 10. [《网络分层TCP/IP 与HTTP》](https://juejin.im/post/5a98e1f7f265da237410694e)
+
+## <a name="chapter-fifteen" id="chapter-fifteen">十五 网友反馈</a>
+
+> [返回目录](#catalog-chapter-fifteen)
+
+查看了下掘金评论区，感谢各位大大的反馈，由于本人将于 **2019年4月1日** 入职，故将一些个人觉得不错的自己没有察觉的知识点记录下来，区分于原文，更为了猴年马月后的下一次跳槽进一步完善。
+
+> 意思就是，**jsliang** 这货懒得改原文了，小伙伴们看着这里进行知识点补充
+
+* **闭包定义**：
+
+函数 A 里面包含了 函数 B，而 函数 B 里面使用了 函数 A 的变量，函数 B 被 return 了出去，那么 函数 B 被称为闭包。
+
+
 
 ---
 
