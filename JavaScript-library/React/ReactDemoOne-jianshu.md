@@ -431,6 +431,20 @@ export default TodoList;
 1. [《React.Component 与 React.PureComponent（React之性能优化）》](https://www.cnblogs.com/clover77/p/9394514.html)
 2. [《visual studio code + react 开发环境搭建》](https://www.jianshu.com/p/ec7c2bab16cc)
 
+<details>
+  <summary>基础知识</summary>
+
+这是基础知识：
+
+```js
+let a = 1, b = a;
+console.log(b);
+```
+
+你还需要知道其他的吗？
+
+</details>
+
 ---
 
 > **jsliang** 广告推送：  
