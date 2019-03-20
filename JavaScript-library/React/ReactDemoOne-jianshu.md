@@ -2,9 +2,9 @@ React Demo One - 仿简书项目
 ===
 
 > Create by **jsliang** on **2019-3-18 08:37:10**  
-> Recently revised in **2019-3-19 08:00:57**
+> Recently revised in **2019-3-20 19:32:42**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-jianshu.md)**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -22,27 +22,20 @@ React Demo One - 仿简书项目
 
 关于 React，**jsliang** 从 `2018-9-5` 就开始折腾了，中途因为工作调动，没有成功继续折腾下去。最近因为新公司工作需求，从头开始继续折腾 React，希望我的文章能对没学过 React 的小伙伴有所帮助。
 
-本文参考来自慕课网的 [《React 16.4 开发简书项目
-从零基础入门到实战》](https://coding.imooc.com/class/229.html) 教程，掺杂个人对编程的理解，如有错误，望多多指正。
+* **前置知识**：
 
-## <a name="chapter-three" id="chapter-three">三 课程结构</a>
+1. ES5/ES6
+2. Webpack
+3. npm
 
-> [返回目录](#catalog-chapter-three)
-
-* **课程结构**：
+* **文章结构**：
 
 1. 基础内容 -> 环境搭建 -> 基础语法 -> 原理进阶 -> 动画
 2. Redux -> Redux 进阶
 3. 实战项目 -> 环境搭建 -> Header -> 首页 -> 详情页
 4. 登录校验 -> 上线
 
-* **前置知识**：
-
-1. ES5/ES6
-2. webpack
-3. npm
-
-* **知识点**：
+* **涉及知识点**：
 
 1. create-react-app
 2. 组件化思维
@@ -61,6 +54,13 @@ React Demo One - 仿简书项目
 15. immutable.js
 16. redux-immutable
 17. axios
+
+本文参考来自慕课网的 [《React 16.4 开发简书项目
+从零基础入门到实战》](https://coding.imooc.com/class/229.html) 教程，掺杂个人对编程的理解，如有错误，望多多指正。
+
+## <a name="chapter-three" id="chapter-three">三 课程结构</a>
+
+> [返回目录](#catalog-chapter-three)
 
 * **开始准备**：
 
@@ -596,6 +596,145 @@ class TodoList extends Component {
 }
 
 export default TodoList;
+```
+
+* **再次优化**：
+
+```js
+// Fragment 是一种占位符形式，类似于 Vue 的 Template
+import React, { Component, Fragment } from 'react';
+
+// 引入组件
+import TodoItem from './TodoItem';
+
+// 引用样式
+import './style.css';
+
+class TodoList extends Component {
+
+  // 构造函数
+  constructor(props) {
+    super(props);
+    // 定义数据
+    this.state = {
+      inputValue: '',
+      list: []
+    }
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleBtnClick = this.handleBtnClick.bind(this);
+    this.handleItemDelete = this.handleItemDelete.bind(this);
+  }
+
+  // 渲染页面
+  render() {
+    return (
+      <Fragment>
+        <div>
+          <label htmlFor="insertArea">输入内容：</label>
+          {/* 单项数据绑定 */}
+          {/* 在 React 中，绑定时间的，一般为半驼峰形式 */}
+          <input 
+            id="insertArea"
+            type="text" 
+            value={this.state.inputValue}
+            onChange={this.handleInputChange}
+          />
+          <button onClick={this.handleBtnClick}>提交</button>
+        </div>
+        <ul>
+          {/* 精简 JSX，将部分抽取出来 */}
+          { this.getTodoItem() }
+        </ul>
+      </Fragment>
+    )
+  }
+
+  // 获取单独项
+  getTodoItem() {
+    return this.state.list.map( (item, index) => {
+      return (
+        <TodoItem 
+          key={index}
+          item={item} 
+          index={index}
+          handleItemDelete={this.handleItemDelete}
+        />
+      )
+    })
+  }
+
+  // 方法体 - 输入内容
+  handleInputChange(e) {
+    const value = e.target.value;
+    this.setState( () => ({
+      inputValue: value
+    }))
+  }
+
+  // 方法体 - 点击提交
+  handleBtnClick() {
+    const list = this.state.list,
+          inputValue = this.state.inputValue;
+    this.setState( () => ({
+      list: [...list, inputValue],
+      inputValue: ''
+    }))
+
+    // 或者可以这样写：
+    // this.setState( (prevState) => ({
+    //   list: [...prevState.list, prevState.inputValue],
+    //   inputValue: ''
+    // }))
+
+  }
+
+  // 方法体 - 删除项目
+  handleItemDelete(index) {
+    // immutable - state 不允许做任何改变
+    const list = [...this.state.list];
+    list.splice(index, 1);
+
+    this.setState( () => ({
+      list: list
+    }))
+  }
+
+}
+
+export default TodoList;
+```
+
+> TodoItem.js
+
+```js
+import React, { Component } from 'react'
+
+class TodoItem extends Component {
+
+  constructor(props) {
+    super(props);
+    // 这种写法可以节省性能
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  render() {
+    const { item } = this.props;
+    return (
+      <li>
+        <span>{item}</span>
+        <span className="icon-close" onClick={this.handleClick}>×</span>
+      </li>
+    )
+  }
+
+  handleClick() {
+    const { handleItemDelete, index } = this.props;
+    handleItemDelete(index);
+  }
+
+}
+
+export default TodoItem;
 ```
 
 * **参考文献**：
