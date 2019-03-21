@@ -105,7 +105,7 @@ React - 慕课视频系列
     - favicon.ico        —— 网页标签左上角小图标
     - index.html         —— 网站首页模板
     - mainfest.json      —— 提供 meta 信息给项目，与 serviceWorker.js 相呼应，进行离线 APP 定义
-  - src ——————————————————— 重要的目录
+  - src ——————————————————— 项目主要目录
     - App.css            —— 主组件样式
     - App.js             —— 主组件入口
     - App.test.js        —— 自动化测试文件
