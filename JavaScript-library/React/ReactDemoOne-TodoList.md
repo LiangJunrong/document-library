@@ -80,7 +80,7 @@ Now，开始搞事情。
 
 > [返回目录](#chapter-one)
 
-下面对其进行精简：
+为了方便开发，下面对 creat-react-app 的初始目录进行精简：
 
 ```shell
 - todolist
@@ -96,9 +96,9 @@ Now，开始搞事情。
   - README.md ———————————— 项目介绍文件
 ```
 
-* **详情**
+`favicon.ico`、`.gitignore`、`README.md` 是我们无需理会的，但是其他文件，我们需要精简下它们的代码：
 
-> index.html
+> 1. index.html
 
 ```html
 <!DOCTYPE html>
@@ -119,7 +119,7 @@ Now，开始搞事情。
 </html>
 ```
 
-> App.js
+> 2. App.js
 
 ```js
 import React, { Component } from 'react';
@@ -137,7 +137,7 @@ class App extends Component {
 export default App;
 ```
 
-> index.js
+> 3. index.js
 
 ```js
 import React from 'react';
@@ -147,35 +147,7 @@ import App from './App';
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-> .gitignore
-
-```shell
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-```
-
-> package.json
+> 4. package.json
 
 ```json
 {
@@ -208,6 +180,8 @@ yarn-error.log*
 ### <a name="chapter-three-four" id="chapter-three-four">3.4 双向数据绑定</a>
 
 > [返回目录](#chapter-one)
+
+
 
 ### <a name="chapter-three-five" id="chapter-three-five">3.5 组件式开发</a>
 
