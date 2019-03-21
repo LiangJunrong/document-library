@@ -40,39 +40,20 @@ Now，开始搞事情。
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 项目目录解析</a>
-
-> [返回目录](#chapter-one)
-
-### <a name="chapter-three-three" id="chapter-three-three">3.3 精简项目结构</a>
-
-> [返回目录](#chapter-one)
-
-### <a name="chapter-three-four" id="chapter-three-four">3.4 双向数据绑定</a>
-
-> [返回目录](#chapter-one)
-
-### <a name="chapter-three-five" id="chapter-three-five">3.5 组件式开发</a>
-
-> [返回目录](#chapter-one)
-
-### <a name="chapter-three-six" id="chapter-three-six">3.6 父子组件通讯</a>
-
-> [返回目录](#chapter-one)
-
-* **开始准备**：
-
 1. 下载 Node.js
 2. 安装 React 脚手架：
    1. `npm i create-react-app -g`
-   2. `create-react-app todolist`
-   3. `cd todolist`
-   4. `npm start`
-3. 查看 `localhost:3000`：
+3. 开启新项目：
+   1. `create-react-app todolist`
+   2. `cd todolist`
+   3. `npm start`
+4. 打开 `localhost:3000` 查看页面
 
 ![图](../../public-repertory/img/js-react-demo-one-1.png)
 
-4. 项目目录解析：
+### <a name="chapter-three-two" id="chapter-three-two">3.2 项目目录解析</a>
+
+> [返回目录](#chapter-one)
 
 ```shell
 - todolist
@@ -80,8 +61,8 @@ Now，开始搞事情。
   - public ———————————————— 共用文件
     - favicon.ico        —— 网页标签左上角小图标
     - index.html         —— 网站首页模板
-    - mainfest.json      —— 提供 meta 信息给项目，与 serviceWorker.js 相呼应，进行离线 APP 定义
-  - src ——————————————————— 重要的目录
+    - mainfest.json      —— 提供 meta 信息给项目，并与 serviceWorker.js 相呼应，进行离线 APP 定义
+  - src ——————————————————— 项目主要目录
     - App.css            —— 主组件样式
     - App.js             —— 主组件入口
     - App.test.js        —— 自动化测试文件
@@ -94,6 +75,10 @@ Now，开始搞事情。
   - package.json ————————— node 包文件，介绍项目以及说明一些依赖包等
   - README.md ———————————— 项目介绍文件
 ```
+
+### <a name="chapter-three-three" id="chapter-three-three">3.3 精简项目结构</a>
+
+> [返回目录](#chapter-one)
 
 下面对其进行精简：
 
@@ -220,7 +205,13 @@ yarn-error.log*
 }
 ```
 
-* **组件**
+### <a name="chapter-three-four" id="chapter-three-four">3.4 双向数据绑定</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-five" id="chapter-three-five">3.5 组件式开发</a>
+
+> [返回目录](#chapter-one)
 
 ![图](../../public-repertory/img/js-react-demo-one-2.png)
 
@@ -423,6 +414,10 @@ class TodoList extends Component {
 
 export default TodoList;
 ```
+
+### <a name="chapter-three-six" id="chapter-three-six">3.6 父子组件通讯</a>
+
+> [返回目录](#chapter-one)
 
 * **新增与修改**：
 
