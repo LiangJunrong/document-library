@@ -177,31 +177,26 @@ ReactDOM.render(<App />, document.getElementById('root'));
 }
 ```
 
-### <a name="chapter-three-four" id="chapter-three-four">3.4 双向数据绑定</a>
-
-> [返回目录](#chapter-one)
-
-
-
-### <a name="chapter-three-five" id="chapter-three-five">3.5 组件式开发</a>
+### <a name="chapter-three-four" id="chapter-three-four">3.4 初探组件</a>
 
 > [返回目录](#chapter-one)
 
 ![图](../../public-repertory/img/js-react-demo-one-2.png)
 
-组件，即将页面切成几个部分，从而有利于页面的拼装。
+类似于上图，在进行页面开发的时候，我们很容易地使用庖丁解牛的技巧，将页面进行划分，然后一部分一部分地将页面搭建出来。
 
-在 React 中，定义一个组件：
+给个比较官方的说法，就叫页面组件化：将页面切成几个部分，从而有利于页面的拼装以及代码的维护。
+
+在 create-react-app 的默认配置中，App.js 就是一个组件，一起来看：
 
 > App.js
 
 ```js
-// import React, { Component } from 'react';
-// 1. 引用 React
-import React from 'react';
+// 1. 引用 React 及其组件
+import React, { Component } from 'react';
 
-// 2. 定义一个 App 的类，继承于 React 的组件
-class App extends React.Component {
+// 2. 定义一个叫 App 的组件继承于 Component
+class App extends Component {
   render() {
     return (
       <div className="App">
@@ -211,11 +206,11 @@ class App extends React.Component {
   }
 }
 
-// 3. 将这个 App 导出去
+// 3. 根据 React 实例，在 App 内部编写完毕后，导出这个 App 组件
 export default App;
 ```
 
-以上是 App.js 的一个定义，这样子表明一个组件的定义。下面我们看它如何被使用：
+在上面，我们引用、定义并导出了这个 App 的组件，然后我们就要使用它：
 
 > index.js
 
@@ -231,7 +226,7 @@ import App from './App';
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-最后我们查看下 `index.html`
+`index.js` 告诉我们，它会通过 ReactDom，将 App.js 这个组件挂载到 `root` 这个节点上，那么，这个 `root` 在哪里呢？我们查看下 index.html：
 
 > index.html
 
@@ -254,39 +249,15 @@ ReactDOM.render(<App />, document.getElementById('root'));
 </html>
 ```
 
-在 App.js 中，小伙伴们可能注意到一点，有一行代码被注释了：
+OK，很容易地我们就捋清楚思路了：我们在 index.html 中定义了个 `root` 根节点，然后我们通过 index.js，将 App.js 以组件形式渲染到了 index.html 中，从而实现了节点的挂载。
 
-```js
-import React, { Component } from 'react';
+> 思维发散：我们知道 index.js 和 App.js 的最终结合是挂载到 `id="root"` 节点上的，如果我们再开一个 index2.js 和 App2.js，挂载到 `id="root2"` 节点上，行不行呢？亦或者我们开一个 `id="root3"` 的节点，我们在其中操作 jQuery，是不是也可行？
 
-class App extends React.Component {
-  // ...
-}
-```
+### <a name="chapter-three-five" id="chapter-three-five">3.5 JSX</a>
 
-其实，这句话就等同于：
+> [返回目录](#chapter-one)
 
-```js
-import React from 'react';
-import { Component } from 'react';
 
-class App extends React.Component {
-  // ...
-}
-```
-
-然后，我们进一步拆分，可以将其化为下面等价：
-
-```js
-import React from 'react';
-const Component = React.Component;
-
-class App extends React.Component {
-  // ...
-}
-```
-
-最后，为什么写第一行代码，因为便捷啊！
 
 * **JSX**：
 
