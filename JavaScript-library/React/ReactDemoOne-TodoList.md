@@ -18,8 +18,8 @@ React Demo One - TodoList
 | &emsp;[3.1 新建 React 项目](#chapter-three-one) |
 | &emsp;[3.2 项目目录解析](#chapter-three-two) |
 | &emsp;[3.3 精简项目结构](#chapter-three-three) |
-| &emsp;[3.4 双向数据绑定](#chapter-three-four) |
-| &emsp;[3.5 组件式开发](#chapter-three-five) |
+| &emsp;[3.4 初探组件](#chapter-three-four) |
+| &emsp;[3.5 JSX](#chapter-three-five) |
 | &emsp;[3.6 父子组件通讯](#chapter-three-six) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 总结](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 参考文献](#chapter-five) |
@@ -257,17 +257,13 @@ OK，很容易地我们就捋清楚思路了：我们在 index.html 中定义了
 
 > [返回目录](#chapter-one)
 
-
-
-* **JSX**：
-
-在上面代码中，不管是：
+在 create-react-app 的文件中，不管是 index.js 中的：
 
 ```js
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-还是：
+还是 App.js 中的：
 
 ```js
 class App extends React.Component {
@@ -281,17 +277,23 @@ class App extends React.Component {
 }
 ```
 
-等这些有关 DOM 的渲染，都需要用到 JSX，所以需要引入 React：
+等这些有关 DOM 的渲染，都需要用到 JSX，因此需要引入 React：
 
 ```js
 import React from 'react';
 ```
 
+* **JSX 的定义**：
+
 那么，什么是 JSX 呢？
 
 React 的核心机制之一就是可以在内存中创建虚拟的 DOM 元素。React 利用虚拟 DOM 来减少对实际 DOM 的操作从而提升性能。 
 
-JSX 就是 Javascript 和 XML 结合的一种格式。React 发明了 JSX，利用HTML 语法来创建虚拟 DOM。当遇到 `<`，JSX 就当 HTML 解析，遇到 `{` 就当 JavaScript 解析。
+JSX 就是 JavaScript 和 XML 结合的一种格式。
+
+React 发明了 JSX，利用 HTML 语法来创建虚拟 DOM。当遇到 `<`，JSX 就当 HTML 解析，遇到 `{` 就当 JavaScript 解析。
+
+* **JSX 的使用**：
 
 在 JSX 语法中，如果我们需要使用自己创建的组件，我们直接使用它的定义名即可，例如：
 
@@ -309,9 +311,61 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 其中第三点即是自定义组件渲染到根节点。
 
-> 如果需要使用自定义组件，那么该组件不能小写开头 ~~app~~，而是使用 `App` 这样的大写开头形式。
+> 提示：在 React 中，如果需要使用自定义组件，那么该组件不能小写开头 ~~app~~，而是使用 `App` 这样的大写开头形式。
 
-* **事件及双向数据绑定**：
+### <a name="chapter-three-six" id="chapter-three-six">3.6 事件及双向数据绑定</a>
+
+> [返回目录](#chapter-one)
+
+这是我们精简后的目录结构：
+
+![图](../../public-repertory/img/js-react-demo-one-3.png)
+
+我们修改下目录结构，开始编写 TodoList：
+
+![图](../../public-repertory/img/js-react-demo-one-4.png)
+
+**首先**，我们修改 App.js 为 TodoList.js：
+
+> ~~App.js~~ TodoList.js
+
+```js
+import React, { Component } from 'react';
+
+class TodoList extends Component {
+  render() {
+    return (
+      <div className="TodoList">
+        Hello React!
+      </div>
+    );
+  }
+}
+
+export default TodoList;
+```
+
+**然后**，我们修改 index.js 中挂载到 index.html 的组件为 TodoList：
+
+> index.js
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import TodoList from './TodoList';
+
+// 3. 通过 ReactDOM 将 App.js 以虚拟 DOM 的形式渲染/挂载到 root 根节点，该节点在 index.html 中
+ReactDOM.render(<TodoList />, document.getElementById('root'));
+```
+
+修改完毕，小伙伴们可以重启下 3000 端口，查看下我们的 React 是否能正常启动。
+
+> 在此步骤中，我们仅仅修改 App.js 为 TodoList.js，使 index.js 挂载到 `root` 的是 TodoList.js，除此之外没进行其他操作。
+
+如果没有问题，那么我们进一步编写 TodoList，获取到 input 输入框的值，并渲染到列表中：
+
+> TodoList.js
 
 ```js
 // Fragment 是一种占位符形式，类似于 Vue 的 Template
@@ -359,10 +413,6 @@ class TodoList extends Component {
 
 export default TodoList;
 ```
-
-### <a name="chapter-three-six" id="chapter-three-six">3.6 父子组件通讯</a>
-
-> [返回目录](#chapter-one)
 
 * **新增与修改**：
 
@@ -678,6 +728,17 @@ export default TodoItem;
 ## <a name="chapter-four" id="chapter-four">四 总结</a>
 
 > [返回目录](#chapter-one)
+
+在我们学习任意一门语言中，大多就是上手 “Hello World！” 编程，然后做小案例的时候，我们都喜欢来个 TodoList，因为它能讲清楚一些有关基础的知识点。
+
+现在，我们回顾下，我们开发 React 的 TodoList 有啥收获：
+
+1. create-react-app 的安装及开发。
+2. 组件化的思想及在 create-react-app 中关于组件化的应用。
+3. React 关于数据 data 以及方法 methods 的定义及使用，以及如何进行数据双向绑定。
+4. 将大的组件拆分成小组件，并实现父子组件通讯（父组件传递参数给子组件，子组件调用父组件的方法）
+
+至此，**jsliang** 精通 jQuery、Vue、React 编写 TodoList 了，哈哈！
 
 ## <a name="chapter-five" id="chapter-five">五 参考文献</a>
 
