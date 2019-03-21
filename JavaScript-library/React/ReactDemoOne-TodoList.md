@@ -20,7 +20,9 @@ React Demo One - TodoList
 | &emsp;[3.3 精简项目结构](#chapter-three-three) |
 | &emsp;[3.4 初探组件](#chapter-three-four) |
 | &emsp;[3.5 JSX](#chapter-three-five) |
-| &emsp;[3.6 父子组件通讯](#chapter-three-six) |
+| &emsp;[3.6 事件及双向数据绑定](#chapter-three-six) |
+| &emsp;[3.7 拆分子组件](#chapter-three-seven) |
+| &emsp;[3.8 父子组件通讯](#chapter-three-eight) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 总结](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 参考文献](#chapter-five) |
 
@@ -494,6 +496,10 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
+### <a name="chapter-three-seven" id="chapter-three-seven">3.7 拆分子组件</a>
+
+> [返回目录](#chapter-one)
+
 * **组件**：
 
 ```js
@@ -586,7 +592,9 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-* **再次优化**：
+### <a name="chapter-three-eight" id="chapter-three-eight">3.8 父子组件通讯</a>
+
+> [返回目录](#chapter-one)
 
 ```js
 // Fragment 是一种占位符形式，类似于 Vue 的 Template
