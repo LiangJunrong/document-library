@@ -1,4 +1,4 @@
-React Demo One - 仿简书项目
+React Demo One - TodoList
 ===
 
 > Create by **jsliang** on **2019-3-18 08:37:10**  
@@ -14,16 +14,51 @@ React Demo One - 仿简书项目
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 课程结构](#chapter-three) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-three) |
+| &emsp;[3.1 新建 React 项目](#chapter-three-one) |
+| &emsp;[3.2 项目目录解析](#chapter-three-two) |
+| &emsp;[3.3 精简项目结构](#chapter-three-three) |
+| &emsp;[3.4 双向数据绑定](#chapter-three-four) |
+| &emsp;[3.5 组件式开发](#chapter-three-five) |
+| &emsp;[3.6 父子组件通讯](#chapter-three-six) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 总结](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 参考文献](#chapter-five) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
-> [返回目录](#catalog-chapter-two)
+> [返回目录](#chapter-one)
 
+通过编写一个简单的 TodoList 小 Demo，熟悉 React 的开发流程。
 
-## <a name="chapter-three" id="chapter-three">三 课程结构</a>
+## <a name="chapter-three" id="chapter-three">三 正文</a>
 
-> [返回目录](#catalog-chapter-three)
+> [返回目录](#chapter-one)
+
+Now，开始搞事情。
+
+### <a name="chapter-three-one" id="chapter-three-one">3.1 新建 React 项目</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 项目目录解析</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-three" id="chapter-three-three">3.3 精简项目结构</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-four" id="chapter-three-four">3.4 双向数据绑定</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-five" id="chapter-three-five">3.5 组件式开发</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-six" id="chapter-three-six">3.6 父子组件通讯</a>
+
+> [返回目录](#chapter-one)
 
 * **开始准备**：
 
@@ -700,7 +735,13 @@ class TodoItem extends Component {
 export default TodoItem;
 ```
 
-* **参考文献**：
+## <a name="chapter-four" id="chapter-four">四 总结</a>
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-five" id="chapter-five">五 参考文献</a>
+
+> [返回目录](#chapter-one)
 
 1. [《React.Component 与 React.PureComponent（React之性能优化）》](https://www.cnblogs.com/clover77/p/9394514.html)
 2. [《visual studio code + react 开发环境搭建》](https://www.jianshu.com/p/ec7c2bab16cc)
