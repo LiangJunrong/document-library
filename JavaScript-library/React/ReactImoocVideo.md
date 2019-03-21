@@ -14,13 +14,22 @@ React - 慕课视频系列
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Demo 目录](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 精炼提取](#chapter-four) |
+| &emsp;[4.1 快速开始](#chapter-four-one) |
+| &emsp;[4.2 项目目录解析](#chapter-four-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
-> [返回目录](#catalog-chapter-one)
+> [返回目录](#chapter-one)
 
+关于 React，**jsliang** 从 `2018-9-5` 就开始折腾了，中途因为工作调动，没能继续折腾下去。最近因为新公司工作需求，从头开始继续折腾 React，希望我的文章能对没学过 React 或者初入 React 的小伙伴有所帮助。
 
-关于 React，**jsliang** 从 `2018-9-5` 就开始折腾了，中途因为工作调动，没有成功继续折腾下去。最近因为新公司工作需求，从头开始继续折腾 React，希望我的文章能对没学过 React 或者初入 React 的小伙伴有所帮助。
+本文参考来自慕课网：
+
+* [《React 16.4 开发简书项目从零基础入门到实战》](https://coding.imooc.com/class/229.html)
+
+其中掺杂个人对编程的理解，如有错误，望多多指正。
 
 * **前置知识**：
 
@@ -55,8 +64,60 @@ React - 慕课视频系列
 16. redux-immutable
 17. axios
 
-本文参考来自慕课网的 [《React 16.4 开发简书项目
-从零基础入门到实战》](https://coding.imooc.com/class/229.html) 教程，掺杂个人对编程的理解，如有错误，望多多指正。
+## <a name="chapter-three" id="chapter-three">三 Demo 目录</a>
+
+> [返回目录](#chapter-one)
+
+| Demo 目录 |
+| --- |
+| [TodoList](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-TodoList.md) |
+| [简书]()【尚未开始】 |
+
+## <a name="chapter-four" id="chapter-four">四 精炼提取</a>
+
+> [返回目录](#chapter-one)
+
+在每个 Demo 中，总有一些是常用的，或者是感觉比较重要的，提取到这里，方便回顾记录。
+
+### <a name="chapter-four-one" id="chapter-four-one">4.1 快速开始</a>
+
+> [返回目录](#chapter-one)
+
+* **开始准备**：
+
+1. 下载 Node.js
+2. 安装 React 脚手架：
+   1. `npm i create-react-app -g`
+3. 开启新项目：
+   1. `create-react-app todolist`
+   2. `cd todolist`
+   3. `npm start`
+4. 打开 `localhost:3000` 查看页面
+
+### <a name="chapter-four-two" id="chapter-four-two">4.2 项目目录解析</a>
+
+> [返回目录](#chapter-one)
+
+```shell
+- todolist
+  + node_modules —————————— 项目依赖的第三方的包
+  - public ———————————————— 共用文件
+    - favicon.ico        —— 网页标签左上角小图标
+    - index.html         —— 网站首页模板
+    - mainfest.json      —— 提供 meta 信息给项目，与 serviceWorker.js 相呼应，进行离线 APP 定义
+  - src ——————————————————— 重要的目录
+    - App.css            —— 主组件样式
+    - App.js             —— 主组件入口
+    - App.test.js        —— 自动化测试文件
+    - index.css          —— 全局 css 文件
+    - index.js           —— 所有代码的入口
+    - logo.svg           —— 页面的动态图
+    - serviceWorker.js   —— PWA。帮助开发手机 APP 应用，具有缓存作用
+  - .gitignore ——————————— 配置文件。git 上传的时候忽略哪些文件
+  - package-lock.json ———— 锁定安装包的版本号，保证其他人在 npm i 的时候使用一致的 node 包
+  - package.json ————————— node 包文件，介绍项目以及说明一些依赖包等
+  - README.md ———————————— 项目介绍文件
+```
 
 ---
 
