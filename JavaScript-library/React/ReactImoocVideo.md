@@ -73,6 +73,8 @@ React - 慕课视频系列
 | [TodoList](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-TodoList.md) |
 | [简书]()【尚未开始】 |
 
+* [React 系列源码地址](https://github.com/LiangJunrong/React)
+
 ## <a name="chapter-four" id="chapter-four">四 精炼提取</a>
 
 > [返回目录](#chapter-one)
