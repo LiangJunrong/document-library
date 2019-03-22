@@ -24,6 +24,8 @@ React Demo Two - 简书
 
 > [返回目录](#chapter-one)
 
+* [React Development Tools 介绍](http://www.cnplugins.com/zhuanti/how-to-use-react-tools.html)
+* [React Development Tools 下载地址](https://pan.baidu.com/s/1ND_HsvDMnWDPo332UDLZPQ)
 
 
 ---
