@@ -25,7 +25,6 @@ React Demo One - TodoList
 | &emsp;[3.6 事件及双向数据绑定](#chapter-three-six) |
 | &emsp;[3.7 优化-抽取 CSS](#chapter-three-seven) |
 | &emsp;[3.8 优化-抽取 JS](#chapter-three-eight) |
-| &emsp;[3.9 父子组件通讯](#chapter-three-night) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 总结](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 参考文献](#chapter-five) |
 
