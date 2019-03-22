@@ -121,9 +121,39 @@ React - 慕课视频系列
   - README.md ———————————— 项目介绍文件
 ```
 
+### <a name="chapter-four-three" id="chapter-four-three">4.3 常用 React 写法</a>
+
+> [返回目录](#chapter-one)
+
 * 组件
 * 双向数据绑定
 * ……
+
+* 子组件接受数据要求并做默认设置
+
+```js
+// 引用类型校验
+import PropTypes from 'prop-types'
+
+class TodoItem extends React {
+  // ...省略
+}
+
+// 使用类型校验
+TodoItem.protoTypes = {
+  test: PropTypes.string.isRequired,
+  content: PropTypes.arrayOf(PropTypes.number, PropTypes.string),
+  deleteItem: PropTypes.func,
+  index: PropTypes.number
+}
+
+// 使用字段默认值
+TodoItem.defaultProps = {
+  test: 'Hello World!'
+}
+
+export default TodoItem;
+```
 
 ---
 
