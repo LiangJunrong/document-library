@@ -616,101 +616,13 @@ import './style.css'
 
 > [返回目录](#chapter-one)
 
-* **组件**：
+在第 4 章关于组件的介绍中，我们讲到：一些复杂的 JS 是可以抽取出来，并以组件的形式，嵌入到需要放置的位置的。
 
-```js
-// Fragment 是一种占位符形式，类似于 Vue 的 Template
-import React, { Component, Fragment } from 'react';
+那么，我们在 JSX 越写越多的情况下，是不是可以将列表渲染那部分抽取出来，从而精简下 JSX 呢？
 
-// 引用样式
-import './style.css';
+答案是可以的，下面我们看下实现：
 
-// 引入组件
-import TodoItem from './TodoItem';
-
-class TodoList extends Component {
-
-  // 构造函数
-  constructor(props) {
-    super(props);
-    // 定义数据
-    this.state = {
-      inputValue: '',
-      list: []
-    }
-  }
-
-  // 渲染页面
-  render() {
-    return (
-      <Fragment>
-        <div>
-          <label htmlFor="insertArea">输入内容：</label>
-          {/* 单项数据绑定 */}
-          {/* 在 React 中，绑定时间的，一般为半驼峰形式 */}
-          <input 
-            id="insertArea"
-            type="text" 
-            value={this.state.inputValue}
-            onChange={this.handleInputChange.bind(this)}
-          />
-          <button onClick={this.handleBtnClick.bind(this)}>提交</button>
-        </div>
-        <ul>
-          {
-            this.state.list.map( (item, index) => {
-              return (
-                <TodoItem 
-                  item={item} 
-                  index={index}
-                  handleItemDelete={this.handleItemDelete.bind(this)}
-                />
-                // <li key={index}>
-                //   <span>{index} - {item}</span>
-                //   <span className="icon-close" onClick={this.handleItemDelete.bind(this, index)}>×</span>
-                // </li>
-              )
-            })
-          }
-        </ul>
-      </Fragment>
-    )
-  }
-
-  // 方法体 - 输入内容
-  handleInputChange(e) {
-    this.setState({
-      inputValue: e.target.value
-    })
-  }
-
-  // 方法体 - 点击提交
-  handleBtnClick() {
-    this.setState({
-      list: [...this.state.list, this.state.inputValue],
-      inputValue: ''
-    })
-  }
-
-  // 方法体 - 删除项目
-  handleItemDelete(index) {
-    // immutable - state 不允许做任何改变
-    const list = [...this.state.list];
-    list.splice(index, 1);
-
-    this.setState({
-      list: list
-    })
-  }
-
-}
-
-export default TodoList;
-```
-
-### <a name="chapter-three-eight" id="chapter-three-eight">3.8 父子组件通讯</a>
-
-> [返回目录](#chapter-one)
+> TodoList.js
 
 ```js
 // Fragment 是一种占位符形式，类似于 Vue 的 Template
@@ -791,13 +703,6 @@ class TodoList extends Component {
       list: [...list, inputValue],
       inputValue: ''
     }))
-
-    // 或者可以这样写：
-    // this.setState( (prevState) => ({
-    //   list: [...prevState.list, prevState.inputValue],
-    //   inputValue: ''
-    // }))
-
   }
 
   // 方法体 - 删除项目
@@ -815,6 +720,62 @@ class TodoList extends Component {
 
 export default TodoList;
 ```
+
+**首先**，我们关注下 TodoList.js 的改变：
+
+1. 我们在 `constructor` 中，将方法进行了提前定义：
+
+```js
+this.handleInputChange = this.handleInputChange.bind(this);
+```
+
+这样，我们在下面就不用写 `.bind(this)` 形式了。
+
+2. 我们修改了下 `this.setState()` 的形式：
+
+> 原写法：
+
+```js
+this.setState({
+  list: list
+})
+```
+
+> 现写法：
+
+```js
+this.setState( () => ({
+  list: list
+}))
+```
+
+因为 React 16 版本进行了更新，使用这种写法比之前的好，至于好在哪，咱先不关心，以后就用这种写法了。
+
+3. 我们引用了组件：
+
+```js
+import TodoItem from './TodoItem';
+```
+
+并且将组件放到方法体：`this.getTodoItem()` 中，而 `this.getTodoItem()` 的定义是：
+
+```js
+// 获取单独项
+getTodoItem() {
+ return this.state.list.map( (item, index) => {
+   return (
+     <TodoItem 
+       key={index}
+       item={item} 
+       index={index}
+       handleItemDelete={this.handleItemDelete}
+     />
+   )
+ })
+}
+```
+
+在这里我们可以看到，我们通过自定义值的形式，将数据 `key`、`item`、`index` 传递给了子组件 `TodoItem`。同时，通过 `handleItemDelete`，将自己的方法传递给了子组件，这样子组件就可以调用父组件的方法了：
 
 > TodoItem.js
 
@@ -834,7 +795,7 @@ class TodoItem extends Component {
     return (
       <li>
         <span>{item}</span>
-        <span className="icon-close" onClick={this.handleClick}>×</span>
+        <span className="icon-close" onClick={this.handleClick}>X</span>
       </li>
     )
   }
@@ -848,6 +809,13 @@ class TodoItem extends Component {
 
 export default TodoItem;
 ```
+
+这样，我们就完成了组件的抽取，并学会了
+
+* 父组件传递值给子组件
+* 子组件调用父组件的方法
+
+由此，我们在接下来就可以编写更丰富健全的项目了。
 
 ## <a name="chapter-four" id="chapter-four">四 总结</a>
 
