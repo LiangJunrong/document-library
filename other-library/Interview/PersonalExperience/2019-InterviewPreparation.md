@@ -468,7 +468,7 @@ Render Tree 中的元素与 DOM 元素相对应，但非一一对应：一个 DO
 
 > [返回目录](#catalog-chapter-four)
 
-1. 水平垂直居中。这种布局老生常谈，**jsliang** 在本文也有提到，详解请 [点击链接](chapter-four-twelve)
+1. 水平垂直居中。这种布局老生常谈，**jsliang** 在本文也有提到，详解请 [点击链接](#chapter-four-eleven)
 2. 两列布局。一侧固定，另一侧自适应。
 
 ```html
