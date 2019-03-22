@@ -105,6 +105,10 @@ Now，开始搞事情。
 
 > 1. index.html
 
+<details>
+
+  <summary>代码详情</summary>
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -124,7 +128,14 @@ Now，开始搞事情。
 </html>
 ```
 
+</details>
+
+
 > 2. App.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -142,7 +153,13 @@ class App extends Component {
 export default App;
 ```
 
+</details>
+
 > 3. index.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
 import React from 'react';
@@ -152,7 +169,13 @@ import App from './App';
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
+</details>
+
 > 4. package.json
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```json
 {
@@ -181,6 +204,8 @@ ReactDOM.render(<App />, document.getElementById('root'));
   ]
 }
 ```
+
+</details>
 
 ### <a name="chapter-three-four" id="chapter-three-four">3.4 初探组件</a>
 
@@ -302,6 +327,8 @@ React 发明了 JSX，利用 HTML 语法来创建虚拟 DOM。当遇到 `<`，JS
 
 在 JSX 语法中，如果我们需要使用自己创建的组件，我们直接使用它的定义名即可，例如：
 
+> index.js
+
 ```js
 // 1. 引入 React、ReactDOM
 import React from 'react';
@@ -368,9 +395,13 @@ ReactDOM.render(<TodoList />, document.getElementById('root'));
 
 > 在此步骤中，我们仅仅修改 App.js 为 TodoList.js，使 index.js 挂载到 `root` 的是 TodoList.js，除此之外没进行其他操作。
 
-如果没有问题，那么我们进一步编写 TodoList，获取到 input 输入框的值，并渲染到列表中：
+**最后**，如果没有问题，那么我们进一步编写 TodoList，获取到 input 输入框的值，并渲染到列表中：
 
 > TodoList.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
 // Fragment 是一种占位符形式，类似于 Vue 的 Template
@@ -428,6 +459,8 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
+</details>
+
 我们先查看演示：
 
 ![图](../../public-repertory/img/js-react-demo-one-5.gif)
@@ -444,9 +477,11 @@ OK，这样我们在每输入一个字符的时候，我们就能立刻获取到
 
 这样，我们就对 React 的数据及事件有了初步理解，下面我们加下按钮点击新增列表事件以及点击 `X` 删除列表事件。
 
+> TodoList.js
+
 <details>
 
-  <summary>代码：TodoList.js</summary>
+  <summary>代码详情</summary>
 
 ```js
 // Fragment 是一种占位符形式，类似于 Vue 的 Template
@@ -626,6 +661,10 @@ import './style.css'
 
 > TodoList.js
 
+<details>
+
+  <summary>代码详情</summary>
+
 ```js
 // Fragment 是一种占位符形式，类似于 Vue 的 Template
 import React, { Component, Fragment } from 'react';
@@ -723,7 +762,9 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-**首先**，我们关注下 TodoList.js 的改变：
+</details>
+
+我们关注下 TodoList.js 的改变：
 
 1. 我们在 `constructor` 中，将方法进行了提前定义：
 
@@ -781,6 +822,10 @@ getTodoItem() {
 
 > TodoItem.js
 
+<details>
+
+  <summary>代码详情</summary>
+
 ```js
 import React, { Component } from 'react'
 
@@ -812,6 +857,8 @@ class TodoItem extends Component {
 export default TodoItem;
 ```
 
+</details>
+
 这样，我们就完成了组件的抽取，并学会了
 
 * 父组件传递值给子组件
@@ -825,7 +872,9 @@ export default TodoItem;
 
 > [返回目录](#chapter-one)
 
-在我们学习任意一门语言中，大多就是上手 “Hello World！” 编程，然后做小案例的时候，我们都喜欢来个 TodoList，因为它能讲清楚一些有关基础的知识点。
+在我们学习任意一门语言中，大多就是上手 “Hello World！” 编程~
+
+然后做小案例的时候，我们都喜欢来个 TodoList，因为它能讲清楚一些有关基础的知识点。
 
 现在，我们回顾下，我们开发 React 的 TodoList 有啥收获：
 
@@ -834,7 +883,7 @@ export default TodoItem;
 3. React 关于数据 data 以及方法 methods 的定义及使用，以及如何进行数据双向绑定。
 4. 将大的组件拆分成小组件，并实现父子组件通讯（父组件传递参数给子组件，子组件调用父组件的方法）
 
-至此，**jsliang** 精通 jQuery、Vue、React 编写 TodoList 了，哈哈！
+至此，**jsliang** 就精通 jQuery、Vue、React 编写 TodoList 了，哈哈！
 
 ## <a name="chapter-five" id="chapter-five">五 参考文献</a>
 
