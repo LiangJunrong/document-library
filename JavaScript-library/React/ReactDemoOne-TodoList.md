@@ -21,8 +21,9 @@ React Demo One - TodoList
 | &emsp;[3.4 初探组件](#chapter-three-four) |
 | &emsp;[3.5 JSX](#chapter-three-five) |
 | &emsp;[3.6 事件及双向数据绑定](#chapter-three-six) |
-| &emsp;[3.7 拆分子组件](#chapter-three-seven) |
-| &emsp;[3.8 父子组件通讯](#chapter-three-eight) |
+| &emsp;[3.7 优化-抽取 CSS](#chapter-three-seven) |
+| &emsp;[3.8 优化-抽取 JS](#chapter-three-eight) |
+| &emsp;[3.9 父子组件通讯](#chapter-three-night) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 总结](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 参考文献](#chapter-five) |
 
@@ -378,7 +379,7 @@ class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: '1312',
+      inputValue: '',
       list: []
     }
   }
@@ -396,9 +397,18 @@ class TodoList extends Component {
           <button>提交</button>
         </div>
         <ul>
-          <li>吃饭</li>
-          <li>睡觉</li>
-          <li>打豆豆</li>
+          <li>
+            <span>吃饭</span>
+            <span>X</span>
+          </li>
+          <li>
+            <span>睡觉</span>
+            <span>X</span>
+          </li>
+          <li>
+            <span>打豆豆</span>
+            <span>X</span>
+          </li>
         </ul>
       </Fragment>
     )
@@ -416,7 +426,25 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-* **新增与修改**：
+我们先查看演示：
+
+![图](../../public-repertory/img/js-react-demo-one-5.gif)
+
+OK，这样我们在每输入一个字符的时候，我们就能立刻获取到对应的数据，这时候实现了单向数据流：输入框 -> JS 内存。
+
+其中有 3 点需要讲解下：
+
+1. `Fragment` 是 React 提供的一种占位符，它像 `<input>`、`<span>` 等标签一样，但是它在实际渲染的时候是不会出现的。因为 React 的 JSX 首层必须要有标签，然后如果使用 `<div>` 等会占用一个层级，所以，类似于 Vue 的 `Template`，React 使用了 `Fragment` 这种空标签。
+2. `constructor` 表示父类的构造方法，在 ES6 中，构造方法 `constructor` 相当于其构造函数，用来新建父类的 `this` 对象，而 `super(props)` 则是用来修正 `this` 指向的。简而言之，我们可以在这里定义数据，并在整个 js 文件中使用。
+3. `onChange` 这种写法，是 React 指定的写法，例如 `onClick` 等，在原生 JS 中，使用的是 `onclick`，而在 React 中，为了区别，需要进行半驼峰编写事件名字。同时，绑定的 `handleInputChange`，可以直接在 `render` 下面进行编写。
+
+> 参考文献：[《react 中 constructor() 和 super() 到底是个啥？》](https://www.jianshu.com/p/8f6dd832e57a)
+
+这样，我们就对 React 的数据及事件有了初步理解，下面我们加下按钮点击新增列表事件以及点击 `X` 删除列表事件。
+
+<details>
+
+  <summary>代码：TodoList.js</summary>
 
 ```js
 // Fragment 是一种占位符形式，类似于 Vue 的 Template
@@ -438,7 +466,8 @@ class TodoList extends Component {
   render() {
     let closeStyle = {
       fontSize: '1.2em',
-      color: 'deepskyblue'
+      color: 'deepskyblue',
+      marginLeft: '10px'
     }
     return (
       <Fragment>
@@ -456,8 +485,8 @@ class TodoList extends Component {
           {
             this.state.list.map( (item, index) => {
               return <li key={index}>
-                <span>{index} - {item}</span>
-                <span style={closeStyle} onClick={this.handleItemDelete.bind(this, index)}>×</span>
+                <span>{index}. {item}</span>
+                <span style={closeStyle} onClick={this.handleItemDelete.bind(this, index)}>X</span>
               </li>
             })
           }
@@ -496,7 +525,94 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-### <a name="chapter-three-seven" id="chapter-three-seven">3.7 拆分子组件</a>
+</details>
+
+![图](../../public-repertory/img/js-react-demo-one-6.gif)
+
+在这一部分，我们需要了解 3 个知识点：
+
+1. 在 `render` 中 `closeStyle` 这个变量，我们用来定义 CSS 属性，然后我们通过 `style={closeStyle}`，直接写了个行内样式（下面我们会抽离出来）
+2. 关于 JSX 遍历输出的形式：
+
+```js
+{
+  this.state.list.map( (item, index) => {
+    return <li key={index}>
+      <span>{index}. {item}</span>
+      <span style={closeStyle} onClick={this.handleItemDelete.bind(this, index)}>X</span>
+    </li>
+  })
+}
+```
+
+我们通过 `{}` 里面循环输出 DOM 节点。如果你学过 jQuery，那么可以将它当为拼接字符串；如果你学过 Vue，那么可以将它当成 `v-for` 变了种写法。
+
+在这里我们不用理会为什么这么写，我们先接受这种写法先。
+
+3. 关于改变 `constructor` 中的数据，我们使用：
+
+```js
+this.setState({
+  list: list
+})
+```
+
+这种形式。其实，这也是有记忆技巧的，要知道我们在定义数据的时候，使用了：
+
+```js
+// 定义数据
+this.state = {
+  inputValue: '',
+  list: []
+}
+```
+
+即： `this.state`，那么我们需要修改数据，那就是 `this.setState` 了。
+
+至此，我们的简易 TodoList 就实现了，下面我们进一步优化，将 CSS 和 JS 进一步抽取。
+
+### <a name="chapter-three-seven" id="chapter-three-seven">3.7 优化-抽取 CSS</a>
+
+> [返回目录](#chapter-one)
+
+在上面中，我们提到 `closeStyle` 是一种行内的写法，作为一枚 **完美编程者**，我们肯定不能容忍，下面我们开始抽离：
+
+> TodoList.js
+
+```js
+import React, { Component, Fragment } from 'react';
+
+import './style.css'
+
+// ... 省略中间代码
+
+<ul>
+{
+  this.state.list.map( (item, index) => {
+    return <li key={index}>
+      <span>{index}. {item}</span>
+      <span className="icon-close" onClick={this.handleItemDelete.bind(this, index)}>X</span>
+    </li>
+  })
+}
+</ul>
+```
+
+在这里，我们需要知道：我们可以通过 `import` 的形式，直接将 CSS 文件直接导入，然后，我们命名 `class` 的时候，因为 React 怕 JS 的 `class` 与 HTML 的 `class` 冲突，所以我们需要使用 `className`。
+
+最后我们再编写下 CSS 文件：
+
+```css
+.icon-close {
+  font-size: 1.2em;
+  color: deepskyblue;
+  margin-left: 10px;
+}
+```
+
+如此，我们就实现了 CSS 的抽取。
+
+### <a name="chapter-three-eight" id="chapter-three-eight">3.8 优化-抽取 JS</a>
 
 > [返回目录](#chapter-one)
 
@@ -754,6 +870,7 @@ export default TodoItem;
 
 1. [《React.Component 与 React.PureComponent（React之性能优化）》](https://www.cnblogs.com/clover77/p/9394514.html)
 2. [《visual studio code + react 开发环境搭建》](https://www.jianshu.com/p/ec7c2bab16cc)
+3. [《react 中 constructor() 和 super() 到底是个啥？》](https://www.jianshu.com/p/8f6dd832e57a)
 
 ---
 

@@ -264,8 +264,6 @@ __字体加粗__
 <details>
   <summary>基础知识</summary>
 
-这是基础知识：
-
 ```js
 let a = 1, b = a;
 console.log(b);
