@@ -4,8 +4,6 @@
 > Create by **jsliang** on **2019-3-23 18:30:22**  
 > Recently revised in **2019-3-23 18:30:25**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactImoocVideo.md)**
-
 程序猿也是人，也有自己的生活。
 
 有些时候，我们感觉自己是个孤独的群体，我们需要释放自己的心情，需要给自己鼓舞，需要让自己拥有越来越多的东西。
