@@ -24,8 +24,38 @@ React Demo Two - 简书
 
 > [返回目录](#chapter-one)
 
+* **调试工具**：
+
 * [React Development Tools 介绍](http://www.cnplugins.com/zhuanti/how-to-use-react-tools.html)
 * [React Development Tools 下载地址](https://pan.baidu.com/s/1ND_HsvDMnWDPo332UDLZPQ)
+
+
+* **子组件接受数据校验及默认设置**
+
+```js
+// 引用类型校验
+import PropTypes from 'prop-types'
+
+class TodoItem extends React {
+  // ...省略
+}
+
+// 使用类型校验
+TodoItem.protoTypes = {
+  test: PropTypes.string.isRequired,
+  content: PropTypes.arrayOf(PropTypes.number, PropTypes.string),
+  deleteItem: PropTypes.func,
+  index: PropTypes.number
+}
+
+// 使用字段默认值
+TodoItem.defaultProps = {
+  test: 'Hello World!'
+}
+
+export default TodoItem;
+```
+
 
 
 ---
