@@ -62,7 +62,7 @@ export default TodoItem;
 
 当父组件的 `render` 函数被运行时，它的子组件的 `render` 都将被重新运行一次。
 
-* **虚拟 DOM 与真实 DOM**
+* **React 的 DOM 操作**
 
 **首先**，尝试模仿下 React 的数据更新：
 
@@ -78,16 +78,56 @@ export default TodoItem;
 2. 第二次生成了一个完整的 DOM 片段
 3. 第二次的 DOM 替换第一次的 DOM，非常耗性能
 
-**最后**，我们尝试优化下思路：
+**接着**，我们尝试优化下思路：
 
 1. `state` 数据
 2. `JSX` 模板
 3. 数据 + 模板结合，生成真实的 DOM，来显示
 4. `state` 发生改变
 5. 数据 + 模板结合，生成真实的 DOM，并不直接替换原始的 DOM
-6. 新的 DOM 与原始的 DOM 作对比，找差异
+6. 新的 DOM（Document Fragment）与原始的 DOM 作对比，找差异
 7. 找出 `input` 框发生了什么变化
 8. 只用新的 DOM 中的 `input` 元素，替换掉老的 DOM 中的 `input` 元素
+
+**再来**，我们再次分析下缺陷：
+
+1. 性能的提升并不明显
+
+**最后**，我们进一步优化提升：
+
+1. `state` 数据
+2. `JSX` 模板
+3. 数据 + 模板结合，生成真实的 DOM，来显示
+
+```html
+<div id='abc'>
+  <span>Hello World!</span>
+</div>
+```
+
+4. 生成虚拟 DOM（虚拟 DOM 就是一个 JS 对象，用来描述真实 DOM）（损耗了性能）
+
+```js
+['div', {id: 'abc'}, [
+  'span', {}, 'Hello World!'
+]]
+```
+
+5. `state` 发生变化
+6. 数据 + 模板生成新的虚拟 DOM（极大提升了性能）
+
+```js
+['div', {id: 'abc'}, [
+  'span', {}, 'Hello jsliang!'
+]]
+```
+
+7. 比较原始虚拟 DOM 和新的虚拟 DOM 的区别，找到区别是 `span` 中内容（极大提升了性能）
+8. 直接操作 DOM，改变 `span` 中的内容
+
+* **深入了解虚拟 DOM**：
+
+
 
 ---
 
