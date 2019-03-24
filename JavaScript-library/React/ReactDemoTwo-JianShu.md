@@ -169,6 +169,44 @@ export default TodoItem;
 
 这时候，我们对应的 `key` 值就变了，我们就需要重新渲染整个 DOM 节点了。
 
+* **ref**：
+
+`ref` 帮助我们在 React 中直接获取 DOM 元素
+
+> TodoList.js
+
+```js
+<input 
+  ref={(input) => {this.input = input}}
+  onChange={this.handleInputChange.bind(this)}
+/>
+
+handleInputChange() {
+  const value = this.input.value;
+}
+
+// 之前
+// handleInputChange(e) {
+//   const value = e.target.value;
+// }
+```
+
+工作中不推荐 `ref` 形式，以为它操作 DOM 了。
+
+* **`setState` 异步**：
+
+在 `this.setState()` 中，我们知道它是异步执行的。
+
+那么，当我们需要在它进行数据更新之后操作，我们要怎么做呢？使用 Promise？不需要！因为 React 提供了 `setState` 后的操作：
+
+```js
+this.setState( (prevState) => {
+  inputValue: '',
+}), () => {
+  console.log('设置完状态后执行');
+});
+```
+
 ---
 
 > **jsliang** 广告推送：  
