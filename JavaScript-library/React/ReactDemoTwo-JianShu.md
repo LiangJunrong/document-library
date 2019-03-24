@@ -93,24 +93,24 @@ export default TodoItem;
 
 1. 性能的提升并不明显
 
-**最后**，我们进一步优化提升：
+**然后**，我们进一步优化提升：
 
 1. `state` 数据
 2. `JSX` 模板
-3. 数据 + 模板结合，生成真实的 DOM，来显示
-
-```html
-<div id='abc'>
-  <span>Hello World!</span>
-</div>
-```
-
-4. 生成虚拟 DOM（虚拟 DOM 就是一个 JS 对象，用来描述真实 DOM）（损耗了性能）
+3. 数据 + 模板生成虚拟 DOM（虚拟 DOM 就是一个 JS 对象，用来描述真实 DOM）（损耗了性能）
 
 ```js
 ['div', {id: 'abc'}, [
   'span', {}, 'Hello World!'
 ]]
+```
+
+4. 用虚拟 DOM 的解构生成真实的 DOM，来显示
+
+```html
+<div id='abc'>
+  <span>Hello World!</span>
+</div>
 ```
 
 5. `state` 发生变化
@@ -125,9 +125,23 @@ export default TodoItem;
 7. 比较原始虚拟 DOM 和新的虚拟 DOM 的区别，找到区别是 `span` 中内容（极大提升了性能）
 8. 直接操作 DOM，改变 `span` 中的内容
 
-* **深入了解虚拟 DOM**：
+**最后**，我们分析下现在优点：
 
+1. 性能提升了
+2. 它使得跨端应用得以实现。React Native（网页上生成 DOM 标签，手机上生成原生应用代码）
 
+> 在 JSX 中，JSX -> createElemnt -> 虚拟 DOM（JS 对象） -> 真实的 DOM：  
+> `return <div><span>item</span></div>`  
+> 可以被下面语句替换：  
+> `return React.createElement('div', {}, React.createElement('span', {}, 'item'))`
+
+* **虚拟 DOM 中的 diff 算法**：
+
+比较原生虚拟 DOM 和新的虚拟 DOM 的区别，使用 Diff（different）算法
+
+![图](../../public-repertory/img/js-react-principle-1.png)
+
+如上图，在 React 中，对于 `setState`，它采用异步操作，统一对 `state` 中的数据进行更改。
 
 ---
 
