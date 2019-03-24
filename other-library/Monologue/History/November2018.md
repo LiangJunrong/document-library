@@ -54,13 +54,13 @@
 
 * [我的 GitHub 更新记录](https://github.com/LiangJunrong)：
 
-![图](../../public-repertory/img/other-Monologue-November2018-1.png)
+![图](../../../public-repertory/img/other-Monologue-November2018-1.png)
 
 <br>
 
 * [我的 GitHub 项目](https://github.com/LiangJunrong/document-library)：
 
-![图](../../public-repertory/img/other-Monologue-November2018-2.png)
+![图](../../../public-repertory/img/other-Monologue-November2018-2.png)
 
 &emsp;**留笔名单**：
 
