@@ -130,31 +130,6 @@ React - 慕课视频系列
 * 双向数据绑定
 * 父组件传递数据给子组件
 * 子组件使用父组件函数
-* 子组件接受数据要求并做默认设置
-
-```js
-// 引用类型校验
-import PropTypes from 'prop-types'
-
-class TodoItem extends React {
-  // ...省略
-}
-
-// 使用类型校验
-TodoItem.protoTypes = {
-  test: PropTypes.string.isRequired,
-  content: PropTypes.arrayOf(PropTypes.number, PropTypes.string),
-  deleteItem: PropTypes.func,
-  index: PropTypes.number
-}
-
-// 使用字段默认值
-TodoItem.defaultProps = {
-  test: 'Hello World!'
-}
-
-export default TodoItem;
-```
 
 ---
 
