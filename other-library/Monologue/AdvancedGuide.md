@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-3-25 08:34:52**
+> Recently revised in **2019-3-25 10:16:30**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -33,6 +33,7 @@
 | 5. [HESUIJUN](https://github.com/HESUIJUN) |
 | 6. [豆包君](https://github.com/danygitgit) |
 | 7. [huqi](https://github.com/hu-qi) |
+| 7. [imNaive](https://github.com/HashidaHaru) |
 
 ## 比赛历史
 
@@ -43,6 +44,7 @@
 * - [x] [梁峻荣](https://github.com/LiangJunrong) 参与周竞赛，已交 35 元。
 * - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
 * - [x] [huqi](https://github.com/hu-qi) 参与周竞赛，已交 35 元。
+* - [x] [imNaive](https://github.com/HashidaHaru) 参与周竞赛，已交 35 元。
 
 上一周情况
 
