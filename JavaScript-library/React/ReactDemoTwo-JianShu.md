@@ -250,11 +250,21 @@ shouldComponentUpdate(nextProps, nextState) {
 
 ![图](../../public-repertory/img/js-react-principle-5.png)
 
-* **调用接口 - axios**
+* **调用接口 - axios**：
 
 * 安装：`npm i axios -S`
 * 引用：`import axios from 'axios'`
 * 使用：`axios.get('地址').then( (res) => {}).catch( (error) => {}))`
+* mock：使用 Charles 模拟接口。
+
+* **React 中的动画**：
+
+1. 使用 CSS3 编写动画
+2. 使用插件 `react-transition-grup`
+
+> 地址：[react-transition-group](https://github.com/reactjs/react-transition-group)
+
+* 安装：`npm i react-transition-group --save`
 
 ---
 
