@@ -2,7 +2,7 @@ React Demo Two - 简书
 ===
 
 > Create by **jsliang** on **2019-3-22 12:47:51**  
-> Recently revised in **2019-3-22 12:47:56**
+> Recently revised in **2019-3-25 08:48:32**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoTwo-JianShu.md)**
 
@@ -206,6 +206,18 @@ this.setState( (prevState) => {
   console.log('设置完状态后执行');
 });
 ```
+
+* **组件生命周期**：
+
+> 本文生命周期为 React 16.4，目前 React 16.8 版本已有新生命周期
+
+![图](../../public-repertory/img/js-react-principle-4.png)
+
+上图为 React 16.4 版本的生命钩子。
+
+何为生命周期：生命周期函数指在某一个时刻会自动调用执行的函数
+
+![图](../../public-repertory/img/js-react-principle-5.png)
 
 ---
 
