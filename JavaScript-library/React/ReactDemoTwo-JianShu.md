@@ -225,10 +225,22 @@ this.setState( (prevState) => {
 
 **Updation**：
 
-* `shouldComponentUpdate()`：在组件被更新之前，它会自动被执行。
+* `shouldComponentUpdate()`：在组件被更新之前，它会自动被执行。如果该生命周期存在于子组件，然后该子组件不需要根据父组件更新而更新，我们只需要 `return false` 即可①。
 * `componentWillUpdate()`：在组件被更新之前，它会自动被执行，但是它在 `shouldComponentUpdate()` 之后被执行。如果 `shouldComponentUpdate()` 返回 `true`，这个函数会被执行；如果返回 `false`，该函数不会被执行。
 * `render()`：渲染 JSX。
 * `componentDidUpdate()`：组件更新完成之后，它会被执行。
+
+> ①：  
+
+```js
+shouldComponentUpdate(nextProps, nextState) {
+  if(nextProps.content !== this.props.content) {
+    return true;
+  } else {
+    return false;
+  }
+}
+```
 
 > `componentWillReceiveProps()`：当一个组件从父组件中接收了参数。只要父组件的 `render()` 函数被重新执行了，子组件的这个生命周期函数就会被执行。
 
@@ -237,6 +249,12 @@ this.setState( (prevState) => {
 * `componentWillUnmount()`：当这个组件即将被从页面中剔除的时候，会被执行。
 
 ![图](../../public-repertory/img/js-react-principle-5.png)
+
+* **调用接口 - axios**
+
+* 安装：`npm i axios -S`
+* 引用：`import axios from 'axios'`
+* 使用：`axios.get('地址').then( (res) => {}).catch( (error) => {}))`
 
 ---
 
