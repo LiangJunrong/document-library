@@ -42,6 +42,7 @@
 
 * - [x] [梁峻荣](https://github.com/LiangJunrong) 参与周竞赛，已交 35 元。
 * - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
+* - [x] [huqi](https://github.com/hu-qi) 参与周竞赛，已交 35 元。
 
 上一周情况
 
