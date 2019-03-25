@@ -215,7 +215,26 @@ this.setState( (prevState) => {
 
 上图为 React 16.4 版本的生命钩子。
 
-何为生命周期：生命周期函数指在某一个时刻会自动调用执行的函数
+何为生命周期：生命周期函数指在某一个时刻会自动调用执行的函数。
+
+**Mounting**：
+
+* `componentWillMount()`：在组件即将被挂载到页面的时刻自动执行。
+* `render()`：渲染 JSX。
+* `componentDidMount()`：在组件被挂载到页面之后，自动被执行。
+
+**Updation**：
+
+* `shouldComponentUpdate()`：在组件被更新之前，它会自动被执行。
+* `componentWillUpdate()`：在组件被更新之前，它会自动被执行，但是它在 `shouldComponentUpdate()` 之后被执行。如果 `shouldComponentUpdate()` 返回 `true`，这个函数会被执行；如果返回 `false`，该函数不会被执行。
+* `render()`：渲染 JSX。
+* `componentDidUpdate()`：组件更新完成之后，它会被执行。
+
+> `componentWillReceiveProps()`：当一个组件从父组件中接收了参数。只要父组件的 `render()` 函数被重新执行了，子组件的这个生命周期函数就会被执行。
+
+**Unmounting**：
+
+* `componentWillUnmount()`：当这个组件即将被从页面中剔除的时候，会被执行。
 
 ![图](../../public-repertory/img/js-react-principle-5.png)
 
