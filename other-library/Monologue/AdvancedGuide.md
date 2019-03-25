@@ -2,25 +2,27 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-3-3 14:37:12**
+> Recently revised in **2019-3-25 08:34:52**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
 这是一个竞赛，  
+目标是让你 GitHub 长成青青草原，  
 只要你提供 GitHub 账号，  
 就可以参加！  
 
-1. 可选择按天、周、月参与。
-2. 每天的比赛金为 5 元。（其他档次之后优化）
-3. 没有打卡（提交 GitHub）则扣除全部比赛金。
-4. 成功打卡则均摊其他失败者的比赛金。
-5. 以 GitHub Contribution 显示为主，如果使用掘金、个人博客等编写文章，请在 GitHub 开个 README.md 导向至文章。
+1. 比赛内容不限，但请记录你每天点滴成长！
+2. 可选择按天、周、月参与。
+3. 每天的比赛金为 5 元。（其他档次之后优化）
+4. 没有打卡（提交 GitHub）则扣除全部比赛金。
+5. 成功打卡则均摊其他失败者的比赛金。
+6. 以 GitHub Contribution 显示为主，如果使用掘金、个人博客等编写文章，请在 GitHub 开个 README.md 导向至文章。
 
 本次活动规则解释归 jsliang 所有，详情请私聊咨询 **jsliang** QQ：`1741020489`。
 
 > 本次活动玩法参考自 **支付宝 - 体育服务** 的 **早起打卡** 及 **天天红包赛**。
 
-## 成员清单
+## 成员名单
 
 | GitHub 账号 |
 | --- |
@@ -33,6 +35,30 @@
 | 7. [huqi](https://github.com/hu-qi) |
 
 ## 比赛历史
+
+### 2019-3-25
+
+这一周参赛
+
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参与周竞赛，已交 35 元。
+* - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
+
+上一周情况
+
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参赛 7 天，完成了 7 天的提交。
+* - [x] [豆包君](https://github.com/danygitgit) 参赛 7 天，完成了 7 天的提交。
+
+### 2019-3-17
+
+这一周参赛
+
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参与周竞赛，已交 35 元。
+* - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
+
+上一周情况
+
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参赛 7 天，完成了 7 天的提交。
+* - [x] [豆包君](https://github.com/danygitgit) 参赛 7 天，完成了 7 天的提交。
 
 ### 2019-3-3
 
