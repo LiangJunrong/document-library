@@ -4,7 +4,54 @@ React Demo Two - TodoList 升级
 > create by **jsliang** on **2019-3-26 09:26:53**   
 > Recently revised in **2019-3-26 09:26:57**
 
+* **初始化项目**：
 
+1. 获取 Simpify 目录，修改 App 为 TodoList
+
+* **Ant Design of React**：
+
+1. 安装：`cnpm i antd -S`
+2. 使用：
+
+> TodoList.js
+
+```js
+import React, { Component } from 'react';
+
+import 'antd/dist/antd.css';
+
+import './index.css';
+
+import { Input, Button } from 'antd';
+
+class TodoList extends Component {
+  render() {
+    return (
+      <div className="todo-list">
+        <Input placeholder='todo info' className="todo-list-input" />
+        <Button type="primary" className="todo-list-button">提交</Button>
+      </div>
+    );
+  }
+}
+
+export default TodoList;
+```
+
+> index.css
+
+```css
+.todo-list {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.todo-list-input {
+  width: 200px;
+}
+.todo-list-button {
+  margin-left: 10px;
+}
+```
 
 ---
 
