@@ -21,6 +21,15 @@ React 16.0 及以上版本，又被成为 React Fiber。
 | --- | --- |
 | [《React Demo One - 仿简书项目》](./ReactDemoOne-jianshu.md) | 从 0 到 1，搭建 React 的仿简书项目 |
 
+## 学习顺序
+
+1. ReactImoocVideo
+2. ReactBase
+3. ReactDemoOne-TodoList
+4. ReactRedux
+5. ReactDemoTwo-TodoListUpgrade
+6. ReactDemoThree-JianShu
+
 ---
 
 > **jsliang** 广告推送：  
