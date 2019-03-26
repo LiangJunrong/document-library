@@ -23,6 +23,16 @@ React Redux
 
 ![图](../../public-repertory/img/js-react-redux-1.png)
 
+在 React 中，如果兄弟组件需要通讯，例如左侧中的深色圆圈发送到底部圆圈，需要兜很多弯子。
+
+而 Redux 的出现，是为了弥补这种麻烦的通讯方式，建立起一个中央机制，方便各组件之间的通讯。
+
+Redux = Reducer + Flux
+
+![图](../../public-repertory/img/js-react-redux-2.png)
+
+如上图，即为 Redux 工作机制。
+
 ---
 
 > **jsliang** 广告推送：  
