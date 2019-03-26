@@ -21,6 +21,7 @@ React Redux
 
 > [返回目录](#chapter-one)
 
+![图](../../public-repertory/img/js-react-redux-1.png)
 
 ---
 
