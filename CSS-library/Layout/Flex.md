@@ -2,7 +2,7 @@ Flex 布局
 ===
 
 > create by **jsliang** on **2019-3-27 13:36:02**   
-> Recently revised in **2019-3-27 13:36:06**
+> Recently revised in **2019-3-27 13:42:10**
 
 万丈高楼平地起，熟悉 `Flex` 需要先了解下面这 `7` 个 `CSS` 属性：
 
