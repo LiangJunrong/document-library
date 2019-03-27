@@ -2,7 +2,7 @@ CSS Reset
 ===
 
 > Create by **jsliang** on **2018-12-23 20:12:08**  
-> Recently revised in **2019-2-11 09:49:00**
+> Recently revised in **2019-3-27 13:33:07**
 
 各式各样浏览器总有一些让人感觉难以接受的样式，  
 
@@ -10,7 +10,7 @@ CSS Reset
 
 > reset.css
 
-```
+```css
 /* 
   * reset 的目的不是让默认样式在所有浏览器下一致，而是减少默认样式有可能带来的问题。
   * The purpose of reset is not to allow default styles to be consistent across all browsers, but to reduce the potential problems of default styles.
