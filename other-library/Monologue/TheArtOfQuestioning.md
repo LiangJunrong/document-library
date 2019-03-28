@@ -4,7 +4,7 @@
 > create by **jsliang** on **2019-3-26 15:28:38**   
 > Recently revised in **2019-3-27 22:48:38**
 
-**提问是一门学问，更是种艺术，不懂得提问的人，终归让人难受。** —— **~~鲁迅~~jsliang**
+**提问是一门学问，更是种艺术，不懂得提问的人，终归让人难受。** —— **~~鲁迅~~ jsliang**
 
 ![图](../../public-repertory/img/other-monologue-TheArtOfQuestioning-1.png)
 
@@ -25,7 +25,7 @@
 
 好吧，不管怎样，心虚啊，有时候总感觉自己提问姿势还是不太对，然后刚好看到文章 [《别像弱智一样提问》](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md) 和 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md)。
 
-enm......陷入深思，我是不是就里面的那个弱智......
+enm......陷入深思，我是不是就是里面的那个弱智......
 
 ## 二 反例
 
