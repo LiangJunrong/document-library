@@ -24,11 +24,70 @@ Git
 
 * [《Git 教程 - 廖雪峰》](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 
-## 第一节 配置 .gitignore
+## Git 命令
+
+什么是 Git？
+
+Git 是目前世界上最先进的分布式版本控制系统。
+
+这么说也许你很懵逼，没关系，我们用毕业论文来讲讲：
+
+![图](../../public-repertory/img/other-git-1.jpg)
+
+如上图。写过毕业论文的小伙伴，应该记忆深刻：《毕业论文》《毕业论文完成版》《毕业论文最终版》《毕业论文最最终版》……
+
+令人抓狂无比，当我们需要在 **最最最最终版** 找到之前文件中早早被删除的信息时，我们更加抓狂了：卧槽，我写到哪去了！
+
+这时候，如果有个软件之类的东西帮我们记录就好了：
+
+| 文件名 | 更新信息 | 时间 |
+| --- | --- | --- |
+| 毕业论文 | 第一版，整体内容搭建 | 2019-3-28 08:41:04 |
+| 毕业论文完成版 | 第二版，完成了大部分内容，并进行了排版 | 2019-3-29 08:41:46 |
+| 毕业论文最终版 | 第三版，对第二版进行了删减 | 2019-3-30 08:42:21 |
+| 毕业论文最最终版 | 第四版，对第三版进行了新增 | 2019-3-31 08:42:42 |
+| ... | ... | ... |
+| 毕业论文最最最最终版 | 第六版，对整了下格式 | 2019-4-2 08:43:17 |
+
+OK，这时候我们会发觉，我们要找到被删减的内容，只需要去第二版中查找就行了。
+
+而 Git，就是目前较盛行的版本管理工具。
+
+* **集中式与分布式**
+
+
+
+### git fetch
+
+从一个或多个其他存储库中获取分支和/或标签(统称为“引用”)以及完成其历史所必需的对象。 远程跟踪分支已更新(Git术语叫做commit)，需要将这些更新取回本地，这时就要用到git fetch命令。
+
+### git 取消忽略文件大小写的更改
+
+在当前项目，输入 `git config core.ignorecase false` 即可关闭 git 忽略文件大小写的配置。
+
+### git 删除文件夹
+
+* 删除 `target` 文件夹：`git rm -r --cached target`
+* 提交更改：`git commit -m "删除 target 目录"`
+* 确认更改：`git push`
+
+### git 覆盖上一次 commit 提交信息
+
+`git commit -amend -m "New commit"`
+
+### git 分支
+
+* 创建分支：`git branch cheny`
+* 切换到分支：`git checkout cheny`
+* 添加修改代码到缓存：`git add .`
+* 提交：`git commit -m "修改"`
+* 提交到分支：`git push origin cheny`/`git push --set-upstream origin cheny`
+
+## 配置 .gitignore
 
 在我们使用Git的过程中，有时候喜欢建一些文件给自己查看使用而不是给大众使用，或者说像是 node_modules 这些文件不希望上传到代码仓库的，这时候就需要设置响应的忽略规则，来忽略这些文件的提交。
 
-### 1.1 全局生效
+### 全局生效
 
 定义全局 .gitignore 文件，将其放在任意位置即可生效
 
@@ -36,7 +95,7 @@ Git
 git config --global core.excludesfile ~/.gitignore
 ```
 
-### 1.2 忽略规则
+### 忽略规则
 
 1. 忽略掉所有文件名是 test.html 的文件
 
@@ -64,7 +123,7 @@ node_modules
 
 5. 详细用法看文档：[详情](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gitignore.html)
 
-### 1.3 VS Code 隐藏 node_modules
+### VS Code 隐藏 node_modules
 
 值得一提的就是，我们不仅要忽略它的上传，在 Visio Studio Code 这个编辑器中，如果我们也需要忽略它的话，就需要进行相应的设置，VS Code 隐藏工作区中的 node_modules 文件夹： 主菜单 -> 文件 -> 首选项 -> 用户设置：
 
@@ -73,36 +132,6 @@ node_modules
     "node_modules/": true
 }
 ```
-
-## 第二节 git 命令
-
-这里讲解日常使用的 git 命令操作
-
-### 2.1 git fetch
-
-从一个或多个其他存储库中获取分支和/或标签(统称为“引用”)以及完成其历史所必需的对象。 远程跟踪分支已更新(Git术语叫做commit)，需要将这些更新取回本地，这时就要用到git fetch命令。
-
-### 2.2 git 取消忽略文件大小写的更改
-
-在当前项目，输入 `git config core.ignorecase false` 即可关闭 git 忽略文件大小写的配置。
-
-### 2.3 git 删除文件夹
-
-* 删除 `target` 文件夹：`git rm -r --cached target`
-* 提交更改：`git commit -m "删除 target 目录"`
-* 确认更改：`git push`
-
-### 2.4 git 覆盖上一次 commit 提交信息
-
-`git commit -amend -m "New commit"`
-
-### 2.4 git 分支
-
-* 创建分支：`git branch cheny`
-* 切换到分支：`git checkout cheny`
-* 添加修改代码到缓存：`git add .`
-* 提交：`git commit -m "修改"`
-* 提交到分支：`git push origin cheny`/`git push --set-upstream origin cheny`
 
 ---
 
