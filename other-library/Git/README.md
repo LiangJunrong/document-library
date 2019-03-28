@@ -1,8 +1,28 @@
-Git 学习
+Git
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
 > Recently revised in **2019-3-28 08:13:27**
+
+## <a name="chapter-one" id="chapter-one">一 目录</a>
+
+**不折腾的前端，和咸鱼有什么区别**
+
+| 目录 |
+| --- | 
+| [一 目录](#chapter-one) | 
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-three) |
+
+## <a name="chapter-two" id="chapter-two">二 前言</a>
+
+> [返回目录](#chapter-one)
+
+一直以来，**jsliang** 对 Git 的操作，仅限于：`git add .`、`git commit -m "更新信息"`、`git push` 这三个，偶尔还会创建操作个分支。
+
+但是，仅仅是这些是不够的。所以，跟随 **廖雪峰** 等大神的 Git 教程进行一波自我更新：
+
+* [《Git 教程 - 廖雪峰》](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 
 ## 第一节 配置 .gitignore
 
