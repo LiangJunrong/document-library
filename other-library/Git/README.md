@@ -76,6 +76,153 @@ OK，这时候我们会发觉，我们要找到被删减的内容，只需要去
 
 而 SVN 和 Git，分别作为集中式与分布式的代表之一。
 
+## Git 安装
+
+对于 Git 安装，2018 年 **jsliang** 入职公司的时候已经安装过，又因为 **廖雪峰** 大佬已经安排的明明白白了，故不多此一举，贴上安装步骤文章：
+
+* [《安装 Git》](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000)
+
+## Git 新建版本库
+
+什么是版本库？
+
+版本库又名仓库，英文名 repository，可以简单理解为一个目录，这个目录里面的所有文件都可以被 Git 管理起来，用于追踪每个文件的修改、删除。
+
+1. 创建目录：`mkdir learngit`
+2. 前进到这个目录：`cd learngit`
+3. 显示当前目录：`pwd`
+4. 初始化仓库：`git init`
+5. 显示 `.git`：`ls -ah`
+
+这时候会出来一个隐藏文件，叫 `.git`，这个目录就是 Git 用来跟踪管理版本库的，请不要手动修改里面的文件。
+
+6. 添加文件，新建 `README.md`：
+
+> README.md
+
+```bash
+Git 学习
+===
+```
+
+7. 将文件添加到仓库：`git add README.md`（`git add .` 是提交当前目录所有文件）
+8. 将文件提交到仓库：`git commit -m "Add a README"`
+
+> 此处 `-m` 输入的是本次提交的说明，方便你根据说明查找需要的历史版本
+
+9. 修改文件内容：
+
+> README.md
+
+```bash
+Git 学习
+===
+
+> Create by **jsliang** on **2019-3-29 09:08:48**  
+> Recently revised in **2019-3-29 09:08:53**
+```
+
+10. 查看结果：`git status`
+
+```bash
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+此刻可以看出，我们查看到了 `README.md` 被修改了。
+
+11. 查看版本差异：`git diff`
+
+```bash
+index b379f95..78fb1fe 100644
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,5 @@
+ Git 学习
+-===
+\ No newline at end of file
++===
++
++> Create by **jsliang** on **2019-3-29 09:09:03**
++> Recently revised in **2019-3-29 09:09:07**
+\ No newline at end of file
+```
+
+12. 这时候，我们添加了时间，做了新的更改，所以我们又可以进行新一轮的提交：
+
+* `git add .`
+* `git commit -m "添加时间"`
+
+13. 我们再添加下证书并提交：
+
+> README.md
+
+```bash
+Git 学习
+===
+
+> Create by **jsliang** on **2019-3-29 09:09:03**  
+> Recently revised in **2019-3-29 09:09:07**
+
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+```
+
+* `git add .`
+* `git commit -m "添加协议"`
+
+14.  当我们做的事儿越多，越不可能记住几个字的更改，所以我们需要查找历史记录，见证我们成长的点滴：`git log`
+
+```bash
+commit 7b88d86f3e079e048c3e5444f91616b826f553a0 (HEAD -> master)
+Author: jsliang <1741020489@qq.com>
+Date:   Fri Mar 29 09:21:35 2019 +0800
+
+    添加协议
+
+commit 05abb578724b7d8cef860aa4280b0e19241c02a8
+Author: jsliang <1741020489@qq.com>
+Date:   Fri Mar 29 09:14:16 2019 +0800
+
+    添加时间
+
+commit 655433cc64356a8f9dc12e9a94808a25e844c0eb
+Author: jsliang <1741020489@qq.com>
+Date:   Fri Mar 29 09:03:59 2019 +0800
+```
+
+15. 回退到上一个版本：`git reset --hard HEAD^`
+
+```bash
+HEAD is now at 05abb57 添加时间
+```
+
+> 注意，`git log` 显示的记录中，`commit` 后面的就是 HEAD，Git 通过 HEAD 控制版本
+
+16. **如果误回退了呢？**尝试回退版本号：`git reset --hard 7b88d86`
+
+```bash
+HEAD is now at 7b88d86 添加协议
+```
+
+OK，现在它又回来了。**记住：如果你操作失误回退了，请不要关闭命令行窗口，还有机会补救！**
+
+17. 找不到版本号，想恢复新版本：`git reflog`
+
+```bash
+7b88d86 (HEAD -> master) HEAD@{0}: reset: moving to 7b88d86
+05abb57 HEAD@{1}: reset: moving to HEAD^
+7b88d86 (HEAD -> master) HEAD@{2}: commit: 添加协议
+05abb57 HEAD@{3}: commit: 添加时间
+```
+
+可以看到，这里把前面版本的版本号显示出来了。
+
 ## Git 命令
 
 ### git fetch
