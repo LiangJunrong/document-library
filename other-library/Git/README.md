@@ -254,6 +254,7 @@ OK，现在它又回来了。**记住：如果你操作失误回退了，请不�
 ## 同时配置 GitLab 和 GitHub
 
 正在学习！
+1. 生成 GitLab 和 GitHub 的 SSH
 
 ## 配置 .gitignore
 
