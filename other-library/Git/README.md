@@ -251,6 +251,10 @@ OK，现在它又回来了。**记住：如果你操作失误回退了，请不�
 * 提交：`git commit -m "修改"`
 * 提交到分支：`git push origin cheny`/`git push --set-upstream origin cheny`
 
+## 同时配置 GitLab 和 GitHub
+
+正在学习！
+
 ## 配置 .gitignore
 
 在我们使用Git的过程中，有时候喜欢建一些文件给自己查看使用而不是给大众使用，或者说像是 node_modules 这些文件不希望上传到代码仓库的，这时候就需要设置响应的忽略规则，来忽略这些文件的提交。
