@@ -34,8 +34,26 @@
 | 6. [豆包君](https://github.com/danygitgit) |
 | 7. [huqi](https://github.com/hu-qi) |
 | 7. [imNaive](https://github.com/HashidaHaru) |
+| 8. [teachat8](https://github.com/teachat8) |
 
 ## 比赛历史
+
+### 2019-4-1
+
+这一周参赛
+
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参与周竞赛，已交 35 元。
+* - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
+* - [x] [huqi](https://github.com/hu-qi) 参与周竞赛，已交 35 元。
+* - [x] [teachat8](https://github.com/teachat8) 参与周竞赛，已交 35 元。
+* - [x] [jerry](https://github.com/jgchenu) 参与周竞赛，已交 35 元。
+
+上一周情况
+
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参赛 7 天，完成了 6 天的提交。
+* - [x] [豆包君](https://github.com/danygitgit) 参赛 7 天，完成了 7 天的提交。
+* - [x] [huqi](https://github.com/hu-qi) 参赛 7 天，完成了 7 天的提交。
+* - [x] [imNaive](https://github.com/HashidaHaru) 参赛 7 天，完成了 7 天的提交。
 
 ### 2019-3-25
 
