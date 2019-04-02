@@ -255,6 +255,7 @@ OK，现在它又回来了。**记住：如果你操作失误回退了，请不�
 
 正在学习！
 1. 生成 GitLab 和 GitHub 的 SSH
+2. GitHub 成功了，但是 GitLab 失败了
 
 ## 配置 .gitignore
 
