@@ -253,12 +253,76 @@ OK，现在它又回来了。**记住：如果你操作失误回退了，请不�
 
 ## 同时配置 GitLab 和 GitHub
 
-正在学习！
-1. 生成 GitLab 和 GitHub 的 SSH
-2. 两者都成功了，参考文献：
+* 缘由：公司使用 GitLab，个人使用 GitHub，因此需要配置下 Git，方便上传到公司的 GitLab 项目和个人的 GitHub 项目上。
 
-* https://blog.csdn.net/u014296452/article/details/79984867
-* https://www.cnblogs.com/kelsen/archive/2018/01/24/8342239.html
+* 参考文献：
+
+1. [同一台电脑同时使用gitlab和github](https://blog.csdn.net/u014296452/article/details/79984867)
+2. [配置同时使用 Gitlab 和 Github 的开发环境](https://www.cnblogs.com/kelsen/archive/2018/01/24/8342239.html)
+
+* Mac 配置步骤
+
+1. CD 到用户根目录下的 `.ssh` 文件夹中：`cd .ssh`
+2. 生成 GitLab 秘钥：`ssh-keygen -t rsa -C "注册 gitlab 账户的邮箱"`，提示后输入 `id_rsa_gitlab`，这样就在 `.ssh` 目录下生成了 GitLab 的秘钥。
+3. 生成 GitHub 秘钥：`ssh-keygen -t rsa -C "注册 github 账户的邮箱"`，提示后输入 `id_rsa_github`，这样就在 `.ssh` 目录下生成了 GitHub 的秘钥。
+
+> 这时候我们 `.ssh` 目录中有文件：
+
+```shell
+id_rsa_github.pub	id_rsa_gitlab.pub
+id_rsa_github		id_rsa_gitlab
+```
+
+4. 提供公钥给服务器
+   1. 复制 ~/.ssh/id_rsa_gitlab.pub文件内容，进入gitlab / profile / SSH Keys，将公钥内容添加至 gitlab 。
+   2. 复制 ~/.ssh/id_rsa_github.pub文件内容，进入github / setting / SSH and GPG keys / New SSH key 将公钥内容添加至 github 。
+5. 在 `.ssh` 中添加 `config` 文件（文本文件，不存在后缀），内容为：
+
+> config
+
+```shell
+Host github.com
+  HostName github.com
+  User githubuser@xyz.com
+  IdentityFile ~/.ssh/id_rsa_github
+
+Host gitlab.com
+  HostName gitlab.com
+  User gitlabuser@xyz.com
+  IdentityFile ~/.ssh/id_rsa_gitlab
+```
+
+> 这时候我们 `.ssh` 目录中有文件：
+
+```shell
+id_rsa_github.pub	id_rsa_gitlab.pub
+id_rsa_github		id_rsa_gitlab		config
+```
+
+6. （可选）在 GitHub 或者 GitLab 仓库大目录中使用下面三条命令：
+
+```shell
+git init
+git config --global user.name "githubuser"
+git config --global user.email "githubuser@xyz.com"
+```
+
+7. 在项目文件夹中使用以下命令：
+
+```shell
+git clone 项目地址
+新增/修改文件
+git add .
+git commit -m "修改配置"
+git push
+```
+
+8. 在终端输入账号密码信息后，就会提示上传成功了，最终项目目录中有文件：
+
+```shell
+config			id_rsa_github.pub	id_rsa_gitlab.pub
+id_rsa_github		id_rsa_gitlab		known_hosts
+```
 
 ## 配置 .gitignore
 
