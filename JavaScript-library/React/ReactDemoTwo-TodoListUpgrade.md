@@ -4,11 +4,11 @@ React Demo Two - TodoList 升级
 > create by **jsliang** on **2019-3-26 09:26:53**   
 > Recently revised in **2019-3-27 08:52:25**
 
-* **初始化项目**：
+## 初始化项目
 
 1. 获取 Simpify 目录，修改 App 为 TodoList
 
-* **Ant Design of React**：
+## Ant Design of React
 
 1. 安装：`cnpm i antd -S`
 2. 使用：
@@ -89,6 +89,104 @@ export default TodoList;
 此时页面显示为：
 
 ![图](../../public-repertory/img/js-react-demo-two-temp-1.png)
+
+## Redux
+
+1. 安装 Redux：`npm i redux -S`
+2. 使用：
+
+> src/store/reducer.js
+
+```js
+const defaultState = {
+  inputValue: '',
+  list: []
+}
+
+export default (state = defaultState, action) => {
+  return state;
+}
+```
+
+> src/store/index.js
+
+```js
+import { createStore } from 'redux';
+import reducer from './reducer';
+
+const store = createStore(reducer);
+
+export default store;
+```
+
+这时候我们就可以在 TodoList.js 中引用并打印出来：
+
+> TodoList.js
+
+```js
+// 引用 React 及其组件
+import React, { Component } from 'react';
+// 引用 Antd
+import 'antd/dist/antd.css';
+// 引用主 CSS 文件
+import './index.css';
+// 引入 输入框、按钮、列表、头像
+import { Input, Button, List, Avatar } from 'antd';
+// 引入 redux（如果不写目录下的文件，默认引用 index.js）
+import store from './store';
+
+class TodoList extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log(store.getState());
+    this.state = store.getState();
+  }
+
+  render() {
+    return (
+      <div className="todo">
+        <div className="todo-title">
+          <h1>TodoList</h1>
+        </div>
+        <div className="todo-action">
+          <Input placeholder='todo info' className="todo-input" value={this.state.inputValue} />
+          <Button type="primary" className="todo-submit">提交</Button>
+        </div>
+        <div className="todo-list">
+          <List
+            itemLayout="horizontal"
+            dataSource={this.state.list}
+            renderItem={item => (
+              <List.Item>
+                <List.Item.Meta
+                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                  title={<a href="http://jsliang.top">{item.title}</a>}
+                  description={item.description}
+                />
+              </List.Item>
+            )}
+          />,
+        </div>
+      </div>
+    );
+  }
+}
+
+export default TodoList;
+```
+
+查看 Chrome 控制台，发现它的确输出了：
+
+```Console
+{inputValue: "", list: Array(0)}
+```
+
+这样我们就完成了 redux 的引用。
+
+现在页面显示为；
+
+![图](../../public-repertory/img/js-react-demo-two-temp-2.png)
 
 ---
 
