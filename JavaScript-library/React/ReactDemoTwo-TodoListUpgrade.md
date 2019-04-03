@@ -69,7 +69,7 @@ export default TodoList;
 ```css
 .todo {
   width: 1000px;
-  margin: 0 auto;
+  margin: 20px auto 0;
   padding-top: 30px;
   padding-left: 30px;
   border: 1px solid #ccc;
