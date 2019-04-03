@@ -2,13 +2,13 @@ React Demo Two - TodoList 升级
 ===
 
 > create by **jsliang** on **2019-3-26 09:26:53**   
-> Recently revised in **2019-3-27 08:52:25**
+> Recently revised in **2019-4-4 07:26:55**
 
-## 初始化项目
+## 一 初始化项目
 
 1. 获取 Simpify 目录，修改 App 为 TodoList
 
-## Ant Design of React
+## 二 Ant Design of React
 
 1. 安装：`cnpm i antd -S`
 2. 使用：
@@ -90,7 +90,7 @@ export default TodoList;
 
 ![图](../../public-repertory/img/js-react-demo-two-temp-1.png)
 
-## Redux
+## 三 Redux
 
 1. 安装 Redux：`npm i redux -S`
 2. 使用：
@@ -187,6 +187,30 @@ export default TodoList;
 现在页面显示为；
 
 ![图](../../public-repertory/img/js-react-demo-two-temp-2.png)
+
+## 四 Redux 插件
+
+1. 安装：科学上网的 Chrome 插件，或者百度下载一个
+2. 使用：
+   1. 关闭浏览器，并重新打开，再打开控制台（F12），进入 Redux 栏，提示你尚未安装代码
+   2. 前往 index.js 安装代码。
+   3. 查看 state 中发现存有数据，此时 Redux 插件安装完毕。
+
+> index.js
+
+```js
+import { createStore } from 'redux';
+import reducer from './reducer';
+
+// 如果安装了 Redux 工具，则使用该工具
+const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+export default store;
+```
+
 
 ---
 
