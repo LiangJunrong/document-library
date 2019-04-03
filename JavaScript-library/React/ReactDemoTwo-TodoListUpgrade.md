@@ -53,7 +53,9 @@ export default TodoList;
 }
 ```
 
+此时页面显示为：
 
+![图](../../public-repertory/img/js-react-demo-two-temp-1.png)
 
 ---
 
