@@ -213,6 +213,8 @@ export default store;
 
 ## Redux 整体流程
 
+### Input 输入数据
+
 > TodoList.js
 
 ```js
@@ -331,6 +333,139 @@ export default (state = defaultState, action) => {
 如此，我们就做到了数据在 React -> Redux 中的流通，可参考下面图：
 
 ![图](../../public-repertory/img/js-react-redux-2.png)
+
+### Button 提交数据
+
+> TodoList.js
+
+```js
+// 引用 React 及其组件
+import React, { Component } from 'react';
+// 引用 Antd
+import 'antd/dist/antd.css';
+// 引用主 CSS 文件
+import './index.css';
+// 引入 输入框、按钮、列表、头像
+import { Input, Button, List, Avatar } from 'antd';
+// 引入 redux（如果不写目录下的文件，默认引用 index.js）
+import store from './store';
+
+class TodoList extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log(store.getState());
+    this.state = store.getState();
+    this.handleInputChange = this.handleInputChange.bind(this);
+
+    // 3. 绑定处理 redux 返回回来的数据
+    this.handleStoreChange = this.handleStoreChange.bind(this);
+    store.subscribe(this.handleStoreChange);
+
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+  }
+
+  render() {
+    return (
+      <div className="todo">
+        <div className="todo-title">
+          <h1>TodoList</h1>
+        </div>
+        <div className="todo-action">
+          <Input 
+            placeholder='todo info' 
+            className="todo-input" 
+            value={this.state.inputValue} 
+            onChange={this.handleInputChange}
+          />
+          <Button 
+            type="primary" 
+            className="todo-submit"
+            onClick={this.handleButtonClick}
+          >
+            提交
+          </Button>
+        </div>
+        <div className="todo-list">
+          <List
+            itemLayout="horizontal"
+            dataSource={this.state.list}
+            renderItem={item => (
+              <List.Item>
+                <List.Item.Meta
+                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                  title={<a href="http://jsliang.top">{item.title}</a>}
+                  description={item.description}
+                />
+              </List.Item>
+            )}
+          />,
+        </div>
+      </div>
+    );
+  }
+
+  handleInputChange(e) {
+    // 1. 通过 Action，将数据传给 Store
+    const action = {
+      type: 'change_input_value',
+      value: e.target.value
+    }
+    store.dispatch(action);
+  }
+
+  // 4. 绑定的方法
+  handleStoreChange() {
+    this.setState(store.getState());
+  }
+
+  handleButtonClick(e) {
+    // 5. 执行 Button 点击的流程
+    const action = {
+      type: 'add_todo_item'
+    };
+    store.dispatch(action);
+  }
+
+}
+
+export default TodoList;
+```
+
+> reducer.js
+
+```js
+const defaultState = {
+  inputValue: '',
+  list: [
+    // { title: '第一条标题', description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条描述', },
+  ]
+}
+
+// reducer 可以接收 state，但是绝不能修改 state
+export default (state = defaultState, action) => {
+  console.log(state);
+  console.log(action);
+  // 2. 在 reducer.js 中获取数据，并 return 返回回去
+  if(action.type === 'change_input_value') {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.inputValue = action.value;
+    return newState;
+  }
+  // 6. 接收 TodoList 传递过来的数据，并进行处理与返回
+  if(action.type === 'add_todo_item') {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.list.push(newState.inputValue);
+    newState.inputValue = '';
+    return newState;
+  }
+  return state;
+}
+```
+
+同 Input 一样，我们处理下 React -> Redux 的数据流，这样我们就可以完成输入的操作。
+
+> 因为数据问题，这里我们没有做到文字实时的更新，需要去掉 `title` 和 `description` 的分类。
 
 ---
 
