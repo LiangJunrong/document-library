@@ -21,4 +21,10 @@
 # 忽略所有 .o 和 .a 文件
 # *.[oa]
 
+# 忽略掉所有的 .DS_Store 文件
+.DS_Store
+.DS_Store?
+*/.DS_Store
+
 # 详细用法看文档：https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gitignore.html 
+# gitignore忽略.DS_Store文件：https://www.jianshu.com/p/e3d8eb2a4295
