@@ -70,8 +70,7 @@ export default TodoList;
 .todo {
   width: 1000px;
   margin: 20px auto 0;
-  padding-top: 30px;
-  padding-left: 30px;
+  padding: 30px;
   border: 1px solid #ccc;
   border-radius: 10px;
 }
