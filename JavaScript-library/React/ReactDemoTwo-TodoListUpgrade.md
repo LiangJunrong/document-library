@@ -969,6 +969,136 @@ export default TodoList;
 
 这样，我们就把 action 抽取出来了，在大型项目中，对我们的工作会非常方便。
 
+### 5.6 UI 组件和容器组件
+
+* UI 组件 —— 傻瓜组件，做页面的渲染
+* 容器组件 —— 聪明组件，做页面的逻辑
+
+在这里，我们进行组件的拆分：
+
+> src/TodoList.js
+
+```js
+import React, { Component } from 'react'; // 引用 React 及其组件
+import 'antd/dist/antd.css'; // 引用 Antd
+import './index.css'; // 引用主 CSS 文件
+import store from './store'; // 引入 Redux（如果不写目录下的文件，默认引用 index.js）
+import { getInputChangeAction, getAddItemAction, getItemDeleteAction } from './store/actionCreators' // 引入 actionCreators.js
+// 1. 引入 TodoListUI
+import TodoListUI from './TodoListUI';
+
+class TodoList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = store.getState(); // 获取 store 数据
+    this.handleInputChange = this.handleInputChange.bind(this); // 输入内容改变
+    this.handleInputKeyUp = this.handleInputKeyUp.bind(this); // 回车添加项
+    this.handleAddItem = this.handleAddItem.bind(this); // 按钮添加项
+    this.handleItemDelete = this.handleItemDelete.bind(this)
+    this.handleStoreChange = this.handleStoreChange.bind(this); // store 数据改变
+    store.subscribe(this.handleStoreChange); // 监听 store 改变，改变就执行 handleStoreChange 方法
+  }
+
+  render() {
+    return (
+      <TodoListUI
+        inputValue = {this.state.inputValue}
+        list = {this.state.list}
+        handleInputChange = {this.handleInputChange}
+        handleInputKeyUp = {this.handleInputKeyUp}
+        handleAddItem = {this.handleAddItem}
+        handleItemDelete = {this.handleItemDelete}
+      />
+    );
+  }
+
+  handleInputChange(e) { // input 输入数据
+    const action = getInputChangeAction(e.target.value);
+    store.dispatch(action);
+  }
+
+  handleStoreChange() { // 监听 store 数据改变
+    this.setState(store.getState());
+  }
+
+  handleAddItem() { // 添加数据
+    const action = getAddItemAction();
+    store.dispatch(action);
+  }
+
+  handleInputKeyUp(e) { // 回车添加数据
+    if(e.keyCode === 13) {
+      this.handleAddItem();
+    }
+  }
+
+  handleItemDelete(index) { // 删除数据
+    const action = getItemDeleteAction(index);
+    store.dispatch(action);
+  }
+
+}
+
+export default TodoList;
+```
+
+在这里，我们将 render 中的内容抽取到子组件，该子组件在 src 目录下，叫 TodoListUI，脏活累活让他做，我们只需要将数据传递给它就行了，然后我们编写子组件内容：
+
+> src/TodoListUI.js
+
+```js
+import React, { Component } from 'react'; // 引用 React 及其组件
+import { Input, Button, List, Avatar } from 'antd'; // 引入 输入框、按钮、列表、头像
+
+class TodoListUI extends Component {
+  render() {
+    return (
+      <div className="todo">
+        <div className="todo-title">
+          <h1>TodoList</h1>
+        </div>
+        <div className="todo-action">
+          <Input 
+            placeholder='todo info' 
+            className="todo-input" 
+            value={this.props.inputValue} 
+            onChange={this.props.handleInputChange}
+            onKeyUp={this.props.handleInputKeyUp}
+          />
+          <Button 
+            type="primary" 
+            className="todo-submit"
+            onClick={this.props.handleAddItem}
+          >
+            提交
+          </Button>
+        </div>
+        <div className="todo-list">
+          <List
+            itemLayout="horizontal"
+            dataSource={this.props.list}
+            renderItem={(item, index) => (
+              <List.Item onClick={(index) => {this.props.handleItemDelete(index)}}>
+                <List.Item.Meta
+                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                  title={<a href="http://jsliang.top">{item.title}</a>}
+                  description={item.description}
+                />
+              </List.Item>
+            )}
+          />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default TodoListUI;
+```
+
+这样，我们就完成了 UI 组件和容器组件的拆分。
+
 ---
 
 > **jsliang** 广告推送：  
