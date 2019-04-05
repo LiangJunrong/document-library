@@ -512,6 +512,327 @@ export default (state = defaultState, action) => {
 
 > 因为数据问题，这里我们没有做到文字实时的更新，需要去掉 `title` 和 `description` 的分类。
 
+### 点击删除列表项
+
+> TodoList.js
+
+```js
+// 引用 React 及其组件
+import React, { Component } from 'react';
+// 引用 Antd
+import 'antd/dist/antd.css';
+// 引用主 CSS 文件
+import './index.css';
+// 引入 输入框、按钮、列表、头像
+import { Input, Button, List, Avatar } from 'antd';
+// 引入 Redux（如果不写目录下的文件，默认引用 index.js）
+import store from './store';
+
+class TodoList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = store.getState();
+    this.handleInputChange = this.handleInputChange.bind(this);
+
+    // 3. 绑定处理 redux 返回回来的数据
+    this.handleStoreChange = this.handleStoreChange.bind(this);
+    store.subscribe(this.handleStoreChange);
+
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
+  }
+
+  render() {
+    return (
+      <div className="todo">
+        <div className="todo-title">
+          <h1>TodoList</h1>
+        </div>
+        <div className="todo-action">
+          <Input 
+            placeholder='todo info' 
+            className="todo-input" 
+            value={this.state.inputValue} 
+            onChange={this.handleInputChange}
+            onKeyUp={this.handleInputKeyUp}
+          />
+          <Button 
+            type="primary" 
+            className="todo-submit"
+            onClick={this.handleButtonClick}
+          >
+            提交
+          </Button>
+        </div>
+        <div className="todo-list">
+          <List
+            itemLayout="horizontal"
+            dataSource={this.state.list}
+            renderItem={(item, index) => (
+              <List.Item onClick={this.handleItemDelete.bind(this, index)}>
+                <List.Item.Meta
+                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                  title={<a href="http://jsliang.top">{item.title}</a>}
+                  description={item.description}
+                />
+              </List.Item>
+            )}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  handleInputChange(e) {
+    // 1. 通过 Action，将数据传给 Store
+    const action = {
+      type: 'change_input_value',
+      value: e.target.value
+    }
+    store.dispatch(action);
+  }
+
+  // 4. 绑定的方法
+  handleStoreChange() {
+    this.setState(store.getState());
+  }
+
+  handleButtonClick(e) {
+    // 5. 执行 Button 点击的流程
+    const action = {
+      type: 'add_todo_item'
+    };
+    store.dispatch(action);
+  }
+
+  handleInputKeyUp(e) {
+    if(e.keyCode === 13) {
+      this.handleButtonClick();
+    }
+  }
+
+  handleItemDelete(index) {
+    const action = {
+      type: 'delete_todo_item',
+      index
+    }
+    store.dispatch(action);
+  }
+
+}
+
+export default TodoList;
+```
+
+> reducer.js
+
+```js
+const defaultState = {
+  inputValue: '',
+  list: [
+    // { title: '第一条标题', description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条描述', },
+  ]
+}
+
+// reducer 可以接收 state，但是绝不能修改 state
+export default (state = defaultState, action) => {
+  // 2. 在 reducer.js 中获取数据，并 return 返回回去
+  if(action.type === 'change_input_value') {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.inputValue = action.value;
+    return newState;
+  }
+  // 6. 接收 TodoList 传递过来的数据，并进行处理与返回
+  if(action.type === 'add_todo_item') {
+    const newState = JSON.parse(JSON.stringify(state));
+    let newList = {
+      title: newState.inputValue,
+      description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第 n 条描述'
+    };
+    newState.list.push(newList);
+    newState.inputValue = '';
+    return newState;
+  }
+  if(action.type === 'delete_todo_item') {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.list.splice(action.index, 1);
+    return newState;
+  }
+  return state;
+}
+```
+
+### 抽取 ActionType
+
+在 store 目录下新增一个 actionTypes.js：
+
+> 项目/src/store/actionTypes.js
+
+```js
+export const CHANGE_INPUT_VALUE = 'change_input_value';
+export const ADD_TODO_ITEM = 'add_todo_item';
+export const DELETE_TODO_ITEM = 'delete_todo_item';
+```
+
+然后在 TodoList.js 和 reducer.js 中使用：
+
+> TodoList.js
+
+```js
+// 引用 React 及其组件
+import React, { Component } from 'react';
+// 引用 Antd
+import 'antd/dist/antd.css';
+// 引用主 CSS 文件
+import './index.css';
+// 引入 输入框、按钮、列表、头像
+import { Input, Button, List, Avatar } from 'antd';
+// 引入 Redux（如果不写目录下的文件，默认引用 index.js）
+import store from './store';
+// 引入 actionTypes
+import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './store/actionTypes'
+
+class TodoList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = store.getState();
+    this.handleInputChange = this.handleInputChange.bind(this);
+
+    // 3. 绑定处理 redux 返回回来的数据
+    this.handleStoreChange = this.handleStoreChange.bind(this);
+    store.subscribe(this.handleStoreChange);
+
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
+  }
+
+  render() {
+    return (
+      <div className="todo">
+        <div className="todo-title">
+          <h1>TodoList</h1>
+        </div>
+        <div className="todo-action">
+          <Input 
+            placeholder='todo info' 
+            className="todo-input" 
+            value={this.state.inputValue} 
+            onChange={this.handleInputChange}
+            onKeyUp={this.handleInputKeyUp}
+          />
+          <Button 
+            type="primary" 
+            className="todo-submit"
+            onClick={this.handleButtonClick}
+          >
+            提交
+          </Button>
+        </div>
+        <div className="todo-list">
+          <List
+            itemLayout="horizontal"
+            dataSource={this.state.list}
+            renderItem={(item, index) => (
+              <List.Item onClick={this.handleItemDelete.bind(this, index)}>
+                <List.Item.Meta
+                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                  title={<a href="http://jsliang.top">{item.title}</a>}
+                  description={item.description}
+                />
+              </List.Item>
+            )}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  handleInputChange(e) {
+    // 1. 通过 Action，将数据传给 Store
+    const action = {
+      type: CHANGE_INPUT_VALUE,
+      value: e.target.value
+    }
+    store.dispatch(action);
+  }
+
+  // 4. 绑定的方法
+  handleStoreChange() {
+    this.setState(store.getState());
+  }
+
+  handleButtonClick(e) {
+    // 5. 执行 Button 点击的流程
+    const action = {
+      type: ADD_TODO_ITEM
+    };
+    store.dispatch(action);
+  }
+
+  handleInputKeyUp(e) {
+    if(e.keyCode === 13) {
+      this.handleButtonClick();
+    }
+  }
+
+  handleItemDelete(index) {
+    const action = {
+      type: DELETE_TODO_ITEM,
+      index
+    }
+    store.dispatch(action);
+  }
+
+}
+
+export default TodoList;
+```
+
+> reducer.js
+
+```js
+// 引入 actionTypes
+import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './actionTypes'
+
+const defaultState = {
+  inputValue: '',
+  list: [
+    // { title: '第一条标题', description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条描述', },
+  ]
+}
+
+// reducer 可以接收 state，但是绝不能修改 state
+export default (state = defaultState, action) => {
+  // 2. 在 reducer.js 中获取数据，并 return 返回回去
+  if(action.type === CHANGE_INPUT_VALUE) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.inputValue = action.value;
+    return newState;
+  }
+  // 6. 接收 TodoList 传递过来的数据，并进行处理与返回
+  if(action.type === ADD_TODO_ITEM) {
+    const newState = JSON.parse(JSON.stringify(state));
+    let newList = {
+      title: newState.inputValue,
+      description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第 n 条描述'
+    };
+    newState.list.push(newList);
+    newState.inputValue = '';
+    return newState;
+  }
+  if(action.type === DELETE_TODO_ITEM) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.list.splice(action.index, 1);
+    return newState;
+  }
+  return state;
+}
+```
+
+抽取 actionTypes.js 的意义在于，固定 action.type 值，从而不会因为在两处不同地方使用，导致报错。
+
 ---
 
 > **jsliang** 广告推送：  
@@ -523,4 +844,4 @@ export default (state = defaultState, action) => {
 [![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
 [![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+<!-- > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。 -->
