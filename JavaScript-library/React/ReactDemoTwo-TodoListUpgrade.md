@@ -1161,6 +1161,42 @@ export default TodoListUI;
 
 ### 5.8 Redux 中发送异步请求获取数据
 
+
+### 5.9 Redux-Thunk 中间件进行 ajax 请求发送
+
+在上章节，我们在 TodoList 中进行了 Ajax 请求，这是可以的。
+
+但是，随着 Ajax 请求越来越多，如果我们都在页面中编写，那么就会让页面显得臃肿。
+
+这时候，就需要 Redux-thunk 了。Redux-thunk 可以把异步请求及复杂业务逻辑抽取到其他地方处理。
+
+* Redux Thunk：[Github 地址](https://github.com/reduxjs/redux-thunk)
+* 安装：`npm i redux-thunk -S`
+* 使用：
+
+```js
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers/index';
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+)
+```
+
+### 5.10 Redux-Saga 中间件进行 Ajax 请求发送
+
+* Redux Saga：[Github 地址](https://github.com/redux-saga/redux-saga)
+* 安装：`npm i redux-saga -S`
+* 使用：
+
+### 5.11 React-Redux 的使用
+
+* React Redux：[GitHub 地址](https://github.com/reduxjs/react-redux)
+* 安装：`npm i react-redux -S`
+* 使用：
+
 ---
 
 > **jsliang** 广告推送：  
