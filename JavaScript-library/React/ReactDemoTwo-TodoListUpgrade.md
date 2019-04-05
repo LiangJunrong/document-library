@@ -1046,7 +1046,7 @@ export default TodoList;
 在这里，我们将 render 中的内容抽取到子组件，该子组件在 src 目录下，叫 TodoListUI，脏活累活让他做，我们只需要将数据传递给它就行了，然后我们编写子组件内容：
 
 > src/TodoListUI.js
-
+ 
 ```js
 import React, { Component } from 'react'; // 引用 React 及其组件
 import { Input, Button, List, Avatar } from 'antd'; // 引入 输入框、按钮、列表、头像
@@ -1098,6 +1098,68 @@ export default TodoListUI;
 ```
 
 这样，我们就完成了 UI 组件和容器组件的拆分。
+
+### 5.7 无状态组件
+
+当一个组件中，只有 render() 函数，而不做其他事情的时候，我们就把它叫做无状态组件。
+
+在 TodoList 这个项目中，我们可以在 TodoListUI 进行一个无状态组件的定义：
+
+> src/TodoListUI
+
+```js
+import React from 'react'; // 引用 React 及其组件
+import { Input, Button, List, Avatar } from 'antd'; // 引入 输入框、按钮、列表、头像
+
+const TodoListUI = (props) => {
+  return (
+    <div className="todo">
+      <div className="todo-title">
+        <h1>TodoList</h1>
+      </div>
+      <div className="todo-action">
+        <Input 
+          placeholder='todo info' 
+          className="todo-input" 
+          value={props.inputValue} 
+          onChange={props.handleInputChange}
+          onKeyUp={props.handleInputKeyUp}
+        />
+        <Button 
+          type="primary" 
+          className="todo-submit"
+          onClick={props.handleAddItem}
+        >
+          提交
+        </Button>
+      </div>
+      <div className="todo-list">
+        <List
+          itemLayout="horizontal"
+          dataSource={props.list}
+          renderItem={(item, index) => (
+            <List.Item onClick={(index) => {props.handleItemDelete(index)}}>
+              <List.Item.Meta
+                avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                title={<a href="http://jsliang.top">{item.title}</a>}
+                description={item.description}
+              />
+            </List.Item>
+          )}
+        />
+      </div>
+    </div>
+  )
+}
+
+export default TodoListUI;
+```
+
+在这里，由于我们没有使用 Component 了，所以我们在第一行去掉了 Component 的引用。
+
+同时，我们规定传入到项目中的参数为 props，于是我们就不需要 this.props.** 的形式来引用父组件传递过来的数据，而是直接使用 props 就行了。
+
+### 5.8 Redux 中发送异步请求获取数据
 
 ---
 
