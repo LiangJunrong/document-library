@@ -210,9 +210,9 @@ const store = createStore(
 export default store;
 ```
 
-## Redux 整体流程
+## 五 Redux 整体流程
 
-### Input 输入数据
+### 5.1 Input 输入数据
 
 > TodoList.js
 
@@ -379,7 +379,7 @@ store.dispatch({ type: 'DECREMENT' });
 // 1
 ```
 
-### Button 提交数据
+### 5.2 Button 提交数据
 
 > TodoList.js
 
@@ -512,7 +512,7 @@ export default (state = defaultState, action) => {
 
 > 因为数据问题，这里我们没有做到文字实时的更新，需要去掉 `title` 和 `description` 的分类。
 
-### 点击删除列表项
+### 5.3 点击删除列表项
 
 > TodoList.js
 
@@ -663,7 +663,7 @@ export default (state = defaultState, action) => {
 }
 ```
 
-### 抽取 ActionType
+### 5.4 抽取 ActionType
 
 在 store 目录下新增一个 actionTypes.js：
 
@@ -832,6 +832,142 @@ export default (state = defaultState, action) => {
 ```
 
 抽取 actionTypes.js 的意义在于，固定 action.type 值，从而不会因为在两处不同地方使用，导致报错。
+
+### 5.5 抽取整个 action
+
+在上面工作中，我们将 actionType 抽取出来了。但是，当页面足够复杂的时候，我们的 action 管理起来就非常复杂了，所以我们尝试将整个 action 抽取出来。
+
+我们在 store 目录中新建一个 actionCreators.js：
+
+> 项目/src/store/actionCreators.js
+
+```js
+// 引入 actionTypes
+import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './actionTypes'
+
+export const getInputChangeAction = (value) => ({
+  type: CHANGE_INPUT_VALUE,
+  value
+})
+
+export const getAddItemAction = () => ({
+  type: ADD_TODO_ITEM
+})
+
+export const getItemDeleteAction = (index) => ({
+  type: DELETE_TODO_ITEM,
+  index
+})
+```
+
+机智的小伙伴，看到这里，应该就明白我们的意图了，所以，我们再修改下 TodoList.js 即可：
+
+> src/TodoList.js
+
+```js
+// 引用 React 及其组件
+import React, { Component } from 'react';
+// 引用 Antd
+import 'antd/dist/antd.css';
+// 引用主 CSS 文件
+import './index.css';
+// 引入 输入框、按钮、列表、头像
+import { Input, Button, List, Avatar } from 'antd';
+// 引入 Redux（如果不写目录下的文件，默认引用 index.js）
+import store from './store';
+// 引入 actionCreators.js
+import { getInputChangeAction, getAddItemAction, getItemDeleteAction } from './store/actionCreators'
+
+class TodoList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = store.getState();
+    this.handleInputChange = this.handleInputChange.bind(this);
+
+    // 3. 绑定处理 redux 返回回来的数据
+    this.handleStoreChange = this.handleStoreChange.bind(this);
+    store.subscribe(this.handleStoreChange);
+
+    this.handleAddItem = this.handleAddItem.bind(this);
+    this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
+  }
+
+  render() {
+    return (
+      <div className="todo">
+        <div className="todo-title">
+          <h1>TodoList</h1>
+        </div>
+        <div className="todo-action">
+          <Input 
+            placeholder='todo info' 
+            className="todo-input" 
+            value={this.state.inputValue} 
+            onChange={this.handleInputChange}
+            onKeyUp={this.handleInputKeyUp}
+          />
+          <Button 
+            type="primary" 
+            className="todo-submit"
+            onClick={this.handleAddItem}
+          >
+            提交
+          </Button>
+        </div>
+        <div className="todo-list">
+          <List
+            itemLayout="horizontal"
+            dataSource={this.state.list}
+            renderItem={(item, index) => (
+              <List.Item onClick={this.handleItemDelete.bind(this, index)}>
+                <List.Item.Meta
+                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                  title={<a href="http://jsliang.top">{item.title}</a>}
+                  description={item.description}
+                />
+              </List.Item>
+            )}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  handleInputChange(e) {
+    // 1. 通过 Action，将数据传给 Store
+    const action = getInputChangeAction(e.target.value);
+    store.dispatch(action);
+  }
+
+  // 4. 绑定的方法
+  handleStoreChange() {
+    this.setState(store.getState());
+  }
+
+  handleAddItem(e) {
+    // 5. 执行 Button 点击的流程
+    const action = getAddItemAction();
+    store.dispatch(action);
+  }
+
+  handleInputKeyUp(e) {
+    if(e.keyCode === 13) {
+      this.handleAddItem();
+    }
+  }
+
+  handleItemDelete(index) {
+    const action = getItemDeleteAction(index);
+    store.dispatch(action);
+  }
+
+}
+
+export default TodoList;
+```
+
+这样，我们就把 action 抽取出来了，在大型项目中，对我们的工作会非常方便。
 
 ---
 
