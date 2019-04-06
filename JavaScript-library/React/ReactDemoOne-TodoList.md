@@ -6,7 +6,7 @@ React Demo One - TodoList
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-TodoList.md)**
 
-* [React 系列源码地址](https://github.com/LiangJunrong/React)
+* [React 系列文章代码地址](https://github.com/LiangJunrong/React)
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
