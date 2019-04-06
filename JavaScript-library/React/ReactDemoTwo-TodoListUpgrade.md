@@ -2,7 +2,7 @@ React Demo Two - TodoList 升级
 ===
 
 > create by **jsliang** on **2019-3-26 09:26:53**   
-> Recently revised in **多久**
+> Recently revised in **2019-4-6 18:11:58**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoTwo-TodoListUpgrade.md)**
 
@@ -26,6 +26,14 @@ React Demo Two - TodoList 升级
 | &emsp;[7.1 Input 输入数据](#chapter-seven-one) |
 | &emsp;[7.2 Button 提交数据](#chapter-seven-two) |
 | &emsp;[7.3 删除 TodoItem 列表项](#chapter-seven-three) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 优化：抽取 ActionType](#chapter-eight) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 优化：抽取整个 action](#chapter-night) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 优化：UI 组件和容器组件](#chapter-ten) |
+| <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 优化：无状态组件](#chapter-eleven) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 结尾：调用 Axios，Redux-Base 完成](#chapter-twelve) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 进阶：Redux-Thunk 中间件进行 ajax 请求发送](#chapter-thirteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 进阶：Redux-Saga 中间件进行 Ajax 请求发送](#chapter-fourteen) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 进阶：React-Redux](#chapter-fifteen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -811,36 +819,41 @@ OK，我们再来梳理一遍流程：
 
 > [返回目录](#chapter-one)
 
+那么接下来，我们再给列表项点击添加删除事件。
 
+> src/TodoList.js
 
-### 5.3 点击删除列表项
+<details>
 
-> TodoList.js
+  <summary>代码详情</summary>
 
 ```js
-// 引用 React 及其组件
-import React, { Component } from 'react';
-// 引用 Antd
-import 'antd/dist/antd.css';
-// 引用主 CSS 文件
-import './index.css';
-// 引入 输入框、按钮、列表、头像
-import { Input, Button, List, Avatar } from 'antd';
-// 引入 Redux（如果不写目录下的文件，默认引用 index.js）
-import store from './store';
+import React, { Component } from 'react'; // 引入 React 及其 Component
+import './index.css'; // 引入 index.css
+import { Input, Button, List } from 'antd'; // 引入 antd 的组件
+import 'antd/dist/antd.css'; // 引入 antd 的样式
+import store from './store'; // 引入 store，你可以理解为 store 提供数据。./store 是 ./store/index.js 的缩写
 
 class TodoList extends Component {
 
+  // 在 constructor 中通过 store.getState() 方法来获取数据，并赋值为 state
   constructor(props) {
     super(props);
+    // 我们尝试在 Console 中打印 store.getState()
+    // console.log(store.getState());
     this.state = store.getState();
+    
+    // 处理 handleInputChange 方法
     this.handleInputChange = this.handleInputChange.bind(this);
 
-    // 3. 绑定处理 redux 返回回来的数据
+    // 绑定方法 handleStoreChange 来处理 Redux 返回回来的数据
     this.handleStoreChange = this.handleStoreChange.bind(this);
     store.subscribe(this.handleStoreChange);
 
-    this.handleButtonClick = this.handleButtonClick.bind(this);
+    // 处理 handleAddItem 方法
+    this.handleAddItem = this.handleAddItem.bind(this);
+
+    // 处理 handleInputKeyUp 方法
     this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
   }
 
@@ -850,34 +863,36 @@ class TodoList extends Component {
         <div className="todo-title">
           <h1>TodoList</h1>
         </div>
+        {/* 使用 Input、Button 组件 */}
         <div className="todo-action">
+          {/* Input 绑定 handleInputChange 事件 */}
+          {/* Input 绑定回车事件：handleInputKeyUp */}
           <Input 
-            placeholder='todo info' 
+            placeholder='todo' 
             className="todo-input" 
-            value={this.state.inputValue} 
+            value={this.state.inputValue}
             onChange={this.handleInputChange}
             onKeyUp={this.handleInputKeyUp}
           />
+          {/* 为 Button 定义点击执行 handleAddItem 方法 */}
           <Button 
             type="primary" 
             className="todo-submit"
-            onClick={this.handleButtonClick}
+            onClick={this.handleAddItem}
           >
             提交
           </Button>
         </div>
+        {/* 使用 List 组件 */}
+        {/* 将原先的 data 换成 state 中的 todoList */}
+        {/* 1. 列表点击事件绑定 handleDeleteItem 方法 */}
         <div className="todo-list">
           <List
-            itemLayout="horizontal"
-            dataSource={this.state.list}
+            size="large"
+            bordered
+            dataSource={this.state.todoList}
             renderItem={(item, index) => (
-              <List.Item onClick={this.handleItemDelete.bind(this, index)}>
-                <List.Item.Meta
-                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                  title={<a href="http://jsliang.top">{item.title}</a>}
-                  description={item.description}
-                />
-              </List.Item>
+              <List.Item onClick={this.handleDeleteItem.bind(this, index)}>{index + 1} - {item}</List.Item>
             )}
           />
         </div>
@@ -885,8 +900,9 @@ class TodoList extends Component {
     );
   }
 
+  // 编写 handleInputChange 方法
   handleInputChange(e) {
-    // 1. 通过 Action，将数据传给 Store
+    // 通过 dispatch(action)，将数据传递给 store
     const action = {
       type: 'change_input_value',
       value: e.target.value
@@ -894,26 +910,31 @@ class TodoList extends Component {
     store.dispatch(action);
   }
 
-  // 4. 绑定的方法
+  // 在 handleStoreChange 中处理数据
   handleStoreChange() {
     this.setState(store.getState());
   }
 
-  handleButtonClick(e) {
-    // 5. 执行 Button 点击的流程
+  // 编写 handleAddItem 方法
+  handleAddItem() {
+    // 通过 dispatch(action)，将数据传递给 store
     const action = {
       type: 'add_todo_item'
-    };
+    }
     store.dispatch(action);
   }
 
+  // 为 Input 的 keyUp 方法 handleInputKeyUp 绑定 handleAddItem
   handleInputKeyUp(e) {
     if(e.keyCode === 13) {
-      this.handleButtonClick();
+      this.handleAddItem();
     }
   }
 
-  handleItemDelete(index) {
+  // 2. 编写 handleDeleteItem 方法
+  handleDeleteItem(index) {
+    console.log(index);
+    // 3. 通过 dispatch(action)，将数据传递给 store
     const action = {
       type: 'delete_todo_item',
       index
@@ -926,86 +947,146 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-> reducer.js
+</details>
+
+> src/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
+// 定义一个数据 defaultState
 const defaultState = {
   inputValue: '',
-  list: [
-    // { title: '第一条标题', description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条描述', },
+  todoList: [
+    // '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条 TodoList',
+    // '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第二条 TodoList',
+    // '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第三条 TodoList',
+    // '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第四条 TodoList',
   ]
 }
 
-// reducer 可以接收 state，但是绝不能修改 state
+// 将数据 defaultState 最终以 state 形式导出去
 export default (state = defaultState, action) => {
-  // 2. 在 reducer.js 中获取数据，并 return 返回回去
+  // 打印 state 和 action
+  // console.log(state);
+  // console.log(action);
+
+  // 在 reducer.js 中获取数据，并 return 回去处理结果
   if(action.type === 'change_input_value') {
     const newState = JSON.parse(JSON.stringify(state));
     newState.inputValue = action.value;
     return newState;
   }
-  // 6. 接收 TodoList 传递过来的数据，并进行处理与返回
+
+  // 在 reducer.js 中获取数据，并 return 回去处理结果
   if(action.type === 'add_todo_item') {
     const newState = JSON.parse(JSON.stringify(state));
-    let newList = {
-      title: newState.inputValue,
-      description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第 n 条描述'
-    };
-    newState.list.push(newList);
+    newState.todoList.push(newState.inputValue);
     newState.inputValue = '';
     return newState;
   }
+
+  // 4. 在 reducer.js 中获取数据，并 return 回去处理结果
   if(action.type === 'delete_todo_item') {
     const newState = JSON.parse(JSON.stringify(state));
-    newState.list.splice(action.index, 1);
+    newState.todoList.splice(action.index, 1);
     return newState;
   }
+
   return state;
 }
 ```
 
-### 5.4 抽取 ActionType
+</details>
 
-在 store 目录下新增一个 actionTypes.js：
+现在我们先进行功能演示：
 
-> 项目/src/store/actionTypes.js
+![图](../../public-repertory/img/js-react-demo-two-9.gif)
+
+再来查看下我们的编程思路：
+
+1. 列表点击事件绑定 handleDeleteItem 方法。此时，由于需要绑定 `this`，并且传递值 `index`，即两个值，所以我们直接在代码中：`this.handleDeleteItem.bind(this, index)`
+2. 编写 handleDeleteItem 方法
+3. 通过 dispatch(action)，将数据传递给 store
+4. 在 reducer.js 中获取数据，并 return 回去处理结果
+
+这样，我们就完成了列表项的删除。
+
+至此，我们就熟悉了 Reudx 的数据获取以及修改方法。
+
+## <a name="chapter-eight" id="chapter-eight">八 优化：抽取 action 中的 type</a>
+
+> [返回目录](#chapter-one)
+
+在上面章节中，我们已经完成了 TodoList 的建设，可以说我们已经搞定了。
+
+但是，你懂的，本篇文章名为：【React Demo Two - TodoList 升级】
+
+就是说，我们不仅要升级到 Redux，还要进一步地升级，为大型项目的开发做铺垫。
+
+所以，本章节开始进行优化处理。
+
+在上面代码中，我们有没有发现我们 `action` 的 `type` 是写到 TodoList.js 中的，多了后不好处理？
+
+* `change_input_value`
+* `add_todo_item`
+* `delete_todo_item`
+
+所以我们需要进行下 type 的处理，我们在 store 目录下新增一个 actionTypes.js：
+
+> src/store/actionTypes.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
+// 1. 定义 actionTypes
 export const CHANGE_INPUT_VALUE = 'change_input_value';
-export const ADD_TODO_ITEM = 'add_todo_item';
+export const ADD_TODO_ITEM =  'add_todo_item';
 export const DELETE_TODO_ITEM = 'delete_todo_item';
 ```
 
+</details>
+
 然后在 TodoList.js 和 reducer.js 中使用：
 
-> TodoList.js
+> src/TodoList.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
-// 引用 React 及其组件
-import React, { Component } from 'react';
-// 引用 Antd
-import 'antd/dist/antd.css';
-// 引用主 CSS 文件
-import './index.css';
-// 引入 输入框、按钮、列表、头像
-import { Input, Button, List, Avatar } from 'antd';
-// 引入 Redux（如果不写目录下的文件，默认引用 index.js）
-import store from './store';
-// 引入 actionTypes
-import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './store/actionTypes'
+import React, { Component } from 'react'; // 引入 React 及其 Component
+import './index.css'; // 引入 index.css
+import { Input, Button, List } from 'antd'; // 引入 antd 的组件
+import 'antd/dist/antd.css'; // 引入 antd 的样式
+import store from './store'; // 引入 store，你可以理解为 store 提供数据。./store 是 ./store/index.js 的缩写
+import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './actionTypes'; // 2. 引用 actionTypes
 
 class TodoList extends Component {
 
+  // 在 constructor 中通过 store.getState() 方法来获取数据，并赋值为 state
   constructor(props) {
     super(props);
+    // 我们尝试在 Console 中打印 store.getState()
+    // console.log(store.getState());
     this.state = store.getState();
+    
+    // 处理 handleInputChange 方法
     this.handleInputChange = this.handleInputChange.bind(this);
 
-    // 3. 绑定处理 redux 返回回来的数据
+    // 绑定方法 handleStoreChange 来处理 Redux 返回回来的数据
     this.handleStoreChange = this.handleStoreChange.bind(this);
     store.subscribe(this.handleStoreChange);
 
-    this.handleButtonClick = this.handleButtonClick.bind(this);
+    // 处理 handleAddItem 方法
+    this.handleAddItem = this.handleAddItem.bind(this);
+
+    // 处理 handleInputKeyUp 方法
     this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
   }
 
@@ -1015,34 +1096,36 @@ class TodoList extends Component {
         <div className="todo-title">
           <h1>TodoList</h1>
         </div>
+        {/* 使用 Input、Button 组件 */}
         <div className="todo-action">
+          {/* Input 绑定 handleInputChange 事件 */}
+          {/* Input 绑定回车事件：handleInputKeyUp */}
           <Input 
-            placeholder='todo info' 
+            placeholder='todo' 
             className="todo-input" 
-            value={this.state.inputValue} 
+            value={this.state.inputValue}
             onChange={this.handleInputChange}
             onKeyUp={this.handleInputKeyUp}
           />
+          {/* 为 Button 定义点击执行 handleAddItem 方法 */}
           <Button 
             type="primary" 
             className="todo-submit"
-            onClick={this.handleButtonClick}
+            onClick={this.handleAddItem}
           >
             提交
           </Button>
         </div>
+        {/* 使用 List 组件 */}
+        {/* 将原先的 data 换成 state 中的 todoList */}
+        {/* 列表点击事件绑定 handleDeleteItem 方法 */}
         <div className="todo-list">
           <List
-            itemLayout="horizontal"
-            dataSource={this.state.list}
+            size="large"
+            bordered
+            dataSource={this.state.todoList}
             renderItem={(item, index) => (
-              <List.Item onClick={this.handleItemDelete.bind(this, index)}>
-                <List.Item.Meta
-                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                  title={<a href="http://jsliang.top">{item.title}</a>}
-                  description={item.description}
-                />
-              </List.Item>
+              <List.Item onClick={this.handleDeleteItem.bind(this, index)}>{index + 1} - {item}</List.Item>
             )}
           />
         </div>
@@ -1050,8 +1133,10 @@ class TodoList extends Component {
     );
   }
 
+  // 编写 handleInputChange 方法
   handleInputChange(e) {
-    // 1. 通过 Action，将数据传给 Store
+    // 通过 dispatch(action)，将数据传递给 store
+    // 3. 使用 actionTypes
     const action = {
       type: CHANGE_INPUT_VALUE,
       value: e.target.value
@@ -1059,26 +1144,33 @@ class TodoList extends Component {
     store.dispatch(action);
   }
 
-  // 4. 绑定的方法
+  // 在 handleStoreChange 中处理数据
   handleStoreChange() {
     this.setState(store.getState());
   }
 
-  handleButtonClick(e) {
-    // 5. 执行 Button 点击的流程
+  // 编写 handleAddItem 方法
+  handleAddItem() {
+    // 通过 dispatch(action)，将数据传递给 store
+    // 3. 使用 actionTypes
     const action = {
       type: ADD_TODO_ITEM
-    };
+    }
     store.dispatch(action);
   }
 
+  // 为 Input 的 keyUp 方法 handleInputKeyUp 绑定 handleAddItem
   handleInputKeyUp(e) {
     if(e.keyCode === 13) {
-      this.handleButtonClick();
+      this.handleAddItem();
     }
   }
 
-  handleItemDelete(index) {
+  // 编写 handleDeleteItem 方法
+  handleDeleteItem(index) {
+    console.log(index);
+    // 通过 dispatch(action)，将数据传递给 store
+    // 3. 使用 actionTypes
     const action = {
       type: DELETE_TODO_ITEM,
       index
@@ -1091,61 +1183,88 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-> reducer.js
+</details>
+
+> src/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
-// 引入 actionTypes
-import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './actionTypes'
+import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './actionTypes'; // 2. 引用 actionTypes
 
+// 定义一个数据 defaultState
 const defaultState = {
   inputValue: '',
-  list: [
-    // { title: '第一条标题', description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条描述', },
+  todoList: [
+    // '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条 TodoList',
+    // '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第二条 TodoList',
+    // '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第三条 TodoList',
+    // '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第四条 TodoList',
   ]
 }
 
-// reducer 可以接收 state，但是绝不能修改 state
+// 将数据 defaultState 最终以 state 形式导出去
 export default (state = defaultState, action) => {
-  // 2. 在 reducer.js 中获取数据，并 return 返回回去
+  // 打印 state 和 action
+  // console.log(state);
+  // console.log(action);
+
+  // 在 reducer.js 中获取数据，并 return 回去处理结果
+  // 3. 使用 actionTypes
   if(action.type === CHANGE_INPUT_VALUE) {
     const newState = JSON.parse(JSON.stringify(state));
     newState.inputValue = action.value;
     return newState;
   }
-  // 6. 接收 TodoList 传递过来的数据，并进行处理与返回
+
+  // 在 reducer.js 中获取数据，并 return 回去处理结果
+  // 3. 使用 actionTypes
   if(action.type === ADD_TODO_ITEM) {
     const newState = JSON.parse(JSON.stringify(state));
-    let newList = {
-      title: newState.inputValue,
-      description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第 n 条描述'
-    };
-    newState.list.push(newList);
+    newState.todoList.push(newState.inputValue);
     newState.inputValue = '';
     return newState;
   }
+
+  // 在 reducer.js 中获取数据，并 return 回去处理结果
+  // 3. 使用 actionTypes
   if(action.type === DELETE_TODO_ITEM) {
     const newState = JSON.parse(JSON.stringify(state));
-    newState.list.splice(action.index, 1);
+    newState.todoList.splice(action.index, 1);
     return newState;
   }
+
   return state;
 }
 ```
 
-抽取 actionTypes.js 的意义在于，固定 action.type 值，从而不会因为在两处不同地方使用，导致报错。
+</details>
 
-### 5.5 抽取整个 action
+另外，抽取 actionTypes.js 的意义在于，固定 action.type 值，从而不会因为在两处不同地方使用，导致报错。
 
-在上面工作中，我们将 actionType 抽取出来了。但是，当页面足够复杂的时候，我们的 action 管理起来就非常复杂了，所以我们尝试将整个 action 抽取出来。
+## <a name="chapter-night" id="chapter-night">九 优化：抽取整个 action</a>
+
+> [返回目录](#chapter-one)
+
+随着代码量的增多，我们发现注释逐渐增长，所以在这里，我们先去掉所有注释，请小伙伴们自行熟悉上面章节的代码流程。
+
+清除完毕后，我们可以发现：虽然 actionType 抽取出来了，但是当页面足够复杂的时候，我们的 `action` 管理起来还是非常复杂，所以我们尝试将整个 `action` 抽取出来。
 
 我们在 store 目录中新建一个 actionCreators.js：
 
-> 项目/src/store/actionCreators.js
+> src/store/actionCreators.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
-// 引入 actionTypes
+// 1. 引入 actionTypes
 import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './actionTypes'
 
+// 2. 导出相应 action
 export const getInputChangeAction = (value) => ({
   type: CHANGE_INPUT_VALUE,
   value
@@ -1161,23 +1280,23 @@ export const getItemDeleteAction = (index) => ({
 })
 ```
 
+</details>
+
 机智的小伙伴，看到这里，应该就明白我们的意图了，所以，我们再修改下 TodoList.js 即可：
 
 > src/TodoList.js
 
+<details>
+
+  <summary>代码详情</summary>
+
 ```js
-// 引用 React 及其组件
 import React, { Component } from 'react';
-// 引用 Antd
-import 'antd/dist/antd.css';
-// 引用主 CSS 文件
 import './index.css';
-// 引入 输入框、按钮、列表、头像
-import { Input, Button, List, Avatar } from 'antd';
-// 引入 Redux（如果不写目录下的文件，默认引用 index.js）
+import { Input, Button, List } from 'antd';
+import 'antd/dist/antd.css';
 import store from './store';
-// 引入 actionCreators.js
-import { getInputChangeAction, getAddItemAction, getItemDeleteAction } from './store/actionCreators'
+import { getChangeInputValue, getAddTodoItem, getDeleteTodoItem } from './store/actionCreators'; // 3. 引入 actionCreators
 
 class TodoList extends Component {
 
@@ -1185,11 +1304,8 @@ class TodoList extends Component {
     super(props);
     this.state = store.getState();
     this.handleInputChange = this.handleInputChange.bind(this);
-
-    // 3. 绑定处理 redux 返回回来的数据
     this.handleStoreChange = this.handleStoreChange.bind(this);
     store.subscribe(this.handleStoreChange);
-
     this.handleAddItem = this.handleAddItem.bind(this);
     this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
   }
@@ -1202,9 +1318,9 @@ class TodoList extends Component {
         </div>
         <div className="todo-action">
           <Input 
-            placeholder='todo info' 
+            placeholder='todo' 
             className="todo-input" 
-            value={this.state.inputValue} 
+            value={this.state.inputValue}
             onChange={this.handleInputChange}
             onKeyUp={this.handleInputKeyUp}
           />
@@ -1218,16 +1334,11 @@ class TodoList extends Component {
         </div>
         <div className="todo-list">
           <List
-            itemLayout="horizontal"
-            dataSource={this.state.list}
+            size="large"
+            bordered
+            dataSource={this.state.todoList}
             renderItem={(item, index) => (
-              <List.Item onClick={this.handleItemDelete.bind(this, index)}>
-                <List.Item.Meta
-                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                  title={<a href="http://jsliang.top">{item.title}</a>}
-                  description={item.description}
-                />
-              </List.Item>
+              <List.Item onClick={this.handleDeleteItem.bind(this, index)}>{index + 1} - {item}</List.Item>
             )}
           />
         </div>
@@ -1236,19 +1347,18 @@ class TodoList extends Component {
   }
 
   handleInputChange(e) {
-    // 1. 通过 Action，将数据传给 Store
-    const action = getInputChangeAction(e.target.value);
+    // 4. 使用 actionCreators 中的 getChangeInputValue
+    const action = getChangeInputValue(e.target.value);
     store.dispatch(action);
   }
 
-  // 4. 绑定的方法
   handleStoreChange() {
     this.setState(store.getState());
   }
 
-  handleAddItem(e) {
-    // 5. 执行 Button 点击的流程
-    const action = getAddItemAction();
+  handleAddItem() {
+    // 4. 使用 actionCreators 中的 getAddTodoItem
+    const action = getAddTodoItem();
     store.dispatch(action);
   }
 
@@ -1258,8 +1368,9 @@ class TodoList extends Component {
     }
   }
 
-  handleItemDelete(index) {
-    const action = getItemDeleteAction(index);
+  handleDeleteItem(index) {
+    // 4. 使用 actionCreators 中的 getAddTodoItem
+    const action = getDeleteTodoItem(index);
     store.dispatch(action);
   }
 
@@ -1268,74 +1379,94 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-这样，我们就把 action 抽取出来了，在大型项目中，对我们的工作会非常方便。
+</details>
 
-### 5.6 UI 组件和容器组件
+这样，我们就把整个 `action` 抽取出来了，在大型项目中，对我们的工作会非常方便。
+
+## <a name="chapter-ten" id="chapter-ten">十 优化：UI 组件和容器组件</a>
+
+> [返回目录](#chapter-one)
+
+现在，先抛出两个定义：
 
 * UI 组件 —— 傻瓜组件，做页面的渲染
 * 容器组件 —— 聪明组件，做页面的逻辑
+
+我们先不多解释，进行代码拆分，再来讲解为什么会有这两个定义。
 
 在这里，我们进行组件的拆分：
 
 > src/TodoList.js
 
+<details>
+
+  <summary>代码详情</summary>
+
 ```js
-import React, { Component } from 'react'; // 引用 React 及其组件
-import 'antd/dist/antd.css'; // 引用 Antd
-import './index.css'; // 引用主 CSS 文件
-import store from './store'; // 引入 Redux（如果不写目录下的文件，默认引用 index.js）
-import { getInputChangeAction, getAddItemAction, getItemDeleteAction } from './store/actionCreators' // 引入 actionCreators.js
-// 1. 引入 TodoListUI
+import React, { Component } from 'react';
+import './index.css';
+import 'antd/dist/antd.css';
+import store from './store';
+import { getChangeInputValue, getAddTodoItem, getDeleteTodoItem } from './store/actionCreators';
+// 1. 将 Input 等 antd 的组件引入迁移到 TodoListUI，并引入 TodoListUI
 import TodoListUI from './TodoListUI';
 
 class TodoList extends Component {
 
   constructor(props) {
     super(props);
-    this.state = store.getState(); // 获取 store 数据
-    this.handleInputChange = this.handleInputChange.bind(this); // 输入内容改变
-    this.handleInputKeyUp = this.handleInputKeyUp.bind(this); // 回车添加项
-    this.handleAddItem = this.handleAddItem.bind(this); // 按钮添加项
-    this.handleItemDelete = this.handleItemDelete.bind(this)
-    this.handleStoreChange = this.handleStoreChange.bind(this); // store 数据改变
-    store.subscribe(this.handleStoreChange); // 监听 store 改变，改变就执行 handleStoreChange 方法
+    this.state = store.getState();
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleAddItem = this.handleAddItem.bind(this);
+    this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
+    this.handleDeleteItem = this.handleDeleteItem.bind(this);
+
+    this.handleStoreChange = this.handleStoreChange.bind(this);
+    store.subscribe(this.handleStoreChange);
   }
 
   render() {
     return (
+      // 2. 编写 TodoListUI，传递参数到 TodoListUI 中
       <TodoListUI
-        inputValue = {this.state.inputValue}
-        list = {this.state.list}
-        handleInputChange = {this.handleInputChange}
-        handleInputKeyUp = {this.handleInputKeyUp}
-        handleAddItem = {this.handleAddItem}
-        handleItemDelete = {this.handleItemDelete}
+        inputValue={this.state.inputValue}
+        todoList={this.state.todoList}
+        handleInputChange={this.handleInputChange}
+        handleInputKeyUp={this.handleInputKeyUp}
+        handleAddItem={this.handleAddItem}
+        handleDeleteItem={this.handleDeleteItem}
       />
     );
   }
 
-  handleInputChange(e) { // input 输入数据
-    const action = getInputChangeAction(e.target.value);
+  handleInputChange(e) {
+    // 解决 Antd 中的 bug
+    e.persist();
+    const action = getChangeInputValue(e.target.value);
     store.dispatch(action);
   }
 
-  handleStoreChange() { // 监听 store 数据改变
+  handleStoreChange() {
     this.setState(store.getState());
   }
 
-  handleAddItem() { // 添加数据
-    const action = getAddItemAction();
+  handleAddItem() {
+    const action = getAddTodoItem();
     store.dispatch(action);
   }
 
-  handleInputKeyUp(e) { // 回车添加数据
+  handleInputKeyUp(e) {
+    // 解决 Antd 中的 bug
+    e.persist();
     if(e.keyCode === 13) {
       this.handleAddItem();
     }
   }
 
-  handleItemDelete(index) { // 删除数据
-    const action = getItemDeleteAction(index);
+  handleDeleteItem(index) {
+    // 解决 Antd 中的 bug
+    index.persist();
+    const action = getDeleteTodoItem(index);
     store.dispatch(action);
   }
 
@@ -1344,26 +1475,34 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-在这里，我们将 render 中的内容抽取到子组件，该子组件在 src 目录下，叫 TodoListUI，脏活累活让他做，我们只需要将数据传递给它就行了，然后我们编写子组件内容：
+</details>
+
+在这里，我们将 render 中的内容抽取到子组件，该子组件在 src 目录下，叫 TodoListUI，我们将 TodoList.js 当成容器组件中，只需要将数据传递给 TodoListUI 就行了，然后我们编写 UI 组件内容：
 
 > src/TodoListUI.js
  
+<details>
+
+  <summary>代码详情</summary>
+
 ```js
-import React, { Component } from 'react'; // 引用 React 及其组件
-import { Input, Button, List, Avatar } from 'antd'; // 引入 输入框、按钮、列表、头像
+// 3. 引入 Input 等组件
+import React, { Component } from 'react';
+import { Input, Button, List } from 'antd';
 
 class TodoListUI extends Component {
   render() {
     return (
+      // 4. 接收 TodoList.js 中传递的数据
       <div className="todo">
         <div className="todo-title">
           <h1>TodoList</h1>
         </div>
         <div className="todo-action">
           <Input 
-            placeholder='todo info' 
+            placeholder='todo' 
             className="todo-input" 
-            value={this.props.inputValue} 
+            value={this.props.inputValue}
             onChange={this.props.handleInputChange}
             onKeyUp={this.props.handleInputKeyUp}
           />
@@ -1376,16 +1515,14 @@ class TodoListUI extends Component {
           </Button>
         </div>
         <div className="todo-list">
+        {/* 5. 在处理 handleDeleteItem 的时候需要注意，index 的值需要再进行处理 */}
           <List
-            itemLayout="horizontal"
-            dataSource={this.props.list}
+            size="large"
+            bordered
+            dataSource={this.props.todoList}
             renderItem={(item, index) => (
-              <List.Item onClick={(index) => {this.props.handleItemDelete(index)}}>
-                <List.Item.Meta
-                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                  title={<a href="http://jsliang.top">{item.title}</a>}
-                  description={item.description}
-                />
+              <List.Item onClick={(index) => {this.props.handleDeleteItem(index)}}>
+                {index + 1} - {item}
               </List.Item>
             )}
           />
@@ -1398,31 +1535,58 @@ class TodoListUI extends Component {
 export default TodoListUI;
 ```
 
+</details>
+
 这样，我们就完成了 UI 组件和容器组件的拆分。
 
-### 5.7 无状态组件
+我们所做的内容有：
+
+1. 将 Input 等 antd 的组件引入迁移到 TodoListUI，并引入 TodoListUI
+2. 编写 TodoListUI，传递参数到 TodoListUI 中
+3. 引入 Input 等组件
+4. 接收 TodoList.js 中传递的数据
+5. 在处理 handleDeleteItem 的时候需要注意，index 的值需要再进行处理
+
+这样，我们就完成了页面的抽取，当我们页面过多的时候，我们就将内容独立到 UI 组件中。而容器组件，则可以包含无数个 UI 组件。所以：
+
+容器组件是聪明组件，它对整体进行了一个把控；而 UI 组件是傻瓜组件，只需要执行容器组件传递过来的事件并渲染页面即可。
+
+## <a name="chapter-eleven" id="chapter-eleven">十一 优化：无状态组件</a>
+
+> [返回目录](#chapter-one)
 
 当一个组件中，只有 render() 函数，而不做其他事情的时候，我们就把它叫做无状态组件。
 
-在 TodoList 这个项目中，我们可以在 TodoListUI 进行一个无状态组件的定义：
+在 TodoList 这个项目中，我们的 TodoListUI 就只做了 render() 工作，所以可以将 TodoListUI 作为一个无状态组件：
 
 > src/TodoListUI
 
-```js
-import React from 'react'; // 引用 React 及其组件
-import { Input, Button, List, Avatar } from 'antd'; // 引入 输入框、按钮、列表、头像
+<details>
 
+  <summary>代码详情</summary>
+
+```js
+// 1. 我们不需要 react 中的 Component 了
+import React from 'react';
+import { Input, Button, List } from 'antd';
+
+// class TodoListUI extends Component {
+
+// 2. 进行无状态组件定义，然后父组件传递过来的数据，通过 props 获取
 const TodoListUI = (props) => {
+  // 3. 我们不需要进行 render 了，直接 return 就可以了
   return (
+    // 4. 接收 TodoList.js 中传递的数据
     <div className="todo">
       <div className="todo-title">
         <h1>TodoList</h1>
       </div>
       <div className="todo-action">
+        {/* 5. 我们修改 this.props 为 props */}
         <Input 
-          placeholder='todo info' 
+          placeholder='todo' 
           className="todo-input" 
-          value={props.inputValue} 
+          value={props.inputValue}
           onChange={props.handleInputChange}
           onKeyUp={props.handleInputKeyUp}
         />
@@ -1436,77 +1600,87 @@ const TodoListUI = (props) => {
       </div>
       <div className="todo-list">
         <List
-          itemLayout="horizontal"
-          dataSource={props.list}
+          size="large"
+          bordered
+          dataSource={props.todoList}
           renderItem={(item, index) => (
-            <List.Item onClick={(index) => {props.handleItemDelete(index)}}>
-              <List.Item.Meta
-                avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                title={<a href="http://jsliang.top">{item.title}</a>}
-                description={item.description}
-              />
+            <List.Item onClick={(index) => {props.handleDeleteItem(index)}}>
+              {index + 1} - {item}
             </List.Item>
           )}
         />
       </div>
     </div>
-  )
+  );
 }
 
 export default TodoListUI;
 ```
 
-在这里，由于我们没有使用 Component 了，所以我们在第一行去掉了 Component 的引用。
+</details>
 
-同时，我们规定传入到项目中的参数为 props，于是我们就不需要 this.props.** 的形式来引用父组件传递过来的数据，而是直接使用 props 就行了。
+在这里，大致做了 5 项工作：
 
-### 5.8 Redux 中发送异步请求获取数据
+1. 我们不需要 react 中的 `Component` 了，所以我们去掉了 `Component`
+2. 进行无状态组件定义，然后父组件传递过来的数据，通过 props 获取
+3. 我们不需要进行 render 了，直接 return 就可以了
+4. 接收 TodoList.js 中传递的数据
+5. 我们修改 this.props 为 props
+
+## <a name="chapter-twelve" id="chapter-twelve">十二 结尾：调用 Axios，Redux-Base 完成</a>
+
+> [返回目录](#chapter-one)
+
+终于来到最终环节，我们需要获取后端提供的接口，来进一步开发。
 
 * 引入 Axios：`cnpm i axios -S`
-* 在 componentDidMount 中获取接口数据，并走流程，最终渲染到页面上：
+* 在 `componentDidMount` 中获取接口数据，并走流程，最终渲染到页面上：
 
 > TodoList.js
 
-```js
-import React, { Component } from 'react'; // 引用 React 及其组件
-import 'antd/dist/antd.css'; // 引用 Antd
-import './index.css'; // 引用主 CSS 文件
-import store from './store'; // 引入 Redux（如果不写目录下的文件，默认引用 index.js）
+<details>
 
-// 7. 引入 initListAction
-import { getInputChangeAction, getAddItemAction, getItemDeleteAction, initListAction } from './store/actionCreators' // 引入 actionCreators.js
-import TodoListUI from './TodoListUI'; // 引入 TodoListUI
-// 1. 引入 axios
-import axios from 'axios'
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import './index.css';
+import 'antd/dist/antd.css';
+import store from './store';
+// 7. 从 actionCreators 中引入 initListAction
+import { getChangeInputValue, getAddTodoItem, getDeleteTodoItem, initListAction } from './store/actionCreators';
+import TodoListUI from './TodoListUI';
+import axios from 'axios'; // 1. 引入 axios
 
 class TodoList extends Component {
 
   constructor(props) {
     super(props);
-    this.state = store.getState(); // 获取 store 数据
-    this.handleInputChange = this.handleInputChange.bind(this); // 输入内容改变
-    this.handleInputKeyUp = this.handleInputKeyUp.bind(this); // 回车添加项
-    this.handleAddItem = this.handleAddItem.bind(this); // 按钮添加项
-    this.handleItemDelete = this.handleItemDelete.bind(this)
-    this.handleStoreChange = this.handleStoreChange.bind(this); // store 数据改变
-    store.subscribe(this.handleStoreChange); // 监听 store 改变，改变就执行 handleStoreChange 方法
+    this.state = store.getState();
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleAddItem = this.handleAddItem.bind(this);
+    this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
+    this.handleDeleteItem = this.handleDeleteItem.bind(this);
+
+    this.handleStoreChange = this.handleStoreChange.bind(this);
+    store.subscribe(this.handleStoreChange);
   }
 
   render() {
     return (
       <TodoListUI
-        inputValue = {this.state.inputValue}
-        list = {this.state.list}
-        handleInputChange = {this.handleInputChange}
-        handleInputKeyUp = {this.handleInputKeyUp}
-        handleAddItem = {this.handleAddItem}
-        handleItemDelete = {this.handleItemDelete}
+        inputValue={this.state.inputValue}
+        todoList={this.state.todoList}
+        handleInputChange={this.handleInputChange}
+        handleInputKeyUp={this.handleInputKeyUp}
+        handleAddItem={this.handleAddItem}
+        handleDeleteItem={this.handleDeleteItem}
       />
     );
   }
 
+  // 2. 在 componentDidMount() 中进行 axios 接口调用
   componentDidMount() {
-    // 2. 调用接口
     axios.get('https://www.easy-mock.com/mock/5ca803587e5a246db3d100cb/todolist').then( (res) => {
       console.log(res.data.todolist);
       // 3. 将接口数据 dispatch 到 action 中，所以需要先前往 actionCreators.js 中创建 action
@@ -1516,28 +1690,34 @@ class TodoList extends Component {
     })
   }
 
-  handleInputChange(e) { // input 输入数据
-    const action = getInputChangeAction(e.target.value);
+  handleInputChange(e) {
+    // 解决 Antd 中的 bug
+    e.persist();
+    const action = getChangeInputValue(e.target.value);
     store.dispatch(action);
   }
 
-  handleStoreChange() { // 监听 store 数据改变
+  handleStoreChange() {
     this.setState(store.getState());
   }
 
-  handleAddItem() { // 添加数据
-    const action = getAddItemAction();
+  handleAddItem() {
+    const action = getAddTodoItem();
     store.dispatch(action);
   }
 
-  handleInputKeyUp(e) { // 回车添加数据
+  handleInputKeyUp(e) {
+    // 解决 Antd 中的 bug
+    e.persist();
     if(e.keyCode === 13) {
       this.handleAddItem();
     }
   }
 
-  handleItemDelete(index) { // 删除数据
-    const action = getItemDeleteAction(index);
+  handleDeleteItem(index) {
+    // 解决 Antd 中的 bug
+    index.persist();
+    const action = getDeleteTodoItem(index);
     store.dispatch(action);
   }
 
@@ -1546,22 +1726,28 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
+</details>
+
 > actionCreators.js
 
-```js
-// 5. 引入 actionTypes
-import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_ACTION } from './actionTypes'
+<details>
 
-export const getInputChangeAction = (value) => ({
+  <summary>代码详情</summary>
+
+```js
+// 5. 从 actionTypes 引入 INIT_LIST_ACTION
+import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_ACTION } from './actionTypes';
+
+export const getChangeInputValue = (value) => ({
   type: CHANGE_INPUT_VALUE,
   value
 })
 
-export const getAddItemAction = () => ({
+export const getAddTodoItem = () => ({
   type: ADD_TODO_ITEM
 })
 
-export const getItemDeleteAction = (index) => ({
+export const getDeleteTodoItem = (index) => ({
   type: DELETE_TODO_ITEM,
   index
 })
@@ -1573,78 +1759,98 @@ export const initListAction = (data) => ({
 })
 ```
 
+</details>
+
 > actionTypes.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
 export const CHANGE_INPUT_VALUE = 'change_input_value';
-export const ADD_TODO_ITEM = 'add_todo_item';
+export const ADD_TODO_ITEM =  'add_todo_item';
 export const DELETE_TODO_ITEM = 'delete_todo_item';
-// 6. 导出INIT_LIST_ACTION
+// 6. 导出 INIT_LIST_ACTION
 export const INIT_LIST_ACTION = 'init_list_action';
 ```
 
+</details>
+
 > reducer.js
 
+<details>
+
+  <summary>代码详情</summary>
+
 ```js
-// 引入 actionTypes
-import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_ACTION } from './actionTypes'
+// 9. 从 actionTypes 引用 INIT_LIST_ACTION
+import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_ACTION } from './actionTypes';
 
 const defaultState = {
   inputValue: '',
-  list: [
-    // { title: '第一条标题', description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条描述', },
-  ]
+  todoList: []
 }
 
-// reducer 可以接收 state，但是绝不能修改 state
-// 纯函数指的是，给定固定的输入，就一定会有固定的输出，而且不会有任何副作用
 export default (state = defaultState, action) => {
-  // 在 reducer.js 中获取数据，并 return 返回回去
+
   if(action.type === CHANGE_INPUT_VALUE) {
-    // JSON.parse(JSON.stringify(state)) 是一种深拷贝，但是这种深拷贝对一些类型无效，详情可看： 
-    // https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md#chapter-five-five
     const newState = JSON.parse(JSON.stringify(state));
     newState.inputValue = action.value;
     return newState;
   }
-  // 接收 TodoList 传递过来的数据，并进行处理与返回
+
   if(action.type === ADD_TODO_ITEM) {
     const newState = JSON.parse(JSON.stringify(state));
-    let newList = {
-      title: newState.inputValue,
-      description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第 n 条描述'
-    };
-    newState.list.push(newList);
+    newState.todoList.push(newState.inputValue);
     newState.inputValue = '';
     return newState;
   }
+
   if(action.type === DELETE_TODO_ITEM) {
     const newState = JSON.parse(JSON.stringify(state));
-    newState.list.splice(action.index, 1);
+    newState.todoList.splice(action.index, 1);
     return newState;
   }
-  // 9. 接受 TodoList 传递过来的数据，并进行处理与返回
+
+  // 10. 接受 TodoList 传递过来的数据，并进行处理与返回
   if(action.type === INIT_LIST_ACTION) {
     const newState = JSON.parse(JSON.stringify(state));
-    newState.list = action.data;
+    newState.todoList = action.data;
     return newState;
   }
+
   return state;
 }
 ```
 
+</details>
+
 这样，我们就完成了 axios 的调用，并渲染到页面上，整理出来，思路为：
 
-1. TodoList.js —— 引入 axios
-2. TodoList.js —— 通过 axios 调用接口
-3. TodoList.js —— 将接口数据 dispatch 到 action 中，所以需要先前往 actionCreators.js 中创建 action
-4. actionCreators.js —— 编写导出的 initListAction，所以需要先在 actionTypes 中引入 INIT_LIST_ACTION
-5. actionCreators.js —— 引入 actionTypes
-6. actionTypes.js —— 导出INIT_LIST_ACTION
-7. TodoList.js —— 创建 action 并 dispatch 到 reducer.js 中
-8. reducer.js —— 接受 TodoList 传递过来的数据，并进行处理与返回
+1. TodoList.js —— 引入 `axios`
+2. TodoList.js —— 在 componentDidMount() 中进行 `axios` 接口调用
+3. TodoList.js —— 将接口数据 `dispatch` 到 `action` 中，所以需要先前往 actionCreators.js 中创建 `action`
+4. actionCreators.js —— 编写导出的 `initListAction`，所以需要先在 actionTypes 中引入 `INIT_LIST_ACTION`
+5. actionCreators.js —— 从 actionTypes 引入 `INIT_LIST_ACTION`
+6. actionTypes.js —— 导出 `INIT_LIST_ACTION` 到 actionCreators
+7. TodoList.js —— 从 actionCreators 中引入 `initListAction`
+8. TodoList.js —— 创建 `action` 并 `dispatch` 到 reducer.js 中
+9. reducer.js —— 从 actionTypes 引用 `INIT_LIST_ACTION`
+10. reducer.js —— 接受 TodoList 传递过来的数据，并进行处理与返回
 
-### 5.9 Redux-Thunk 中间件进行 ajax 请求发送
+如此，我们就完成了接口的调用，此时页面显示如下：
+
+![图](../../public-repertory/img/js-react-demo-two-10.png)
+
+到此，我们就完成了 Redux-Base。
+
+但是，这只是简单的 Redux 的使用，我们可以感受到，仅仅使用 Redux 对于项目来说还是复杂的，所以我们需要 Redux 的中间件 Redux-Thunk 以及 Redux-Saga。并在最后尝试使用下 React-Redux。
+
+## <a name="chapter-thirteen" id="chapter-thirteen">十三 进阶：Redux-Thunk 中间件进行 ajax 请求发送</a>
+
+> [返回目录](#chapter-one)
+
 
 在上章节，我们在 TodoList 中进行了 Ajax 请求，这是可以的。
 
@@ -1667,13 +1873,18 @@ const store = createStore(
 )
 ```
 
-### 5.10 Redux-Saga 中间件进行 Ajax 请求发送
+## <a name="chapter-fourteen" id="chapter-fourteen">十四 进阶：Redux-Saga 中间件进行 Ajax 请求发送</a>
+
+> [返回目录](#chapter-one)
+
 
 * Redux Saga：[Github 地址](https://github.com/redux-saga/redux-saga)
 * 安装：`npm i redux-saga -S`
 * 使用：
 
-### 5.11 React-Redux 的使用
+## <a name="chapter-fifteen" id="chapter-fifteen">十五 进阶：React-Redux</a>
+
+> [返回目录](#chapter-one)
 
 * React Redux：[GitHub 地址](https://github.com/reduxjs/react-redux)
 * 安装：`npm i react-redux -S`
