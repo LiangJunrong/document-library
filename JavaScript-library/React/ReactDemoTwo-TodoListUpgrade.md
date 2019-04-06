@@ -32,8 +32,8 @@ React Demo Two - TodoList 升级
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 优化：无状态组件](#chapter-eleven) |
 | <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 结尾：调用 Axios，Redux-Base 完成](#chapter-twelve) |
 | <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 进阶：Redux 中间件](#chapter-thirteen) |
-| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 进阶：Redux-Thunk 中间件进行 ajax 请求发送](#chapter-fourteen) |
-| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 进阶：Redux-Saga 中间件进行 Ajax 请求发送](#chapter-fifteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 进阶：Redux-Thunk 中间件进行 ajax 请求管理](#chapter-fourteen) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 进阶：Redux-Saga 中间件进行 Ajax 请求管理](#chapter-fifteen) |
 | <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 进阶：React-Redux](#chapter-sixteen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
@@ -1868,7 +1868,7 @@ export default (state = defaultState, action) => {
 
 因此，简单来说，Redux 的中间件，就是对 Dispatch 的封装升级。
 
-## <a name="chapter-fourteen" id="chapter-fourteen">十四 进阶：Redux-Thunk 中间件进行 ajax 请求发送</a>
+## <a name="chapter-fourteen" id="chapter-fourteen">十四 进阶：Redux-Thunk 中间件进行 ajax 请求管理</a>
 
 > [返回目录](#chapter-one)
 
@@ -1877,6 +1877,15 @@ export default (state = defaultState, action) => {
 但是，随着 Ajax 请求越来越多，如果我们都在页面中编写，那么就会让页面显得臃肿。
 
 这时候，就需要 Redux-Thunk 了。Redux-Thunk 可以把异步请求及复杂业务逻辑抽取到其他地方处理。
+
+我们拷贝一份 Redux-Base 代码到 Redux-Thunk 目录中，并执行：
+
+> 注意：不需要拷贝 node_modules 文件夹
+
+* 安装依赖：`npm i`
+* 运行项目：`npm run start`
+
+然后，我们开始引用 Redux-Thunk：
 
 * Redux Thunk：[Github 地址](https://github.com/reduxjs/redux-thunk)
 * 安装：`npm i redux-thunk -S`
@@ -1901,7 +1910,7 @@ const store = createStore(
 
 </details>
 
-很好看上去非常 easy 有木有，那么我们在项目中尝试一下：
+很好看上去非常 easy 有木有，那么我们在项目中尝试一下。
 
 > src/store/index.js
 
@@ -2099,14 +2108,332 @@ export default TodoList;
 
 总结：至此，我们就完成了 Redux-Thunk 的引用及其使用，小伙伴们可以多进行尝试，进一步熟悉 Redux-Thunk。
 
-## <a name="chapter-fifteen" id="chapter-fifteen">十五 进阶：Redux-Saga 中间件进行 Ajax 请求发送</a>
+## <a name="chapter-fifteen" id="chapter-fifteen">十五 进阶：Redux-Saga 中间件进行 Ajax 请求管理</a>
 
 > [返回目录](#chapter-one)
 
+有了 Redux-Thunk 的经验，我们也可以了解下 Redux-Saga 了。
+
+首先我们还是从 Redux-Base 中拷贝一份文件到 Redux-Saga 目录中。
+
+> 注意：不需要拷贝 node_modules 文件夹
+
+* 安装依赖：`npm i`
+* 运行项目：`npm run start`
+
+然后，我们开始引用 Redux-Saga：
 
 * Redux Saga：[Github 地址](https://github.com/redux-saga/redux-saga)
 * 安装：`npm i redux-saga -S`
-* 使用：
+* 教程小例子：
+
+> test.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+
+import reducer from './reducers'
+import mySaga from './sagas'
+
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware()
+// mount it on the Store
+const store = createStore(
+  reducer,
+  applyMiddleware(sagaMiddleware)
+)
+
+// then run the saga
+sagaMiddleware.run(mySaga)
+
+// render the application
+```
+
+</details>
+
+噗呲，可以看出，Redux-Saga 的引用方式跟 Redux-Thunk 一样简单。但是，请抱着接受一定复杂性的形式继续学习。
+
+下面我们操作 store 目录下的 index.js 文件，进行 Redux-Saga 的引用：
+
+> src/store/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 1. 引入 applyMiddleware 和 compose 进行多个中间件的处理
+import { createStore, applyMiddleware, compose } from 'redux';
+import reducer from './reducer';
+// 2. 引入 redux-saga 的 createSagaMiddleware
+import createSagaMiddleware from 'redux-saga';
+// 6. 创建并引用 store 下的 sagas.js 文件
+import todoSaga from './sagas';
+
+// 3. 调用 createSagaMiddleware 方法
+const sagaMiddleware = createSagaMiddleware();
+
+// 4. 定义 composeEnhancers
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
+
+// 5. 调用 composeEnhancers 进行多中间件处理
+const enhancer = composeEnhancers(
+  applyMiddleware(sagaMiddleware),
+);
+
+const store = createStore(
+  reducer,
+  enhancer
+);
+
+// 7. 使用 todoSaga
+sagaMiddleware.run(todoSaga);
+
+export default store;
+```
+
+</details>
+
+> src/store/sagas.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 8. 使用 generator 函数定义 todoSaga
+function* todoSaga() {
+
+}
+
+// 9. 将 generator 函数导出去
+export default todoSaga;
+```
+
+</details>
+
+如此，我们就完成了 Redux-Saga 的引用，大致做了如下步骤：
+
+1. 引入 `applyMiddleware` 和 `compose` 进行多个中间件的处理
+2. 引入 `redux-saga` 的 `createSagaMiddleware`
+3. 调用 `createSagaMiddleware` 方法
+4. 定义 `composeEnhancers`
+5. 调用 `composeEnhancers` 进行多中间件处理
+6. 创建并引用 `store` 下的 sagas.js 文件的 `todoSaga`
+7. 通过 `sagaMiddleware` 使用 `todoSaga`
+8. 使用 `generator` 函数定义 sagas.js 文件
+9. 将 `generator` 函数导出去
+
+同时我们观察下页面，也不存在报错，说明我们引用对了。
+
+下面我们将 `componentDidMount()` 方法中的 `axios.get()` 这些异步接口提取到 `src/store/sagas.js` 中进行处理：
+
+> 1. src/TodoList.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import './index.css';
+import 'antd/dist/antd.css';
+import store from './store';
+// 1. 删除 initListAction 以及下面的 axios，并引入 actionCreators.js 中的 getInitList
+import { getChangeInputValue, getAddTodoItem, getDeleteTodoItem, getInitList } from './store/actionCreators';
+import TodoListUI from './TodoListUI';
+
+class TodoList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = store.getState();
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleAddItem = this.handleAddItem.bind(this);
+    this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
+    this.handleDeleteItem = this.handleDeleteItem.bind(this);
+
+    this.handleStoreChange = this.handleStoreChange.bind(this);
+    store.subscribe(this.handleStoreChange);
+  }
+
+  render() {
+    return (
+      <TodoListUI
+        inputValue={this.state.inputValue}
+        todoList={this.state.todoList}
+        handleInputChange={this.handleInputChange}
+        handleInputKeyUp={this.handleInputKeyUp}
+        handleAddItem={this.handleAddItem}
+        handleDeleteItem={this.handleDeleteItem}
+      />
+    );
+  }
+
+  componentDidMount() {
+    // 5. 调用 getInitList，并使用 dispatch 将 action 派发出去。这时候不仅 reducer.js 可以接收到这个 action，我们的 sagas.js 也可以接收到这个 action。
+    const action = getInitList();
+    store.dispatch(action);
+  }
+
+  handleInputChange(e) {
+    const action = getChangeInputValue(e.target.value);
+    store.dispatch(action);
+  }
+
+  handleStoreChange() {
+    this.setState(store.getState());
+  }
+
+  handleAddItem() {
+    const action = getAddTodoItem();
+    store.dispatch(action);
+  }
+
+  handleInputKeyUp(e) {
+    if(e.keyCode === 13) {
+      this.handleAddItem();
+    }
+  }
+
+  handleDeleteItem(index) {
+    const action = getDeleteTodoItem(index);
+    store.dispatch(action);
+  }
+
+}
+
+export default TodoList;
+```
+
+</details>
+
+> 2. src/store/actionCreators.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 2. 导入 actionTypes.js 中的 GET_INIT_LIST
+import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_ACTION, GET_INIT_LIST } from './actionTypes';
+
+export const getChangeInputValue = (value) => ({
+  type: CHANGE_INPUT_VALUE,
+  value
+})
+
+export const getAddTodoItem = () => ({
+  type: ADD_TODO_ITEM
+})
+
+export const getDeleteTodoItem = (index) => ({
+  type: DELETE_TODO_ITEM,
+  index
+})
+
+export const initListAction = (data) => ({
+  type: INIT_LIST_ACTION,
+  data
+})
+
+// 3. 使用 GET_INIT_LIST
+export const getInitList = () => ({
+  type: GET_INIT_LIST
+});
+```
+
+</details>
+
+> 3. src/store/actionTypes.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+export const CHANGE_INPUT_VALUE = 'change_input_value';
+export const ADD_TODO_ITEM =  'add_todo_item';
+export const DELETE_TODO_ITEM = 'delete_todo_item';
+export const INIT_LIST_ACTION = 'init_list_action';
+// 4. 定义 GET_INIT_LIST 并导出给 actionTypes.js 使用
+export const GET_INIT_LIST = 'get_init_list';
+```
+
+</details>
+
+> 4. src/store/sagas.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 6. 引用 redux-saga/effets 中的 takeEvery
+// 13. 由于我们在 sagas.js 中没有引用到 store，所以不能使用 store.dispatch()，但是 redux-saga 给我们提供了 put 方法来代替 store.dispatch() 方法
+import { takeEvery, put } from 'redux-saga/effects';
+// 7. 引入 GET_INIT_LIST 类型
+import { GET_INIT_LIST } from './actionTypes';
+// 11. 将 TodoList.js 的 axios 引入迁移到 sagas.js 中
+import axios from 'axios';
+// 12. 引入 actionCreator.js 中的 initListAction
+import { initListAction } from './actionCreators'
+
+// 8. 使用 generator 函数
+function* todoSaga() {
+  // 9. 这行代码表示，只要我们接收到 GET_INIT_LIST 的类型，我们就执行 getInitList 方法
+  yield takeEvery(GET_INIT_LIST, getInitList);
+}
+
+// 10. 定义 getInitList 方法
+function* getInitList() {
+  try {
+    // 14. 在 sagas.js 中处理异步函数
+    const res = yield axios.get('https://www.easy-mock.com/mock/5ca803587e5a246db3d100cb/todolis');
+    const action = initListAction(res.data.todolist);
+    // 15. 等 action 处理完之后，在执行 put 方法
+    yield put(action);
+  } catch (error) {
+    console.log("接口请求失败，请检查 todolist 接口。");
+  }
+  
+}
+
+export default todoSaga;
+```
+
+</details>
+
+这样，我们就把调用接口的异步请求函数，抽取到了 sagas.js 文件中，期间我们做了：
+
+1. TodoList.js —— 删除 `initListAction` 以及下面的 `axios`，并引入 actionCreators.js 中的 getInitList
+2. actionCreators.js —— 导入 actionTypes.js 中的 `GET_INIT_LIST`
+3. actionTypes.js —— 使用 `GET_INIT_LIST`
+4. actionTypes.js —— 定义 `GET_INIT_LIST` 并导出给 actionTypes.js 使用
+5. TodoList.js —— 调用 `getInitList`，并使用 `dispatch` 将 `action` 派发出去。这时候不仅 reducer.js 可以接收到这个 `action`，我们的 sagas.js 也可以接收到这个 `action`。
+6. 引用 `redux-saga/effets` 中的 `takeEvery`
+7. 引入 `GET_INIT_LIST` 类型
+8. 使用 `generator` 函数
+9. 通过 `takeEvery`，表示只要我们接收到 `GET_INIT_LIST` 的类型，我们就执行 `getInitList` 方法
+10. 定义 `getInitList` 方法
+11. 将 TodoList.js 的 `axios` 引入迁移到 sagas.js 中
+12. 引入 actionCreator.js 中的 `initListAction`
+13. 由于我们在 sagas.js 中没有引用到 `store`，所以不能使用 `store.dispatch()`，但是 `redux-saga` 给我们提供了 `put` 方法来代替 `store.dispatch()` 方法，所以我们引用 `put` 方法。
+14. 在 sagas.js 中处理异步函数
+15. 等 `action` 处理完之后，在执行 `put` 方法：`yield put(action)`
+
+如此，我们就成功将 TodoList 中异步请求接口抽取到了 sagas.js 中，从而对接口进行统一管理。
+
+> 在 `src/store/sagas.js` 中，我们还通过 `try...catch...` 方法，对接口进行处理，当接口不存在或者请求异常的时候，我们将知道该接口出错了。
+
+总结：至此，我们就完成了 Redux-Saga 的引用及其使用，小伙伴们可以多进行尝试，进一步熟悉 Redux-Saga。
+ 
+* 参考文献：[generator - 廖雪峰](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143450083887673122b45a4414333ac366c3c935125e7000)
 
 ## <a name="chapter-sixteen" id="chapter-sixteen">十六 进阶：React-Redux</a>
 
