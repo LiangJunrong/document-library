@@ -16,6 +16,16 @@ React Demo Two - TodoList 升级
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 初始化项目](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 使用 Ant Design](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 使用 Redux](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Redux 探索](#chapter-six) |
+| &emsp;[6.1 Redux 插件](#chapter-six-one) |
+| &emsp;[6.2 Redux 知识点讲解](#chapter-six-two) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 Redux 探索](#chapter-seven) |
+| &emsp;[7.1 Input 输入数据](#chapter-seven-one) |
+| &emsp;[7.2 Button 提交数据](#chapter-seven-two) |
+| &emsp;[7.3 删除 TodoItem 列表项](#chapter-seven-three) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -27,38 +37,117 @@ React Demo Two - TodoList 升级
 
 * [React Demo One - TodoList](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-TodoList.md)
 
-如果小伙伴想对照这源码一起看，可以前往：
+如果小伙伴想对照这源码一起看文章，可以前往下面地址下载：
 
 * [React 系列源码地址](https://github.com/LiangJunrong/React)
 
-> 注意，本次代码在 TodoListUpgrade 目录，并且它有一个主支 `master` 及三个分支 `Redux-Thunk`、`Redux-Saga`、`React-Redux`。
+注意，本文代码在 TodoListUpgrade 目录，并且它四个文件夹，分别对应：
 
-## 一 初始化项目
+* Redux-Base —— 记录 Redux 基础内容
+* Redux-Thunk —— 在 Redux-Base 基础上进行 `redux-thunk` 的中间件配置
+* Redux-Saga —— 在 Redux-Base 基础上进行 `redux-saga` 的中间件配置
+* React-Redux —— 对 TodoList 进行 `react-redux` 重新改造
 
-1. 获取 Simpify 目录，修改 App 为 TodoList
+Redux-Base 项目最终目录如下，小伙伴可以先创建空文件放着，后续将使用到：
 
-## 二 Ant Design of React
+![图](../../public-repertory/img/js-react-demo-two-1.png)
 
-1. 安装：`cnpm i antd -S`
-2. 使用：
+## <a name="chapter-three" id="chapter-three">三 初始化项目</a>
 
-> TodoList.js
+> [返回目录](#chapter-one)
+
+获取 [React 系列](https://github.com/LiangJunrong/React) 中 Simpify 目录中的代码，将其 Copy 到 Redux-Base 中，并将 App 修改为 TodoList，进行 TodoList 小改造。
+
+下面我们开始修改：
+
+> 1. index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TodoList from './TodoList';
+
+ReactDOM.render(<TodoList />, document.getElementById('root'));
+```
+
+</details>
+
+> 2. ~~App.js~~ TodoList.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
-
-import 'antd/dist/antd.css';
-
 import './index.css';
 
-import { Input, Button, List, Avatar } from 'antd';
+class TodoList extends Component {
+  render() {
+    return (
+      <div className="App">
+        Hello TodoList!
+      </div>
+    );
+  }
+}
 
+export default TodoList;
+```
+
+</details>
+
+> 3. index.css
+
+<details>
+
+  <summary>代码详情</summary>
+
+```css
+/* 尚未进行编写 */
+```
+
+</details>
+
+此时我们在终端运行 `npm run start`，显示结果为：
+
+![图](../../public-repertory/img/js-react-demo-two-2.png)
+
+## <a name="chapter-four" id="chapter-four">四 使用 Ant Design</a>
+
+> [返回目录](#chapter-one)
+
+* Ant Design 官网：https://ant.design/index-cn
+
+下面开始在 TodoList 项目中使用 Ant Design：
+
+* 安装：`npm i antd -S`
+* 使用：
+
+> 1. TodoList.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react'; // 引入 React 及其 Component
+import './index.css'; // 引入 index.css
+import { Input, Button, List } from 'antd'; // 1. 引入 antd 的列表
+import 'antd/dist/antd.css'; // 2. 引入 antd 的样式
+
+// 3. 定义数据
 const data = [
-  { title: '第一条标题', description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条描述', },
-  { title: '第二条标题', description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第二条描述', },
-  { title: '第三条标题', description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第三条描述', },
-  { title: '第四条标题', description: '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第四条描述', },
+  '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条 TodoList',
+  '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第二条 TodoList',
+  '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第三条 TodoList',
+  '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第四条 TodoList',
 ];
+
 class TodoList extends Component {
   render() {
     return (
@@ -66,24 +155,19 @@ class TodoList extends Component {
         <div className="todo-title">
           <h1>TodoList</h1>
         </div>
+        {/* 4. 使用 Input、Button 组件 */}
         <div className="todo-action">
-          <Input placeholder='todo info' className="todo-input" />
+          <Input placeholder='todo' className="todo-input" />
           <Button type="primary" className="todo-submit">提交</Button>
         </div>
+        {/* 5. 使用 List 组件 */}
         <div className="todo-list">
           <List
-            itemLayout="horizontal"
+            size="large"
+            bordered
             dataSource={data}
-            renderItem={item => (
-              <List.Item>
-                <List.Item.Meta
-                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                  title={<a href="http://jsliang.top">{item.title}</a>}
-                  description={item.description}
-                />
-              </List.Item>
-            )}
-          />,
+            renderItem={(item, index) => (<List.Item>{index + 1} - {item}</List.Item>)}
+          />
         </div>
       </div>
     );
@@ -93,7 +177,13 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-> index.css
+</details>
+
+> 2. index.css
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```css
 .todo {
@@ -106,67 +196,112 @@ export default TodoList;
 .todo-title {
   text-align: center;
 }
-.todo-input {
+.todo-action .todo-input {
   width: 200px;
 }
-.todo-submit {
+.todo-action .todo-submit {
   margin-left: 10px;
+}
+.todo-list {
+  margin-top: 30px;
 }
 ```
 
+</details>
+
+在这里，我们引用 Ant Design 的步骤大致为：
+
+1. 引入 antd 的 Input、Button、List 组件
+2. 引入 antd 的样式
+3. 定义数据
+4. 使用 Input、Button 组件
+5. 使用 List 组件
+
 此时页面显示为：
 
-![图](../../public-repertory/img/js-react-demo-two-temp-1.png)
+![图](../../public-repertory/img/js-react-demo-two-3.png)
 
-## 三 Redux
+## <a name="chapter-five" id="chapter-five">五 使用 Redux</a>
 
-1. 安装 Redux：`npm i redux -S`
-2. 使用：
+> [返回目录](#chapter-one)
 
-> src/store/reducer.js
+我觉得有必要在讲解 Redux 之前，我们先使用 Redux 体验一下：
+
+* 安装 Redux：`npm i redux -S`
+* 下面我们按照 Redux 的使用方法先试试：
+
+> 在 src 目录下创建 store 目录用来存储 Redux 数据，该目录下有 reducer.js 以及 index.js 两个文件
+
+**首先**，我们编写 reducer.js 文件，该文件的作用是定义并处理数据：
+
+> 1. src/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
+// 1. 我们定义一个数据 defaultState
 const defaultState = {
   inputValue: '',
-  list: []
+  todoList: [
+    '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条 TodoList',
+    '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第二条 TodoList',
+    '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第三条 TodoList',
+    '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第四条 TodoList',
+  ]
 }
 
+// 2. 我们将数据 defaultState 最终以 state 形式导出去
 export default (state = defaultState, action) => {
   return state;
 }
 ```
 
-> src/store/index.js
+</details>
+
+**然后**，我们编写 index.js 文件，该文件的作用是通过 createStore 方法创建数据仓库并导出去给 TodoList.js 使用。
+
+> 2. src/store/index.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
-import { createStore } from 'redux';
-import reducer from './reducer';
+import { createStore } from 'redux'; // 3. 我们引用 redux 这个库中的 createStore
+import reducer from './reducer'; // 4. 我们引用 reducer.js 中导出的数据
 
+// 5. 我们通过 redux 提供的方法 reducer 来构建一个数据存储仓库
 const store = createStore(reducer);
 
+// 6. 我们将 store 导出去
 export default store;
 ```
 
-这时候我们就可以在 TodoList.js 中引用并打印出来：
+</details>
 
-> TodoList.js
+**最后**，我们在 TodoList.js 中引用 store/index.js 并到列表中进行使用，以及打印出来 store 传递给我们的数据：
+
+> 3. TodoList.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
-// 引用 React 及其组件
-import React, { Component } from 'react';
-// 引用 Antd
-import 'antd/dist/antd.css';
-// 引用主 CSS 文件
-import './index.css';
-// 引入 输入框、按钮、列表、头像
-import { Input, Button, List, Avatar } from 'antd';
-// 引入 redux（如果不写目录下的文件，默认引用 index.js）
-import store from './store';
+import React, { Component } from 'react'; // 引入 React 及其 Component
+import './index.css'; // 引入 index.css
+import { Input, Button, List } from 'antd'; // 引入 antd 的组件
+import 'antd/dist/antd.css'; // 引入 antd 的样式
+import store from './store'; // 7. 引入 store，你可以理解为 store 提供数据。./store 是 ./store/index.js 的缩写
 
 class TodoList extends Component {
 
+  // 8. 在 constructor 中通过 store.getState() 方法来获取数据，并赋值为 state
   constructor(props) {
     super(props);
+    // 9. 我们尝试在 Console 中打印 store.getState()
     console.log(store.getState());
     this.state = store.getState();
   }
@@ -177,24 +312,20 @@ class TodoList extends Component {
         <div className="todo-title">
           <h1>TodoList</h1>
         </div>
+        {/* 使用 Input、Button 组件 */}
         <div className="todo-action">
-          <Input placeholder='todo info' className="todo-input" value={this.state.inputValue} />
+          <Input placeholder='todo' className="todo-input" />
           <Button type="primary" className="todo-submit">提交</Button>
         </div>
+        {/* 使用 List 组件 */}
+        {/* 10. 将原先的 data 换成 state 中的 todoList */}
         <div className="todo-list">
           <List
-            itemLayout="horizontal"
-            dataSource={this.state.list}
-            renderItem={item => (
-              <List.Item>
-                <List.Item.Meta
-                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                  title={<a href="http://jsliang.top">{item.title}</a>}
-                  description={item.description}
-                />
-              </List.Item>
-            )}
-          />,
+            size="large"
+            bordered
+            dataSource={this.state.todoList}
+            renderItem={(item, index) => (<List.Item>{index + 1} - {item}</List.Item>)}
+          />
         </div>
       </div>
     );
@@ -204,33 +335,44 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-查看 Chrome 控制台，发现它的确输出了：
+</details>
 
-```Console
-{inputValue: "", list: Array(0)}
-```
+这时候，我们查看 Chrome 控制台和页面，发现它的确起作用了：
 
-这样我们就完成了 redux 的引用。
+![图](../../public-repertory/img/js-react-demo-two-4.png)
 
-现在页面显示为；
+这样我们就完成了 Redux 中数据的【查询】，那么我们如何【修改】 Redux 中的数据，以及 Redux 是什么呢？我们一一道来。
 
-![图](../../public-repertory/img/js-react-demo-two-temp-2.png)
+## <a name="chapter-six" id="chapter-six">六 Redux 探索</a>
 
-## 四 Redux 插件
+> [返回目录](#chapter-one)
 
-1. 安装：科学上网的 Chrome 插件，或者百度下载一个
+* **Redux 官网**：[链接](https://redux.js.org/)
+* **Redux 中文小册**：[链接](https://www.redux.org.cn/)
+
+> 如果小伙伴觉得自己看小册或者官网理解比较通透，请自行查阅，下面观点仅供参考。
+
+### <a name="chapter-six-one" id="chapter-six-one">6.1 Redux 插件</a>
+
+> [返回目录](#chapter-one)
+
+1. 安装：科学上网找到对应的 Chrome 插件，或者百度下载一个，或者通过 `npm install --save-dev redux-devtools` 安装它的开发者工具。
 2. 使用：
    1. 关闭浏览器，并重新打开，再打开控制台（F12），进入 Redux 栏，提示你尚未安装代码
    2. 前往 index.js 安装代码。
    3. 查看 state 中发现存有数据，此时 Redux 插件安装完毕。
 
-> index.js
+> src/store/index.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
 import { createStore } from 'redux';
 import reducer from './reducer';
 
-// 如果安装了 Redux 工具，则使用该工具
+// 如果安装了 Redux 工具，则在这里可以直接使用该工具
 const store = createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -239,7 +381,59 @@ const store = createStore(
 export default store;
 ```
 
-## 五 Redux 整体流程
+</details>
+
+### <a name="chapter-six-two" id="chapter-six-two">6.2 Redux 知识点讲解</a>
+
+> [返回目录](#chapter-one)
+
+![图](../../public-repertory/img/js-react-demo-two-5.png)
+
+由于 React 关于自身的定义：“用于构建用户界面的 JavaScript 库”。
+
+所以，当我们在 React 中，如果兄弟组件需要通讯，例如上图中左侧的深色圆圈发送数据到顶部（第一排）的圆圈，我们就需要兜很多弯子，导致数据通讯非常麻烦。
+
+而 Redux 的出现，是为了弥补这种麻烦的通讯方式：建立起一个中央机制，方便各组件之间的通讯。从而就有了上图中右侧的调度方式。
+
+那么，Redux 是怎么个运行/工作机制呢？我们通过下面图片进行分析：
+
+![图](../../public-repertory/img/js-react-demo-two-6.png)
+
+在上面图中，我们假设：
+
+* 蓝色（React Component）：借书人
+* 黄色（Action Creators）：借书动作
+* 橙色（Store）：图书管理员
+* 紫色（Reducers）：系统
+
+它的流程可以理解为：首先借书人走到前台（借书动作）跟图书管理员申请借书，图书管理员帮它在系统中查找书籍资料，然后拿到电脑返回信息，最后告诉他去哪借/怎么使用。
+
+换回正常话，即：当组件（React Components）需要调用数据的时候，它就向创造器（Action Creators）发起请求，创造器通知管理者（Store），管理者就去查找相关资料（Reducers），拿到返回的信息后，再告诉组件。
+
+而在这过程中，我们会使用到 Redux 的一些常用/核心 API：
+
+1. `createStore`：创建 store
+2. `store.dispatch`：派发 action
+3. `store.getState`：获取 store 所有数据内容
+4. `store.subscribe`：监控 store 改变，store 改变了该方法就会被执行
+
+下面我们通过 Input 输入数据、Button 提交数据以及点击 TodoItem 选项进一步讲解上面知识点。
+
+## <a name="chapter-seven" id="chapter-seven">七 Redux 数据修改</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-seven-one" id="chapter-seven-one">7.1 Input 输入数据</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-seven-two" id="chapter-seven-two">7.2 Button 提交数据</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-seven-three" id="chapter-seven-three">7.3 删除 TodoItem 列表项</a>
+
+> [返回目录](#chapter-one)
 
 ### 5.1 Input 输入数据
 
