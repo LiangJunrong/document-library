@@ -2,7 +2,7 @@ React Demo Two - TodoList 升级
 ===
 
 > create by **jsliang** on **2019-3-26 09:26:53**   
-> Recently revised in **2019-4-6 18:11:58**
+> Recently revised in **2019-4-7 02:31:29**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoTwo-TodoListUpgrade.md)**
 
@@ -35,6 +35,7 @@ React Demo Two - TodoList 升级
 | <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 进阶：Redux-Thunk 中间件进行 ajax 请求管理](#chapter-fourteen) |
 | <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 进阶：Redux-Saga 中间件进行 Ajax 请求管理](#chapter-fifteen) |
 | <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 进阶：React-Redux](#chapter-sixteen) |
+| <a name="catalog-chapter-seventeen" id="catalog-chapter-seventeen"></a>[十七 总结](#chapter-seventeen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -2445,9 +2446,409 @@ export default todoSaga;
 
 在之前的章节中，我们使用了 React，也使用了 Redux，以及接触了 Redux 的中间件：Redux-Thunk 和 Redux-Saga。
 
+那么，本章节讲解下 React-Redux。
+
+* 什么是 React-Redux。
+
+它是一个第三方模块，更方便我们在 React 中使用 Redux。 
+
+在这里，由于 React-Base 目录是 React 与 Redux 分开的，所以我们复制一份 Simplify 目录的基础代码到 React-Redux 目录中，并进行 TodoList 改造，从而开始我们的 React-Redux 之旅。
+
+> 将 Simplify 改造成 TodoList 的方法可参考 [第三章 初始化项目](#chapter-three)、[第四章 使用 Ant Design](#chapter-four) 以及 [第五章 使用 Redux](#chapter-five)。
+
+下面 **jsliang** 贴出自己的初始化后的代码：
+
+> 1. src/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TodoList from './TodoList';
+
+ReactDOM.render(<TodoList />, document.getElementById('root'));
+```
+
+</details>
+
+> 2. src/TodoList.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import './index.css';
+import { Input, Button, List } from 'antd';
+import 'antd/dist/antd.css';
+import store from './store';
+
+class TodoList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = store.getState();
+  }
+
+  render() {
+    return (
+      <div className="todo">
+        <div className="todo-title">
+          <h1>TodoList</h1>
+        </div>
+        <div className="todo-action">
+          <Input placeholder='todo' className="todo-input" />
+          <Button type="primary" className="todo-submit">提交</Button>
+        </div>
+        <div className="todo-list">
+          <List
+            size="large"
+            bordered
+            dataSource={this.state.list}
+            renderItem={(item, index) => (<List.Item>{index + 1} - {item}</List.Item>)}
+          />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default TodoList;
+```
+
+</details>
+
+> 3. src/index.css
+
+<details>
+
+  <summary>代码详情</summary>
+
+```css
+.todo {
+  width: 1000px;
+  margin: 20px auto 0;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.todo-title {
+  text-align: center;
+}
+.todo-action .todo-input {
+  width: 200px;
+}
+.todo-action .todo-submit {
+  margin-left: 10px;
+}
+.todo-list {
+  margin-top: 30px;
+}
+```
+
+</details>
+
+> 4. src/store/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import { createStore } from 'redux';
+import reducer from './reducer';
+
+const store = createStore(reducer);
+
+export default store;
+```
+
+</details>
+
+> 5. src/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+const defaultState = {
+  inputValue: '',
+  list: [
+    '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条 TodoList',
+    '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第二条 TodoList',
+    '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第三条 TodoList',
+    '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第四条 TodoList',
+  ]
+}
+
+export default (state = defaultState, action) => {
+  return state;
+}
+```
+
+</details>
+
+此时页面展示为第四章最后的页面样子：
+
+![图](../../public-repertory/img/js-react-demo-two-3.png)
+
 * React Redux：[GitHub 地址](https://github.com/reduxjs/react-redux)
-* 安装：`npm i react-redux -S`
-* 使用：
+* 安装 `react-redux`：`npm i react-redux -S`
+
+是时候展现真正的技术了！
+
+我们在 `src/index.js` 中引用 `react-redux`：
+
+> src/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TodoList from './TodoList';
+// 1. 引入 react-redux 的 Provider
+import { Provider } from 'react-redux';
+// 3. 引入 store
+import store from './store';
+
+// 2. 使用 Provider 重新定义 App
+const App = (
+  // 4. Provider 连接了 store，那么 Provider 里面的组件，都可以获取和使用 store 中的内容
+  <Provider store={store}>
+    <TodoList />
+  </Provider>
+)
+
+// 5. 直接渲染 App
+ReactDOM.render(App, document.getElementById('root'));
+```
+
+</details>
+
+接着可以在 `src/TodoList.js` 中使用：
+
+> src/TodoList.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import './index.css';
+import { Input, Button, List } from 'antd';
+import 'antd/dist/antd.css';
+// 6. 在 TodoList 中，我们就不需要使用 import store from store 以及定义 constructor 获取 store 了，而是通过 react-redux 的 connect 来获取
+import { connect } from 'react-redux';
+
+class TodoList extends Component {
+  render() {
+    return (
+      <div className="todo">
+        <div className="todo-title">
+          <h1>TodoList</h1>
+        </div>
+        <div className="todo-action">
+          {/* 10. 使用 inputValue */}
+          <Input 
+            placeholder='todo' 
+            className="todo-input" 
+            value={this.props.inputValue}
+          />
+          <Button type="primary" className="todo-submit">提交</Button>
+        </div>
+        <div className="todo-list">
+          {/* 12. 使用 list */}
+          <List
+            size="large"
+            bordered
+            dataSource={this.props.list}
+            renderItem={(item, index) => (<List.Item>{index + 1} - {item}</List.Item>)}
+          />
+        </div>
+      </div>
+    );
+  }
+}
+
+// 8. 定义 mapStateToProps 方法，把 store 里面的数据，映射成组件里面的 props，其中参数 state 就是 store 里面的数据
+const mapStateToProps = (state) => {
+  return {
+    // 9. 定义 inputValue
+    inputValue: state.inputValue,
+    // 11. 定义 list
+    list: state.list
+  }
+}
+
+// 7. 导出 connect 方法，让 TodoList 和 store 做连接，需要对应两个规则，即：mapStateToProps 和
+export default connect(mapStateToProps, null)(TodoList);
+```
+
+</details>
+
+现在，我们发现代码仍能正常运行，我们分析下我们做了什么步骤：
+
+1. 引入 `react-redux` 的 `Provider`
+2. 使用 `Provider` 重新定义 `App`
+3. 引入 `store`
+4. `Provider` 连接了 `store`，那么 `Provider` 里面的组件，都可以获取和使用 `store` 中的内容
+5. 直接渲染 `App`
+6. 在 TodoList.js 中，我们就不需要使用 `import store from store` 以及定义 `constructor` 获取 `store` 了，而是通过 `react-redux` 的 `connect` 来获取
+7. 导出 `connect` 方法，让 TodoList.js 和 `store` 做连接，需要对应两个规则，即：`mapStateToProps` 和 **
+8. 定义 `mapStateToProps` 方法，把 `store` 里面的数据，映射成组件里面的 `props`，其中参数 `state` 就是 `store` 里面的数据
+9. 定义 `inputValue`
+10. 使用 `inputValue`
+11. 定义 `list`
+12. 使用 `list`
+
+如此，我们就完成了 `store` 通过 `react-redux` 在 `TodoList.js` 中的引用。
+
+下面我们再试试修改 `store` 的值：
+
+> src/TodoList.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import './index.css';
+import { Input, Button, List } from 'antd';
+import 'antd/dist/antd.css';
+import { connect } from 'react-redux';
+
+class TodoList extends Component {
+  render() {
+    return (
+      <div className="todo">
+        <div className="todo-title">
+          <h1>TodoList</h1>
+        </div>
+        <div className="todo-action">
+          {/* 3. 给 Input 绑定 onChange 事件 handleInputChange，此时我们通过 this.props 来绑定方法 */}
+          <Input 
+            placeholder='todo' 
+            className="todo-input" 
+            value={this.props.inputValue}
+            onChange={this.props.handleInputChange}
+          />
+          <Button type="primary" className="todo-submit">提交</Button>
+        </div>
+        <div className="todo-list">
+          <List
+            size="large"
+            bordered
+            dataSource={this.props.list}
+            renderItem={(item, index) => (<List.Item>{index + 1} - {item}</List.Item>)}
+          />
+        </div>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    inputValue: state.inputValue,
+    list: state.list
+  }
+}
+
+// 2. 定义 mapDispatchToProps 方法，该方法即是 TodoList.js 将 store.dispatch 方法映射到 props 上，所以我们就可以通过 this.props 来定义方法
+// 4. 这里我们传递了 dispatch，所以就可以使用 store.dispatch 方法
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // 5. 定义 handleInputChange 方法
+    handleInputChange(e) {
+      const action = {
+        type: 'change_input_value',
+        value: e.target.value
+      }
+      // 6. 将 action 派发到 reducer.js
+      dispatch(action);
+    }
+  }
+}
+
+// 1. 使用 mapDispatchToProps 方法
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+```
+
+</details>
+
+在修改 `src/reducer.js`：
+
+> src/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+const defaultState = {
+  inputValue: '',
+  list: [
+    '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第一条 TodoList',
+    '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第二条 TodoList',
+    '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第三条 TodoList',
+    '这是非常非常非常长的让人觉得不可思议的但是它语句通顺的第四条 TodoList',
+  ]
+}
+
+export default (state = defaultState, action) => {
+  // 7. 判断传递过来的 action.type 是哪个，进行深拷贝，获取 action.value 的值，并返回 newState
+  if(action.type === 'change_input_value') {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.inputValue = action.value;
+    return newState;
+  }
+
+  return state;
+}
+```
+
+</details>
+
+这时候，我们做了 7 个步骤：
+
+1. 在 TodoList.js 中使用了 `mapDispatchToProps` 方法
+2. 定义 `mapDispatchToProps` 方法，该方法即是 TodoList.js 将 `store.dispatch` 方法映射到 `props` 上，所以我们就可以通过 `this.props` 来定义方法
+3. 给 `Input` 绑定 `onChange` 事件 `handleInputChange`，此时我们通过 `this.props` 来绑定方法
+4. 在 `mapDispatchToProps` 中我们传递了 `dispatch`，所以就可以使用 `store.dispatch` 方法
+5. 定义 `handleInputChange` 方法
+6. 将 `action` 派发到 reducer.js
+7. 判断传递过来的 `action.type` 是哪个，进行深拷贝，获取 `action.value` 的值，并返回 `newState`
+
+至此，我们就简单过了一遍 React-Redux 的使用，下面我们的 Button 按钮点击提交，以及点击 Item 项进行 TodoList 的 `list` 项删除功能，我们就不一一讲解了，感兴趣的小伙伴可以自行实现下，并通过下载 **jsliang** 的代码进行参照：
+
+* [React 系列文章代码地址](https://github.com/LiangJunrong/React)
+
+## <a name="chapter-seventeen" id="chapter-seventeen">十七 总结</a>
+
+> [返回目录](#chapter-one)
+
+现在，我们完成了所有的知识点、代码及其讲解，是时候可以放松聊聊了：这篇文章中我们学会了啥：
+
+1. Ant Design 的使用
+2. Redux 的引入及使用
+3. UI 组件、容器组件、无状态组件以及为了一些大型项目进行的代码抽取封装
+4. Axios 在 React 中的使用
+5. 为了方便管理 Axios 接口代码，我们使用了 Redux 的中间件 Redux-Thunk 和 Redux-Thunk
+6. 使用 React-Redux 再过了遍 Redux 的使用，并学习 React-Redux 的使用
+
+至此，我们就成功完结这篇文章，进入到 React 下个环节的升级进阶了。
+
+如果小伙伴们感觉 **jsliang** 写得不错，记得给个 【赞】 或者给 **jsliang** 的文档库点个 【star】，你们的 【赞】 或者 【star】 是我满满的动力，哈哈，React 系列下篇再见！
 
 ---
 
@@ -2460,4 +2861,4 @@ export default todoSaga;
 [![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
 [![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
 
-<!-- > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。 -->
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
