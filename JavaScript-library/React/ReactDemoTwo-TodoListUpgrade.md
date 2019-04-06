@@ -2,7 +2,36 @@ React Demo Two - TodoList 升级
 ===
 
 > create by **jsliang** on **2019-3-26 09:26:53**   
-> Recently revised in **2019-4-6 10:28:49**
+> Recently revised in **多久**
+
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoTwo-TodoListUpgrade.md)**
+
+* [React 系列文章代码地址](https://github.com/LiangJunrong/React)
+
+## <a name="chapter-one" id="chapter-one">一 目录</a>
+
+**不折腾的前端，和咸鱼有什么区别**
+
+| 目录 |
+| --- | 
+| [一 目录](#chapter-one) | 
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+
+## <a name="chapter-two" id="chapter-two">二 前言</a>
+
+> [返回目录](#chapter-one)
+
+本次 Demo 基于 ReactDemoOne 进行了 Redux 的升级，同时会讲解到中间件 Redux-Thunk 以及 Redux-Saga，最终会使用 React-Redux 进行项目重构。
+
+所以，没有看第一篇的小伙伴可以查看：
+
+* [React Demo One - TodoList](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-TodoList.md)
+
+如果小伙伴想对照这源码一起看，可以前往：
+
+* [React 系列源码地址](https://github.com/LiangJunrong/React)
+
+> 注意，本次代码在 TodoListUpgrade 目录，并且它有一个主支 `master` 及三个分支 `Redux-Thunk`、`Redux-Saga`、`React-Redux`。
 
 ## 一 初始化项目
 
