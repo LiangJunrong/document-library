@@ -1521,7 +1521,7 @@ class TodoListUI extends Component {
             bordered
             dataSource={this.props.todoList}
             renderItem={(item, index) => (
-              <List.Item onClick={(index) => {this.props.handleDeleteItem(index)}}>
+              <List.Item onClick={(item) => {this.props.handleDeleteItem(index)}}>
                 {index + 1} - {item}
               </List.Item>
             )}
@@ -1604,7 +1604,7 @@ const TodoListUI = (props) => {
           bordered
           dataSource={props.todoList}
           renderItem={(item, index) => (
-            <List.Item onClick={(index) => {props.handleDeleteItem(index)}}>
+            <List.Item onClick={(item) => {props.handleDeleteItem(index)}}>
               {index + 1} - {item}
             </List.Item>
           )}
