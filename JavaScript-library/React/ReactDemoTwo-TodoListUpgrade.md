@@ -40,6 +40,10 @@ React Demo Two - TodoList 升级
 
 > [返回目录](#chapter-one)
 
+**声明：该系列文章主要参考慕课网的 React 实战视频，并结合个人理解进行编写：**
+
+* [《React 16.4 开发简书项目从零基础入门到实战》](https://coding.imooc.com/class/229.html)
+
 本次 Demo 基于 ReactDemoOne 进行了 Redux 的升级，同时会讲解到中间件 Redux-Thunk 以及 Redux-Saga，最终会使用 React-Redux 进行项目重构。
 
 所以，没有看第一篇的小伙伴可以查看：
@@ -2438,6 +2442,8 @@ export default todoSaga;
 ## <a name="chapter-sixteen" id="chapter-sixteen">十六 进阶：React-Redux</a>
 
 > [返回目录](#chapter-one)
+
+在之前的章节中，我们使用了 React，也使用了 Redux，以及接触了 Redux 的中间件：Redux-Thunk 和 Redux-Saga。
 
 * React Redux：[GitHub 地址](https://github.com/reduxjs/react-redux)
 * 安装：`npm i react-redux -S`
