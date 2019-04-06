@@ -31,9 +31,10 @@ React Demo Two - TodoList 升级
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 优化：UI 组件和容器组件](#chapter-ten) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 优化：无状态组件](#chapter-eleven) |
 | <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 结尾：调用 Axios，Redux-Base 完成](#chapter-twelve) |
-| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 进阶：Redux-Thunk 中间件进行 ajax 请求发送](#chapter-thirteen) |
-| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 进阶：Redux-Saga 中间件进行 Ajax 请求发送](#chapter-fourteen) |
-| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 进阶：React-Redux](#chapter-fifteen) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 进阶：Redux 中间件](#chapter-thirteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 进阶：Redux-Thunk 中间件进行 ajax 请求发送](#chapter-fourteen) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 进阶：Redux-Saga 中间件进行 Ajax 请求发送](#chapter-fifteen) |
+| <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 进阶：React-Redux](#chapter-sixteen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -1521,7 +1522,7 @@ class TodoListUI extends Component {
             bordered
             dataSource={this.props.todoList}
             renderItem={(item, index) => (
-              <List.Item onClick={(item) => {this.props.handleDeleteItem(index)}}>
+              <List.Item onClick={() => {this.props.handleDeleteItem(index)}}>
                 {index + 1} - {item}
               </List.Item>
             )}
@@ -1604,7 +1605,7 @@ const TodoListUI = (props) => {
           bordered
           dataSource={props.todoList}
           renderItem={(item, index) => (
-            <List.Item onClick={(item) => {props.handleDeleteItem(index)}}>
+            <List.Item onClick={() => {props.handleDeleteItem(index)}}>
               {index + 1} - {item}
             </List.Item>
           )}
@@ -1847,20 +1848,45 @@ export default (state = defaultState, action) => {
 
 但是，这只是简单的 Redux 的使用，我们可以感受到，仅仅使用 Redux 对于项目来说还是复杂的，所以我们需要 Redux 的中间件 Redux-Thunk 以及 Redux-Saga。并在最后尝试使用下 React-Redux。
 
-## <a name="chapter-thirteen" id="chapter-thirteen">十三 进阶：Redux-Thunk 中间件进行 ajax 请求发送</a>
+## <a name="chapter-thirteen" id="chapter-thirteen">十三 进阶：Redux 中间件</a>
 
 > [返回目录](#chapter-one)
 
+* 什么是中间件？
 
-在上章节，我们在 TodoList 中进行了 Ajax 请求，这是可以的。
+中间件即是安排在谁与谁之间的插件。
+
+* 什么是 Redux 中间件？
+
+看图：
+
+![图](../../public-repertory/img/js-react-demo-two-11.png)
+
+在上面图中我们可以看出，我们通过 Dispatch 将 Action 派发到 Store 的时候，我们在 Dispatch 中引用了中间件做处理。它对 Dispatch 做了封装升级，从而使得我们不仅可以在 Dispatch 使用对象，而且可以使用方法函数。
+
+这样，当我们传递给 Dispatch 一个对象的时候，跟我们正常使用 redux 没区别。但是，当我们传递给 Dispatch 一个函数的时候，如果我们使用了 Redux-Thunk 或者 Redux-Saga 的时候，它们就会对此进行处理，从而让我们也可以调用函数。
+
+因此，简单来说，Redux 的中间件，就是对 Dispatch 的封装升级。
+
+## <a name="chapter-fourteen" id="chapter-fourteen">十四 进阶：Redux-Thunk 中间件进行 ajax 请求发送</a>
+
+> [返回目录](#chapter-one)
+
+在第十二章节中，我们在 TodoList 中进行了 Ajax 请求，这是可以的。
 
 但是，随着 Ajax 请求越来越多，如果我们都在页面中编写，那么就会让页面显得臃肿。
 
-这时候，就需要 Redux-thunk 了。Redux-thunk 可以把异步请求及复杂业务逻辑抽取到其他地方处理。
+这时候，就需要 Redux-Thunk 了。Redux-Thunk 可以把异步请求及复杂业务逻辑抽取到其他地方处理。
 
 * Redux Thunk：[Github 地址](https://github.com/reduxjs/redux-thunk)
 * 安装：`npm i redux-thunk -S`
-* 使用：
+* 教程小例子：
+
+> test.js
+
+<details>
+
+  <summary>代码详情</summary>
 
 ```js
 import { createStore, applyMiddleware } from 'redux';
@@ -1873,7 +1899,207 @@ const store = createStore(
 )
 ```
 
-## <a name="chapter-fourteen" id="chapter-fourteen">十四 进阶：Redux-Saga 中间件进行 Ajax 请求发送</a>
+</details>
+
+很好看上去非常 easy 有木有，那么我们在项目中尝试一下：
+
+> src/store/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 2. 从 redux 中引入 applyMiddleware，applyMiddleware 的作用是应用 redux 中间件
+// 3. 引入 compose 函数，因为我们用到了两个中间件：redux-thunk 以及 redux-devtools-extension，需要 compose 辅助
+import { createStore, applyMiddleware, compose } from 'redux';
+import reducer from './reducer';
+// 1. 从 redux-thunk 中引入 thunk
+import thunk from 'redux-thunk';
+
+// 3. 使用 redux-devtools-extension 中间件
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
+
+// 4. 使用 applyMiddleware 对此进行扩展
+const enhancer = composeEnhancers(
+  applyMiddleware(thunk),
+);
+
+// 5. 在 createStore 进行 enhancer 调用
+const store = createStore(
+  reducer,
+  enhancer
+);
+
+export default store;
+```
+
+</details>
+
+在这里，我们做了几件事：
+
+1. 从 `redux-thunk` 中引入 `thunk`
+2. 从 `redux` 中引入 `applyMiddleware`，`applyMiddleware` 的作用是应用多个 redux 中间件
+3. 引入 `compose` 函数，因为我们用到了两个中间件：`redux-thunk` 以及 `redux-devtools-extension`，需要 `compose` 辅助
+4. 使用 `redux-devtools-extension` 中间件
+5. 使用 `applyMiddleware` 对此进行扩展，即 `redux-thunk` 中间件加上 `redux-devtools-extension` 中间件
+6. 在 `createStore` 进行 `enhancer` 调用
+
+这样，我们就同时在一个项目中使用了 `redux-thunk` 中间件加上 `redux-devtools-extension` 中间件，从而做到了 `redux-thunk` 的引用。
+
+接下来，我们就要使用 `redux-thunk` 了
+
+> src/store/actionCreators.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_ACTION } from './actionTypes';
+// 1. 把 axios 从 TodoList.js 中剪切到 actionCreators.js 中
+import axios from 'axios';
+
+export const getChangeInputValue = (value) => ({
+  type: CHANGE_INPUT_VALUE,
+  value
+})
+
+export const getAddTodoItem = () => ({
+  type: ADD_TODO_ITEM
+})
+
+export const getDeleteTodoItem = (index) => ({
+  type: DELETE_TODO_ITEM,
+  index
+})
+
+export const initListAction = (data) => ({
+  type: INIT_LIST_ACTION,
+  data
+})
+
+// 2. 把 TodoList 文件中 componentDidMount() 的 axios.get() 挪到 actionCreators.js 中
+// 3. 在没使用 redux-thunk 之前，我们仅可以在 actionCreators.js 中使用对象，现在我们也可以使用函数了。
+export const getTodoList = () => {
+  // 7. 当我们使用 getTodoList 的时候，我们也能传递 store 的 dispatch，从而在下面代码中使用
+  return (dispatch) => {
+    axios.get('https://www.easy-mock.com/mock/5ca803587e5a246db3d100cb/todolist').then( (res) => {
+      // 8. 直接使用 actionCreators.js 中的 initListAction方法，并 dispatch 该 action
+      const action = initListAction(res.data.todolist);
+      dispatch(action);
+    })
+  }
+}
+```
+
+</details>
+
+> src/TodoList.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import './index.css';
+import 'antd/dist/antd.css';
+import store from './store';
+// 4. 在 TodoList.js 中引用 actionCreators.js 中的 getTodoList
+import { getChangeInputValue, getAddTodoItem, getDeleteTodoItem, getTodoList } from './store/actionCreators';
+import TodoListUI from './TodoListUI';
+
+class TodoList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = store.getState();
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleAddItem = this.handleAddItem.bind(this);
+    this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
+    this.handleDeleteItem = this.handleDeleteItem.bind(this);
+
+    this.handleStoreChange = this.handleStoreChange.bind(this);
+    store.subscribe(this.handleStoreChange);
+  }
+
+  render() {
+    return (
+      <TodoListUI
+        inputValue={this.state.inputValue}
+        todoList={this.state.todoList}
+        handleInputChange={this.handleInputChange}
+        handleInputKeyUp={this.handleInputKeyUp}
+        handleAddItem={this.handleAddItem}
+        handleDeleteItem={this.handleDeleteItem}
+      />
+    );
+  }
+
+  componentDidMount() {
+    // 5. 在 componentDidMount 中调用 getTodoList。如果我们没使用 redux-thunk，我们只能使用对象，但是现在我们可以使用函数了。
+    const action = getTodoList();
+    // 6. 当我们 dispatch 了 action 的时候，我们就调用了步骤 1 的 getTodoList()，从而获取了数据
+    store.dispatch(action);
+  }
+
+  handleInputChange(e) {
+    const action = getChangeInputValue(e.target.value);
+    store.dispatch(action);
+  }
+
+  handleStoreChange() {
+    this.setState(store.getState());
+  }
+
+  handleAddItem() {
+    const action = getAddTodoItem();
+    store.dispatch(action);
+  }
+
+  handleInputKeyUp(e) {
+    if(e.keyCode === 13) {
+      this.handleAddItem();
+    }
+  }
+
+  handleDeleteItem(index) {
+    const action = getDeleteTodoItem(index);
+    store.dispatch(action);
+  }
+
+}
+
+export default TodoList;
+```
+
+</details>
+
+看到这里，我们或许已经懵逼，所以先瞅瞅思路：
+
+1. 把 `axios` 从 TodoList.js 中剪切到 actionCreators.js 中
+2. 把 TodoList 文件中 `componentDidMount()` 的 `axios.get()` 挪到 actionCreators.js 中
+3. 在没使用 `redux-thunk` 之前，我们仅可以在 actionCreators.js 中使用对象，现在我们也可以使用函数了。
+4. 在 TodoList.js 中引用 actionCreators.js 中的 `getTodoList()`，并去除没再引用的 `initListAction`
+5. 在 `componentDidMount()` 中调用 `getTodoList()`。如果我们没使用 `redux-thunk`，我们只能使用对象，但是现在我们可以使用函数了。
+6. 当我们 `dispatch` 了 `action` 的时候，我们就调用了步骤 1 的 `getTodoList()`，从而获取了数据
+7. 当我们使用 `getTodoList()` 的时候，我们也能传递 `store` 的 `dispatch`，从而在下面代码中使用
+8. 直接使用 actionCreators.js 中的 `initListAction` 方法，并 `dispatch` 该 `action`
+
+如此，我们就通过 `redux-thunk`，将 `axios` 的接口调用抽取到了 actionCreators.js 中了。
+
+为什么我们原本在 TodoList.js 中用的好好的，到了这里要走那么多步骤把它抽取出来？
+
+其实我们需要知道的是，当页面足够复杂，项目足够大，代码越来越多的时候，如果我们的接口调用都在容器组件中，我们就不方便对接口进行管理，最后如果我们需要改动某个接口，我们就要在页面中慢慢查找。
+
+通过 `redux-thunk` 的调用，我们就把接口代码从容器组件中抽取出来，从而做到：接口代码逻辑是接口代码逻辑，业务代码逻辑是业务代码逻辑。
+
+而且，通过 `redux-thunk` 的抽取，可以方便我们的自动化测试。当然，自动化测试长啥样子，我们还不清楚，但是我们可以安慰自己的是：这样子始终是有道理的。
+
+总结：至此，我们就完成了 Redux-Thunk 的引用及其使用，小伙伴们可以多进行尝试，进一步熟悉 Redux-Thunk。
+
+## <a name="chapter-fifteen" id="chapter-fifteen">十五 进阶：Redux-Saga 中间件进行 Ajax 请求发送</a>
 
 > [返回目录](#chapter-one)
 
@@ -1882,7 +2108,7 @@ const store = createStore(
 * 安装：`npm i redux-saga -S`
 * 使用：
 
-## <a name="chapter-fifteen" id="chapter-fifteen">十五 进阶：React-Redux</a>
+## <a name="chapter-sixteen" id="chapter-sixteen">十六 进阶：React-Redux</a>
 
 > [返回目录](#chapter-one)
 
