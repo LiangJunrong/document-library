@@ -32,6 +32,10 @@ React Demo One - TodoList
 
 > [返回目录](#chapter-one)
 
+**声明：该系列文章主要参考慕课网的 React 实战视频，并结合个人理解进行编写：**
+
+* [《React 16.4 开发简书项目从零基础入门到实战》](https://coding.imooc.com/class/229.html)
+
 通过编写一个简单的 TodoList 小 Demo，熟悉 React 的开发流程。
 
 ## <a name="chapter-three" id="chapter-three">三 正文</a>
