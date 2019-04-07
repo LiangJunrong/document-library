@@ -2,7 +2,7 @@ React
 ===
 
 > create by **jsliang** on **2018-9-5 08:59:31**   
-> Recently revised in **2019-3-18 08:46:54**
+> Recently revised in **2019-4-7 19:43:31**
 
 ## React 介绍
 
@@ -17,9 +17,11 @@ React 16.0 及以上版本，又被成为 React Fiber。
 > 具体选用何种框架，还是取决于个人/团队对于该框架的驾驭程度
 
 ## 目录
-| 文章 | 简介 |
+| 文章 | 知识点 |
 | --- | --- |
-| [《React Demo One - 仿简书项目》](./ReactDemoOne-jianshu.md) | 从 0 到 1，搭建 React 的仿简书项目 |
+| [《React Demo One - TodoList》](./ReactDemoOne-TodoList.md) | React |
+| [《React Demo Two - TodoList 升级》](./ReactDemoTwo-TodoListUpgrade.md) | React、Redux、Redux-Thunk、Redux-Saga、React-Redux |
+| [《React Demo Three - 简书》](./ReactDemoThree-JianShu.md) | 尚在学习 |
 
 ## 学习顺序
 
