@@ -189,7 +189,11 @@ export default App;
 
 </details>
 
+最后，页面显示为：
 
+![图](../../public-repertory/img/js-react-demo-three-2.png)
+
+由此，我们完成了 Ant Design 的引入及 Header 组件的创建。
 
 ---
 
