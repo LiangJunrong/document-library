@@ -2,7 +2,7 @@ React Demo Three - 简书
 ===
 
 > Create by **jsliang** on **2019-4-7 19:37:41**  
-> Recently revised in **2019-4-8 07:40:10**
+> Recently revised in **2019-4-9 07:39:18**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoThree-JianShu.md)**
 
@@ -1289,6 +1289,22 @@ export default reducer;
 </details>
 
 至此，我们就完成了本次的优化抽取。
+
+## 九 immutable.js
+
+在我们工作的过程中，如果一不小心修改了 reducer.js 中的 ·（平时开发的时候，我们会通过 `JSON.parse(JSON.stringify())` 来进行深拷贝，获取一份额外的来进行修改）。
+
+所以，这时候，我们就需要使用 immutable.js，它是由 Facebook 团队开发的，用来帮助我们生产 `immutable` 对象，从而限制 `state` 不可被改变。
+
+* 安装 immutable.js：`npm i immutable`。
+* 案例 immutable.js：
+
+```js
+const { Map } = require('immutable');
+const map1 = Map({ a: 1, b: 2, c: 3 });
+const map2 = map1.set('b', 50);
+map1.get('b') + " vs. " + map2.get('b'); // 2 vs. 50
+```
 
 ---
 
