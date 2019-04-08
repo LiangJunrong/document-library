@@ -810,7 +810,7 @@ const mapDispathToProps = (dispatch) => {
   return {
     searchFocusOrBlur() {
       const action = {
-        type: 'search_focus'
+        type: 'search_focus_or_blur'
       }
       dispatch(action);
     }
@@ -836,7 +836,7 @@ const defaultState = {
 };
 
 export default (state = defaultState, action) => {
-  if(action.type === 'search_focus') {
+  if(action.type === 'search_focus_or_blur') {
     const newState = JSON.parse(JSON.stringify(state));
     newState.inputBlur = !newState.inputBlur
     return newState;
@@ -927,7 +927,7 @@ const mapDispathToProps = (dispatch) => {
   return {
     searchFocusOrBlur() {
       const action = {
-        type: 'search_focus'
+        type: 'search_focus_or_blur'
       }
       dispatch(action);
     }
@@ -970,7 +970,7 @@ export default store;
 
 ![图](../../public-repertory/img/js-react-demo-three-5.gif)
 
-## 七 进一步优化 reducer.js
+## 七 抽取 reducer.js
 
 在项目开发中，我们会发现 reducer.js 随着项目的开发越来越庞大，最后到不可维护的地步。
 
@@ -993,7 +993,7 @@ const defaultState = {
 };
 
 export default (state = defaultState, action) => {
-  if(action.type === 'search_focus') {
+  if(action.type === 'search_focus_or_blur') {
     const newState = JSON.parse(JSON.stringify(state));
     newState.inputBlur = !newState.inputBlur
     return newState;
@@ -1050,6 +1050,245 @@ const mapStateToProps = (state) => {
 在这里，我们需要知道的是：之前我们只有一层目录，所以修改的是 `state.inputBlur`，但是，因为通过 `combineReducers` 将 reducer.js 进行了整合，所以需要修改为 `state.header.inputBlur`
 
 至此，我们就完成了 reducer.js 的优化。
+
+## 八 抽取 action
+
+1. 首先在 header 的 store 中新建 actionCreators.js 文件：
+
+> src/common/header/store/actionCreators.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 1. 定义 actionCreators
+export const searchFocusOrBlur = () => ({
+  type: 'search_focus_or_blur'
+})
+```
+
+</details>
+
+2. 然后我们在 header 中的 index.js 文件引入 actionCreators.js，并在 `mapDispathToProps` 方法体中将其 `dispatch` 出去：
+
+> src/common/header/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React from 'react';
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+import './index.css';
+// 2. 以 actionCreators 的形式将所有 action 引入进来
+import * as actionCreators from './store/actionCreators';
+
+import homeImage from '../../resources/img/header-home.png';
+
+const Header = (props) => {
+  return (
+    <header>
+      <div className="header_left">
+        <a href="/">
+          <img alt="首页" src={homeImage} className="headef_left-img" />
+        </a>
+      </div>
+      <div className="header_center">
+        <div className="header_center-left">
+          <div className="nav-item header_center-left-home">
+            <i className="icon icon-home"></i>
+            <span>首页</span>
+          </div>
+          <div className="nav-item header_center-left-download">
+            <i className="icon icon-download"></i>
+            <span>下载App</span>
+          </div>
+          <div className="nav-item header_center-left-search">
+            <CSSTransition
+              in={props.inputBlur}
+              timeout={200}
+              classNames="slide"
+            >
+              <input 
+                className={props.inputBlur ? 'input-nor-active' : 'input-active'}
+                placeholder="搜索"
+                onFocus={props.searchFocusOrBlur}
+                onBlur={props.searchFocusOrBlur}
+              />
+            </CSSTransition>
+            <i className={props.inputBlur ? 'icon icon-search' : 'icon icon-search icon-active'}></i>
+          </div>
+        </div>
+        <div className="header_center-right">
+          <div className="nav-item header_right-center-setting">
+            <span>Aa</span>
+          </div>
+          <div className="nav-item header_right-center-login">
+            <span>登录</span>
+          </div>
+        </div>
+      </div>
+      <div className="header_right nav-item">
+        <span className="header_right-register">注册</span>
+        <span className="header_right-write nav-item">
+          <i className="icon icon-write"></i>
+          <span>写文章</span>
+        </span>
+      </div>
+    </header>
+  )
+}
+
+const mapStateToProps = (state) => {
+  return {
+    inputBlur: state.header.inputBlur
+  }
+}
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    searchFocusOrBlur() {
+      // 3. 使用 actionCreators
+      dispatch(actionCreators.searchFocusOrBlur());
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
+```
+
+</details>
+
+3. 接着，因为我们在 actionCreators.js 中使用的 `type` 是字符串，所以我们同样在 store 中创建 actionTypes.js，将其变成常量：
+
+> src/common/header/store/actionTypes.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+export const SEARCH_FOCUS_OR_BLUR = 'search_focus_or_blur';
+```
+
+</details>
+
+4. 再然后，我们在 actionCreators.js 中引入 actionTypes.js：
+
+> src/common/header/store/actionCreators.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 4. 引入常量
+import { SEARCH_FOCUS_OR_BLUR } from './actionTypes'
+
+// 1. 定义 actionCreators
+// 5. 将 action 中的字符串修改为常量
+export const searchFocusOrBlur = () => ({
+  type: SEARCH_FOCUS_OR_BLUR
+})
+```
+
+</details>
+
+5. 再接着，我们修改下 header 目录中 store 下的 reducer.js，因为我们的字符串变成了常量，所以这里也需要做相应变更：
+
+> src/common/header/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 6. 引入常量
+import * as actionTypes from './actionTypes'
+
+const defaultState = {
+  inputBlur: true
+};
+
+export default (state = defaultState, action) => {
+  // 7. 使用常量
+  if(action.type === actionTypes.SEARCH_FOCUS_OR_BLUR) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.inputBlur = !newState.inputBlur
+    return newState;
+  }
+  return state;
+}
+```
+
+</details>
+
+6. 然后，我们现在 header/store 目录下有：actionCreators.js、actionTypes.js、reducer.js 三个文件，如果我们每次引入都要一个一个找，那是相当麻烦的，所以我们在 header/store 目录下再新建一个 index.js，通过 index.js 来管理这三个文件，这样我们其他页面需要引入它们的时候，我们只需要引入 store 下的 index.js 即可。
+
+> src/common/header/store/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 8. 统一管理 store 目录中的文件
+import * as actionCreators from './actionCreators';
+import * as actionTypes from './actionTypes';
+import reducer from './reducer';
+
+export { actionCreators, actionTypes, reducer };
+```
+
+</details>
+
+7. 值得注意的是，这时候我们可以处理下 header/index.js 文件：
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React from 'react';
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+import './index.css';
+// 2. 以 actionCreators 的形式将所有 action 引入进来
+// import * as actionCreators from './store/actionCreators';
+// 9. 引入 store/index 文件即可
+import { actionCreators } from './store';
+
+import homeImage from '../../resources/img/header-home.png';
+
+// 代码省略
+```
+
+</details>
+
+8. 最后，再处理下 src/store/reducer.js，因为它引用了 common/header/store 中的 reducer.js：
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import { combineReducers } from 'redux';
+// 10. 修改下引用方式
+import { reducer as headerReducer } from '../common/header/store';
+
+const reducer =  combineReducers({
+  header: headerReducer
+})
+
+export default reducer;
+```
+
+</details>
+
+至此，我们就完成了本次的优化抽取。
 
 ---
 
