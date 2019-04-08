@@ -447,6 +447,217 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 * 安装动画库：`npm i react-transition-group -S`
 
+修改代码：
+
+> src/common/header/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+// 1. 引入动画库
+import { CSSTransition } from 'react-transition-group';
+import './index.css';
+
+import homeImage from '../../resources/img/header-home.png';
+
+class Header extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputBlur: true
+    }
+    this.searchFocusOrBlur = this.searchFocusOrBlur.bind(this);
+  }
+
+  render() {
+    return (
+      <header>
+        <div className="header_left">
+          <a href="/">
+            <img alt="首页" src={homeImage} className="headef_left-img" />
+          </a>
+        </div>
+        <div className="header_center">
+          <div className="header_center-left">
+            <div className="nav-item header_center-left-home">
+              <i className="icon icon-home"></i>
+              <span>首页</span>
+            </div>
+            <div className="nav-item header_center-left-download">
+              <i className="icon icon-download"></i>
+              <span>下载App</span>
+            </div>
+            <div className="nav-item header_center-left-search">
+              {/* 2. 通过 CSSTransition 包裹 input */}
+              <CSSTransition
+                in={this.state.inputBlur}
+                timeout={200}
+                classNames="slide"
+              >
+                <input 
+                  className={this.state.inputBlur ? 'input-nor-active' : 'input-active'}
+                  placeholder="搜索"
+                  onFocus={this.searchFocusOrBlur}
+                  onBlur={this.searchFocusOrBlur}
+                />
+              </CSSTransition>
+              <i className={this.state.inputBlur ? 'icon icon-search' : 'icon icon-search icon-active'}></i>
+            </div>
+          </div>
+          <div className="header_center-right">
+            <div className="nav-item header_right-center-setting">
+              <span>Aa</span>
+            </div>
+            <div className="nav-item header_right-center-login">
+              <span>登录</span>
+            </div>
+          </div>
+        </div>
+        <div className="header_right nav-item">
+          <span className="header_right-register">注册</span>
+          <span className="header_right-write nav-item">
+            <i className="icon icon-write"></i>
+            <span>写文章</span>
+          </span>
+        </div>
+      </header>
+    )
+  }
+
+  searchFocusOrBlur(e) {
+    const inputBlur = this.state.inputBlur;
+    this.setState( () => ({
+      inputBlur: !inputBlur
+    }))
+  }
+
+}
+
+export default Header;
+```
+
+</details>
+
+> src/common/header/index.css
+
+<details>
+
+  <summary>代码详情</summary>
+
+```css
+header {
+  width: 100%;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  font-size: 17px;
+}
+.headef_left-img {
+  width: 100px;
+  height: 56px;
+}
+.header_center {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-item {
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+.header_center-left {
+  display: flex;
+}
+.header_center-left-home {
+  color: #ea6f5a;
+}
+.header_center-left-search {
+  position: relative;
+}
+/* 3. 编写对应的 CSS 样式 */
+.slide-enter {
+  transition: all .2s ease-out;
+}
+.slide-enter-active {
+  width: 280px;
+}
+.slide-exit {
+  transition: all .2s ease-out;
+}
+.silde-exit-active {
+  width: 240px;
+}
+/* 3. 结束 */
+.header_center-left-search input {
+  width: 240px;
+  padding: 0 40px 0 20px;
+  height: 38px;
+  font-size: 14px;
+  border: 1px solid #eee;
+  border-radius: 40px;
+  background: #eee;
+}
+.header_center-left-search .input-active {
+  width: 280px;
+}
+.header_center-left-search i {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+.header_center-left-search .icon-active {
+  padding: 3px;
+  top: 4px;
+  border-radius: 15px;
+  border: 1px solid #ea6f5a;
+}
+.header_center-left-search .icon-active:hover {
+  cursor: pointer;
+}
+.header_center-right {
+  display: flex;
+  color: #969696;
+}
+.header_right-register, .header_right-write {
+  width: 80px;
+  text-align: center;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid rgba(236,97,73,.7);
+  border-radius: 20px;
+  font-size: 15px;
+  color: #ea6f5a;
+  background-color: transparent;
+}
+.header_right-write {
+  margin-left: 10px;
+  padding-left: 10px;
+  margin-right: 0px;
+  color: #fff;
+  background-color: #ea6f5a;
+}
+```
+
+</details>
+
+这样，经过四个操作步骤：
+
+1. 安装动画库：`npm i react-transition-group -S`
+2. 引入动画库
+3. 通过 CSSTransition 包裹 input
+4. 编写对应的 CSS 样式
+
+我们就成功实现了 CSS 动画插件的引入及使用，此时页面显示为：
+
+![图](../../public-repertory/img/js-react-demo-three-4.gif)
+
 ---
 
 > **jsliang** 广告推送：  
