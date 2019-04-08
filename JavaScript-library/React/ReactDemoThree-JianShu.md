@@ -195,6 +195,242 @@ export default App;
 
 由此，我们完成了 Ant Design 的引入及 Header 组件的创建。
 
+## 编写简书头部导航
+
+首先，我们编写 src/common/header 下的 index.js：
+
+> src/common/heder/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import './index.css';
+
+import homeImage from '../../resources/img/header-home.png';
+
+class Header extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputFocus: true
+    }
+    this.searchFocusOrBlur = this.searchFocusOrBlur.bind(this);
+  }
+
+  render() {
+    return (
+      <header>
+        <div className="header_left">
+          <a href="/">
+            <img alt="首页" src={homeImage} className="headef_left-img" />
+          </a>
+        </div>
+        <div className="header_center">
+          <div className="header_center-left">
+            <div className="nav-item header_center-left-home">
+              <i className="icon icon-home"></i>
+              <span>首页</span>
+            </div>
+            <div className="nav-item header_center-left-download">
+              <i className="icon icon-download"></i>
+              <span>下载App</span>
+            </div>
+            <div className="nav-item header_center-left-search">
+              <input 
+                className={this.state.inputFocus ? 'input-nor-active' : 'input-active'}
+                placeholder="搜索"
+                onFocus={this.searchFocusOrBlur}
+                onBlur={this.searchFocusOrBlur}
+              />
+              <i className="icon icon-search"></i>
+            </div>
+          </div>
+          <div className="header_center-right">
+            <div className="nav-item header_right-center-setting">
+              <span>Aa</span>
+            </div>
+            <div className="nav-item header_right-center-login">
+              <span>登录</span>
+            </div>
+          </div>
+        </div>
+        <div className="header_right nav-item">
+          <span className="header_right-register">注册</span>
+          <span className="header_right-write nav-item">
+            <i className="icon icon-write"></i>
+            <span>写文章</span>
+          </span>
+        </div>
+      </header>
+    )
+  }
+
+  searchFocusOrBlur(e) {
+    const inputFocus = this.state.inputFocus;
+    this.setState( () => ({
+      inputFocus: !inputFocus
+    }))
+  }
+
+}
+
+export default Header;
+```
+
+</details>
+
+然后，我们添加 CSS 样式：
+
+> src/common/heder/index.css
+
+<details>
+
+  <summary>代码详情</summary>
+
+```css
+header {
+  width: 100%;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  font-size: 17px;
+}
+.headef_left-img {
+  width: 100px;
+  height: 56px;
+}
+.header_center {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-item {
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+.header_center-left {
+  display: flex;
+}
+.header_center-left-home {
+  color: #ea6f5a;
+}
+.header_center-left-search {
+  position: relative;
+}
+.header_center-left-search input {
+  width: 240px;
+  padding: 0 40px 0 20px;
+  height: 38px;
+  font-size: 14px;
+  border: 1px solid #eee;
+  border-radius: 40px;
+  background: #eee;
+}
+.header_center-left-search .input-active {
+  width: 280px;
+}
+.header_center-left-search i {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+.header_center-right {
+  display: flex;
+  color: #969696;
+}
+.header_right-register, .header_right-write {
+  width: 80px;
+  text-align: center;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid rgba(236,97,73,.7);
+  border-radius: 20px;
+  font-size: 15px;
+  color: #ea6f5a;
+  background-color: transparent;
+}
+.header_right-write {
+  margin-left: 10px;
+  padding-left: 10px;
+  margin-right: 0px;
+  color: #fff;
+  background-color: #ea6f5a;
+}
+```
+
+</details>
+
+接着，由于图标这些，我们可以抽取到公用样式表中，所以我们在 src 目录下添加 common.css：
+
+> src/common.css
+
+<details>
+
+  <summary>代码详情</summary>
+
+```css
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 21px;
+  margin-right: 5px;
+}
+.icon-home {
+  background: url('./resources/img/icon-home.png') no-repeat center;
+  background-size: 100%;
+}
+.icon-write {
+  background: url('./resources/img/icon-write.png') no-repeat center;
+  background-size: 100%;
+}
+.icon-download {
+  background: url('./resources/img/icon-download.png') no-repeat center;
+  background-size: 100%;
+}
+.icon-search {
+  background: url('./resources/img/icon-search.png') no-repeat center;
+  background-size: 100%;
+}
+```
+
+</details>
+
+最后，我们在 src 下的 index.js 中引用 common.css
+
+> src/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './reset.css';
+import './index.css';
+import './common.css';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+</details>
+
+至此，我们页面展示为：
+
+![图](../../public-repertory/img/js-react-demo-three-3.png)
+
+## 设置输入框动画
+
+
+
 ---
 
 > **jsliang** 广告推送：  
