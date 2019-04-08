@@ -207,10 +207,10 @@ export default App;
 
 ```js
 import React, { Component } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import './index.css';
 
 import homeImage from '../../resources/img/header-home.png';
-
 class Header extends Component {
 
   constructor(props) {
@@ -240,13 +240,18 @@ class Header extends Component {
               <span>下载App</span>
             </div>
             <div className="nav-item header_center-left-search">
-              <input 
-                className={this.state.inputFocus ? 'input-nor-active' : 'input-active'}
-                placeholder="搜索"
-                onFocus={this.searchFocusOrBlur}
-                onBlur={this.searchFocusOrBlur}
-              />
-              <i className="icon icon-search"></i>
+              <CSSTransition
+                in={this.state.inputFocus}
+                timeout={200}
+              >
+                <input 
+                  className={this.state.inputFocus ? 'input-nor-active' : 'input-active'}
+                  placeholder="搜索"
+                  onFocus={this.searchFocusOrBlur}
+                  onBlur={this.searchFocusOrBlur}
+                />
+              </CSSTransition>
+              <i className={this.state.inputFocus ? 'icon icon-search' : 'icon icon-search icon-active'}></i>
             </div>
           </div>
           <div className="header_center-right">
@@ -341,6 +346,15 @@ header {
   top: 8px;
   right: 10px;
 }
+.header_center-left-search .icon-active {
+  padding: 3px;
+  top: 4px;
+  border-radius: 15px;
+  border: 1px solid #ea6f5a;
+}
+.header_center-left-search .icon-active:hover {
+  cursor: pointer;
+}
 .header_center-right {
   display: flex;
   color: #969696;
@@ -429,7 +443,9 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ## 设置输入框动画
 
+> 参考地址：[react-transition-group](https://github.com/reactjs/react-transition-group)
 
+* 安装动画库：`npm i react-transition-group -S`
 
 ---
 
