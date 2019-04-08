@@ -941,6 +941,116 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 最终，我们完成了 Redux、React-Redux 的引用及使用，以及对 src/index.js 的无状态组件的升级。
 
+## 六 使用 redux-devtools-extension 插件
+
+修改 src/store/index.js 如下：
+
+> src/store/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import { createStore, compose } from 'redux';
+import reducer from './reducer';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(reducer, composeEnhancers())
+
+export default store;
+```
+
+</details>
+
+这时候，我们就成功开启之前安装过的 redux-devtools-extension 插件。
+
+使用一下：
+
+![图](../../public-repertory/img/js-react-demo-three-5.gif)
+
+## 七 进一步优化 reducer.js
+
+在项目开发中，我们会发现 reducer.js 随着项目的开发越来越庞大，最后到不可维护的地步。
+
+该视频的慕课讲师也提到：**当你的一个 js 文件代码量超过 300 行，说明它的设计一开始来说就是不合理的。**
+
+所以，我们要想着进一步优化它。
+
+首先，我们在 header 目录下，新建 store，并新建 reducer.js，将 src/store 的 reducer.js 中的内容剪切到 header/store/reducer.js 中：
+
+> src/common/header/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 1. 将 reducer.js 转移到 header/store/reducer.js 中
+const defaultState = {
+  inputBlur: true
+};
+
+export default (state = defaultState, action) => {
+  if(action.type === 'search_focus') {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.inputBlur = !newState.inputBlur
+    return newState;
+  }
+  return state;
+}
+```
+
+</details>
+
+然后，我们修改 src/store/reducer.js 的内容为：
+
+> src/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 2. 通过 combineReducers 整合多个 reducer.js 文件
+import { combineReducers } from 'redux';
+import headerReducer from '../common/header/store/reducer';
+
+const reducer =  combineReducers({
+  header: headerReducer
+})
+
+export default reducer;
+```
+
+</details>
+
+最后，我们修改 src/common/header/index.js 内容：
+
+> src/common/header/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 代码省略 。。。
+const mapStateToProps = (state) => {
+  return {
+    // 3. 因为引用的层级变了，所以需要修改 state.inputBlur 为 state.header.inputBlue
+    inputBlur: state.header.inputBlur
+  }
+}
+// 代码省略 。。。
+```
+
+</details>
+
+在这里，我们需要知道的是：之前我们只有一层目录，所以修改的是 `state.inputBlur`，但是，因为通过 `combineReducers` 将 reducer.js 进行了整合，所以需要修改为 `state.header.inputBlur`
+
+至此，我们就完成了 reducer.js 的优化。
+
 ---
 
 > **jsliang** 广告推送：  
