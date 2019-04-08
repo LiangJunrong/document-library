@@ -21,7 +21,7 @@ React Demo Three - 简书
 
 > [返回目录](#chapter-one)
 
-## 初始化目录
+## 一 初始化目录
 
 首先，引入 Simplify 目录的内容到 JianShu 文件夹。或者前往文章 [《React Demo One - TodoList》](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-TodoList.md#chapter-three-three) 手动进行项目简化
 
@@ -132,7 +132,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 </details>
 
-## 创建 React 头部组件
+## 二 创建 React 头部组件
 
 首先，我们安装 Ant Design，在开发中减少写样式的时间：`npm i antd -S`
 
@@ -195,7 +195,7 @@ export default App;
 
 由此，我们完成了 Ant Design 的引入及 Header 组件的创建。
 
-## 编写简书头部导航
+## 三 编写简书头部导航
 
 首先，我们编写 src/common/header 下的 index.js：
 
@@ -441,7 +441,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ![图](../../public-repertory/img/js-react-demo-three-3.png)
 
-## 设置输入框动画
+## 四 设置输入框动画
 
 > 参考地址：[react-transition-group](https://github.com/reactjs/react-transition-group)
 
@@ -657,6 +657,289 @@ header {
 我们就成功实现了 CSS 动画插件的引入及使用，此时页面显示为：
 
 ![图](../../public-repertory/img/js-react-demo-three-4.gif)
+
+## 五 优化代码
+
+* 安装 Redux：`npm i redux -S`
+* 安装 React-Redux：`npm i react-redux -S`
+* 开始在代码中加入 Redux 和 React-Redux
+
+1. 创建 store 文件夹，并在里面创建 index.js 和 reducer.js：
+
+> src/store/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import { createStore } from 'redux';
+import reducer from './reducer';
+
+const store = createStore(reducer);
+
+export default store;
+```
+
+</details>
+
+> src/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+const defaultState = {
+  inputBlur: true
+};
+
+export default (state = defaultState, action) => {
+  return state;
+}
+```
+
+</details>
+
+2. 接着在 App.js 中引用 react-redux 以及 store/index.js：
+
+> src/App.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import Header from './common/header';
+import store from './store';
+
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store} className="App">
+        <Header />
+      </Provider>
+    );
+  }
+}
+
+export default App;
+```
+
+</details>
+
+3. 然后修改 src 下 index.js 中的内容：
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+import './index.css';
+
+import homeImage from '../../resources/img/header-home.png';
+
+class Header extends Component {
+  render() {
+    return (
+      <header>
+        <div className="header_left">
+          <a href="/">
+            <img alt="首页" src={homeImage} className="headef_left-img" />
+          </a>
+        </div>
+        <div className="header_center">
+          <div className="header_center-left">
+            <div className="nav-item header_center-left-home">
+              <i className="icon icon-home"></i>
+              <span>首页</span>
+            </div>
+            <div className="nav-item header_center-left-download">
+              <i className="icon icon-download"></i>
+              <span>下载App</span>
+            </div>
+            <div className="nav-item header_center-left-search">
+              <CSSTransition
+                in={this.props.inputBlur}
+                timeout={200}
+                classNames="slide"
+              >
+                <input 
+                  className={this.props.inputBlur ? 'input-nor-active' : 'input-active'}
+                  placeholder="搜索"
+                  onFocus={this.props.searchFocusOrBlur}
+                  onBlur={this.props.searchFocusOrBlur}
+                />
+              </CSSTransition>
+              <i className={this.props.inputBlur ? 'icon icon-search' : 'icon icon-search icon-active'}></i>
+            </div>
+          </div>
+          <div className="header_center-right">
+            <div className="nav-item header_right-center-setting">
+              <span>Aa</span>
+            </div>
+            <div className="nav-item header_right-center-login">
+              <span>登录</span>
+            </div>
+          </div>
+        </div>
+        <div className="header_right nav-item">
+          <span className="header_right-register">注册</span>
+          <span className="header_right-write nav-item">
+            <i className="icon icon-write"></i>
+            <span>写文章</span>
+          </span>
+        </div>
+      </header>
+    )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    inputBlur: state.inputBlur
+  }
+}
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    searchFocusOrBlur() {
+      const action = {
+        type: 'search_focus'
+      }
+      dispatch(action);
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
+```
+
+</details>
+
+4. 最后我们再修改下 reducer.js，获取并处理 src/index.js 中 `dispatch` 过来的值：
+
+> src/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+const defaultState = {
+  inputBlur: true
+};
+
+export default (state = defaultState, action) => {
+  if(action.type === 'search_focus') {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.inputBlur = !newState.inputBlur
+    return newState;
+  }
+  return state;
+}
+```
+
+</details>
+
+5. 如此，我们完成了修改的步骤。同时，这时候因为 src/index.js 中只有 `render` 方法体，它构成了无状态组件，所以我们将其转换成无状态组件：
+
+> src/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React from 'react';
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+import './index.css';
+
+import homeImage from '../../resources/img/header-home.png';
+
+const Header = (props) => {
+  return (
+    <header>
+      <div className="header_left">
+        <a href="/">
+          <img alt="首页" src={homeImage} className="headef_left-img" />
+        </a>
+      </div>
+      <div className="header_center">
+        <div className="header_center-left">
+          <div className="nav-item header_center-left-home">
+            <i className="icon icon-home"></i>
+            <span>首页</span>
+          </div>
+          <div className="nav-item header_center-left-download">
+            <i className="icon icon-download"></i>
+            <span>下载App</span>
+          </div>
+          <div className="nav-item header_center-left-search">
+            <CSSTransition
+              in={props.inputBlur}
+              timeout={200}
+              classNames="slide"
+            >
+              <input 
+                className={props.inputBlur ? 'input-nor-active' : 'input-active'}
+                placeholder="搜索"
+                onFocus={props.searchFocusOrBlur}
+                onBlur={props.searchFocusOrBlur}
+              />
+            </CSSTransition>
+            <i className={props.inputBlur ? 'icon icon-search' : 'icon icon-search icon-active'}></i>
+          </div>
+        </div>
+        <div className="header_center-right">
+          <div className="nav-item header_right-center-setting">
+            <span>Aa</span>
+          </div>
+          <div className="nav-item header_right-center-login">
+            <span>登录</span>
+          </div>
+        </div>
+      </div>
+      <div className="header_right nav-item">
+        <span className="header_right-register">注册</span>
+        <span className="header_right-write nav-item">
+          <i className="icon icon-write"></i>
+          <span>写文章</span>
+        </span>
+      </div>
+    </header>
+  )
+}
+
+const mapStateToProps = (state) => {
+  return {
+    inputBlur: state.inputBlur
+  }
+}
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    searchFocusOrBlur() {
+      const action = {
+        type: 'search_focus'
+      }
+      dispatch(action);
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
+```
+
+</details>
+
+最终，我们完成了 Redux、React-Redux 的引用及使用，以及对 src/index.js 的无状态组件的升级。
 
 ---
 
