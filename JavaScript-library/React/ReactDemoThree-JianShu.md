@@ -2,7 +2,7 @@ React Demo Three - 简书
 ===
 
 > Create by **jsliang** on **2019-4-7 19:37:41**  
-> Recently revised in **2019-4-9 07:39:18**
+> Recently revised in **2019-4-10 07:36:21**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoThree-JianShu.md)**
 
@@ -1496,6 +1496,10 @@ const mapStateToProps = (state) => {
 1. 安装 redux-immutable：`npm i redux-immutable`
 2. 通过 redux-immutable 引入 `combineReducers` 而非原先的 redux
 3. 通过同样的 `get` 方法来获取 `header`
+
+## 十一 热门搜索
+
+
 
 ## N 失误
 
