@@ -1306,6 +1306,206 @@ const map2 = map1.set('b', 50);
 map1.get('b') + " vs. " + map2.get('b'); // 2 vs. 50
 ```
 
+然后，我们在简书 Demo 中使用：
+
+> src/common/header/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import * as actionTypes from './actionTypes'
+// 1. 通过 immutable 引入 fromJS
+import { fromJS } from 'immutable';
+
+// 2. 对 defaultState 使用 fromJS
+const defaultState = fromJS({
+  inputBlur: true
+});
+
+export default (state = defaultState, action) => {
+  if(action.type === actionTypes.SEARCH_FOCUS_OR_BLUR) {
+    // const newState = JSON.parse(JSON.stringify(state));
+    // newState.inputBlur = !newState.inputBlur
+    // return newState;
+
+    // 4. 通过 immutable 的方法来 set state 的值
+    // immutable 对象的 set 方法，会结合之前 immutable 对象的值和设置的值，返回一个全新的对象
+    return state.set('inputBlur', !state.get('inputBlur'));
+  }
+  return state;
+}
+```
+
+</details>
+
+> src/common/header/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React from 'react';
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+import './index.css';
+import { actionCreators } from './store';
+
+import homeImage from '../../resources/img/header-home.png';
+
+const Header = (props) => {
+  return (
+    <header>
+      <div className="header_left">
+        <a href="/">
+          <img alt="首页" src={homeImage} className="headef_left-img" />
+        </a>
+      </div>
+      <div className="header_center">
+        <div className="header_center-left">
+          <div className="nav-item header_center-left-home">
+            <i className="icon icon-home"></i>
+            <span>首页</span>
+          </div>
+          <div className="nav-item header_center-left-download">
+            <i className="icon icon-download"></i>
+            <span>下载App</span>
+          </div>
+          <div className="nav-item header_center-left-search">
+            <CSSTransition
+              in={props.inputBlur}
+              timeout={200}
+              classNames="slide"
+            >
+              <input 
+                className={props.inputBlur ? 'input-nor-active' : 'input-active'}
+                placeholder="搜索"
+                onFocus={props.searchFocusOrBlur}
+                onBlur={props.searchFocusOrBlur}
+              />
+            </CSSTransition>
+            <i className={props.inputBlur ? 'icon icon-search' : 'icon icon-search icon-active'}></i>
+          </div>
+        </div>
+        <div className="header_center-right">
+          <div className="nav-item header_right-center-setting">
+            <span>Aa</span>
+          </div>
+          <div className="nav-item header_right-center-login">
+            <span>登录</span>
+          </div>
+        </div>
+      </div>
+      <div className="header_right nav-item">
+        <span className="header_right-register">注册</span>
+        <span className="header_right-write nav-item">
+          <i className="icon icon-write"></i>
+          <span>写文章</span>
+        </span>
+      </div>
+    </header>
+  )
+}
+
+const mapStateToProps = (state) => {
+  return {
+    // 3. 通过 immutable 提供的 get() 方法来获取 inputBlur 属性
+    inputBlur: state.header.get('inputBlur')
+  }
+}
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    searchFocusOrBlur() {
+      dispatch(actionCreators.searchFocusOrBlur());
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
+```
+
+</details>
+
+我们大致做了四个步骤，从而完成了 immutable.js 的引用及使用：
+
+1. 通过 `import` `immutable` 引入 `fromJS`
+2. 对 `defaultState` 使用 `fromJS`
+3. 这时候我们就不能直接修改 `matStateToProps` 中的值了，而是 通过 `immutable` 提供的 `get()` 方法来获取 `inputBlur` 属性
+4. 通过 `immutable` 的方法来 `set` `state` 的值。`immutable` 对象的 `set` 方法，会结合之前 `immutable` 对象的值和设置的值，返回一个全新的对象
+
+这样，我们就成功保护了 `state` 的值。
+
+## 十 redux-immutable
+
+当然，在上面，我们保护了 header 中的 `state`，我们在代码中：
+
+```js
+inputBlur: state.header.get('inputBlur')
+```
+
+这个 `header` 也是 `state` 的值，所以我们也需要对它进行保护，所以我们就需要 redux-immutable
+
+* 安装 redux-immutable：`npm i redux-immutable`
+* 使用 redux-immutable：
+
+> src/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// import { combineReducers } from 'redux';
+// 1. 通过 redux-immutable 引入 combineReducers 而非原先的 redux
+import { combineReducers } from 'redux-immutable';
+import { reducer as headerReducer } from '../common/header/store';
+
+const reducer =  combineReducers({
+  header: headerReducer
+})
+
+export default reducer;
+```
+
+</details>
+
+> src/common/header/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 代码省略。。。
+const mapStateToProps = (state) => {
+  return {
+    // 2. 通过同样的 get 方法来获取 header
+    inputBlur: state.get('header').get('inputBlur')
+  }
+}
+// 代码省略。。。
+```
+
+</details>
+
+这样，通过简单的三个步骤，我们就保护了主 `state` 的值：
+
+1. 安装 redux-immutable：`npm i redux-immutable`
+2. 通过 redux-immutable 引入 `combineReducers` 而非原先的 redux
+3. 通过同样的 `get` 方法来获取 `header`
+
+## N 失误
+
+1. ~~`SEARCH_FOCUS_OR_BLUR` 的值，不应该通过这个来控制 `false` 或者 `true`，从而增加了开发难度~~
+2. ~~现在 immutable.js 的 `set` 方法，不知道如何修改。~~
+
+## N 参考文献
+
+1. [使用 immutable 优化 React](https://segmentfault.com/a/1190000010438089)
+
 ---
 
 > **jsliang** 广告推送：  
