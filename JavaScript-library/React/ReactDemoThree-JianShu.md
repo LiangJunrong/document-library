@@ -1499,9 +1499,345 @@ const mapStateToProps = (state) => {
 
 ## 十一 热门搜索
 
+本章节完成三个功能：
+
 1. 写热门搜索显示隐藏
 2. 安装 redux-thunk
 3. 使用 React 中 Node 提供的作假数据的功能，在 public/api 下写个文件 headerList.json，并做假数据，使用方式为 `axios.get('/api/headerList.json').then()`
+
+**首先**，我们完成热门搜索的显示隐藏：
+
+> src/common.css
+
+<details>
+
+  <summary>代码详情</summary>
+
+```css
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 21px;
+  margin-right: 5px;
+}
+.icon-home {
+  background: url('./resources/img/icon-home.png') no-repeat center;
+  background-size: 100%;
+}
+.icon-write {
+  background: url('./resources/img/icon-write.png') no-repeat center;
+  background-size: 100%;
+}
+.icon-download {
+  background: url('./resources/img/icon-download.png') no-repeat center;
+  background-size: 100%;
+}
+.icon-search {
+  background: url('./resources/img/icon-search.png') no-repeat center;
+  background-size: 100%;
+}
+.display-hide {
+  display: none;
+}
+.display-show {
+  display: block;
+}
+```
+
+</details>
+
+> src/common/header/index.css
+
+<details>
+
+  <summary>代码详情</summary>
+
+```css
+header {
+  width: 100%;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  font-size: 17px;
+}
+
+/* 头部左边 */
+.header_left-img {
+  width: 100px;
+  height: 56px;
+}
+
+/* 头部中间 */
+.header_center {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-item {
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+/* 头部中间左部 */
+.header_center-left {
+  display: flex;
+}
+
+/* 头部中间左部 - 首页 */
+.header_center-left-home {
+  color: #ea6f5a;
+}
+
+/* 头部中间左部 - 搜索框 */
+.header_center-left-search {
+  position: relative;
+}
+.slide-enter {
+  transition: all .2s ease-out;
+}
+.slide-enter-active {
+  width: 280px;
+}
+.slide-exit {
+  transition: all .2s ease-out;
+}
+.silde-exit-active {
+  width: 240px;
+}
+.header_center-left-search input {
+  width: 240px;
+  padding: 0 45px 0 20px;
+  height: 38px;
+  font-size: 14px;
+  border: 1px solid #eee;
+  border-radius: 40px;
+  background: #eee;
+}
+.header_center-left-search .input-active {
+  width: 280px;
+}
+.header_center-left-search .icon-search {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+.header_center-left-search .icon-active {
+  padding: 3px;
+  top: 4px;
+  border-radius: 15px;
+  border: 1px solid #ea6f5a;
+}
+
+/* 头部中间左部 - 热搜 */
+.header_center-left-search .icon-active:hover {
+  cursor: pointer;
+}
+.header_center-left-hot-search:before {
+  content: "";
+  left: 27px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  top: -5px;
+  z-index: -1;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,.2);
+}
+.header_center-left-hot-search {
+  position: absolute;
+  width: 250px;
+  left: 0;
+  top: 125%;
+  padding: 15px;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+.header_center-left-hot-search-title {
+  display: flex;
+  justify-content: space-between;
+  color: #969696;
+}
+.header_center-left-hot-search-change {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-change {
+  display: inline-block;
+  width: 20px;
+  height: 14px;
+  background: url('../../resources/img/icon-change.png') no-repeat center;
+  background-size: 100%;
+}
+.icon-change:hover {
+  cursor: pointer;
+}
+.header_center-left-hot-search-content span {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 2px 6px;
+  font-size: 12px;
+  color: #787878;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+.header_center-left-hot-search-content span:hover {
+  cursor: pointer;
+}
+
+/* 头部中间右部 */
+.header_center-right {
+  display: flex;
+  color: #969696;
+}
+
+/* 头部右边 */
+.header_right-register, .header_right-write {
+  width: 80px;
+  text-align: center;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid rgba(236,97,73,.7);
+  border-radius: 20px;
+  font-size: 15px;
+  color: #ea6f5a;
+  background-color: transparent;
+}
+.header_right-write {
+  margin-left: 10px;
+  padding-left: 10px;
+  margin-right: 0px;
+  color: #fff;
+  background-color: #ea6f5a;
+}
+```
+
+</details>
+
+
+> src/common/header/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React from 'react';
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+import './index.css';
+import { actionCreators } from './store';
+
+import homeImage from '../../resources/img/header-home.png';
+
+const Header = (props) => {
+  return (
+    <header>
+      <div className="header_left">
+        <a href="/">
+          <img alt="首页" src={homeImage} className="header_left-img" />
+        </a>
+      </div>
+      <div className="header_center">
+        <div className="header_center-left">
+          <div className="nav-item header_center-left-home">
+            <i className="icon icon-home"></i>
+            <span>首页</span>
+          </div>
+          <div className="nav-item header_center-left-download">
+            <i className="icon icon-download"></i>
+            <span>下载App</span>
+          </div>
+          <div className="nav-item header_center-left-search">
+            <CSSTransition
+              in={props.inputBlur}
+              timeout={200}
+              classNames="slide"
+            >
+              <input 
+                className={props.inputBlur ? 'input-nor-active' : 'input-active'}
+                placeholder="搜索"
+                onFocus={props.searchFocusOrBlur}
+                onBlur={props.searchFocusOrBlur}
+              />
+            </CSSTransition>
+            <i className={props.inputBlur ? 'icon icon-search' : 'icon icon-search icon-active'}></i>
+            <div className={props.inputBlur ? 'display-hide header_center-left-hot-search' : 'display-show header_center-left-hot-search'}>
+              <div className="header_center-left-hot-search-title">
+                <span>热门搜索</span>
+                <span>
+                  <i className="icon-change"></i>
+                  <span>换一批</span>
+                </span>
+              </div>
+              <div className="header_center-left-hot-search-content">
+                <span>考研</span>
+                <span>慢死人</span>
+                <span>悦心</span>
+                <span>一致</span>
+                <span>是的</span>
+                <span>jsliang</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="header_center-right">
+          <div className="nav-item header_right-center-setting">
+            <span>Aa</span>
+          </div>
+          <div className="nav-item header_right-center-login">
+            <span>登录</span>
+          </div>
+        </div>
+      </div>
+      <div className="header_right nav-item">
+        <span className="header_right-register">注册</span>
+        <span className="header_right-write nav-item">
+          <i className="icon icon-write"></i>
+          <span>写文章</span>
+        </span>
+      </div>
+    </header>
+  )
+}
+
+const mapStateToProps = (state) => {
+  return {
+    inputBlur: state.get('header').get('inputBlur')
+  }
+}
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    searchFocusOrBlur() {
+      dispatch(actionCreators.searchFocusOrBlur());
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
+```
+
+</details>
+
+由此，我们完成了热门搜索的显示隐藏：
+
+![图](../../public-repertory/img/js-react-demo-three-6.gif)
+
+**然后**，由于我们的数据是从接口模拟过来的，而在上一篇文章说过，如果要对接口代码进行管理，最好使用 Redux-Thunk 和 Redux-Saga，这里我们使用 Redux-Thunk：
+
+* 安装 redux-thunk：`cnpm i redux-thunk -S`
+
+在这里，我们要知道 create-react-app 的配置是包含 Node.js 的，所以我们可以依靠 Node.js 进行开发时候的 Mock 数据。
+
+<!-- 未完待续 -->
 
 ## 十二 代码优化
 
@@ -1527,4 +1863,4 @@ const mapStateToProps = (state) => {
 [![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
 [![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+<!-- > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。 -->
