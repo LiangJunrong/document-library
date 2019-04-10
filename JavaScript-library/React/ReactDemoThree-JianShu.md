@@ -1499,7 +1499,13 @@ const mapStateToProps = (state) => {
 
 ## 十一 热门搜索
 
+1. 写热门搜索显示隐藏
+2. 安装 redux-thunk
+3. 使用 React 中 Node 提供的作假数据的功能，在 public/api 下写个文件 headerList.json，并做假数据，使用方式为 `axios.get('/api/headerList.json').then()`
 
+## 十二 代码优化
+
+1. reducer.js 中使用 `switch...case...` 替换掉 `if...` 语句。
 
 ## N 失误
 
