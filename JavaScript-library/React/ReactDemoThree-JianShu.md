@@ -2,7 +2,7 @@ React Demo Three - 简书
 ===
 
 > Create by **jsliang** on **2019-4-7 19:37:41**  
-> Recently revised in **2019-4-11 07:08:03**
+> Recently revised in **2019-4-12 07:34:11**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoThree-JianShu.md)**
 
@@ -1943,10 +1943,275 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 **然后**，由于我们的数据是从接口模拟过来的，而在上一篇文章说过，如果要对接口代码进行管理，最好使用 Redux-Thunk 和 Redux-Saga，这里我们使用 Redux-Thunk：
 
 1. 安装 redux-thunk：`cnpm i redux-thunk -S`
+2. 安装 axios：`cnpm i axios -S`
 
 在这里，我们要知道 create-react-app 的配置是包含 Node.js 的，所以我们可以依靠 Node.js 进行开发时候的 Mock 数据。
 
-<!-- 未完待续 -->
+下面开始开发：
+
+> src/store/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+// 2. 引入 redux 的 applyMiddleware，进行多中间件的使用
+import { createStore, compose, applyMiddleware } from 'redux';
+// 1. 引入 redux-thunk
+import thunk from 'redux-thunk';
+import reducer from './reducer';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+// 3. 通过 applyMiddleware 同时使用 redux-thunk 和 redux-dev-tools
+const store = createStore(reducer, composeEnhancers(
+  applyMiddleware(thunk)
+));
+
+export default store;
+```
+
+</details>
+
+1. 引入 redux-thunk
+2. 引入 redux 的 `applyMiddleware`，进行多中间件的使用
+3. 通过 `applyMiddleware` 同时使用 redux-thunk 和 redux-dev-tools
+
+这样，我们就可以正常使用 redux-thunk 了。
+
+> 1. src/common/header/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+import './index.css';
+import { actionCreators } from './store';
+
+import homeImage from '../../resources/img/header-home.png';
+
+class Header extends Component {
+  render() {
+    return (
+      <header>
+        <div className="header_left">
+          <a href="/">
+            <img alt="首页" src={homeImage} className="header_left-img" />
+          </a>
+        </div>
+        <div className="header_center">
+          <div className="header_center-left">
+            <div className="nav-item header_center-left-home">
+              <i className="icon icon-home"></i>
+              <span>首页</span>
+            </div>
+            <div className="nav-item header_center-left-download">
+              <i className="icon icon-download"></i>
+              <span>下载App</span>
+            </div>
+            <div className="nav-item header_center-left-search">
+              <CSSTransition
+                in={this.props.inputBlur}
+                timeout={200}
+                classNames="slide"
+              >
+                <input 
+                  className={this.props.inputBlur ? 'input-nor-active' : 'input-active'}
+                  placeholder="搜索"
+                  onFocus={this.props.searchFocusOrBlur}
+                  onBlur={this.props.searchFocusOrBlur}
+                />
+              </CSSTransition>
+              <i className={this.props.inputBlur ? 'icon icon-search' : 'icon icon-search icon-active'}></i>
+              <div className={this.props.inputBlur ? 'display-hide header_center-left-hot-search' : 'display-show header_center-left-hot-search'}>
+                <div className="header_center-left-hot-search-title">
+                  <span>热门搜索</span>
+                  <span>
+                    <i className="icon-change"></i>
+                    <span>换一批</span>
+                  </span>
+                </div>
+                <div className="header_center-left-hot-search-content">
+                  {/* 15. 遍历输出该数据 */}
+                  {
+                    this.props.list.map((item) => {
+                      return <span key={item}>{item}</span>
+                    })
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="header_center-right">
+            <div className="nav-item header_right-center-setting">
+              <span>Aa</span>
+            </div>
+            <div className="nav-item header_right-center-login">
+              <span>登录</span>
+            </div>
+          </div>
+        </div>
+        <div className="header_right nav-item">
+          <span className="header_right-register">注册</span>
+          <span className="header_right-write nav-item">
+            <i className="icon icon-write"></i>
+            <span>写文章</span>
+          </span>
+        </div>
+      </header>
+    )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    inputBlur: state.get('header').get('inputBlur'),
+    // 14. 获取 reducer.js 中的 list 数据
+    list: state.get('header').get('list')
+  }
+}
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    searchFocusOrBlur() {
+      // 4. 派发 action 到 actionCreators.js 中的 getList() 方法
+      dispatch(actionCreators.getList());
+      dispatch(actionCreators.searchFocusOrBlur());
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
+```
+
+</details>
+
+> 2. src/common/header/store/actionCreators.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import * as actionTypes from './actionTypes'
+// 7. 引入 axios
+import axios from 'axios';
+// 11. 引入 immutable 的类型转换
+import { fromJS } from 'immutable';
+
+export const searchFocusOrBlur = () => ({
+  type: actionTypes.SEARCH_FOCUS_OR_BLUR
+})
+
+// 10. 定义 action，接受参数 data，同时因为我们使用了 Immutable，所以需要将获取的数据转换为 immutable 类型
+const changeList = (data) => ({
+  type: actionTypes.GET_LIST,
+  data: fromJS(data)
+})
+
+// 5. 编写 getList 的 action，由于需要 actionTypes 中定义，所以前往 actionTypes.js 中新增
+export const getList = () => {
+  return (dispatch) => {
+    // 8. 调用 create-react-app 中提供的 Node 服务器，从而 mock 数据
+    axios.get('/api/headerList.json').then( (res) => {
+      if(res.data.code === 0) {
+        const data = res.data.list;
+        // 由于数据太多，我们限制数据量为 15 先
+        data.length = 15;
+        // 12. 派发 changeList 类型
+        dispatch(changeList(data));
+      }
+    }).catch( (error) => {
+      console.log(error);
+    });
+  }
+}
+```
+
+</details>
+
+> 3. src/common/header/store/actionTypes.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+export const SEARCH_FOCUS_OR_BLUR = 'header/search_focus_or_blur';
+// 6. 新增 actionType
+export const GET_LIST = 'header/get_list';
+```
+
+</details>
+
+> 4. src/common/header/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import * as actionTypes from './actionTypes'
+import { fromJS } from 'immutable';
+
+const defaultState = fromJS({
+  inputBlur: true,
+  // 9. 给 header 下的 reducer.js 提供存储数据的地方
+  list: []
+});
+
+export default (state = defaultState, action) => {
+  if(action.type === actionTypes.SEARCH_FOCUS_OR_BLUR) {
+    return state.set('inputBlur', !state.get('inputBlur'));
+  }
+  // 13. 判断 actionTypes 是否为 GET_LIST，如果是则执行该 action
+  if(action.type === actionTypes.GET_LIST) {
+    return state.set('list', action.data);
+  }
+  return state;
+}
+```
+
+</details>
+
+> 5. public/api/headerList.json
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+{
+  "code": 0,
+  "list": ["区块链","小程序","vue","毕业","PHP","故事","flutter","理财","美食","投稿","手帐","书法","PPT","穿搭","打碗碗花","简书","姥姥的澎湖湾","设计","创业","交友","籽盐","教育","思维导图","疯哥哥","梅西","时间管理","golang","连载","自律","职场","考研","慢世人","悦欣","一纸vr","spring","eos","足球","程序员","林露含","彩铅","金融","木风杂谈","日更","成长","外婆是方言","docker"]
+}
+```
+
+</details>
+
+通过下面步骤：
+
+4. 派发 `action` 到 actionCreators.js 中的 `getList()` 方法
+5. 编写 `getList` 的 `action`，由于需要 `actionTypes` 中定义，所以前往 actionTypes.js 中新增
+6. 新增 actionType
+7. 引入 axios
+8. 调用 create-react-app 中提供的 Node 服务器，从而 mock 数据
+9. 给 header 下的 reducer.js 提供存储数据的地方
+10. 定义 `action`，接受参数 `data`，同时因为我们使用了 Immutable，所以需要将获取的数据转换为 `immutable` 类型
+11. 引入 Immutable 的类型转换
+12. 派发 `changeList` 类型
+13. 判断 `actionTypes` 是否为 `GET_LIST`，如果是则执行该 `action`
+14. 获取 reducer.js 中的 `list` 数据
+15. 遍历输出该数据
+
+这样，我们就成功地获取了 mock 提供的数据：
+
+![图](../../public-repertory/img/js-react-demo-three-7.gif)
 
 ## 十二 代码优化
 
