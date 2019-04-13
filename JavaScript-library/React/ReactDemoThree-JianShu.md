@@ -2,7 +2,7 @@ React Demo Three - 简书
 ===
 
 > Create by **jsliang** on **2019-4-7 19:37:41**  
-> Recently revised in **2019-4-12 07:34:11**
+> Recently revised in **2019-4-13 19:43:19**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoThree-JianShu.md)**
 
@@ -2216,6 +2216,7 @@ export default (state = defaultState, action) => {
 ## 十二 代码优化
 
 1. reducer.js 中使用 `switch...case...` 替换掉 `if...` 语句。
+2. 
 
 ## N 失误
 
