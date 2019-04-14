@@ -3121,7 +3121,9 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 实现效果如下：
 
-### 避免聚焦重复请求
+![图](../../public-repertory/img/js-react-demo-three-10.gif)
+
+### 15.2 避免聚焦重复请求
 
 在代码中，我们每次聚焦，都会请求数据，所以我们需要根据 `list` 的值来判断是否请求数据：
 
@@ -3277,6 +3279,59 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 2. 在 `searchFocus` 中判断 `list` 的 `size` 是不是等于 0，是的话才请求数据（第一次），不是的话则不请求
 
 这样，我们就成功避免聚焦重复请求。
+
+## 十六 路由
+
+* 什么是路由？
+
+根据 URL 的不同，显示不同的内容。
+
+* 安装 React 的路由：`cnpm i react-router-dom -S`
+
+安装完毕之后，我们只需要修改下 `src/App.js`，就可以体验到路由：
+
+> src/App.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import Header from './common/header';
+import store from './store';
+// 1. 引入 React 路由的 BrowserRouter 和 Route
+import { BrowserRouter, Route } from 'react-router-dom';
+
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store} className="App">
+        <Header />
+        {/* 2. 在页面中使用 React 路由 */}
+        <BrowserRouter>
+          <Route path="/" exact render={() => <div>HOME</div>}></Route>
+          <Route path="/detail" exact render={() => <div>DETAIL</div>}></Route>
+        </BrowserRouter>
+      </Provider>
+    );
+  }
+}
+
+export default App;
+```
+
+</details>
+
+在这里我们仅需要做两个步骤：
+
+1. 引入 React 路由的 `BrowserRouter` 和 `Route`
+2. 在页面中使用 React 路由
+
+这样，我们就实现了路由：
+
+![图](../../public-repertory/img/js-react-demo-three-11.gif)
 
 ## N 失误
 
