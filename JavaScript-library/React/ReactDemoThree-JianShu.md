@@ -2,7 +2,7 @@ React Demo Three - 简书
 ===
 
 > Create by **jsliang** on **2019-4-7 19:37:41**  
-> Recently revised in **2019-4-13 19:43:19**
+> Recently revised in **2019-4-14 08:58:07**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoThree-JianShu.md)**
 
@@ -2215,8 +2215,40 @@ export default (state = defaultState, action) => {
 
 ## 十二 代码优化
 
-1. reducer.js 中使用 `switch...case...` 替换掉 `if...` 语句。
-2. 
+* reducer.js 中使用 `switch...case...` 替换掉 `if...` 语句。
+
+> src/common/header/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import * as actionTypes from './actionTypes'
+import { fromJS } from 'immutable';
+
+const defaultState = fromJS({
+  inputBlur: true,
+  list: []
+});
+
+export default (state = defaultState, action) => {
+  switch(action.type) {
+    case actionTypes.SEARCH_FOCUS_OR_BLUR:
+      return state.set('inputBlur', !state.get('inputBlur'));
+    case actionTypes.GET_LIST:
+      return state.set('list', action.data);
+    default:
+      return state;
+  }
+}
+```
+
+</details>
+
+## 十三 换一换
+
+
 
 ## N 失误
 
