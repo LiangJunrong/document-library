@@ -3280,7 +3280,7 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 这样，我们就成功避免聚焦重复请求。
 
-## 十六 路由
+## 十六 路由一
 
 * 什么是路由？
 
@@ -3332,6 +3332,105 @@ export default App;
 这样，我们就实现了路由：
 
 ![图](../../public-repertory/img/js-react-demo-three-11.gif)
+
+## 十七 路由二
+
+1. 在 src 下新建 pages 文件夹，然后在该文件夹下新建文件夹和文件：
+   1. src/pages/detail/index.js
+   2. src/pages/home/index.js
+2. 它们的内容如下：
+
+![图](../../public-repertory/img/js-react-demo-three-12.png)
+
+> src/pages/detail/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react'
+
+class Detail extends Component {
+  render() {
+    return (
+      <div>Detail</div>
+    )
+  }
+}
+
+export default Detail;
+```
+
+</details>
+
+> src/pages/home/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react'
+
+class Home extends Component {
+  render() {
+    return (
+      <div>Home</div>
+    )
+  }
+}
+
+export default Home;
+```
+
+</details>
+
+在有 header 的经验下，我们应该知道，我们希望在 URL 输入路径 `localhost:3000` 的时候，访问 home 组件；在输入 `localhost:3000/detail` 的时候，访问 detail 组件。
+
+3. 到这步，我们仅需要修改下 `src/App.js`，就可以实现目标：
+
+> src/App.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import Header from './common/header';
+import store from './store';
+import { BrowserRouter, Route } from 'react-router-dom';
+// 1. 引入 Home、Detail 组件
+import Home from './pages/home';
+import Detail from './pages/detail';
+
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store} className="App">
+        <Header />
+        <BrowserRouter>
+          {/* 2. 在页面中引用组件 */}
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/detail" exact component={Detail}></Route>
+        </BrowserRouter>
+      </Provider>
+    );
+  }
+}
+
+export default App;
+```
+
+</details>
+
+## 十八 首页和详情页的实现
+
+由于有过编程经验了，所以在这里我们就不多说废话，直接进行实现。
+
+
 
 ## N 失误
 
