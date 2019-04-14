@@ -2501,7 +2501,288 @@ export const ON_MOUSE_LEAVE_HOT = 'header/on_mouse_leave_hot';
 
 ## 十四 换一换
 
+下面我们开始做换一换功能：
 
+> 1. src/common/header/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import * as actionTypes from './actionTypes'
+import { fromJS } from 'immutable';
+
+const defaultState = fromJS({
+  inputFocus: false,
+  mouseInHot: false,
+  list: [],
+  // 1. 在 reducer.js 中设置页数和总页数
+  page: 1,
+  totalPage: 1,
+});
+
+export default (state = defaultState, action) => {
+  switch(action.type) {
+    case actionTypes.SEARCH_FOCUS:
+      return state.set('inputFocus', true);
+    case actionTypes.SEARCH_BLUR:
+      return state.set('inputFocus', false);
+    case actionTypes.GET_LIST:
+      // 4. 我们通过 merge 方法同时设置多个 state 值
+      return state.merge({
+        list: action.data,
+        totalPage: action.totalPage
+      });
+    case actionTypes.ON_MOUSE_ENTER_HOT:
+      return state.set('mouseInHot', true);
+    case actionTypes.ON_MOUSE_LEAVE_HOT:
+      return state.set('mouseInHot', false);
+    // 11. 判断 action 类型，并进行设置
+    case actionTypes.CHANGE_PAGE:
+      return state.set('page', action.page + 1);
+    default:
+      return state;
+  }
+}
+```
+
+</details>
+
+> 2. src/common/header/store/actionCreators.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import * as actionTypes from './actionTypes'
+import axios from 'axios';
+import { fromJS } from 'immutable';
+
+export const searchFocus = () => ({
+  type: actionTypes.SEARCH_FOCUS
+})
+
+export const searchBlur = () => ({
+  type: actionTypes.SEARCH_BLUR
+})
+
+export const onMouseEnterHot = () => ({
+  type: actionTypes.ON_MOUSE_ENTER_HOT,
+})
+
+export const onMouseLeaveHot = () => ({
+  type: actionTypes.ON_MOUSE_LEAVE_HOT,
+})
+
+export const getList = () => {
+  return (dispatch) => {
+    axios.get('/api/headerList.json').then( (res) => {
+      if(res.data.code === 0) {
+        const data = res.data.list;
+        // 2. 由于数据太多，我们之前限制数据量为 15，这里我们去掉该行代码
+        // data.length = 15;
+        dispatch(changeList(data));
+      }
+    }).catch( (error) => {
+      console.log(error);
+    });
+  }
+}
+
+const changeList = (data) => ({
+  type: actionTypes.GET_LIST,
+  data: fromJS(data),
+  // 3. 我们在这里计算总页数
+  totalPage: Math.ceil(data.length / 10)
+})
+
+// 9. 定义 changePage 方法
+export const changePage = (page) => ({
+  type: actionTypes.CHANGE_PAGE,
+  page: page,
+})
+```
+
+</details>
+
+> 3. src/common/header/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+import './index.css';
+import { actionCreators } from './store';
+
+import homeImage from '../../resources/img/header-home.png';
+
+class Header extends Component {
+  render() {
+    return (
+      <header>
+        <div className="header_left">
+          <a href="/">
+            <img alt="首页" src={homeImage} className="header_left-img" />
+          </a>
+        </div>
+        <div className="header_center">
+          <div className="header_center-left">
+            <div className="nav-item header_center-left-home">
+              <i className="icon icon-home"></i>
+              <span>首页</span>
+            </div>
+            <div className="nav-item header_center-left-download">
+              <i className="icon icon-download"></i>
+              <span>下载App</span>
+            </div>
+            <div className="nav-item header_center-left-search">
+              <CSSTransition
+                in={this.props.inputFocus}
+                timeout={200}
+                classNames="slide"
+              >
+                <input 
+                  className={this.props.inputFocus ? 'input-active' : 'input-nor-active'}
+                  placeholder="搜索"
+                  onFocus={this.props.searchFocus}
+                  onBlur={this.props.searchBlur}
+                />
+              </CSSTransition>
+              <i className={this.props.inputFocus ? 'icon icon-search icon-active' : 'icon icon-search'}></i>
+              <div 
+                className={this.props.inputFocus || this.props.mouseInHot ? 'display-show header_center-left-hot-search' : 'display-hide header_center-left-hot-search'}
+                onMouseEnter={this.props.onMouseEnterHot}
+                onMouseLeave={this.props.onMouseLeaveHot}
+              >
+                <div className="header_center-left-hot-search-title">
+                  <span>热门搜索</span>
+                  {/* 7. 进行换页功能实现，传递参数 page 和 totalPage */}
+                  <span onClick={() => this.props.changePage(this.props.page, this.props.totalPage)}>
+                    <i className="icon-change"></i>
+                    <span className="span-change">换一批</span>
+                  </span>
+                </div>
+                <div className="header_center-left-hot-search-content">
+                  {
+                    // 6. 在 index.js 中进行计算：
+                    // 一开始显示 0-9 共 10 条，换页的时候显示 10-19 ……以此类推
+                    this.props.list.map((item, index) => {
+                      if(index >= (this.props.page - 1) * 10 && index < this.props.page * 10) {
+                        return <span key={item}>{item}</span>
+                      } else {
+                        return '';
+                      }
+                    })
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="header_center-right">
+            <div className="nav-item header_right-center-setting">
+              <span>Aa</span>
+            </div>
+            <div className="nav-item header_right-center-login">
+              <span>登录</span>
+            </div>
+          </div>
+        </div>
+        <div className="header_right nav-item">
+          <span className="header_right-register">注册</span>
+          <span className="header_right-write nav-item">
+            <i className="icon icon-write"></i>
+            <span>写文章</span>
+          </span>
+        </div>
+      </header>
+    )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    inputFocus: state.get('header').get('inputFocus'),
+    list: state.get('header').get('list'),
+    mouseInHot: state.get('header').get('mouseInHot'),
+    // 5. 在 index.js 中 mapStateToProps 获取数据
+    page: state.get('header').get('page'),
+    totalPage: state.get('header').get('totalPage'),
+  }
+}
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    searchFocus() {
+      dispatch(actionCreators.getList());
+      dispatch(actionCreators.searchFocus());
+    },
+    searchBlur() {
+      dispatch(actionCreators.searchBlur());
+    },
+    onMouseEnterHot() {
+      dispatch(actionCreators.onMouseEnterHot());
+    },
+    onMouseLeaveHot() {
+      dispatch(actionCreators.onMouseLeaveHot());
+    },
+    // 8. 调用 changePage 方法
+    changePage(page, totalPage) {
+      if(page === totalPage) {
+        page = 1;
+        dispatch(actionCreators.changePage(page));
+      } else {
+        dispatch(actionCreators.changePage(page));
+      }
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
+```
+
+</details>
+
+> 4. src/common/header/store/actionTypes.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+export const SEARCH_FOCUS = 'header/search_focus';
+export const SEARCH_BLUR = 'header/search_blur';
+export const GET_LIST = 'header/get_list';
+export const ON_MOUSE_ENTER_HOT = 'header/on_mouse_enter_hot';
+export const ON_MOUSE_LEAVE_HOT = 'header/on_mouse_leave_hot';
+// 10. 定义 action 
+export const CHANGE_PAGE = 'header/change_page';
+```
+
+</details>
+
+此时我们代码思路是：
+
+1. 在 reducer.js 中设置页数 `page` 和总页数 `totalPage`
+2. 在 actionCreators.js 中，之前由于数据太多，我们之前限制数据量为 15，这里我们去掉该行代码
+3. 在 actionCreators.js 这里计算总页数
+4. 在 reducer.js 中通过 `merge` 方法同时设置多个 `state` 值
+5. 在 index.js 中 `mapStateToProps` 获取数据
+6. 在 index.js 中进行计算：一开始显示 0-9 共 10 条，换页的时候显示 10-19 ……以此类推
+7. 在 index.js 中进行换页功能实现，传递参数 `page` 和 `totalPage`
+8. 在 index.js 调用 `changePage` 方法，进行是否重置为第一页判断，并 `dispatch` 方法
+9. 在 actionCreators.js 中定义 `changePage` 方法
+10. 在 actionTypes.js 中定义 `action` 
+11. 在 reducer.js 中判断 `action` 类型，并进行设置
+
+如此，我们就实现了换一换功能：
+
+![图](../../public-repertory/img/js-react-demo-three-9.gif)
 
 ## N 失误
 
