@@ -1493,7 +1493,7 @@ const mapStateToProps = (state) => {
 
 这样，通过简单的三个步骤，我们就保护了主 `state` 的值：
 
-1. 安装 redux-immutable：`npm i redux-immutable`
+1. 安装 redux-immutable：`npm i redux-immutable -S`
 2. 通过 redux-immutable 引入 `combineReducers` 而非原先的 redux
 3. 通过同样的 `get` 方法来获取 `header`
 
@@ -2246,7 +2246,260 @@ export default (state = defaultState, action) => {
 
 </details>
 
-## 十三 换一换
+## 十三 解决历史遗留问题
+
+在这里，我们解决下历史遗留问题：在我们失焦于输入框的时候，我们的【热门搜索】模块就会消失，从而看不到我们点击【换一换】按钮的效果，所以我们需要修改下代码，在我们鼠标在【热门模块】中时，这个模块不会消失，当我们鼠标失焦且鼠标不在热门模块中时，热门模块才消失。
+
+> 1. src/common/header/store/reducer.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import * as actionTypes from './actionTypes'
+import { fromJS } from 'immutable';
+
+const defaultState = fromJS({
+  inputFocus: false,
+  // 1. 设置鼠标移动到热门模块为 false
+  mouseInHot: false,
+  list: [],
+});
+
+export default (state = defaultState, action) => {
+  switch(action.type) {
+    case actionTypes.SEARCH_FOCUS:
+      return state.set('inputFocus', true);
+    case actionTypes.SEARCH_BLUR:
+      return state.set('inputFocus', false);
+    case actionTypes.GET_LIST:
+      return state.set('list', action.data);
+    // 6. 在 reducer.js 中判断这两个 action 执行设置 mouseInHot
+    case actionTypes.ON_MOUSE_ENTER_HOT:
+      return state.set('mouseInHot', true);
+    case actionTypes.ON_MOUSE_LEAVE_HOT:
+      return state.set('mouseInHot', false);
+    default:
+      return state;
+  }
+}
+```
+
+</details>
+
+> 2. src/common/header/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+import './index.css';
+import { actionCreators } from './store';
+
+import homeImage from '../../resources/img/header-home.png';
+
+class Header extends Component {
+  render() {
+    return (
+      <header>
+        <div className="header_left">
+          <a href="/">
+            <img alt="首页" src={homeImage} className="header_left-img" />
+          </a>
+        </div>
+        <div className="header_center">
+          <div className="header_center-left">
+            <div className="nav-item header_center-left-home">
+              <i className="icon icon-home"></i>
+              <span>首页</span>
+            </div>
+            <div className="nav-item header_center-left-download">
+              <i className="icon icon-download"></i>
+              <span>下载App</span>
+            </div>
+            <div className="nav-item header_center-left-search">
+              <CSSTransition
+                in={this.props.inputFocus}
+                timeout={200}
+                classNames="slide"
+              >
+                <input 
+                  className={this.props.inputFocus ? 'input-active' : 'input-nor-active'}
+                  placeholder="搜索"
+                  onFocus={this.props.searchFocus}
+                  onBlur={this.props.searchBlur}
+                />
+              </CSSTransition>
+              <i className={this.props.inputFocus ? 'icon icon-search icon-active' : 'icon icon-search'}></i>
+              {/* 8. 在判断中加多一个 this.props.mouseInHot，这样只要有一个为 true，它就不会消失 */}
+              <div 
+                className={this.props.inputFocus || this.props.mouseInHot ? 'display-show header_center-left-hot-search' : 'display-hide header_center-left-hot-search'}
+                // 2. 设置移入为 onMouseEnterHot，移出为 onMouseLeaveHot
+                onMouseEnter={this.props.onMouseEnterHot}
+                onMouseLeave={this.props.onMouseLeaveHot}
+              >
+                <div className="header_center-left-hot-search-title">
+                  <span>热门搜索</span>
+                  <span>
+                    <i className="icon-change"></i>
+                    <span>换一批</span>
+                  </span>
+                </div>
+                <div className="header_center-left-hot-search-content">
+                  {
+                    this.props.list.map((item) => {
+                      return <span key={item}>{item}</span>
+                    })
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="header_center-right">
+            <div className="nav-item header_right-center-setting">
+              <span>Aa</span>
+            </div>
+            <div className="nav-item header_right-center-login">
+              <span>登录</span>
+            </div>
+          </div>
+        </div>
+        <div className="header_right nav-item">
+          <span className="header_right-register">注册</span>
+          <span className="header_right-write nav-item">
+            <i className="icon icon-write"></i>
+            <span>写文章</span>
+          </span>
+        </div>
+      </header>
+    )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    inputFocus: state.get('header').get('inputFocus'),
+    list: state.get('header').get('list'),
+    // 7. 在 index.js 中获取
+    mouseInHot: state.get('header').get('mouseInHot'),
+  }
+}
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    searchFocus() {
+      dispatch(actionCreators.getList());
+      dispatch(actionCreators.searchFocus());
+    },
+    searchBlur() {
+      dispatch(actionCreators.searchBlur());
+    },
+    // 3. 定义 onMouseEnterHot 和 onMouseLeaveHot 方法
+    onMouseEnterHot() {
+      dispatch(actionCreators.onMouseEnterHot());
+    },
+    onMouseLeaveHot() {
+      dispatch(actionCreators.onMouseLeaveHot());
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
+```
+
+</details>
+
+> 3. src/common/header/store/actionCreators.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import * as actionTypes from './actionTypes'
+import axios from 'axios';
+import { fromJS } from 'immutable';
+
+export const searchFocus = () => ({
+  type: actionTypes.SEARCH_FOCUS
+})
+
+export const searchBlur = () => ({
+  type: actionTypes.SEARCH_BLUR
+})
+
+// 4. 在 actionCreators.js 中定义这两个方法：onMouseEnterHot 和 onMouseLeaveHot
+export const onMouseEnterHot = () => ({
+  type: actionTypes.ON_MOUSE_ENTER_HOT,
+})
+
+export const onMouseLeaveHot = () => ({
+  type: actionTypes.ON_MOUSE_LEAVE_HOT,
+})
+
+export const getList = () => {
+  return (dispatch) => {
+    axios.get('/api/headerList.json').then( (res) => {
+      if(res.data.code === 0) {
+        const data = res.data.list;
+        // 由于数据太多，我们限制数据量为 15 先
+        data.length = 15;
+        dispatch(changeList(data));
+      }
+    }).catch( (error) => {
+      console.log(error);
+    });
+  }
+}
+
+const changeList = (data) => ({
+  type: actionTypes.GET_LIST,
+  data: fromJS(data)
+})
+```
+
+</details>
+
+> 4. src/common/header/store/actionTypes.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+export const SEARCH_FOCUS = 'header/search_focus';
+export const SEARCH_BLUR = 'header/search_blur';
+export const GET_LIST = 'header/get_list';
+// 5. 在 actionTypes.js 中新增 action 类型
+export const ON_MOUSE_ENTER_HOT = 'header/on_mouse_enter_hot';
+export const ON_MOUSE_LEAVE_HOT = 'header/on_mouse_leave_hot';
+```
+
+</details>
+
+我们先看实现：
+
+![图](../../public-repertory/img/js-react-demo-three-8.gif)
+
+然后我们看看实现逻辑：
+
+1. 在 reducer.js 中设置鼠标移动到热门模块为 `false`
+2. 在 index.js 中设置移入为 `onMouseEnterHot`，移出为 `onMouseLeaveHot`
+3. 在 index.js 中 `mapDispathToProps` 定义 `onMouseEnterHot` 和 `onMouseLeaveHot` 方法
+4. 在 actionCreators.js 中定义这两个方法：`onMouseEnterHot` 和 `onMouseLeaveHot`
+5. 在 actionTypes.js 中新增 `action` 类型
+6. 在 reducer.js 中判断这两个 `action` 执行设置 `mouseInHot`
+7. 在 index.js 中 `mapStateToProps` 获取 `mouseInHot`
+8. 在 index.js 中的判断中加多一个 `this.props.mouseInHot`，这样只要有一个为 `true`，它就不会消失
+
+> 注意：由于之前设置的 `this.props.inputFoucsOrBlur` 会造成聚焦和失焦都会调用一次接口，而且逻辑比较复杂，容易出错，所以这里我们进行了修改。
+
+## 十四 换一换
 
 
 
