@@ -2784,6 +2784,500 @@ export const CHANGE_PAGE = 'header/change_page';
 
 ![图](../../public-repertory/img/js-react-demo-three-9.gif)
 
+## 十五 功能优化
+
+### 15.1 换一换图标旋转
+
+> src/common/header/index.css
+
+<details>
+
+  <summary>代码详情</summary>
+
+```css
+header {
+  width: 100%;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  font-size: 17px;
+}
+
+/* 头部左边 */
+.header_left-img {
+  width: 100px;
+  height: 56px;
+}
+
+/* 头部中间 */
+.header_center {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-item {
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+/* 头部中间左部 */
+.header_center-left {
+  display: flex;
+}
+
+/* 头部中间左部 - 首页 */
+.header_center-left-home {
+  color: #ea6f5a;
+}
+
+/* 头部中间左部 - 搜索框 */
+.header_center-left-search {
+  position: relative;
+}
+.slide-enter {
+  transition: all .2s ease-out;
+}
+.slide-enter-active {
+  width: 280px;
+}
+.slide-exit {
+  transition: all .2s ease-out;
+}
+.silde-exit-active {
+  width: 240px;
+}
+.header_center-left-search input {
+  width: 240px;
+  padding: 0 45px 0 20px;
+  height: 38px;
+  font-size: 14px;
+  border: 1px solid #eee;
+  border-radius: 40px;
+  background: #eee;
+}
+.header_center-left-search .input-active {
+  width: 280px;
+}
+.header_center-left-search .icon-search {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+.header_center-left-search .icon-active {
+  padding: 3px;
+  top: 4px;
+  border-radius: 15px;
+  border: 1px solid #ea6f5a;
+}
+
+/* 头部中间左部 - 热搜 */
+.header_center-left-search .icon-active:hover {
+  cursor: pointer;
+}
+.header_center-left-hot-search:before {
+  content: "";
+  left: 27px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  top: -5px;
+  z-index: -1;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,.2);
+}
+.header_center-left-hot-search {
+  position: absolute;
+  width: 250px;
+  left: 0;
+  top: 125%;
+  padding: 15px;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+.header_center-left-hot-search-title {
+  display: flex;
+  justify-content: space-between;
+  color: #969696;
+}
+.header_center-left-hot-search-change {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-change {
+  display: inline-block;
+  width: 20px;
+  height: 14px;
+  background: url('../../resources/img/icon-change.png') no-repeat center;
+  background-size: 100%;
+  /* 1. 在 index.css 中添加动画 */
+  transition: all .2s ease-in;
+  transform-origin: center center;
+}
+.icon-change:hover {
+  cursor: pointer;
+}
+.span-change:hover {
+  cursor: pointer;
+}
+.header_center-left-hot-search-content span {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 2px 6px;
+  font-size: 12px;
+  color: #787878;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+.header_center-left-hot-search-content span:hover {
+  cursor: pointer;
+}
+
+/* 头部中间右部 */
+.header_center-right {
+  display: flex;
+  color: #969696;
+}
+
+/* 头部右边 */
+.header_right-register, .header_right-write {
+  width: 80px;
+  text-align: center;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid rgba(236,97,73,.7);
+  border-radius: 20px;
+  font-size: 15px;
+  color: #ea6f5a;
+  background-color: transparent;
+}
+.header_right-write {
+  margin-left: 10px;
+  padding-left: 10px;
+  margin-right: 0px;
+  color: #fff;
+  background-color: #ea6f5a;
+}
+```
+
+</details>
+
+> src/common/header/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+import './index.css';
+import { actionCreators } from './store';
+
+import homeImage from '../../resources/img/header-home.png';
+
+class Header extends Component {
+  render() {
+    return (
+      <header>
+        <div className="header_left">
+          <a href="/">
+            <img alt="首页" src={homeImage} className="header_left-img" />
+          </a>
+        </div>
+        <div className="header_center">
+          <div className="header_center-left">
+            <div className="nav-item header_center-left-home">
+              <i className="icon icon-home"></i>
+              <span>首页</span>
+            </div>
+            <div className="nav-item header_center-left-download">
+              <i className="icon icon-download"></i>
+              <span>下载App</span>
+            </div>
+            <div className="nav-item header_center-left-search">
+              <CSSTransition
+                in={this.props.inputFocus}
+                timeout={200}
+                classNames="slide"
+              >
+                <input 
+                  className={this.props.inputFocus ? 'input-active' : 'input-nor-active'}
+                  placeholder="搜索"
+                  onFocus={this.props.searchFocus}
+                  onBlur={this.props.searchBlur}
+                />
+              </CSSTransition>
+              <i className={this.props.inputFocus ? 'icon icon-search icon-active' : 'icon icon-search'}></i>
+              <div 
+                className={this.props.inputFocus || this.props.mouseInHot ? 'display-show header_center-left-hot-search' : 'display-hide header_center-left-hot-search'}
+                onMouseEnter={this.props.onMouseEnterHot}
+                onMouseLeave={this.props.onMouseLeaveHot}
+              >
+                <div className="header_center-left-hot-search-title">
+                  <span>热门搜索</span>
+                  {/* 2. 在 index.js 中给 i 标签添加 ref，并通过 changePage 方法传递过去 */}
+                  <span onClick={() => this.props.changePage(this.props.page, this.props.totalPage, this.spinIcon)}>
+                    <i className="icon-change" ref={(icon) => {this.spinIcon = icon}}></i>
+                    <span className="span-change">换一批</span>
+                  </span>
+                </div>
+                <div className="header_center-left-hot-search-content">
+                  {
+                    this.props.list.map((item, index) => {
+                      if(index >= (this.props.page - 1) * 10 && index < this.props.page * 10) {
+                        return <span key={item}>{item}</span>
+                      } else {
+                        return '';
+                      }
+                    })
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="header_center-right">
+            <div className="nav-item header_right-center-setting">
+              <span>Aa</span>
+            </div>
+            <div className="nav-item header_right-center-login">
+              <span>登录</span>
+            </div>
+          </div>
+        </div>
+        <div className="header_right nav-item">
+          <span className="header_right-register">注册</span>
+          <span className="header_right-write nav-item">
+            <i className="icon icon-write"></i>
+            <span>写文章</span>
+          </span>
+        </div>
+      </header>
+    )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    inputFocus: state.get('header').get('inputFocus'),
+    list: state.get('header').get('list'),
+    mouseInHot: state.get('header').get('mouseInHot'),
+    page: state.get('header').get('page'),
+    totalPage: state.get('header').get('totalPage'),
+  }
+}
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    searchFocus() {
+      dispatch(actionCreators.getList());
+      dispatch(actionCreators.searchFocus());
+    },
+    searchBlur() {
+      dispatch(actionCreators.searchBlur());
+    },
+    onMouseEnterHot() {
+      dispatch(actionCreators.onMouseEnterHot());
+    },
+    onMouseLeaveHot() {
+      dispatch(actionCreators.onMouseLeaveHot());
+    },
+    changePage(page, totalPage, spinIcon) {
+      // 3. 在 index.js 中设置它原生 DOM 的 CSS 属性
+      if(spinIcon.style.transform === 'rotate(360deg)') {
+        spinIcon.style.transform = 'rotate(0deg)';
+      } else {
+        spinIcon.style.transform = 'rotate(360deg)';
+      }
+      if(page === totalPage) {
+        page = 1;
+        dispatch(actionCreators.changePage(page));
+      } else {
+        dispatch(actionCreators.changePage(page));
+      }
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
+
+```
+
+</details>
+
+这里我们通过三个步骤实现了图标旋转：
+
+1. 在 index.css 中添加动画
+2. 在 index.js 中给 `i` 标签添加 `ref`，并通过 `changePage` 方法传递过去
+3. 在 index.js 中设置它原生 DOM 的 CSS 属性
+
+实现效果如下：
+
+### 避免聚焦重复请求
+
+在代码中，我们每次聚焦，都会请求数据，所以我们需要根据 `list` 的值来判断是否请求数据：
+
+> src/common/header/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+import './index.css';
+import { actionCreators } from './store';
+
+import homeImage from '../../resources/img/header-home.png';
+
+class Header extends Component {
+  render() {
+    return (
+      <header>
+        <div className="header_left">
+          <a href="/">
+            <img alt="首页" src={homeImage} className="header_left-img" />
+          </a>
+        </div>
+        <div className="header_center">
+          <div className="header_center-left">
+            <div className="nav-item header_center-left-home">
+              <i className="icon icon-home"></i>
+              <span>首页</span>
+            </div>
+            <div className="nav-item header_center-left-download">
+              <i className="icon icon-download"></i>
+              <span>下载App</span>
+            </div>
+            <div className="nav-item header_center-left-search">
+              <CSSTransition
+                in={this.props.inputFocus}
+                timeout={200}
+                classNames="slide"
+              >
+                <input 
+                  className={this.props.inputFocus ? 'input-active' : 'input-nor-active'}
+                  placeholder="搜索"
+                  // 1. 给 searchFocus 传递 list
+                  onFocus={() => this.props.searchFocus(this.props.list)}
+                  onBlur={this.props.searchBlur}
+                />
+              </CSSTransition>
+              <i className={this.props.inputFocus ? 'icon icon-search icon-active' : 'icon icon-search'}></i>
+              <div 
+                className={this.props.inputFocus || this.props.mouseInHot ? 'display-show header_center-left-hot-search' : 'display-hide header_center-left-hot-search'}
+                onMouseEnter={this.props.onMouseEnterHot}
+                onMouseLeave={this.props.onMouseLeaveHot}
+              >
+                <div className="header_center-left-hot-search-title">
+                  <span>热门搜索</span>
+                  <span onClick={() => this.props.changePage(this.props.page, this.props.totalPage, this.spinIcon)}>
+                    <i className="icon-change" ref={(icon) => {this.spinIcon = icon}}></i>
+                    <span className="span-change">换一批</span>
+                  </span>
+                </div>
+                <div className="header_center-left-hot-search-content">
+                  {
+                    this.props.list.map((item, index) => {
+                      if(index >= (this.props.page - 1) * 10 && index < this.props.page * 10) {
+                        return <span key={item}>{item}</span>
+                      } else {
+                        return '';
+                      }
+                    })
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="header_center-right">
+            <div className="nav-item header_right-center-setting">
+              <span>Aa</span>
+            </div>
+            <div className="nav-item header_right-center-login">
+              <span>登录</span>
+            </div>
+          </div>
+        </div>
+        <div className="header_right nav-item">
+          <span className="header_right-register">注册</span>
+          <span className="header_right-write nav-item">
+            <i className="icon icon-write"></i>
+            <span>写文章</span>
+          </span>
+        </div>
+      </header>
+    )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    inputFocus: state.get('header').get('inputFocus'),
+    list: state.get('header').get('list'),
+    mouseInHot: state.get('header').get('mouseInHot'),
+    page: state.get('header').get('page'),
+    totalPage: state.get('header').get('totalPage'),
+  }
+}
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    searchFocus(list) {
+      // 2. 判断 list 的 size 是不是等于 0，是的话才请求数据（第一次），不是的话则不请求
+      if(list.size === 0) {
+        dispatch(actionCreators.getList());
+      }
+      dispatch(actionCreators.searchFocus());
+    },
+    searchBlur() {
+      dispatch(actionCreators.searchBlur());
+    },
+    onMouseEnterHot() {
+      dispatch(actionCreators.onMouseEnterHot());
+    },
+    onMouseLeaveHot() {
+      dispatch(actionCreators.onMouseLeaveHot());
+    },
+    changePage(page, totalPage, spinIcon) {
+      if(spinIcon.style.transform === 'rotate(360deg)') {
+        spinIcon.style.transform = 'rotate(0deg)';
+      } else {
+        spinIcon.style.transform = 'rotate(360deg)';
+      }
+      if(page === totalPage) {
+        page = 1;
+        dispatch(actionCreators.changePage(page));
+      } else {
+        dispatch(actionCreators.changePage(page));
+      }
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
+
+```
+
+</details>
+
+在这里，我们做了两个步骤：
+
+1. 给 `searchFocus` 传递 `list`
+2. 在 `searchFocus` 中判断 `list` 的 `size` 是不是等于 0，是的话才请求数据（第一次），不是的话则不请求
+
+这样，我们就成功避免聚焦重复请求。
+
 ## N 失误
 
 1. ~~`SEARCH_FOCUS_OR_BLUR` 的值，不应该通过这个来控制 `false` 或者 `true`，从而增加了开发难度~~
