@@ -3430,7 +3430,497 @@ export default App;
 
 由于有过编程经验了，所以在这里我们就不多说废话，直接进行实现。
 
+> 「简书」因违反《网络安全法》《互联网信息服务管理办法》《互联网新闻信息服务管理规定》等相关法律法规，严重危害互联网信息传播秩序，根据网信主管部门要求，从 2019 年 4 月 13 日 0 时至 4 月 19 日 0 时，暂停更新 PC 端上的内容，并对所有平台上的内容进行全面彻底的整改。
 
+没法，偶遇简书被抓，只好那掘金的首页和详情页来实现了。
+
+![图](../../public-repertory/img/js-react-demo-three-13.png)
+
+我们将掘金首页划分为 3 个模块：顶部 TopNav、左侧 LeftList、右侧 RightRecommend。所以我们在 home 下面新建个 components 目录，用来存放这三个组件。同时，在开发 common/header 的时候，我们也知道，还需要一个 store 文件夹，用来存放 reducer.js 等：
+
+```shell
+- pages
+  - detail
+    - index.js
+  - home
+    - components
+      - LeftList.js
+      - RightRecommend.js
+      - TopNav.js
+    - store
+      - actionCreators.js
+      - actionTypes.js
+      - index.js
+      - reducer.js
+    - index.css
+    - index.js
+```
+
+> 1. src/index.css
+
+<details>
+
+  <summary>代码详情</summary>
+
+```css
+body {
+  background: #f4f5f5;
+}
+```
+
+</details>
+
+> 2. src/App.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import Header from './common/header';
+import store from './store';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Home from './pages/home';
+import Detail from './pages/detail';
+
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store} className="App">
+        <Header />
+        <BrowserRouter>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/detail" exact component={Detail}></Route>
+        </BrowserRouter>
+      </Provider>
+    );
+  }
+}
+
+export default App;
+```
+
+</details>
+
+> 3. src/common/header/index.css
+
+<details>
+
+  <summary>代码详情</summary>
+
+```css
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+  font-size: 17px;
+  background: #fff;
+}
+
+/* 头部左边 */
+.header_left-img {
+  width: 100px;
+  height: 56px;
+}
+
+/* 头部中间 */
+.header_center {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-item {
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+/* 头部中间左部 */
+.header_center-left {
+  display: flex;
+}
+
+/* 头部中间左部 - 首页 */
+.header_center-left-home {
+  color: #ea6f5a;
+}
+
+/* 头部中间左部 - 搜索框 */
+.header_center-left-search {
+  position: relative;
+}
+.slide-enter {
+  transition: all .2s ease-out;
+}
+.slide-enter-active {
+  width: 280px;
+}
+.slide-exit {
+  transition: all .2s ease-out;
+}
+.silde-exit-active {
+  width: 240px;
+}
+.header_center-left-search {
+  z-index: 999;
+}
+.header_center-left-search input {
+  width: 240px;
+  padding: 0 45px 0 20px;
+  height: 38px;
+  font-size: 14px;
+  border: 1px solid #eee;
+  border-radius: 40px;
+  background: #eee;
+}
+.header_center-left-search .input-active {
+  width: 280px;
+}
+.header_center-left-search .icon-search {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+.header_center-left-search .icon-active {
+  padding: 3px;
+  top: 4px;
+  border-radius: 15px;
+  border: 1px solid #ea6f5a;
+}
+
+/* 头部中间左部 - 热搜 */
+.header_center-left-search .icon-active:hover {
+  cursor: pointer;
+}
+.header_center-left-hot-search:before {
+  content: "";
+  left: 27px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  top: -5px;
+  z-index: -1;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,.2);
+}
+.header_center-left-hot-search {
+  position: absolute;
+  width: 250px;
+  left: 0;
+  top: 125%;
+  padding: 15px;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+.header_center-left-hot-search-title {
+  display: flex;
+  justify-content: space-between;
+  color: #969696;
+}
+.header_center-left-hot-search-change {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-change {
+  display: inline-block;
+  width: 20px;
+  height: 14px;
+  background: url('../../resources/img/icon-change.png') no-repeat center;
+  background-size: 100%;
+  transition: all .2s ease-in;
+  transform-origin: center center;
+}
+.icon-change:hover {
+  cursor: pointer;
+}
+.span-change:hover {
+  cursor: pointer;
+}
+.header_center-left-hot-search-content span {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 2px 6px;
+  font-size: 12px;
+  color: #787878;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+.header_center-left-hot-search-content span:hover {
+  cursor: pointer;
+}
+
+/* 头部中间右部 */
+.header_center-right {
+  display: flex;
+  color: #969696;
+}
+
+/* 头部右边 */
+.header_right-register, .header_right-write {
+  width: 80px;
+  text-align: center;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid rgba(236,97,73,.7);
+  border-radius: 20px;
+  font-size: 15px;
+  color: #ea6f5a;
+  background-color: transparent;
+}
+.header_right-write {
+  margin-left: 10px;
+  padding-left: 10px;
+  margin-right: 0px;
+  color: #fff;
+  background-color: #ea6f5a;
+}
+
+```
+
+</details>
+
+> 4. src/pages/home/index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import LeftList from './components/LeftList';
+import RightRecommend from './components/RightRecommend';
+import TopNav from './components/TopNav';
+import './index.css';
+
+class Home extends Component {
+  render() {
+    return (
+      <div className="container">
+        <TopNav />
+        <div className="main-container">
+          <LeftList />
+          <RightRecommend />
+        </div>
+      </div>
+    )
+  }
+}
+
+export default Home;
+```
+
+</details>
+
+> 5. src/pages/home/index.css
+
+<details>
+
+  <summary>代码详情</summary>
+
+```css
+/* 主体 */
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+.main-container {
+  display: flex;
+}
+
+/* 顶部 */
+.top-nav {
+  position: fixed;
+  left: 0;
+  top: 59px;
+  width: 100%;
+  height: 46px;
+  line-height: 46px;
+  z-index: 100;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+  font-size: 14px;
+  background: #fff;
+}
+.top-nav-list {
+  display: flex;
+  width: 960px;
+  margin: auto;
+  position: relative;
+}
+.top-nav-list-item a {
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  color: #71777c;
+  padding-right: 12px;
+}
+.active a {
+  color: #007fff;
+}
+.top-nav-list-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* 主内容 */
+.main-container {
+  margin-top: 120px;
+}
+
+/* 左侧 */
+.left-list {
+  width: 650px;
+  height: 1000px;
+  background: #fff;
+}
+
+/* 右侧 */
+.right-recommend {
+  width: 295px;
+  height: 1000px;
+  margin-left: 15px;
+  background: #fff;
+}
+```
+
+</details>
+
+> 6. src/pages/home/components/TopNav.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+class TopNav extends Component {
+  render() {
+    return (
+      <div className="top-nav">
+        <ul className="top-nav-list">
+          <li className="top-nav-list-item active">
+            <Link to="tuijian">推荐</Link>
+          </li>
+          <li className="top-nav-list-item">
+            <Link to="guanzhu">关注</Link>
+          </li>
+          <li className="top-nav-list-item">
+            <Link to="houduan">后端</Link>
+          </li>
+          <li className="top-nav-list-item">
+            <Link to="qianduan">前端</Link>
+          </li>
+          <li className="top-nav-list-item">
+            <Link to="anzhuo">Android</Link>
+          </li>
+          <li className="top-nav-list-item">
+            <Link to="ios">IOS</Link>
+          </li>
+          <li className="top-nav-list-item">
+            <Link to="rengongzhineng">人工智能</Link>
+          </li>
+          <li className="top-nav-list-item">
+            <Link to="kaifagongju">开发工具</Link>
+          </li>
+          <li className="top-nav-list-item">
+            <Link to="daimarensheng">代码人生</Link>
+          </li>
+          <li className="top-nav-list-item">
+            <Link to="yuedu">阅读</Link>
+          </li>
+          <li className="top-nav-list-item top-nav-list-right">
+            <Link to="biaoqianguanli">标签管理</Link>
+          </li>
+        </ul>
+      </div>
+    )
+  }
+}
+
+export default TopNav;
+```
+
+</details>
+
+> 7. src/pages/home/components/LeftList.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react'
+
+class LeftList extends Component {
+  render() {
+    return (
+      <div className="left-list">
+        左侧
+      </div>
+    )
+  }
+}
+
+export default LeftList;
+```
+
+</details>
+
+> 8. src/pages/home/components/RightRecommend.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react'
+
+class RightRecommend extends Component {
+  render() {
+    return (
+      <div className="right-recommend">
+        右侧
+      </div>
+    )
+  }
+}
+
+export default RightRecommend;
+```
+
+</details>
+
+> 9. src/
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+
+```
+
+</details>
+
+此时，页面显示为：
+
+![图](../../public-repertory/img/js-react-demo-three-14.png)
 
 ## N 失误
 
