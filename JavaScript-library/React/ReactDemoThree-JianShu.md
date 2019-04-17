@@ -3922,6 +3922,125 @@ export default RightRecommend;
 
 ![图](../../public-repertory/img/js-react-demo-three-14.png)
 
+## 十九 多层级级组件引用路由
+
+在我们规划中，App 是主组件，下面有 header | home | detail，然后 home 下面有 LeftList | RightRecommend，那么 App/home/leftList 如何引用 store 呢？
+
+> src/pages/home/components/LeftList.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+// 1. 在 LeftList 中引入 react-redux 的 connect
+import { connect } from 'react-redux';
+import { actionCreators } from '../store';
+
+class LeftList extends Component {
+  render() {
+    return (
+      <div className="left-list">
+        <div className="left-list-top">
+          <ul className="left-list-top-left">
+            <li className="active">
+              <Link to='remen'>热门</Link>
+            </li>
+            <span>|</span>
+            <li>
+              <Link to='zuixin'>最新</Link>
+            </li>
+            <span>|</span>
+            <li>
+              <Link to='pinglun'>评论</Link>
+            </li>
+          </ul>
+          <ul className="left-list-top-right">
+            <li>
+              <Link to='benzhouzuire'>本周最热</Link>
+            </li>
+            ·
+            <li>
+              <Link to='benyuezuire'>本月最热</Link>
+            </li>
+            ·
+            <li>
+              <Link to='lishizuire'>历史最热</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="left-list-container">
+          {/* 5. 循环输出 props 里面的数据 */}
+          {
+            this.props.list.map((item) => {
+              return (
+                <div className="left-list-item" key={item.get('id')}>
+                  <div className="left-list-item-tag">
+                    <span className="hot">热</span>·
+                    <span className="special">专栏</span>·
+                    <span>
+                      {
+                        item.get('user').get('username')
+                      }
+                    </span>·
+                    <span>一天前</span>·
+                    <span>
+                      {
+                        item.get('tags').map((tagsItem, index) => {
+                          if (index === 0) {
+                            return tagsItem.get('title');
+                          } else {
+                            return null;
+                          }
+                        })
+                      }
+                    </span>
+                  </div>
+                  <h3 className="left-list-item-title">
+                    <Link to="detail">{item.get('title')}</Link>
+                  </h3>
+                  <div className="left-list-item-interactive">
+                    <span>{item.get('likeCount')}</span>
+                    <span>{item.get('commentsCount')}</span>
+                  </div>
+                </div>
+              )
+            })
+          }
+        </div>
+      </div>
+    )
+  }
+
+  componentDidMount() {
+    this.props.getLeftList();
+  }
+}
+
+// 3. 在 LeftList 中定义 mapStateToProps
+const mapStateToProps = (state) => {
+  return {
+    list: state.get('home').get('leftNav')
+  }
+};
+
+// 4. 在 LeftList 中定义 mapDispathToProps
+const mapDispathToProps = (dispatch) => {
+  return {
+    getLeftList() {
+      dispatch(actionCreators.getLeftList());
+    }
+  }
+};
+
+// 2. 在 LeftList 中使用 connect
+export default connect(mapStateToProps, mapDispathToProps)(LeftList);
+```
+
+</details>
+
 ## N 失误
 
 1. ~~`SEARCH_FOCUS_OR_BLUR` 的值，不应该通过这个来控制 `false` 或者 `true`，从而增加了开发难度~~
