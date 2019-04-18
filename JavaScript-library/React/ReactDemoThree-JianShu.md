@@ -4054,7 +4054,8 @@ export default connect(mapStateToProps, mapDispathToProps)(LeftList);
 3. 详情页开发
 4. 登录页开发
 5. 登录鉴权功能实现
-6. ……
+6. 单页面异步加载组件（react-loadable）
+7. ……
 
 这里不一一列举了，因为 **jsliang** 感觉它们重复性很大，我们只需要在下一个项目中写写，就能清晰了解了（当然，前提是你有动力深入学习）
 
