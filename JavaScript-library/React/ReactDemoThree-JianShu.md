@@ -8,6 +8,10 @@ React Demo Three - 简书
 
 * [React 系列文章代码地址](https://github.com/LiangJunrong/React)
 
+本文章最终成果：
+
+![图](../../public-repertory/img/js-react-demo-three-1.png)
+
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -16,25 +20,42 @@ React Demo Three - 简书
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 初始化目录](#chapter-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
 > [返回目录](#chapter-one)
 
-## 一 初始化目录
+岁月如梭，光阴荏苒。
 
-首先，引入 Simplify 目录的内容到 JianShu 文件夹。或者前往文章 [《React Demo One - TodoList》](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-TodoList.md#chapter-three-three) 手动进行项目简化
+既然决定了做某事，那就坚持下去。
 
-然后，我们通过：
+**相信，坚持必定有收获，不管它体现在哪个方面。**
+
+React 的学习，迈开 TodoList，进一步前行。
+
+## <a name="chapter-three" id="chapter-three">三 初始化目录</a>
+
+> [返回目录](#chapter-one)
+
+**首先**，引入 Simplify 目录的内容到 JianShu 文件夹。或者前往文章 [《React Demo One - TodoList》](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-TodoList.md#chapter-three-three) 手动进行项目简化。
+
+我们的最终目录如下所示：
+
+![图](../../public-repertory/img/js-react-demo-three-2.png)
+
+小伙伴们可以自行新建空文件。
+
+**然后**，我们通过：
 
 * 安装依赖：`npm i`
 * 运行项目：`npm run start`
 
 跑起项目来，运行结果如下所示：
 
-![图](../../public-repertory/img/js-react-demo-three-1.png)
+![图](../../public-repertory/img/js-react-demo-three-3.png)
 
-接着，我们在 src 目录下引入 reset.css，去除各种浏览器的差异性影响。
+**接着**，我们在 src 目录下引入 reset.css，去除各种浏览器的差异性影响。
 
 > src/reset.css
 
@@ -191,7 +212,7 @@ export default App;
 
 最后，页面显示为：
 
-![图](../../public-repertory/img/js-react-demo-three-2.png)
+![图](../../public-repertory/img/js-react-demo-three-temp-2.png)
 
 由此，我们完成了 Ant Design 的引入及 Header 组件的创建。
 
@@ -439,7 +460,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 至此，我们页面展示为：
 
-![图](../../public-repertory/img/js-react-demo-three-3.png)
+![图](../../public-repertory/img/js-react-demo-three-temp-3.png)
 
 ## 四 设置输入框动画
 
@@ -656,7 +677,7 @@ header {
 
 我们就成功实现了 CSS 动画插件的引入及使用，此时页面显示为：
 
-![图](../../public-repertory/img/js-react-demo-three-4.gif)
+![图](../../public-repertory/img/js-react-demo-three-temp-4.gif)
 
 ## 五 优化代码
 
@@ -968,7 +989,7 @@ export default store;
 
 使用一下：
 
-![图](../../public-repertory/img/js-react-demo-three-5.gif)
+![图](../../public-repertory/img/js-react-demo-three-temp-5.gif)
 
 ## 七 抽取 reducer.js
 
@@ -1829,7 +1850,7 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 由此，我们完成了热门搜索的显示隐藏：
 
-![图](../../public-repertory/img/js-react-demo-three-6.gif)
+![图](../../public-repertory/img/js-react-demo-three-temp-6.gif)
 
 PS：由于页面逐渐增大，所以我们 header 中使用无状态组件已经满足不了我们要求了，我们需要将无状态组件改成正常的组件：
 
@@ -2211,7 +2232,7 @@ export default (state = defaultState, action) => {
 
 这样，我们就成功地获取了 mock 提供的数据：
 
-![图](../../public-repertory/img/js-react-demo-three-7.gif)
+![图](../../public-repertory/img/js-react-demo-three-temp-7.gif)
 
 ## 十二 代码优化
 
@@ -2484,7 +2505,7 @@ export const ON_MOUSE_LEAVE_HOT = 'header/on_mouse_leave_hot';
 
 我们先看实现：
 
-![图](../../public-repertory/img/js-react-demo-three-8.gif)
+![图](../../public-repertory/img/js-react-demo-three-temp-8.gif)
 
 然后我们看看实现逻辑：
 
@@ -2782,7 +2803,7 @@ export const CHANGE_PAGE = 'header/change_page';
 
 如此，我们就实现了换一换功能：
 
-![图](../../public-repertory/img/js-react-demo-three-9.gif)
+![图](../../public-repertory/img/js-react-demo-three-temp-9.gif)
 
 ## 十五 功能优化
 
@@ -3121,7 +3142,7 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 实现效果如下：
 
-![图](../../public-repertory/img/js-react-demo-three-10.gif)
+![图](../../public-repertory/img/js-react-demo-three-temp-10.gif)
 
 ### 15.2 避免聚焦重复请求
 
@@ -3331,7 +3352,7 @@ export default App;
 
 这样，我们就实现了路由：
 
-![图](../../public-repertory/img/js-react-demo-three-11.gif)
+![图](../../public-repertory/img/js-react-demo-three-temp-11.gif)
 
 ## 十七 路由二
 
@@ -3340,7 +3361,7 @@ export default App;
    2. src/pages/home/index.js
 2. 它们的内容如下：
 
-![图](../../public-repertory/img/js-react-demo-three-12.png)
+![图](../../public-repertory/img/js-react-demo-three-temp-12.png)
 
 > src/pages/detail/index.js
 
@@ -3434,7 +3455,7 @@ export default App;
 
 没法，偶遇简书被抓，只好那掘金的首页和详情页来实现了。
 
-![图](../../public-repertory/img/js-react-demo-three-13.png)
+![图](../../public-repertory/img/js-react-demo-three-temp-13.png)
 
 我们将掘金首页划分为 3 个模块：顶部 TopNav、左侧 LeftList、右侧 RightRecommend。所以我们在 home 下面新建个 components 目录，用来存放这三个组件。同时，在开发 common/header 的时候，我们也知道，还需要一个 store 文件夹，用来存放 reducer.js 等：
 
@@ -3920,7 +3941,7 @@ export default RightRecommend;
 
 此时，页面显示为：
 
-![图](../../public-repertory/img/js-react-demo-three-14.png)
+![图](../../public-repertory/img/js-react-demo-three-temp-14.png)
 
 ## 十九 多层级级组件引用路由
 
