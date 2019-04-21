@@ -20,7 +20,12 @@ React Demo Three - 简书
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 初始化目录](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 初始化目录](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 创建 React 头部组件](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 编写简书头部导航](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 设置输入框动画](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 优化代码](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 使用 redux-devtools-extension 插件](#chapter-eight) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -153,9 +158,11 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 </details>
 
-## 二 创建 React 头部组件
+## <a name="chapter-four" id="chapter-four">四 创建 React 头部组件</a>
 
-首先，在 src 目录下，新建 common 目录，并在 common 目录下，新建 header 目录，其中的 index.js 内容如下：
+> [返回目录](#chapter-one)
+
+**首先**，在 src 目录下，新建 common 目录，并在 common 目录下，新建 header 目录，其中的 index.js 内容如下：
 
 > src/common/header/index.js
 
@@ -181,7 +188,7 @@ export default Header;
 
 </details>
 
-然后，我们在 App.js 中引入 header.js：
+**然后**，我们在 App.js 中引入 header.js：
 
 > src/App.js
 
@@ -210,13 +217,15 @@ export default App;
 
 最后，页面显示为：
 
-![图](../../public-repertory/img/js-react-demo-three-temp-2.png)
+![图](../../public-repertory/img/js-react-demo-three-4.png)
 
-由此，我们完成了 Ant Design 的引入及 Header 组件的创建。
+由此，我们完成了 Header 组件的创建。
 
-## 三 编写简书头部导航
+## <a name="chapter-five" id="chapter-five">五 编写简书头部导航</a>
 
-首先，我们编写 src/common/header 下的 index.js：
+> [返回目录](#chapter-one)
+
+**首先**，我们编写 src/common/header 下的 index.js：
 
 > src/common/heder/index.js
 
@@ -226,7 +235,6 @@ export default App;
 
 ```js
 import React, { Component } from 'react';
-import { CSSTransition } from 'react-transition-group';
 import './index.css';
 
 import homeImage from '../../resources/img/header-home.png';
@@ -239,7 +247,7 @@ class Header extends Component {
     }
     this.searchFocusOrBlur = this.searchFocusOrBlur.bind(this);
   }
-
+  
   render() {
     return (
       <header>
@@ -259,17 +267,12 @@ class Header extends Component {
               <span>下载App</span>
             </div>
             <div className="nav-item header_center-left-search">
-              <CSSTransition
-                in={this.state.inputFocus}
-                timeout={200}
-              >
-                <input 
-                  className={this.state.inputFocus ? 'input-nor-active' : 'input-active'}
-                  placeholder="搜索"
-                  onFocus={this.searchFocusOrBlur}
-                  onBlur={this.searchFocusOrBlur}
-                />
-              </CSSTransition>
+              <input 
+                className={this.state.inputFocus ? 'input-nor-active' : 'input-active'}
+                placeholder="搜索"
+                onFocus={this.searchFocusOrBlur}
+                onBlur={this.searchFocusOrBlur}
+              />
               <i className={this.state.inputFocus ? 'icon icon-search' : 'icon icon-search icon-active'}></i>
             </div>
           </div>
@@ -307,7 +310,7 @@ export default Header;
 
 </details>
 
-然后，我们添加 CSS 样式：
+**然后**，我们添加 CSS 样式：
 
 > src/common/heder/index.css
 
@@ -400,7 +403,7 @@ header {
 
 </details>
 
-接着，由于图标这些，我们可以抽取到公用样式表中，所以我们在 src 目录下添加 common.css：
+**接着**，由于图标这些，我们可以抽取到公用样式表中，所以我们在 src 目录下添加 common.css：
 
 > src/common.css
 
@@ -435,7 +438,9 @@ header {
 
 </details>
 
-最后，我们在 src 下的 index.js 中引用 common.css
+当然，我们需要位置存放图片，所以需要在 src 目录下，新建 recourses 目录，recourses 目录下存放 img 文件夹，该文件夹存放这些图标文件。
+
+**最后**，我们在 src 下的 index.js 中引用 common.css
 
 > src/index.js
 
@@ -458,9 +463,11 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 至此，我们页面展示为：
 
-![图](../../public-repertory/img/js-react-demo-three-temp-3.png)
+![图](../../public-repertory/img/js-react-demo-three-5.png)
 
-## 四 设置输入框动画
+## <a name="chapter-six" id="chapter-six">六 设置输入框动画</a>
+
+> [返回目录](#chapter-one)
 
 > 参考地址：[react-transition-group](https://github.com/reactjs/react-transition-group)
 
@@ -670,20 +677,22 @@ header {
 
 1. 安装动画库：`npm i react-transition-group -S`
 2. 引入动画库
-3. 通过 CSSTransition 包裹 input
+3. 通过 `CSSTransition` 包裹 `input`
 4. 编写对应的 CSS 样式
 
 我们就成功实现了 CSS 动画插件的引入及使用，此时页面显示为：
 
-![图](../../public-repertory/img/js-react-demo-three-temp-4.gif)
+![图](../../public-repertory/img/js-react-demo-three-6.gif)
 
-## 五 优化代码
+## <a name="chapter-seven" id="chapter-seven">七 优化代码</a>
+
+> [返回目录](#chapter-one)
 
 * 安装 Redux：`npm i redux -S`
 * 安装 React-Redux：`npm i react-redux -S`
 * 开始在代码中加入 Redux 和 React-Redux
 
-1. 创建 store 文件夹，并在里面创建 index.js 和 reducer.js：
+1. **首先**，创建 store 文件夹，并在里面创建 index.js 和 reducer.js：
 
 > src/store/index.js
 
@@ -720,7 +729,7 @@ export default (state = defaultState, action) => {
 
 </details>
 
-2. 接着在 App.js 中引用 react-redux 以及 store/index.js：
+2. **接着**，在 App.js 中引用 react-redux 以及 store/index.js：
 
 > src/App.js
 
@@ -749,7 +758,9 @@ export default App;
 
 </details>
 
-3. 然后修改 src 下 index.js 中的内容：
+3. **然后**，修改 src 下 common 中 header 里面 index.js 中的内容：
+
+> src/common/header/index.js
 
 <details>
 
@@ -841,7 +852,7 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 </details>
 
-4. 最后我们再修改下 reducer.js，获取并处理 src/index.js 中 `dispatch` 过来的值：
+4. **再来**，我们再修改下 reducer.js，获取并处理 src/index.js 中 `dispatch` 过来的值：
 
 > src/store/reducer.js
 
@@ -866,9 +877,9 @@ export default (state = defaultState, action) => {
 
 </details>
 
-5. 如此，我们完成了修改的步骤。同时，这时候因为 src/index.js 中只有 `render` 方法体，它构成了无状态组件，所以我们将其转换成无状态组件：
+5. **此时**，我们完成了修改的步骤。同时，这时候因为 src 下 common 中 header 里面的 index.js 中只有 `render` 方法体，它构成了无状态组件，所以我们将其转换成无状态组件：
 
-> src/index.js
+> src/common/header/index.js
 
 <details>
 
@@ -958,9 +969,13 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 </details>
 
-最终，我们完成了 Redux、React-Redux 的引用及使用，以及对 src/index.js 的无状态组件的升级。
+6. **最后**，我们完成了 Redux、React-Redux 的引用及使用，以及对 header/index.js 的无状态组件的升级。
 
-## 六 使用 redux-devtools-extension 插件
+> 由于我们只是将必要的数据存储到 state 中，所以样式和功能无变化，故不贴出效果图。
+
+## <a name="chapter-eight" id="chapter-eight">八 使用 redux-devtools-extension 插件</a>
+
+> [返回目录](#chapter-one)
 
 修改 src/store/index.js 如下：
 
