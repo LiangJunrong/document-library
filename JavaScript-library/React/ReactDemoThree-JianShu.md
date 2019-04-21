@@ -2,7 +2,7 @@ React Demo Three - 简书
 ===
 
 > Create by **jsliang** on **2019-4-7 19:37:41**  
-> Recently revised in **2019-4-19 08:01:40**
+> Recently revised in **2019-4-21 11:11:25**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoThree-JianShu.md)**
 
@@ -44,7 +44,7 @@ React 的学习，迈开 TodoList，进一步前行。
 
 ![图](../../public-repertory/img/js-react-demo-three-2.png)
 
-小伙伴们可以自行新建空文件。
+小伙伴们可以自行新建空文件，在后续不会因为不知道该文件放到哪，从而导致思路错乱。
 
 **然后**，我们通过：
 
@@ -155,9 +155,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ## 二 创建 React 头部组件
 
-首先，我们安装 Ant Design，在开发中减少写样式的时间：`npm i antd -S`
-
-然后，在 src 目录下，新建 common 目录，并在 common 目录下，新建 header 目录，其中的 index.js 内容如下：
+首先，在 src 目录下，新建 common 目录，并在 common 目录下，新建 header 目录，其中的 index.js 内容如下：
 
 > src/common/header/index.js
 
@@ -183,7 +181,7 @@ export default Header;
 
 </details>
 
-接着，我们在 App.js 中引入 header.js：
+然后，我们在 App.js 中引入 header.js：
 
 > src/App.js
 
