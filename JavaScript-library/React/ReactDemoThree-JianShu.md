@@ -1002,7 +1002,7 @@ export default store;
 
 使用一下：
 
-![图](../../public-repertory/img/js-react-demo-three-temp-5.gif)
+![图](../../public-repertory/img/js-react-demo-three-7.gif)
 
 ## 七 抽取 reducer.js
 
