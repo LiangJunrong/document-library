@@ -2,7 +2,7 @@ React 基础
 ===
 
 > create by **jsliang** on **2019-3-26 09:25:41**   
-> Recently revised in **2019-04-23 14:45:43**
+> Recently revised in **2019-04-23 16:14:43**
 
 记录 React 基础知识，并尝试构建个人知识体系。
 
@@ -16,6 +16,18 @@ React 基础
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 JSX](#chapter-three) |
+| &emsp;[3.1 什么是 JSX](#chapter-three-one) |
+| &emsp;[3.2 JSX（一）](#chapter-three-two) |
+| &emsp;[3.3 JSX（二）](#chapter-three-three) |
+| &emsp;[3.3 JSX（三）](#chapter-three-four) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 元素渲染](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 组件 & Props](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 state & 生命周期](#chapter-six) |
+| &emsp;[6.1 Mounting](#chapter-six-one) |
+| &emsp;[6.2 Updation](#chapter-six-two) |
+| &emsp;[6.3 Unmounting](#chapter-six-three) |
+| &emsp;[6.4 汇总](#chapter-six-four) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -25,9 +37,286 @@ React 基础
 
 从 0 开始，丰富自己的 React 技术栈。
 
-## <a name="chapter-three" id="chapter-three">三 正文</a>
+> 最好的学习还是自己看[官方文档](https://react.docschina.org/docs/getting-started.html)，别人的笔记终究是别人学习的总结。
+
+## <a name="chapter-three" id="chapter-three">三 JSX</a>
 
 > [返回目录](#chapter-one)
+
+### <a name="chapter-three-one" id="chapter-three-one">3.1 什么是 JSX</a>
+
+> [返回目录](#chapter-one)
+
+```js
+const element = <h1>Hello, world!</h1>;
+```
+
+在 React 中，我们管这样的内容，叫 JSX。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 JSX（一）</a>
+
+> [返回目录](#chapter-one)
+
+JSX 类似于 HTML 标签，但是它确切来说是 React 内部生成的，它也可以包含表达式，例如：
+
+<details>
+
+  <summary>案例详情</summary>
+
+```js
+function formatName(user) {
+  return user.firstName + ' ' + user.lastName;
+}
+
+const user = {
+  firstName: 'Harper',
+  lastName: 'Perez'
+};
+
+const element = (
+  <h1>
+    Hello, {formatName(user)}!
+  </h1>
+);
+
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
+
+</details>
+
+### <a name="chapter-three-three" id="chapter-three-three">3.3 JSX（二）</a>
+
+> [返回目录](#chapter-one)
+
+不仅如此，还可以将 JSX 作为返回值：
+
+<details>
+
+  <summary>案例详情</summary>
+
+```js
+function getGreeting(user) {
+  if (user) {
+    return <h1>Hello, {formatName(user)}!</h1>;
+  }
+  return <h1>Hello, Stranger.</h1>;
+}
+```
+
+</details>
+
+### <a name="chapter-three-four" id="chapter-three-four">3.4 JSX（三）</a>
+
+> [返回目录](#chapter-one)
+
+Babel 转译器会把 JSX 转换成一个名为 React.createElement() 的方法调用。
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+
+// 等价于上面代码
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+```
+
+</details>
+
+## <a name="chapter-four" id="chapter-four">四 元素渲染</a>
+
+> [返回目录](#chapter-one)
+
+元素是构成 React 应用的最小单位。
+
+元素用来描述你在屏幕上看到的内容：
+
+```js
+const element = <h1>Hello, world</h1>;
+```
+
+与浏览器的 DOM 元素不同，React 当中的元素事实上是普通的对象，React DOM 可以确保 浏览器 DOM 的数据内容与 React 元素保持一致。
+
+我们可以拿 `create-react-app` 中的简化代码来看看：
+
+> 1. index.html
+
+<details>
+
+  <summary>代码详情</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Todolist</title>
+  </head>
+  <body>
+    <noscript>你需要允许在 APP 中运行 JavaScript</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+</details>
+
+> 2. index.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+</details>
+
+> 3. App.js
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+import React, { Component } from 'react';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        Hello React!
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+</details>
+
+在这三个文件中我们可以很简单地看出猫腻：
+
+1. 我们在 index.html 中有个根节点：`<div id="root"></div>`
+2. 我们通过 index.js 往 index.html 挂载元素：`ReactDOM.render(<App />, document.getElementById('root'));`
+3. 我们在 App.js 中表示元素的具体内容为：`<div className="App">Hello React!</div>`
+
+如此，小伙伴们对元素应该有个清晰了解了。
+
+## <a name="chapter-five" id="chapter-five">五 组件 & Props</a>
+
+> [返回目录](#chapter-one)
+
+元素是 React 中的最小单位，当元素堆积过多的时候就形成页面，而我们可以将页面划分成不同的部门，从而实现复用，于是就有了组件。
+
+组件可以将 UI 切分成一些独立的、可复用的部件，这样你就只需专注于构建每一个单独的部件。
+
+组件从概念上看就像是函数，它可以接收任意的输入值（称之为 `props`），并返回一个需要在页面上展示的 React 元素。
+
+下面我们来看个例子：
+
+<details>
+
+  <summary>代码详情</summary>
+
+```js
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+const element = <Welcome name="Sara" />;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
+
+</details>
+
+在这个例子中，我们做了 4 件事：
+
+1. 我们对 `<Welcome name="Sara" />` 元素调用了 `ReactDOM.render()` 方法。
+2. React 将 `{name: 'Sara'}` 作为 `props` 传入并调用 `Welcome` 组件。
+3. `Welcome` 组件将 `<h1>Hello, Sara</h1>` 元素作为结果返回。
+4. React DOM 将 DOM 更新为 `<h1>Hello, Sara</h1>`。
+
+## <a name="chapter-six" id="chapter-six">六 state & 生命周期</a>
+
+> [返回目录](#chapter-one)
+
+**本文生命周期为 React 16.4，目前 React 16.8 版本已有新生命周期**
+
+![图](../../public-repertory/img/js-react-base-1.png)
+
+上图为 React 16.4 版本的生命钩子。
+
+何为生命周期：生命周期函数指在某一个时刻会自动调用执行的函数。
+
+### <a name="chapter-six-one" id="chapter-six-one">6.1 Mounting</a>
+
+> [返回目录](#chapter-one)
+
+* `componentWillMount()`：在组件即将被挂载到页面的时刻自动执行。
+* `render()`：渲染 JSX。
+* `componentDidMount()`：在组件被挂载到页面之后，自动被执行。
+
+### <a name="chapter-six-two" id="chapter-six-two">6.2 Updation</a>
+
+> [返回目录](#chapter-one)
+
+* `shouldComponentUpdate()`：在组件被更新之前，它会自动被执行。如果该生命周期存在于子组件，然后该子组件不需要根据父组件更新而更新，我们只需要 `return false` 即可①。
+* `componentWillUpdate()`：在组件被更新之前，它会自动被执行，但是它在 `shouldComponentUpdate()` 之后被执行。如果 `shouldComponentUpdate()` 返回 `true`，这个函数会被执行；如果返回 `false`，该函数不会被执行。
+* `render()`：渲染 JSX。
+* `componentDidUpdate()`：组件更新完成之后，它会被执行。
+
+> ①：  
+
+```js
+shouldComponentUpdate(nextProps, nextState) {
+  if(nextProps.content !== this.props.content) {
+    return true;
+  } else {
+    return false;
+  }
+}
+```
+
+> `componentWillReceiveProps()`：当一个组件从父组件中接收了参数。只要父组件的 `render()` 函数被重新执行了，子组件的这个生命周期函数就会被执行。
+
+### <a name="chapter-six-three" id="chapter-six-three">6.3 Unmounting</a>
+
+> [返回目录](#chapter-one)
+
+* `componentWillUnmount()`：当这个组件即将被从页面中剔除的时候，会被执行。
+
+### <a name="chapter-six-four" id="chapter-six-four">6.4 汇总</a>
+
+> [返回目录](#chapter-one)
+
+![图](../../public-repertory/img/js-react-base-2.png)
 
 ## n 调试工具
 
@@ -66,7 +355,7 @@ export default TodoItem;
 
 当父组件的 `render` 函数被运行时，它的子组件的 `render` 都将被重新运行一次。
 
-## React 的 DOM 操作
+## n React 的 DOM 操作
 
 **首先**，尝试模仿下 React 的数据更新：
 
@@ -210,49 +499,6 @@ this.setState( (prevState) => {
   console.log('设置完状态后执行');
 });
 ```
-
-## n 组件生命周期
-
-> 本文生命周期为 React 16.4，目前 React 16.8 版本已有新生命周期
-
-![图](../../public-repertory/img/js-react-principle-4.png)
-
-上图为 React 16.4 版本的生命钩子。
-
-何为生命周期：生命周期函数指在某一个时刻会自动调用执行的函数。
-
-### n.1 Mounting
-
-* `componentWillMount()`：在组件即将被挂载到页面的时刻自动执行。
-* `render()`：渲染 JSX。
-* `componentDidMount()`：在组件被挂载到页面之后，自动被执行。
-
-### n.2 Updation
-
-* `shouldComponentUpdate()`：在组件被更新之前，它会自动被执行。如果该生命周期存在于子组件，然后该子组件不需要根据父组件更新而更新，我们只需要 `return false` 即可①。
-* `componentWillUpdate()`：在组件被更新之前，它会自动被执行，但是它在 `shouldComponentUpdate()` 之后被执行。如果 `shouldComponentUpdate()` 返回 `true`，这个函数会被执行；如果返回 `false`，该函数不会被执行。
-* `render()`：渲染 JSX。
-* `componentDidUpdate()`：组件更新完成之后，它会被执行。
-
-> ①：  
-
-```js
-shouldComponentUpdate(nextProps, nextState) {
-  if(nextProps.content !== this.props.content) {
-    return true;
-  } else {
-    return false;
-  }
-}
-```
-
-> `componentWillReceiveProps()`：当一个组件从父组件中接收了参数。只要父组件的 `render()` 函数被重新执行了，子组件的这个生命周期函数就会被执行。
-
-### n.3 Unmounting
-
-* `componentWillUnmount()`：当这个组件即将被从页面中剔除的时候，会被执行。
-
-![图](../../public-repertory/img/js-react-principle-5.png)
 
 ## n 调用接口 - axios
 
