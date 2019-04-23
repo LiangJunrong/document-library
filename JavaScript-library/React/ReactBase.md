@@ -2,7 +2,7 @@ React 基础
 ===
 
 > create by **jsliang** on **2019-3-26 09:25:41**   
-> Recently revised in **2019-4-7 19:39:01**
+> Recently revised in **2019-04-23 14:45:43**
 
 记录 React 基础知识，并尝试构建个人知识体系。
 
@@ -29,13 +29,12 @@ React 基础
 
 > [返回目录](#chapter-one)
 
-* **调试工具**：
+## n 调试工具
 
 * [React Development Tools 介绍](http://www.cnplugins.com/zhuanti/how-to-use-react-tools.html)
 * [React Development Tools 下载地址](https://pan.baidu.com/s/1ND_HsvDMnWDPo332UDLZPQ)
 
-
-* **子组件接受数据校验及默认设置**
+## n 子组件接受数据校验及默认设置
 
 ```js
 // 引用类型校验
@@ -61,13 +60,13 @@ TodoItem.defaultProps = {
 export default TodoItem;
 ```
 
-* **`poops`、`state` 以及 `render` 函数的关系**
+## n `poops`、`state` 以及 `render` 函数的关系
 
 当组件的 `state` 或者 `props` 发生改变的时候，`render` 函数就会重新执行。
 
 当父组件的 `render` 函数被运行时，它的子组件的 `render` 都将被重新运行一次。
 
-* **React 的 DOM 操作**
+## React 的 DOM 操作
 
 **首先**，尝试模仿下 React 的数据更新：
 
@@ -140,7 +139,7 @@ export default TodoItem;
 > 可以被下面语句替换：  
 > `return React.createElement('div', {}, React.createElement('span', {}, 'item'))`
 
-* **虚拟 DOM 中的 diff 算法**：
+## n 虚拟 DOM 中的 diff 算法
 
 比较原生虚拟 DOM 和新的虚拟 DOM 的区别，使用 Diff（different）算法
 
@@ -196,9 +195,9 @@ handleInputChange() {
 // }
 ```
 
-工作中不推荐 `ref` 形式，以为它操作 DOM 了。
+工作中不推荐 `ref` 形式，因为它操作 DOM 了。
 
-* **`setState` 异步**：
+## n `setState` 异步
 
 在 `this.setState()` 中，我们知道它是异步执行的。
 
@@ -212,7 +211,7 @@ this.setState( (prevState) => {
 });
 ```
 
-* **组件生命周期**：
+## n 组件生命周期
 
 > 本文生命周期为 React 16.4，目前 React 16.8 版本已有新生命周期
 
@@ -222,13 +221,13 @@ this.setState( (prevState) => {
 
 何为生命周期：生命周期函数指在某一个时刻会自动调用执行的函数。
 
-**Mounting**：
+### n.1 Mounting
 
 * `componentWillMount()`：在组件即将被挂载到页面的时刻自动执行。
 * `render()`：渲染 JSX。
 * `componentDidMount()`：在组件被挂载到页面之后，自动被执行。
 
-**Updation**：
+### n.2 Updation
 
 * `shouldComponentUpdate()`：在组件被更新之前，它会自动被执行。如果该生命周期存在于子组件，然后该子组件不需要根据父组件更新而更新，我们只需要 `return false` 即可①。
 * `componentWillUpdate()`：在组件被更新之前，它会自动被执行，但是它在 `shouldComponentUpdate()` 之后被执行。如果 `shouldComponentUpdate()` 返回 `true`，这个函数会被执行；如果返回 `false`，该函数不会被执行。
@@ -249,20 +248,20 @@ shouldComponentUpdate(nextProps, nextState) {
 
 > `componentWillReceiveProps()`：当一个组件从父组件中接收了参数。只要父组件的 `render()` 函数被重新执行了，子组件的这个生命周期函数就会被执行。
 
-**Unmounting**：
+### n.3 Unmounting
 
 * `componentWillUnmount()`：当这个组件即将被从页面中剔除的时候，会被执行。
 
 ![图](../../public-repertory/img/js-react-principle-5.png)
 
-* **调用接口 - axios**：
+## n 调用接口 - axios
 
 * 安装：`npm i axios -S`
 * 引用：`import axios from 'axios'`
 * 使用：`axios.get('地址').then( (res) => {}).catch( (error) => {}))`
 * mock：使用 Charles 模拟接口。
 
-* **React 中的动画**：
+## n React 中的动画
 
 1. 使用 CSS3 编写动画
 2. 使用插件 `react-transition-grup`
