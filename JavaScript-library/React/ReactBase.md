@@ -1,11 +1,33 @@
-React Base - 基础及升级
+React 基础
 ===
 
 > create by **jsliang** on **2019-3-26 09:25:41**   
 > Recently revised in **2019-4-7 19:39:01**
 
-记录 React 基础及其升级知识
+记录 React 基础知识，并尝试构建个人知识体系。
 
+> React 版本：`16.4`
+
+## <a name="chapter-one" id="chapter-one">一 目录</a>
+
+**不折腾的前端，和咸鱼有什么区别**
+
+| 目录 |
+| --- | 
+| [一 目录](#chapter-one) | 
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+
+## <a name="chapter-two" id="chapter-two">二 前言</a>
+
+> [返回目录](#chapter-one)
+
+**万丈高楼平地起，地基还得自己起。**
+
+从 0 开始，丰富自己的 React 技术栈。
+
+## <a name="chapter-three" id="chapter-three">三 正文</a>
+
+> [返回目录](#chapter-one)
 
 * **调试工具**：
 
