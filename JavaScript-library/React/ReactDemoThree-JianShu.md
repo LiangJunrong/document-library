@@ -26,6 +26,13 @@ React Demo Three - 简书
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 设置输入框动画](#chapter-six) |
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 优化代码](#chapter-seven) |
 | <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 使用 redux-devtools-extension 插件](#chapter-eight) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 优化：抽取 reducer.js](#chapter-night) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 优化：抽取 action](#chapter-ten) |
+| <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 优化：immutable.js](#chapter-eleven) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 优化：redux-immutable](#chapter-twelve) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 热门搜索](#chapter-thirteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 代码优化](#chapter-fourteen) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 解决历史遗留问题](#chapter-fifteen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -1004,15 +1011,17 @@ export default store;
 
 ![图](../../public-repertory/img/js-react-demo-three-7.gif)
 
-## 七 抽取 reducer.js
+## <a name="chapter-night" id="chapter-night">九 优化：抽取 reducer.js</a>
+
+> [返回目录](#chapter-one)
 
 在项目开发中，我们会发现 reducer.js 随着项目的开发越来越庞大，最后到不可维护的地步。
 
-该视频的慕课讲师也提到：**当你的一个 js 文件代码量超过 300 行，说明它的设计一开始来说就是不合理的。**
+该视频的慕课讲师也提到：**当你的一个 js 文件代码量超过 300 行，说明它的设计从一开始来说就是不合理的。**
 
 所以，我们要想着进一步优化它。
 
-首先，我们在 header 目录下，新建 store，并新建 reducer.js，将 src/store 的 reducer.js 中的内容剪切到 header/store/reducer.js 中：
+**首先**，我们在 header 目录下，新建 store，并新建 reducer.js，将 src/store 的 reducer.js 中的内容剪切到 header/store/reducer.js 中：
 
 > src/common/header/store/reducer.js
 
@@ -1038,7 +1047,7 @@ export default (state = defaultState, action) => {
 
 </details>
 
-然后，我们修改 src/store/reducer.js 的内容为：
+**然后**，我们修改 src/store/reducer.js 的内容为：
 
 > src/store/reducer.js
 
@@ -1060,7 +1069,7 @@ export default reducer;
 
 </details>
 
-最后，我们修改 src/common/header/index.js 内容：
+**最后**，我们修改 src/common/header/index.js 内容：
 
 > src/common/header/index.js
 
@@ -1081,13 +1090,17 @@ const mapStateToProps = (state) => {
 
 </details>
 
-在这里，我们需要知道的是：之前我们只有一层目录，所以修改的是 `state.inputBlur`，但是，因为通过 `combineReducers` 将 reducer.js 进行了整合，所以需要修改为 `state.header.inputBlur`
+在这里，我们需要知道的是：之前我们只有一层目录，所以修改的是 `state.inputBlur`。
+
+但是，因为通过 `combineReducers` 将 reducer.js 进行了整合，所以需要修改为 `state.header.inputBlur`
 
 至此，我们就完成了 reducer.js 的优化。
 
-## 八 抽取 action
+## <a name="chapter-ten" id="chapter-ten">十 优化：抽取 action</a>
 
-1. 首先在 header 的 store 中新建 actionCreators.js 文件：
+> [返回目录](#chapter-one)
+
+1. **首先**，在 header 的 store 中新建 actionCreators.js 文件：
 
 > src/common/header/store/actionCreators.js
 
@@ -1104,7 +1117,7 @@ export const searchFocusOrBlur = () => ({
 
 </details>
 
-2. 然后我们在 header 中的 index.js 文件引入 actionCreators.js，并在 `mapDispathToProps` 方法体中将其 `dispatch` 出去：
+2. **然后**，我们在 header 中的 index.js 文件引入 actionCreators.js，并在 `mapDispathToProps` 方法体中将其 `dispatch` 出去：
 
 > src/common/header/index.js
 
@@ -1196,7 +1209,7 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 </details>
 
-3. 接着，因为我们在 actionCreators.js 中使用的 `type` 是字符串，所以我们同样在 store 中创建 actionTypes.js，将其变成常量：
+3. **接着**，因为我们在 actionCreators.js 中使用的 `type` 是字符串，所以我们同样在 store 中创建 actionTypes.js，将其变成常量：
 
 > src/common/header/store/actionTypes.js
 
@@ -1210,7 +1223,7 @@ export const SEARCH_FOCUS_OR_BLUR = 'search_focus_or_blur';
 
 </details>
 
-4. 再然后，我们在 actionCreators.js 中引入 actionTypes.js：
+4. **再然后**，我们在 actionCreators.js 中引入 actionTypes.js：
 
 > src/common/header/store/actionCreators.js
 
@@ -1220,7 +1233,7 @@ export const SEARCH_FOCUS_OR_BLUR = 'search_focus_or_blur';
 
 ```js
 // 4. 引入常量
-import { SEARCH_FOCUS_OR_BLUR } from './actionTypes'
+import { SEARCH_FOCUS_OR_BLUR } from './actionTypes';
 
 // 1. 定义 actionCreators
 // 5. 将 action 中的字符串修改为常量
@@ -1231,7 +1244,7 @@ export const searchFocusOrBlur = () => ({
 
 </details>
 
-5. 再接着，我们修改下 header 目录中 store 下的 reducer.js，因为我们的字符串变成了常量，所以这里也需要做相应变更：
+5. **再接着**，我们修改下 header 目录中 store 下的 reducer.js，因为我们的字符串变成了常量，所以这里也需要做相应变更：
 
 > src/common/header/store/reducer.js
 
@@ -1260,7 +1273,7 @@ export default (state = defaultState, action) => {
 
 </details>
 
-6. 然后，我们现在 header/store 目录下有：actionCreators.js、actionTypes.js、reducer.js 三个文件，如果我们每次引入都要一个一个找，那是相当麻烦的，所以我们在 header/store 目录下再新建一个 index.js，通过 index.js 来管理这三个文件，这样我们其他页面需要引入它们的时候，我们只需要引入 store 下的 index.js 即可。
+6. **然后**，我们现在 header/store 目录下有：actionCreators.js、actionTypes.js、reducer.js 三个文件，如果我们每次引入都要一个一个找，那是相当麻烦的，所以我们在 header/store 目录下再新建一个 index.js，通过 index.js 来管理这三个文件，这样我们其他页面需要引入它们的时候，我们只需要引入 store 下的 index.js 即可。
 
 > src/common/header/store/index.js
 
@@ -1279,7 +1292,7 @@ export { actionCreators, actionTypes, reducer };
 
 </details>
 
-7. 值得注意的是，这时候我们可以处理下 header/index.js 文件：
+7. **此时**，值得注意的是，这时候我们需要处理下 header/index.js 文件：
 
 <details>
 
@@ -1302,7 +1315,7 @@ import homeImage from '../../resources/img/header-home.png';
 
 </details>
 
-8. 最后，再处理下 src/store/reducer.js，因为它引用了 common/header/store 中的 reducer.js：
+8. **最后**，再处理下 src/store/reducer.js，因为它引用了 common/header/store 中的 reducer.js：
 
 <details>
 
@@ -1324,13 +1337,15 @@ export default reducer;
 
 至此，我们就完成了本次的优化抽取。
 
-## 九 immutable.js
+## <a name="chapter-eleven" id="chapter-eleven">十一 优化；immutable.js</a>
 
-在我们工作的过程中，如果一不小心修改了 reducer.js 中的 ·（平时开发的时候，我们会通过 `JSON.parse(JSON.stringify())` 来进行深拷贝，获取一份额外的来进行修改）。
+> [返回目录](#chapter-one)
+
+在我们工作的过程中，如果一不小心，就会修改了 reducer.js 中的数据（平时开发的时候，我们会通过 `JSON.parse(JSON.stringify())` 来进行深拷贝，获取一份额外的来进行修改）。
 
 所以，这时候，我们就需要使用 immutable.js，它是由 Facebook 团队开发的，用来帮助我们生产 `immutable` 对象，从而限制 `state` 不可被改变。
 
-* 安装 immutable.js：`npm i immutable`。
+* 安装 immutable.js：`npm i immutable -S`。
 * 案例 immutable.js：
 
 ```js
@@ -1340,7 +1355,7 @@ const map2 = map1.set('b', 50);
 map1.get('b') + " vs. " + map2.get('b'); // 2 vs. 50
 ```
 
-然后，我们在简书 Demo 中使用：
+看起来很简单，我们直接在简书 Demo 中使用：
 
 > src/common/header/store/reducer.js
 
@@ -1472,7 +1487,9 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 这样，我们就成功保护了 `state` 的值。
 
-## 十 redux-immutable
+## <a name="chapter-twelve" id="chapter-twelve">十二 优化：redux-immutable</a>
+
+> [返回目录](#chapter-one)
 
 当然，在上面，我们保护了 header 中的 `state`，我们在代码中：
 
@@ -1531,7 +1548,9 @@ const mapStateToProps = (state) => {
 2. 通过 redux-immutable 引入 `combineReducers` 而非原先的 redux
 3. 通过同样的 `get` 方法来获取 `header`
 
-## 十一 热门搜索
+## <a name="chapter-thirteen" id="chapter-thirteen">十三 热门搜索</a>
+
+> [返回目录](#chapter-one)
 
 本章节完成三个功能：
 
@@ -1803,6 +1822,7 @@ const Header = (props) => {
               />
             </CSSTransition>
             <i className={props.inputBlur ? 'icon icon-search' : 'icon icon-search icon-active'}></i>
+            {/* 添加热搜模块 */}
             <div className={props.inputBlur ? 'display-hide header_center-left-hot-search' : 'display-show header_center-left-hot-search'}>
               <div className="header_center-left-hot-search-title">
                 <span>热门搜索</span>
@@ -1863,7 +1883,7 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 由此，我们完成了热门搜索的显示隐藏：
 
-![图](../../public-repertory/img/js-react-demo-three-temp-6.gif)
+![图](../../public-repertory/img/js-react-demo-three-8.gif)
 
 PS：由于页面逐渐增大，所以我们 header 中使用无状态组件已经满足不了我们要求了，我们需要将无状态组件改成正常的组件：
 
@@ -2245,9 +2265,11 @@ export default (state = defaultState, action) => {
 
 这样，我们就成功地获取了 mock 提供的数据：
 
-![图](../../public-repertory/img/js-react-demo-three-temp-7.gif)
+![图](../../public-repertory/img/js-react-demo-three-9.gif)
 
-## 十二 代码优化
+## <a name="chapter-fourteen" id="chapter-fourteen">十四 代码优化</a>
+
+> [返回目录](#chapter-one)
 
 * reducer.js 中使用 `switch...case...` 替换掉 `if...` 语句。
 
@@ -2280,7 +2302,9 @@ export default (state = defaultState, action) => {
 
 </details>
 
-## 十三 解决历史遗留问题
+## <a name="chapter-fifteen" id="chapter-fifteen">十五 解决历史遗留问题</a>
+
+> [返回目录](#chapter-one)
 
 在这里，我们解决下历史遗留问题：在我们失焦于输入框的时候，我们的【热门搜索】模块就会消失，从而看不到我们点击【换一换】按钮的效果，所以我们需要修改下代码，在我们鼠标在【热门模块】中时，这个模块不会消失，当我们鼠标失焦且鼠标不在热门模块中时，热门模块才消失。
 
@@ -2518,7 +2542,7 @@ export const ON_MOUSE_LEAVE_HOT = 'header/on_mouse_leave_hot';
 
 我们先看实现：
 
-![图](../../public-repertory/img/js-react-demo-three-temp-8.gif)
+![图](../../public-repertory/img/js-react-demo-three-10.gif)
 
 然后我们看看实现逻辑：
 
@@ -2531,7 +2555,7 @@ export const ON_MOUSE_LEAVE_HOT = 'header/on_mouse_leave_hot';
 7. 在 index.js 中 `mapStateToProps` 获取 `mouseInHot`
 8. 在 index.js 中的判断中加多一个 `this.props.mouseInHot`，这样只要有一个为 `true`，它就不会消失
 
-> 注意：由于之前设置的 `this.props.inputFoucsOrBlur` 会造成聚焦和失焦都会调用一次接口，而且逻辑比较复杂，容易出错，所以这里我们进行了修改。
+> 注意：由于之前设置的 `this.props.inputFoucsOrBlur` 会造成聚焦和失焦都会调用一次接口，而且逻辑比较复杂，容易出错，所以这里我们进行了修改，将其分为聚焦和失焦两部分。
 
 ## 十四 换一换
 
