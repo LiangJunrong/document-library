@@ -2,35 +2,35 @@ React
 ===
 
 > create by **jsliang** on **2018-9-5 08:59:31**   
-> Recently revised in **2019-4-7 19:43:31**
+> Recently revised in **2019-04-23 14:32:31**
 
-## React 介绍
+## 一 React 介绍
 
 React 是 Facebook 于 2013 年推出的函数式编程，是目前前端框架中使用人数最多的前端框架，其拥有健全的文档与完善的社区。
 
 React 16.0 及以上版本，又被成为 React Fiber。
 
-## React 与 Vue 比较
+## 二 React 与 Vue 比较
 
-* Vue 提供了非常丰富的 API，但是因为过于丰富，灵活度相对于 React 没有那么灵活。开发复杂度比较高的项目时，可以选择 React。而面向用户端复杂度没那么高的项目，可以使用 Vue。
+* Vue 提供了非常丰富的 API，但是因为过于丰富，灵活度相对于 React 没有那么灵活。
+* 开发复杂度比较高的项目时，可以选择 React。而面向用户端复杂度没那么高的项目，可以使用 Vue。
 
 > 具体选用何种框架，还是取决于个人/团队对于该框架的驾驭程度
 
-## 目录
+## 三 目录
 | 文章 | 知识点 |
 | --- | --- |
-| [《React Demo One - TodoList》](./ReactDemoOne-TodoList.md) | React |
-| [《React Demo Two - TodoList 升级》](./ReactDemoTwo-TodoListUpgrade.md) | React、Redux、Redux-Thunk、Redux-Saga、React-Redux |
-| [《React Demo Three - 简书》](./ReactDemoThree-JianShu.md) | 尚在学习 |
+| [《React Demo One - TodoList》]([./ReactDemoOne-TodoList.md](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-TodoList.md)) | React |
+| [《React Demo Two - TodoList 升级》](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoTwo-TodoListUpgrade.md) | React、Redux、Redux-Thunk、Redux-Saga、React-Redux |
+| [《React Demo Three - 简书》](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoThree-JianShu.md) | React、Redux、React-Redux、Redux-Thunk |
 
-## 学习顺序
+## 四 学习顺序
 
-1. ReactImoocVideo
-2. ReactBase
-3. ReactDemoOne-TodoList
-4. ReactRedux
-5. ReactDemoTwo-TodoListUpgrade
-6. ReactDemoThree-JianShu
+1. ReactBase
+2. ReactDemoOne-TodoList
+3. ReactRedux
+4. ReactDemoTwo-TodoListUpgrade
+5. ReactDemoThree-JianShu
 
 ---
 
