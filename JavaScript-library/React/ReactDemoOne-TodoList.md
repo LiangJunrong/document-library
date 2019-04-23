@@ -32,11 +32,48 @@ React Demo One - TodoList
 
 > [返回目录](#chapter-one)
 
-**声明：该系列文章主要参考慕课网的 React 实战视频，并结合个人理解进行编写：**
+关于 React，**jsliang** 从 `2018-9-5` 就开始折腾了，中途因为工作调动，没能继续折腾下去。最近因为新公司工作需求，从头开始继续折腾 React，希望我的文章能对没学过 React 或者初入 React 的小伙伴有所帮助。
+
+本文参考来自慕课网：
 
 * [《React 16.4 开发简书项目从零基础入门到实战》](https://coding.imooc.com/class/229.html)
 
-通过编写一个简单的 TodoList 小 Demo，熟悉 React 的开发流程。
+其中掺杂个人对编程的理解，如有错误，望多多指正。
+
+* **前置知识**：
+
+1. ES5/ES6
+2. Webpack
+3. npm
+
+* **文章结构**：
+
+1. 基础内容 -> 环境搭建 -> 基础语法 -> 原理进阶 -> 动画
+2. Redux -> Redux 进阶
+3. 实战项目 -> 环境搭建 -> Header -> 首页 -> 详情页
+4. 登录校验 -> 上线
+
+* **涉及知识点**：
+
+1. create-react-app
+2. 组件化思维
+3. JSX
+4. 开发调试工具
+5. 虚拟 DOM
+6. 生命周期
+7. React-transition-group
+8. Redux
+9. Antd
+10. UI、容器组件
+11. 无状态组件
+12. redux-thunk
+13. redux-saga
+14. styled-components
+15. immutable.js
+16. redux-immutable
+17. axios
+
+其中，本文为第一个 Demo 案例：通过编写一个简单的 TodoList 小 Demo，熟悉 React 的开发流程。
 
 ## <a name="chapter-three" id="chapter-three">三 正文</a>
 
