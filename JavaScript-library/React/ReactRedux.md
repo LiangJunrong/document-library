@@ -2,7 +2,7 @@ React Redux
 ===
 
 > Create by **jsliang** on **2019-3-26 08:51:55**  
-> Recently revised in **2019-3-26 08:51:59**
+> Recently revised in **2019-4-24 07:50:31**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/React-Redux.md)**
 
