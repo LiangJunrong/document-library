@@ -12,6 +12,8 @@ React Demo Three - 简书
 
 ![图](../../public-repertory/img/js-react-demo-three-1.png)
 
+> 本来这只是篇纯粹的仿简书首页和文章详情页的文章，但是中间出了点情况（第十九章有提到），所以最终出来的是简书和掘金的混合体~
+
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
 **不折腾的前端，和咸鱼有什么区别**
