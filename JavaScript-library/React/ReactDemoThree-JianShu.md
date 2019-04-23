@@ -2,7 +2,7 @@ React Demo Three - 简书
 ===
 
 > Create by **jsliang** on **2019-4-7 19:37:41**  
-> Recently revised in **2019-4-21 11:11:25**
+> Recently revised in **2019-04-23 09:40:44**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoThree-JianShu.md)**
 
@@ -20,7 +20,7 @@ React Demo Three - 简书
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 初始化目录](#chapter-three) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 初始化项目目录](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 创建 React 头部组件](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 编写简书头部导航](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 设置输入框动画](#chapter-six) |
@@ -30,9 +30,21 @@ React Demo Three - 简书
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 优化：抽取 action](#chapter-ten) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 优化：immutable.js](#chapter-eleven) |
 | <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 优化：redux-immutable](#chapter-twelve) |
-| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 热门搜索](#chapter-thirteen) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 功能实现：热门搜索](#chapter-thirteen) |
 | <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 代码优化](#chapter-fourteen) |
 | <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 解决历史遗留问题](#chapter-fifteen) |
+| <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 功能实现：换一换](#chapter-sixteen) |
+| <a name="catalog-chapter-seventeen" id="catalog-chapter-seventeen"></a>[十七 功能优化](#chapter-seventeen) |
+| &emsp;[17.1 换一换图标旋转](#chapter-seventeen-one) |
+| &emsp;[17.2 避免聚焦重复请求](#chapter-seventeen-two) |
+| <a name="catalog-chapter-eighteen" id="catalog-chapter-eighteen"></a>[十八 React 路由](#chapter-eighteen) |
+| &emsp;[18.1 路由（一）](#chapter-eighteen-one) |
+| &emsp;[18.2 路由（二）](#chapter-eighteen-two) |
+| <a name="catalog-chapter-nighteen" id="catalog-chapter-nighteen"></a>[十九 页面实现：二级导航栏](#chapter-nighteen) |
+| <a name="catalog-chapter-twenty" id="catalog-chapter-twenty"></a>[二十 页面实现：首页](#chapter-twenty) |
+| &emsp;[20.1 多层级组件引用 store](#chapter-twenty-one) |
+| &emsp;[20.2 完善整个首页](#chapter-twenty-two) |
+| <a name="catalog-chapter-twentyone" id="catalog-chapter-twentyone"></a>[二十一 总结](#chapter-twentyone) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -46,7 +58,7 @@ React Demo Three - 简书
 
 React 的学习，迈开 TodoList，进一步前行。
 
-## <a name="chapter-three" id="chapter-three">三 初始化目录</a>
+## <a name="chapter-three" id="chapter-three">三 初始化项目目录</a>
 
 > [返回目录](#chapter-one)
 
@@ -1499,7 +1511,7 @@ inputBlur: state.header.get('inputBlur')
 
 这个 `header` 也是 `state` 的值，所以我们也需要对它进行保护，所以我们就需要 redux-immutable
 
-* 安装 redux-immutable：`npm i redux-immutable`
+* 安装 redux-immutable：`npm i redux-immutable -S`
 * 使用 redux-immutable：
 
 > src/store/reducer.js
@@ -1548,7 +1560,7 @@ const mapStateToProps = (state) => {
 2. 通过 redux-immutable 引入 `combineReducers` 而非原先的 redux
 3. 通过同样的 `get` 方法来获取 `header`
 
-## <a name="chapter-thirteen" id="chapter-thirteen">十三 热门搜索</a>
+## <a name="chapter-thirteen" id="chapter-thirteen">十三 功能实现：热门搜索</a>
 
 > [返回目录](#chapter-one)
 
@@ -2557,7 +2569,9 @@ export const ON_MOUSE_LEAVE_HOT = 'header/on_mouse_leave_hot';
 
 > 注意：由于之前设置的 `this.props.inputFoucsOrBlur` 会造成聚焦和失焦都会调用一次接口，而且逻辑比较复杂，容易出错，所以这里我们进行了修改，将其分为聚焦和失焦两部分。
 
-## 十四 换一换
+## <a name="chapter-sixteen" id="chapter-sixteen">十六 功能实现：换一换</a>
+
+> [返回目录](#chapter-one)
 
 下面我们开始做换一换功能：
 
@@ -2840,11 +2854,15 @@ export const CHANGE_PAGE = 'header/change_page';
 
 如此，我们就实现了换一换功能：
 
-![图](../../public-repertory/img/js-react-demo-three-temp-9.gif)
+![图](../../public-repertory/img/js-react-demo-three-11.gif)
 
-## 十五 功能优化
+## <a name="chapter-seventeen" id="chapter-seventeen">十七 功能优化</a>
 
-### 15.1 换一换图标旋转
+> [返回目录](#chapter-one)
+
+### <a name="chapter-seventeen-one" id="chapter-seventeen-one">17.1 换一换图标旋转</a>
+
+> [返回目录](#chapter-one)
 
 > src/common/header/index.css
 
@@ -3179,9 +3197,11 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 实现效果如下：
 
-![图](../../public-repertory/img/js-react-demo-three-temp-10.gif)
+![图](../../public-repertory/img/js-react-demo-three-12.gif)
 
-### 15.2 避免聚焦重复请求
+### <a name="chapter-seventeen-two" id="chapter-seventeen-two">17.2 避免聚焦重复请求</a>
+
+> [返回目录](#chapter-one)
 
 在代码中，我们每次聚焦，都会请求数据，所以我们需要根据 `list` 的值来判断是否请求数据：
 
@@ -3338,13 +3358,19 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 这样，我们就成功避免聚焦重复请求。
 
-## 十六 路由一
+## <a name="chapter-eighteen" id="chapter-eighteen">十八 React 路由</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-eighteen-one" id="chapter-eighteen-one">18.1 路由（一）</a>
+
+> [返回目录](#chapter-one)
 
 * 什么是路由？
 
-根据 URL 的不同，显示不同的内容。
+前端路由就是根据 URL 的不同，显示不同的内容。
 
-* 安装 React 的路由：`cnpm i react-router-dom -S`
+* 安装 React 的路由：`npm i react-router-dom -S`
 
 安装完毕之后，我们只需要修改下 `src/App.js`，就可以体验到路由：
 
@@ -3389,16 +3415,18 @@ export default App;
 
 这样，我们就实现了路由：
 
-![图](../../public-repertory/img/js-react-demo-three-temp-11.gif)
+![图](../../public-repertory/img/js-react-demo-three-13.gif)
 
-## 十七 路由二
+### <a name="chapter-eighteen-two" id="chapter-eighteen-two">18.2 路由（二）</a>
+
+> [返回目录](#chapter-one)
 
 1. 在 src 下新建 pages 文件夹，然后在该文件夹下新建文件夹和文件：
    1. src/pages/detail/index.js
    2. src/pages/home/index.js
 2. 它们的内容如下：
 
-![图](../../public-repertory/img/js-react-demo-three-temp-12.png)
+![图](../../public-repertory/img/js-react-demo-three-14.png)
 
 > src/pages/detail/index.js
 
@@ -3484,15 +3512,20 @@ export default App;
 
 </details>
 
-## 十八 首页和详情页的实现
+现在，我们切换下路由，就可以看到不用的页面，这些页面我们也可以通过编辑对应的 index.js 来修改了。
 
-由于有过编程经验了，所以在这里我们就不多说废话，直接进行实现。
+
+## <a name="chapter-nighteen" id="chapter-nighteen">十九 页面实现：二级导航栏</a>
+
+> [返回目录](#chapter-one)
+
+由于前面有过编程经验了，所以在这里我们就不多说废话，直接进行实现。
 
 > 「简书」因违反《网络安全法》《互联网信息服务管理办法》《互联网新闻信息服务管理规定》等相关法律法规，严重危害互联网信息传播秩序，根据网信主管部门要求，从 2019 年 4 月 13 日 0 时至 4 月 19 日 0 时，暂停更新 PC 端上的内容，并对所有平台上的内容进行全面彻底的整改。
 
-没法，偶遇简书被抓，只好那掘金的首页和详情页来实现了。
+没法，本来想根据简书的首页继续编写的，但是恰巧碰到简书出问题了，只好拿掘金的首页和详情页来实现了。
 
-![图](../../public-repertory/img/js-react-demo-three-temp-13.png)
+![图](../../public-repertory/img/js-react-demo-three-15.png)
 
 我们将掘金首页划分为 3 个模块：顶部 TopNav、左侧 LeftList、右侧 RightRecommend。所以我们在 home 下面新建个 components 目录，用来存放这三个组件。同时，在开发 common/header 的时候，我们也知道，还需要一个 store 文件夹，用来存放 reducer.js 等：
 
@@ -3964,23 +3997,17 @@ export default RightRecommend;
 
 </details>
 
-> 9. src/
-
-<details>
-
-  <summary>代码详情</summary>
-
-```js
-
-```
-
-</details>
-
 此时，页面显示为：
 
-![图](../../public-repertory/img/js-react-demo-three-temp-14.png)
+![图](../../public-repertory/img/js-react-demo-three-16.png)
 
-## 十九 多层级级组件引用路由
+## <a name="chapter-twenty" id="chapter-twenty">二十 页面实现：首页</a>
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-twenty-one" id="chapter-twenty-one">20.1 多层级组件引用 store</a>
+
+> [返回目录](#chapter-one)
 
 在我们规划中，App 是主组件，下面有 header | home | detail，然后 home 下面有 LeftList | RightRecommend，那么 App/home/leftList 如何引用 store 呢？
 
@@ -4099,7 +4126,23 @@ export default connect(mapStateToProps, mapDispathToProps)(LeftList);
 
 </details>
 
-## 二十 更多
+### <a name="chapter-twenty-two" id="chapter-twenty-two">20.2 完善整个首页</a>
+
+> [返回目录](#chapter-one)
+
+当然，如果仅仅是运行上面的代码，你会发现它是报错的。
+
+是的，因为它只是全部代码的一部分，所以需要你去完善它。当然，你也可以直接获取全部代码：
+
+* [React 系列文章代码地址](https://github.com/LiangJunrong/React)
+
+不管如何，你实现的最终成果如下所示：
+
+![图](../../public-repertory/img/js-react-demo-three-1.png)
+
+## <a name="chapter-twentyone" id="chapter-twentyone">二十一 总结</a>
+
+> [返回目录](#chapter-one)
 
 写到这里，我们已经完成了一个首页的开发。
 
@@ -4115,13 +4158,9 @@ export default connect(mapStateToProps, mapDispathToProps)(LeftList);
 6. 单页面异步加载组件（react-loadable）
 7. ……
 
-这里不一一列举了，因为 **jsliang** 感觉它们重复性很大，我们只需要在下一个项目中写写，就能清晰了解了（当然，前提是你有动力深入学习）
+这里不一一列举了，因为 **jsliang** 感觉它们重复性很大，我们只需要在下一个项目中去实践，相信能获得更清晰的印象。（当然，前提是你跟 **jsliang** 一样有动力深入学习）
 
 那么，到这里我们就宣布结束啦，我们下篇文章见！
-
-## N 参考文献
-
-1. [使用 immutable 优化 React](https://segmentfault.com/a/1190000010438089)
 
 ---
 
