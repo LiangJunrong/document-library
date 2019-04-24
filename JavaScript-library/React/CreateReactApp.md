@@ -27,7 +27,8 @@ Create React App - React 脚手架
 | &emsp;[* 10.1 引用静态资源](#chapter-ten-one) |
 | &emsp;[* 10.2 Mock 数据](#chapter-ten-two) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[* 十一 代码打包分割](#chapter-eleven) |
-| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[* 十二 ](#chapter-twelve) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 添加 TypeScript](#chapter-twelve) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 ](#chapter-thirteen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -290,11 +291,18 @@ const MyComponent = () => (
 2. [react-loadable](https://github.com/jamiebuilds/react-loadable)
 3. [Code Splitting in Create React App](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
 
-## <a name="chapter-twelve" id="chapter-twelve">十二 </a>
+## <a name="chapter-twelve" id="chapter-twelve">十二 添加 TypeScript</a>
 
 > [返回目录](#chapter-one)
 
-目前看到；https://www.html.cn/create-react-app/docs/installing-a-dependency/
+1. 使用 TypeScript 启动新的 Create React App项目：`npx create-react-app my-app --typescript`
+2. 往 Create React App 现有项目中添加 TypeScript：`npm i typescript @types/node @types/react @types/react-dom @types/jest -S`。（记得修改所有 JS 文件为 TS 文件，例如 `src/index.js` -> `src/index.tsx`）
+
+## <a name="chapter-thirteen" id="chapter-thirteen">十三 </a>
+
+> [返回目录](#chapter-one)
+
+目前看到；https://www.html.cn/create-react-app/docs/adding-a-router/
 
 ---
 
