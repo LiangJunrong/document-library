@@ -2,7 +2,7 @@ React 知识点清单
 ===
 
 > create by **jsliang** on **2019-04-23 14:10:18**   
-> Recently revised in **2019-04-23 14:12:38**
+> Recently revised in **2019-4-24 07:58:21**
 
 记录 React 学习及工作中，第一次使用某个知识点的使用场景。
 
@@ -18,6 +18,24 @@ React 知识点清单
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
 > [返回目录](#chapter-one)
+
+## 创建 APP
+
+1. 下载 Node.js
+2. 安装 React 脚手架：
+   1. `npm i create-react-app -g`
+3. 开启新项目：
+   1. `create-react-app todolist`
+   2. `cd todolist`
+   3. `npm start`
+
+## DvaJS
+
+* 官方话：dva 首先是一个基于 redux 和 redux-saga 的数据流方案，然后为了简化开发体验，dva 还额外内置了 react-router 和 fetch，所以也可以理解为一个轻量级的应用框架。
+
+* 人话：帮你配置了一些东西的，关于 create-react-app 的升级版，可以让你快速搭建项目。
+
+* 参考链接：[DvaJS 官网](https://dvajs.com/)
 
 ---
 
