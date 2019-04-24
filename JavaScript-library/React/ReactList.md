@@ -2,7 +2,7 @@ React 知识点清单
 ===
 
 > create by **jsliang** on **2019-04-23 14:10:18**   
-> Recently revised in **2019-04-24 11:41:27**
+> Recently revised in **2019-04-24 13:58:01**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactList.md)**
 
@@ -39,16 +39,19 @@ React 知识点清单
 
 > [返回目录](#chapter-one)
 
-1. **Create React App**：构建一个 React 的脚手架工具
-   1. [【通过本文快速了解】](#chapter-four)
+1. **【Create React App】**：构建一个 React 的脚手架工具
+   1. [* 通过本文快速了解 *](#chapter-four)
    2. [Create React App 中文文档](https://www.html.cn/create-react-app/)
-2. **DvaJS**：类似 Create React App 的优化 React 开发的脚手架工具
-   1. [【通过本文快速了解】](#chapter-five)
+2. **【DvaJS】**：类似 Create React App 的优化 React 开发的脚手架工具
+   1. [* 通过本文快速了解 *](#chapter-five)
    2. [DvaJS 官网](https://dvajs.com/)
-3. **Service Worker**：具有离线缓存作用，能让浏览器在网速差或者网络不通的情况下，还能访问网站的静态资源。
-   1. [【通过本文快速了解】](#chapter-six)
+3. **【Service Worker】**：具有离线缓存作用，能让浏览器在网速差或者网络不通的情况下，还能访问网站的静态资源。
+   1. [* 通过本文快速了解 *](#chapter-six)
    2. [Service Workers API - MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API)
    3. [制作渐进式 Web 应用程序(PWA)](https://www.html.cn/create-react-app/docs/making-a-progressive-web-app/)
+4. **【Debugger for Chrome】**：Visio Studio Code 软件的开发插件，可以用来调试 Vue、React 等脚手架代码，非常方便。
+   1. [* 通过本文快速了解 *](#chapter-seven)
+   2. [使用 VSCode 调试 React 应用](https://zhuanlan.zhihu.com/p/30583784)
 
 ## <a name="chapter-four" id="chapter-four">四 Create React App</a>
 
@@ -104,6 +107,40 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 
 1. [Service Workers API - MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API)
 2. [制作渐进式 Web 应用程序(PWA)](https://www.html.cn/create-react-app/docs/making-a-progressive-web-app/)
+
+## <a name="chapter-seven" id="chapter-seven">七 Debugger for Chrome</a>
+
+> [返回目录](#chapter-one)
+
+可以通过 Visio Studio Code 的插件调试 Create React App：
+
+1. 调试 -> 添加配置：
+
+> launch.json
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    
+    {
+      "name": "Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceRoot}/src",
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*"
+      }
+    }
+  ]
+}
+```
+
+2. 保存 -> 开始调试
+3. 通过上述步骤即可调试，如有问题查看：
+
+* 参考资料：[使用 VSCode 调试 React 应用](https://zhuanlan.zhihu.com/p/30583784)
 
 ---
 
