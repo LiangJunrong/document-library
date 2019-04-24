@@ -26,6 +26,8 @@ Create React App - React 脚手架
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[* 十 public 文件夹](#chapter-ten) |
 | &emsp;[* 10.1 引用静态资源](#chapter-ten-one) |
 | &emsp;[* 10.2 Mock 数据](#chapter-ten-two) |
+| <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[* 十一 代码打包分割](#chapter-eleven) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[* 十二 ](#chapter-twelve) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -287,6 +289,10 @@ const MyComponent = () => (
 1. [Code-Splitting - GitHub](https://www.reactjscn.com/docs/code-splitting.html)
 2. [react-loadable](https://github.com/jamiebuilds/react-loadable)
 3. [Code Splitting in Create React App](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
+
+## <a name="chapter-twelve" id="chapter-twelve">十二 </a>
+
+> [返回目录](#chapter-one)
 
 目前看到；https://www.html.cn/create-react-app/docs/installing-a-dependency/
 
