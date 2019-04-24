@@ -23,6 +23,9 @@ Create React App - React 脚手架
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[* 七 CSS Modules](#chapter-seven) |
 | <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[* 八 引用 Sass 样式表](#chapter-eight) |
 | <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[* 九 添加图片、背景、SVG](#chapter-night) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[* 十 public 文件夹](#chapter-ten) |
+| &emsp;[* 10.1 引用静态资源](#chapter-ten-one) |
+| &emsp;[* 10.2 Mock 数据](#chapter-ten-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -210,9 +213,64 @@ const App = () => (
 );
 ```
 
-## <a name="chapter-ten" id="chapter-ten">十 </a>
+## <a name="chapter-ten" id="chapter-ten">十 public 文件夹</a>
 
 > [返回目录](#chapter-one)
+
+在 Create React App 创建的项目中，有个 public 文件夹，该文件夹下通常有：
+
+* favicon.ico
+* index.html
+* mainfest.json
+
+### <a name="chapter-ten-one" id="chapter-ten-one">10.1 引用静态资源</a>
+
+> [返回目录](#chapter-one)
+
+index.html 可以引用静态资源。
+
+在 index.html 中引用的静态资源不会被 Webpack 打包，而是被复制到打包目录中，使用方法：
+
+```html
+<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+```
+
+只需要加上 `%PUBLIC_URL%/` 表示引用 public 下的资源即可。
+
+在 JavaScript 中：
+
+```js
+render() {
+  return <img src={process.env.PUBLIC_URL + '/img/logo.png'} />;
+}
+```
+
+这样也会引用 public 中的资源，从而让图片 **不会被 Webpack 打包**。当然，需要牺牲的代价有：
+
+* public 文件夹中的所有文件都不会进行后处理或压缩。
+* 在编译时不会调用丢失的文件，并且会导致用户出现 404 错误。
+* 结果文件名不包含内容哈希值，因此你需要添加查询参数或在每次更改时重命名它们（以便清除浏览器缓存）。
+
+### <a name="chapter-ten-two" id="chapter-ten-two">10.2 Mock 数据</a>
+
+> [返回目录](#chapter-one)
+
+此外，由于它内含 Node.js，所以还可以利用这点进行数据模拟（Mock），做法是：
+
+* 在 public 文件夹中新建 api 目录，然后创建文件 headerList.json，引用 axios 后，通过： `axios.get('/api/headerList.json').then()` 即可调用该文件进行 Mock。
+
+> api 下可以存放多个 json 文件
+
+## <a name="chapter-eleven" id="chapter-eleven">十一 代码打包分割</a>
+
+> [返回目录](#chapter-one)
+
+* 参考文献：
+
+1. [Code Splitting in Create React App](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
+2. [Code-Splitting](https://www.reactjscn.com/docs/code-splitting.html)
+
+目前看到；https://www.html.cn/create-react-app/docs/installing-a-dependency/
 
 ---
 
