@@ -23,6 +23,7 @@ React 知识点清单
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 Debugger for Chrome](#chapter-seven) |
 | <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 分析 Bundle 包大小](#chapter-eight) |
 | <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 Sass 安装及使用](#chapter-night) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 React Loadable - 代码打包分割](#chapter-ten) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -61,6 +62,11 @@ React 知识点清单
 6. **【node-sass】**：通过 CSS 预编译处理器，更好地编写 CSS。
    1. [* 通过本文快速了解 *](#chapter-night)
    2. [添加 Sass 样式表](https://www.html.cn/create-react-app/docs/adding-a-sass-stylesheet/)
+7. **【React Loadable】**：配合 React Router，在 Create React App 中进行组件分割，减少每个 JS 文件的大小。
+   1. [* 通过本文快速了解 *](#chapter-ten)
+   2. [Code-Splitting - GitHub](https://www.reactjscn.com/docs/code-splitting.html)
+   3. [react-loadable](https://github.com/jamiebuilds/react-loadable)
+   4. [Code Splitting in Create React App](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
 
 ## <a name="chapter-four" id="chapter-four">四 Create React App</a>
 
@@ -182,6 +188,33 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 2. 引入：`@import 'styles/_colors.scss'; // 假设 styles 目录 在 src/ 目录下`
 
 * 参考文献：[添加 Sass 样式表](https://www.html.cn/create-react-app/docs/adding-a-sass-stylesheet/)
+
+## <a name="chapter-ten" id="chapter-ten">十 React Loadable - 代码打包分割</a>
+
+> [返回目录](#chapter-one)
+
+在 Create React App 中，我们可以使用 React Loadable 来进行代码的分割。
+
+使用方式：
+
+```js
+import Loadable from 'react-loadable';
+
+const LoadableOtherComponent = Loadable({
+  loader: () => import('./OtherComponent'),
+  loading: () => <div>Loading...</div>,
+});
+
+const MyComponent = () => (
+  <LoadableOtherComponent/>
+);
+```
+
+* 参考文献：
+
+1. [Code-Splitting - GitHub](https://www.reactjscn.com/docs/code-splitting.html)
+2. [react-loadable](https://github.com/jamiebuilds/react-loadable)
+3. [Code Splitting in Create React App](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
 
 ## <a name="chapter-more" id="chapter-more">更多 阅读推荐</a>
 
