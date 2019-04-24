@@ -20,6 +20,9 @@ React 知识点清单
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Create React App](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 DvaJS](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Service Workers](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 Debugger for Chrome](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 分析 Bundle 包大小](#chapter-eight) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 Sass 安装及使用](#chapter-night) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -52,6 +55,12 @@ React 知识点清单
 4. **【Debugger for Chrome】**：Visio Studio Code 软件的开发插件，可以用来调试 Vue、React 等脚手架代码，非常方便。
    1. [* 通过本文快速了解 *](#chapter-seven)
    2. [使用 VSCode 调试 React 应用](https://zhuanlan.zhihu.com/p/30583784)
+5. **【source-map-explorer】**：用来分析 Bundle 包的大小，从而进一步优化项目
+   1. [* 通过本文快速了解 *](#chapter-eight)
+   2. [React App 中如何分析Bundle Size？](https://www.jianshu.com/p/02259b9b52a5)
+6. **【node-sass】**：通过 CSS 预编译处理器，更好地编写 CSS。
+   1. [* 通过本文快速了解 *](#chapter-night)
+   2. [添加 Sass 样式表](https://www.html.cn/create-react-app/docs/adding-a-sass-stylesheet/)
 
 ## <a name="chapter-four" id="chapter-four">四 Create React App</a>
 
@@ -141,6 +150,44 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 3. 通过上述步骤即可调试，如有问题查看：
 
 * 参考资料：[使用 VSCode 调试 React 应用](https://zhuanlan.zhihu.com/p/30583784)
+
+## <a name="chapter-eight" id="chapter-eight">八 分析 Bundle 包大小</a>
+
+> [返回目录](#chapter-one)
+
+1. 安装：`npm i source-map-explorer -S`
+2. 修改 package.json：
+
+> package.json
+
+```json
+"scripts": {
+  "analyze": "source-map-explorer build/static/js/main.*",
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+}
+```
+
+3. 打包：`npm run build`
+4. 分析：`npm run analyze`
+
+* 参考资料：[React App 中如何分析Bundle Size？](https://www.jianshu.com/p/02259b9b52a5)
+
+## <a name="chapter-night" id="chapter-night">九 Sass 安装及使用</a>
+
+> [返回目录](#chapter-one)
+
+1. 安装 `node-sass`：`npm i node-sass -S`
+2. 引入：`@import 'styles/_colors.scss'; // 假设 styles 目录 在 src/ 目录下`
+
+* 参考文献：[添加 Sass 样式表](https://www.html.cn/create-react-app/docs/adding-a-sass-stylesheet/)
+
+## <a name="chapter-more" id="chapter-more">更多 阅读推荐</a>
+
+> [返回目录](#chapter-one)
+
+1. [知乎专栏 - 魔都三帅和江浙沪包邮技术大联盟](https://zhuanlan.zhihu.com/moduth)
 
 ---
 
