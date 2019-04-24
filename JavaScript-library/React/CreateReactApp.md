@@ -265,10 +265,28 @@ render() {
 
 > [返回目录](#chapter-one)
 
+在 Create React App 中，我们可以使用 React Loadable 来进行代码的分割。
+
+使用方式：
+
+```js
+import Loadable from 'react-loadable';
+
+const LoadableOtherComponent = Loadable({
+  loader: () => import('./OtherComponent'),
+  loading: () => <div>Loading...</div>,
+});
+
+const MyComponent = () => (
+  <LoadableOtherComponent/>
+);
+```
+
 * 参考文献：
 
-1. [Code Splitting in Create React App](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
-2. [Code-Splitting](https://www.reactjscn.com/docs/code-splitting.html)
+1. [Code-Splitting - GitHub](https://www.reactjscn.com/docs/code-splitting.html)
+2. [react-loadable](https://github.com/jamiebuilds/react-loadable)
+3. [Code Splitting in Create React App](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
 
 目前看到；https://www.html.cn/create-react-app/docs/installing-a-dependency/
 
