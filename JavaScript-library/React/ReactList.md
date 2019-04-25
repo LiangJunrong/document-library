@@ -2,7 +2,7 @@ React 知识点清单
 ===
 
 > create by **jsliang** on **2019-04-23 14:10:18**   
-> Recently revised in **2019-4-25 08:00:13**
+> Recently revised in **2019-04-25 11:12:30**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactList.md)**
 
@@ -21,7 +21,7 @@ React 知识点清单
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 DvaJS](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Service Workers](#chapter-six) |
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 Debugger for Chrome](#chapter-seven) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 分析 Bundle 包大小](#chapter-eight) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 Source Maps 分析包大小](#chapter-eight) |
 | <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 Sass 安装及使用](#chapter-night) |
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 React Loadable - 代码打包分割](#chapter-ten) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 React Router - 路由](#chapter-eleven) |
@@ -34,11 +34,12 @@ React 知识点清单
 
 别笑，这是事实。
 
-现在前端界的玩意真的太多了，有些东西你听都没听过，然后招聘信息居然 *明目张胆* 的贴着招聘须具备 XX 技能，看得你目瞪口呆。
+现在前端界的玩意真的太多了，有些东西你听都没听过，然后很多招聘信息中居然 *明目张胆* 的贴着应聘者须具备 XX 技能，看得你目瞪口呆。
 
-所以，这篇文章仅仅罗列知识点及其简单使用，更深一步的时候还是看我其他的实战文章。
+所以，这篇文章仅仅罗列知识点及其简单使用，更深一步的时候还是看我其他的实战文章或者自行百度搜索。
 
-> 由于是罗列，有时候你会发现它毫无逻辑，毕竟 —— 仅仅是罗列。
+> 由于是罗列，有时候你会发现它毫无逻辑，甚至可读性极差。  
+> 毕竟 —— 仅仅是罗列。
 
 ## <a name="chapter-three" id="chapter-three">三 清单</a>
 
@@ -47,7 +48,7 @@ React 知识点清单
 1. **【Create React App】**：构建一个 React 的脚手架工具
    1. [* 通过本文快速了解 *](#chapter-four)
    2. [Create React App 中文文档](https://www.html.cn/create-react-app/)
-2. **【DvaJS】**：类似 Create React App 的优化 React 开发的脚手架工具
+2. **【DvaJS】**：类似 Create React App 的，方便 React 快速搭建项目的脚手架工具
    1. [* 通过本文快速了解 *](#chapter-five)
    2. [DvaJS 官网](https://dvajs.com/)
 3. **【Service Worker】**：具有离线缓存作用，能让浏览器在网速差或者网络不通的情况下，还能访问网站的静态资源。
@@ -57,10 +58,10 @@ React 知识点清单
 4. **【Debugger for Chrome】**：Visio Studio Code 软件的开发插件，可以用来调试 Vue、React 等脚手架代码，非常方便。
    1. [* 通过本文快速了解 *](#chapter-seven)
    2. [使用 VSCode 调试 React 应用](https://zhuanlan.zhihu.com/p/30583784)
-5. **【source-map-explorer】**：用来分析 Bundle 包的大小，从而进一步优化项目
+5. **【source-map-explorer】**：用来分析 Bundle 包的大小，从而进一步优化项目。
    1. [* 通过本文快速了解 *](#chapter-eight)
    2. [React App 中如何分析Bundle Size？](https://www.jianshu.com/p/02259b9b52a5)
-6. **【node-sass】**：通过 CSS 预编译处理器，更好地编写 CSS。
+6. **【node-sass】**：通过 Sass 这个 CSS 预编译处理器，更好地编写 CSS。
    1. [* 通过本文快速了解 *](#chapter-night)
    2. [添加 Sass 样式表](https://www.html.cn/create-react-app/docs/adding-a-sass-stylesheet/)
 7. **【React Loadable】**：配合 React Router，在 Create React App 中进行组件分割，减少每个 JS 文件的大小。
@@ -71,6 +72,7 @@ React 知识点清单
 8. **【React Router】**：由于 Create React App 并没有规定路由解决方案，在此推荐 React Router。
    1. [* 通过本文快速了解 *](#chapter-eleven)
    2. [React Router](https://reacttraining.com/react-router/web/example/basic)
+9. **【Axios】**：Axios 是一个
 
 ## <a name="chapter-four" id="chapter-four">四 Create React App</a>
 
@@ -188,7 +190,7 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 
 * 参考资料：[使用 VSCode 调试 React 应用 - 知乎](https://zhuanlan.zhihu.com/p/30583784)
 
-## <a name="chapter-eight" id="chapter-eight">八 分析 Bundle 包大小</a>
+## <a name="chapter-eight" id="chapter-eight">八 Source Maps 分析包大小</a>
 
 > [返回目录](#chapter-one)
 
@@ -219,10 +221,15 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 
 > [返回目录](#chapter-one)
 
+Sass 是一种 CSS 的预编译处理器，简单来说就是方便你有组织有预谋地编写 CSS，更多 Sass 技巧可以去参考文献查找。
+
 1. 安装 `node-sass`：`npm i node-sass -S`
 2. 引入：`@import 'styles/_colors.scss'; // 假设 styles 目录 在 src/ 目录下`
 
-* 参考文献：[添加 Sass 样式表 - Create React App 中文文档](https://www.html.cn/create-react-app/docs/adding-a-sass-stylesheet/)
+* 参考文献：
+
+1. [Sass 中文文档](http://sass.bootcss.com/)
+2. [添加 Sass 样式表 - Create React App 中文文档](https://www.html.cn/create-react-app/docs/adding-a-sass-stylesheet/)
 
 ## <a name="chapter-ten" id="chapter-ten">十 React Loadable - 代码打包分割</a>
 
@@ -252,7 +259,6 @@ const MyComponent = () => (
 3. [Code Splitting in Create React App - 
 Server Less Stack Overflow](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
 
-
 ## <a name="chapter-eleven" id="chapter-eleven">十一 React Router - 路由</a>
 
 > [返回目录](#chapter-one)
@@ -262,7 +268,23 @@ Server Less Stack Overflow](https://serverless-stack.com/chapters/code-splitting
 * 安装：`npm i react-router-dom -S`
 * 使用：[React Router - 测试网站](https://reacttraining.com/react-router/web/example/basic)
 
-## <a name="chapter-more" id="chapter-more">更多 阅读推荐</a>
+## <a name="chapter-twelve" id="chapter-twelve">十二 Axios - 调用后端接口</a>
+
+> [返回目录](#chapter-one)
+
+Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。
+
+Features
+从浏览器中创建 XMLHttpRequests
+从 node.js 创建 http 请求
+支持 Promise API
+拦截请求和响应
+转换请求数据和响应数据
+取消请求
+自动转换 JSON 数据
+客户端支持防御 XSRF
+
+## <a name="chapter-more" id="chapter-more">Else 阅读推荐</a>
 
 > [返回目录](#chapter-one)
 
