@@ -100,7 +100,7 @@ Now，开始搞事情。
 
 > [返回目录](#chapter-one)
 
-```shell
+```
 - todolist
   + node_modules —————————— 项目依赖的第三方的包
   - public ———————————————— 共用文件
