@@ -81,12 +81,36 @@ React 知识点清单
 * 步骤：
 
 1. 下载 Node.js
-2. 安装 React 脚手架：
+2. 安装 Create React App：
    1. `npm i create-react-app -g`
 3. 开启新项目：
    1. `create-react-app todolist`
    2. `cd todolist`
    3. `npm start`
+4. 打包项目：`npm build`
+
+* 项目目录：
+
+```
+- todolist
+  + node_modules —————————— 项目依赖的第三方的包
+  - public ———————————————— 共用文件
+    - favicon.ico        —— 网页标签左上角小图标
+    - index.html         —— 网站首页模板
+    - mainfest.json      —— 提供 meta 信息给项目，并与 serviceWorker.js 相呼应，进行离线 APP 定义
+  - src ——————————————————— 项目主要目录
+    - App.css            —— 主组件样式
+    - App.js             —— 主组件入口
+    - App.test.js        —— 自动化测试文件
+    - index.css          —— 全局 css 文件
+    - index.js           —— 所有代码的入口
+    - logo.svg           —— 页面的动态图
+    - serviceWorker.js   —— PWA。帮助开发手机 APP 应用，具有缓存作用
+  - .gitignore ——————————— 配置文件。git 上传的时候忽略哪些文件
+  - package-lock.json ———— 锁定安装包的版本号，保证其他人在 npm i 的时候使用一致的 node 包
+  - package.json ————————— node 包文件，介绍项目以及说明一些依赖包等
+  - README.md ———————————— 项目介绍文件
+```
 
 * 参考链接：[Create React App 中文文档](https://www.html.cn/create-react-app/)
 
@@ -125,15 +149,16 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 * 参考链接：
 
 1. [Service Workers API - MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API)
-2. [制作渐进式 Web 应用程序(PWA)](https://www.html.cn/create-react-app/docs/making-a-progressive-web-app/)
+2. [制作渐进式 Web 应用程序(PWA) - Create Web App 中文文档](https://www.html.cn/create-react-app/docs/making-a-progressive-web-app/)
 
 ## <a name="chapter-seven" id="chapter-seven">七 Debugger for Chrome</a>
 
 > [返回目录](#chapter-one)
 
-可以通过 Visio Studio Code 的插件调试 Create React App：
+可以通过 Visio Studio Code 的插件 Debugger for Chrome 调试 Create React App：
 
-1. 调试 -> 添加配置：
+1. 安装 -> Debugger for Chrome
+2. 调试 -> 添加配置：
 
 > launch.json
 
@@ -156,14 +181,20 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 }
 ```
 
-2. 保存 -> 开始调试
-3. 通过上述步骤即可调试，如有问题查看：
+3. 保存 -> 开始调试
+4. 通过上述步骤即可开始调试
 
-* 参考资料：[使用 VSCode 调试 React 应用](https://zhuanlan.zhihu.com/p/30583784)
+> 如有问题可以参考下面资料
+
+* 参考资料：[使用 VSCode 调试 React 应用 - 知乎](https://zhuanlan.zhihu.com/p/30583784)
 
 ## <a name="chapter-eight" id="chapter-eight">八 分析 Bundle 包大小</a>
 
 > [返回目录](#chapter-one)
+
+使用 source maps 分析 JavaScript 包。
+
+这有助于你了解代码膨胀的来源，从而配合其他插件来减少每个包的大小，优化项目。
 
 1. 安装：`npm i source-map-explorer -S`
 2. 修改 package.json：
@@ -182,7 +213,7 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 3. 打包：`npm run build`
 4. 分析：`npm run analyze`
 
-* 参考资料：[React App 中如何分析Bundle Size？](https://www.jianshu.com/p/02259b9b52a5)
+* 参考资料：[React App 中如何分析Bundle Size？ - 简书](https://www.jianshu.com/p/02259b9b52a5)
 
 ## <a name="chapter-night" id="chapter-night">九 Sass 安装及使用</a>
 
@@ -191,7 +222,7 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 1. 安装 `node-sass`：`npm i node-sass -S`
 2. 引入：`@import 'styles/_colors.scss'; // 假设 styles 目录 在 src/ 目录下`
 
-* 参考文献：[添加 Sass 样式表](https://www.html.cn/create-react-app/docs/adding-a-sass-stylesheet/)
+* 参考文献：[添加 Sass 样式表 - Create React App 中文文档](https://www.html.cn/create-react-app/docs/adding-a-sass-stylesheet/)
 
 ## <a name="chapter-ten" id="chapter-ten">十 React Loadable - 代码打包分割</a>
 
@@ -217,8 +248,9 @@ const MyComponent = () => (
 * 参考文献：
 
 1. [Code-Splitting - GitHub](https://www.reactjscn.com/docs/code-splitting.html)
-2. [react-loadable](https://github.com/jamiebuilds/react-loadable)
-3. [Code Splitting in Create React App](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
+2. [react-loadable - GitHub](https://github.com/jamiebuilds/react-loadable)
+3. [Code Splitting in Create React App - 
+Server Less Stack Overflow](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
 
 
 ## <a name="chapter-eleven" id="chapter-eleven">十一 React Router - 路由</a>
@@ -228,14 +260,14 @@ const MyComponent = () => (
 由于 Create React App 并没有规定路由解决方案，然后市面上比较收欢迎的路由解决方案是 React Router，所以可以尝试使用：
 
 * 安装：`npm i react-router-dom -S`
-* 使用：[React Router](https://reacttraining.com/react-router/web/example/basic)
+* 使用：[React Router - 测试网站](https://reacttraining.com/react-router/web/example/basic)
 
 ## <a name="chapter-more" id="chapter-more">更多 阅读推荐</a>
 
 > [返回目录](#chapter-one)
 
 1. [知乎专栏 - 魔都三帅和江浙沪包邮技术大联盟](https://zhuanlan.zhihu.com/moduth)
-2. [关于 export 和 import](https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281)
+2. [关于 export 和 import - Stack Overflow](https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281)
 
 ---
 
