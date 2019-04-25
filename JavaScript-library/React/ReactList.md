@@ -25,6 +25,8 @@ React 知识点清单
 | <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 Sass 安装及使用](#chapter-night) |
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 React Loadable - 代码打包分割](#chapter-ten) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 React Router - 路由](#chapter-eleven) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 Axios - 调用后端接口](#chapter-twelve) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 React Router - 路由](#chapter-thirteen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -272,17 +274,31 @@ Server Less Stack Overflow](https://serverless-stack.com/chapters/code-splitting
 
 > [返回目录](#chapter-one)
 
-Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。
+Axios 是一个基于 Promise 的 HTTP 库，可以用在浏览器和 Node.js 中。
 
-Features
-从浏览器中创建 XMLHttpRequests
-从 node.js 创建 http 请求
-支持 Promise API
-拦截请求和响应
-转换请求数据和响应数据
-取消请求
-自动转换 JSON 数据
-客户端支持防御 XSRF
+* 功能：
+
+1. 从浏览器中创建 XMLHttpRequests
+2. 从 Node.js 创建 http 请求
+3. 支持 Promise API
+4. 拦截请求和响应
+5. 转换请求数据和响应数据
+6. 取消请求
+7. 自动转换 JSON 数据
+8. 客户端支持防御 XSRF
+
+* 安装：`npm install axios -S`
+* 使用：`axios.get('/user').then((res) => {}).catch((err) => {})`
+
+* [Axios 中文说明](https://www.kancloud.cn/yunye/axios/234845)
+
+> 当然 React 调用接口不可能一家独霸，你还可以了解：[AJAX API三驾马车: Axios vs . jQuery和Fetch - 掘金](https://juejin.im/post/5b4b416a6fb9a04f932feb2c)
+
+## <a name="chapter-thirteen" id="chapter-thirteen">十三 Axios - 调用后端接口</a>
+
+> [返回目录](#chapter-one)
+
+https://segmentfault.com/a/1190000015049343
 
 ## <a name="chapter-more" id="chapter-more">Else 阅读推荐</a>
 
