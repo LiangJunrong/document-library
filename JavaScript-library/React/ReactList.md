@@ -2,7 +2,7 @@ React 知识点清单
 ===
 
 > create by **jsliang** on **2019-04-23 14:10:18**   
-> Recently revised in **2019-04-25 11:12:30**
+> Recently revised in **2019-04-25 15:37:32**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactList.md)**
 
@@ -26,7 +26,8 @@ React 知识点清单
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 React Loadable - 代码打包分割](#chapter-ten) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 React Router - 路由](#chapter-eleven) |
 | <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 Axios - 调用后端接口](#chapter-twelve) |
-| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 React Router - 路由](#chapter-thirteen) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 Fetch - 调用后端接口](#chapter-thirteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 Mock - 利用 Create React App 特性](#chapter-fourteen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -74,7 +75,15 @@ React 知识点清单
 8. **【React Router】**：由于 Create React App 并没有规定路由解决方案，在此推荐 React Router。
    1. [* 通过本文快速了解 *](#chapter-eleven)
    2. [React Router](https://reacttraining.com/react-router/web/example/basic)
-9. **【Axios】**：Axios 是一个
+9. **【Axios】**：Axios 是一个基于 Promise 的 HTTP 库，可以用在浏览器和 Node.js 中。可以用来调用后端接口。
+   1. [* 通过本文快速了解 *](#chapter-twelve)
+   2. [Axios 中文说明](https://www.kancloud.cn/yunye/axios/234845)
+10. **【Fetch】**：Fetch API 类似于 Axios，它提供了一个 JavaScript 接口，用于访问和操纵 HTTP 管道的部分，例如请求和响应。
+    1. [* 通过本文快速了解 *](#chapter-thirteen)
+    2. [使用 Fetch - MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
+    3. [React 快速上手 - 09 数据请求 fetch - SegmentFault](https://segmentfault.com/a/1190000015049343)
+11. **【Mock】**：有时候后端接口还没好，我们不能干愣着，可以借助 Create React App 中的 Node 服务，直接调用本地模拟数据。
+    1. [* 通过本文快速了解 *](#chapter-fourteen)
 
 ## <a name="chapter-four" id="chapter-four">四 Create React App</a>
 
@@ -294,11 +303,110 @@ Axios 是一个基于 Promise 的 HTTP 库，可以用在浏览器和 Node.js �
 
 > 当然 React 调用接口不可能一家独霸，你还可以了解：[AJAX API三驾马车: Axios vs . jQuery和Fetch - 掘金](https://juejin.im/post/5b4b416a6fb9a04f932feb2c)
 
-## <a name="chapter-thirteen" id="chapter-thirteen">十三 Axios - 调用后端接口</a>
+## <a name="chapter-thirteen" id="chapter-thirteen">十三 Fetch - 调用后端接口</a>
 
 > [返回目录](#chapter-one)
 
-https://segmentfault.com/a/1190000015049343
+Fetch API 提供了一个 JavaScript 接口，用于访问和操纵 HTTP 管道的部分，例如请求和响应。它还提供了一个全局 `fetch()` 方法，该方法提供了一种简单，合理的方式来跨网络异步获取资源。
+
+由于 Fetch 是浏览器内置，所以可以直接调用：
+
+```js
+fetch('http://example.com/movies.json')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(myJson);
+  });
+```
+
+由于 Fetch 具有极大兼容性，所以可以在 Create React App 中使用插件：`cross-fetch`，它能解决掉一大部分的兼容：`npm i cross-fetch -S`。
+
+* 参考文献：
+
+1. [使用 Fetch - MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
+2. [React 快速上手 - 09 数据请求 fetch - SegmentFault](https://segmentfault.com/a/1190000015049343)
+
+## <a name="chapter-fourteen" id="chapter-fourteen">十四 Mock - 利用 Create React App 特性</a>
+
+> [返回目录](#chapter-one)
+
+在我们的 Create React App 中，其实是可以使用它自带的 Node 进行接口模拟的，下面我们来看目标目录：
+
+```
+- todolist
+  + node_modules —————————— 项目依赖的第三方的包
+  - public ———————————————— 共用文件
+    - api                —— 新增的 Mock 文件夹
+      - user.json        —— Mock 的 JSON 数据
+    - favicon.ico        —— 网页标签左上角小图标
+    - index.html         —— 网站首页模板
+  - src ——————————————————— 项目主要目录
+    - App.js             —— 主组件入口
+    - index.css          —— 全局 css 文件
+    - index.js           —— 所有代码的入口
+  - .gitignore ——————————— 配置文件。git 上传的时候忽略哪些文件
+  - package.json ————————— node 包文件，介绍项目以及说明一些依赖包等
+```
+
+然后，我们在 src 目录中某个文件的 `ComponentDidMount` 等位置，调用 Fetch 或者 Axios，即可获取到数据：
+
+> user.json
+
+```json
+{
+  "status": "0",
+  "data": [
+    {
+      "name": "jsliang",
+      "age": 24
+    },
+    {
+      "name": "梁峻荣",
+      "age": 24
+    }
+  ]
+}
+```
+
+> Test.js
+
+```js
+import React, { Component } from 'react';
+
+class Test extends Component {
+  render() {
+    return(
+      <div>
+        <h1>Hello React</h1>
+      </div>
+    )
+  }
+
+  componentDidMount() {
+    fetch(
+      '/api/test.json'
+    )
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+      .catch(e => {
+      console.log('错误:', e)
+    })
+  }
+}
+
+export default Test;
+```
+
+最后，我们就可以在浏览器的控制台查看到 Mock 接口数据：
+
+```js
+data: [{name: "jsliang", age: 24}, {name: "梁峻荣", age: 24}]
+status: "0"
+```
 
 ## <a name="chapter-more" id="chapter-more">Else 阅读推荐</a>
 
