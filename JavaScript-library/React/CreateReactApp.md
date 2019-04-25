@@ -2,7 +2,7 @@ Create React App - React 脚手架
 ===
 
 > create by **jsliang** on **2019-04-24 11:36:57**   
-> Recently revised in **2019-4-25 08:45:19**
+> Recently revised in **2019-04-25 09:49:26**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/CreateReactApp.md)**
 
@@ -38,23 +38,51 @@ Create React App - React 脚手架
 
 Create React App 是一个官方支持的创建 React 单页应用程序的方法。它提供了一个零配置的现代构建设置。
 
+本文 **绝大多数**、**99%** 内容来自 Create React App 的文档，**1%** 来自个人的整理。
+
 * 参考文献：
 
-1. [Create React App 中文文档](https://www.html.cn/create-react-app/)
-2. [create-react-app - GitHub](https://github.com/facebook/create-react-app)
+1. [Create React App - 英文文档](https://facebook.github.io/create-react-app/)
+2. [Create React App - 中文文档](https://www.html.cn/create-react-app/)
+3. [Create React App - GitHub](https://github.com/facebook/create-react-app)
 
-## <a name="chapter-three" id="chapter-three">三 正文</a>
+## <a name="chapter-three" id="chapter-three">三 安装</a>
 
 > [返回目录](#chapter-one)
 
 1. 下载 Node.js
-2. 安装 React 脚手架：
+2. 安装 Create React App：
    1. `npm i create-react-app -g`
 3. 开启新项目：
    1. `create-react-app todolist`
    2. `cd todolist`
    3. `npm start`
 4. 打包项目：`npm build`
+
+* 项目目录：
+
+```
+- todolist
+  + node_modules —————————— 项目依赖的第三方的包
+  - public ———————————————— 共用文件
+    - favicon.ico        —— 网页标签左上角小图标
+    - index.html         —— 网站首页模板
+    - mainfest.json      —— 提供 meta 信息给项目，并与 serviceWorker.js 相呼应，进行离线 APP 定义
+  - src ——————————————————— 项目主要目录
+    - App.css            —— 主组件样式
+    - App.js             —— 主组件入口
+    - App.test.js        —— 自动化测试文件
+    - index.css          —— 全局 css 文件
+    - index.js           —— 所有代码的入口
+    - logo.svg           —— 页面的动态图
+    - serviceWorker.js   —— PWA。帮助开发手机 APP 应用，具有缓存作用
+  - .gitignore ——————————— 配置文件。git 上传的时候忽略哪些文件
+  - package-lock.json ———— 锁定安装包的版本号，保证其他人在 npm i 的时候使用一致的 node 包
+  - package.json ————————— node 包文件，介绍项目以及说明一些依赖包等
+  - README.md ———————————— 项目介绍文件
+```
+
+* 参考文献：[入门 - Create React App 中文文档](https://www.html.cn/create-react-app/docs/getting-started/)
 
 ## <a name="chapter-four" id="chapter-four">四 默认支持特性</a>
 
