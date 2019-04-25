@@ -115,10 +115,10 @@ Now，开始搞事情。
     - index.js           —— 所有代码的入口
     - logo.svg           —— 页面的动态图
     - serviceWorker.js   —— PWA。帮助开发手机 APP 应用，具有缓存作用
-  - .gitignore ——————————— 配置文件。git 上传的时候忽略哪些文件
-  - package-lock.json ———— 锁定安装包的版本号，保证其他人在 npm i 的时候使用一致的 node 包
-  - package.json ————————— node 包文件，介绍项目以及说明一些依赖包等
-  - README.md ———————————— 项目介绍文件
+  - .gitignore ———————————— 配置文件。git 上传的时候忽略哪些文件
+  - package-lock.json ————— 锁定安装包的版本号，保证其他人在 npm i 的时候使用一致的 node 包
+  - package.json —————————— node 包文件，介绍项目以及说明一些依赖包等
+  - README.md ————————————— 项目介绍文件
 ```
 
 ### <a name="chapter-three-three" id="chapter-three-three">3.3 精简项目结构</a>
@@ -136,9 +136,9 @@ Now，开始搞事情。
   - src ——————————————————— 重要的目录
     - App.js             —— 主组件入口
     - index.js           —— 所有代码的入口
-  - .gitignore ——————————— 配置文件。git 上传的时候忽略哪些文件
-  - package.json ————————— node 包文件，介绍项目以及说明一些依赖包等
-  - README.md ———————————— 项目介绍文件
+  - .gitignore ———————————— 配置文件。git 上传的时候忽略哪些文件
+  - package.json —————————— node 包文件，介绍项目以及说明一些依赖包等
+  - README.md ————————————— 项目介绍文件
 ```
 
 `favicon.ico`、`.gitignore`、`README.md` 是我们无需理会的，但是其他文件，我们需要精简下它们的代码：
