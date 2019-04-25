@@ -28,7 +28,8 @@ Create React App - React 脚手架
 | &emsp;[* 10.2 Mock 数据](#chapter-ten-two) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[* 十一 代码打包分割](#chapter-eleven) |
 | <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 添加 TypeScript](#chapter-twelve) |
-| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 ](#chapter-thirteen) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 React Router - 路由](#chapter-thirteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 ](#chapter-fourteen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -298,9 +299,14 @@ const MyComponent = () => (
 1. 使用 TypeScript 启动新的 Create React App项目：`npx create-react-app my-app --typescript`
 2. 往 Create React App 现有项目中添加 TypeScript：`npm i typescript @types/node @types/react @types/react-dom @types/jest -S`。（记得修改所有 JS 文件为 TS 文件，例如 `src/index.js` -> `src/index.tsx`）
 
-## <a name="chapter-thirteen" id="chapter-thirteen">十三 </a>
+## <a name="chapter-thirteen" id="chapter-thirteen">十三 React Router - 路由</a>
 
 > [返回目录](#chapter-one)
+
+由于 Create React App 并没有规定路由解决方案，然后市面上比较收欢迎的路由解决方案是 React Router，所以可以尝试使用：
+
+* 安装：`npm i react-router-dom -S`
+* 使用：[React Router](https://reacttraining.com/react-router/web/example/basic)
 
 目前看到；https://www.html.cn/create-react-app/docs/adding-a-router/
 

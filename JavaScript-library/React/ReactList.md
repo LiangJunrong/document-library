@@ -24,6 +24,7 @@ React 知识点清单
 | <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 分析 Bundle 包大小](#chapter-eight) |
 | <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 Sass 安装及使用](#chapter-night) |
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 React Loadable - 代码打包分割](#chapter-ten) |
+| <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 React Router - 路由](#chapter-eleven) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -67,6 +68,9 @@ React 知识点清单
    2. [Code-Splitting - GitHub](https://www.reactjscn.com/docs/code-splitting.html)
    3. [react-loadable](https://github.com/jamiebuilds/react-loadable)
    4. [Code Splitting in Create React App](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
+8. **【React Router】**：由于 Create React App 并没有规定路由解决方案，在此推荐 React Router。
+   1. [* 通过本文快速了解 *](#chapter-eleven)
+   2. [React Router](https://reacttraining.com/react-router/web/example/basic)
 
 ## <a name="chapter-four" id="chapter-four">四 Create React App</a>
 
@@ -215,6 +219,16 @@ const MyComponent = () => (
 1. [Code-Splitting - GitHub](https://www.reactjscn.com/docs/code-splitting.html)
 2. [react-loadable](https://github.com/jamiebuilds/react-loadable)
 3. [Code Splitting in Create React App](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
+
+
+## <a name="chapter-eleven" id="chapter-eleven">十一 React Router - 路由</a>
+
+> [返回目录](#chapter-one)
+
+由于 Create React App 并没有规定路由解决方案，然后市面上比较收欢迎的路由解决方案是 React Router，所以可以尝试使用：
+
+* 安装：`npm i react-router-dom -S`
+* 使用：[React Router](https://reacttraining.com/react-router/web/example/basic)
 
 ## <a name="chapter-more" id="chapter-more">更多 阅读推荐</a>
 
