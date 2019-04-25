@@ -2,7 +2,7 @@ Create React App - React 脚手架
 ===
 
 > create by **jsliang** on **2019-04-24 11:36:57**   
-> Recently revised in **2019-04-24 13:58:34**
+> Recently revised in **2019-4-25 08:45:19**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/CreateReactApp.md)**
 
@@ -28,8 +28,9 @@ Create React App - React 脚手架
 | &emsp;[* 10.2 Mock 数据](#chapter-ten-two) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[* 十一 代码打包分割](#chapter-eleven) |
 | <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 添加 TypeScript](#chapter-twelve) |
-| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 React Router - 路由](#chapter-thirteen) |
-| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 ](#chapter-fourteen) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[* 十三 React Router - 路由](#chapter-thirteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 自定义环境变量](#chapter-fourteen) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 测试](#chapter-fifteen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -37,7 +38,10 @@ Create React App - React 脚手架
 
 Create React App 是一个官方支持的创建 React 单页应用程序的方法。它提供了一个零配置的现代构建设置。
 
-* 参考文献：[Create React App 中文文档](https://www.html.cn/create-react-app/)
+* 参考文献：
+
+1. [Create React App 中文文档](https://www.html.cn/create-react-app/)
+2. [create-react-app - GitHub](https://github.com/facebook/create-react-app)
 
 ## <a name="chapter-three" id="chapter-three">三 正文</a>
 
@@ -309,6 +313,120 @@ const MyComponent = () => (
 * 使用：[React Router](https://reacttraining.com/react-router/web/example/basic)
 
 目前看到；https://www.html.cn/create-react-app/docs/adding-a-router/
+
+## <a name="chapter-fourteen" id="chapter-fourteen">十四 自定义环境变量</a>
+
+> [返回目录](#chapter-one)
+
+1. 定义环境变量：`process.env.REACT_APP_SECRET_CODE`
+2. 获取特殊内置环境变量：`process.env.NODE_ENV`。值为：`test`、`development`、`production`。对应三种环境。
+
+```js
+render() {
+  return (
+    <div>
+      <small>You are running this application in <b>{process.env.NODE_ENV}</b> mode.</small>
+      <form>
+        <input type="hidden" defaultValue={process.env.REACT_APP_SECRET_CODE} />
+      </form>
+    </div>
+  );
+}
+```
+
+在开发环境，该页面渲染为：
+
+```js
+<div>
+  <small>You are running this application in <b>development</b> mode.</small>
+  <form>
+    <input type="hidden" value="abcdef" />
+  </form>
+</div>
+```
+
+## <a name="chapter-fifteen" id="chapter-fifteen">十五 测试</a>
+
+> [返回目录](#chapter-one)
+
+Create React App 使用 Jest 作为其测试运行器。
+
+但是很不幸的是，工作中并没有用上，估计以后的工作也可能不会用上，所以咱们只需要知道有这回事，等有机会再进行尝试。
+
+* 参考文献：
+
+1. [运行测试 - Create React App 中文文档](https://www.html.cn/create-react-app/docs/running-tests/)
+2. [调试测试 - Create React App 中文文档](https://www.html.cn/create-react-app/docs/debugging-tests/)
+
+## <a name="chapter-sixteen" id="chapter-sixteen">十六 开发环境代理</a>
+
+> [返回目录](#chapter-one)
+
+在开发项目的过程中，最担心的莫过于浏览器告诉你跨域了：*后端端口在 4000，或者主机在另一个 IP 地址……*
+
+所以，我们需要在开发环境中配置代理。
+
+> 嗯，你问为什么生产（部署）环境我们不做代理？因为那属于后端的活了，或许你是个 *全栈* 工程师，你可以自行解决下。
+
+往 package.json 中添加字段：
+
+> package.json
+
+```json
+  "proxy": "http://localhost:4000",
+```
+
+这样当你调用接口：`fetch('/api/todos')` 时，它会请求代理到 `http://localhost:4000/api/todos`。
+
+---
+
+当然，有可能 `proxy` 不够灵活，小伙伴们可以尝试通过直接访问 Express，并连接项目的代理中间件，详情看参考文献。
+
+* 参考文献：
+
+1. [在开发环境中代理 API 请求 - Create React App 中文文档](https://www.html.cn/create-react-app/docs/proxying-api-requests-in-development/)
+2. [手动配置代理 - Create React App 中文文档](https://www.html.cn/create-react-app/docs/proxying-api-requests-in-development/#%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86)
+
+## <a name="chapter-seventeen" id="chapter-seventeen">十七 使用 Ajax 请求获取数据</a>
+
+> [返回目录](#chapter-one)
+
+在 Create React App 中，可以通过下面两种方法获取 Ajax 数据：
+
+1. `fetch()` API
+2. `axios` 库
+
+当然，没有限制死必须使用这两种。
+
+这两种调用 Ajax 请求获取数据的方式便捷在它返回 Promise 供链式调用数据。
+
+* 参考文献：[使用AJAX请求获取数据- Create React App 中文文档](https://www.html.cn/create-react-app/docs/fetching-data-with-ajax-requests/)
+
+## <a name="chapter-eighteen" id="chapter-eighteen">十八 Title 和 Meta</a>
+
+> [返回目录](#chapter-one)
+
+* 动态更新 Title：`document.title` API
+* 根据 React 组件更改 Title：`React Helmet` 等第三方库
+* 动态更新 Meta：
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta property="og:title" content="__OG_TITLE__">
+    <meta property="og:description" content="__OG_DESCRIPTION__">
+  </head>
+
+  <body>
+  
+  </body>
+</html>
+```
+
+然后读取 index.html 并将 `__OG_TITLE__` 和 `__OG_DESCRIPTION__` 替换掉即可。
+
+* 参考文献：[Title(网页标题) 和 Meta 标签 - Create React App 中文文档](https://www.html.cn/create-react-app/docs/title-and-meta-tags/)
 
 ---
 
