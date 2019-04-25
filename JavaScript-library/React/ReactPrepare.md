@@ -156,6 +156,17 @@ input::-moz-placeholder { color: #919191; font-size: .32rem } /* Mozilla Firefox
 input::-ms-input-placeholder { color: #919191; font-size: .32rem } /* Internet Explorer */
 ```
 
+## Npm Install
+
+* 安装 Redux：`npm i redux -S`
+* 安装 React-Redux：`npm i react-redux -S`
+* 安装 Redux-Saga：`npm i redux-saga -S`
+* 安装 React-Router：`npm i react-router-dom -S`
+* 安装 Ant Design：`npm i antd -S`
+* 安装 Axios：`npm i axios -S`
+
+* 总：`cnpm i redux react-redux redux-saga react-router-dom antd axios -S`
+
 ---
 
 > **jsliang** 广告推送：  
