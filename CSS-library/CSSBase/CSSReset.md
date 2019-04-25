@@ -2,7 +2,7 @@ CSS Reset
 ===
 
 > Create by **jsliang** on **2018-12-23 20:12:08**  
-> Recently revised in **2019-3-27 13:33:07**
+> Recently revised in **2019-04-25 17:46:46**
 
 各式各样浏览器总有一些让人感觉难以接受的样式，  
 
@@ -23,13 +23,13 @@ dl, dt, dd, ul, ol, li, /* 列表元素 - list elements */
 pre, /* 文本格式元素 - text formatting elements */
 form, fieldset, legend, button, input, textarea, /* 表单元素 - from elements */
 th, td /* 表格元素 - table elements */ {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /** 设置默认字体 - setting the default font **/
 body, button, input, select, textarea {
-    font: 18px/1.5 '黑体', Helvetica, sans-serif;
+  font: 18px/1.5 '黑体', Helvetica, sans-serif;
 }
 h1, h2, h3, h4, h5, h6, button, input, select, textarea { font-size: 100%; }
 
@@ -61,13 +61,13 @@ div, input { box-sizing: border-box; }
 
 /** 清除浮动 - clear float **/
 .jsliang-clear:after, .clear:after {
-    content: '\20';
-    display: block;
-    height: 0;
-    clear: both;
+  content: '\20';
+  display: block;
+  height: 0;
+  clear: both;
 }
 .jsliang-clear, .clear {
-    *zoom: 1;
+  *zoom: 1;
 }
 
 /** 设置input的placeholder - set input placeholder **/
