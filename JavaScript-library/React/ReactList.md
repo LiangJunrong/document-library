@@ -279,7 +279,7 @@ Server Less Stack Overflow](https://serverless-stack.com/chapters/code-splitting
 * 安装：`npm i react-router-dom -S`
 * 使用：
 
-1. [React Router 官方文档](https://reacttraining.com/react-router/)
+1. [React Router 官方文档](https://reacttraining.com/react-router/web/guides/quick-start)
 2. [React Router DOM 中文文档（一） - 简书](https://www.jianshu.com/p/97e4af32811a)
 3. [React Router DOM 中文文档（二） - 简书](https://www.jianshu.com/p/5796c360e776)
 
