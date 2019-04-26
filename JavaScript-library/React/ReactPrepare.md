@@ -2,7 +2,7 @@ React 开发准备
 ===
 
 > Create by **jsliang** on **2019-04-25 16:20:59**  
-> Recently revised in **2019-04-25 17:15:09**
+> Recently revised in **2019-04-26 11:57:21**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactPrepare.md)**
 
@@ -204,8 +204,6 @@ export default App;
 ```
 
 </details>
-
-* `<BrowserRouter>`：`<BrowserRouter>` 使用 HTML5 提供的 history API (`pushState`, `replaceState` 和 `popstate` 事件) 来保持 UI 和 URL 的同步。
 
 ---
 
