@@ -4,7 +4,7 @@ React List - Create React App
 > create by **jsliang** on **2019-04-24 11:36:57**   
 > Recently revised in **2019-04-25 10:44:54**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/CreateReactApp.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactList-CreateReactApp.md)**
 
 * [React 系列文章代码地址](https://github.com/LiangJunrong/React)
 
