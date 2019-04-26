@@ -2,7 +2,7 @@ React List - React Router
 ===
 
 > Create by **jsliang** on **2019-04-26 13:13:18**  
-> Recently revised in **2019-04-26 13:13:21**
+> Recently revised in **2019-04-26 16:44:14**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactList-ReactRouter.md)**
 
@@ -35,20 +35,155 @@ React List - React Router
 * 参考资料：
 
 1. [React Router 官方文档](https://reacttraining.com/react-router/web/guides/quick-start)
-2. [React Router DOM 中文文档（一） - 简书](https://www.jianshu.com/p/97e4af32811a)
-3. [React Router DOM 中文文档（二） - 简书](https://www.jianshu.com/p/5796c360e776)
+2. [React Router 中文文档](https://react-router.docschina.org)
+3. [React Router 中文文档（旧）](https://react-guide.github.io/react-router-cn/)
+4. [React Router DOM 中文文档（一） - 简书](https://www.jianshu.com/p/97e4af32811a)
+5. [React Router DOM 中文文档（二） - 简书](https://www.jianshu.com/p/5796c360e776)
 
 ## <a name="chapter-three" id="chapter-three">三 初试</a>
 
 > [返回目录](#chapter-one)
 
+在 Create React App 中，我们引用 React Router：`npm i react-router-dom -S`
+
+然后在 src 目录下新建 pages 用来存放页面，并修改 App.js：
+
+> 案例：App.js
+
+<details>
+
+  <summary>案例详情</summary>
+
 ```js
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import React, { Fragment } from 'react';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import TimeLine from './pages/TimeLine';
+
+function App() {
+  return (
+    <Fragment>
+      <BrowserRouter>
+        <header>
+          <Link to="/">首页</Link>
+        </header>
+        <Route path="/" exact component={TimeLine}></Route>
+      </BrowserRouter>
+    </Fragment>
+  );
+}
+
+export default App;
+```
+
+</details>
+
+通过在 App.js 中如此定义，即可定义对应的组件，并渲染对应页面和进行跳转。
+
+## <a name="chapter-four" id="chapter-four">四 简介</a>
+
+> [返回目录](#chapter-one)
+
+下面我们对一些常用/好用的方法进行介绍：
+
+```js
+import { 
+  BrowserRouter,
+  Route,
+  NavLink,
+  Link,
+} from "react-router-dom";
 ```
 
 * `<BrowserRouter>`：路由组件包裹层。`<Route>` 和 `<Link>` 的包裹层。
 * `<Route>`：路由。定义一个路由页面，用来匹配对应的组件（Component）和路由路径。
+* `<NavLink>`：活跃链接。当 URL 中的路径等于该路由定义的路径时，该标签可以呈现它定义的 `activeClassName`。
 * `<Link>`：链接。用来跳转到 `<Route>` 对应的路由（Component） 中。
+
+## BrowserRouter
+
+`<BrowserRouter>` 会为你创建一个专门的 history 对象，用来记录你的路由，从而能够返回上一页或者跳转到指定的路由页面。
+
+> 区别于 `<HashRouter>`，有响应请求的服务器时使用 `<BrowserRouter>`，使用的是静态文件的服务器，则用 `<HashRouter>`。
+
+```js
+<BrowserRouter>
+  <Header />
+  <Route path="/" exact component={TimeLine}></Route>
+  <Route path="/timeline" component={TimeLine}></Route>
+</BrowserRouter>
+```
+
+### 
+
+## Switch
+
+可以利用 `<Switch>` 做分组，即当有匹配时，匹配对应 `path` 对应的组件；如果没有匹配，则匹配 `NotFound` 页面。
+
+```js
+<BrowserRouter>
+  <Header />
+  <Switch>
+    <Route path="/" exact component={TimeLine}></Route>
+    <Route path="/timeline" component={TimeLine}></Route>
+    <Route component={NotFound}></Route>
+  </Switch>
+</BrowserRouter>
+```
+
+## Router
+
+* 全匹配和半匹配（exact）：
+
+```js
+<BrowserRouter>
+  <Route path="/" exact component={TimeLine}></Route>
+  <Route path="/timeline" component={TimeLine}></Route>
+</BrowserRouter>
+```
+
+加了 `exact` 属性后，会完全匹配路径；如果没有加，则二级路径也会匹配当前路径（例如 `/timeline/book`）。
+
+* 路由渲染属性：
+
+```js
+const Home = () => <div>Home</div>;
+
+const App = () => {
+  const someVariable = true;
+
+  return (
+    <Switch>
+      {/* these are good */}
+      <Route exact path="/" component={Home} />
+      <Route
+        path="/about"
+        render={props => <About {...props} extra={someVariable} />}
+      />
+      {/* do not do this */}
+      <Route
+        path="/contact"
+        component={props => <Contact {...props} extra={someVariable} />}
+      />
+    </Switch>
+  );
+};
+```
+
+我们可以动态设置 `extra` 的值，从而判断是否需要加载某个组件。
+
+## Redirect
+
+我们可以设置某个路由重定向到另一个路由，例如下面即对 `/` 完全匹配重定向到 `/timeline` 页面。
+
+```js
+<Redirect from="/" to="/timeline" exact />
+```
+
+## NavLink
+
+* 高亮显示：`<NavLink to="/timeline" activeClassName="active">首页</NavLink>`
+
+## Link
 
 ---
 
