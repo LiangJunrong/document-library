@@ -30,7 +30,7 @@ React List - React Router
 
 这篇文章我们讲解在 React 中如何通过 React Router 这个插件，灵活使用路由。
 
-> 我瞎吹的，最好自己百度 **前端路由** 是啥。
+> **jsliang** 瞎吹的，最好自己百度 **前端路由** 是啥。
 
 * 参考资料：
 
@@ -184,6 +184,128 @@ const App = () => {
 * 高亮显示：`<NavLink to="/timeline" activeClassName="active">首页</NavLink>`
 
 ## Link
+
+## Code Splitting
+
+随着应用的增长，代码包会随着生长。
+
+到最后你会发现，你打包后的 js 文件大地太多离谱。
+
+所以，我们需要通过代码分割，依据不同的路由，加载不同的 js 文件。
+
+1. 安装 React Loadable：`npm i react-loadable -S`
+2. 结合 React Router 和 React Loadable 进行 Code Spliting：
+
+```js
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Loadable from 'react-loadable';
+
+const Loading = () => <div>Loading...</div>;
+
+const Home = Loadable({
+  loader: () => import('./routes/Home'),
+  loading: Loading,
+});
+
+const About = Loadable({
+  loader: () => import('./routes/About'),
+  loading: Loading,
+});
+
+const App = () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Home}/>
+      <Route path="/about" component={About}/>
+    </Switch>
+  </Router>
+);
+```
+
+3. 打包项目： `npm run build`
+
+## Scroll To Top
+
+### 跳转页面滚动到顶部
+
+1. **首先**，在全局 components 文件中定义 ScrollToTop 文件夹，其中 index.js 内容为：
+
+> src/components/ScrollToTop/index.js
+
+```js
+import { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
+class ScrollToTop extends Component {
+    componentDidUpdate(prevProps) {
+        if (this.props.location !== prevProps.location) {
+          window.scrollTo(0, 0)
+        }
+    }
+    render() {
+        return this.props.children
+    }
+}
+ 
+export default withRouter(ScrollToTop);
+```
+
+2. **然后**，在 App.js 或者其他页面中使用 ScrollToTop 功能：
+
+> src/App.js
+
+```js
+import React, { Fragment } from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
+import Header from './components/Header';
+import TimeLine from './pages/TimeLine';
+import NotFound from './pages/404';
+
+function App() {
+  return (
+    <Fragment>
+      <BrowserRouter>
+        <Header />
+        <ScrollToTop>
+          <Switch>
+            <Redirect from="/" to="/timeline" exact />
+            <Route path="/timeline" component={TimeLine}></Route>
+            <Route component={NotFound}></Route>
+          </Switch>
+        </ScrollToTop>
+      </BrowserRouter>
+    </Fragment>
+  );
+}
+
+export default App;
+```
+
+这样，我们切换路由的时候，页面就会滚动到顶部。
+
+## Redux
+
+在项目中，我们更希望 React Router 和 React Redux 合并起来，这时候可以：
+
+* https://reacttraining.com/react-router/web/guides/redux-integration
+
+```js
+// before
+export default connect(mapStateToProps)(Something)
+
+// after
+import { withRouter } from 'react-router-dom'
+export default withRouter(connect(mapStateToProps)(Something))
+```
+
+## 你看到
+
+* https://react-router.docschina.org/web/api/BrowserRouter
+
+## 参考文献
+
+1. [React Router 4.x 开发，这些雷区我们都帮你踩过了 - 掘金](https://juejin.im/entry/5b50518bf265da0f6436c34a)
 
 ---
 
