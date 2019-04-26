@@ -2,7 +2,7 @@ React 知识点清单
 ===
 
 > create by **jsliang** on **2019-04-23 14:10:18**   
-> Recently revised in **2019-04-25 15:37:32**
+> Recently revised in **2019-04-26 11:49:38**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactList.md)**
 
@@ -277,7 +277,10 @@ Server Less Stack Overflow](https://serverless-stack.com/chapters/code-splitting
 由于 Create React App 并没有规定路由解决方案，然后市面上比较收欢迎的路由解决方案是 React Router，所以可以尝试使用：
 
 * 安装：`npm i react-router-dom -S`
-* 使用：[React Router - 测试网站](https://reacttraining.com/react-router/web/example/basic)
+* 使用：
+
+1. [React Router - 测试网站](https://reacttraining.com/react-router/web/example/basic)
+2. [React Router DOM 中文文档（一）](https://www.jianshu.com/p/97e4af32811a)
 
 ## <a name="chapter-twelve" id="chapter-twelve">十二 Axios - 调用后端接口</a>
 

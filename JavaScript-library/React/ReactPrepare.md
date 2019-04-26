@@ -90,6 +90,12 @@ React 开发准备
 
 ## Reset CSS
 
+> reset.css
+
+<details>
+
+  <summary>代码详情</summary>
+
 ```css
 /* 
   * reset 的目的不是让默认样式在所有浏览器下一致，而是减少默认样式有可能带来的问题。
@@ -156,6 +162,8 @@ input::-moz-placeholder { color: #919191; font-size: .32rem } /* Mozilla Firefox
 input::-ms-input-placeholder { color: #919191; font-size: .32rem } /* Internet Explorer */
 ```
 
+</details>
+
 ## Npm Install
 
 * 安装 Redux：`npm i redux -S`
@@ -166,6 +174,42 @@ input::-ms-input-placeholder { color: #919191; font-size: .32rem } /* Internet E
 * 安装 Axios：`npm i axios -S`
 
 * 总：`cnpm i redux react-redux redux-saga react-router-dom antd axios -S`
+
+## React Router DOM
+
+> 案例
+
+<details>
+
+  <summary>案例详情</summary>
+
+```js
+import React, { Fragment } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Header from './components/Header';
+import TimeLine from './pages/TimeLine';
+
+function App() {
+  return (
+    <Fragment>
+      <BrowserRouter>
+        <Header />
+        <Route path="/" exact component={TimeLine}></Route>
+      </BrowserRouter>
+    </Fragment>
+  );
+}
+
+export default App;
+```
+
+</details>
+
+我们可以从 React Router DOM 中引用：
+
+```js
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+```
 
 ---
 
