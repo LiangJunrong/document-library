@@ -2,7 +2,7 @@ React List - React Router
 ===
 
 > Create by **jsliang** on **2019-04-26 13:13:18**  
-> Recently revised in **2019-04-26 16:44:14**
+> Recently revised in **2019-4-27 16:56:06**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactList-ReactRouter.md)**
 
@@ -299,7 +299,7 @@ import { withRouter } from 'react-router-dom'
 export default withRouter(connect(mapStateToProps)(Something))
 ```
 
-## 你看到
+## 我看到
 
 * https://react-router.docschina.org/web/api/BrowserRouter
 
