@@ -14,7 +14,7 @@
 
 ## 二 竞赛规则
 
-1. 需提供一个仅包含 `README.md` 的仓库，或者在自己的文档库提供一个 Markdown 页面，像记日记一般用于记录个人成长。
+1. 需提供一个仅包含 `README.md` 的仓库，或者在自己的文档库提供一个 Markdown 页面，像记日记一般用于记录个人成长。[jsliang 的参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/Logs)
 2. 比赛内容不限，但请在 `README.md` 中记录你每天点滴成长。同时小伙伴应注意适当休息，磨刀不误砍柴工，休赛记得提醒 **jsliang**！
 3. 可选择按天、周、月参与。
 4. 每天的比赛金为 5 元，每周的比赛金为 35 元。
@@ -45,7 +45,7 @@
 
 ---
 
-* **jsliang 微信**：
+**jsliang 微信**：
 
 ![图](../../public-repertory/img/z-wechat.jpeg)
 
