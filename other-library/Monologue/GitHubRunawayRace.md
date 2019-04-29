@@ -38,7 +38,7 @@
 
 **jsliang** 我想参与你组织的 **暴走前端 - GitHub 竞赛**：
 
-1. 我竞赛的 `README.md` 仓库在 `https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/Log`（GitHub 仓库地址）
+1. 我竞赛的 `README.md` 仓库在 [jsliang 的参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/Logs)（GitHub 仓库地址）
 2. 我参赛昵称是 **广州-jsliang**（进群请修改成该昵称）
 3. 目前我的发展是先搞 `React` 基础，然后写几个 `React` Demo，最后深入探究下 `React` 源码。
 4. 本周我想开始参与，截止至周日还有 3 天，我先交 15 元（3 天 * 5 元）给你报名，今天开始记录。
