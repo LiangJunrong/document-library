@@ -8,7 +8,7 @@ Document Library - 文档库
 
 本文档库始建于 `2018-08-20`，开始目的是做学习笔记。  
 
-如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/WritingIdeas.md)** 进行查看。  
+如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/Logs/README.md)** 进行查看。  
 
 如想知道 **jsliang** 各种新奇玩意，请前往 **[网站清单](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/README.md)** 进行查看。
 
