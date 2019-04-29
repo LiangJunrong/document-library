@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-04-29 08:37:37**
+> Recently revised in **2019-04-29 10:17:54**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -52,17 +52,17 @@
 
 ## 四 成员名单
 
-| GitHub 账号 | 竞赛记录地址 | 
-| --- | --- | 
-| 1. [广州-jsliang 的 GitHub](https://github.com/LiangJunrong) | [广州 -jsliang 的参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/Logs) |
-| 2. [Liutaochange](https://github.com/liutaochange) | ——空—— |
-| 3. [jerry](https://github.com/jgchenu) | ——空—— |
-| 4. [邵威儒](https://github.com/iamswr) | ——空—— |
-| 5. [HESUIJUN](https://github.com/HESUIJUN) | ——空—— |
-| 6. [豆包君](https://github.com/danygitgit) | ——空—— |
-| 7. [huqi](https://github.com/hu-qi) | ——空—— |
-| 7. [imNaive](https://github.com/HashidaHaru) | ——空—— |
-| 8. [teachat8](https://github.com/teachat8) | ——空—— |
+| 昵称 | GitHub 账号 | 竞赛记录地址 | 
+| --- | --- | --- | 
+| 1. 广州-jsliang | [GitHub](https://github.com/LiangJunrong) | [参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/Logs) |
+| 2. Liutaochange | [GitHub](https://github.com/liutaochange) | ——空—— |
+| 3. jerry | [GitHub](https://github.com/jgchenu) | ——空—— |
+| 4. 邵威儒 | [GitHub](https://github.com/iamswr) | ——空—— |
+| 5. HESUIJUN | [GitHub](https://github.com/HESUIJUN) | ——空—— |
+| 6. 豆包君 | [GitHub](https://github.com/danygitgit) | ——空—— |
+| 7. huqi | [GitHub](https://github.com/hu-qi) | ——空—— |
+| 8. imNaive | [GitHub](https://github.com/HashidaHaru) | ——空—— |
+| 9. teachat8 | [GitHub](https://github.com/teachat8) | ——空—— |
 
 ## 五 比赛历史
 
