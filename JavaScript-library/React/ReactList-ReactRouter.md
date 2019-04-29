@@ -2,7 +2,7 @@ React List - React Router
 ===
 
 > Create by **jsliang** on **2019-04-26 13:13:18**  
-> Recently revised in **2019-4-27 16:56:06**
+> Recently revised in **2019-04-29 11:54:01**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactList-ReactRouter.md)**
 
@@ -40,33 +40,51 @@ React List - React Router
 4. [React Router DOM 中文文档（一） - 简书](https://www.jianshu.com/p/97e4af32811a)
 5. [React Router DOM 中文文档（二） - 简书](https://www.jianshu.com/p/5796c360e776)
 
+* 篇外
+
+网上有很多 React Router 文章了，例如：
+
+* [React Router 中文文档（一）](https://segmentfault.com/a/1190000014294604)
+* [React Router DOM 中文文档（一）](https://www.jianshu.com/p/97e4af32811a)
+
+为何 **jsliang** 要多次一举？
+
+1. 你记录你的，我记录我的，互相不妨碍
+2. 看这些跟看官网没啥两样，所以我需要亲自动手过一遍官网
+3. 记录我看官网的内容，顺带记录我应用上去的实例
+
 ## <a name="chapter-three" id="chapter-three">三 初试</a>
 
 > [返回目录](#chapter-one)
 
-在 Create React App 中，我们引用 React Router：`npm i react-router-dom -S`
+**首先**，在 Create React App 中，我们引用 React Router：
 
-然后在 src 目录下新建 pages 用来存放页面，并修改 App.js：
+* `npm i react-router-dom -S`
+
+**然后**，在 src 目录下新建 pages 用来存放页面，并修改 App.js：
 
 > 案例：App.js
 
-<details>
-
-  <summary>案例详情</summary>
-
 ```js
 import React, { Fragment } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
+import Header from './components/Header';
 import TimeLine from './pages/TimeLine';
+import NotFound from './pages/404';
 
 function App() {
   return (
     <Fragment>
       <BrowserRouter>
-        <header>
-          <Link to="/">首页</Link>
-        </header>
-        <Route path="/" exact component={TimeLine}></Route>
+        <Header />
+        <ScrollToTop>
+          <Switch>
+            <Redirect from="/" to="/timeline" exact />
+            <Route path="/timeline" component={TimeLine}></Route>
+            <Route component={NotFound}></Route>
+          </Switch>
+        </ScrollToTop>
       </BrowserRouter>
     </Fragment>
   );
@@ -75,9 +93,7 @@ function App() {
 export default App;
 ```
 
-</details>
-
-通过在 App.js 中如此定义，即可定义对应的组件，并渲染对应页面和进行跳转。
+**最后**，通过在 App.js 中如此定义，即可定义对应的组件，并渲染对应页面和进行跳转。
 
 ## <a name="chapter-four" id="chapter-four">四 简介</a>
 
@@ -99,11 +115,15 @@ import {
 * `<NavLink>`：活跃链接。当 URL 中的路径等于该路由定义的路径时，该标签可以呈现它定义的 `activeClassName`。
 * `<Link>`：链接。用来跳转到 `<Route>` 对应的路由（Component） 中。
 
-## BrowserRouter
+## <a name="chapter-five" id="chapter-five">五 BrowserRouter</a>
+
+> [返回目录](#chapter-one)
 
 `<BrowserRouter>` 会为你创建一个专门的 history 对象，用来记录你的路由，从而能够返回上一页或者跳转到指定的路由页面。
 
 > 区别于 `<HashRouter>`，有响应请求的服务器时使用 `<BrowserRouter>`，使用的是静态文件的服务器，则用 `<HashRouter>`。
+
+简单案例：
 
 ```js
 <BrowserRouter>
@@ -113,7 +133,207 @@ import {
 </BrowserRouter>
 ```
 
-### 
+### <a name="chapter-five-one" id="chapter-five-one">5.1 BrowserRouter 语法</a>
+
+> [返回目录](#chapter-one)
+
+```js
+import { BrowserRouter } from 'react-router-dom'
+
+<BrowserRouter
+  basename={optionalString}
+  forceRefresh={optionalBool}
+  getUserConfirmation={optionalFunc}
+  keyLength={optionalNumber}
+>
+  <App/>
+</BrowserRouter>
+```
+
+### <a name="chapter-five-two" id="chapter-five-two">5.2 BrowserRouter - basename</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`basename: string`
+
+为里面的子目录提供基础路径名，例如：
+
+```js
+<BrowserRouter basename="/calendar">
+  <Link to="/today"/> 
+  {/* 渲染为 <a href="/calendar/today"> */}
+</BrowserRouter>
+```
+
+### <a name="chapter-five-three" id="chapter-five-three">5.3 BrowserRouter - getUserConfirmation</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`getUserConfirmation: function`
+
+用于确认导航的功能。
+
+```js
+// 默认使用 window.confirm。
+const getConfirmation = (message, callback) => {
+  const allowTransition = window.confirm(message)
+  callback(allowTransition)
+}
+
+<BrowserRouter getUserConfirmation={getConfirmation}/>
+```
+
+### <a name="chapter-five-four" id="chapter-five-four">5.4 BrowserRouter - forceRefresh</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`forceRefresh: bool`
+
+如果为 true，则路由器将在页面导航中使用整页刷新
+
+```js
+const supportsHistory = 'pushState' in window.history
+<BrowserRouter forceRefresh={!supportsHistory}/>
+```
+
+### <a name="chapter-five-five" id="chapter-five-five">5.5 BrowserRouter - keyLength</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`keyLength: number`
+
+设置它里面路由的 `location.key` 的长度。默认为 6。
+
+> key 的作用：点击同一个链接时，每次该路由下的 location.key都会改变，可以通过 key 的变化来刷新页面。
+
+```js
+<BrowserRouter keyLength={12}/>
+```
+
+## <a name="chapter-six" id="chapter-six">六 HashRouter</a>
+
+> [返回目录](#chapter-one)
+
+使用 `URL` 的 `hash` 部分（即 `window.location.hash` ）的 `<Router>` 使 `UI` 与 `URL` 保持同步。
+
+**重要提示**`：Hash` 历史记录不支持 `location.key` 或 `location.state`。
+
+```js
+import { HashRouter } from 'react-router-dom'
+
+<HashRouter>
+  <App/>
+</HashRouter>
+```
+
+### <a name="chapter-six-one" id="chapter-six-one">6.1 HashRouter - basename</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`basename: string`
+
+所有位置的基本 `URL`，格式正确的基本名应该有一个前导斜线，但结尾不能有斜线。
+
+```js
+<HashRouter basename="/calendar"/>
+<Link to="/today"/> 
+{/* 渲染为 <a href="/calendar/today"> */}
+```
+
+### <a name="chapter-six-two" id="chapter-six-two">6.2 HashRouter - getUserConfirmation</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`getUserConfirmation: func`
+
+用于确认导航的功能。默认使用 window.confirm。
+
+```js
+// this is the default behavior
+const getConfirmation = (message, callback) => {
+  const allowTransition = window.confirm(message)
+  callback(allowTransition)
+}
+
+<HashRouter getUserConfirmation={getConfirmation}/>
+```
+
+### <a name="chapter-six-three" id="chapter-six-three">6.3 HashRouter - hashType</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`hashType: string`
+
+用于 `window.location.hash` 的编码类型。可用的值是：
+
+* `slash` - 创建 `#/` 和的 `#/sunshine/lollipops`
+* `noslash` - 创建 `#` 和的 `#sunshine/lollipops`
+* `hashbang` - 创建 `ajax crawlable`，如 `#!/` 和
+ `#!/sunshine/lollipops`
+
+默认为 `slash`。
+
+## <a name="chapter-seven" id="chapter-seven">七 Link</a>
+
+> [返回目录](#chapter-one)
+
+在应用程序周围提供声明式的,可访问的导航。
+
+### <a name="chapter-seven-one" id="chapter-seven-one">7.1 Link - to</a>
+
+> [返回目录](#chapter-one)
+
+* 规则 1：`to: string`
+
+链接位置的字符串表示，通过连接位置的路径名，搜索和 `hash` 属性创建。
+
+```js
+<Link to='/courses?sort=name'>字符串形式跳转</Link>
+```
+
+* 规则 2：`to: object`
+
+一个可以具有以下任何属性的对象：
+
+* `pathname`: 表示要链接到的路径的字符串。
+* `search`: 表示查询参数的字符串形式。
+* `hash`: 放入网址的 `hash`，例如 `#a-hash`。
+* `state`: 状态持续到 `location`。
+
+```js
+<Link to={{
+  pathname: '/courses',          // 基础路径
+  search: '?sort=name',          // 匹配字段
+  hash: '#the-hash',             // 对应内链
+  state: { fromDashboard: true } // 未知
+}}>
+  对象形式跳转
+</Link>
+```
+
+### <a name="chapter-seven-two" id="chapter-seven-two">7.2 Link - replace</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`replace: bool`
+
+如果为 `true`，则单击链接将替换历史堆栈中的当前入口，而不是添加新入口。
+
+```js
+<Link to="/courses" replace>替换当前 hash 路径</Link>
+```
+
+### <a name="chapter-seven-three" id="chapter-seven-three">7.3 Link - other</a>
+
+> [返回目录](#chapter-one)
+
+还可以传递想要放在 `<a>` 上的属性，例如标题，`ID`、`className` 等。
+
+```js
+<Link to="/test" id="myTest">测试 1</Link>
+```
+
+> [返回目录](#chapter-one)
 
 ## Switch
 
@@ -182,8 +402,6 @@ const App = () => {
 ## NavLink
 
 * 高亮显示：`<NavLink to="/timeline" activeClassName="active">首页</NavLink>`
-
-## Link
 
 ## Code Splitting
 
