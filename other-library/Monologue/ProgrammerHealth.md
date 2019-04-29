@@ -4,9 +4,9 @@
 > Create by **jsliang** on **2019-4-29 22:09:30**  
 > Recently revised in **2019-4-29 22:25:43**
 
-## <a name="chapter-one" id="chapter-one">一 目录</a>
-
 **折腾过渡的前端，和咸鱼有什么区别**
+
+## <a name="chapter-one" id="chapter-one">一 目录</a>
 
 | 目录 |
 | --- | 
@@ -16,6 +16,16 @@
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
 > [返回目录](#chapter-one)
+
+程序员，高危行业。
+
+注意锻炼，保持身体健康，才是继续革命的本钱。
+
+## <a name="chapter-three" id="chapter-three">三 正文</a>
+
+> [返回目录](#chapter-one)
+
+目前收集资料（尚未整理）
 
 * 疾病：
 
