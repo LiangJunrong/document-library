@@ -12,9 +12,11 @@ Document Library - 文档库
 
 如想知道 **jsliang** 各种新奇玩意，请前往 **[网站清单](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/README.md)** 进行查看。
 
+如想参与 **jsliang** 组织的小竞赛，请前往 **[个人竞赛](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/GitHubRunawayRace.md)** 进行查看。
+
 建文档库的初始目的：**记录一下 `jsliang` 的在折腾学习某个黑科技的时候的操作笔记。**
 
-因为，如果你学习而不写文章、不做笔记，某天你突发奇想，又要用到某个之前你用过的黑科技……那样的话，还需要百度或者 google 一遍，太累了！
+因为，如果你学习而不写文章、不做笔记，某天你突发奇想，需要用到某个之前你用过的黑科技……那样的话，还需要 百度 / google 一遍，太累了！太浪费人生了！
 
 所以，集一生洪荒之力，写一个编程文档库，存放，我编程生涯的点点滴滴。
 
