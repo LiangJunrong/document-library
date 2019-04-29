@@ -25,8 +25,20 @@ React List - React Router
 | &emsp;[5.4 BrowserRouter - forceRefresh](#chapter-five-four) |
 | &emsp;[5.5 BrowserRouter - keyLength](#chapter-five-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 HashRouter](#chapter-six) |
+| &emsp;[6.1 HashRouter - basename](#chapter-six-one) |
+| &emsp;[6.2 HashRouter - getUserConfirmation](#chapter-six-two) |
+| &emsp;[6.3 HashRouter - hashType](#chapter-six-three) |
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 Link](#chapter-seven) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[二 前言](#chapter-eight) |
+| &emsp;[7.1 Link - to](#chapter-seven-one) |
+| &emsp;[7.2 Link - replace](#chapter-seven-two) |
+| &emsp;[7.3 Link - other](#chapter-seven-three) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 前言](#chapter-eight) |
+| &emsp;[8.1 NavLink - activeClassName](#chapter-eight-one) |
+| &emsp;[8.2 NavLink - activeStyle](#chapter-eight-two) |
+| &emsp;[8.3 NavLink - exact](#chapter-eight-three) |
+| &emsp;[8.4 NavLink - isActive](#chapter-eight-four) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 前言](#chapter-night) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 前言](#chapter-ten) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -346,6 +358,143 @@ const getConfirmation = (message, callback) => {
 
 > [返回目录](#chapter-one)
 
+## <a name="chapter-eight" id="chapter-eight">八 NavLink</a>
+
+> [返回目录](#chapter-one)
+
+一个特殊版本的 Link，当它与当前 URL 匹配时，为其渲染元素添加样式属性。
+
+* 高亮显示首页：`<NavLink to="/timeline" activeClassName="active">首页</NavLink>`
+
+### <a name="chapter-eight-one" id="chapter-eight-one">8.1 NavLink - activeClassName</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`activeClassName: string`
+
+要给出的元素的类处于活动状态时。默认的给定类是 `active`。它将与 `className` 属性一起使用。
+
+```js
+<NavLink
+  to="/faq"
+  activeClassName="selected"
+>FAQs</NavLink>
+```
+
+### <a name="chapter-eight-two" id="chapter-eight-two">8.2 NavLink - activeStyle</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`activeStyle: object`
+
+当元素处于 active 时应用于元素的样式。
+
+```js
+<NavLink
+  to="/faq"
+  activeStyle={{
+    fontWeight: 'bold',
+    color: 'red'
+   }}
+>FAQs</NavLink>
+```
+
+### <a name="chapter-eight-three" id="chapter-eight-three">8.3 NavLink - exact</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`exact: bool`
+
+如果为 `true`，则仅在位置完全匹配时才应用 `active` 的类/样式。
+
+```js
+<NavLink
+  exact
+  to="/profile"
+>Profile</NavLink>
+```
+
+### <a name="chapter-eight-four" id="chapter-eight-four">8.4 NavLink - isActive</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`isActive: function`
+
+一个为了确定链接是否处于活动状态而添加额外逻辑的函数，如果你想做的不仅仅是验证链接的路径名与当前 URL 的 pathname 是否匹配，那么应该使用它
+
+```js
+// 如果链接不仅仅匹配 events/123，而是所有奇数链接都匹配
+const oddEvent = (match, location) => {
+  if (!match) {
+    return false
+  }
+  const eventID = parseInt(match.params.eventID)
+  return !isNaN(eventID) && eventID % 2 === 1
+}
+
+<NavLink
+  to="/events/123"
+  isActive={oddEvent}
+>Event 123</NavLink>
+```
+
+## <a name="chapter-night" id="chapter-night">九 MemoryRouter</a>
+
+> [返回目录](#chapter-one)
+
+`<Router>` 能在内存中保存 `URL` 的历史记录(并不会对地址栏进行读写)。很适合在测试环境和非浏览器环境中使用，例如 React Native。
+
+```js
+<MemoryRouter>
+  <App/>
+</MemoryRouter>
+```
+
+## <a name="chapter-night-one" id="chapter-night-one">9.1 MemoryRouter - initialEntries</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`initialEntries: array`
+
+`history` 栈中的一个 `location` 数组。这些可能是具有 `{ pathname, search, hash, state }` 或简单的 `URL` 字符串的完整地址对象。
+
+```js
+<MemoryRouter
+  initialEntries={[ '/one', '/two', { pathname: '/three' } ]}
+  initialIndex={1}
+>
+  <App/>
+</MemoryRouter>
+```
+
+## <a name="chapter-night-two" id="chapter-night-two">9.2 MemoryRouter - initialIndex</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`initialIndex: number`
+
+在 `initialEntries` 数组中的初始化地址索引。
+
+## <a name="chapter-night-three" id="chapter-night-three">9.3 MemoryRouter - getUserConfirmation</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`getUserConfirmation: function`
+
+用于确认导航的函数。在使用 `<MemoryRouter>` 时，直接使用 `<Prompt>`，你必须使用这个选项。
+
+## <a name="chapter-night-four" id="chapter-night-four">9.4 MemoryRouter - keyLength</a>
+
+> [返回目录](#chapter-one)
+
+* 规则：`keyLength: number`
+
+`location.key `的长度。默认为 6。
+
+## <a name="chapter-ten" id="chapter-ten">十 MemoryRouter</a>
+
+> [返回目录](#chapter-one)
+
 ## Switch
 
 可以利用 `<Switch>` 做分组，即当有匹配时，匹配对应 `path` 对应的组件；如果没有匹配，则匹配 `NotFound` 页面。
@@ -409,10 +558,6 @@ const App = () => {
 ```js
 <Redirect from="/" to="/timeline" exact />
 ```
-
-## NavLink
-
-* 高亮显示：`<NavLink to="/timeline" activeClassName="active">首页</NavLink>`
 
 ## Code Splitting
 
