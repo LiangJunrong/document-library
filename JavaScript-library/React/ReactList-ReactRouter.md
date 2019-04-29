@@ -2,7 +2,7 @@ React List - React Router
 ===
 
 > Create by **jsliang** on **2019-04-26 13:13:18**  
-> Recently revised in **2019-04-29 11:54:01**
+> Recently revised in **2019-04-29 15:25:01**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactList-ReactRouter.md)**
 
@@ -32,17 +32,41 @@ React List - React Router
 | &emsp;[7.1 Link - to](#chapter-seven-one) |
 | &emsp;[7.2 Link - replace](#chapter-seven-two) |
 | &emsp;[7.3 Link - other](#chapter-seven-three) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 前言](#chapter-eight) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 NavLink](#chapter-eight) |
 | &emsp;[8.1 NavLink - activeClassName](#chapter-eight-one) |
 | &emsp;[8.2 NavLink - activeStyle](#chapter-eight-two) |
 | &emsp;[8.3 NavLink - exact](#chapter-eight-three) |
 | &emsp;[8.4 NavLink - isActive](#chapter-eight-four) |
-| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 前言](#chapter-night) |
-| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 前言](#chapter-ten) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 MemoryRouter](#chapter-night) |
+| &emsp;[9.1 MemoryRouter - initialEntries](#chapter-night-one) |
+| &emsp;[9.2 MemoryRouter - initialIndex](#chapter-night-two) |
+| &emsp;[9.3 MemoryRouter - getUserConfirmation](#chapter-night-three) |
+| &emsp;[9.4 MemoryRouter - keyLength](#chapter-night-four) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 Redirect](#chapter-ten) |
+| &emsp;[10.1 Redirect - from](#chapter-ten-one) |
+| &emsp;[10.2 Redirect - to](#chapter-ten-two) |
+| &emsp;[10.3 Redirect - push](#chapter-ten-three) |
+| &emsp;[10.4 Redirect - exact](#chapter-ten-four) |
+| <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 Route](#chapter-eleven) |
+| &emsp;[11.1 Route - component](#chapter-eleven-one) |
+| &emsp;[11.2 Route - render](#chapter-eleven-two) |
+| &emsp;[11.3 Route - children](#chapter-eleven-three) |
+| &emsp;[11.4 Route - path](#chapter-eleven-four) |
+| &emsp;[11.5 Route - exact](#chapter-eleven-five) |
+| &emsp;[11.6 Route - location](#chapter-eleven-six) |
+| &emsp;[11.7 Route - sensitive](#chapter-eleven-seven) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 Switch](#chapter-twelve) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 篇外一：history](#chapter-thirteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 篇外二：Code Splitting](#chapter-fourteen) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 篇外三：Scroll To Top](#chapter-fifteen) |
+| &emsp;[15.1 跳转页面后滚动到顶部](#chapter-fifteen-one) |
+| &emsp;[15.2 页面滚动到顶部](#chapter-fifteen-two) |
+| <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 篇外四：Redux](#chapter-sixteen) |
+| <a name="catalog-chapter-seventeen" id="catalog-chapter-seventeen"></a>[十七 总结](#chapter-seventeen) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-two)
 
 前端路由，是指改变 URL 路径的形式，从而切换到不同的页面，例如：
 
@@ -63,7 +87,7 @@ React List - React Router
 4. [React Router DOM 中文文档（一） - 简书](https://www.jianshu.com/p/97e4af32811a)
 5. [React Router DOM 中文文档（二） - 简书](https://www.jianshu.com/p/5796c360e776)
 
-* 篇外
+* 篇外话题：
 
 网上有很多 React Router 文章了，例如：
 
@@ -72,13 +96,15 @@ React List - React Router
 
 为何 **jsliang** 要多次一举？
 
-1. 你记录你的，我记录我的，互相不妨碍
-2. 看这些跟看官网没啥两样，所以我需要亲自动手过一遍官网
-3. 记录我看官网的内容，顺带记录我应用上去的实例
+1. 你记录你的，我记录我的，互相不妨碍。
+2. 看这些跟看官网没啥两样，所以我需要亲自动手过一遍官网。
+3. 记录我看官网的内容，顺带记录我应用上去的实例，方便我下次回顾。
 
 ## <a name="chapter-three" id="chapter-three">三 初试</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-three)
+
+**当前版本**：`"react-router-dom": "^5.0.0"`
 
 **首先**，在 Create React App 中，我们引用 React Router：
 
@@ -120,27 +146,37 @@ export default App;
 
 ## <a name="chapter-four" id="chapter-four">四 简介</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-four)
 
-下面我们对一些常用/好用的方法进行介绍：
+下面我们拿一些常用的进行介绍：
 
 ```js
 import { 
   BrowserRouter,
+  HashRouter,
+  Redirect,
   Route,
   NavLink,
   Link,
+  MemoryRouter,
+  Switch,
+  withRouter
 } from "react-router-dom";
 ```
 
-* `<BrowserRouter>`：路由组件包裹层。`<Route>` 和 `<Link>` 的包裹层。
-* `<Route>`：路由。定义一个路由页面，用来匹配对应的组件（Component）和路由路径。
-* `<NavLink>`：活跃链接。当 URL 中的路径等于该路由定义的路径时，该标签可以呈现它定义的 `activeClassName`。
-* `<Link>`：链接。用来跳转到 `<Route>` 对应的路由（Component） 中。
+1. `<BrowserRouter>`：路由组件包裹层。`<Route>` 和 `<Link>` 的包裹层。
+2. `<HashRouter>`：路由组件包裹层。相对于 `<BrowserRouter>` 来说，更适合静态文件的服务器。
+3. `<Redirect>`：路由重定向。渲染 `<Redirect>` 将使导航到一个新的地址。
+4. `<Route>`：路由。定义一个路由页面，用来匹配对应的组件（Component）和路由路径。
+5. `<NavLink>`：活跃链接。当 URL 中的路径等于该路由定义的路径时，该标签可以呈现它定义的 `activeClassName`。
+6. `<Link>`：链接。用来跳转到 `<Route>` 对应的路由（Component） 中。
+7. `<MemoryRouter>`：暂未使用。`<Router>` 能在内存中保存 `URL` 的历史记录。很适合在测试环境和非浏览器环境中使用，例如 React Native。
+8. `<Switch>`：路由分组。渲染与该地址匹配的第一个子节点 `<Route> `或者 `<Redirect>`。可以利用 `<Switch>` 做分组。
+9. `<withRouter>`：路由组合。通过 `<withRouter>` 高阶组件访问 `history` 对象的属性和最近的 `<Route>` 的 `match`。或者利用它来结合 Redux。
 
 ## <a name="chapter-five" id="chapter-five">五 BrowserRouter</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-five)
 
 `<BrowserRouter>` 会为你创建一个专门的 history 对象，用来记录你的路由，从而能够返回上一页或者跳转到指定的路由页面。
 
@@ -158,7 +194,7 @@ import {
 
 ### <a name="chapter-five-one" id="chapter-five-one">5.1 BrowserRouter 语法</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-five)
 
 ```js
 import { BrowserRouter } from 'react-router-dom'
@@ -175,7 +211,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 ### <a name="chapter-five-two" id="chapter-five-two">5.2 BrowserRouter - basename</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-five)
 
 * 规则：`basename: string`
 
@@ -190,7 +226,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 ### <a name="chapter-five-three" id="chapter-five-three">5.3 BrowserRouter - getUserConfirmation</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-five)
 
 * 规则：`getUserConfirmation: function`
 
@@ -208,7 +244,7 @@ const getConfirmation = (message, callback) => {
 
 ### <a name="chapter-five-four" id="chapter-five-four">5.4 BrowserRouter - forceRefresh</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-five)
 
 * 规则：`forceRefresh: bool`
 
@@ -221,7 +257,7 @@ const supportsHistory = 'pushState' in window.history
 
 ### <a name="chapter-five-five" id="chapter-five-five">5.5 BrowserRouter - keyLength</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-five)
 
 * 规则：`keyLength: number`
 
@@ -235,7 +271,7 @@ const supportsHistory = 'pushState' in window.history
 
 ## <a name="chapter-six" id="chapter-six">六 HashRouter</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-six)
 
 使用 `URL` 的 `hash` 部分（即 `window.location.hash` ）的 `<Router>` 使 `UI` 与 `URL` 保持同步。
 
@@ -251,7 +287,7 @@ import { HashRouter } from 'react-router-dom'
 
 ### <a name="chapter-six-one" id="chapter-six-one">6.1 HashRouter - basename</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-six)
 
 * 规则：`basename: string`
 
@@ -265,7 +301,7 @@ import { HashRouter } from 'react-router-dom'
 
 ### <a name="chapter-six-two" id="chapter-six-two">6.2 HashRouter - getUserConfirmation</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-six)
 
 * 规则：`getUserConfirmation: func`
 
@@ -283,7 +319,7 @@ const getConfirmation = (message, callback) => {
 
 ### <a name="chapter-six-three" id="chapter-six-three">6.3 HashRouter - hashType</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-six)
 
 * 规则：`hashType: string`
 
@@ -298,13 +334,13 @@ const getConfirmation = (message, callback) => {
 
 ## <a name="chapter-seven" id="chapter-seven">七 Link</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-seven)
 
 在应用程序周围提供声明式的,可访问的导航。
 
 ### <a name="chapter-seven-one" id="chapter-seven-one">7.1 Link - to</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-seven)
 
 * 规则 1：`to: string`
 
@@ -336,7 +372,7 @@ const getConfirmation = (message, callback) => {
 
 ### <a name="chapter-seven-two" id="chapter-seven-two">7.2 Link - replace</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-seven)
 
 * 规则：`replace: bool`
 
@@ -348,7 +384,7 @@ const getConfirmation = (message, callback) => {
 
 ### <a name="chapter-seven-three" id="chapter-seven-three">7.3 Link - other</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-seven)
 
 还可以传递想要放在 `<a>` 上的属性，例如标题，`ID`、`className` 等。
 
@@ -360,7 +396,7 @@ const getConfirmation = (message, callback) => {
 
 ## <a name="chapter-eight" id="chapter-eight">八 NavLink</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-eight)
 
 一个特殊版本的 Link，当它与当前 URL 匹配时，为其渲染元素添加样式属性。
 
@@ -368,7 +404,7 @@ const getConfirmation = (message, callback) => {
 
 ### <a name="chapter-eight-one" id="chapter-eight-one">8.1 NavLink - activeClassName</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-eight)
 
 * 规则：`activeClassName: string`
 
@@ -383,7 +419,7 @@ const getConfirmation = (message, callback) => {
 
 ### <a name="chapter-eight-two" id="chapter-eight-two">8.2 NavLink - activeStyle</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-eight)
 
 * 规则：`activeStyle: object`
 
@@ -401,7 +437,7 @@ const getConfirmation = (message, callback) => {
 
 ### <a name="chapter-eight-three" id="chapter-eight-three">8.3 NavLink - exact</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-eight)
 
 * 规则：`exact: bool`
 
@@ -416,7 +452,7 @@ const getConfirmation = (message, callback) => {
 
 ### <a name="chapter-eight-four" id="chapter-eight-four">8.4 NavLink - isActive</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-eight)
 
 * 规则：`isActive: function`
 
@@ -440,7 +476,7 @@ const oddEvent = (match, location) => {
 
 ## <a name="chapter-night" id="chapter-night">九 MemoryRouter</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-night)
 
 `<Router>` 能在内存中保存 `URL` 的历史记录(并不会对地址栏进行读写)。很适合在测试环境和非浏览器环境中使用，例如 React Native。
 
@@ -450,9 +486,9 @@ const oddEvent = (match, location) => {
 </MemoryRouter>
 ```
 
-## <a name="chapter-night-one" id="chapter-night-one">9.1 MemoryRouter - initialEntries</a>
+### <a name="chapter-night-one" id="chapter-night-one">9.1 MemoryRouter - initialEntries</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-night)
 
 * 规则：`initialEntries: array`
 
@@ -467,52 +503,216 @@ const oddEvent = (match, location) => {
 </MemoryRouter>
 ```
 
-## <a name="chapter-night-two" id="chapter-night-two">9.2 MemoryRouter - initialIndex</a>
+### <a name="chapter-night-two" id="chapter-night-two">9.2 MemoryRouter - initialIndex</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-night)
 
 * 规则：`initialIndex: number`
 
 在 `initialEntries` 数组中的初始化地址索引。
 
-## <a name="chapter-night-three" id="chapter-night-three">9.3 MemoryRouter - getUserConfirmation</a>
+### <a name="chapter-night-three" id="chapter-night-three">9.3 MemoryRouter - getUserConfirmation</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-night)
 
 * 规则：`getUserConfirmation: function`
 
 用于确认导航的函数。在使用 `<MemoryRouter>` 时，直接使用 `<Prompt>`，你必须使用这个选项。
 
-## <a name="chapter-night-four" id="chapter-night-four">9.4 MemoryRouter - keyLength</a>
+### <a name="chapter-night-four" id="chapter-night-four">9.4 MemoryRouter - keyLength</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-night)
 
 * 规则：`keyLength: number`
 
 `location.key `的长度。默认为 6。
 
-## <a name="chapter-ten" id="chapter-ten">十 MemoryRouter</a>
+## <a name="chapter-ten" id="chapter-ten">十 Redirect</a>
 
-> [返回目录](#chapter-one)
+> [返回目录](#catalog-chapter-ten)
 
-## Switch
+渲染 `<Redirect>` 将使导航到一个新的地址。这个新的地址会覆盖 `history` 栈中的当前地址，类似服务器端（HTTP 3xx）的重定向。
 
-可以利用 `<Switch>` 做分组，即当有匹配时，匹配对应 `path` 对应的组件；如果没有匹配，则匹配 `NotFound` 页面。
+我们可以设置某个路由重定向到另一个路由，例如下面即对 `/` 完全匹配重定向到 `/timeline` 页面。
 
 ```js
-<BrowserRouter>
-  <Header />
-  <Switch>
-    <Route path="/" exact component={TimeLine}></Route>
-    <Route path="/timeline" component={TimeLine}></Route>
-    <Route component={NotFound}></Route>
-  </Switch>
-</BrowserRouter>
+<Redirect from="/" to="/timeline" exact />
 ```
 
-## Router
+### <a name="chapter-ten-one" id="chapter-ten-one">10.1 Redirect - from</a>
 
-* 全匹配和半匹配（exact）：
+> [返回目录](#catalog-chapter-ten)
+
+* 规则：`from: string`
+
+重定向 `from` 的路径名。可以是任何 `path-to-regexp` 能够识别的有效的 `URL` 路径。
+
+所有匹配的 `URL` 参数都提供给 `to` 中的模式。
+
+必须包含在 `to` 中使用的所有参数。
+
+`to` 未使用的其他参数将被忽略。
+
+```js
+<Switch>
+  <Redirect from="/old-path" to="/new-path" />
+  <Route path="/new-path" component={Place} />
+</Switch>
+```
+
+### <a name="chapter-ten-two" id="chapter-ten-two">10.2 Redirect - to</a>
+
+> [返回目录](#catalog-chapter-ten)
+
+* 规则：`to: string`
+
+重定向到的 `URL`，可以是任何 `path-to-regexp` 能够理解有效 `URL` 路径。
+
+在 `to` 中使用的 `URL` 参数必须由 `from` 覆盖。
+
+```js
+<Redirect to="/somewhere/else" />
+```
+
+* 规则：`to: object`
+
+重定向到的 `location`，`pathname` 可以是任何 `path-to-regexp` 能够理解的有效的 `URL` 路径。
+
+```js
+<Redirect
+  to={{
+    pathname: "/login",
+    search: "?utm=your+face",
+    state: { referrer: currentLocation }
+  }}
+/>
+```
+
+### <a name="chapter-ten-three" id="chapter-ten-three">10.3 Redirect - push</a>
+
+> [返回目录](#catalog-chapter-ten)
+
+* 规则：`push: bool`
+
+当 `true` 时，重定向会将新地址推入 `history` 中，而不是替换当前地址。
+
+```js
+<Redirect push to="/somewhere/else" />
+```
+
+### <a name="chapter-ten-four" id="chapter-ten-four">10.4 Redirect - exact</a>
+
+> [返回目录](#catalog-chapter-ten)
+
+* 规则：`exact: bool`
+
+完全匹配 `from`。
+
+## <a name="chapter-eleven" id="chapter-eleven">十一 Route</a>
+
+> [返回目录](#catalog-chapter-eleven)
+
+只要应用程序位置与 Route 的路径匹配，组件就会被渲染。
+
+### <a name="chapter-eleven-one" id="chapter-eleven-one">11.1 Route - component</a>
+
+> [返回目录](#catalog-chapter-eleven)
+
+只有当位置匹配时才会渲染的 React 组件。
+
+```js
+<Route path="/user/:username" component={User}/>
+
+const User = ({ match }) => {
+  return <h1>Hello {match.params.username}!</h1>
+}
+```
+
+### <a name="chapter-eleven-two" id="chapter-eleven-two">11.2 Route - render</a>
+
+> [返回目录](#catalog-chapter-eleven)
+
+* 规则：`render: function`
+
+这允许方便的内联渲染和包裹，而不是上面那种不想要的重新安装的解释
+
+可以传递一个在位置匹配时调用的函数，而不是使用属性为您创建新的 `React element component`，该 `render` 属性接收所有相同的 `route props` 的 `component` 渲染属性。
+
+```js
+// 行内编写
+<Route path="/home" render={() => <div>Home</div>}/>
+
+// 包裹分开写
+const FadingRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    <FadeIn>
+      <Component {...props}/>
+    </FadeIn>
+  )}/>
+)
+
+<FadingRoute path="/cool" component={Something}/>
+```
+
+### <a name="chapter-eleven-three" id="chapter-eleven-three">11.3 Route - children</a>
+
+> [返回目录](#catalog-chapter-eleven)
+
+* 规则：`children: function`
+
+有时你需要渲染路径是否匹配位置。在这些情况下，您可以使用函数 `children` 属性，它的工作原理与渲染完全一样，不同之处在于它是否存在匹配。
+
+`children` 渲染道具接收所有相同的 `route props` 作为 `component` 和 `render` 方法，如果 `Route` 与 `URL` 不匹配，`match` 则为 `null` ，这允许你动态调整你的 `UI` 界面，基于路线是否匹配，如果路线匹配我们则添加一个 `active` 类。
+
+```js
+<ul>
+  <ListItemLink to="/somewhere"/>
+  <ListItemLink to="/somewhere-else"/>
+</ul>
+
+const ListItemLink = ({ to, ...rest }) => (
+  <Route path={to} children={({ match }) => (
+    <li className={match ? 'active' : ''}>
+      <Link to={to} {...rest}/>
+    </li>
+  )}/>
+)
+```
+
+### <a name="chapter-eleven-four" id="chapter-eleven-four">11.4 Route - path</a>
+
+> [返回目录](#catalog-chapter-eleven)
+
+* 规则：`path: string`
+
+任何 `path-to-regexp` 可以解析的有效的 `URL` 路径
+
+```js
+<Route path="/users/:id" component={User}/>
+```
+
+### <a name="chapter-eleven-five" id="chapter-eleven-five">11.5 Route - exact</a>
+
+> [返回目录](#catalog-chapter-eleven)
+
+* 规则：`exact: bool`
+
+如果为 `true`，则只有在路径完全匹配 `location.pathname` 时才匹配。
+
+| path | location.pathname | exact | matches? |
+| --- | --- | --- | --- |
+| /one | /one/two | true | no |
+| /one | /one/two | false | yes |
+
+```js
+<Route exact path="/one" component={About}/>
+```
+
+---
+
+**jsliang** 个人经验：
+
+1. 加了 `exact` 属性后，会完全匹配路径；如果没有加，则二级路径也会匹配当前路径（例如 `/timeline/book`）。
 
 ```js
 <BrowserRouter>
@@ -521,9 +721,7 @@ const oddEvent = (match, location) => {
 </BrowserRouter>
 ```
 
-加了 `exact` 属性后，会完全匹配路径；如果没有加，则二级路径也会匹配当前路径（例如 `/timeline/book`）。
-
-* 路由渲染属性：
+2. 我们可以动态设置 `extra` 的值，从而判断是否需要加载某个组件。
 
 ```js
 const Home = () => <div>Home</div>;
@@ -549,17 +747,75 @@ const App = () => {
 };
 ```
 
-我们可以动态设置 `extra` 的值，从而判断是否需要加载某个组件。
+### <a name="chapter-eleven-six" id="chapter-eleven-six">11.6 Route - location</a>
 
-## Redirect
+> [返回目录](#catalog-chapter-eleven)
 
-我们可以设置某个路由重定向到另一个路由，例如下面即对 `/` 完全匹配重定向到 `/timeline` 页面。
+* 规则：`location: object`
+
+一个 `<Route>` 元素尝试其匹配 `path` 到当前的历史位置（通常是当前浏览器 URL）。但是，也可以通过location 一个不同 `pathname` 的匹配。
+
+### <a name="chapter-eleven-seven" id="chapter-eleven-seven">11.7 Route - sensitive</a>
+
+> [返回目录](#catalog-chapter-eleven)
+
+* 规则：`sensitive: bool`
+
+如果路径区分大小写，则为 `true`，则匹配。
+
+| path | location.pathname | sensitive | matches? |
+| --- | --- | --- | --- |
+| /one | /one | true | yes |
+| /One | /one | true | no |
+| /One | /one | false | yes |
 
 ```js
-<Redirect from="/" to="/timeline" exact />
+<Route sensitive path="/one" component={About}/>
 ```
 
-## Code Splitting
+## <a name="chapter-twelve" id="chapter-twelve">十二 Switch</a>
+
+> [返回目录](#catalog-chapter-twelve)
+
+渲染与该地址匹配的第一个子节点 `<Route> `或者 `<Redirect>`。
+
+可以利用 `<Switch>` 做分组，即当有匹配时，匹配对应 `path` 对应的组件；如果没有匹配，则匹配 `NotFound` 页面。
+
+```js
+<BrowserRouter>
+  <Header />
+  <Switch>
+    <Route path="/" exact component={TimeLine}></Route>
+    <Route path="/timeline" component={TimeLine}></Route>
+    <Route component={NotFound}></Route>
+  </Switch>
+</BrowserRouter>
+```
+
+## <a name="chapter-thirteen" id="chapter-thirteen">十三 篇外一：history</a>
+
+> [返回目录](#catalog-chapter-thirteen)
+
+`history` 是一个包，在你安装 React Router 的时候，会作为它依赖包安装到项目中，所以你可以直接使用 `history` 中的属性和方法：
+
+* `length` - (`number` 类型) `history` 堆栈的条目数
+* `action` - (`string` 类型) 当前的操作(`push`, `replace`, `pop`)
+* `location` - (`object` 类型) 当前的位置。`location` 会具有以下属性：
+  * `pathname` - (`string` 类型) URL 路径
+  * `search` - (`string` 类型) URL 中的查询字符串
+  * `hash` - (`string` 类型) URL 的哈希片段
+  * `state` - (`object` 类型) 提供给例如使用 `push(path, state)` 操作将
+* `location` 放入堆栈时的特定 `location` 状态。只在浏览器和内存历史中可用
+* `push(path, [state])` - (`function` 类型) 在 `history` 堆栈添加一个新条目
+* `replace(path, [state])` - (`function` 类型) 替换在 `history` 堆栈中的当前条目
+* `go(n)` - (`function` 类型) 将 `history` 堆栈中的指针调整 `n`
+* `goBack()` - (`function` 类型) 等同于 `go(-1)`
+* `goForward()` - (`function` 类型) 等同于 `go(1)`
+* `block(prompt)` - (`function` 类型) 阻止跳转
+
+## <a name="chapter-fourteen" id="chapter-fourteen">十四 篇外二：Code Splitting</a>
+
+> [返回目录](#catalog-chapter-fourteen)
 
 随着应用的增长，代码包会随着生长。
 
@@ -598,9 +854,13 @@ const App = () => (
 
 3. 打包项目： `npm run build`
 
-## Scroll To Top
+## <a name="chapter-fifteen" id="chapter-fifteen">十五 篇外三：Scroll To Top</a>
 
-### 跳转页面滚动到顶部
+> [返回目录](#catalog-chapter-fifteen)
+
+### <a name="chapter-fifteen-one" id="chapter-fifteen-one">15.1 跳转页面后滚动到顶部</a>
+
+> [返回目录](#catalog-chapter-fifteen)
 
 1. **首先**，在全局 components 文件中定义 ScrollToTop 文件夹，其中 index.js 内容为：
 
@@ -656,13 +916,19 @@ function App() {
 export default App;
 ```
 
-这样，我们切换路由的时候，页面就会滚动到顶部。
+3. **最后**，我们切换路由的时候，页面就会滚动到顶部。
 
-## Redux
+### <a name="chapter-fifteen-two" id="chapter-fifteen-two">15.2 页面滚动到顶部</a>
+
+> [返回目录](#catalog-chapter-fifteen)
+
+暂未实现
+
+## <a name="chapter-sixteen" id="chapter-sixteen">十六 篇外四：Redux</a>
+
+> [返回目录](#catalog-chapter-sixteen)
 
 在项目中，我们更希望 React Router 和 React Redux 合并起来，这时候可以：
-
-* https://reacttraining.com/react-router/web/guides/redux-integration
 
 ```js
 // before
@@ -672,14 +938,17 @@ export default connect(mapStateToProps)(Something)
 import { withRouter } from 'react-router-dom'
 export default withRouter(connect(mapStateToProps)(Something))
 ```
+* 参考文献：[Redux Integration](https://reacttraining.com/react-router/web/guides/redux-integration)
 
-## 我看到
+## <a name="chapter-seventeen" id="chapter-seventeen">十七 总结</a>
 
-* https://react-router.docschina.org/web/api/BrowserRouter
+> [返回目录](#catalog-chapter-seventeen)
 
-## 参考文献
+如果你纯粹过文档（官方文档，**jsliang** 的文档），你会觉得毫无趣味、了无生趣、乏味、沉闷……
 
-1. [React Router 4.x 开发，这些雷区我们都帮你踩过了 - 掘金](https://juejin.im/entry/5b50518bf265da0f6436c34a)
+所以，**jsliang** 的学法是：开启了一个项目，边翻阅文档，边应用到项目中，并进行 Mark 标记，以便下次使用。
+
+如此，该文档虽然完结了，但是仍未完结！完结的是我过完了官方文档，未完结的是 React Router 在我项目中可能有其他应用，需要我一一添加进来。
 
 ---
 
