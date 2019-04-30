@@ -59,7 +59,7 @@
 | 3. jerry | [GitHub](https://github.com/jgchenu) | ——空—— |
 | 4. 邵威儒 | [GitHub](https://github.com/iamswr) | ——空—— |
 | 5. HESUIJUN | [GitHub](https://github.com/HESUIJUN) | ——空—— |
-| 6. 豆包君 | [GitHub](https://github.com/danygitgit) | ——空—— |
+| 6. 豆包君 | [GitHub](https://github.com/danygitgit) | [参赛地址](https://github.com/danygitgit/Cheer-for-yourself/blob/master/myAchievement/%E6%AF%8F%E5%91%A8%E8%AE%A1%E5%88%92%E5%8F%8A%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95.md) |
 | 7. huqi | [GitHub](https://github.com/hu-qi) | ——空—— |
 | 8. imNaive | [GitHub](https://github.com/HashidaHaru) | ——空—— |
 | 9. teachat8 | [GitHub](https://github.com/teachat8) | ——空—— |
