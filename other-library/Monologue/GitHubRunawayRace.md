@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-05-06 13:06:16**
+> Recently revised in **2019-5-7 07:43:20**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -54,7 +54,7 @@
 
 | 昵称 | GitHub 账号 | 竞赛记录地址 | 
 | --- | --- | --- | 
-| 1. 广州-jsliang | [GitHub](https://github.com/LiangJunrong) | [参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/Logs) |
+| 1. jsliang | [GitHub](https://github.com/LiangJunrong) | [参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/Logs) |
 | 2. Liutaochange | [GitHub](https://github.com/liutaochange) | ——空—— |
 | 3. jerry | [GitHub](https://github.com/jgchenu) | ——空—— |
 | 4. 邵威儒 | [GitHub](https://github.com/iamswr) | ——空—— |
