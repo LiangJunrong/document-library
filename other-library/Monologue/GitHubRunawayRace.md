@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-5-5 19:42:47**
+> Recently revised in **2019-05-06 13:06:16**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -62,7 +62,7 @@
 | 6. 豆包君 | [GitHub](https://github.com/danygitgit) | [参赛地址](https://github.com/danygitgit/Cheer-for-yourself/blob/master/myAchievement/%E6%AF%8F%E5%91%A8%E8%AE%A1%E5%88%92%E5%8F%8A%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95.md) |
 | 7. huqi | [GitHub](https://github.com/hu-qi) | [参赛地址](https://github.com/hu-qi/Loner/tree/master/other-library/change-for-myself) |
 | 8. imNaive | [GitHub](https://github.com/HashidaHaru) | ——空—— |
-| 9. teachat8 | [GitHub](https://github.com/teachat8) | ——空—— |
+| 9. teachat8 | [GitHub](https://github.com/teachat8) | [参赛地址](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95.md) |
 
 ## 五 比赛历史
 
@@ -73,6 +73,7 @@
 * - [x] [梁峻荣](https://github.com/LiangJunrong) 参与周竞赛，已交 35 元。
 * - [x] [豆包君](https://github.com/danygitgit) 参与周竞赛，已交 35 元。
 * - [x] [huqi](https://github.com/hu-qi) 参与周竞赛，已交 35 元。
+* - [x] [teachat8](https://github.com/teachat8) 参与周竞赛，已交 35 元。
 
 上一周情况
 
