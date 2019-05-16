@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-5-7 07:43:20**
+> Recently revised in **2019-05-16 10:19:13**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -48,7 +48,7 @@
 
 **jsliang 微信**：
 
-![图](../../public-repertory/img/z-wechat.jpeg)
+![图](../../public-repertory/img/z-small-wechat.jpeg)
 
 ## 四 成员名单
 
