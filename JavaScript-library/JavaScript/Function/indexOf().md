@@ -1,8 +1,8 @@
-JavaScript - indexOf()
+方法 - indexOf()
 ===
 
 > Create by **jsliang** on **2019-05-17 11:30:04**  
-> Recently revised in **2019-05-17 11:30:10**
+> Recently revised in **2019-05-17 11:35:01**
 
 正在更新
 
