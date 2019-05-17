@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-5-16 22:19:13**  
-> Recently revised in **2019-5-17 08:58:44**
+> Recently revised in **2019-05-17 11:16:37**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,6 +13,9 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
+| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
+| &emsp;[3.2 解法 - indexOf](#chapter-three-two) |
+| &emsp;[3.3 解法 - 哈希表](#chapter-three-three) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -42,6 +45,95 @@
 
 * 官方题解：https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-2/
 
+解题千千万，官方独一家，上面是官方使用 Java 进行的题解。
+
+小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
+
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+
+> [返回目录](#chapter-one)
+
+* 代码：
+
+```js
+var twoSum = function(nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[j] === target - nums[i]) {
+        return [i, j];
+      }
+    }
+  }
+};
+```
+
+* 测试：
+
+1. `nums`：`[1, 3, 2, 5, 6]`
+2. `target`: `8`
+3. `return`：
+
+```js
+[1, 3]
+```
+
+* 思路：使用双重 `for` 循环破解。
+
+![图](../../../public-repertory/img/other-algorithm-001-1.png)
+
+1. 第一遍过滤 `nums` 数组，标记为 `i`
+2. 第二遍再次过滤 `nums` 数组，标记为 `i + 1`，因为我们是对数组中的两个数字相加，所以不能重复使用同一个数字。
+3. 判断第二次遍历的数字中，它是否等于 `target - nums[i]`，如果成立就返回两个数字的索引。（并不考虑后面还有可成立的答案）。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - indexOf</a>
+
+> [返回目录](#chapter-one)
+
+```js
+var twoSum = function(nums, target) {
+  let result = [];
+  nums.map((item, index) => {
+    if (nums.indexOf(target - item) > -1 && nums.indexOf(target - item) != index) {
+      result = [index, nums.indexOf(target - item)].sort((a, b) => a > b);
+    }
+  });
+  return result;
+};
+```
+
+* 测试：
+
+1. `nums`：`[1, 3, 2, 5, 6]`
+2. `target`: `8`
+3. `return`：
+
+```js
+[4, 2]
+```
+
+* 知识点：
+
+1. `map()`：遍历数组，`item` 返回遍历项，`index` 返回当前索引。[`map()` 详细介绍]()
+2. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1.[`indexOf()` 详细介绍]()
+3. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍]()
+
+* 思路：
+
+```js
+[1, 3]
+[2, 4]
+[3, 1]
+[4, 2]
+```
+
+* 思路：
+// indexOf 索引
+// 这里我们只需要循环整个数组，对每一个元素都用目标值相减得到另一个符合条件的值，然后使用indexOf查找是否在数组内且不是当前元素即可，可用当前元素index比较
+
+### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 哈希表</a>
+
+> [返回目录](#chapter-one)
+
 ```js
 // hash 算法
 var twoSum = function(nums, target) {
@@ -56,33 +148,6 @@ var twoSum = function(nums, target) {
 };
 ```
 
-```js
-// 暴力破解法
-var twoSum = function(nums, target) {
-  for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[j] === target - nums[i]) {
-        return [i, j];
-      }
-    }
-  }
-};
-```
-
-```js
-// indexOf 索引
-// 这里我们只需要循环整个数组，对每一个元素都用目标值相减得到另一个符合条件的值，然后使用indexOf查找是否在数组内且不是当前元素即可，可用当前元素index比较
-var twoSum = function(nums, target) {
-  let result = [];
-  nums.map((item, index) => {
-    if (nums.indexOf(target - item) > -1 && nums.indexOf(target - item) != index) {
-      result = [index, nums.indexOf(target - item)].sort((a, b) => a > b);
-    }
-  });
-  return result;
-};
-```
-
 ---
 
 > **jsliang** 广告推送：  
@@ -91,7 +156,7 @@ var twoSum = function(nums, target) {
 > 或者小伙伴需要续费云服务器  
 > 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
 
-[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
-[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+[![图](../../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
