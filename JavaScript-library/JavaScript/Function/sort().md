@@ -2,9 +2,25 @@
 ===
 
 > Create by **jsliang** on **2019-05-17 11:31:56**  
-> Recently revised in **2019-05-17 11:31:53**
+> Recently revised in **2019-05-17 14:57:45**
 
-正在更新
+* **原文**：[MDN - sort()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+
+* **功能**：`sort()` 对数组的元素进行排序，并返回数组。
+
+* **语法**：`sort(function)`
+  * `function`：按某种顺序进行排列的函数。
+
+* **返回值**：排序后的数组。
+
+* **代码**：
+
+```js
+[4, 2, 5, 1, 3].sort(), // [1, 2, 3, 4, 5]
+[4, 2, 5, 1, 3].sort((a, b) => a < b), // [5, 4, 3, 2, 1]
+['a', 'd', 'c', 'b'].sort(), // ['a', 'b', 'c', 'd']
+['jsliang', 'eat', 'apple'].sort(), // ['apple', 'eat', 'jsliang']
+```
 
 ---
 
