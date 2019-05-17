@@ -4,7 +4,7 @@ React Demo Five - 员岗周边
 > Create by **jsliang** on **2019-5-16 22:09:22**  
 > Recently revised in **2019-05-17 16:46:45**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoThree-JueJin.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoFive-AroundYuanGang.md)**
 
 * [React 系列文章代码地址](https://github.com/LiangJunrong/React)
 
@@ -23,7 +23,7 @@ React Demo Five - 员岗周边
 
 突然想起一个词，叫：**食在广州**。
 
-而我，广漂，吃住行都围绕广州番禺区的【员岗地铁站】。
+而我，广漂，衣食住行都围绕广州番禺区的【员岗地铁站】。
 
 所以，兴致而来，开发一个多端登录的 App，记录附近的点点滴滴。
 
@@ -37,6 +37,18 @@ React Demo Five - 员岗周边
 > [返回目录](#chapter-one)
 
 * - [ ] 功能结构划分
+* - [ ] 衣
+* - [ ] 食
+* - [ ] 住
+* - [ ] 行
+
+### 3.2 食
+
+1. 对一些饭点的介绍
+2. 点击地图的饭点，可以查看到对应饭点的菜单（建议堂食、不建议堂食）
+3. 可以获取饭点的外卖电话、点餐 App（美团，大众，饿了么……）
+4. 可以评价饭点的饭菜
+5. 店家可以更新自己的菜单（收费）
 
 ---
 
