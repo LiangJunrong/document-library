@@ -2,9 +2,33 @@
 ===
 
 > Create by **jsliang** on **2019-05-17 11:30:04**  
-> Recently revised in **2019-05-17 11:30:10**
+> Recently revised in **2019-05-17 14:50:46**
 
-正在更新
+* **原文**：[MDN - map()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+* **功能**：`map()` 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
+
+* **语法**：`map((item, index) => {})`
+  * `item`：遍历的项
+  * `index`：该次遍历项的索引
+
+* **返回值**：一个新数组，每个元素都是回调函数的结果。
+
+* **代码**：
+
+```js
+[1, 2, 3, 4].map(item => item * 2) // [2, 4, 6, 8]
+
+[{
+  name: 'jsliang',
+  age: 24,
+}, {
+  name: '梁峻荣',
+  age: 124
+}].map((item, index) => {
+  return `${index} - ${item.name}`;
+}) // ['0 - jsliang', '1 - 梁峻荣']
+```
 
 ---
 
