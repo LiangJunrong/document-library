@@ -2,9 +2,27 @@
 ===
 
 > Create by **jsliang** on **2019-05-17 11:30:04**  
-> Recently revised in **2019-05-17 11:35:01**
+> Recently revised in **2019-05-17 14:37:49**
 
-正在更新
+* **原文**：[MDN - indexOf()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf)
+
+* **功能**：`indexOf()` 方法返回调用 String 对象中第一次出现的指定值的索引。
+
+* **语法**：`indexOf(searchValue, fromIndex)`
+  * `searchValue`：查找的值
+  * `formIndex`：开始查找的位置
+
+* **返回值**：如果找到了，则返回第一次出现的索引；如果没找到，则返回 `-1`。
+
+* **代码**：
+
+```js
+'I am jsliang'.indexOf('a', 4); // 9
+[1, 3, 1, 4].indexOf(1, 1); // 2
+'怪盗 jsliang'.indexOf('我'); // -1
+```
+
+* **扩展**：如果需要查找到最后一次出现指定值的索引，可以使用 `lastIndexOf()`。
 
 ---
 
