@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-5-16 22:19:13**  
-> Recently revised in **2019-05-17 11:39:51**
+> Recently revised in **2019-05-17 11:49:48**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -147,6 +147,10 @@ var twoSum = function(nums, target) {
   }
 };
 ```
+
+* 知识点
+
+1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
 
 ---
 
