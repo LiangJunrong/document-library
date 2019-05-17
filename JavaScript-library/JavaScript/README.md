@@ -1,12 +1,28 @@
-JavaScript 知识
+JavaScript 知识点
 ===
 
 > Create by **jsliang** on **2018-12-11 09:21:24**  
-> Recently revised in **2019-05-17 11:21:076**
+> Recently revised in **2019-05-17 11:28:12**
 
-万丈高楼平地起  
-地基还得自己起  
-记录 JavaScript 各个知识点  
+万丈高楼平地起
+
+地基还得自己起
+
+记录 JavaScript 各个知识点
+
+---
+
+MDN 是个非常实用的网站，有不懂的知识点可尽管搜索：
+
+* [MDN 搜索页](https://developer.mozilla.org/zh-CN/search?q=&topic=api&topic=css&topic=html&topic=js&topic=svg&topic=standards) 
+
+下面知识点不分先后，如果有目的查找，请使用 `Ctrl/Command + F`：
+
+| 方法 | 简介 | 地址 |
+| --- | --- | --- |
+| `map()` | 遍历数组，`item` 返回遍历项，`index` 返回当前索引。 | [`map()` 详细介绍]() |
+| `indexOf()` | 判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。 | [`indexOf()` 详细介绍]() |
+| `sort()` | 排序，数字 1-9，字母 a-z。 | [`sort()` 详细介绍]() |
 
 ---
 
