@@ -1,8 +1,8 @@
 001 - 两数之和（two-sum）
 ===
 
-> Create by **jsliang** on **2019-5-16 22:19:13**  
-> Recently revised in **2019-05-17 14:19:09**
+> Create by **jsliang** on **2019-05-16 22:19:13**  
+> Recently revised in **2019-05-17 14:22:40**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -81,7 +81,7 @@ var twoSum = function(nums, target) {
 
 ![图](../../../public-repertory/img/other-algorithm-001-1.png)
 
-1. 第一遍过滤 `nums` 数组，标记为 `i`
+1. 第一遍过滤 `nums` 数组，标记为 `i`。
 2. 第二遍再次过滤 `nums` 数组，标记为 `i + 1`，因为我们是对数组中的两个数字相加，所以不能重复使用同一个数字。
 3. 判断第二次遍历的数字中，它是否等于 `target - nums[i]`，如果成立就返回两个数字的索引。（并不考虑后面还有可成立的答案）。
 
