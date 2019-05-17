@@ -1,8 +1,8 @@
-React Demo Five - 员岗
+React Demo Five - 员岗周边
 ===
 
 > Create by **jsliang** on **2019-5-16 22:09:22**  
-> Recently revised in **2019-5-16 22:09:26**
+> Recently revised in **2019-05-17 16:46:45**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoThree-JueJin.md)**
 
@@ -26,6 +26,17 @@ React Demo Five - 员岗
 而我，广漂，吃住行都围绕广州番禺区的【员岗地铁站】。
 
 所以，兴致而来，开发一个多端登录的 App，记录附近的点点滴滴。
+
+* [React 系列文章地址](https://github.com/LiangJunrong/document-library/tree/master/JavaScript-library/React)
+* [Node 系列文章地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Node)
+
+由于文章有这两个前置，如果不熟悉 React 或者 Node 开发的一套，请先去学习对应的前置。
+
+## <a name="chapter-three" id="chapter-three">三 开发思路与进度</a>
+
+> [返回目录](#chapter-one)
+
+* - [ ] 功能结构划分
 
 ---
 
