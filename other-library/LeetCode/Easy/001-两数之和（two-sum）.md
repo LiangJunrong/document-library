@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-5-16 22:19:13**  
-> Recently revised in **2019-5-17 08:25:56**
+> Recently revised in **2019-5-17 08:58:44**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -43,26 +43,44 @@
 * 官方题解：https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-2/
 
 ```js
+// hash 算法
 var twoSum = function(nums, target) {
-  if (nums.length < 2) {
-    return [];
-  }
-
   let map = new Map();
   for (let i = 0; i < nums.length; i++) {
-    let needNum = target - nums[i];
-
     if (map.has(nums[i])) {
       return [map.get(nums[i]), i];
     } else {
-      map.set(needNum, i);
+      map.set(target - nums[i], i);
     }
   }
 };
 ```
 
 ```js
+// 暴力破解法
+var twoSum = function(nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[j] === target - nums[i]) {
+        return [i, j];
+      }
+    }
+  }
+};
+```
 
+```js
+// indexOf 索引
+// 这里我们只需要循环整个数组，对每一个元素都用目标值相减得到另一个符合条件的值，然后使用indexOf查找是否在数组内且不是当前元素即可，可用当前元素index比较
+var twoSum = function(nums, target) {
+  let result = [];
+  nums.map((item, index) => {
+    if (nums.indexOf(target - item) > -1 && nums.indexOf(target - item) != index) {
+      result = [index, nums.indexOf(target - item)].sort((a, b) => a > b);
+    }
+  });
+  return result;
+};
 ```
 
 ---
