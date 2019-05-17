@@ -1,4 +1,4 @@
-JavaScript - sort()
+方法 - sort()
 ===
 
 > Create by **jsliang** on **2019-05-17 11:31:56**  
