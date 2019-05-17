@@ -2,11 +2,11 @@ Document Library - 文档库
 ===
 
 * Here is the jsliang's learning and working experience document on programming. If you have doubts about this, please send an email to 1741020489@qq.com.
-* 这里存放了jsliang的学习、工作中关于编程的经验文档。如果你对此有疑惑，请发邮件到1741020489@qq.com。
+* 这里存放了jsliang的学习、工作中关于编程的经验文档。如果你对此有疑惑，请发邮件到 1741020489@qq.com。
 
 ## 一 前言
 
-本文档库始建于 `2018-08-20`，开始目的是做学习笔记。  
+本文档库始建于 `2018-08-20`。  
 
 如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/Logs/README.md)** 进行查看。  
 
@@ -50,13 +50,13 @@ Document Library - 文档库
 如果对该文档库的某篇文章存有疑惑，  
 如果有些问题想看下 **jsliang** 折腾过没有，  
 请加 QQ 群：`798961601`。  
-将第一时间根据小伙伴的疑问进行解答，谢谢~
+**jsliang** 在群里将第一时间根据小伙伴的疑问进行解答~
 
 ## 五 推荐学习方法
   
 建议小伙伴们有机会可以给自己配个显示器，也就 5/600 元，用起来也舒服。
 
-**jsliang** 的开发配置为手提（16G 6核 12线程 7200RMB） + 显示器 （21.5寸 1080P 650RMB)。对前端开发的来说，这个价还是用得起的，而且自己的配置，自己用得会比较舒服。
+**jsliang** 的开发配置为手提（16G / 6核 / 12线程 / 7200RMB） + 显示器 （21.5寸 / 1080P / 650RMB)。对前端开发的来说，这个价还是用得起的，而且自己的配置，自己用得会比较舒服。
 
 最后，祝小伙伴们在编程生涯中找到自己的节奏，工资步步高升。
 
