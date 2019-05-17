@@ -20,9 +20,9 @@ MDN 是个非常实用的网站，有不懂的知识点可尽管搜索：
 
 | 方法 | 简介 | 地址 |
 | --- | --- | --- |
-| `map()` | 遍历数组，`item` 返回遍历项，`index` 返回当前索引。 | [`map()` 详细介绍]() |
-| `indexOf()` | 判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。 | [`indexOf()` 详细介绍]() |
-| `sort()` | 排序，数字 1-9，字母 a-z。 | [`sort()` 详细介绍]() |
+| `map()` | 遍历数组，`item` 返回遍历项，`index` 返回当前索引。 | [`map()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/map().md) |
+| `indexOf()` | 判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。 | [`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf().md) |
+| `sort()` | 排序，数字 1-9，字母 a-z。 | [`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort().md) |
 
 ---
 
