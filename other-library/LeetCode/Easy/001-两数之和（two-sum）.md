@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-5-16 22:19:13**  
-> Recently revised in **2019-5-16 22:19:17**
+> Recently revised in **2019-5-17 08:25:56**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -18,13 +18,29 @@
 
 > [返回目录](#chapter-one)
 
-* 题目地址：https://leetcode-cn.com/problems/two-sum/
 * 难度：简单
-* 涉及知识：hash
+* 涉及知识：数组、哈希表
+* 题目地址：https://leetcode-cn.com/problems/two-sum/
+* 题目内容：
+
+```
+给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+
+你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
+
+示例:
+
+给定 nums = [2, 7, 11, 15], target = 9
+
+因为 nums[0] + nums[1] = 2 + 7 = 9
+所以返回 [0, 1]
+```
 
 ## <a name="chapter-three" id="chapter-threed">三 解题</a>
 
 > [返回目录](#chapter-one)
+
+* 官方题解：https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-2/
 
 ```js
 var twoSum = function(nums, target) {
@@ -43,6 +59,10 @@ var twoSum = function(nums, target) {
     }
   }
 };
+```
+
+```js
+
 ```
 
 ---
