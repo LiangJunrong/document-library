@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-5-16 22:19:13**  
-> Recently revised in **2019-05-17 11:16:37**
+> Recently revised in **2019-05-17 11:39:51**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -113,9 +113,9 @@ var twoSum = function(nums, target) {
 
 * 知识点：
 
-1. `map()`：遍历数组，`item` 返回遍历项，`index` 返回当前索引。[`map()` 详细介绍]()
-2. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1.[`indexOf()` 详细介绍]()
-3. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍]()
+1. `map()`：遍历数组，`item` 返回遍历项，`index` 返回当前索引。[`map()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/map().md)
+2. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf().md)
+3. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort().md)
 
 * 思路：
 
@@ -127,8 +127,8 @@ var twoSum = function(nums, target) {
 ```
 
 * 思路：
-// indexOf 索引
-// 这里我们只需要循环整个数组，对每一个元素都用目标值相减得到另一个符合条件的值，然后使用indexOf查找是否在数组内且不是当前元素即可，可用当前元素index比较
+
+这里我们只需要循环整个数组，对每一个元素都用目标值相减得到另一个符合条件的值，然后使用indexOf查找是否在数组内且不是当前元素即可，可用当前元素index比较
 
 ### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 哈希表</a>
 
