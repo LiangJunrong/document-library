@@ -1,4 +1,4 @@
-JavaScript - map()
+方法 - map()
 ===
 
 > Create by **jsliang** on **2019-05-17 11:30:04**  
