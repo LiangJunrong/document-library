@@ -1,8 +1,8 @@
 007 - 整数反转（reverse-integer）
 ===
 
-> Create by **jsliang** on **2019-5-16 22:24:31**  
-> Recently revised in **2019-5-16 22:24:34**
+> Create by **jsliang** on **2019-05-19 09:42:39**  
+> Recently revised in **2019-05-19 11:04:12**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,23 +13,59 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
+| &emsp;[3.1 解法 - 转字符串](#chapter-three-one) |
+| &emsp;[3.2 解法 - 数学算法](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
 > [返回目录](#chapter-one)
 
-* 题目地址：https://leetcode-cn.com/problems/reverse-integer/
-* 难度：简单
-* 涉及知识：数组操作
+* **难度**：简单
+* **涉及知识**：数组、数学
+* **题目地址**：https://leetcode-cn.com/problems/reverse-integer/
+* **题目内容**：
+
+```
+给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
+
+示例 1:
+
+输入: 123
+输出: 321
+ 示例 2:
+
+输入: -123
+输出: -321
+示例 3:
+
+输入: 120
+输出: 21
+注意:
+
+假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。
+```
 
 ## <a name="chapter-three" id="chapter-threed">三 解题</a>
 
 > [返回目录](#chapter-one)
 
+* **官方题解**：https://leetcode-cn.com/problems/reverse-integer/solution/zheng-shu-fan-zhuan-by-leetcode/
+
+解题千千万，官方独一家，上面是官方使用 C++ / Java 进行的题解。
+
+小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
+
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 转字符串</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
 ```js
 var reverse = function(x) {
   // 转数组
   let numberToArray = String(x > 0 ? x : -x).split('');
+  
   // 转字符串
   let result = '';
   const len = numberToArray.length;
@@ -37,14 +73,97 @@ var reverse = function(x) {
     result += numberToArray.pop();
   }
   result = x > 0 ? Number(result) : -Number(result);
+  
   // 超 [-Math.pow(2, 31), Math.pow(2, 31) - 1] 判断
   if (result > Math.pow(2, 31) - 1
   || result < -Math.pow(2, 31)) {
     result = 0;
   }
+  
   return result;
 };
 ```
+
+* **执行测试**：
+
+1. `x`：`123456789`
+2. `return`：
+
+```js
+987654321
+```
+
+* **LeetCode Submit**：
+
+```js
+✔ Accepted
+  ✔ 1032/1032 cases passed (104 ms)
+  ✔ Your runtime beats 97.89 % of javascript submissions
+  ✔ Your memory usage beats 41.18 % of javascript submissions (35.8 MB)
+```
+
+* **知识点**：
+
+1. `String`：将其他值转成字符串。[`String` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/String.md)
+2. `Number`：将其他值转成数字值。[`Number` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Number.md)
+
+* **解题思路**：
+
+[图]
+
+[分析]
+
+* **进一步思考**：
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 数学算法</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
+```js
+var reverse = function(x) {
+  let result = 0;
+  let y = x > 0 ? x : -x;
+  while (y != 0) {
+    result = result * 10 + y % 10;
+    y = Math.floor(y / 10);
+    if (result > Math.pow(2, 31) - 1
+    || result < -Math.pow(2, 31)) {
+      result = 0;
+      y = 0;
+    }
+  }
+  return x > 0 ? result : -result;
+};
+```
+
+* **执行测试**：
+
+1. 形参 1
+2. 形参 2
+3. `return`：
+
+```js
+✔ Accepted
+  ✔ 1032/1032 cases passed (108 ms)
+  ✔ Your runtime beats 97.4 % of javascript submissions
+  ✔ Your memory usage beats 23.63 % of javascript submissions (36 MB)
+```
+
+* **知识点**：
+
+1. 
+
+* **解题思路**：
+
+[图]
+
+[分析]
+
+* **进一步思考**：
+
+
 
 ---
 
