@@ -2,7 +2,11 @@
 ===
 
 > Create by **jsliang** on **2019-05-19 09:42:39**  
-> Recently revised in **2019-05-19 11:32:05**
+> Recently revised in **2019-05-19 16:04:13**
+
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
+
+* [LeetCode 攻略地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/LeetCode)
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -45,7 +49,7 @@
 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。
 ```
 
-## <a name="chapter-three" id="chapter-threed">三 解题</a>
+## <a name="chapter-three" id="chapter-three">三 解题</a>
 
 > [返回目录](#chapter-one)
 
@@ -64,12 +68,11 @@
 ```js
 var reverse = function(x) {
   // 转数组
-  let numberToArray = String(x > 0 ? x : - x).split('');
+  let numberToArray = String(Math.abs(x)).split('');
   
   // 转字符串
   let result = '';
-  const len = numberToArray.length;
-  for (let i = 0; i < len; i++) {
+  for (const i = 0; i < numberToArray.length; ) {
     result += numberToArray.pop();
   }
   result = x > 0 ? Number(result) : - Number(result);
@@ -86,20 +89,20 @@ var reverse = function(x) {
 
 * **执行测试**：
 
-1. `x`：`123456789`
+1. `x`：`-1234`
 2. `return`：
 
 ```js
-987654321
+-4321
 ```
 
 * **LeetCode Submit**：
 
 ```js
 ✔ Accepted
-  ✔ 1032/1032 cases passed (104 ms)
-  ✔ Your runtime beats 97.89 % of javascript submissions
-  ✔ Your memory usage beats 41.18 % of javascript submissions (35.8 MB)
+  ✔ 1032/1032 cases passed (88 ms)
+  ✔ Your runtime beats 99.53 % of javascript submissions
+  ✔ Your memory usage beats 46.01 % of javascript submissions (35.8 MB)
 ```
 
 * **知识点**：
@@ -111,9 +114,13 @@ var reverse = function(x) {
 
 * **解题思路**：
 
-[图]
+![图](../../../public-repertory/img/other-algorithm-007-1.png)
 
-[分析]
+**首先**，将传入的数字 `x` 转换成字符串，并分割成数组。
+
+**然后**，遍历该数组，将最后一个取出来放到 `result` 中。
+
+**最后**，判断这个 `result` 是否超过题目限制，如果超过则变成 0 。
 
 * **进一步思考**：
 
@@ -126,7 +133,7 @@ var reverse = function(x) {
 ```js
 var reverse = function(x) {
   let result = 0;
-  let y = x > 0 ? x : -x;
+  let y = Math.abs(x);
   while (y != 0) {
     result = result * 10 + y % 10;
     y = Math.floor(y / 10);
@@ -142,9 +149,14 @@ var reverse = function(x) {
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `x`：`-1234`
+2. `return`：
+
+```js
+-4321
+```
+
+* **LeetCode Submit**：
 
 ```js
 ✔ Accepted
@@ -155,17 +167,17 @@ var reverse = function(x) {
 
 * **知识点**：
 
-1. 
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
 
 * **解题思路**：
 
-[图]
+![图](../../../public-repertory/img/other-algorithm-007-2.png)
 
-[分析]
+**首先**，我们初始化数值。
 
-* **进一步思考**：
+**然后**，我们需要知道的是，一个数对 10 取余，可以得到这个数的个位数；一个数乘于 10 并加上一个个位数，可以将这个数字放到末尾。
 
-
+**最后**，我们判断一开始传入的数值正负，再返回对应结果即可。
 
 ---
 
@@ -175,7 +187,7 @@ var reverse = function(x) {
 > 或者小伙伴需要续费云服务器  
 > 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
 
-[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
-[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+[![图](../../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
