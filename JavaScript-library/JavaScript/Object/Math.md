@@ -1,78 +1,30 @@
-算法文章模板
+对象 - Math
 ===
 
-> Create by **jsliang** on **2019-05-17 13:06:52**  
-> Recently revised in **2019-05-17 15:07:34**
+> Create by **jsliang** on **2019-05-19 11:32:44**  
+> Recently revised in **2019-05-19 11:32:47**
 
-## <a name="chapter-one" id="chapter-one">一 目录</a>
+* **原文**：[MDN - Math](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math)
 
-**不折腾的前端，和咸鱼有什么区别**
+* **功能**：`Math` 是一个内置对象，它具有数学常数和函数的属性和方法。不是一个函数对象。
 
-| 目录 |
-| --- | 
-| [一 目录](#chapter-one) | 
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+* **方法**：
+  * `Math.abs(x)`：返回 `x` 的绝对值。
+  * `Math.ceil(x)`：返回 `x` 向上取整后的值。`x = 99.1; result = 100`
+  * `Math.floor(x)`：返回小于 `x` 的最大整数。`x = 99.1; result = 99`
+  * `Math.pow(x,y)`：返回 `x` 的 `y` 次幂。
+  * `Math.round(x)`：返回四舍五入后的整数。
 
-## <a name="chapter-two" id="chapter-two">二 前言</a>
-
-> [返回目录](#chapter-one)
-
-* **难度**：
-* **涉及知识**：
-* **题目地址**：
-* **题目内容**：
-
-```
-
-```
-
-## <a name="chapter-three" id="chapter-threed">三 解题</a>
-
-> [返回目录](#chapter-one)
-
-* **官方题解**：
-
-解题千千万，官方独一家，上面是官方使用 Java 进行的题解。
-
-小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
-
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
-* **解题代码**：
+* **代码**：
 
 ```js
-
+Math.abs(-999); // 999
+Math.ceil(99.1); // 100
+Math.floor(99.1); // 99
+Math.pow(2, 3); // 8
+Math.round(99.5); // 100
+Math.round(99.4); // 99
 ```
-
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
 
 ---
 

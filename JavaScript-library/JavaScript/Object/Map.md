@@ -32,8 +32,6 @@ var twoSum = function(nums, target) {
 twoSum([4, 3, 2, 5, 6], 8); // [1, 3]
 ```
 
-
-
 ---
 
 > **jsliang** 广告推送：  
