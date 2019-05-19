@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-19 09:42:39**  
-> Recently revised in **2019-05-19 11:04:12**
+> Recently revised in **2019-05-19 11:32:05**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -64,7 +64,7 @@
 ```js
 var reverse = function(x) {
   // 转数组
-  let numberToArray = String(x > 0 ? x : -x).split('');
+  let numberToArray = String(x > 0 ? x : - x).split('');
   
   // 转字符串
   let result = '';
@@ -72,11 +72,11 @@ var reverse = function(x) {
   for (let i = 0; i < len; i++) {
     result += numberToArray.pop();
   }
-  result = x > 0 ? Number(result) : -Number(result);
+  result = x > 0 ? Number(result) : - Number(result);
   
   // 超 [-Math.pow(2, 31), Math.pow(2, 31) - 1] 判断
   if (result > Math.pow(2, 31) - 1
-  || result < -Math.pow(2, 31)) {
+  || result < - Math.pow(2, 31)) {
     result = 0;
   }
   
@@ -106,6 +106,8 @@ var reverse = function(x) {
 
 1. `String`：将其他值转成字符串。[`String` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/String.md)
 2. `Number`：将其他值转成数字值。[`Number` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Number.md)
+3. `pop()`：`pop()` 方法从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。[`pop()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/pop().md)
+4. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
 
 * **解题思路**：
 
