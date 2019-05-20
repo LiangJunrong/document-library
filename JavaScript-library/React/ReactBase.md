@@ -59,10 +59,6 @@ const element = <h1>Hello, world!</h1>;
 
 JSX 类似于 HTML 标签，但是它确切来说是 React 内部生成的，它也可以包含表达式，例如：
 
-<details>
-
-  <summary>案例详情</summary>
-
 ```js
 function formatName(user) {
   return user.firstName + ' ' + user.lastName;
@@ -85,17 +81,11 @@ ReactDOM.render(
 );
 ```
 
-</details>
-
 ### <a name="chapter-three-three" id="chapter-three-three">3.3 JSX（二）</a>
 
 > [返回目录](#chapter-one)
 
 不仅如此，还可以将 JSX 作为返回值：
-
-<details>
-
-  <summary>案例详情</summary>
 
 ```js
 function getGreeting(user) {
@@ -106,17 +96,11 @@ function getGreeting(user) {
 }
 ```
 
-</details>
-
 ### <a name="chapter-three-four" id="chapter-three-four">3.4 JSX（三）</a>
 
 > [返回目录](#chapter-one)
 
 Babel 转译器会把 JSX 转换成一个名为 React.createElement() 的方法调用。
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 const element = (
@@ -132,8 +116,6 @@ const element = React.createElement(
   'Hello, world!'
 );
 ```
-
-</details>
 
 ## <a name="chapter-four" id="chapter-four">四 元素渲染</a>
 
@@ -152,10 +134,6 @@ const element = <h1>Hello, world</h1>;
 我们可以拿 `create-react-app` 中的简化代码来看看：
 
 > 1. index.html
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```html
 <!DOCTYPE html>
@@ -176,13 +154,7 @@ const element = <h1>Hello, world</h1>;
 </html>
 ```
 
-</details>
-
 > 2. index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React from 'react';
@@ -192,13 +164,7 @@ import App from './App';
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-</details>
-
 > 3. App.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -215,8 +181,6 @@ class App extends Component {
 
 export default App;
 ```
-
-</details>
 
 在这三个文件中我们可以很简单地看出猫腻：
 
@@ -238,10 +202,6 @@ export default App;
 
 下面我们来看个例子：
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
@@ -253,8 +213,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-
-</details>
 
 在这个例子中，我们做了 4 件事：
 
