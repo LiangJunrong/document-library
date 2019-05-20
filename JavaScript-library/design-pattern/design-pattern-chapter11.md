@@ -21,7 +21,7 @@
 <br>
 ### 11.2 代码演示
 
-```
+```js
 // 状态：红灯、绿灯、蓝灯
 class State {
     constructor(color) {
@@ -91,7 +91,8 @@ console.log(context.getState()); // 打印状态
 2. 代码：es6 webpack 环境下
 
 > index.html
-```
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,7 +112,8 @@ console.log(context.getState()); // 打印状态
 ```
 
 > index.js
-```
+
+```js
 import StateMachine from 'javascript-state-machine'
 
 // 初始化状态机模型
@@ -169,7 +171,7 @@ updateText();
 > * 写代码
 > * 测试验证
 
-```
+```js
 function loadImg(src) {
     const promise = new Promise(function(resolve, reject) {
         var img = document.createElement("img");
@@ -214,7 +216,7 @@ result.then(function(img) {
 2. pending -> fullfilled 或者 pending -> rejected
 3. 不能逆向变化
 
-```
+```js
 import StateMachine from 'javascript-state-machine';
 
 // 状态机模型
