@@ -5,7 +5,7 @@
 **/node_modules/
 
 # 忽略掉 _book 的 GitBook 文件
-# _book
+_book
 
 # 忽略掉所有的 .DS_Store 文件
 .DS_Store
