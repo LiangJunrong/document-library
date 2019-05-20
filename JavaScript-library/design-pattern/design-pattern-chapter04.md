@@ -2,7 +2,7 @@
 ===
 
 > create by **jsliang** on **2018年8月27日09:15:18**  
-> Recently revised in **2018-10-28 10:54:44**
+> Recently revised in **2019-05-20 17:35:56**
 
 ## 第四章 单例模式
 * 系统中被唯一使用
@@ -12,7 +12,8 @@
 <br>
 
 ### 4.1 代码实现
-```
+
+```js
 class SingleObject {
     login() {
         console.log("login...");
@@ -45,7 +46,8 @@ console.log(obj1 == obj2); // true （两者必须完全相等）
 * vuex 和 redux 中的 store
 
 > jQuery单例模式
-```
+
+```js
 // jQuery 只有一个 '$'
 if (window.jQuery != null) {
     return window.jQuery;
@@ -53,10 +55,12 @@ if (window.jQuery != null) {
     // 初始化
 }
 ```
+
 > 如果引用了jQuery，那就不做任何操作；如果没有引用，那就初始化引用。
 
 > 登录框模拟
-```
+
+```js
 class LoginForm {
     constructor() {
         this.state = "hide";
