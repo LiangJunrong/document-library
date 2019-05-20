@@ -13,5 +13,5 @@
   * [☆ React](./JavaScript-library/README.md)
     * [√ ReactDemoOne-TodoList](./JavaScript-library/React/ReactDemoOne-TodoList.md)
 * [★ 其他资料室](./other-library/README.md)
+  * [☆ Git](./other-library/Git/README.md)
 * [★ 共用资料](./public-repertory/README.md)
-* [★ 百度统计](http://tongji.baidu.com/web/overview/index?castk=5aeffdn7eb3f5b63bd939)
