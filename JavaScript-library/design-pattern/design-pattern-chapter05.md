@@ -2,7 +2,7 @@
 ===
 
 > create by **jsliang** on **2018年8月27日09:15:18**  
-> Recently revised in **2018-10-28 10:54:44**
+> Recently revised in **2019-05-20 17:36:14**
 
 ## 第五章 适配器模式
 * 旧接口格式和使用者不兼容
@@ -16,7 +16,8 @@
 <br> 
 
 ### 5.2 代码实现
-```
+
+```js
 class Adaptee {
     specificRequest() {
         return "德国标准的插头";
@@ -42,7 +43,8 @@ console.log(target.request()); // 德国标准的插头 -> 转换器 -> 中国�
 * vue computed
 
 > 封装旧接口
-```
+
+```js
 // 自己封装的 ajax ，使用方式如下：
 ajax({
     url: 'getData',
@@ -67,7 +69,8 @@ var $ = {
 ```
 
 > vue computed
-```
+
+```js
 <!DOCTYPE html>
 <html lang="en">
 <head>
