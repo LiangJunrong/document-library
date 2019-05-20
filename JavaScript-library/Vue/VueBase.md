@@ -2,7 +2,7 @@ Vue 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:34:30**  
-> Recently revised in **2019-1-12 20:00:15**
+> Recently revised in **2019-05-20 19:35:47**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)**
 
@@ -21,7 +21,7 @@ Vue 基础
 | &emsp;<a name="catalog-chapter-two-one" id="catalog-chapter-two-one"></a>[2.1 初识 Vue](#chapter-two-one) |
 | &emsp;<a name="catalog-chapter-two-two" id="catalog-chapter-two-two"></a>[2.2 挂载数据 - data](#chapter-two-two) |
 | &emsp;<a name="catalog-chapter-two-three" id="catalog-chapter-two-three"></a>[2.3 进一步优化 el](#chapter-two-three) |
-| &emsp;<a name="catalog-chapter-two-four" id="catalog-chapter-two-four"></a>[2.4 插值表达式 - {{ }}](#chapter-two-four) |
+| &emsp;<a name="catalog-chapter-two-four" id="catalog-chapter-two-four"></a>[2.4 插值表达式 - \{\{ \}\}](#chapter-two-four) |
 | &emsp;<a name="catalog-chapter-two-five" id="catalog-chapter-two-five"></a>[2.5 指令 - v-*](#chapter-two-five) |
 | &emsp;<a name="catalog-chapter-two-six" id="catalog-chapter-two-six"></a>[2.6 事件 - methods](#chapter-two-six) |
 | &emsp;<a name="catalog-chapter-two-seven" id="catalog-chapter-two-seven"></a>[2.7 组件 - components](#chapter-two-seven) |
@@ -276,7 +276,7 @@ el: document.getElementById('app'),
 
 这般操作，使得 Vue 直接将挂载点挂载到 `id` 上去，从而获得更好的加载速度。这算是对 `el` 的一个小优化。
 
-### <a name="chapter-two-four" id="chapter-two-four">2.4 插值表达式 - {{ }}</a>
+### <a name="chapter-two-four" id="chapter-two-four">2.4 插值表达式 - \{\{ \}\}</a>
 
 > [返回目录](#catalog-chapter-two-four)
 
@@ -284,10 +284,10 @@ el: document.getElementById('app'),
 
 下面，我们进一步讲解这个插值表达式 `{{}}` 还可以进行哪种骚操作：
 
-* 对象：{{ {name: 'jack'} }}
-* 字符串 {{ 'Hello World!' }}
-* 布尔值： {{ isTrue == -1 }}
-* 三元表达式： {{ isTrue ? '正确' : '错误' }}
+* 对象：\{\{ {name: 'jack'} \}\}
+* 字符串 \{\{ 'Hello World!' \}\}
+* 布尔值： \{\{ isTrue == -1 \}\}
+* 三元表达式： \{\{ isTrue ? '正确' : '错误' \}\}
 
 光字面理解是不够的，我们通过代码进行操作演示：
 
