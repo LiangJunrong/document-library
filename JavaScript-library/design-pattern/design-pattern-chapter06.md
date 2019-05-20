@@ -2,7 +2,7 @@
 ===
 
 > create by **jsliang** on **2018年8月30日09:54:33**  
-> Recently revised in **2018-10-28 10:54:44**
+> Recently revised in **2019-05-20 17:36:50**
 
 ## 第六章 装饰器模式
 * 为对象添加新功能
@@ -18,7 +18,8 @@
 <br>
 
 ### 6.2 代码实现
-```
+
+```js
 class Circle {
     draw() {
         console.log("画一个圆形");
@@ -56,7 +57,8 @@ dec.draw();
 &emsp;ES7装饰器的三个步骤：
 1. `npm install babel-plugin-transform-decorators-legacy -D`
 2. 设置.babelrc配置
-```
+
+```js
 {
     "presets": [
         "env"
@@ -66,8 +68,10 @@ dec.draw();
     ]
 }
 ```
+
 3. 然后测试该配置是否生效：
-```
+
+```js
 // 一个简单的 demo
 // @testDec 对 Demo 这个 class 的装饰，装饰的方法就是使用 testDec() 这个函数
 @testDec
@@ -79,8 +83,10 @@ function testDec(target) {
 }
 alert(Demo.isDec); // true
 ```
+
 &emsp;在这里简化下装饰器语法：
-```
+
+```js
 // 装饰器的原理
 
 @decorator
@@ -90,10 +96,12 @@ class A {}
 class A {}
 A = decorator(A) || A;
 ```
+
 * 装饰类
 
 &emsp;在这里，我们还可以传参数：
-```
+
+```js
 // 一个简单的 demo
 // @testDec 对 Demo 这个 class 的装饰，装饰的方法就是使用 testDec() 这个函数
 @testDec(false)
@@ -108,8 +116,10 @@ function testDec(isDec) {
 }
 alert(Demo.isDec); // false
 ```
+
 &emsp;然后，我们再根据mixin进行一个示例
-```
+
+```js
 function mixins(...list) {
     return function(target) {
         Object.assign(target.prototype, ...list);
@@ -130,10 +140,12 @@ class MyClass {
 let obj = new MyClass();
 obj.foo(); // foo
 ```
+
 * 装饰方法
 
 &emsp;@readonly 只读属性
-```
+
+```js
 class Person {
     constructor() {
         this.first = "A";
@@ -165,8 +177,10 @@ var p = new Person();
 console.log(p.name()); // A B
 // 如果设置 p.name = function() {}; 这样子就会报错，因为 name 被我们设置为只读属性
 ```
+
 &emsp;例子2：
-```
+
+```js
 class Math {
     // 装饰方法
     @log
@@ -201,7 +215,8 @@ console.log("result", result);
 1. 安装 core-decorators ： npm i core-decorators -S
 2. 然后开始编码：
 > readonly： 只读
-```
+
+```js
 import { readonly } from 'core-decorators';
 
 class Person {
@@ -218,7 +233,8 @@ alert(p.name()); // zhang
 <br>
 
 > depercate： 废弃的警告
-```
+
+```js
 // 废弃的 API
 import { deprecate } from 'core-decorators';
 
