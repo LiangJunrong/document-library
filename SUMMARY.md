@@ -47,4 +47,8 @@
     * [✘ 设计模式手册 - 13 - 综合应用](./JavaScript-library/design-pattern/design-pattern-chapter13.md)
 * [★ 其他资料室](./other-library/README.md)
   * [☆ Git](./other-library/Git/README.md)
+  * [☆ LeetCode](./other-library/LeetCode/README.md)
+    * [LeetCode - 简单模式](./other-library/LeetCode/Easy/README.md)
+    * [✔ 001 - 两数之和（two-sum）](./other-library/LeetCode/Easy/001-两数之和（two-sum）.md)
+    * [✔ 007 - 整数反转（reverse-integer）](./other-library/LeetCode/Easy/007-整数反转（reverse-integer）.md)
 * [★ 共用资料](./public-repertory/README.md)
