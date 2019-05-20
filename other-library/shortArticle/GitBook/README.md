@@ -2,11 +2,11 @@ GitBook
 ===
 
 > Create by **jsliang** on **2019-05-20 14:43:41**  
-> Recently revised in **2019-05-20 14:43:44**
+> Recently revised in **2019-05-20 17:08:30**
 
 本文将介绍如何安装 GitBook、如何起 GitBook 服务、如何配置 GitBook，以及到最后的部署到 GitHub Pages 或者部署到个人云服务器。
 
-**小伙伴们如果觉得不错可以到 [jsliang 的文档库](https://github.com/LiangJunrong/document-library) 进行点赞，谢谢~**
+**小伙伴们如果觉得不错可以到 [jsliang 的文档库](https://github.com/LiangJunrong/document-library) 为 jsliang 点个 star，谢谢~**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -25,7 +25,9 @@ GitBook
 
 > [返回目录](#chapter-one)
 
-由于平时喜欢使用 MarkDown 编写文档，然后又因为上周日（2019-05-19）的时候被叫去将公司 WIKI 转成 GitBook，所以回到租房自己玩了下，表示深深被吸引了，这也太好用了吧！
+由于平时喜欢使用 MarkDown 编写文档，无意中在工作上暴露了自己会使用 MarkDown 的 “优点”，所以上周日（2019-05-19）被抓苦力，叫去将公司 WIKI 转成 GitBook。
+
+后面回到租房自己又玩了下，表示深深被吸引了，这也太好用了吧！
 
 所以在这里安利给小伙伴们，大家一起 happy 下。
 
@@ -183,7 +185,7 @@ GitBook
 
 > [返回目录](#chapter-one)
 
-现在，我们讲解下上面的 `book.json` 的意思：
+现在，我们讲解下 `book.json` 的意思：
 
 * `title`：网站标题
 * `author`：网站作者
@@ -454,6 +456,17 @@ GitBook
 ## <a name="chapter-five" id="chapter-five">五 GitBook 打包部署</a>
 
 > [返回目录](#chapter-one)
+
+现在，是时候打包并且发布项目，让其他小伙伴看到你的成果了。
+
+**首先**，打包项目：`gitbook build`。
+
+**然后**，部署到 GitHub Pages 或者个人云服务器。
+
+* [GitHub Pages 教程](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/GithubPages/DocumentLibrary.md)
+* [Nginx 配置](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/BuildStation/README.md)
+
+**最后**，我们查看下我们的部署页面：
 
 
 
