@@ -2,7 +2,7 @@ React Demo One - TodoList
 ===
 
 > Create by **jsliang** on **2019-3-18 08:37:10**  
-> Recently revised in **2019-4-7 03:03:32**
+> Recently revised in **2019-05-20 17:50:01**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-TodoList.md)**
 
@@ -145,10 +145,6 @@ Now，开始搞事情。
 
 > 1. index.html
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -168,14 +164,7 @@ Now，开始搞事情。
 </html>
 ```
 
-</details>
-
-
 > 2. App.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -193,13 +182,7 @@ class App extends Component {
 export default App;
 ```
 
-</details>
-
 > 3. index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React from 'react';
@@ -209,13 +192,7 @@ import App from './App';
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-</details>
-
 > 4. package.json
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```json
 {
@@ -244,8 +221,6 @@ ReactDOM.render(<App />, document.getElementById('root'));
   ]
 }
 ```
-
-</details>
 
 ### <a name="chapter-three-four" id="chapter-three-four">3.4 初探组件</a>
 
@@ -439,10 +414,6 @@ ReactDOM.render(<TodoList />, document.getElementById('root'));
 
 > TodoList.js
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 // Fragment 是一种占位符形式，类似于 Vue 的 Template
 import React, { Component, Fragment } from 'react';
@@ -499,8 +470,6 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
 我们先查看演示：
 
 ![图](../../public-repertory/img/js-react-demo-one-5.gif)
@@ -518,10 +487,6 @@ OK，这样我们在每输入一个字符的时候，我们就能立刻获取到
 这样，我们就对 React 的数据及事件有了初步理解，下面我们加下按钮点击新增列表事件以及点击 `X` 删除列表事件。
 
 > TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // Fragment 是一种占位符形式，类似于 Vue 的 Template
@@ -601,8 +566,6 @@ class TodoList extends Component {
 
 export default TodoList;
 ```
-
-</details>
 
 ![图](../../public-repertory/img/js-react-demo-one-6.gif)
 
@@ -701,10 +664,6 @@ import './style.css'
 
 > TodoList.js
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 // Fragment 是一种占位符形式，类似于 Vue 的 Template
 import React, { Component, Fragment } from 'react';
@@ -802,8 +761,6 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
 我们关注下 TodoList.js 的改变：
 
 1. 我们在 `constructor` 中，将方法进行了提前定义：
@@ -862,10 +819,6 @@ getTodoItem() {
 
 > TodoItem.js
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 import React, { Component } from 'react'
 
@@ -896,8 +849,6 @@ class TodoItem extends Component {
 
 export default TodoItem;
 ```
-
-</details>
 
 这样，我们就完成了组件的抽取，并学会了
 
