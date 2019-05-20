@@ -2,7 +2,7 @@ Vue
 ===
 
 > Create by **jsliang** on **2018-10-29 11:48:55**  
-> Recently revised in **2019-2-11 11:35:56**
+> Recently revised in **2019-05-20 19:39:49**
 
 <br>
 
@@ -46,8 +46,6 @@ Vue
 
 &emsp;在这里偶然发现一套来自 **开课吧** 的教学视频，然后发现它是今年 6 月份录制的，内容上还算是比较新，并且文件命名非常有意思，在这里咱的 Vue 基础知识先跟着它走一遍看看~  
 &emsp;【11-08】补充：Axios 中涉及到 Koa 提供的后端接口，还需要恶补一番 Node 基础或者 Koa 直接上手。
-
-![图](../../public-repertory/img/js-vue-basic-learning-2.png)
 
 2. **慕课网** - [《Vue.js 源码全方位深入解析》](https://coding.imooc.com/class/228.html)
 
