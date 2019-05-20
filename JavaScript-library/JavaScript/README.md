@@ -2,7 +2,7 @@ JavaScript 知识点
 ===
 
 > Create by **jsliang** on **2018-12-11 09:21:24**  
-> Recently revised in **2019-05-17 11:48:27**
+> Recently revised in **2019-05-20 18:20:34**
 
 万丈高楼平地起
 
@@ -20,10 +20,17 @@ MDN 是个非常实用的网站，有不懂的知识点可尽管搜索：
 
 | 类型 | 名称 | 简介 | 地址 |
 | --- | --- | --- | --- |
-| 方法 | `map()` | 遍历数组，`item` 返回遍历项，`index` 返回当前索引。 | [`map()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/map().md) |
 | 方法 | `indexOf()` | 判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。 | [`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf().md) |
+| 方法 | `map()` | 遍历数组，`item` 返回遍历项，`index` 返回当前索引。 | [`map()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/map().md) |
+| 方法 | `pop()` | 从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。 | [`pop()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/pop().md) |
 | 方法 | `sort()` | 排序，数字 1-9，字母 a-z。 | [`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort().md) |
+
+| 类型 | 名称 | 简介 | 地址 |
+| --- | --- | --- | --- |
 | 对象 | `Map` | 保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。 | [`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md) |
+| 对象 | `Math` | 内置对象，它具有数学常数和函数的属性和方法。不是一个函数对象。 | [`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md) |
+| 对象 | `Number` | 可以将其他类型的值转为数字。 | [`Number` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Number.md) |
+| 对象 | `String` | 将其他格式转成字符串。 | [`String` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/String.md) |
 
 ---
 
