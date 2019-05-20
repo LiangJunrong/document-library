@@ -67,7 +67,7 @@ GitBook
 ```
 
 > SUMMARY.md  
-> > \[链接](链接地址) 表示跳转链接，即 GitBook 会根据你的 SUMMARY 自动帮你生成左侧菜单栏的目录
+> \[链接](链接地址) 表示跳转链接，即 GitBook 会根据你的 SUMMARY 自动帮你生成左侧菜单栏的目录
 
 ```markdown
 # Summary
