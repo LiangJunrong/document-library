@@ -468,7 +468,7 @@ GitBook
 
 **最后**，我们查看下我们的部署页面：
 
->  部署在 GitHub Pages 中的页面
+> 部署在 GitHub Pages 中的页面：https://liangjunrong.github.io/
 
 ![图](../../../public-repertory/img/other-GitBook-13.png)
 
