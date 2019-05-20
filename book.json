@@ -1,0 +1,32 @@
+{
+  "title": "jsliang 的文档库",
+  "author": "梁峻荣 - jsliang",
+  "description": "jsliang 的文档库. 里面包含了个人撰写的所有前端文章，例如 Vue、React,、ECharts、微信小程序等……",
+  "language": "zh-hans",
+  "plugins": [
+    "expandable-chapters",
+    "github",
+    "include-codeblock",
+    "-sharing"
+  ],
+  "pluginsConfig": {
+    "github": {
+      "url": "https://github.com/LiangJunrong/document-library"
+    }
+  },
+  "jsliang-description": {
+    "title": "标题",
+    "author": "作者",
+    "description": "描述",
+    "language": "简体中文",
+    "plugins": {
+      "expandable-chapters": "标题可伸缩",
+      "github": "GitHub",
+      "include-codeblock": "代码块格式",
+      "-sharing": "禁用除 GitHub 外其他分享"
+    },
+    "pluginsConfig": {
+      "github": "GitHub 的配置"
+    }
+  }
+}
