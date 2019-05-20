@@ -1,8 +1,8 @@
-CSS 仓库
+CSS 资料室
 ===
 
 > Create by **jsliang** on **2018-10-28 10:49:09**  
-> Recently revised in **2019-4-25 08:58:37**
+> Recently revised in **2019-5-20 08:23:35**
 
 * Here is an article about CSS.
 * 这里存放了关于 CSS 的文章。
