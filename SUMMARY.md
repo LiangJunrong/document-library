@@ -80,6 +80,6 @@
     * [LeetCode - 简单模式](./other-library/LeetCode/Easy/README.md)
     * [✔ 001 - 两数之和（two-sum）](./other-library/LeetCode/Easy/001-两数之和（two-sum）.md)
     * [✔ 007 - 整数反转（reverse-integer）](./other-library/LeetCode/Easy/007-整数反转（reverse-integer）.md)
-  * [短杂文](./other-library/shortArticle/README.md)
+  * [☆ 短杂文](./other-library/shortArticle/README.md)
     * [✔ GitBook](./other-library/shortArticle/GitBook/README.md)
 * [★ 共用资料](./public-repertory/README.md)
