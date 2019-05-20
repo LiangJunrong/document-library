@@ -2,7 +2,7 @@
 ===
 
 > create by **jsliang** on **2018年8月24日08:00:00**  
-> Recently revised in **2018-10-28 10:54:44**
+> Recently revised in **2019-05-20 17:31:39**
 
 > 未完善版，待完善。
 
@@ -44,7 +44,8 @@
 
 &emsp;你可能会说，不对啊！面向对象还要做准备，这样不是比面向过程更复杂吗？如果你游戏就这么个场景，那么，使用面向对象就得不偿失了，毕竟做准备也要花功夫的。但是，如果你的游戏，还有火影大战海贼王，也是调用同样的游戏场景库，如果你使用面向过程，是不是要复制粘贴或者重新写过，但是面向对象只需要调用已经写好的游戏场景库，从而省下了大笔时间。  
 &emsp;这么说你可能还迷糊，说了那么多话，面向对象究竟长啥样？别急，我们代码的世界见：
-```
+
+```js
 class Person {
     constructor(name, age) {
         this.name = name;
@@ -64,6 +65,7 @@ jsliang.eat();
 let JavaScriptLiang = new Person("JavaScriptLiang");
 JavaScriptLiang.speak();
 ```
+
 &emsp;在这段代码中，我们使用了封装了个Person的类（如果小伙伴你仅知道ES5，没见过ES6的语法，建议先去看下ES6），然后，jsliang调用了eat这个吃饭的动作，JavaScriptLiang调用了speak这个说话的动作，下次run()、sleep()这些我们也可以放进去，从而实现每个人都可以有属于自己的一套动作。这就是面向对象写法。  
 &emsp;很好，经这么一说，jsliang算是勉强过了一遍什么是面向过程和面向对象了。如果小伙伴还是不懂，嗯，如果你没看到开篇那句话的话，那你还是不懂吧~先跟着jsliang撸一遍面向对象再说！
 
@@ -72,7 +74,8 @@ JavaScriptLiang.speak();
 ### 2.2 三要素
 #### 2.2.1 继承
 &emsp;继承，简单来说，就是子类继承父类。继承可将公共方法抽离出来，提高复用，减少冗余。
-```
+
+```js
 //父类： 人类Person
 class People {
     constructor(name, age) {
@@ -113,7 +116,8 @@ studentLiang.eat();
 &emsp;封装，简单来说，就是数据的权限和保密。封装的作用有：1、减少耦合，不该外露的不外露；2、利于数据、接口的权限管理  
 &emsp;封装有三个关键字：public(完全开放)、protected(对子类开放)、private(对自己开放)。  
 &emsp;目前来说，ES6不支持封装，而TypeScript支持。所以，为了做到封装效果，我们可以约定下划线 _ 开头的属性是 private (实际不安全)  
-```
+
+```js
 //父类： 人类Person
 class People {
     public name;
@@ -157,7 +161,8 @@ alert(xiaoming.girlfriend); // 语法error,因为girlfriend是受保护的
 
 #### 2.2.3 多态
 &emsp;多态，同一接口不同实现。在JavaScript中应用极少，因为多态是需要结合后端语言的接口、重写、重载等功能。多态的优点：1、保持子类的开放性和灵活性；2、面向接口编程；3、JavaScript引用极少。  
-```
+
+```js
 class People {
     constructor(name) {
         this.name = name;
@@ -189,13 +194,15 @@ a.saySomething();
 let b = new B('b');
 b.saySomething();
 ```
+
 &emsp;在上面的例子中，我们可以看出，A 类继承了 People 类，同时，A 类重写了 saySomething() 方法，B 类也是如此，因而，做到了多态效果。
 
 <br>
 
 2.2.4 应用
 &emsp;jQuery是使用面向对象编写的。
-```
+
+```js
 class jQuery {
     constructor(selector) {
         let slice = Array.prototype.slice;
@@ -254,7 +261,8 @@ console.log($p.addClass("yes")); // I do addClass
 &emsp;在设计原则中，S O 体现较多，详细介绍；而L I D 体现较少，但是需要了解其用意。
 
 * 有没有具体例子？有的：
-```
+
+```js
 // 加载图片
 function loadImg(src) {
     var promise = new Promise(function (resolve, reject)  {
@@ -285,6 +293,7 @@ result.then(function(img) {
     console.log(ex);
 })
 ```
+
 在这里，实现了单一职责原则和开放封闭原则。
   1. 单一职责原则：每个 then 中的逻辑只做好一件事。
   2. 开放封闭原则：如果新增需求，扩展 then 。
@@ -321,7 +330,8 @@ result.then(function(img) {
 ![图](../../public-repertory/img/js-design-pattern-chapter2-1.png)
 
 2. ES6代码
-```
+
+```js
 class Car {
     constructor(number, name) {
         this.number = number;
@@ -374,7 +384,8 @@ trip.end(); // 行程结束，价格：5
 ![图](../../public-repertory/img/js-design-pattern-chapter2-2.png)
 
 2. ES6代码
-```
+
+```js
 // 车辆
 class Car {
     constructor(num) {
