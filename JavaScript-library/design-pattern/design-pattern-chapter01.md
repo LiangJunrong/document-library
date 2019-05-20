@@ -21,12 +21,17 @@
 1. 执行命令行：`npm init -y`，初始化package.json文件。
 2. 执行命令行：`cnpm i webpack webpack-cli -D`，安装webpack及其命令行工具webpack-cli。
 3. 在根目录下新建src文件夹，并在里面新建index.js文件，该文件打印了个100。
+
 > index.js
+
 ```
 console.log(100);
 ```
+
 4. 在根目录下新建webpack.dev.config.js文件。
+
 > webpack.dev.config.js
+
 ```
 module.exports = {
     entry: './src/index.js', // 入口文件
@@ -36,6 +41,7 @@ module.exports = {
     },
 }
 ```
+
 > 在webpack.dev.config.js中，我们做了两件事：
 > 1. 告知webpack我们的入口文件（需要被解析的ES6文件）在根目录的src下的index.js； 
 > 2. 告知webpack我们的出口文件（被解析后的ES5文件）需要打包到的位置是相对于当前目录的dist/src下的index.js。
@@ -43,7 +49,9 @@ module.exports = {
 <br>
 
 5. 修改package.json文件。
+
 > package.json
+
 ```
 {
   "name": "design-pattern",
@@ -67,6 +75,7 @@ module.exports = {
 }
 
 ```
+
 > 在这里，我们修改了`"scripts"`部分，告知npm在`npm run dev`的时候，记得使用webpack命令，用开发模式来解析配置文件webpack.dev.config.js。
 
 6. 执行命令行：`npm run dev`，可以查看到在根目录中生成了个dist文件夹，该文件夹下存有一个src文件夹，里面包含了个index.js。`本处有点小瑕疵，这里是src文件夹，但是到了后面变成了js文件夹，因为这是打包后的js存放的地方，当然这里是不影响使用的，下面我们会提到。`
@@ -81,7 +90,9 @@ module.exports = {
 1. 执行命令行：`cnpm i webpack-dev-server html-webpack-plugin -D`，安装Webpack的devServer，这个能启动开发模式实时监控代码的webpack配置。同时，安装html-webpack-plugin，这个能解析HTML的插件。
 
 2. 新建dist/index.html文件，由于这个HTML文件无特殊之处，所以这里不做过多讲解：
+
 > index.html
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -100,7 +111,9 @@ module.exports = {
 ```
 
 3. 根据我们安装的webpack-dev-server与html-webpack-plugin这两个配置，修改webpack.dev.config.js，使其能解析HTML文件和监控dist目录。
+
 > webpack.dev.config.js
+
 ```
 const path = require('path'); // 加载node中的path模块
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 加载插件html-webpack-plugin
@@ -127,7 +140,9 @@ module.exports = {
 ```
 
 4. 修改package.json，告知npm，我们不用webpack这个比较low的方式了，请给我用webpack-dev-server来启动`npm run dev`。
+
 > package.json
+
 ```
 {
   "name": "design-pattern",
@@ -152,6 +167,7 @@ module.exports = {
   }
 }
 ```
+
 5. 执行命令行：`npm run dev`，发现浏览器自动打开`http://localhost:8080`(启动WiFi的情况下应该是打开类似于`http://192.168.1.107:8080/`)的网址：  
 ![网址](../../public-repertory/img/js-design-pattern-chapter1-2.png)
 
@@ -163,7 +179,9 @@ module.exports = {
 ### 1.3 自动打包ES6
 &emsp;**本节实现目的**：部署个能按Ctrl+C，就能自动打包ES6为ES5，并且能自动更新代码的Webpack环境。  
 1. 执行命令行：`cnpm i babel-core babel-loader babel-polyfill babel-preset-env -D`，安装ES6对应的解析配置，执行完毕后package.json会自动新增依赖包：
+
 > package.json
+
 ```
 {
   "name": "design-pattern",
@@ -194,7 +212,9 @@ module.exports = {
 ```
 
 2. 新建.babelrc文件，该文件为ES6解析到ES5必须使用的文件（注，现在市面上大部分浏览器还不能完全直接解析ECMA Script2015语法，所以只能将ES6转为ES5，就用到了.babelrc文件）：
+
 > .babelrc
+
 ```
 {
     "presets": [
@@ -207,7 +227,9 @@ module.exports = {
 ```
 
 3. 修改webpack.dev.config.js，添加module，告知webpack在加载js文件的时候，需要使用babel-loader。
+
 > webpack.dev.config.js
+
 ```
 const path = require('path'); // 加载node中的path模块
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 加载插件html-webpack-plugin
@@ -242,7 +264,9 @@ module.exports = {
 ```
 
 4. 修改index.js，这里我们换成ES6语法（如果你还没学过ES6，你只需要知道这里弹窗显示了jsliang即可，内容可以忽略）：
+
 > index.js
+
 ```
 class Person {
     constructor(name) {
@@ -264,8 +288,11 @@ alert(person.getName());
 ### 1.4 完善配置
 &emsp;**本节实现目的**：`npm run dev`命令下，部署个能按Ctrl+C，就能自动打包ES6为ES5，并且能自动更新代码的Webpack环境。`npm run build`命令下，能打包文件到dist目录。  
 &emsp;经过上面的努力，终于可以在多终端（电脑+手机）实时查看自己编写的ES6代码了。然而，还是有点小瑕疵。例如：无法将代码打包应用于生产；打包js的目录名称叫src……。所以，Let's Go! 再搞个生产环境，让我们完美结束这份Webpack配置吧~
+
 1. 新增webpack.prod.config.js，用作打包生产：
+
 > webpack.prod.config.js
+
 ```
 const path = require('path'); // 加载node中的path模块
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 加载插件html-webpack-plugin
@@ -292,8 +319,11 @@ module.exports = {
     ]
 }
 ```
+
 2. 修改下package.json，使其能使用命令行`npm run build`：
+
 > package.json
+
 ```
 {
   "name": "design-pattern",
@@ -322,8 +352,11 @@ module.exports = {
   }
 }
 ```
+
 3. 完善下webpack.dev.config.js：
+
 > wepbakc.dev.config.js
+
 ```
 const path = require('path'); // 加载node中的path模块
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 加载插件html-webpack-plugin
@@ -356,8 +389,11 @@ module.exports = {
     }
 }
 ```
+
 4. 检查下其他文件，看看是否与jsliang一致：
+
 > src/index.js
+
 ```
 class Person {
     constructor(name) {
@@ -371,7 +407,9 @@ class Person {
 let person = new Person("jsliang");
 alert(person.getName());
 ```
+
 > .babelrc
+
 ```
 {
     "presets": [
@@ -382,7 +420,9 @@ alert(person.getName());
     ]
 }
 ```
+
 > index.html
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -399,6 +439,7 @@ alert(person.getName());
 </body>
 </html>
 ```
+
 5. 执行命令行`npm run dev`或者`npm run build`,然后查看目录：  
    ![目录](../../public-repertory/img/js-design-pattern-chapter1-4.png)  
    OK，都能成功运行，生产环境部署完毕，接下来我们愉快地玩耍设计模式吧！
