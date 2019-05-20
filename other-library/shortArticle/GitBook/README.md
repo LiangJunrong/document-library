@@ -486,9 +486,10 @@ OK，我们的 GitBook 教学到此结束啦。
 
 ![图](../../../public-repertory/img/z-small-wechat.jpeg)
 
-**最后的最后**，小伙伴们觉得不错的话，记得给 **jsliang** 点个 star 哦~
+**最后的最后**，小伙伴们觉得不错的话，记得给 **jsliang** 点个 **赞** 或者 **star** 哦~
 
-* [jsliang 的文档库](https://github.com/LiangJunrong/document-library)
+* [GitHub - jsliang 的文档库](https://github.com/LiangJunrong/document-library)
+* [掘金 - jsliang 的个人页面](https://juejin.im/user/584613ba128fe10058b3cf68)
 
 ---
 
