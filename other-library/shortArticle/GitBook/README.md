@@ -2,7 +2,7 @@ GitBook
 ===
 
 > Create by **jsliang** on **2019-05-20 14:43:41**  
-> Recently revised in **2019-05-20 17:08:30**
+> Recently revised in **2019-05-20 19:53:49**
 
 本文将介绍如何安装 GitBook、如何起 GitBook 服务、如何配置 GitBook，以及到最后的部署到 GitHub Pages 或者部署到个人云服务器。
 
@@ -468,12 +468,27 @@ GitBook
 
 **最后**，我们查看下我们的部署页面：
 
+>  部署在 GitHub Pages 中的页面
 
+![图](../../../public-repertory/img/other-GitBook-13.png)
 
 ## <a name="chapter-six" id="chapter-six">六 总结</a>
 
 > [返回目录](#chapter-one)
 
+OK，我们的 GitBook 教学到此结束啦。
+
+如果小伙伴们在使用 GitBook 开发的时候碰到问题，可以联系我：
+
+1. 加 **jsliang** 的 QQ 资料群：`798961601`。
+2. 加 **jsliang** 的个人 QQ：`1741020489`
+3. 加 **jsliang** 的个人微信：
+
+![图](../../../public-repertory/img/z-small-wechat.jpeg)
+
+**最后的最后**，小伙伴们觉得不错的话，记得给 **jsliang** 点个 star 哦~
+
+* [jsliang 的文档库](https://github.com/LiangJunrong/document-library)
 
 ---
 
