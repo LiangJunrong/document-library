@@ -2,7 +2,7 @@
 ===
 
 > create by **jsliang** on **2018年8月27日09:15:18**  
-> Recently revised in **2019-05-20 17:35:56**
+> Recently revised in **2019-05-20 17:58:32**
 
 ## 第四章 单例模式
 * 系统中被唯一使用
