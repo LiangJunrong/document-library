@@ -2,7 +2,7 @@
 ===
 
 > create by **jsliang** on **2018年9月4日09:37:55**  
-> Recently revised in **2018-10-28 10:54:44**
+> Recently revised in **2019-05-20 17:44:37**
 
 ## 第十三章 综合应用-购物车
 
@@ -50,7 +50,8 @@
 &emsp;**dist/js** - 该文件夹为打包后的 js 文件存储位置，这里的 `index.js` 系自动生成，无需新增该文件  
 
 &emsp;**dist/index.html** - 打包后的 index.html ，一般是依据原有的 index.html ，打包时 webpack 往里面添加 \<script\> ，这里我们需要添加下列代码进去。  
-```
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +74,8 @@
 &emsp;**src/index.js** - 被打包的 js 文件，暂时不需要添加代码
 
 &emsp;**.babelrc** - es6、es7 代码转为 es5 代码所必需的文件
-```
+
+```json
 {
     "presets": [
         "env"
@@ -85,7 +87,8 @@
 ```
 
 &emsp;**package.json** - 项目的依据，所依赖的插件都在这里提示
-```
+
+```json
 {
   "name": "design-pattern",
   "version": "1.0.0",
@@ -122,7 +125,8 @@
 ```
 
 &emsp;**webpack.dev.config.js** - webpack 开发模式下会使用到的 loader 以及插件等配置
-```
+
+```js
 const path = require('path'); // 加载node中的path模块
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 加载插件html-webpack-plugin
 
@@ -156,7 +160,8 @@ module.exports = {
 ```
 
 &emsp;**webpack.prod.config.js** - 生产环境，打包文件到 dist 目录，然后发布到服务器上即可生效访问
-```
+
+```js
 const path = require('path'); // 加载node中的path模块
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 加载插件html-webpack-plugin
 
@@ -200,7 +205,8 @@ module.exports = {
 &emsp;如图，我们需要往 `src` 目录下新增 `api` 文件夹及其 `list.json` 以及 `src` 目录下的 `App.js`。
 
 &emsp;然后，我们需要往 `webpack.dev.config.js` 中的 `devServer` 添加解决跨域的代码，因为我们将采用其他端口作为我们的 API 地址：
-```
+
+```js
 proxy: {
     "/api/*": { // url 中匹配到 "/api" 之前的东西，将其全部替换成下面 target 中的东西，从而解决跨域问题
         target: "http://localhost:8880"
@@ -211,7 +217,8 @@ proxy: {
 &emsp;此刻我们的 `index.js` 、`App.js`  以及 `list.json` 文件内容如下：
 
 > index.js - 启动文件，通过 index.js 访问 App.js 这个主入口
-```
+
+```js
 import App from './demo/App.js'
 
 let app = new App('app');
@@ -221,7 +228,8 @@ app.init();
 <br>
 
 > App.js - 项目主入口
-```
+
+```js
 export default class App {
     constructor(id) {
 
@@ -233,7 +241,8 @@ export default class App {
 ```
 
 > list.json - api接口文件，提供书籍清单
-```
+
+```json
 [
     {
         "id": 1,
@@ -267,6 +276,7 @@ export default class App {
 &emsp;到这里，我们一切准备就绪，只需要执行两步即可：  
 
 1. cd 到 demo 目录中，打开接口服务：  
+
 ```
     cd src/demo
     http-server -p 8880
@@ -281,6 +291,7 @@ export default class App {
 <br>
 
 2. 打开开发模式：
+
 ```
     npm run start
 ```
@@ -300,7 +311,8 @@ export default class App {
 ### 13.3 代码剖析
 #### 步骤1
 > inde.js
-```
+
+```js
 import App from './demo/App.js'
 
 let app = new App('app');
@@ -308,7 +320,8 @@ app.init();
 ```
 
 > App.js
-```
+
+```js
 import $ from 'jquery'
 
 export default class App {
@@ -337,8 +350,10 @@ export default class App {
 ![图](../../public-repertory/img/js-design-pattern-chapter13-6.png) 
 
 #### 步骤3
+
 > ShoppingCart.js
-```
+
+```js
 export default class ShoppingCart {
     constructor(app) {
 
@@ -351,7 +366,8 @@ export default class ShoppingCart {
 ```
 
 > List.js
-```
+
+```js
 export default class ShoppingCart {
     constructor(app) {
 
@@ -364,7 +380,8 @@ export default class ShoppingCart {
 ```
 
 > App.js
-```
+
+```js
 import $ from 'jquery'
 import ShoppingCart from './ShoppingCart/ShoppingCart.js'
 import List from './List/List.js'
@@ -394,8 +411,10 @@ export default class App {
 ```
 
 #### 步骤4
+
 > List.js
-```
+
+```js
 import $ from 'jquery'
 
 export default class ShoppingCart {
@@ -429,13 +448,16 @@ export default class ShoppingCart {
 ![图](../../public-repertory/img/js-design-pattern-chapter13-7.png) 
 
 > config.js
-```
+
+```js
 export const GET_LIST = '/api/list.json'
 ```
 
 #### 步骤6
+
 > List.js
-```
+
+```js
 import $ from 'jquery'
 import { GET_LIST } from '../config/config.js'
 
@@ -477,10 +499,12 @@ export default class ShoppingCart {
 ```
 
 #### 步骤7
+
 ![图](../../public-repertory/img/js-design-pattern-chapter13-8.png) 
 
 > GetCart.js
-```
+
+```js
 class Cart {
     constructor() {
         this.list = [];
@@ -524,7 +548,8 @@ export default getCart;
 ![图](../../public-repertory/img/js-design-pattern-chapter13-9.png) 
 
 > Item.js
-```
+
+```js
 import $ from 'jquery';
 import getCart from '../ShoppingCart/GetCart.js';
 
@@ -581,7 +606,8 @@ export default class Item {
 ![图](../../public-repertory/img/js-design-pattern-chapter13-10.png) 
 
 > CreateItem.js
-```
+
+```js
 import Item from './Item.js'
 
 // 补充：优惠商品的处理逻辑
@@ -593,7 +619,8 @@ export default function(list, itemData) {
 ```
 
 > List.js
-```
+
+```js
 import $ from 'jquery'
 import { GET_LIST } from '../config/config.js'
 import createItem from './CreateItem.js'
@@ -645,8 +672,10 @@ export default class ShoppingCart {
 ```
 
 #### 步骤10
+
 > Item.js
-```
+
+```js
 import $ from 'jquery';
 import getCart from '../ShoppingCart/GetCart.js';
 // 引用第三方插件实现状态模式
@@ -741,8 +770,10 @@ export default class Item {
 ![图](../../public-repertory/img/js-design-pattern-chapter13-11.png) 
 
 #### 步骤12
+
 > ShoppingCart.js
-```
+
+```js
 import $ from 'jquery';
 import getCart from './GetCart.js'
 
@@ -778,11 +809,14 @@ export default class ShoppingCart {
     }
 }
 ```
+
 ![图](../../public-repertory/img/js-design-pattern-chapter13-12.png) 
 
 #### 步骤13
+
 > CreateItem.js
-```
+
+```js
 import Item from './Item.js'
 
 function createDiscount(itemData) {
@@ -813,7 +847,8 @@ export default function(list, itemData) {
 ![图](../../public-repertory/img/js-design-pattern-chapter13-13.png) 
 
 > log.js
-```
+
+```js
 export function log(type) {
     return function(target, name, descriptor) {
         let oldValue = descriptor.value;
@@ -831,7 +866,8 @@ export function log(type) {
 ```
 
 > Item.js
-```
+
+```js
 import $ from 'jquery';
 import getCart from '../ShoppingCart/GetCart.js';
 // 引用第三方插件实现状态模式
