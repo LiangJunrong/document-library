@@ -92,10 +92,6 @@ React 开发准备
 
 > reset.css
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```css
 /* 
   * reset 的目的不是让默认样式在所有浏览器下一致，而是减少默认样式有可能带来的问题。
@@ -162,8 +158,6 @@ input::-moz-placeholder { color: #919191; font-size: .32rem } /* Mozilla Firefox
 input::-ms-input-placeholder { color: #919191; font-size: .32rem } /* Internet Explorer */
 ```
 
-</details>
-
 ## Npm Install
 
 * 安装 Redux：`npm i redux -S`
@@ -178,10 +172,6 @@ input::-ms-input-placeholder { color: #919191; font-size: .32rem } /* Internet E
 ## React Router DOM
 
 > 案例
-
-<details>
-
-  <summary>案例详情</summary>
 
 ```js
 import React, { Fragment } from 'react';
@@ -202,8 +192,6 @@ function App() {
 
 export default App;
 ```
-
-</details>
 
 ---
 

@@ -26,7 +26,7 @@
     * [✔ jQuery 基础](./JavaScript-library/jQuery/jQueryBase.md)
     * [✔ jQuery 工作常用解决方案](./JavaScript-library/jQuery/jQueryFrequentlyUsed.md)
   * [☆ React](./JavaScript-library/React/README.md)
-    * [✔ React 基础](./JavaScript-library/React/ReactBase.md)
+    * [✘ React 基础](./JavaScript-library/React/ReactBase.md)
     * [✘ React 开发准备](./JavaScript-library/React/ReactPrepare.md)
     * [✘ React 知识点清单](./JavaScript-library/React/ReactList.md)
     * [✔ React List - Create React App](./JavaScript-library/React/ReactList-CreateReactApp.md)
