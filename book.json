@@ -3,15 +3,72 @@
   "author": "梁峻荣 - jsliang",
   "description": "jsliang 的文档库. 里面包含了个人撰写的所有前端文章，例如 Vue、React,、ECharts、微信小程序等……",
   "language": "zh-hans",
+  "styles": {
+    "website": "./public-repertory/css/gitbook-link-none.css"
+  },
   "plugins": [
+    "theme-comscore",
     "expandable-chapters",
-    "github",
     "include-codeblock",
-    "-sharing"
+    "-sharing",
+    "anchors",
+    "github-buttons",
+    "donate",
+    "prism",
+    "-highlight",
+    "splitter",
+    "tbfed-pagefooter",
+    "baidu-tongji",
+    "anchor-navigation-ex",
+    "copy-code-button",
+    "search-pro",
+    "-search",
+    "-lunr"
   ],
   "pluginsConfig": {
-    "github": {
-      "url": "https://github.com/LiangJunrong/document-library"
+    "github-buttons": {
+      "buttons": [
+        {
+          "user": "LiangJunrong",
+          "repo": "document-library", 
+          "type": "star",
+          "count": true,
+          "size": "small"
+        }, 
+        {
+          "user": "LiangJunrong",
+          "width": "160", 
+          "type": "follow", 
+          "count": true,
+          "size": "small"
+        }
+      ]
+    },
+    "donate": {
+      "button": "打赏",
+      "alipayText": "支付宝打赏",
+      "wechatText": "微信打赏",
+      "alipay": "https://github.com/LiangJunrong/document-library/blob/master/public-repertory/img/seek-reward.jpg?raw=true",
+      "wechat": "https://github.com/LiangJunrong/document-library/blob/master/public-repertory/img/seek-reward.png?raw=true"
+    },
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-solarizedlight.css"
+      ],
+      "lang": {
+        "shell": "bash"
+      }
+    },
+    "tbfed-pagefooter": {
+      "copyright":"Copyright &copy jsliang.top 2019",
+      "modify_label": "该文件修订时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "baidu-tongji": {
+      "token": "55e7dfe47f4dc1c018d4042fdfa62565"
+    },
+    "anchor-navigation-ex": {
+      "showLevel": false
     }
   },
   "jsliang-description": {
@@ -20,13 +77,23 @@
     "description": "描述",
     "language": "简体中文",
     "plugins": {
-      "expandable-chapters": "标题可伸缩",
-      "github": "GitHub",
+      "theme-comscore": "添加 table 等好看样式",
+      "expandable-chapters": "侧边栏标题可折叠",
       "include-codeblock": "代码块格式",
-      "-sharing": "禁用除 GitHub 外其他分享"
+      "-sharing": "去掉所有分享",
+      "anchors": "添加 GitHub 的锚点样式",
+      "github-buttons": "GitHub 点赞/follow",
+      "donate": "打赏",
+      "prism": "Code 样式，使用它的时候记得屏蔽默认 -highlight",
+      "splitter": "左侧栏宽度自定义",
+      "tbfed-pagefooter": "添加页脚",
+      "baidu-tongji": "百度统计",
+      "anchor-navigation-ex": "根据 # ## ### 自动生成菜单，并添加跳转到顶部效果",
+      "copy-code-button": "添加可复制代码的功能",
+      "search-pro": "支持中文高亮搜索，需要关闭掉默认的 -search 和 -lunr"
     },
     "pluginsConfig": {
-      "github": "GitHub 的配置"
+      "all": "主要和 plugins 对应查看即可"
     }
   }
 }
