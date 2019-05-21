@@ -4,3 +4,6 @@
 .summary .divider {
   display: none !important;
 }
+.book .book-summary {
+  padding-bottom: 100px;
+}

@@ -232,7 +232,7 @@ data: {
 
 &emsp;旧姿势
 
-```
+```js
 function sum(x, y, z) {
     var total = 0;
     if(x) { 
@@ -254,7 +254,7 @@ sum(1, 3, 5);
 
 &emsp;新姿势
 
-```
+```js
 function sum(...m) {
     let total = 0;
     for(var i of m) {
@@ -269,7 +269,7 @@ sum(4, 8, 9, 10);
 
 &emsp;更新姿势
 
-```
+```js
 let sum = (...m) => {
     let total = 0;
     for(var i of m) {
@@ -288,8 +288,7 @@ sum(1, 3, 5, 7);
 
 &emsp;旧姿势
 
-```
-```
+```js
 let arr1 = [4, 8];
 
 let arr2 = [1, 3];
@@ -297,11 +296,10 @@ let arr2 = [1, 3];
 arr1.concat(...arr2);
 console.log(arr1);
 ```
-```
 
 &emsp;新姿势
 
-```
+```js
 let arr1 = [{
     name: jsliang,
     age: 23
@@ -324,7 +322,7 @@ console.log(arr1);
 
 &emsp;更新姿势
 
-```
+```js
 let arr1 = [{
     name: jsliang,
     age: 23
@@ -349,7 +347,7 @@ console.log(arr3);
 
 &emsp;如果有一个数组，开头固定，其他不固定：
 
-```
+```js
 var [x, ...y] = [4, 5, 6, 7];
 console.log(y); // 5, 6, 7
 
@@ -362,7 +360,7 @@ let xyz = [...'es6']; // xyz=['e', 's', '6']
 
 * Promise
 
-```
+```js
 // api.js
 const fetch = ({ url, data, header }) => {
     return new Promise((resolve, reject) => {
@@ -401,7 +399,7 @@ login({
 
 &emsp;如果有多个 Promise ，则：
 
-```
+```js
 Promise.all([checkLogin(), getUserInfo()]).then( ([loginres, getinfores]) => {
 
 })
@@ -413,7 +411,7 @@ Promise.all([checkLogin(), getUserInfo()]).then( ([loginres, getinfores]) => {
 
 > a.js
 
-```
+```js
 export let sum1 = (x, y) => {
     return x + y;
 }
@@ -426,7 +424,7 @@ export let sum2 = (x, y, z) => {
 
 > b.js
 
-```
+```js
 import {
     sum1,
     sum2
