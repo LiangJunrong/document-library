@@ -370,7 +370,7 @@ Page({
 &emsp;那么，我们就需要通过设置 `switchTab` 来控制底部导航的跳转，而不能通过 `navigator` 来跳转：
 > demo.wxml
 
-```wxml
+```
 <view>
   <button bindtap="linkTo">Hello</button>
 </view>
@@ -551,8 +551,7 @@ goHome: function() {
 
 > navBar.wxss
 
-```
-/* 底部导航条 */
+```css
 .navBar {
   width: 100%;
   padding: 18rpx 0;
@@ -578,8 +577,6 @@ goHome: function() {
   color: #d0a763;
 }
 ```
-
-<br>
 
 > navBar.js
 
