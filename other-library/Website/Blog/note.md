@@ -36,7 +36,7 @@ Vue + Node + MongoDB 学习笔记
 
 * Vue 如何实现双向数据绑定的关键： Object.defineProperty 的 get 和 set 方法。案例可以找： `E:\学习资料\实战\Vue+Node+Mongodb\第1章课程介绍\1.3vue概括核心思想.wmv`
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,13 +88,13 @@ Vue + Node + MongoDB 学习笔记
 
 1. 模板语法
 
-* Mustache 语法： {{ msg }}
+* Mustache 语法： \{\{ msg \}\}
 * HTML 赋值：v-html = ""
 * 绑定属性：v-bind:id= ""
-* 使用表达式：{{ ok ? 'yes' : 'no' }}
+* 使用表达式：\{\{ ok ? 'yes' : 'no' \}\}
 * 文本赋值：v-text = ""
 * 指令：v-if = ""
-* 过滤器： {{ message || capitalize }} 和 v-bind:id = " rawId | fromatId "
+* 过滤器： \{\{ message || capitalize \}\} 和 v-bind:id = " rawId | fromatId "
 
 <br>
 
@@ -113,7 +113,7 @@ data: {
 }
 ```
 
-* style 绑定-对象语法：v-bind:style = "{ color: activeColor, fontSize: fontSize + 'px' }"
+* style 绑定-对象语法：v-bind:style = "\{ color: activeColor, fontSize: fontSize + 'px' \}"
 
 <br>
 
