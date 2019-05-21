@@ -12,6 +12,7 @@ Markdown 使用语法
 1. 使用 Ctrl + Shift + P 打开设置面板，或者点 **文件\>首选项\>设置** 打开设置面板。
 2. 设置 "markdown.styles"为引用本地CSS（只能绝对路径），或者引用网上的第三方文件。这里引用了Public-Repertory\/css下的markdown-github.css文件。
 3. 配置为：
+
 ```
 "markdown.styles": [
   "E:\\MyWeb\\jsliang-study\\Document-Library\\Public-Repertory\\css\\markdown-github.css"
@@ -93,6 +94,7 @@ ___
 [网站]:http://www.jsliang.top "网站"
 这里是[site],这里是[网站]
 ```
+
 [site]:http://www.jsliang.top "网站"
 [网站]:http://www.jsliang.top "网站"
 
@@ -128,6 +130,7 @@ ___
 ### 8.2 多行用
 
 **用法介绍**：  
+
 > ```
 \`\`\` 注释  
 多行代码文本1  
@@ -150,6 +153,7 @@ ___
 ### 9.1 第一类表格
 
 **用法介绍**：  
+
 > ```
 \| name    \| age  \| sex  \|  
 \| :-----: \| :--- \| ---: \|  
@@ -167,6 +171,7 @@ ___
 ### 9.2 第二类表格
 
 **用法介绍**：  
+
 > ```
 \| name    \| age  \| sex  \|  
 \| ----- \| ----- \|   
@@ -184,6 +189,7 @@ ___
 ### 9.3 第三类表格
 
 **用法介绍**： 
+
 > ```
 学号 \| 姓名 \| 分数  
 \- \| - \| -  
@@ -265,10 +271,7 @@ __字体加粗__
 <details>
   <summary>基础知识</summary>
 
-```js
-let a = 1, b = a;
-console.log(b);
-```
+被缩略
 
 你还需要知道其他的吗？
 
