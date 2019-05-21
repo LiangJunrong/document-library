@@ -267,6 +267,7 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 &emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
 
 > *.wxml
+
 ```
 <view class="left-and-right-layout">
   <view class="left-and-right-layout-floor-one">
@@ -282,6 +283,7 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 <br>
 
 > *.wxss
+
 ```
 .left-and-right-layout {
   padding: 0 30rpx;
@@ -322,6 +324,7 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 &emsp;如图，这是我们要实现的混合布局效果，那么在微信小程序中要如何编程呢？
 
 > *.wxml
+
 ```
 <view class="mixed-layout">
   <view class="mixed-layout-floor-one">
@@ -350,6 +353,7 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 <br>
 
 > *.wxss
+
 ```
 
 /* 混合布局 */
@@ -571,7 +575,7 @@ Page({
 
 > [返回本节开头](#chapter-three-two-two)
 
-```
+```html
 <!-- part1 - 搜索区域 -->
 <view class="search-form">
   <!-- 搜索区 -->
