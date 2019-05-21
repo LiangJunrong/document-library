@@ -155,6 +155,7 @@
 
 &emsp;为方便小伙伴查看，下面贴出原版代码：
 > demo.wxml
+
 ```
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -173,7 +174,8 @@
 <br>
 
 > demo.js
-```
+
+```js
 Page({
   data: {
     imgUrls: [
@@ -265,6 +267,7 @@ Page({
 &emsp;下面给出这 5 个坑的解决代码，如有不对，尽情指出：
 
 > index.wxml
+
 ```
 <view class="carousel">
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#707071" indicator-active-color="#fff" circular="true">
@@ -283,7 +286,8 @@ Page({
 <br>
 
 > index.wxss
-```
+
+```css
 .carousel .slide-image {
   width: 100%;
   height: 420rpx;
@@ -293,7 +297,8 @@ Page({
 <br>
 
 > index.js
-```
+
+```js
 Page({
   data: {
     imgUrls: [
@@ -338,7 +343,8 @@ Page({
 
 &emsp;在这里，我们讲下 `tabBar` 的坑，如果你在 `app.json` 中设置了 `tabBar` ：
 > app.json
-```
+
+```json
 "tabBar": {
     "list": [{
       "pagePath": "pages/index/index",
@@ -363,7 +369,8 @@ Page({
 
 &emsp;那么，我们就需要通过设置 `switchTab` 来控制底部导航的跳转，而不能通过 `navigator` 来跳转：
 > demo.wxml
-```
+
+```wxml
 <view>
   <button bindtap="linkTo">Hello</button>
 </view>
@@ -372,7 +379,8 @@ Page({
 <br>
 
 > demo.js
-```
+
+```js
 linkTo: function () {
   wx.switchTab({
     url: '../index/index'
@@ -396,6 +404,7 @@ linkTo: function () {
 > 注：图片宽高均为 54rpx
 
 > *.wxml
+
 ```
 <view class="nav">
   <view class="nav-home" bindtap="goHome">
@@ -421,6 +430,7 @@ linkTo: function () {
 <br>
 
 > *.wxss
+
 ```
 .nav {
   display: flex;
@@ -470,7 +480,8 @@ linkTo: function () {
 <br>
 
 > *.js
-```
+
+```js
 callWaiter: function(res) {
   wx.makePhoneCall({
     phoneNumber: '13264862250',
@@ -842,6 +853,7 @@ data: {
 &emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
 
 > *.wxml
+
 ```
 <view class="top-recommended-headlines">
   <view class="top-recommended-headlines-left">
@@ -859,6 +871,7 @@ data: {
 <br>
 
 > *.wxss
+
 ```
 .top-recommended-headlines {
   display: flex;
@@ -896,6 +909,7 @@ data: {
 &emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
 
 > *.wxml
+
 ```
 <view class="weui-tab__content-item3" wx:for="{{tabs3Content}}" wx:key="{{item.index}}">
   <navigator url="../indexProductArticle/indexProductArticle">
@@ -922,6 +936,7 @@ data: {
 <br>
 
 > *.wxss
+
 ```
 .weui-tab__content-item3 {
   padding-left: 30rpx;
@@ -971,6 +986,7 @@ data: {
 <br>
 
 > *.js
+
 ```
 tabs3Content: [
   {
@@ -1030,6 +1046,7 @@ tabs3Content: [
 &emsp;然后， **jsliang** 的想法是：
 
 > *.wxml
+
 ```
 <view class="search">
   <input class="search-product-input" bindinput="bindKeyInput" auto-focus maxlength='10'></input>
@@ -1044,6 +1061,7 @@ tabs3Content: [
 <br>
 
 > *.wxss
+
 ```
 .search {
   height: 100rpx;
@@ -1096,7 +1114,8 @@ tabs3Content: [
 
 &emsp;源码奉上：
 > *.wxml
-```
+
+```html
 <!-- 搜索框 -->
 <view class="search">
   <view class="weui-search-bar">
@@ -1122,7 +1141,8 @@ tabs3Content: [
 <br>
 
 > *.js
-```
+
+```js
 Page({
   data: {
     inputShowed: false,
@@ -1155,7 +1175,8 @@ Page({
 <br>
 
 > *.wxss
-```
+
+```css
 .search {
   height: 100rpx;
   padding: 18rpx 30rpx;
@@ -1249,6 +1270,7 @@ onShareAppMessage: function (res) {
 ![图](../../public-repertory/img/other-WechatApplet-bug-8.jpg)
 
 &emsp;如上图，如果一个 `view` ，你的代码如下：
+
 ```
 view {
   box-sizing: border-box;
@@ -1263,6 +1285,7 @@ view {
 
 &emsp;那么，你的整个宽高还是 `100rpx`。  
 &emsp;但是，如果你的代码如下：
+
 ```
 view {
   box-sizing: content-box;
@@ -1448,6 +1471,7 @@ Page({
 &emsp;实现代码如下：
 
 > *.wxml
+
 ```
 <view>
   <view class="weui-tab__nav">
@@ -1485,7 +1509,8 @@ Page({
 <br>
 
 > *.wxss
-```
+
+```css
 .weui-tab__nav {
   background: #f5f5f5;
   border: 1rpx 0rpx solid #e6e6e6;
@@ -1550,7 +1575,8 @@ Page({
 <br>
 
 > *.js
-```
+
+```js
 data: {
   tabs2Nav: [
     {
@@ -1724,6 +1750,7 @@ tabs2NavClick: function(e) {
 &emsp;绑定事件如何传递数据：  
 &emsp;如果学过 `Vue` 的同学，应该知道 `Vue` 的数据传递形式是： `@click='tabs2NavClick(item.id)'`  
 &emsp;那么，在微信小程序中，你千万记得，绑定时间的传递参数的方式不是这样子的，而是：
+
 ```
 <text wx:for="{{tabs2Nav}}" wx:key="item.index" bindtap="tabs2NavClick" data-labelId="{{item.id}}">{{item.label}}</text>
 ```  
@@ -1751,6 +1778,7 @@ tabs2NavClick: function(e) {
 &emsp;如何在方法中获取 `data` 中定义的数据：  
 &emsp;如果我想在选项卡切换的方法 `tabs2NavClick` 中获取 `data` 里面的数据，那么我应该怎么做呢？  
 &emsp;是的，通过:
+
 ```
 tabs2NavClick: function(e) {
   var that = this;
@@ -1771,6 +1799,7 @@ tabs2NavClick: function(e) {
 
 &emsp;如何实现文字省略：  
 &emsp;加入你有一段文本，你想让页面根据自身宽度，自动省略多余长度，那么，我们可以设置下面的 `css` 代码，从而实现文字省略效果（不使用 js 的原因，是因为 js 没有 css 那么灵活）  
+
 ```
 text {
   overflow:hidden;
@@ -1824,6 +1853,7 @@ text {
 &emsp;下面贴出实现代码：
 
 > *.wxml
+
 ```
 <text class="article-message-board-head-addMessage" bindtap="modalinput">写留言</text>
 ```
@@ -1831,6 +1861,7 @@ text {
 <br>
 
 > *.js
+
 ```
 Page({
   data: {
@@ -2003,6 +2034,7 @@ console.log(JSON.stringify(transData, ' ', ' '));
 &emsp;现在，假设我有一个 `42*40` 的图片，我来试试调下它的样式：
 
 > *.wxml
+
 ```
 <button open-type='share'>
   <image src="../../public/explore_activityDetail_icon_share.png"></image>
@@ -2012,6 +2044,7 @@ console.log(JSON.stringify(transData, ' ', ' '));
 <br>
 
 > *.wxss
+
 ```
 .activity-user-action button {
   width: 42rpx;
@@ -2097,6 +2130,7 @@ onReachBottom: function () {
 &emsp;步骤繁杂，下面贴出实现代码：
 
 > *.wxml
+
 ```
 <input maxlength='11' placeholder='请输入手机号码' placeholder-class="phone-number" name="phoneNumber" bindinput='phoneNumberInput'></input>
 
@@ -2106,6 +2140,7 @@ onReachBottom: function () {
 <br>
 
 > *.js
+
 ```
 Page({
   data: {
@@ -2215,7 +2250,8 @@ loginSubmit: function(e) {
 &emsp;在 **Ansen江** 的推荐下，参照 **Ansen江** 的 `api.js`，对我这边的小程序接口 `request` 进行了 `promise` 封装，并做了 `api.js` 的分离。  
 
 > api.js
-```
+
+```js
 /*
  * @Author: jsliang
  * @Date: 2018-10-11 09:11:26
@@ -2312,7 +2348,8 @@ export const wxLogin = data => {
 &emsp;在上面进行了分离 `api.js` 后，接着在其他地方调用 `api.js`：
 
 > login.js
-```
+
+```js
 import {
   wxLogin
 } from "../../utils/api.js"
@@ -2363,7 +2400,8 @@ wx.login({
 * 方法一
 
 > *.wxml
-```
+
+```html
 <view class="content">
   <view wx:for="{{topRecommended}}" wx:key="{{item.recommendId}}" wx:for-index="index">
     <navigator url="../indexProduct/indexProduct">
@@ -2409,7 +2447,8 @@ wx.login({
 &emsp;通过 `CSS` 的 `last-child { ... }`，可以直接修改最后的 `view`样式：
 
 > *.wxss
-```
+
+```css
 .content-item-gap:last-child {
   display: none;
 }
@@ -2472,7 +2511,7 @@ wx.login({
 
 > *.js
 
-```
+```js
 Page({
   data: {
     downloadUrl: '网上随便找一个下载地址'
@@ -2666,7 +2705,7 @@ video {
 
 *.js
 
-```
+```js
 Page({
   data: {
     // 视频字段
@@ -2842,7 +2881,7 @@ contactsData: [
 
 > *.wxss
 
-```
+```css
 .pinyin-nav {
   font-size: 28rpx;
   line-height: 28rpx;
@@ -2864,7 +2903,8 @@ contactsData: [
 ```
 
 > *.js
-```
+
+```js
 Page({
 
   /**
@@ -2904,7 +2944,7 @@ Page({
 
 > 代码片段
 
-```
+```js
 onLoad: function (options) {
   console.log("\n成员管理页：");
   
