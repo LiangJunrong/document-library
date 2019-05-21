@@ -695,7 +695,7 @@ module.exports = URL
 
 > src/filter/moneyFilter.js
 
-```
+```js
 export function toMoney(money = 0){
   return money.toFixed(2)
 }
@@ -707,7 +707,7 @@ export function toMoney(money = 0){
 
 > *.vue
 
-```
+```js
 <script>
   import axios from 'axios';
   import { toMoney } from '@/filter/moneyFilter.js'
@@ -726,7 +726,7 @@ export function toMoney(money = 0){
 
 &emsp;最后，我们在 `template` 中实现简单过滤：
 
-```
+```html
 <p>{{112 | moneyFilter}}</p>
 ```
 
