@@ -136,7 +136,8 @@ ___
 > ```
 
 **展示：**
-``` 多行代码如何编写
+
+```
 <p>你好使用者，要看看jsliang的网站吗？<a href="http://www.jsliang.top">点我跳转</a></p>
 <p>你好使用者，要看看jsliang的网站吗？<a href="http://www.jsliang.top">点我跳转</a></p>
 <p>你好使用者，要看看jsliang的网站吗？<a href="http://www.jsliang.top">点我跳转</a></p>
