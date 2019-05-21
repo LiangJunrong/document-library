@@ -410,7 +410,7 @@ https://github.com/vuejs/vue-devtools
 
 > main.js
 
-```
+```js
 // import 依赖
 import Vue from 'vue'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -432,7 +432,7 @@ Vue.use(
 
 > *.vue
 
-```
+```js
 // 以组件方式引用
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
@@ -509,7 +509,7 @@ export default {
 
 > config/index/js
 
-```
+```js
 'use strict'
 
 const path = require('path')
@@ -535,7 +535,8 @@ module.exports = {
 &emsp;从中，可以看出，对于 `static` 的资源，`vue-cli` 在开发模式 `dev` 以及打包模式 `build` 中都进行了配置，它不会被 `webpack` 进行打包，属于 “静态资源”。所以，在项目中引用 `src/assets` 及 `static` 下的图片资源，我们可以：
 
 > src/components/pages/ShoppingMall.vue
-```
+
+```js
 <template>
   <div>
       <van-row>
@@ -582,7 +583,7 @@ module.exports = {
 1. 安装 `axios`：`npm i axios -S`
 2. 在 `src/components/pages/ShoppingMall.vue` 的 `<script>` 标签中引用并使用 `axios`：
 
-```
+```html
 <script>
   import axios from 'axios';
   export default {
