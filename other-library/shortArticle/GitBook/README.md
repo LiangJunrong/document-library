@@ -2,7 +2,7 @@ GitBook
 ===
 
 > Create by **jsliang** on **2019-05-20 14:43:41**  
-> Recently revised in **2019-05-20 19:53:49**
+> Recently revised in **2019-05-21 13:25:48**
 
 本文将介绍如何安装 GitBook、如何起 GitBook 服务、如何配置 GitBook，以及到最后的部署到 GitHub Pages 或者部署到个人云服务器。
 
@@ -220,7 +220,9 @@ GitBook
 
 下面我们先列 `plugins` 清单，再逐个讲解功能实现：
 
-1. `theme-comscore`：为 GitBook 添加好看的样式，它会使 Table 表单等变得更加好看。
+#### 插件 1 - theme-comscore
+
+`theme-comscore`：为 GitBook 添加好看的样式，它会使 Table 表单等变得更加好看。
 
 > 配置方法
 
@@ -234,7 +236,9 @@ GitBook
 
 ![图](../../../public-repertory/img/other-GitBook-3.png)
 
-2. `prism`：为 GitBook 的 Code 添加更好看的样式，使用它的时候记得屏蔽 GitBook 默认的 `highlight` 插件，即通过 （`-highlight` 表示，下面出现 `-` 的插件也一样）
+#### 插件 2 - prism
+
+`prism`：为 GitBook 的 Code 添加更好看的样式，使用它的时候记得屏蔽 GitBook 默认的 `highlight` 插件，即通过 （`-highlight` 表示，下面出现 `-` 的插件也一样）
 
 > 配置方法
 
@@ -259,7 +263,9 @@ GitBook
 
 ![图](../../../public-repertory/img/other-GitBook-4.png)
 
-3. `copy-code-button`：给 GitBook 的 Code 添加复制功能，可以一键复制代码块的所有代码。
+#### 插件 3 - copy-code-button
+
+`copy-code-button`：给 GitBook 的 Code 添加复制功能，可以一键复制代码块的所有代码。
 
 > 配置方法
 
@@ -273,7 +279,9 @@ GitBook
 
 ![图](../../../public-repertory/img/other-GitBook-5.png)
 
-4. `search-pro`：由于 GitBook 支持的搜索，对于中文不太好。添加该插件后，对搜索结果能用高亮来显示，非常强大。当然，由于取缔了默认的搜索功能，所以需要屏蔽 `search` 和 `lunr`
+#### 插件 4 - search-pro
+
+`search-pro`：由于 GitBook 支持的搜索，对于中文不太好。添加该插件后，对搜索结果能用高亮来显示，非常强大。当然，由于取缔了默认的搜索功能，所以需要屏蔽 `search` 和 `lunr`
 
 > 配置方法
 
@@ -289,7 +297,9 @@ GitBook
 
 ![图](../../../public-repertory/img/other-GitBook-6.png)
 
-5. `expandable-chapters`：由于侧边栏标题是默认全部展开的，所以这个插件会让它具有展开收缩功能。
+#### 插件 5 - expandable-chapters
+
+`expandable-chapters`：由于侧边栏标题是默认全部展开的，所以这个插件会让它具有展开收缩功能。
 
 > 配置方法
 
@@ -303,7 +313,9 @@ GitBook
 
 ![图](../../../public-repertory/img/other-GitBook-7.png)
 
-6. `splitter`：让侧边栏的宽度可以自行拖动。
+#### 插件 6 - splitter
+
+`splitter`：让侧边栏的宽度可以自行拖动。
 
 > 配置方法
 
@@ -317,7 +329,9 @@ GitBook
 
 ![图](../../../public-repertory/img/other-GitBook-8.png)
 
-7. `-sharing`：去掉 GitBook 默认的分享功能。由于它默认的一些推特，脸书都需要翻墙，而我们做的是中文站点，所以将分享功能全部关闭掉。
+#### 插件 7 - -sharing
+
+`-sharing`：去掉 GitBook 默认的分享功能。由于它默认的一些推特，脸书都需要翻墙，而我们做的是中文站点，所以将分享功能全部关闭掉。
 
 > 配置方法
 
@@ -331,7 +345,9 @@ GitBook
 
 ![图](../../../public-repertory/img/other-GitBook-9.png)
 
-8. `github-buttons`：给 GitBook 添加 GitHub 的图标，来显示 `follow` 和 `stars`。
+#### 插件 8 - github-buttons
+
+`github-buttons`：给 GitBook 添加 GitHub 的图标，来显示 `follow` 和 `stars`。
 
 > 配置方法
 
@@ -365,7 +381,9 @@ GitBook
 
 ![图](../../../public-repertory/img/other-GitBook-9.png)
 
-1. `donate`：给底部配置一个打赏模块，用户可以点击进行支付宝、微信打赏等。
+#### 插件 9 - donate
+
+`donate`：给底部配置一个打赏模块，用户可以点击进行支付宝、微信打赏等。
 
 > 配置方法
 
@@ -388,7 +406,9 @@ GitBook
 
 ![图](../../../public-repertory/img/other-GitBook-10.png)
 
-10. `tbfed-pagefooter`：给 GitBook 每个页面添加页脚，这样就可以知道这些文件的 `copyright` 以及修改时间等。
+#### 插件 10 - tbfed-pagefooter
+
+`tbfed-pagefooter`：给 GitBook 每个页面添加页脚，这样就可以知道这些文件的 `copyright` 以及修改时间等。
 
 > 配置方法
 
@@ -409,7 +429,9 @@ GitBook
 
 ![图](../../../public-repertory/img/other-GitBook-11.png)
 
-11. `baidu-tongji`：给 GitBook 的站点添加百度统计，这样用户的访问数量可以通过百度统计查看到。
+#### 插件 11 - baidu-tongji
+
+`baidu-tongji`：给 GitBook 的站点添加百度统计，这样用户的访问数量可以通过百度统计查看到。
 
 > 配置方法
 
@@ -424,7 +446,9 @@ GitBook
 }
 ```
 
-12. `anchor-navigation-ex`：根据 # ## ### 自动生成菜单，并添加跳转到顶部效果。
+#### 插件 12 - anchor-navigation-ex
+
+`anchor-navigation-ex`：根据 # ## ### 自动生成菜单，并添加跳转到顶部效果。
 
 > 配置方法
 
@@ -442,6 +466,58 @@ GitBook
 > 参考效果：
 
 ![图](../../../public-repertory/img/other-GitBook-12.png)
+
+#### 插件 13 - gitalk
+
+`gitalk`：给页面添加评论功能，这些评论内容会添加到 GitHub 仓库的 Issue 上。
+
+**首先**，这不是一个插件，[Gitalk](https://github.com/gitalk/gitalk/blob/master/readme-cn.md) 是一个基于 GitHub Issue 和 Preact 开发的评论插件。
+
+**然后**，我们在 `MessageBoard.md`（即我们需要添加评论区的页面）中添加对应的代码：
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+<script>
+  var gitalk = new Gitalk({
+    "clientID": "需要补充的 clientID",
+    "clientSecret": "需要补充的 clientSecret",
+    "repo": "document-library",
+    "owner": "LiangJunrong",
+    "admin": ["LiangJunrong"],
+    "id": location.pathname,      
+    "distractionFreeMode": false  
+  });
+  gitalk.render("gitalk-container");
+</script>
+```
+
+**接着**，我们大致讲讲上面那些字段：
+
+1. `clientID`：GitHub 开发者设置，客户端连接标识。下面有详细讲解。
+2. `clientSecret`：GitHub 开发者设置，客户端秘钥。下面有详细讲解。
+3. `repo`：GitHub 仓库名，我们的就是 `document-library` 啦。
+4. `owner`：GitHub 仓库所有者，就是我 GitHub 账户：`LiangJunrong`。
+5. `admin`：GitHub 仓库管理者，还是我的 GitHub 账户：`LiangJunrong`。（支持数组，多个管理者）
+6. `id`：页面的唯一标识，默认值: `location.href`
+7. `distractionFreeMode`：类似 Facebook 评论框的全屏遮罩效果,默认值: `false`
+
+> 更多配置请看：[Gitalk](https://github.com/gitalk/gitalk/blob/master/readme-cn.md)
+
+**再来**，我们打开页面：[GitHub 开放授权应用](https://github.com/settings/applications/new)
+
+![图](../../../public-repertory/img/other-GitBook-13.png)
+
+创建后页面会显示：
+
+![图](../../../public-repertory/img/other-GitBook-14.png)
+
+**最后**，我们可以在 `http://localhost:4000/MessageBoard.html` 中查看到结果显示（最终需要放到 LiangJunrong.github.io 中）：
+
+![图](../../../public-repertory/img/other-GitBook-15.png)
+
+这样，我们就完成了单个页面添加 Gitalk，如果需要添加多个页面，那么可以参考下攻略：[gitbook 入门教程之实用插件(新增3个插件) - segmentfault - 雪之梦技术驿站](https://segmentfault.com/a/1190000018777424)
 
 * **更多插件配置参考文献**：
 
@@ -470,7 +546,7 @@ GitBook
 
 > 部署在 GitHub Pages 中的页面：https://liangjunrong.github.io/
 
-![图](../../../public-repertory/img/other-GitBook-13.png)
+![图](../../../public-repertory/img/other-GitBook-16.png)
 
 ## <a name="chapter-six" id="chapter-six">六 总结</a>
 
