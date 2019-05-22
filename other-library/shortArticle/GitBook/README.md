@@ -2,11 +2,17 @@ GitBook
 ===
 
 > Create by **jsliang** on **2019-05-20 14:43:41**  
-> Recently revised in **2019-05-22 17:35:54**
+> Recently revised in **2019-05-22 18:01:09**
 
 本文将介绍如何安装 GitBook、如何起 GitBook 服务、如何配置 GitBook，以及到最后的部署到 GitHub Pages 或者部署到个人云服务器。
 
 **小伙伴们如果觉得不错可以到 [jsliang 的文档库](https://github.com/LiangJunrong/document-library) 为 jsliang 点个 star，谢谢~**
+
+下面是最终效果，欢迎评论留言~
+
+* [LiangJunrong.github.io](https://liangjunrong.github.io/)
+
+![图](../../../public-repertory/img/other-GitBook-0.png)
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -58,7 +64,7 @@ GitBook
 ```
 
 > README.md  
-> \# 表示一级标题，详情可自行查看 [MarkDown 语法](https://github.com/LiangJunrong/document-library/blob/master/other-library/shortArticle/markdown/markdown.md)
+> \# 号表示一级标题，详情可自行查看 [MarkDown 语法](https://github.com/LiangJunrong/document-library/blob/master/other-library/shortArticle/markdown/markdown.md)
 
 ```markdown
 # Introduction
@@ -85,9 +91,11 @@ GitBook
 
 > [返回目录](#chapter-one)
 
+仅仅只有个搜索功能的 GitBook 怎么可能吸引 **jsliang**！，插件的配置才是 GitBook 的核心！！！
+
 下面我们开始配置 GitBook 插件。
 
-**首先**，给目录中添加一个 `book.json` 文件
+**首先**，给目录中添加一个 `book.json` 文件：
 
 ```
 - GitBook
@@ -175,7 +183,7 @@ GitBook
 }
 ```
 
-**最后**，我们安装下 `book.json` 中配置的插件：`gitbook install`，并重新启动项目：`gitbook serve`。
+**最后**，我们安装下 `book.json` 中配置的插件：`gitbook install`，并把 [jsliang 的文档库](https://github.com/LiangJunrong/document-library) 的内容复制过来，修改下 `SUMMARY.md`，重新启动项目：`gitbook serve`。
 
 ![图](../../../public-repertory/img/other-GitBook-2.png)
 
@@ -517,7 +525,7 @@ GitBook
 
 ![图](../../../public-repertory/img/other-GitBook-15.png)
 
-这样，我们就完成了单个页面添加 Gitalk，如果需要添加多个页面，那么可以参考下攻略（这里就不哆嗦了，**jsliang** 亲测有效）：
+这样，我们就完成了单个页面添加 Gitalk，如果需要添加多个页面，那么可以参考下 **雪之梦技术驿站** 的攻略（这里就不哆嗦了，**jsliang** 亲测有效）：
 
 * [gitbook 入门教程之实用插件(新增3个插件) - segmentfault - 雪之梦技术驿站](https://segmentfault.com/a/1190000018777424#articleHeader8)
 
@@ -568,6 +576,8 @@ OK，我们的 GitBook 教学到此结束啦。
 
 * [GitHub - jsliang 的文档库](https://github.com/LiangJunrong/document-library)
 * [掘金 - jsliang 的个人页面](https://juejin.im/user/584613ba128fe10058b3cf68)
+
+**PS**：如果需要购买云服务器来存放自己通过 GitBook 打包的页面，可以点击下面链接或者咨询 **jsliang** 噢~
 
 ---
 
