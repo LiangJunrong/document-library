@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-22 19:30:42**  
-> Recently revised in **2019-05-22 19:30:46**
+> Recently revised in **2019-05-22 19:56:56**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -60,7 +60,15 @@
 * **解题代码**：
 
 ```js
-
+var isPalindrome = function(x) {
+  const arr = String(x).split('');
+  for (let i = 0; i < arr.length / 2; i++) {
+    if (arr[i] !== arr[arr.length - (i + 1)]) {
+      return false;
+    }
+  }
+  return true;
+};
 ```
 
 * **执行测试**：
@@ -76,7 +84,10 @@
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 11509/11509 cases passed (316 ms)
+  ✔ Your runtime beats 97.12 % of javascript submissions
+  ✔ Your memory usage beats 67.78 % of javascript submissions (45.5 MB)
 ```
 
 * **知识点**：
