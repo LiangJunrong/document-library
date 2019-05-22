@@ -93,6 +93,7 @@
     * [LeetCode - 简单模式](./other-library/LeetCode/Easy/README.md)
     * [✔ 001 - 两数之和（two-sum）](./other-library/LeetCode/Easy/001-两数之和（two-sum）.md)
     * [✔ 007 - 整数反转（reverse-integer）](./other-library/LeetCode/Easy/007-整数反转（reverse-integer）.md)
+    * [✘ 009 - 回文数（palindrome-number）](./other-library/LeetCode/Easy/009-回文数（palindrome-number）.md)
   * [独白](./other-library/Monologue/README.md)
     * [✔ 暴走前端 - GitHub 竞赛](./other-library/Monologue/GitHubRunawayRace.md)
     * [✔ 提问的艺术](./other-library/Monologue/TheArtOfQuestioning.md)
