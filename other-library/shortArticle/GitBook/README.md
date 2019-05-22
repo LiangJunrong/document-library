@@ -2,7 +2,7 @@ GitBook
 ===
 
 > Create by **jsliang** on **2019-05-20 14:43:41**  
-> Recently revised in **2019-05-21 13:25:48**
+> Recently revised in **2019-05-22 17:35:54**
 
 本文将介绍如何安装 GitBook、如何起 GitBook 服务、如何配置 GitBook，以及到最后的部署到 GitHub Pages 或者部署到个人云服务器。
 
@@ -517,9 +517,11 @@ GitBook
 
 ![图](../../../public-repertory/img/other-GitBook-15.png)
 
-这样，我们就完成了单个页面添加 Gitalk，如果需要添加多个页面，那么可以参考下攻略：[gitbook 入门教程之实用插件(新增3个插件) - segmentfault - 雪之梦技术驿站](https://segmentfault.com/a/1190000018777424)
+这样，我们就完成了单个页面添加 Gitalk，如果需要添加多个页面，那么可以参考下攻略（这里就不哆嗦了，**jsliang** 亲测有效）：
 
-* **更多插件配置参考文献**：
+* [gitbook 入门教程之实用插件(新增3个插件) - segmentfault - 雪之梦技术驿站](https://segmentfault.com/a/1190000018777424#articleHeader8)
+
+#### 插件 14 - 参考文献
 
 1. [GitBook 插件 - GitHub - zhangjikai](https://github.com/zhangjikai/gitbook-use/blob/master/plugins.md)
 2. [插件功能定制，参数详解 - GitHub - zq99299](https://github.com/zq99299/gitbook-plugin-anchor-navigation-ex/blob/master/doc/config.md)
