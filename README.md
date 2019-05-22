@@ -4,6 +4,10 @@ Document Library - 文档库
 * Here is the jsliang's learning and working experience document on programming. If you have doubts about this, please send an email to 1741020489@qq.com.
 * 这里存放了jsliang的学习、工作中关于编程的经验文档。如果你对此有疑惑，请发邮件到 1741020489@qq.com。
 
+## 新功能
+
+**本页面看得不舒服？jsliang 制作了个本文档库的在线小册：[LiangJunrong.github.io](http://LiangJunrong.github.io)，欢迎评论吐槽！**
+
 ## 一 前言
 
 本文档库始建于 `2018-08-20`。  
