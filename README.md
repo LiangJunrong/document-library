@@ -20,11 +20,11 @@ Document Library - 文档库
 
 本文档库始建于 `2018-08-20`。  
 
-如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/Logs/README.md)** 进行查看。  
+如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](./other-library/Monologue/Logs/README.md)** 进行查看。  
 
-如想知道 **jsliang** 各种新奇玩意，请前往 **[网站清单](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/README.md)** 进行查看。
+如想知道 **jsliang** 各种新奇玩意，请前往 **[网站清单](./other-library/Website/README.md)** 进行查看。
 
-如想参与 **jsliang** 组织的小竞赛，请前往 **[个人竞赛](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/GitHubRunawayRace.md)** 进行查看。
+如想参与 **jsliang** 组织的小竞赛，请前往 **[个人竞赛](./other-library/Monologue/GitHubRunawayRace.md)** 进行查看。
 
 建文档库的初始目的：**记录一下 `jsliang` 在折腾学习某个黑科技的时候的操作笔记。**
 
@@ -88,7 +88,7 @@ Document Library - 文档库
 > 或者小伙伴想买一台云服务器  
 > 或者小伙伴需要续费云服务器  
 > 欢迎加 QQ：`1741020489` 骚扰  
-> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看了解更多！
+> 欢迎点击 **[云服务器推广](./other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看了解更多！
 
 [![图](./public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
 [![图](./public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
