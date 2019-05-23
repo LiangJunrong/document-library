@@ -2,11 +2,19 @@ Document Library - 文档库
 ===
 
 * Here is the jsliang's learning and working experience document on programming. If you have doubts about this, please send an email to 1741020489@qq.com.
-* 这里存放了jsliang的学习、工作中关于编程的经验文档。如果你对此有疑惑，请发邮件到 1741020489@qq.com。
+* 这里存放了 jsliang 的学习、工作中关于编程的经验文档。如果你对此有疑惑，请发邮件到 1741020489@qq.com。
 
 ## 新功能
 
-**本页面看得不舒服？jsliang 制作了个本文档库的在线小册：[LiangJunrong.github.io](http://LiangJunrong.github.io)，欢迎评论吐槽！**
+**GitHub 页面看得不舒服？**
+
+**试试 GitBook 的小册页面如何？**
+
+**jsliang 制作了这个文档库的在线小册**：
+
+* [LiangJunrong.github.io](http://liangjunrong.github.io)
+
+**欢迎评论吐槽！**
 
 ## 一 前言
 
@@ -18,7 +26,7 @@ Document Library - 文档库
 
 如想参与 **jsliang** 组织的小竞赛，请前往 **[个人竞赛](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/GitHubRunawayRace.md)** 进行查看。
 
-建文档库的初始目的：**记录一下 `jsliang` 的在折腾学习某个黑科技的时候的操作笔记。**
+建文档库的初始目的：**记录一下 `jsliang` 在折腾学习某个黑科技的时候的操作笔记。**
 
 因为，如果你学习而不写文章、不做笔记，某天你突发奇想，需要用到某个之前你用过的黑科技……那样的话，还需要 百度 / google 一遍，太累了！太浪费人生了！
 
@@ -27,13 +35,14 @@ Document Library - 文档库
 **不折腾的前端，跟咸鱼有什么区别！** 
 
 ## 二 文件目录
-| 文件名             | 存放内容                          |
-| ------------------ | --------------------------------- |
+
+| 文件名             | 存放内容                           |
+| ------------------ | -------------------------------- |
 | CSS-library        | CSS 文档仓库                       |
 | HTML-library       | HTML 文档仓库                      |
 | JavaScript-library | JavaScript 文档仓库                |
-| other-library      | 其他文档仓库(整站制作/微信小程序)                      |
-| public-repertory   | 文档仓库使用到的图片、CSS文件等…… |
+| other-library      | 其他文档仓库(整站制作/微信小程序)      |
+| public-repertory   | 文档仓库使用到的图片、CSS文件等……     |
 
 ## 三 个人网站
 
