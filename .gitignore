@@ -8,7 +8,7 @@
 
 # 忽略掉 GitBook 打包的 _book 文件
 _book
-liangjunrong-github-io
+LiangJunrong.github.io
 
 # 忽略掉 Mac 中自带的 .DS_Store 文件
 .DS_Store
