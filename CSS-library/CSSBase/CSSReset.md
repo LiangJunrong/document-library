@@ -2,11 +2,11 @@ CSS Reset
 ===
 
 > Create by **jsliang** on **2018-12-23 20:12:08**  
-> Recently revised in **2019-04-25 17:46:46**
+> Recently revised in **2019-05-23 15:58:41**
 
 各式各样浏览器总有一些让人感觉难以接受的样式，  
 
-不管是 jQuery 还是 Vue，使用前最好重置一下样式：
+不管是 jQuery 还是 Vue 亦或者 React，使用前最好重置一下样式：
 
 > reset.css
 
