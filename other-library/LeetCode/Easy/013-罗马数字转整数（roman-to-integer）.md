@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-23 13:24:24**  
-> Recently revised in **2019-05-23 13:24:27**
+> Recently revised in **2019-05-23 13:51:31**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -78,14 +78,78 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
 
 小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - for()</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+/*
+ * @lc app=leetcode.cn id=13 lang=javascript
+ *
+ * [13] 罗马数字转整数
+ */
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function(s) {
+  /**
+   * 特殊情况
+   * IV === 4
+   * IX === 9
+   * XL === 40
+   * XC === 90
+   * CD === 400
+   * CM === 900
+   */
+  const arr = s.split('');
+  let result = 0;
+  for (let i = 0; i < arr.length; ) {
+    if (arr[i] === 'I' && arr[i+1] === 'V') {
+      result += 4;
+      i = i + 2;
+    } else if(arr[i] === 'I' && arr[i+1] === 'X') {
+      result += 9;
+      i = i + 2;
+    } else if(arr[i] === 'X' && arr[i+1] === 'L') {
+      result += 40;
+      i = i + 2;
+    } else if(arr[i] === 'X' && arr[i+1] === 'C') {
+      result += 90;
+      i = i + 2;
+    } else if(arr[i] === 'C' && arr[i+1] === 'D') {
+      result += 400
+      i = i + 2;
+    } else if(arr[i] === 'C' && arr[i+1] === 'M') {
+      result += 900;
+      i = i + 2;
+    } else if (arr[i] === 'I') {
+      result += 1;
+      i = i + 1;
+    } else if (arr[i] === 'V') {
+      result += 5;
+      i = i + 1;
+    } else if (arr[i] === 'X') {
+      result += 10;
+      i = i + 1;
+    } else if (arr[i] === 'L') {
+      result += 50;
+      i = i + 1;
+    } else if (arr[i] === 'C') {
+      result += 100;
+      i = i + 1;
+    } else if (arr[i] === 'D') {
+      result += 500;
+      i = i + 1;
+    } else if (arr[i] === 'M') {
+      result += 1000;
+      i = i + 1;
+    }
+  }
+  return result;
+};
 ```
 
 * **执行测试**：
