@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-22 19:30:42**  
-> Recently revised in **2019-05-22 19:56:56**
+> Recently revised in **2019-05-23 11:42:52**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -12,6 +12,9 @@
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
+| &emsp;[3.1 解题 - 数组操作](#chapter-three-one) |
+| &emsp;[3.1 解题 - 数学算法](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -53,7 +56,7 @@
 
 小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 数组操作</a>
 
 > [返回目录](#chapter-one)
 
@@ -73,11 +76,11 @@ var isPalindrome = function(x) {
 
 * **执行测试**：
 
-1. `x`：`12321`
+1. `x`：`1231`
 2. `return`：
 
 ```js
-true
+false
 ```
 
 * **LeetCode Submit**：
@@ -91,17 +94,23 @@ true
 
 * **知识点**：
 
-1. 
+1. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
 
 * **解题思路**：
 
-[图]
+![图](../../../public-repertory/img/other-algorithm-009-1.png)
 
-[分析]
+将数字转为数组来判断，是比较简单的一种方法：
 
-* **进一步思考**：
+**首先**，我们将数字转成字符串，再转成数组。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.2 解法 - 数学算法</a>
+**然后**，我们循环遍历这个数组。
+
+**接着**，判断第 `i` 位和第 `length - (i + 1)` 位（例如 `1231`，第 `0` 位对应的是第 `length - 1` 位，第 `1` 位对应的是第 `length - 2` 位）。
+
+**最后**，如果循环判断没问题，就返回 `true`；如果循环判断有问题，直接在循环中 `return false`。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 数学算法</a>
 
 > [返回目录](#chapter-one)
 
@@ -145,7 +154,7 @@ true
 
 * **解题思路**：
 
-![图](../../../public-repertory/img/other-algorithm-009-1.png)
+![图](../../../public-repertory/img/other-algorithm-009-2.png)
 
 **首先**，我们可以想象：当一个数的长度为偶数，那么它对折过来应该是相等的；当一个数的长度是奇数，那么它对折过来后，有一个的长度需要去掉一位数（除以 10 并取整），因为奇数长度的那个数，我们不需要判断它中间的数字。
 
