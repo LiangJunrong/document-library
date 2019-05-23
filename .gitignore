@@ -1,4 +1,4 @@
-# Git 忽略文件
+# Git 忽略
 
 # 以 '#' 开始的行是注释
 # 在我们使用 Git 的过程中，有时候喜欢建一些文件给自给自己查看使用，或者说像是 node_modules 这些文件不希望上传到代码仓库的，这时候就需要设置响应的忽略规则，来忽略这些文件的提交。
@@ -8,7 +8,7 @@
 
 # 忽略掉 GitBook 打包的 _book 文件
 _book
-LiangJunrong-github-io
+liangjunrong-github-io
 
 # 忽略掉 Mac 中自带的 .DS_Store 文件
 .DS_Store
