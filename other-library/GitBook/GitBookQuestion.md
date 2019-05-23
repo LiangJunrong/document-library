@@ -2,7 +2,7 @@ GitBook 开发问题
 ===
 
 > Create by **jsliang** on **2019-5-23 08:57:02**  
-> Recently revised in **2019-05-23 15:14:03**
+> Recently revised in **2019-05-23 17:34:56**
 
 在使用 GitBook 的过程中，Mac 使用 `gitbook serve` 和 `gitbook serve` 的时候，是 OK 的。
 
