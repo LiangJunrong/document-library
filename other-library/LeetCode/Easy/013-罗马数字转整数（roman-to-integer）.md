@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-23 13:24:24**  
-> Recently revised in **2019-05-23 13:51:31**
+> Recently revised in **2019-05-23 14:55:20**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解题 - for()](#chapter-three-one) |
+| &emsp;[3.2 解题 - Map](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -72,11 +73,11 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
 
 > [返回目录](#chapter-one)
 
-* **官方题解**：
+* **官方题解**：无
 
-解题千千万，官方独一家，上面是官方使用 Java 进行的题解。
+~~解题千千万，官方独一家，上面是官方使用 * 进行的题解。~~
 
-小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
+小伙伴可以先自己在本地尝试解题，~~再看看官方解题，最后~~再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
 
 ### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - for()</a>
 
@@ -85,15 +86,6 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
 * **解题代码**：
 
 ```js
-/*
- * @lc app=leetcode.cn id=13 lang=javascript
- *
- * [13] 罗马数字转整数
- */
-/**
- * @param {string} s
- * @return {number}
- */
 var romanToInt = function(s) {
   /**
    * 特殊情况
@@ -103,9 +95,18 @@ var romanToInt = function(s) {
    * XC === 90
    * CD === 400
    * CM === 900
+   * 正常情况
+   * I === 1
+   * V === 5
+   * X === 10
+   * L === 50
+   * C === 100
+   * D === 500
+   * M === 1000
    */
   const arr = s.split('');
   let result = 0;
+  
   for (let i = 0; i < arr.length; ) {
     if (arr[i] === 'I' && arr[i+1] === 'V') {
       result += 4;
@@ -148,37 +149,143 @@ var romanToInt = function(s) {
       i = i + 1;
     }
   }
+
   return result;
 };
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `s`：`MCMXCIV`
+2. `return`：
 
 ```js
-
+1994
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 3999/3999 cases passed (248 ms)
+  ✔ Your runtime beats 88.79 % of javascript submissions
+  ✔ Your memory usage beats 52.85 % of javascript submissions (40.2 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
 
 * **解题思路**：
 
-[图]
+![图](../../../public-repertory/img/other-algorithm-013-1.png)
 
-[分析]
+通过 `for()` 来进行暴力破解是最快的。
 
-* **进一步思考**：
+就像有句话：“暴力一时爽，一直暴力一直爽 —— **jsliang**”。
+
+**首先**，我们只需要将参数打成数组（或者不打成数组，在 JavaScript 中，String 也有 `length` 和 `string[i]`）。
+
+**然后**，通过 `for()` 暴力循环。如果是正常情况，那么 `i` 就 `+ 1`，如果是特殊情况，那么需要跳过下一次循环，即 `i = i + 2`。
+
+**最后**，通过 `result` 的相加，即可以获取到最终结果。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
+```js
+var romanToInt = function(s) {
+  /**
+   * 特殊情况
+   * IV === 4
+   * IX === 9
+   * XL === 40
+   * XC === 90
+   * CD === 400
+   * CM === 900
+   * 正常情况
+   * I === 1
+   * V === 5
+   * X === 10
+   * L === 50
+   * C === 100
+   * D === 500
+   * M === 1000
+   */
+  let map = new Map();
+  map.set('I', 1);
+  map.set('V', 5);
+  map.set('X', 10);
+  map.set('L', 50);
+  map.set('C', 100);
+  map.set('D', 500);
+  map.set('M', 1000)
+  
+  let result = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] + s[i+1] === 'IV') {
+      result += 4;
+      i = i + 1;
+    } else if(s[i] + s[i+1] === 'IX') {
+      result += 9;
+      i = i + 1;
+    } else if(s[i] + s[i+1] === 'XL') {
+      result += 40;
+      i = i + 1;
+    } else if(s[i] + s[i+1] === 'XC') {
+      result += 90;
+      i = i + 1;
+    } else if(s[i] + s[i+1] === 'CD') {
+      result += 400
+      i = i + 1;
+    } else if(s[i] + s[i+1] === 'CM') {
+      result += 900;
+      i = i + 1;
+    } else {
+      result += map.get(s[i]);
+    }
+  }
+  
+  return result;
+};
+```
+
+* **执行测试**：
+
+1. `s`：`MCMXCIV`
+2. `return`：
+
+```js
+1994
+```
+
+* **LeetCode Submit**：
+
+```js
+✔ Accepted
+  ✔ 3999/3999 cases passed (208 ms)
+  ✔ Your runtime beats 99.08 % of javascript submissions
+  ✔ Your memory usage beats 6.84 % of javascript submissions (43.5 MB)
+```
+
+* **知识点**：
+
+1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
+
+* **解题思路**：
+
+![图](../../../public-repertory/img/other-algorithm-013-2.png)
+
+**个人感觉，该方法有点像脱裤子放屁 ——多此一举**
+
+**首先**，设置 `Map`，将正常情况存下来。
+
+**然后**，遍历字符串，判断特殊情况，如果是特殊情况，需要跳过下一次循环，否则直接获取 `Map` 中对应的值。
+
+**最后**，将结果通过 `result` 给 `return` 出去。 
 
 ---
 
