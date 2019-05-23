@@ -4,9 +4,11 @@ JSTL
 > create by **jsliang** on **2018-9-12 11:37:01**  
 > Recently revised in **2019-05-23 18:52:22**
 
-## 一、JSTL 简介
+## 一 JSTL 简介
 
 * [学习地址](https://www.runoob.com/jsp/jsp-jstl.html)
+
+## 二 结语
 
 **结语**：好的，我们的学习如上……  
 
