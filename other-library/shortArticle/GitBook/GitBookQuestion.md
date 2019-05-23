@@ -17,3 +17,5 @@ GitBook 开发问题
 √ document-library\other-library\WeChatApplet\WeChatAppletFunctionList.md
 ```
 这几个文件需要切换 CRLF 为 LF：https://github.com/react-guide/ETC/issues/3
+
+* [CRLF、CR、LF详解](https://blog.csdn.net/lishuoboy/article/details/84768748)
