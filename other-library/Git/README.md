@@ -2,7 +2,7 @@ Git
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2019-04-02 21:31:22**
+> Recently revised in **2019-05-23 16:59:39**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -323,6 +323,21 @@ git push
 config			id_rsa_github.pub	id_rsa_gitlab.pub
 id_rsa_github		id_rsa_gitlab		known_hosts
 ```
+
+## Git 版本强制回退
+
+今天做了个骚操作：全局修改了广告的地址，做了 `add commit push` 操作，然后 GitHub 版本库多了好几个不想要的。
+
+于是，决定回滚！
+
+```bash
+# 找到那次版本记录
+git reset --hard 0cdade676ed032777f6f8ecbf2f61257c1a98283
+# 强制推送到远程仓库
+git push -f -u origin master 
+```
+
+这样，就成功返回了之前的版本！
 
 ## 配置 .gitignore
 
