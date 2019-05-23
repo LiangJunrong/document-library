@@ -47,9 +47,9 @@
 
 > [返回目录](#chapter-one)
 
-* **官方题解**：
+* **官方题解**：https://leetcode-cn.com/problems/palindrome-number/solution/hui-wen-shu-by-leetcode/
 
-解题千千万，官方独一家，上面是官方使用 Java 进行的题解。
+解题千千万，官方独一家，上面是官方使用 C# 进行的题解。
 
 小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
 
@@ -73,12 +73,11 @@ var isPalindrome = function(x) {
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `x`：`12321`
+2. `return`：
 
 ```js
-
+true
 ```
 
 * **LeetCode Submit**：
@@ -101,6 +100,62 @@ var isPalindrome = function(x) {
 [分析]
 
 * **进一步思考**：
+
+### <a name="chapter-three-one" id="chapter-three-one">3.2 解法 - 数学算法</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
+```js
+var isPalindrome = function(x) {
+  if(x < 0 || (x % 10 == 0 && x != 0)) {
+    return false;
+  }
+  let revertedNumber = 0;
+  while(x > revertedNumber) {
+    revertedNumber = revertedNumber * 10 + x % 10;
+    x = Math.floor(x / 10);
+  }
+  return x === revertedNumber || x === Math.floor(revertedNumber / 10);
+};
+```
+
+* **执行测试**：
+
+1. `x`：`12321`
+2. `return`：
+
+```js
+true
+```
+
+* **LeetCode Submit**：
+
+```js
+✔ Accepted
+  ✔ 11509/11509 cases passed (316 ms)
+  ✔ Your runtime beats 97.12 % of javascript submissions
+  ✔ Your memory usage beats 67.78 % of javascript submissions (45.5 MB)
+```
+
+* **知识点**：
+
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
+
+* **解题思路**：
+
+![图](../../../public-repertory/img/other-algorithm-009-1.png)
+
+**首先**，我们可以想象：当一个数的长度为偶数，那么它对折过来应该是相等的；当一个数的长度是奇数，那么它对折过来后，有一个的长度需要去掉一位数（除以 10 并取整），因为奇数长度的那个数，我们不需要判断它中间的数字。
+
+> 我们定义传递过来的参数为：`x`，对折的数字为：`z`，而 `y` 为 `x` 目前的个位数。
+
+**然后**，我们需要知道如何获取到一个数的个位数：`y = x % 10`，我们也需要知道如何将单个数字不断添加到一个数的末尾：`z = z * 10 + y`，例如：`z = 1 * 10 + 2 = 12`。
+
+**接着**，我们只需要判断 `x` 是不是小于 `z` 了，毕竟当它小于的时候，说明数字已经对半或者过半了。
+
+**最后**，我们判断一开始的两种情况，并返回 `true` 或者 `false` 即可。
 
 ---
 
