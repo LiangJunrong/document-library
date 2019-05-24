@@ -3,6 +3,7 @@
 
 * [起始](./README.md)
 * [目录](./SUMMARY.md)
+* [更新记录](./News.md)
 * [留言板](./MessageBoard.md)
 * [CSS 资料室](./CSS-library/README.md)
   * [CSS 基础](./CSS-library/CSSBase/README.md)
