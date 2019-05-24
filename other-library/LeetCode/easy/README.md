@@ -6,6 +6,13 @@ LeetCode - 简单模式
 
 LeetCode 简单难度攻略
 
+| 题目 | 解题攻略 |
+| --- | --- |
+| 001 - 两数之和（two-sum） | [#1 解题](./easy/001-两数之和（two-sum）.md) |
+| 007 - 整数反转（reverse-integer） | [#7 解题](./easy/007-整数反转（reverse-integer）.md) |
+| 009 - 回文数（palindrome-number） | [#9 解题](./easy/009-回文数（palindrome-number）.md) |
+| 013-罗马数字转整数（roman-to-integer） | [#13 解题](./easy/013-罗马数字转整数（roman-to-integer）.md) |
+
 ---
 
 > **jsliang** 广告推送：  
