@@ -2,9 +2,9 @@ jsliang 的 2019 面试准备
 ===
 
 > Create by **jsliang** on **2019-2-11 15:30:34**  
-> Recently revised in **2019-3-20 08:15:50**
+> Recently revised in **2019-05-24 11:06:18**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/2019-InterviewPreparation.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
 并不是只有特定的季节才能跑路，只因为人跑得多了，这条路就定下来了。
 
