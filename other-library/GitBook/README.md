@@ -2,7 +2,7 @@ GitBook
 ===
 
 > Create by **jsliang** on **2019-05-24 13:40:56**  
-> Recently revised in **2019-05-24 13:41:00**
+> Recently revised in **2019-05-24 13:45:31**
 
 GitBook 是一个基于 Node.js 的命令行工具，支持 Markdown 和 AsciiDoc 两种语法格式，可以输出 HTML、PDF、eBook 等格式的电子书
 
