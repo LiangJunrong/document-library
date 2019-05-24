@@ -2,7 +2,7 @@ LeetCode
 ===
 
 > Create by **jsliang** on **2019-5-16 22:12:29**  
-> Recently revised in **2019-5-16 22:31:12**
+> Recently revised in **2019-05-24 11:43:18**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -12,9 +12,7 @@ LeetCode
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 简单难度攻略](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 中等难度攻略](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 困难难度攻略](#chapter-five) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 攻略](#chapter-three) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -26,26 +24,13 @@ LeetCode 是个题库，里面有很编程多面试的题目，可以在线编�
 
 在这里，你可以接触到许许多多算法相关的知识，并且提升自己的职业竞争能力，在面试的时候秀一秀自己的代码。
 
-## <a name="chapter-three" id="chapter-three">三 简单难度攻略</a>
+## <a name="chapter-three" id="chapter-three">三 攻略</a>
 
 > [返回目录](#chapter-one)
 
-| 题目 | 原题地址 | 解题攻略 |
-| --- | --- | --- |
-| 001 - 两数之和（two-sum） | [#1 原题](https://leetcode-cn.com/problems/two-sum/) | [#1 解题](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/Easy/001-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%EF%BC%88two-sum%EF%BC%89.md) |
-| 007 - 整数反转（reverse-integer） | [#7 原题](https://leetcode-cn.com/problems/reverse-integer/) | [#7 解题](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/Easy/007-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC%EF%BC%88reverse-integer%EF%BC%89.md) |
-
-## <a name="chapter-four" id="chapter-four">四 中等难度攻略</a>
-
-> [返回目录](#chapter-one)
-
-暂无
-
-## <a name="chapter-five" id="chapter-five">五 困难难度攻略</a>
-
-> [返回目录](#chapter-one)
-
-暂无
+* [简单难度攻略](./easy/README.md)
+* [中等难度攻略](./medium/README.md)
+* [困难难度攻略](./hard/README.md)
 
 ---
 
