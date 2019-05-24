@@ -2101,7 +2101,7 @@ http.createServer(function (req, res) {
         "Content-Type": "text/html;charset=UTF-8"
       });
 
-      res.write('<h1 style="text-align:center">jsliang 前端有限公司服务已开启！</h1><h2 style="text-align:center">详情可见：<a href="https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/node-base.md" target="_blank">Node 基础</a></h2>');
+      res.write('<h1 style="text-align:center">jsliang 前端有限公司服务已开启！</h1><h2 style="text-align:center">详情可见：<a href="https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/Node-base.md" target="_blank">Node 基础</a></h2>');
 
       res.end();
     }
@@ -2860,7 +2860,7 @@ if (pathName == "/getMessage") { // 获取留言信息
     "Content-Type": "text/html;charset=UTF-8"
   });
 
-  res.write('<h1 style="text-align:center">jsliang 前端有限公司服务已开启！</h1><h2 style="text-align:center">详情可见：<a href="https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/node-base.md" target="_blank">Node 基础</a></h2>');
+  res.write('<h1 style="text-align:center">jsliang 前端有限公司服务已开启！</h1><h2 style="text-align:center">详情可见：<a href="https://github.com/LiangJunrong/document-library/blob/master/other-library/Node/Node-base.md" target="_blank">Node 基础</a></h2>');
 
   res.end();
 }
