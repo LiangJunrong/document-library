@@ -2,9 +2,9 @@
 ===
 
 > Create by **jsliang** on **2019-2-23 20:55:34**  
-> Recently revised in **2019-3-12 22:46:04**
+> Recently revised in **2019-05-24 11:08:58**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Interview/PersonalExperience/JS-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
 **本文涉及知识点**：
 
