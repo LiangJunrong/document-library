@@ -2,46 +2,45 @@
 ===
 
 > Create by **jsliang** on **2018-9-17 17:58:56**  
-> Recently revised in **2018-11-21 11:40:01**
+> Recently revised in **2019-05-28 19:36:18**
 
-<br>
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+## 写在前面
 
-# 写在前面
+首个微信小程序实践记录:  
 
-&emsp;首个微信小程序实践记录:  
-&emsp;工作量: PSD 18 张 (导出的 JPG 30 张)  
-&emsp;耗时：12 个工作日  
-&emsp;总结1: 在页面制作商，需要 3 周工作日（工作 15 天）搞定，前后端对接口另计。实际上，12 个工作日可以搞定所有页面，但是应该往前铺 1.5D 熟悉框架，往后铺 1.5D 整理代码。当然每个人的耗时可能不同，可根据个人实际情况进行调整。  
-&emsp;总结2：在 API 调用上，根据接口数量可能需要 7-12 个工作日进行 API 调用，难点表现在： 
+工作量: PSD 18 张 (导出的 JPG 30 张)  
+
+耗时：12 个工作日  
+
+**总结 1**: 在页面制作商，需要 3 周工作日（工作 15 天）搞定，前后端对接口另计。实际上，12 个工作日可以搞定所有页面，但是应该往前铺 1.5D 熟悉框架，往后铺 1.5D 整理代码。当然每个人的耗时可能不同，可根据个人实际情况进行调整。  
+
+**总结 2**：在 API 调用上，根据接口数量可能需要 7-12 个工作日进行 API 调用，难点表现在： 
+
 1. 接口不够丰富，数据量不足； 
 2. 接口数据不够正式真实，跟前面的假数据相差太大； 
 3. 接口可能没法正常调用 等原因。故因根据小程序业务逻辑进行工作时长的报备。  
 
-&emsp;**这里有 jsliang 微信小程序开发中遇到的所有坑，以及在填坑过程中的一些个人经验。jsliang 利用这篇教程存储一些常用的微信小程序开发技巧，方便查找。它可能教不了你什么，但至少能省下你百度的功夫。**  
+**这里有 jsliang 微信小程序开发中遇到的所有坑，以及在填坑过程中的一些个人经验。jsliang 利用这篇教程存储一些常用的微信小程序开发技巧，方便查找。它可能教不了你什么，但至少能省下你百度的功夫。**  
 
-&emsp;**请结合 《目录》 和 《返回目录》 来进行跳转，获得更好的阅读体验。**  
+**请结合 《目录》 和 《返回目录》 来进行跳转，获得更好的阅读体验。**  
 
 ![图](../../public-repertory/img/other-WechatApplet-bug-15.gif)
 
-&emsp;本文技术支持：**Ansen江**
+本文技术支持：**Ansen江**
 
-&emsp;**注1：由于更新频繁，有时候平台上的文章版本可能没有图片或者目录无法跳转，所以小伙伴需要获取最新资料的，请前往 GitHub：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
+**注 1：由于更新频繁，有时候平台上的文章版本可能没有图片或者目录无法跳转，所以小伙伴需要获取最新资料的，请前往 GitHub：[地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)**
 
-&emsp;**注2：如果小伙伴使用的是手机版打开，那么推荐小伙伴使用电脑打开，因为各平台的手机端大都不支持页内跳转，看起来比较费劲。**
+**注 2：如果小伙伴使用的是手机版打开，那么推荐小伙伴使用电脑打开，因为各平台的手机端大都不支持页内跳转，看起来比较费劲。**
 
-<br>
+## <a name="chapter-one" id="chapter-one">一 目录</a>
 
-# <a name="chapter-one" id="chapter-one">一 目录</a>
-
-&emsp;目前已有 **48** 个坑。  
+目前已有 **48** 个坑。  
 
 > 请各位按目录检索时注意：  
 > 3.1、3.2、3.3…… 等二级目录对应着一个章节。  
 > 3.1.1、3.1.2、3.1.3…… 等三级目录将该二级目录这个大章节详细拆分成诸多小坑，方便查看。  
-
-<br>
 
 | 目录                                                                                                                                                  | 坑  |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
@@ -111,52 +110,51 @@
 | &emsp;<a name="catalog-chapter-four-one" id="catalog-chapter-four-one"></a>[4.1 文件夹读取报错](#chapter-four-one)                                    | 1   |
 | &emsp;<a name="catalog-chapter-four-two" id="catalog-chapter-four-two"></a>[4.2 textarea问题多多](#chapter-four-two)                                  | 1   |
 
-<br>
+## <a name="chapter-two" id="chapter-two">二 前言</a>
 
-# <a name="chapter-two" id="chapter-two">二 前言</a>
-
-&emsp;[返回目录](#catalog-chapter-two)
+> [返回目录](#catalog-chapter-two)
 
 > 本文章原名【微信小程序 100 坑】
 
-&emsp;微信小程序的开发教程，或许写出来是非常受欢迎的。  
-&emsp;但是：
+微信小程序的开发教程，或许写出来是非常受欢迎的。  
+
+但是：
+
 * 第一，微信小程序是国内的，有[中文文档](https://developers.weixin.qq.com/miniprogram/dev/index.html)，虽然它的文档说明有点坑，但好歹有文档，阅读理解对小伙伴们来说不是问题。
 * 第二， **jsliang** 的文笔并没有想象中的那么好，想想如果我带你们走了一遍小程序开发，然后你们以为是一条平坦路，结果碰到一堆坑坑洼洼，咋办？最后的锅，会不会到我背啊，可怕！  
 
-&emsp;所以，在这里， **jsliang** 结合 **“日常躺坑”** ，先为你解决小程序的 100 个坑！虽然现在可能还不够，但是第一天我就碰到 4/5 个了，我想我可以帮你们躺完 100 个的！！！  
-&emsp;现在的微信开发者工具显示的开发版本是：`"libVersion": "2.0.4"`  
-&emsp;如果你开发的版本已经解决了这个 bug ，或者你觉得这个 bug 还有其他解决方法，或者你觉得这个玩意还有其他 bug ，请告诉我，我会补充到这篇文档上，顺带记上您的大名，谢谢！  
-&emsp;**QQ： 1741020489**  
+所以，在这里， **jsliang** 结合 **“日常躺坑”** ，先为你解决小程序的 100 个坑！虽然现在可能还不够，但是第一天我就碰到 4/5 个了，我想我可以帮你们躺完 100 个的！！！  
 
-<br>
+现在的微信开发者工具显示的开发版本是：`"libVersion": "2.0.4"`  
 
-# <a name="chatper-three" id="chatper-three">三 填坑实战</a>
+如果你开发的版本已经解决了这个 bug ，或者你觉得这个 bug 还有其他解决方法，或者你觉得这个玩意还有其他 bug ，请告诉我，我会补充到这篇文档上，顺带记上您的大名，谢谢！  
 
-&emsp;[返回目录](#catalog-chapter-three)
+**jsliang QQ： 1741020489**  
 
-&emsp;这里的坑：
+## <a name="chatper-three" id="chatper-three">三 填坑实战</a>
+
+> [返回目录](#catalog-chapter-three)
+
+这里的坑：
+
 * 有的来源于微信自带的开发文档：[小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/component/)。在文档中，你会发现很多的乐趣！毕竟，你不知道什么时候中文成为了你的语言障碍~  
 * 有的是开发中遇到的，然后结合大量的百度结果，进行的有效性总结。
 
-&emsp;希望小伙伴在百度中或者无意看到这篇文章，请熟练使用浏览器的 `Ctrl + F`，查找需要的问题答案。
+希望小伙伴在百度中或者无意看到这篇文章，请熟练使用浏览器的 `Ctrl + F`，查找需要的问题答案。
 
-<br>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 swiper 轮播图</a>
 
-## <a name="chapter-three-one" id="chapter-three-one">3.1 swiper 轮播图</a>
-
-&emsp;[返回目录](#catalog-chapter-three-one)
+> [返回目录](#catalog-chapter-three-one)
 
 > 本组件目前已有 5 个坑，有兴趣的小伙伴可以详看。
 
-<br>
+代码来源于该地址：[微信组件 swiper](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html) 。  
 
-&emsp; 代码来源于该地址：[微信组件 swiper](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html) 。  
+为方便小伙伴查看，下面贴出原版代码：
 
-&emsp;为方便小伙伴查看，下面贴出原版代码：
 > demo.wxml
 
-```
+```html
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}">
@@ -170,8 +168,6 @@
 <slider bindchange="intervalChange" show-value min="500" max="2000"/> interval
 <slider bindchange="durationChange" show-value min="1000" max="10000"/> duration
 ```
-
-<br>
 
 > demo.js
 
@@ -210,43 +206,34 @@ Page({
   }
 })
 ```
-<br>
 
-&emsp;好的，上面就是微信官方文档的演示代码，如果你跟着演示代码走了一遍碰到疑问的话，看看这里我挖的土是不是能填好你的坑：
+好的，上面就是微信官方文档的演示代码，如果你跟着演示代码走了一遍碰到疑问的话，看看这里我挖的土是不是能填好你的坑：
 
-<br>
+#### <a name="chapter-three-one-one" id="chapter-three-one-one">3.1.1 行内样式无效</a>
 
-### <a name="chapter-three-one-one" id="chapter-three-one-one">3.1.1 行内样式无效</a>
+> [返回目录](#catalog-chapter-three-one)
 
-&emsp;[返回目录](#catalog-chapter-three-one)
+`demo.wxml` 中出现的 `<image src="{{item}}" class="slide-image" width="355" height="150"/>` 这行， `width` 和 `height` 的行内属性是忽悠老百姓的，**它并没卵用** ！我们需要在 `slide-image` 这个 `class` 类中修改 `width` 和 `height`。简而言之，行内样式都是骗人的，乖，我们还是去 `demo.wxss` 写样式吧~
 
-&emsp;`demo.wxml` 中出现的 `<image src="{{item}}" class="slide-image" width="355" height="150"/>` 这行， `width` 和 `height` 的行内属性是忽悠老百姓的，**它并没卵用** ！我们需要在 `slide-image` 这个 `class` 类中修改 `width` 和 `height`。简而言之，行内样式都是骗人的，乖，我们还是去 `demo.wxss` 写样式吧~
+#### <a name="chapter-three-one-two" id="chapter-three-one-two">3.1.2 图片样式修改不了</a>
 
-<br>
+> [返回目录](#catalog-chapter-three-one)
 
-### <a name="chapter-three-one-two" id="chapter-three-one-two">3.1.2 图片样式修改不了</a>
+在任何出现图片的地方（包括但不限于轮播图），如果你发现不仅行内写法无效之外，还发现单纯地给图片加 `class`，去 `*.wxss` 写样式也无效的话。那么，我建议小伙伴最好采用样式加重法，即 `.image-wrap .image` 这种写法格式，来确保图片样式能进行修改。详细用法可看下文。
 
-&emsp;[返回目录](#catalog-chapter-three-one)
+#### <a name="chapter-three-one-three" id="chapter-three-one-three">3.1.3 swiper 属性值设置</a>
 
-&emsp;在任何出现图片的地方（包括但不限于轮播图），如果你发现不仅行内写法无效之外，还发现单纯地给图片加 `class`，去 `*.wxss` 写样式也无效的话。那么，我建议小伙伴最好采用样式加重法，即 `.image-wrap .image` 这种写法格式，来确保图片样式能进行修改。详细用法可看下文。
+> [返回目录](#catalog-chapter-three-one)
 
-<br>
-
-### <a name="chapter-three-one-three" id="chapter-three-one-three">3.1.3 swiper 属性值设置</a>
-
-&emsp;[返回目录](#catalog-chapter-three-one)
-
-&emsp;`swiper` 属性值。官方文档说明：
+`swiper` 属性值。官方文档说明：
 
 ![图](../../public-repertory/img/other-WechatApplet-bug-1.png)
 
-&emsp;虽然，它的属性名和属性值是这么说的。但是，用的时候，首先你需要在 `demo.wxml` 中的 `swiper` 绑定这个属性名，然后在 `demo.js` 中设置其属性值。值得注意的是，它的绑定值，稍微不同于 `Vue`， 需要设置 `{{}}` 形式。如果文字描述你看得不是很清楚，可以参照下面的代码进行理解。
-
-<br>
+虽然，它的属性名和属性值是这么说的。但是，用的时候，首先你需要在 `demo.wxml` 中的 `swiper` 绑定这个属性名，然后在 `demo.js` 中设置其属性值。值得注意的是，它的绑定值，稍微不同于 `Vue`， 需要设置 `{{}}` 形式。如果文字描述你看得不是很清楚，可以参照下面的代码进行理解。
 
 ### <a name="chapter-three-one-four" id="chapter-three-one-four">3.1.4 轮播图图片跳转</a>
 
-&emsp;[返回目录](#catalog-chapter-three-one)
+> [返回目录](#catalog-chapter-three-one)
 
 &emsp;关于轮播图的地址跳转，在微信小程序的官网是没用提及的，也是 **jsliang** 去百度查看了下，才知道怎么设置（可能是我一开始就挑战的难度太高了么 -_-|| ），在下面 **jsliang** 贴出来代码~想知道怎么解决的可以去看看：首先，在 `data` 中设置 `link` ；然后，设置 `navigator` 导航遍历 `item.link` 。
 
@@ -254,7 +241,7 @@ Page({
 
 ### <a name="chapter-three-one-five" id="chapter-three-one-five">3.1.5 wx:key</a>
 
-&emsp;[返回目录](#catalog-chapter-three-one)
+> [返回目录](#catalog-chapter-three-one)
 
 &emsp;关于 `wx:key` ， `wx:key` 的作用是：当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率。但是，在其 `swiper` 中，小程序本身是没有写的，所以它会带有 `warning` ，这里也是个小坑， **jsliang** 也是百度了下也知道这件事：[点我了解](https://www.sohu.com/a/207728111_99897596)。
 
@@ -262,7 +249,7 @@ Page({
 
 ### <a name="chapter-three-one-six" id="chapter-three-one-six">3.1.6 实战代码</a>
 
-&emsp;[返回目录](#catalog-chapter-three-one)
+> [返回目录](#catalog-chapter-three-one)
 
 &emsp;下面给出这 5 个坑的解决代码，如有不对，尽情指出：
 
@@ -327,7 +314,7 @@ Page({
 
 ## <a name="chapter-three-two" id="chapter-three-two">3.2 tabBar 与 switchTab</a>
 
-&emsp;[返回目录](#catalog-chapter-three-two)
+> [返回目录](#catalog-chapter-three-two)
 
 > 本组件目前已有 3 个坑，有兴趣的小伙伴可以详看。
 
@@ -339,7 +326,7 @@ Page({
 
 ### <a name="chapter-three-two-one" id="chapter-three-two-one">3.2.1 底部导航跳转</a>
 
-&emsp;[返回目录](#catalog-chapter-three-two)
+> [返回目录](#catalog-chapter-three-two)
 
 &emsp;在这里，我们讲下 `tabBar` 的坑，如果你在 `app.json` 中设置了 `tabBar` ：
 > app.json
@@ -392,7 +379,7 @@ linkTo: function () {
 
 ### <a name="chapter-three-two-two" id="chapter-three-two-two">3.2.2 自定义底部导航</a>
 
-&emsp;[返回目录](#catalog-chapter-three-two)
+> [返回目录](#catalog-chapter-three-two)
 
 &emsp;那么问题又来了，当我们切换到子页面的时候，我们发现 `tabBar` 这个底部导航栏不见了，然后问了下 **Ansen江** ，他说之前是整个小程序都有的，有些页面还要想方设法去隐藏。  
 &emsp;但是现在嘛……它没了！没了啊！！！在微信小程序的文档没看到有唤起底部导航条的方法，难道我要做一个导航条了么 -_-||   
@@ -510,7 +497,7 @@ goHome: function() {
 
 ### <a name="chapter-three-two-three" id="chapter-three-two-three">3.2.3 自定义组件</a>
 
-&emsp;[返回目录](#catalog-chapter-three-two)
+> [返回目录](#catalog-chapter-three-two)
 
 &emsp;在最近的工作中，又发现一个小问题：
 
@@ -693,7 +680,7 @@ data: {
 
 ## <a name="chapter-three-three" id="chapter-three-three">3.3 px、rem 与 rpx</a>
 
-&emsp;[返回目录](#catalog-chapter-three-three)
+> [返回目录](#catalog-chapter-three-three)
 
 > 本节目前已有1个坑，有兴趣的小伙伴可以详看。
 
@@ -705,7 +692,7 @@ data: {
 
 ## <a name="chapter-three-four" id="chapter-three-four">3.4 微信 web 开发者工具</a>
 
-&emsp;[返回目录](#catalog-chapter-three-four)
+> [返回目录](#catalog-chapter-three-four)
 
 > 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
@@ -713,7 +700,7 @@ data: {
 
 ### <a name="chapter-three-four-one" id="chapter-three-four-one">3.4.1 无法输入中文</a>
 
-&emsp;[返回目录](#catalog-chapter-three-four)
+> [返回目录](#catalog-chapter-three-four)
 
 &emsp;如果你在开发过程中，发现只能写英文了，而中文无法输入了，千万别急，也别怪输入法出 bug 了，你只需要：重启开发工具。
 
@@ -721,7 +708,7 @@ data: {
 
 ### <a name="chapter-three-four-two" id="chapter-three-four-two">3.4.2 无法滑动滚轮</a>
 
-&emsp;[返回目录](#catalog-chapter-three-four)
+> [返回目录](#catalog-chapter-three-four)
 
 &emsp;如果你某时刻，突然发现你没法滚动代码进行查看，而是需要拖动滚动条才行，请别怪你的鼠标，你可以去浏览器打开一篇文章看看，enm...你的鼠标还是好的~所以，请：重启开发工具。
 
@@ -729,13 +716,13 @@ data: {
 
 ## <a name="chapter-three-five" id="chapter-three-five">3.5 组件与 API</a>
 
-&emsp;[返回目录](#catalog-chapter-three-five)
+> [返回目录](#catalog-chapter-three-five)
 
 > 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
 ### <a name="chapter-three-five-one" id="chapter-three-five-one">3.5.1 概念混淆：组件 VS API</a>
 
-&emsp;[返回目录](#catalog-chapter-three-five)
+> [返回目录](#catalog-chapter-three-five)
 
 &emsp;首先，科普下 组件 与 API 是什么：  
 * 组件：对数据和方法的封装，使用组件可以实现拖放式编程、快速的属性处理以及真正的面向对象的设计[【百度百科】](https://baike.baidu.com/item/%E7%BB%84%E4%BB%B6/6902128?fr=aladdin)。那么，可以理解为：开发中常用的一些部件，我们都可以封装起来，然后在需要的时候拿来用，即为组件。
@@ -753,7 +740,7 @@ data: {
 
 ### <a name="chapter-three-five-two" id="chapter-three-five-two">3.5.2 API 查询不到对应的方法</a>
 
-&emsp;[返回目录](#catalog-chapter-three-five)
+> [返回目录](#catalog-chapter-three-five)
 
 &emsp;如果小伙伴你经常有去看微信小程序官方文档的话，那么你一定会有一件事需要吐槽，那就是：  
 &emsp;明明上次我见到过某个 API 实现了我需要做的功能，但是改天我回去查找的时候，它却提示我没有这个玩意，这是什么鬼？！  
@@ -763,7 +750,7 @@ data: {
 
 ## <a name="chapter-three-six" id="chapter-three-six">3.6 flex 布局</a>
 
-&emsp;[返回目录](#catalog-chapter-three-six)
+> [返回目录](#catalog-chapter-three-six)
 
 > 本节目前已有 3 个坑，有兴趣的小伙伴可以详看。
 
@@ -774,7 +761,7 @@ data: {
 
 ### <a name="chapter-three-six-one" id="chapter-three-six-one">3.6.1 基础概念</a>
 
-&emsp;[返回目录](#catalog-chapter-three-six)
+> [返回目录](#catalog-chapter-three-six)
 
 &emsp;基础概念：[地址](https://www.runoob.com/w3cnote/flex-grammar.html)
 
@@ -841,7 +828,7 @@ data: {
 
 ### <a name="chapter-three-six-two" id="chapter-three-six-two">3.6.2 左右布局</a>
 
-&emsp;[返回目录](#catalog-chapter-three-six)
+> [返回目录](#catalog-chapter-three-six)
 
 &emsp;实现效果如下：
 
@@ -897,7 +884,7 @@ data: {
 
 ### <a name="chapter-three-six-three" id="chapter-three-six-three">3.6.3 混合布局</a>
 
-&emsp;[返回目录](#catalog-chapter-three-six)
+> [返回目录](#catalog-chapter-three-six)
 
 &emsp;实现效果如下：
 
@@ -1000,7 +987,7 @@ tabs3Content: [
 
 ## <a name="chapter-three-seven" id="chapter-three-seven">3.7 background-image 套用本地图片无效</a>
 
-&emsp;[返回目录](#catalog-chapter-three-seven)
+> [返回目录](#catalog-chapter-three-seven)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -1015,7 +1002,7 @@ tabs3Content: [
 
 ## <a name="chapter-three-eight" id="chapter-three-eight">3.8 \<block\> 与 \<view\></a>
 
-&emsp;[返回目录](#catalog-chapter-three-eight)
+> [返回目录](#catalog-chapter-three-eight)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -1026,7 +1013,7 @@ tabs3Content: [
 
 ## <a name="chapter-three-night" id="chapter-three-night">3.9 搜索框</a>
 
-&emsp;[返回目录](#catalog-chapter-three-night)
+> [返回目录](#catalog-chapter-three-night)
 
 > 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
@@ -1034,7 +1021,7 @@ tabs3Content: [
 
 ### <a name="chapter-three-night-one" id="chapter-three-night-one">3.9.1 margin-top 无法上浮</a>
 
-&emsp;[返回目录](#catalog-chapter-three-night)
+> [返回目录](#catalog-chapter-three-night)
 
 &emsp;首先，我们要实现的效果是：
 
@@ -1103,7 +1090,7 @@ tabs3Content: [
 
 ### <a name="chapter-three-night-two" id="chapter-three-night-two">3.9.2 改造 WeUI 搜索框</a>
 
-&emsp;[返回目录](#catalog-chapter-three-night)
+> [返回目录](#catalog-chapter-three-night)
 
 &emsp;回头看了下 `WeUI` 的实现方式，发现跟我的思路是挺像的，关于 `input` 的实现方式，现在依据 `WeUI` ，成功实现了输入框：
 
@@ -1216,7 +1203,7 @@ Page({
 
 ## <a name="chapter-three-ten" id="chapter-three-ten">3.10 微信小程序分享</a>
 
-&emsp;[返回目录](#catalog-chapter-three-ten)
+> [返回目录](#catalog-chapter-three-ten)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -1253,7 +1240,7 @@ onShareAppMessage: function (res) {
 
 ## <a name="chapter-three-eleven" id="chapter-three-eleven">3.11 border-box 设置</a>
 
-&emsp;[返回目录](#catalog-chapter-three-eleven)
+> [返回目录](#catalog-chapter-three-eleven)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -1303,7 +1290,7 @@ view {
 
 ## <a name="chapter-three-twelve" id="chapter-three-twelve">3.12 自定义选项卡</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twelve)
+> [返回目录](#catalog-chapter-three-twelve)
 
 > 本节目前已有 6 个坑，有兴趣的小伙伴可以详看。
 
@@ -1311,7 +1298,7 @@ view {
 
 ### <a name="chapter-three-twelve-one" id="chapter-three-twelve-one">3.12.1 WeUI 选项卡</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twelve)
+> [返回目录](#catalog-chapter-three-twelve)
 
 &emsp;使用 WeUI 的导航条，首先需要引用 WeUI 的 CSS 样式：[地址](https://github.com/Tencent/weui-wxss/tree/master/dist/style)
 
@@ -1457,7 +1444,7 @@ Page({
 
 ### <a name="chapter-three-twelve-two" id="chapter-three-twelve-two">3.12.2 自定义选项卡效果与实现</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twelve)
+> [返回目录](#catalog-chapter-three-twelve)
 
 &emsp;自定义选项卡的代码实现：   
 
@@ -1742,7 +1729,7 @@ tabs2NavClick: function(e) {
 
 ### <a name="chapter-three-twelve-three" id="chapter-three-twelve-three">3.12.3 绑定事件如何传递数据</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twelve)
+> [返回目录](#catalog-chapter-three-twelve)
 
 &emsp;绑定事件如何传递数据：  
 &emsp;如果学过 `Vue` 的同学，应该知道 `Vue` 的数据传递形式是： `@click='tabs2NavClick(item.id)'`  
@@ -1760,7 +1747,7 @@ tabs2NavClick: function(e) {
 
 ### <a name="chapter-three-twelve-four" id="chapter-three-twelve-four">3.12.4 不允许驼峰</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twelve)
+> [返回目录](#catalog-chapter-three-twelve)
 
 &emsp;然后，注意了，这里还有个小 bug。在代码中，我们使用的是 `data-labelId="{{item.id}}"`，而获取数据的时候，我们获取的是 `labelid`，是的，驼峰不见了~
 
@@ -1770,7 +1757,7 @@ tabs2NavClick: function(e) {
 
 ### <a name="chapter-three-twelve-five" id="chapter-three-twelve-five">3.12.5 获取 data 数据</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twelve)
+> [返回目录](#catalog-chapter-three-twelve)
 
 &emsp;如何在方法中获取 `data` 中定义的数据：  
 &emsp;如果我想在选项卡切换的方法 `tabs2NavClick` 中获取 `data` 里面的数据，那么我应该怎么做呢？  
@@ -1792,7 +1779,7 @@ tabs2NavClick: function(e) {
 
 ### <a name="chapter-three-twelve-six" id="chapter-three-twelve-six">3.12.6 实现文字省略</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twelve)
+> [返回目录](#catalog-chapter-three-twelve)
 
 &emsp;如何实现文字省略：  
 &emsp;加入你有一段文本，你想让页面根据自身宽度，自动省略多余长度，那么，我们可以设置下面的 `css` 代码，从而实现文字省略效果（不使用 js 的原因，是因为 js 没有 css 那么灵活）  
@@ -1815,7 +1802,7 @@ text {
 
 ## <a name="chapter-three-thirteen" id="chapter-three-thirteen">3.13 黑科技：\<modal\></a>
 
-&emsp;[返回目录](#catalog-chapter-three-thirteen)
+> [返回目录](#catalog-chapter-three-thirteen)
 
 > 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
@@ -1823,7 +1810,7 @@ text {
 
 ### <a name="chapter-three-thirteen-one" id="chapter-three-thirteen-one">3.13.1 被遗弃的 \<modal\></a>
 
-&emsp;[返回目录](#catalog-chapter-three-thirteen)
+> [返回目录](#catalog-chapter-three-thirteen)
 
 &emsp;一个坑就是一个故事。  
 &emsp;故事都有四元素：时间，地点，人物，事情。  
@@ -1897,9 +1884,9 @@ Page({
 
 ### <a name="chapter-three-thirteen-two" id="chapter-three-thirteen-two">3.13.2 四种弹窗写法</a>
 
-&emsp;[返回目录](#catalog-chapter-three-thirteen)
+> [返回目录](#catalog-chapter-three-thirteen)
 
-&emsp;作为一枚职业填坑人，怎么能满足于上面的两种弹窗形式呢！于是，使用百度大法又找到了一篇填坑文：[链接](https://blog.csdn.net/gao_xu_520/article/details/71084162?locationNum=1&fps=1)
+&emsp;作为一枚职业填坑人，怎么能满足于上面的两���弹窗形式呢！于是，使用百度大法又找到了一篇填坑文：[链接](https://blog.csdn.net/gao_xu_520/article/details/71084162?locationNum=1&fps=1)
 
 &emsp;所以，总结下就有了四种弹窗写法：
 
@@ -1917,7 +1904,7 @@ Page({
 
 ## <a name="chapter-three-fourteen" id="chapter-three-fourteen">3.14 小程序解析 HTML</a>
 
-&emsp;[返回目录](#catalog-chapter-three-fourteen)
+> [返回目录](#catalog-chapter-three-fourteen)
 
 > 本节目前已有 6 个坑，有兴趣的小伙伴可以详看。
 
@@ -1925,7 +1912,7 @@ Page({
 
 ### <a name="chapter-three-fourteen-one" id="chapter-three-fourteen-one">3.14.1 解析 HTML 的三种方法</a>
 
-&emsp;[返回目录](#catalog-chapter-three-fourteen)
+> [返回目录](#catalog-chapter-three-fourteen)
 
 &emsp;在小程序的文章处理中，文章的主体内容，一般来说，后端会采用富文本的形式存储数据到数据库。就是说，你要在 `view` 中展示 `html` 变迁。但是，你知道的，小程序不采用浏览器的那一套，所以，你可能需要兜圈子了：[链接](https://www.qinziheng.com/xiaochengxudev/4336.htm)
 
@@ -1938,7 +1925,7 @@ Page({
 
 ### <a name="chapter-three-fourteen-two" id="chapter-three-fourteen-two">3.14.2 wxParse</a>
 
-&emsp;[返回目录](#catalog-chapter-three-fourteen)
+> [返回目录](#catalog-chapter-three-fourteen)
 
 &emsp;在百度大法的渲染下，**jsliang** 采用了 wxParse。
 
@@ -1994,7 +1981,7 @@ console.log(JSON.stringify(transData, ' ', ' '));
 
 ### <a name="chapter-three-fourteen-three" id="chapter-three-fourteen-three">3.14.3 rich-text</a>
 
-&emsp;[返回目录](#catalog-chapter-three-fourteen)
+> [返回目录](#catalog-chapter-three-fourteen)
 
 &emsp;**jsliang** 还未使用过 rich-text，这里先预留个坑。如果小伙伴们在开发 rich-text 过程中碰到过各种坑，可以跟 **jsliang** 提一下，我会写进这章节，顺带在章节尾写上你的大名，辛苦了~
 
@@ -2002,7 +1989,7 @@ console.log(JSON.stringify(transData, ' ', ' '));
 
 ### <a name="chapter-three-fourteen-four" id="chapter-three-fourteen-four">3.14.4 web-view</a>
 
-&emsp;[返回目录](#catalog-chapter-three-fourteen)
+> [返回目录](#catalog-chapter-three-fourteen)
 
 &emsp;**jsliang** 还未使用过 web-view，这里先预留个坑。如果小伙伴们在开发 web-view 过程中碰到过各种坑，可以跟 **jsliang** 提一下，我会写进这章节，顺带在章节尾写上你的大名，辛苦了~
 
@@ -2010,7 +1997,7 @@ console.log(JSON.stringify(transData, ' ', ' '));
 
 ## <a name="chapter-three-fifteen" id="chapter-three-fifteen">3.15 诡异的 open-type</a>
 
-&emsp;[返回目录](#catalog-chapter-three-fifteen)
+> [返回目录](#catalog-chapter-three-fifteen)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -2023,7 +2010,7 @@ console.log(JSON.stringify(transData, ' ', ' '));
 
 ## <a name="chapter-three-sixteen" id="chapter-three-sixteen">3.16 \<button\>去样式及其内嵌\<image\></a>
 
-&emsp;[返回目录](#catalog-chapter-three-sixteen)
+> [返回目录](#catalog-chapter-three-sixteen)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -2068,7 +2055,7 @@ console.log(JSON.stringify(transData, ' ', ' '));
 
 ## <a name="chapter-three-seventeen" id="chapter-three-seventeen">3.17 下拉刷新和上拉加载</a>
 
-&emsp;[返回目录](#catalog-chapter-three-seventeen)
+> [返回目录](#catalog-chapter-three-seventeen)
 
 > 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
@@ -2110,7 +2097,7 @@ onReachBottom: function () {
 
 ## <a name="chapter-three-eighteen" id="chapter-three-eighteen">3.18 获取 input 的值</a>
 
-&emsp;[返回目录](#catalog-chapter-three-eighteen)
+> [返回目录](#catalog-chapter-three-eighteen)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -2179,13 +2166,13 @@ Page({
 
 ## <a name="chapter-three-nighteen" id="chapter-three-nighteen">3.19 onLaunch 加载问题与路由守卫</a>
 
-&emsp;[返回目录](#catalog-chapter-three-nighteen)
+> [返回目录](#catalog-chapter-three-nighteen)
 
 > 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
 ### <a name="chapter-three-nighteen-one" id="chapter-three-nighteen-one">3.19.1 小程序执行顺序</a>
 
-&emsp;[返回目录](#catalog-chapter-three-nighteen)
+> [返回目录](#catalog-chapter-three-nighteen)
 
 &emsp;这次的需求是：判断用户是否登录，如果登录了就跳转到首页，如果没登录就跳转到登录页。  
 &emsp;我们都知道，在微信小程序中，有个 `onLaunch` 方法，微信小程序官方文档对其描述就是：每个页面进来需要先加载 `onLaunch` 方法，再去执行其他方法。然后，在 **jsliang** 尝试设置在 `onLaunch` 中调用 `wx.login()`，却发现，`index.js` 的 `onLoad` 方法是先于 `onLaunch` 执行的，这导致我们没法预先获取到需要的信息：    
@@ -2204,7 +2191,7 @@ Page({
 
 ### <a name="chapter-three-nighteen-two" id="chapter-three-nighteen-two">3.19.2 路由守卫</a>
 
-&emsp;[返回目录](#catalog-chapter-three-nighteen)
+> [返回目录](#catalog-chapter-three-nighteen)
 
 &emsp;那么，如何在用户进入首页阅读文章、查看产品之前，先对用户进行微信授权、账号登录呢？
 1. 设置 `onLogin` 的 `Storage`，在 `index.js` 中的 `onload` 进行判断，如果用户未进行登录，则使用 `wx.redirectTo()` 跳转到登录页面：
@@ -2240,7 +2227,7 @@ loginSubmit: function(e) {
 
 ## <a name="chapter-three-twenty" id="chapter-three-twenty">3.20 request 封装与 api 抽离</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twenty)
+> [返回目录](#catalog-chapter-three-twenty)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -2387,7 +2374,7 @@ wx.login({
 
 ## <a name="chapter-three-twenty-one" id="chapter-three-twenty-one">3.21 判断数据是否读取完</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twenty-one)
+> [返回目录](#catalog-chapter-three-twenty-one)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -2458,7 +2445,7 @@ wx.login({
 
 ## <a name="chapter-three-twenty-two" id="chapter-three-twenty-two">3.22 客服系统研究</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twenty-two)
+> [返回目录](#catalog-chapter-three-twenty-two)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -2490,7 +2477,7 @@ wx.login({
 
 ## <a name="chapter-three-twenty-three" id="chapter-three-twenty-three">3.23 文件在线预览</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twenty-three)
+> [返回目录](#catalog-chapter-three-twenty-three)
 
 > 本节目前已有 2 个坑，有兴趣的小伙伴可以详看。
 
@@ -2556,7 +2543,7 @@ Page({
 
 ## <a name="chapter-three-twenty-four" id="chapter-three-twenty-four">3.24 尽量使用 ES6</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twenty-four)
+> [返回目录](#catalog-chapter-three-twenty-four)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -2606,7 +2593,7 @@ for (let i of array) {
 
 ## <a name="chapter-three-twenty-five" id="chapter-three-twenty-five">3.25 视频功能实现</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twenty-five)
+> [返回目录](#catalog-chapter-three-twenty-five)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -2742,7 +2729,7 @@ Page({
 
 ## <a name="chapter-three-twenty-six" id="chapter-three-twenty-six">3.26 多层 for 循环</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twenty-six)
+> [返回目录](#catalog-chapter-three-twenty-six)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -2858,7 +2845,7 @@ contactsData: [
 
 ## <a name="chapter-three-twenty-seven" id="chapter-three-twenty-seven">3.27 拼音导航</a>
 
-&emsp;[返回目录](#catalog-chapter-three-twenty-seven)
+> [返回目录](#catalog-chapter-three-twenty-seven)
 
 > 本节目前已有 1 个坑，有兴趣的小伙伴可以详看。
 
@@ -2970,7 +2957,7 @@ onLoad: function (options) {
 
 # <a name="chatper-four" id="chatper-four">四 网友补充</a>
 
-&emsp;[返回目录](#catalog-chapter-four)
+> [返回目录](#catalog-chapter-four)
 
 &emsp;这章主要讲解小伙伴们发现的 **bug** 及其解决思路，有兴趣的小伙伴可以私我QQ：1741020489，我将把你提出的 **bug** 写进这篇文章并附上你的大名（看个人意愿），谢谢小伙伴们的支持~
 
@@ -2980,7 +2967,7 @@ onLoad: function (options) {
 
 ## <a name="chapter-four-one" id="chapter-four-one">4.1 文件夹读取报错</a>
 
-&emsp;[返回目录](#catalog-chapter-four)
+> [返回目录](#catalog-chapter-four)
 
 > 本组件目前已有 ? 个坑，有经验的小伙伴可以进行补充。
 
@@ -2992,7 +2979,7 @@ onLoad: function (options) {
 
 ## <a name="chapter-four-two" id="chapter-four-two">4.2 textarea问题多多</a>
 
-&emsp;[返回目录](#catalog-chapter-four)
+> [返回目录](#catalog-chapter-four)
 
 > 本组件目前已有 ? 个坑，有经验的小伙伴可以进行补充。
 
