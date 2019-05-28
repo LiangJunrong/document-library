@@ -2,7 +2,7 @@ GitBook 搭建
 ===
 
 > Create by **jsliang** on **2019-05-20 14:43:41**  
-> Recently revised in **2019-05-24 13:37:26**
+> Recently revised in **2019-05-28 19:25:42**
 
 本文将介绍如何安装 GitBook、如何起 GitBook 服务、如何配置 GitBook，以及到最后的部署到 GitHub Pages 或者部署到个人云服务器。
 
@@ -12,7 +12,7 @@ GitBook 搭建
 
 * [LiangJunrong.github.io](https://liangjunrong.github.io/)
 
-![图](../../public-repertory/img/other-GitBook-0.png)
+![图](../../../public-repertory/img/other-GitBook-0.png)
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -85,7 +85,7 @@ GitBook 搭建
 
 **最后**，我们在 **终端** 输入 `gitbook serve` 即可开启一个 `localhost:4000` 的服务，请在浏览器中输入 `http://localhost:4000` 即可访问服务。
 
-![图](../../public-repertory/img/other-GitBook-1.png)
+![图](../../../public-repertory/img/other-GitBook-1.png)
 
 ## <a name="chapter-four" id="chapter-four">四 GitBook 插件配置</a>
 
@@ -185,7 +185,7 @@ GitBook 搭建
 
 **最后**，我们安装下 `book.json` 中配置的插件：`gitbook install`，并把 [jsliang 的文档库](https://github.com/LiangJunrong/document-library) 的内容复制过来，修改下 `SUMMARY.md`，重新启动项目：`gitbook serve`。
 
-![图](../../public-repertory/img/other-GitBook-2.png)
+![图](../../../public-repertory/img/other-GitBook-2.png)
 
 > 当然，这需要你配置下 SUMMARY.md 文件，不过这应该对你来说不成问题。
 
@@ -242,7 +242,7 @@ GitBook 搭建
 
 > 参考效果：
 
-![图](../../public-repertory/img/other-GitBook-3.png)
+![图](../../../public-repertory/img/other-GitBook-3.png)
 
 #### 插件 2 - prism
 
@@ -269,7 +269,7 @@ GitBook 搭建
 
 > 参考效果：
 
-![图](../../public-repertory/img/other-GitBook-4.png)
+![图](../../../public-repertory/img/other-GitBook-4.png)
 
 #### 插件 3 - copy-code-button
 
@@ -285,7 +285,7 @@ GitBook 搭建
 
 > 参考效果：
 
-![图](../../public-repertory/img/other-GitBook-5.png)
+![图](../../../public-repertory/img/other-GitBook-5.png)
 
 #### 插件 4 - search-pro
 
@@ -303,7 +303,7 @@ GitBook 搭建
 
 > 参考效果：
 
-![图](../../public-repertory/img/other-GitBook-6.png)
+![图](../../../public-repertory/img/other-GitBook-6.png)
 
 #### 插件 5 - expandable-chapters
 
@@ -319,7 +319,7 @@ GitBook 搭建
 
 > 参考效果：
 
-![图](../../public-repertory/img/other-GitBook-7.png)
+![图](../../../public-repertory/img/other-GitBook-7.png)
 
 #### 插件 6 - splitter
 
@@ -335,7 +335,7 @@ GitBook 搭建
 
 > 参考效果：
 
-![图](../../public-repertory/img/other-GitBook-8.png)
+![图](../../../public-repertory/img/other-GitBook-8.png)
 
 #### 插件 7 - -sharing
 
@@ -351,7 +351,7 @@ GitBook 搭建
 
 > 参考效果：
 
-![图](../../public-repertory/img/other-GitBook-9.png)
+![图](../../../public-repertory/img/other-GitBook-9.png)
 
 #### 插件 8 - github-buttons
 
@@ -387,7 +387,7 @@ GitBook 搭建
 
 > 参考效果：
 
-![图](../../public-repertory/img/other-GitBook-9.png)
+![图](../../../public-repertory/img/other-GitBook-9.png)
 
 #### 插件 9 - donate
 
@@ -412,7 +412,7 @@ GitBook 搭建
 
 > 参考效果：
 
-![图](../../public-repertory/img/other-GitBook-10.png)
+![图](../../../public-repertory/img/other-GitBook-10.png)
 
 #### 插件 10 - tbfed-pagefooter
 
@@ -435,7 +435,7 @@ GitBook 搭建
 
 > 参考效果：
 
-![图](../../public-repertory/img/other-GitBook-11.png)
+![图](../../../public-repertory/img/other-GitBook-11.png)
 
 #### 插件 11 - baidu-tongji
 
@@ -473,7 +473,7 @@ GitBook 搭建
 
 > 参考效果：
 
-![图](../../public-repertory/img/other-GitBook-12.png)
+![图](../../../public-repertory/img/other-GitBook-12.png)
 
 #### 插件 13 - gitalk
 
@@ -515,15 +515,15 @@ GitBook 搭建
 
 **再来**，我们打开页面：[GitHub 开放授权应用](https://github.com/settings/applications/new)
 
-![图](../../public-repertory/img/other-GitBook-13.png)
+![图](../../../public-repertory/img/other-GitBook-13.png)
 
 创建后页面会显示：
 
-![图](../../public-repertory/img/other-GitBook-14.png)
+![图](../../../public-repertory/img/other-GitBook-14.png)
 
 **最后**，我们可以在 `http://localhost:4000/MessageBoard.html` 中查看到结果显示（最终需要放到 LiangJunrong.github.io 中）：
 
-![图](../../public-repertory/img/other-GitBook-15.png)
+![图](../../../public-repertory/img/other-GitBook-15.png)
 
 这样，我们就完成了单个页面添加 Gitalk，如果需要添加多个页面，那么可以参考下 **雪之梦技术驿站** 的攻略（这里就不哆嗦了，**jsliang** 亲测有效）：
 
@@ -556,7 +556,7 @@ GitBook 搭建
 
 > 部署在 GitHub Pages 中的页面：https://liangjunrong.github.io/
 
-![图](../../public-repertory/img/other-GitBook-16.png)
+![图](../../../public-repertory/img/other-GitBook-16.png)
 
 ## <a name="chapter-six" id="chapter-six">六 总结</a>
 
@@ -570,7 +570,7 @@ OK，我们的 GitBook 教学到此结束啦。
 2. 加 **jsliang** 的个人 QQ：`1741020489`
 3. 加 **jsliang** 的个人微信：
 
-![图](../../public-repertory/img/z-small-wechat.jpeg)
+![图](../../../public-repertory/img/z-small-wechat.jpeg)
 
 **最后的最后**，小伙伴们觉得不错的话，记得给 **jsliang** 点个 **赞** 或者 **star** 哦~
 
@@ -587,7 +587,7 @@ OK，我们的 GitBook 教学到此结束啦。
 > 或者小伙伴需要续费云服务器  
 > 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
 
-[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
-[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+[![图](../../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
