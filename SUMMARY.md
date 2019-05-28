@@ -158,8 +158,6 @@
   * [MySQL](./other-library/SQL/MySQL.md)
     * [MySQL 学习 ✘](./other-library/SQL/MySQL-study.md)
   * [网站](./other-library/Website/README.md)
-    * [网站 - Vue + Node + MongoDB 演练](./other-library/Website/Blog/README.md)
-    * [网站 - Vue + Node + MongoDB 学习笔记](./other-library/Website/Blog/note.md)
     * [云服务器建站](./other-library/Website/BuildStation/README.md)
     * [使用 GitHub Pages 和 VuePress 搭建网站](./other-library/Website/GithubPages/DocumentLibrary.md)
     * [Vue + Koa2 + MongoDB 搭建商城](./other-library/Website/ShoppingMall/ShoppingMall.md)
