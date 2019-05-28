@@ -2,7 +2,7 @@ Vue + Koa2 + MongoDB 搭建商城
 ===
 
 > Create by **jsliang** on **2018-10-25 15:14:00**  
-> Recently revised in **2019-05-28 19:24:18**
+> Recently revised in **2019-05-28 19:28:23**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
