@@ -2,7 +2,7 @@ GitBook 搭建
 ===
 
 > Create by **jsliang** on **2019-05-20 14:43:41**  
-> Recently revised in **2019-05-28 19:25:42**
+> Recently revised in **2019-5-29 08:47:31**
 
 本文将介绍如何安装 GitBook、如何起 GitBook 服务、如何配置 GitBook，以及到最后的部署到 GitHub Pages 或者部署到个人云服务器。
 
@@ -64,7 +64,7 @@ GitBook 搭建
 ```
 
 > README.md  
-> \# 号表示一级标题，详情可自行查看 [MarkDown 语法](https://github.com/LiangJunrong/document-library/blob/master/other-library/shortArticle/markdown/markdown.md)
+> \# 号表示一级标题，详情可自行查看 [MarkDown 语法](../Markdown/README.md)
 
 ```markdown
 # Introduction
@@ -549,8 +549,8 @@ GitBook 搭建
 
 **然后**，部署到 GitHub Pages 或者个人云服务器。
 
-* [GitHub Pages 教程](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/GithubPages/DocumentLibrary.md)
-* [Nginx 配置](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/BuildStation/README.md)
+* [GitHub Pages 教程](../Github-Pages/README.md)
+* [Nginx 配置](../../Node/build-web-station.md)
 
 **最后**，我们查看下我们的部署页面：
 
