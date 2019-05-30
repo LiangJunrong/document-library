@@ -2,9 +2,9 @@ Flex 布局
 ===
 
 > create by **jsliang** on **2019-3-27 13:36:02**   
-> Recently revised in **2019-3-27 13:42:10**
+> Recently revised in **2019-05-30 21:25:35**
 
-万丈高楼平地起，熟悉 `Flex` 需要先了解下面这 `7` 个 `CSS` 属性：
+万丈高楼平地起，熟悉 `Flex` 需要先了解 `Flex` 的下面这 `6` 个 `CSS` 属性：
 
 ```css
 /* 设置 Flex 模式 */
@@ -31,7 +31,7 @@ align-content: space-between;
 
 下面我们详细分析这些元素的情况：
 
-1. `flex-direction`：决定主轴的方向
+**知识点 1**. `flex-direction`：决定主轴的方向
   
 * `row` - （默认）水平方向，起点在左端
 * `row-reverse` - 水平方向，起点在右端 
@@ -46,9 +46,7 @@ flex-direction: row | row-reverse | column | column-reverse;
 
 ![图](../../public-repertory/img/css-layout-flex-1.png)
 
-<br>
-
-2. `flex-wrap`：一条轴线（一行）排不下时如何解决
+**知识点 2**. `flex-wrap`：一条轴线（一行）排不下时如何解决
 
 * `nowrap` - （默认）不换行
 * `wrap` - 换行，第一行在上方
@@ -64,9 +62,7 @@ flex-wrap: nowrap | wrap | wrap-reverse;
 
 ![图](../../public-repertory/img/css-layout-flex-3.png)
 
-<br>
-
-1. `flex-flow`：flex-flow = flex-direction + flex-wrap。即 flex-flow 是这两个属性的合集
+**知识点 3**. `flex-flow`：flex-flow = flex-direction + flex-wrap。即 flex-flow 是这两个属性的合集
 
 * `row nowrap` - （默认）水平方向，起点在左端，不换行
 
@@ -76,11 +72,9 @@ display: flex;
 flex-flow: <flex-direction> || <flex-wrap>;
 ```
 
-&emsp;详解参考 `1` 和 `2`
+详解参考 `1` 和 `2`
 
-<br>
-
-4. `justify-content`：定义项目在主轴上的对齐方式
+**知识点 4**. `justify-content`：定义项目在主轴上的对齐方式
 
 * `flex-start` - 左边对齐
 * `flex-end` - 右边对齐
@@ -96,9 +90,7 @@ justify-content: flex-start | flex-end | center | space-between | space-around;
 
 ![图](../../public-repertory/img/css-layout-flex-4.png)
 
-<br>
-
-1. `align-items`：定义项目在交叉轴上如何对齐
+**知识点 5**. `align-items`：定义项目在交叉轴上如何对齐
 
 * `flex-start` - 顶部对齐，即文字图片等顶部同一条线上
 * `flex-end` - 底部对其，即文字图片等底部在同一条线上
@@ -114,9 +106,7 @@ align-items: flex-start | flex-end | center | stretch | baseline;
 
 ![图](../../public-repertory/img/css-layout-flex-5.png)
 
-<br>
-
-1. `align-content`：定义多根轴线的对齐方式。如果只有一根轴线（只有一行），该属性不起作用
+**知识点 6**. `align-content`：定义多根轴线的对齐方式。如果只有一根轴线（只有一行），该属性不起作用
 
 * `flex-start` - 这几行顶部对齐
 * `flex-end` - 这几行底部对齐
