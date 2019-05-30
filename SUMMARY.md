@@ -162,7 +162,7 @@
       * [17 - gulpUncss 清除样式 ✔](./other-library/short-article-library/old-web-article/17.md)
       * [18 - Vue 基础 ✔](./other-library/short-article-library/old-web-article/18.md)
     * [VSCode 常用操作和配置 ✔](./other-library/short-article-library/VisualStudioCode/README.md)
-  * [SQL](./other-library/SQL/MySQL.md)
+  * [SQL](./other-library/SQL/README.md)
     * [MySQL 学习 ✘](./other-library/SQL/MySQL-study.md)
   * [网站](./other-library/Website/README.md)
     * [Vue + Koa2 + MongoDB 搭建商城 ✘](./other-library/Website/Shopping-Mall.md)
