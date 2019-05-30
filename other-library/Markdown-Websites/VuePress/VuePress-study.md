@@ -2,7 +2,7 @@ VuePress 学习
 ===
 
 > Create by **jsliang** on **2018-10-20 10:34:39**  
-> Recently revised in **2019-05-30 16:08:36**
+> Recently revised in **2019-05-30 20:42:39**
 
 **小伙伴们如果觉得不错可以到 [jsliang 的文档库](https://github.com/LiangJunrong/document-library) 为 jsliang 点个 star，谢谢~**
 
@@ -82,7 +82,7 @@ VuePress，是以 Vue 为驱动的主题系统的简约静态网站生成工具 
 
 > README.md
 
-```md
+```
 Hello VuePress
 ===
 ```
@@ -271,7 +271,7 @@ VuePress 为我们设置了一套默认的首页，我们直接拿来用，看�
 
 > docs/README.md
 
-```md
+```
 ---
 home: true
 heroImage: ./img/banner.png
