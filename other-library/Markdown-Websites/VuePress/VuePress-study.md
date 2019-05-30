@@ -1,30 +1,28 @@
-使用 GitHub Pages 和 VuePress 搭建网站
+VuePress 学习
 ===
 
 > Create by **jsliang** on **2018-10-20 10:34:39**  
-> Recently revised in **2018-10-24 13:54:52**
+> Recently revised in **2019-5-30 08:56:37**
 
-<br>
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/Website/GithubPages/DocumentLibrary.md)**
+本文教你如何利用 GitHub 平台搭建自己的博客/文档库。  
 
-<br>
+如果，你的目的仅仅是想了解如何配置。那么，你应该在看完 `第三章 基础配置` 后，就可以自己去写自己的博客/文档库，遇到不懂的问题，可以自己翻阅 VuePress 文档，解决你所需要解决的问题。  
 
-&emsp;本文教你如何利用 GitHub 平台搭建自己的博客/文档库。  
-&emsp;如果，你的目的仅仅是想了解如何配置。那么，你应该在看完 `第三章 基础配置` 后，就可以自己去写自己的博客/文档库，遇到不懂的问题，可以自己翻阅 VuePress 文档，解决你所需要解决的问题。  
-&emsp;如果，你的目的是具体查找某组件：例如导航条、例如侧边栏的配置。那么，你可以直接查找目录，跳到对应章节进行阅读。  
+如果，你的目的是具体查找某组件：例如导航条、例如侧边栏的配置。那么，你可以直接查找目录，跳到对应章节进行阅读。  
 
-&emsp;**参考文档：**
+**参考文档：**
 
 * 参考地址：[GitHub Pages](https://pages.github.com/)  
 
 * 参考地址：[VuePress 中文网](http://caibaojian.com/vuepress/)
 
-&emsp;**目前效果：**
+**目前效果：**
 
-![图](../../../public-repertory/img/other-GithubPages-1.png)
+![图](../../../public-repertory/img/other-VuePress-1.png)
 
-![图](../../../public-repertory/img/other-GithubPages-2.png)
+![图](../../../public-repertory/img/other-VuePress-2.png)
 
 <br>
 
@@ -78,85 +76,7 @@
 
 <br>
 
-## <a name="chapter-three-one" id="chapter-three-one">3.1 搭建 GitHub Pages</a>
 
-> [返回目录](#chapter-one)
-
-<br>
-
-1. 新建仓库( New repository )，在仓库名( Repository name )中输入 `用户名.github.io`，例如我的就是：`LiangJunrong.github.io`，然后点击 Create repository 即可创建一个部署好的环境。
-
-![图](../../../public-repertory/img/other-GithubPages-3.png)
-
-<br>
-
-2. Clone 项目至电脑，并新增 `README.md` 和 `index.html`：
-
-![图](../../../public-repertory/img/other-GithubPages-4.png)
-
-<br>
-
-![图](../../../public-repertory/img/other-GithubPages-5.png)
-
-<br>
-
-![图](../../../public-repertory/img/other-GithubPages-6.png)
-
-<br>
-
-> README.md
-
-```
-Hello Github Pages
-===
-
-&emsp;这是我的 GitHub Pages 初始目录
-```
-
-<br>
-
-> index.html
-
-```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hello Github Pages</title>
-    <style>
-        .container {
-            margin-top: 300px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <h1 class="container">Hello Github Pages</h1>
-</body>
-</html>
-```
-
-<br>
-
-3. 上传到 GitHub：
-
-```
-git add .
-git commit -m "Github Pages"
-git push
-```
-
-<br>
-
-4. 打开 `用户名.github.io`：
-
-![图](../../../public-repertory/img/other-GithubPages-7.png)
-
-<br>
-
-&emsp;如上，完成 GitHub Pages 的搭建，现在我们已经拥有了一个免费部署静态页面的平台了。那么，下面我们将讲解如何通过 Markdown + VuePress 来编写博客。
 
 <br>
 
@@ -170,13 +90,13 @@ git push
 
 &emsp;在你需要存放的目录中，通过终端命令行安装 VuePress：`npm i vuepress -D`
 
-![图](../../../public-repertory/img/other-GithubPages-8.png)
+![图](../../../public-repertory/img/other-VuePress-3.png)
 
 <br>
 
 2. 创建目录及部署代码
 
-![图](../../../public-repertory/img/other-GithubPages-9.png)
+![图](../../../public-repertory/img/other-VuePress-4.png)
 
 &emsp;编辑 `package.json`：
 
@@ -214,7 +134,7 @@ Hello VuePress
 
 &emsp;最后在终端执行命令 `npm run dev`，并打开 `http://localhost:8080`，得到初步配置界面如下：
 
-![图](../../../public-repertory/img/other-GithubPages-10.png)
+![图](../../../public-repertory/img/other-VuePress-5.png)
 
 &emsp;值得注意的是。在这里，我们是通过 `npm run dev` 即时获取我们修改的页面显示。  
 &emsp;然后，我们可以通过 `npm run build` 打包我们的代码，你可以在 `.vuepress` 中找到一个 `dist` 文件夹，然后将 `dist` 中的文件夹上传至 `用户名.github.io`，即可完成 VuePress 的部署。
@@ -230,7 +150,7 @@ Hello VuePress
 &emsp;在前面，我们讲解了如何设置 VuePress 并启动
 &emsp;现在，我们来个基配的目录，进行讲解：
 
-![图](../../../public-repertory/img/other-GithubPages-11.png)
+![图](../../../public-repertory/img/other-VuePress-6.png)
 
 <br>
 
@@ -332,7 +252,7 @@ module.exports = {
 
 &emsp;然后，启动 `npm run dev`，打开 `http://localhost:8080`，你可以看到导航栏部署完毕了。
 
-![图](../../../public-repertory/img/other-GithubPages-12.png)
+![图](../../../public-repertory/img/other-VuePress-7.png)
 
 <br>
 
@@ -346,7 +266,7 @@ module.exports = {
 
 &emsp;目录如下：
 
-![图](../../../public-repertory/img/other-GithubPages-13.png)
+![图](../../../public-repertory/img/other-VuePress-8.png)
 
 &emsp;然后，我们修改下 `config.js`：
 
@@ -386,11 +306,11 @@ module.exports = {
 
 &emsp;最后，我们运行 `npm run dev`，查看 `http://localhost:8080` 所示如下：
 
-![图](../../../public-repertory/img/other-GithubPages-14.png)
+![图](../../../public-repertory/img/other-VuePress-9.png)
 
 <br>
 
-![图](../../../public-repertory/img/other-GithubPages-15.png)
+![图](../../../public-repertory/img/other-VuePress-10.png)
 
 &emsp;可以看出，我们已经成功配置了分页形式的侧边栏。
 
@@ -428,7 +348,7 @@ footer: jsliang 的文档库 | Copyright © 2018 不折腾的前端，和咸鱼�
 
 &emsp;OK，由于我们重新修改了首页（即 docs/README.md），所以我们重新重启下，`Ctrl+C` -> `y` -> `npm run dev`，重新打开 `http://localhost:8080`：
 
-![图](../../../public-repertory/img/other-GithubPages-1.png)
+![图](../../../public-repertory/img/other-VuePress-11.png)
 
 &emsp;完美！这样，我们就完成了基础的配置了！！！
 
