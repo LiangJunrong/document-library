@@ -2,30 +2,27 @@
 ===
 
 > Create by **jsliang** on **2018-11-21 20:46:36**  
-> Recently revised in **2018-11-25 00:24:14**
+> Recently revised in **2019-05-30 20:09:52**
 
-<br>
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletFunctionList.md)**
+* **开篇点题**：  
 
-<br>
+这是一篇专研微信小程序各种功能实现的文章，例如布局、通讯录、组件之底部导航栏等……  
 
-&emsp;**开篇点题**：  
-&emsp;这是一篇专研微信小程序各种功能实现的文章，例如布局、通讯录、组件之底部导航栏等……  
-&emsp;感觉不错的小伙伴，点赞点 Star走一波；感觉文章有误的小伙伴，评论区、[QQ群](https://jq.qq.com/?_wv=1027&k=5qu79al) 溜达一番。  
-&emsp;虚心求教，不胜感激~ 
+感觉不错的小伙伴，点赞点 Star 走一波；
 
-<br>
+感觉文章有误的小伙伴，评论区、[QQ群](https://jq.qq.com/?_wv=1027&k=5qu79al) 溜达一番。  
 
-&emsp;**项目图**：
+虚心求教，不胜感激~ 
+
+* **项目图**：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-1.png)
 
-<br>
+## <a name="chapter-one" id="chapter-one">一 目录</a>
 
-# <a name="chapter-one" id="chapter-one">一 目录</a>
-
-&emsp;**不折腾的前端，和咸鱼有什么区别**
+**不折腾的前端，和咸鱼有什么区别**
 
 > 文章篇幅甚多，请利用好目录进行跳转！
 
@@ -52,80 +49,73 @@
 | &emsp;&emsp;[3.2.11 一统天下 - 归纳总结](#chapter-three-two-eleven) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 项目地址](#chapter-four) |
 
-<br>
-
-# <a name="chapter-two" id="chapter-two">二 前言</a>
+## <a name="chapter-two" id="chapter-two">二 前言</a>
 
 > [返回目录](#catalog-chapter-two)
 
-<br>
+写文章无形中也会磨炼自己的表达能力。  
 
-&emsp;写文章无形中也会磨炼自己的表达能力。  
-&emsp;这周 (`2018-11-19`) 在开发微信小程序的定制 **通讯录** 时，突然发现 **[微信小程序 bug 集中营](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md)** 这篇文章不能再继续写了，因为它变得 **臃肿**、**丑陋** 且 **难维护**，就连我这个写作人都感慨：如果没有 `Ctrl + F` ，以及我的 **目录** 写得还不错，我真心不想再翻这篇文章。  
-&emsp;为此，**jsliang** 单独开了一篇文章：**微信小程序功能清单**。用来记录小程序各种功能的实现，例如布局、通讯录、底部导航栏……  
-&emsp;然后嘛，为了能吸引小伙伴点进来瞅瞅，起个标新立异的标题吧：**微信小程序之奇技淫巧**。
+这周 (`2018-11-19`) 在开发微信小程序的定制 **通讯录** 时，突然发现 **[微信小程序 bug 集中营](./WeChat-applet-bug-lists.md)** 这篇文章不能再继续写了，因为它变得 **臃肿**、**丑陋** 且 **难维护**，就连我这个写作人都感慨：
 
-<br>
+* 如果没有 `Ctrl + F` ，以及我的 **目录** 写得还不错，我真心不想再翻这篇文章。  
 
-# <a name="chapter-three" id="chapter-three">三 功能列表</a>
+为此，**jsliang** 单独开了一篇文章：**微信小程序功能清单**。用来记录小程序各种功能的实现，例如布局、通讯录、底部导航栏……  
+
+然后嘛，为了能吸引小伙伴点进来瞅瞅，起个标新立异的标题吧：**微信小程序之奇技淫巧**。
+
+## <a name="chapter-three" id="chapter-three">三 功能列表</a>
 
 > [返回目录](#catalog-chapter-three)
 
-<br>
+为了小伙伴能快速了解代码中的意思，小伙伴可以去该 [项目地址](https://github.com/LiangJunrong/WeChatApplet) 下载代码到本地运行查看。
 
-&emsp;为了小伙伴能快速了解代码中的意思，小伙伴可以去该 [项目地址](https://github.com/LiangJunrong/WeChatApplet) 下载代码到本地运行查看。
+**敲了再说**  
 
-&emsp;**敲了再说**  
+**敲&emsp;&emsp;看**  
+**一&emsp;&emsp;一**  
+**遍&emsp;&emsp;遍**  
+**？&emsp;&emsp;？**  
+**天&emsp;&emsp;谁**  
+**差&emsp;&emsp;都**  
+**地&emsp;&emsp;可**  
+**别&emsp;&emsp;以**  
+**！&emsp;&emsp;！**
 
-&emsp;**敲&emsp;&emsp;看**  
-&emsp;**一&emsp;&emsp;一**  
-&emsp;**遍&emsp;&emsp;遍**  
-&emsp;**？&emsp;&emsp;？**  
-&emsp;**天&emsp;&emsp;谁**  
-&emsp;**差&emsp;&emsp;都**  
-&emsp;**地&emsp;&emsp;可**  
-&emsp;**别&emsp;&emsp;以**  
-&emsp;**！&emsp;&emsp;！**
-
-&emsp;顺带附上一些资源网站：
+顺带附上一些资源网站：
 
 * [Iconfont - 阿里巴巴矢量图标库](http://www.iconfont.cn/home/index)
 * [图片压缩 - TinyPNG](https://tinypng.com/)
 
-<br>
-
-## <a name="chapter-three-one" id="chapter-three-one">3.1 排兵布阵 - Flex布局</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 排兵布阵 - Flex布局</a>
 
 > [返回目录](#catalog-chapter-three-one)
 
-<br>
+如果你发现你的 `CSS` 水平还处于 `float` 布局，你会发现在小程序中你举步维艰，因为单单只用浮动布局，在小程序中它不好用。  
 
-&emsp;如果你发现你的 `CSS` 水平还处于 `float` 布局，你会发现在小程序中你举步维艰，因为单单只用浮动布局，在小程序中它不好用。  
-&emsp;所以，`Flex` 布局，是你的不二选择：布局的传统解决方案，基于盒状模型，依赖 `display` 属性 + `position` 属性 + `float` 属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。而 `Flex` 布局。又称弹性布局，可以简便、完整、响应式地实现各种页面布局。  
-&emsp;网上较好的教程有：
+所以，`Flex` 布局，是你的不二选择：布局的传统解决方案，基于盒状模型，依赖 `display` 属性 + `position` 属性 + `float` 属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。而 `Flex` 布局。又称弹性布局，可以简便、完整、响应式地实现各种页面布局。  
+
+网上较好的教程有：
 
 * [Flex 布局语法教程 | 菜鸟教程](https://www.runoob.com/w3cnote/flex-grammar.html)
 * [Flex 布局教程：实例篇 | 阮一峰](http://www.techug.com/post/flex-examples.html)  
 
-&emsp;如果你想全面了解 `Flex`，推荐去看上面的文章。  
-&emsp;如果你已经了解 `Flex` 布局，点击 [返回目录](#chapter-one) 寻找更多精彩！  
-&emsp;如果你想快速复习浏览 `Flex` 布局，那么，`Here we go`~
+如果你想全面了解 `Flex`，推荐去看上面的文章。  
 
-&emsp;`Flex` 最终实现效果：
+如果你已经了解 `Flex` 布局，点击 [返回目录](#chapter-one) 寻找更多精彩！  
+
+如果你想快速复习浏览 `Flex` 布局，那么，`Here we go`~
+
+`Flex` 最终实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-2.png)
 
-<br>
-
-### <a name="chapter-three-one-one" id="chapter-three-one-one">3.1.1 楼起平地 - 基础概念</a>
+#### <a name="chapter-three-one-one" id="chapter-three-one-one">3.1.1 楼起平地 - 基础概念</a>
 
 > [返回目录](#catalog-chapter-three-one)
 
-<br>
+万丈高楼平地起，熟悉 `Flex` 需要先了解下面这 `7` 个 `CSS` 属性：
 
-&emsp;万丈高楼平地起，熟悉 `Flex` 需要先了解下面这 `7` 个 `CSS` 属性：
-
-```
+```css
 /* 设置 Flex 模式 */
 display: flex;
 
@@ -148,11 +138,9 @@ align-items: center;
 align-content: space-between;
 ```
 
-<br>
+下面我们详细分析这些元素的情况：
 
-&emsp;下面我们详细分析这些元素的情况：
-
-1. `flex-direction`：决定主轴的方向
+**知识点 1**. `flex-direction`：决定主轴的方向
   
 * `row` - （默认）水平方向，起点在左端
 * `row-reverse` - 水平方向，起点在右端 
@@ -167,9 +155,7 @@ flex-direction: row | row-reverse | column | column-reverse;
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-3.png)
 
-<br>
-
-2. `flex-wrap`：一条轴线（一行）排不下时如何解决
+**知识点 2**. `flex-wrap`：一条轴线（一行）排不下时如何解决
 
 * `nowrap` - （默认）不换行
 * `wrap` - 换行，第一行在上方
@@ -185,9 +171,7 @@ flex-wrap: nowrap | wrap | wrap-reverse;
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-5.png)
 
-<br>
-
-3. `flex-flow`：flex-flow = flex-direction + flex-wrap。即 flex-flow 是这两个属性的合集
+**知识点 3**. `flex-flow`：flex-flow = flex-direction + flex-wrap。即 flex-flow 是这两个属性的合集
 
 * `row nowrap` - （默认）水平方向，起点在左端，不换行
 
@@ -197,11 +181,9 @@ display: flex;
 flex-flow: <flex-direction> || <flex-wrap>;
 ```
 
-&emsp;详解参考 `1` 和 `2`
+详解参考 `1` 和 `2`
 
-<br>
-
-4. `justify-content`：定义项目在主轴上的对齐方式
+**知识点 4**. `justify-content`：定义项目在主轴上的对齐方式
 
 * `flex-start` - 左边对齐
 * `flex-end` - 右边对齐
@@ -217,9 +199,7 @@ justify-content: flex-start | flex-end | center | space-between | space-around;
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-6.png)
 
-<br>
-
-5. `align-items`：定义项目在交叉轴上如何对齐
+**知识点 5**. `align-items`：定义项目在交叉轴上如何对齐
 
 * `flex-start` - 顶部对齐，即文字图片等顶部同一条线上
 * `flex-end` - 底部对其，即文字图片等底部在同一条线上
@@ -235,9 +215,7 @@ align-items: flex-start | flex-end | center | stretch | baseline;
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-7.png)
 
-<br>
-
-6. `align-content`：定义多根轴线的对齐方式。如果只有一根轴线（只有一行），该属性不起作用
+**知识点 6**. `align-content`：定义多根轴线的对齐方式。如果只有一根轴线（只有一行），该属性不起作用
 
 * `flex-start` - 这几行顶部对齐
 * `flex-end` - 这几行底部对齐
@@ -254,17 +232,15 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-8.png)
 
-<br>
-
-### <a name="chapter-three-one-two" id="chapter-three-one-two">3.1.2 搭砖建瓦 - 左右布局</a>
+#### <a name="chapter-three-one-two" id="chapter-three-one-two">3.1.2 搭砖建瓦 - 左右布局</a>
 
 > [返回目录](#catalog-chapter-three-one)
 
-&emsp;实现效果如下：
+实现效果如下：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-9.png)
 
-&emsp;如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
+如图，这是我们要实现的左右布局效果。那么，在微信小程序要怎么做呢？
 
 > *.wxml
 
@@ -280,11 +256,9 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 </view>
 ```
 
-<br>
-
 > *.wxss
 
-```
+```css
 .left-and-right-layout {
   padding: 0 30rpx;
 }
@@ -311,17 +285,15 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 }
 ```
 
-<br>
-
-### <a name="chapter-three-one-three" id="chapter-three-one-three">3.1.3 层台累榭 - 混合布局</a>
+#### <a name="chapter-three-one-three" id="chapter-three-one-three">3.1.3 层台累榭 - 混合布局</a>
 
 > [返回目录](#catalog-chapter-three-one)
 
-&emsp;实现效果如下：
+实现效果如下：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-10.png)
 
-&emsp;如图，这是我们要实现的混合布局效果，那么在微信小程序中要如何编程呢？
+如图，这是我们要实现的混合布局效果，那么在微信小程序中要如何编程呢？
 
 > *.wxml
 
@@ -350,12 +322,9 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 </view>
 ```
 
-<br>
-
 > *.wxss
 
-```
-
+```css
 /* 混合布局 */
 
 /* 混合布局包裹层 */
@@ -423,38 +392,33 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 }
 ```
 
-<br>
-
-## <a name="chapter-three-two" id="chapter-three-two">3.2 沙场点兵 - 通讯录</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 沙场点兵 - 通讯录</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
-<br>
+不知道小伙伴们在日常开发中，有没有碰到各种稀奇古怪的功能效果，我们觉得不可思议，但是在项目经理的眼中它却是能 “**满足客户需求**” 的。  
 
-&emsp;不知道小伙伴们在日常开发中，有没有碰到各种稀奇古怪的功能效果，我们觉得不可思议，但是在项目经理的眼中它却是能 “**满足客户需求**” 的。  
-&emsp;所以，拿到 “**奇怪的**” 需求清单的时候不要恐慌，我们仔细分析，总能找到它的破绽，从而完成我们的任务。  
+所以，拿到 “**奇怪的**” 需求清单的时候不要恐慌，我们仔细分析，总能找到它的破绽，从而完成我们的任务。  
 
-&emsp;通讯录功能的开发如下：  
-&emsp;开发时间：4 天  
-&emsp;实现效果：
+通讯录功能的开发如下：  
+
+开发时间：4 天  
+
+实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-11.png)
 
-<br>
-
-### <a name="chapter-three-two-one" id="chapter-three-two-one">3.2.1 谋定苍生 - 整体布局</a>
+#### <a name="chapter-three-two-one" id="chapter-three-two-one">3.2.1 谋定苍生 - 整体布局</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
-<br>
+工欲善其事，必先利其器。  
 
-&emsp;工欲善其事，必先利其器。  
-
-&emsp;**首先**，我们先将该页面命名为：`addressList`，并编写它的 `json` 门面：
+**首先**，我们先将该页面命名为：`addressList`，并编写它的 `json` 门面：
 
 > addressList.json
 
-```
+```json
 {
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",
@@ -463,7 +427,7 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 }
 ```
 
-&emsp;**接着**，我们明确需要实现的功能点：
+**接着**，我们明确需要实现的功能点：
 
 * 搜索功能
 * 弹窗新增功能
@@ -472,12 +436,13 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 * 拼音导航功能
 * 底部导航栏
 
-&emsp;**然后**，我们明确下页面布局：
+**然后**，我们明确下页面布局：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-12.png)
 
-&emsp;如上图，它主要分三大块：头部、内容区、底部。  
-&emsp;**最后**，我们根据功能实现及页面布局编写 `wxml` 的布局：
+如上图，它主要分三大块：头部、内容区、底部。  
+
+**最后**，我们根据功能实现及页面布局编写 `wxml` 的布局：
 
 > wxml 骨架
 
@@ -504,7 +469,7 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 <view class="edit-prompt"></view>
 ```
 
-&emsp;如上，我们将页面分为 7 种情况，其中：
+如上，我们将页面分为 7 种情况，其中：
 
 * 搜索功能 - **`part1`**、**`part2`**、`part4`、`part5`
 * 弹窗新增功能 - `part1`、`part3`、`part4`、`part5`、**`part6`**
@@ -513,11 +478,11 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 * 拼音导航功能 - `part1`、`part3`、`part4`、`part5`
 * 底部导航栏 - `part1`、`part3`、`part4`、`part5`
 
-&emsp;请注意，出现的 `part` 部分表明在这种模式下，页面要显示的 `part` 都有哪些，其他的则暂时隐藏，而加粗的意味着这是这个功能特有的部分。为此，我们应该在 `js` 的 `data` 中定义好这些模式：
+请注意，出现的 `part` 部分表明在这种模式下，页面要显示的 `part` 都有哪些，其他的则暂时隐藏，而加粗的意味着这是这个功能特有的部分。为此，我们应该在 `js` 的 `data` 中定义好这些模式：
 
 > js 代码片段
 
-```
+```js
 Page({
   data: {
     /**
@@ -539,43 +504,38 @@ Page({
 })
 ```
 
-<br>
+这样，我们除了底部导航栏外，为其他功能定义了一个模式，正常情况下我们开启 `normalModel`，其他暂时关闭。  
 
-&emsp;这样，我们除了底部导航栏外，为其他功能定义了一个模式，正常情况下我们开启 `normalModel`，其他暂时关闭。  
-&emsp;在下文中，我们将根据模式的开启与关闭，显示/隐藏某些内容，并进行数据的管理，请小伙伴们稍微理解下这种思路。
+在下文中，我们将根据模式的开启与关闭，显示/隐藏某些内容，并进行数据的管理，请小伙伴们稍微理解下这种思路。
 
-<br>
-
-### <a name="chapter-three-two-two" id="chapter-three-two-two">3.2.2 千里寻敌 - 搜索功能</a>
+#### <a name="chapter-three-two-two" id="chapter-three-two-two">3.2.2 千里寻敌 - 搜索功能</a>
 
 > [返回目录](#catalog-chapter-three-two)
-
-<br>
 
 * 查看 `wxml` 代码：[Go to wxml](#chapter-three-two-two-wxml)
 * 查看 `wxss` 代码：[Go to wxss](#chapter-three-two-two-wxss)
 * 查看 `js`代码`：[Go to js](#chapter-three-two-two-js)
 
-&emsp;本章节实现效果：
+本章节实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-13.gif)
 
-<br>
-
-&emsp;实现思路、编码及代码讲解：
+实现思路、编码及代码讲解：
 
 > <a name="chapter-three-two-two-wxml" id="chapter-three-two-two-wxml">addressList.wxml</a>
 
-1. 在 `wxml` 与 `wxss` 结构上。  
+* **关键点 1**，在 `wxml` 与 `wxss` 结构上。  
 
-&emsp;**首先**，我们通过 `fixed` 定位，将 `search-form` 固定在顶部。  
-&emsp;**然后**，我们将 `search-form` 其内部分为 **搜索区** `search` 与 **功能区** `action`。  
-&emsp;**接着**，我们将 `search` 分为 **假的搜索区** `search-model-one` 与 **真的搜索区** `search-model-two`。为什么要分两种情况呢？因为这样我们就不用烦恼 `input` 的 `placeholder` 一会居中一会靠边要怎么区分，思路不容易乱。  
-&emsp;**最后**，根据功能，我们逐步完善 `wxml` 与 `wxss`代码。
+**首先**，我们通过 `fixed` 定位，将 `search-form` 固定在顶部。  
+**然后**，我们将 `search-form` 其内部分为 **搜索区** `search` 与 **功能区** `action`。  
+
+**接着**，我们将 `search` 分为 **假的搜索区** `search-model-one` 与 **真的搜索区** `search-model-two`。为什么要分两种情况呢？因为这样我们就不用烦恼 `input` 的 `placeholder` 一会居中一会靠边要怎么区分，思路不容易乱。  
+
+**最后**，根据功能，我们逐步完善 `wxml` 与 `wxss`代码。
 
 > [返回本节开头](#chapter-three-two-two)
 
-```html
+```
 <!-- part1 - 搜索区域 -->
 <view class="search-form">
   <!-- 搜索区 -->
@@ -620,13 +580,11 @@ Page({
 </view>
 ```
 
-<br>
-
 > <a name="chapter-three-two-two-wxss" id="chapter-three-two-two-wxss">addressList.wxss</a>
 
 > [返回本节开头](#chapter-three-two-two)
 
-```
+```css
 /* 全局样式 */
 view {
   box-sizing: border-box;
@@ -787,13 +745,11 @@ view {
 }
 ```
 
-<br>
-
 > <a name="chapter-three-two-two-js" id="chapter-three-two-two-js">addressList.js</a>
 
-2. 在 `js`上。
+* **关键点 2**. 在 `js`上。
 
-&emsp;我们仔细观察本节开头的 `GIF` 图，发现它有这几个特点：
+我们仔细观察本节开头的 `GIF` 图，发现它有这几个特点：
 
 * 点击假的搜索区，进入真的搜索区
 * 输入内容，按钮由【取消】变为【搜索】
@@ -804,7 +760,7 @@ view {
 
 > [返回本节开头](#chapter-three-two-two)
 
-```
+```js
 Page({
 
   /**
@@ -992,43 +948,43 @@ Page({
 })
 ```
 
-&emsp;到此，我们就实现了搜索功能。尽管它还有点小 `bug`，就是不停上拉的时候，它会重复地加载一条数据。  
-&emsp;在实际项目中，**jsliang** 会定义一个 `searchNoData` 来判断接口是否还在返回数据，如果它不再返回数据，那么通过判断 `searchNoData == true` 来禁止继续加载。  
-&emsp;这样，我们就完美搞定了搜索功能的实现。
+到此，我们就实现了搜索功能。尽管它还有点小 `bug`，就是不停上拉的时候，它会重复地加载一条数据。  
 
-<br>
+在实际项目中，**jsliang** 会定义一个 `searchNoData` 来判断接口是否还在返回数据，如果它不再返回数据，那么通过判断 `searchNoData == true` 来禁止继续加载。  
 
-### <a name="chapter-three-two-three" id="chapter-three-two-three">3.2.3 遥控追踪 - 底部导航</a>
+这样，我们就完美搞定了搜索功能的实现。
+
+#### <a name="chapter-three-two-three" id="chapter-three-two-three">3.2.3 遥控追踪 - 底部导航</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
-<br>
-
-&emsp;本章节实现效果：
+本章节实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-14.png)
 
-&emsp;众所周知，微信小程序的子页面（除了设置 `tabBar` 的页面）是没有底部导航栏的。那么，我们要如何设计，才能编写一个 **自定义的底部导航栏** 呢？  
-&emsp;在日常开发中，我们通过 `fixed` 布局，在页面实现一个 **自定义的底部导航栏** 是很容易的。  
-&emsp;但是，考虑到其他页面可能也需要使用这个底部导航栏，我们就需要想办法将其封装成组件了：
+众所周知，微信小程序的子页面（除了设置 `tabBar` 的页面）是没有底部导航栏的。那么，我们要如何设计，才能编写一个 **自定义的底部导航栏** 呢？  
 
-&emsp;微信小程序 - [自定义组件](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/)
+在日常开发中，我们通过 `fixed` 布局，在页面实现一个 **自定义的底部导航栏** 是很容易的。  
 
-&emsp;是的，微信小程序官方文档中是存在这个东西的。当然，仅有官方文档，是满足不了我的，至于过程中我百度了几篇文章来辅助写出下面的代码，你猜？  
+但是，考虑到其他页面可能也需要使用这个底部导航栏，我们就需要想办法将其封装成组件了：
 
-&emsp;下面贴出实现代码及如何使用：
+微信小程序 - [自定义组件](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/)
 
-1. 建立目录。  
+是的，微信小程序官方文档中是存在这个东西的。当然，仅有官方文档，是满足不了我的，至于过程中我百度了几篇文章来辅助写出下面的代码，你猜？  
 
-&emsp;**首先**，在根目录中新建 `component` 目录，用来存放我们项目的组件。  
-&emsp;**然后**，我们新建 `navBar` 目录，用来存放我们的组件 `navBar`。  
-&emsp;**最后**，我们新建 `Component` 为 `navBar`。
+下面贴出实现代码及如何使用：
+
+**步骤 1**. 建立目录。  
+
+**首先**，在根目录中新建 `component` 目录，用来存放我们项目的组件。  
+
+**然后**，我们新建 `navBar` 目录，用来存放我们的组件 `navBar`。
+
+**最后**，我们新建 `Component` 为 `navBar`。
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-15.png)
 
-<br>
-
-2. 进行组件代码编写。
+**步骤 2**. 进行组件代码编写。
 
 > navBar.wxml
 
@@ -1058,13 +1014,11 @@ Page({
 </view>
 ```
 
-<br>
-
 > navBar.wxss
 
 > [返回本节开头](#chapter-three-two-three)
 
-```
+```css
 /* 底部导航条 */
 .navBar {
   display: flex;
@@ -1098,13 +1052,11 @@ Page({
 }
 ```
 
-<br>
-
 > navBar.js
 
 > [返回本节开头](#chapter-three-two-three)
 
-```
+```js
 Component({
   /**
    * 组件的属性列表
@@ -1157,22 +1109,18 @@ Component({
 })
 ```
 
-<br>
-
 > navBar.json
 
 > [返回本节开头](#chapter-three-two-three)
 
-```
+```json
 {
   "component": true,
   "usingComponents": {}
 }
 ```
 
-<br>
-
-3. 在需要引用的界面引用该组件
+**步骤 3**. 在需要引用的界面引用该组件
 
 > addressList.wxml
 
@@ -1185,7 +1133,7 @@ Component({
 
 > addressList.json
 
-```
+```json
 {
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",
@@ -1199,7 +1147,7 @@ Component({
 
 > addressList.js
 
-```
+```js
 Page({
   data: {
     // 引用底部导航
@@ -1208,25 +1156,21 @@ Page({
 })
 ```
  
-&emsp;下次我们还需使用该底部导航栏的时候，我们只需要重复在 `addressList` 的步骤就行了。  
-&emsp;当然，我们需要根据需要活跃的位置，进行 `homeActive`、`exploreActive`、`userActive` 这三个活跃状态与否的设置。  
-&emsp;这样，我们就实现了底部导航栏组件的开发及引用。 
+下次我们还需使用该底部导航栏的时候，我们只需要重复在 `addressList` 的步骤就行了。  
 
-<br>
+当然，我们需要根据需要活跃的位置，进行 `homeActive`、`exploreActive`、`userActive` 这三个活跃状态与否的设置。  
 
-### <a name="chapter-three-two-four" id="chapter-three-two-four">3.2.4 拒敌长城 - 弹窗实现</a>
+这样，我们就实现了底部导航栏组件的开发及引用。 
+
+#### <a name="chapter-three-two-four" id="chapter-three-two-four">3.2.4 拒敌长城 - 弹窗实现</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
-<br>
-
-&emsp;本章节实现效果：
+本章节实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-16.gif)
 
-<br>
-
-&emsp;弹窗？微信小程序就有啊，为啥不用它的呢？
+弹窗？微信小程序就有啊，为啥不用它的呢？
 
 | 类型      | 说明                                                                                                              | 地址                                                                                                                           |
 | --------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -1235,11 +1179,13 @@ Page({
 | 消息弹窗  | wx.showToast(Object) - 消息弹窗就是操作成功或者操作失败的那一刻，系统的提示弹窗，无需用户操作，可设定几秒自动关闭 | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html?search-key=wx.showToast)          |
 | 操作菜单  | wx.showActionSheet(Object) - 操作菜单类似于弹出的下拉菜单，提供你选择其中某项或者【取消】                         | [链接](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showActionSheet.html?search-key=showActionSheet) |
 
-&emsp;然而，逐一尝试，你会发现，上面辣么多弹窗，没有一种符合你的需求的！所以，咱要画一个属于自己的弹窗：
+然而，逐一尝试，你会发现，上面辣么多弹窗，没有一种符合你的需求的！所以，咱要画一个属于自己的弹窗：
 
-&emsp;**首先**，咱在 `part6` 中新增两个层：遮罩层 `jsliang-mask` 和弹窗内容 `jsliang-alert`。  
-&emsp;**然后**，往弹窗内容中编写我们需要的标题、 `input` 输入框以及 `text` 按钮。  
-&emsp;**最后**，我们逐一细化编写代码。
+**首先**，咱在 `part6` 中新增两个层：遮罩层 `jsliang-mask` 和弹窗内容 `jsliang-alert`。  
+
+**然后**，往弹窗内容中编写我们需要的标题、 `input` 输入框以及 `text` 按钮。  
+
+**最后**，我们逐一细化编写代码。
 
 > addressList.wxml
 
@@ -1270,13 +1216,11 @@ Page({
 </view>
 ```
 
-<br>
-
 > addressList.wxss
 
 > [返回本节开头](#chapter-three-two-four)
 
-```
+```css
 /* 弹窗-添加成员 */
 .jsliang-mask {
   z-index: 998;
@@ -1351,40 +1295,34 @@ Page({
 }
 ```
 
-<br>
+这样，我们就可以通过控制 `addModel` 的 `true` 或者 `false`，来显示隐藏新增弹窗。  
 
-&emsp;这样，我们就可以通过控制 `addModel` 的 `true` 或者 `false`，来显示隐藏新增弹窗。  
-&emsp;同理，我们可以依法炮制通过 `editModel` 控制修改弹窗。
+同理，我们可以依法炮制通过 `editModel` 控制修改弹窗。
 
-<br>
-
-### <a name="chapter-three-two-five" id="chapter-three-two-five">3.2.5 卧薪尝胆 - 思路整理</a>
+#### <a name="chapter-three-two-five" id="chapter-three-two-five">3.2.5 卧薪尝胆 - 思路整理</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
-<br>
-
-&emsp;文章写到这里，我们需要整理下我们都完成了什么，还缺什么？
+文章写到这里，我们需要整理下我们都完成了什么，还缺什么？
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-17.png)
 
-<br>
-
-&emsp;如上，我们实现了：
+如上，我们实现了：
 
 * 搜索功能
 * 底部导航
 * 弹窗显示
 
-&emsp;那么，我们还缺少：
+那么，我们还缺少：
 
 * 新增成员功能
 * 修改成员功能
 * 删除成员功能
 * 拼音导航功能
 
-&emsp;很好！我们实现了一半功能了！但是，小伙伴有没有发现，我们的主内容区是空白的。  
-&emsp;所以，为了剩下的功能实现，我们应该编写下 **内容区域**，并进行页面的数据加载：
+很好！我们实现了一半功能了！但是，小伙伴有没有发现，我们的主内容区是空白的。  
+
+所以，为了剩下的功能实现，我们应该编写下 **内容区域**，并进行页面的数据加载：
 
 > addressList.wxml
 
@@ -1416,13 +1354,11 @@ Page({
 </view>
 ```
 
-<br>
-
 > addressList.wxss
 
 > [返回本节开头](#chapter-three-two-five)
 
-```
+```css
 /* 联系人列表 */
 .contacts-list {
   margin-top: 100rpx;
@@ -1472,13 +1408,11 @@ Page({
 }
 ```
 
-<br>
-
 > addressList.js
 
 > [返回本节开头](#chapter-three-two-five)
 
-```
+```js
 Page({
   data: {
     // 数据定义
@@ -1606,28 +1540,21 @@ Page({
 })
 ```
 
-<br>
+如上，我们在前几章节代码的前提下，将 `part3` 部分进行定义，并在 `onLoad()` 这个内置的页面加载函数中，虚拟了接口返回的第一页数据，最后将它循环判断，放在不同的字母中，从而实现了首页的加载。  
 
-&emsp;如上，我们在前几章节代码的前提下，将 `part3` 部分进行定义，并在 `onLoad()` 这个内置的页面加载函数中，虚拟了接口返回的第一页数据，最后将它循环判断，放在不同的字母中，从而实现了首页的加载。  
-&emsp;所以，我们可以开始实现我们其他的功能咯~
+所以，我们可以开始实现我们其他的功能咯~
 
-<br>
-
-### <a name="chapter-three-two-six" id="chapter-three-two-six">3.2.6 广聚民心 - 新增功能</a>
+#### <a name="chapter-three-two-six" id="chapter-three-two-six">3.2.6 广聚民心 - 新增功能</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
-<br>
-
-&emsp;本章节实现效果：
+本章节实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-18.gif)
 
-<br>
+如上图，我们实现了新增的功能。那么，它在代码中是如何实现的呢？
 
-&emsp;如上图，我们实现了新增的功能。那么，它在代码中是如何实现的呢？
-
-&emsp;**首先**，我们要知道弹窗效果是如何出来的：
+**首先**，我们要知道弹窗效果是如何出来的：
 
 > addressList.wxml 代码片段
 
@@ -1645,13 +1572,11 @@ Page({
 </view>
 ```
 
-<br>
-
-&emsp;**然后**，我们在 `js` 中设置弹窗事件：
+**然后**，我们在 `js` 中设置弹窗事件：
 
 > addressList.js 代码片段
 
-```
+```js
 showAdd(e) {
   this.setData({
     addModel: !this.data.addModel
@@ -1659,7 +1584,7 @@ showAdd(e) {
 },
 ```
 
-&emsp;是的，在这里，我们通过 `addModel` 的模式来控制弹窗，那么，弹窗要怎么编写呢？相信小伙伴在前一章了解过弹窗效果的实现，在这里我们为了连贯，再贴下实现新增弹窗的代码：
+是的，在这里，我们通过 `addModel` 的模式来控制弹窗，那么，弹窗要怎么编写呢？相信小伙伴在前一章了解过弹窗效果的实现，在这里我们为了连贯，再贴下实现新增弹窗的代码：
 
 > addressList.wxml 代码片段
 
@@ -1690,13 +1615,11 @@ showAdd(e) {
 </view>
 ```
 
-<br>
-
 > addressList.wxss 代码片段
 
 > [返回本节开头](#chapter-three-two-six)
 
-```
+```css
 /* 弹窗-添加成员 */
 .jsliang-mask {
   z-index: 998;
@@ -1771,13 +1694,13 @@ showAdd(e) {
 }
 ```
 
-&emsp;**最后**，我们完善 `js` 代码，获取 `input` 的值，动态新增到原数据中：
+**最后**，我们完善 `js` 代码，获取 `input` 的值，动态新增到原数据中：
 
 > addressList.js
 
 > [返回本节开头](#chapter-three-two-six)
 
-```
+```js
 Page({
 
   /**
@@ -1886,29 +1809,24 @@ Page({
 })
 ```
 
-&emsp;到此，我们就实现了新增的功能！
+到此，我们就实现了新增的功能！
 
-<br>
-
-### <a name="chapter-three-two-seven" id="chapter-three-two-seven">3.2.7 化繁为简 - 修改功能</a>
+#### <a name="chapter-three-two-seven" id="chapter-three-two-seven">3.2.7 化繁为简 - 修改功能</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
-<br>
-
-&emsp;本章节实现效果：
+本章节实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-19.gif)
 
-<br>
+在新增功能的开发后，我们的修改功能就显得比较容易了。  
 
-&emsp;在新增功能的开发后，我们的修改功能就显得比较容易了。  
-&emsp;首先，我们整理下修改的思路：
+**首先**，我们整理下修改的思路：
 
 * 用户点击按钮，传递数据给窗口：用户姓名、用户电话。
 * 用户点击修改，循环遍历原数据，找到要修改的字母组下要修改的名字再进行修改，所以，单单是上面的两个字段还不够，应该有：用户所在组、用户原姓名、用户新姓名、用户电话。
 
-&emsp;所以，在 `wxml` 中我们应该这么写：
+所以，在 `wxml` 中我们应该这么写：
 
 > addressList.wxml 代码片段
 
@@ -1935,9 +1853,7 @@ Page({
 </view>
 ```
 
-<br>
-
-&emsp;然后，我们将新增的弹窗照搬过来并加入电话无法修改的效果：
+**然后**，我们将新增的弹窗照搬过来并加入电话无法修改的效果：
 
 > addressList.wxml 代码片段
 
@@ -1968,13 +1884,11 @@ Page({
 </view>
 ```
 
-<br>
-
 > addressList.wxss 代码片段
 
 > [返回本节开头](#chapter-three-two-seven)
 
-```
+```css
 /* 弹窗-添加成员 */
 .jsliang-mask {
   z-index: 998;
@@ -2054,15 +1968,13 @@ Page({
 }
 ```
 
-<br>
-
-&emsp;最后，我们在 `js` 中实现修改的功能：
+**最后**，我们在 `js` 中实现修改的功能：
 
 > addressList.js 代码片段
 
 > [返回本节开头](#chapter-three-two-seven)
 
-```
+```js
 // pages/addressList/addressList.js
 Page({
 
@@ -2173,23 +2085,17 @@ Page({
 })
 ```
 
-&emsp;这样，我们就实现了**弹窗修改功能**！
+这样，我们就实现了**弹窗修改功能**！
 
-<br>
-
-### <a name="chapter-three-two-eight" id="chapter-three-two-eight">3.2.8 革新去旧 - 删除功能</a>
+#### <a name="chapter-three-two-eight" id="chapter-three-two-eight">3.2.8 革新去旧 - 删除功能</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
-<br>
-
-&emsp;本章节实现效果：
+本章节实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-20.gif)
 
-<br>
-
-&emsp;如果有小伙伴是跟着前面章节一步一步走下来的，会发现我在写 **搜索功能** 的时候，写上了删除模式 `deleteModel`，可以唤出删除按钮：
+如果有小伙伴是跟着前面章节一步一步走下来的，会发现我在写 **搜索功能** 的时候，写上了删除模式 `deleteModel`，可以唤出删除按钮：
 
 > addressList.wxml 代码片段
 
@@ -2209,23 +2115,19 @@ Page({
 </view>
 ```
 
-<br>
-
-&emsp;它绑定了个 `showDelete` 的事件，来控制删除按钮的显示隐藏：
+它绑定了个 `showDelete` 的事件，来控制删除按钮的显示隐藏：
 
 > addressList.js 代码片段
 
 > [返回本节开头](#chapter-three-two-eight)
 
-```
+```js
 showDelete(e) {
   this.setData({
     deleteModel: !this.data.deleteModel
   })
 },
 ```
-
-<br>
 
 > addressList.wxml 代码片段
 
@@ -2252,20 +2154,18 @@ showDelete(e) {
 </view>
 ```
 
-<br>
-
-&emsp;然后，如何实现删除功能呢？我们需要传递什么数据给 `js`？  
+然后，如何实现删除功能呢？我们需要传递什么数据给 `js`？  
 
 * 字母组名
 * 该项所在索引
 
-&emsp;我们只需要遍历原数据，找到对应的组，并根据传递过来的索引，删除该组中对应索引的值，我们就完成了删除的功能：
+我们只需要遍历原数据，找到对应的组，并根据传递过来的索引，删除该组中对应索引的值，我们就完成了删除的功能：
 
 > addressList.js 代码片段
 
 > [返回本节开头](#chapter-three-two-eight)
 
-```
+```js
 Page({
   /**
    * 删除功能
@@ -2324,28 +2224,23 @@ Page({
 })
 ```
 
-<br>
-
-### <a name="chapter-three-two-night" id="chapter-three-two-night">3.2.9 兵分一路 - 正常加载</a>
+#### <a name="chapter-three-two-night" id="chapter-three-two-night">3.2.9 兵分一路 - 正常加载</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
-<br>
-
-&emsp;本章节实现效果：
+本章节实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-21.gif)
 
-<br>
+写到这里，**jsliang** 终于可以松一口气了，咱离胜利不远了~  
 
-&emsp;写到这里，**jsliang** 终于可以松一口气了，咱离胜利不远了~  
-&emsp;现在，我们实现正常情况下的不断下拉加载：
+现在，我们实现正常情况下的不断下拉加载：
 
-&emsp;正如我们在 **搜索功能** 实现章节中提及到的，我们分三种上拉模式：**正常模式上拉**、**搜索模式上拉**、**拼音模式上拉**：
+正如我们在 **搜索功能** 实现章节中提及到的，我们分三种上拉模式：**正常模式上拉**、**搜索模式上拉**、**拼音模式上拉**：
 
 > addressList.js 代码片段
 
-```
+```js
 page({
   /**
    * 页面上拉触底事件的处理函数
@@ -2363,11 +2258,11 @@ page({
 })
 ```
 
-&emsp;那么，我们只需要参考 `onLoad` 中的正常加载方式，往正常模式中模拟数据，实现上拉效果，就 OK 了：
+那么，我们只需要参考 `onLoad` 中的正常加载方式，往正常模式中模拟数据，实现上拉效果，就 OK 了：
 
 > addressList.js 代码片段
 
-```
+```js
 Page({
 
   /**
@@ -2485,25 +2380,18 @@ Page({
   }
 })
 ```
-
-<br>
-
+#
 ### <a name="chapter-three-two-ten" id="chapter-three-two-ten">3.2.10 兵分二路 - 拼音导航</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
-<br>
-
-
-&emsp;本章节实现效果：
+本章节实现效果：
 
 ![图](../../public-repertory/img/other-WechatAppletFunctionList-22.gif)
 
-<br>
+现在，我们完成最后且最重要的一步，实现 **拼音导航** 功能。
 
-&emsp;现在，我们完成最后且最重要的一步，实现 **拼音导航** 功能。
-
-&emsp;**首先**，我们先实现拼音导航的布局：
+**首先**，我们先实现拼音导航的布局：
 
 > addressList.wxml 代码片段
 
@@ -2518,13 +2406,11 @@ Page({
 </view>
 ```
 
-<br>
-
 > addressList.wxss 代码片段
 
 > [返回本节开头](#chapter-three-two-ten)
 
-```
+```css
 /* 拼音导航 */
 .pinyin-nav {
   font-size: 28rpx;
@@ -2546,13 +2432,11 @@ Page({
 }
 ```
 
-<br>
-
 > addressList.js 代码片段
 
 > [返回本节开头](#chapter-three-two-ten)
 
-```
+```js
 Page({
 
   /**
@@ -2575,19 +2459,17 @@ Page({
 })
 ```
 
-<br>
-
-&emsp;**然后**，布局有了，我们要如何实现滚动效果呢？  
+**然后**，布局有了，我们要如何实现滚动效果呢？  
 
 * [参考资料 - 根据设备宽高动态设置元素宽高](https://blog.csdn.net/qq_41080490/article/details/80268298)
 
-&emsp;考虑到设备的不同，它的高度也不同，所以我们是需要获取到样式的动态高度的。先看看我们在 `wxss` 中定义的高度吧：
+考虑到设备的不同，它的高度也不同，所以我们是需要获取到样式的动态高度的。先看看我们在 `wxss` 中定义的高度吧：
 
 > addressList.wxss 代码片段
 
 > [返回本节开头](#chapter-three-two-ten)
 
-```
+```css
 .contacts-list-title {
   height: 44rpx;
 }
@@ -2596,15 +2478,15 @@ Page({
 }
 ```
 
-&emsp;因此，我们的一个字母的高度，为 `44rpx`；而一个用户数据的高度，为 `120rpx`，即我们要滚动的高度 = 44 * 字母个数 + 120 * 用户条数。
+因此，我们的一个字母的高度，为 `44rpx`；而一个用户数据的高度，为 `120rpx`，即我们要滚动的高度 = 44 * 字母个数 + 120 * 用户条数。
 
-&emsp;**最后**，我们先在正常模式下模拟实现一遍拼音导航：
+**最后**，我们先在正常模式下模拟实现一遍拼音导航：
 
 > addressList.js 代码片段
 
 > [返回本节开头](#chapter-three-two-ten)
 
-```
+```js
 Page({
 
   /**
@@ -2686,22 +2568,21 @@ Page({
 })
 ```
 
-&emsp;我们在 `onLoad` 中获取到用户设备的信息，然后计算出 `1rpx` 等于多少 `px`。在 `iphone6` 中，`1rpx = 2px`。我们只需要将 `css` 中写的样式高度 / 比例，就能动态计算我们的高度，从而实现滚动到目标位置的效果。
+我们在 `onLoad` 中获取到用户设备的信息，然后计算出 `1rpx` 等于多少 `px`。在 `iphone6` 中，`1rpx = 2px`。我们只需要将 `css` 中写的样式高度 / 比例，就能动态计算我们的高度，从而实现滚动到目标位置的效果。
 
-<br>
+—————— 分割线 ——————
 
-&emsp;—————— 分割线 ——————
+现在，我们开始 **真拼音导航** 功能的实现：
 
-<br>
+**首先**，我们应该考虑到，正常加载模式与拼音导航模式，会对 `contactsData` 的使用产生冲突：假如用户划拉了几页数据，然后进入拼音导航，那么，用户想下拉刷新页面的时候，可能就加载原本数据了，而不是加载该字母上面的数据……为此，我们在第一次加载拼音模式的时候，应该清空 `contactsData`（多了也不行，因为用户可能点击其他字母）。  
 
-&emsp;现在，我们开始 **真拼音导航** 功能的实现：
+**然后**，我们关闭正常模式，并开启拼音导航模式，设置拼音导航模式不是第一次加载了。  
 
-&emsp;**首先**，我们应该考虑到，正常加载模式与拼音导航模式，会对 `contactsData` 的使用产生冲突：假如用户划拉了几页数据，然后进入拼音导航，那么，用户想下拉刷新页面的时候，可能就加载原本数据了，而不是加载该字母上面的数据……为此，我们在第一次加载拼音模式的时候，应该清空 `contactsData`（多了也不行，因为用户可能点击其他字母）。  
-&emsp;**然后**，我们关闭正常模式，并开启拼音导航模式，设置拼音导航模式不是第一次加载了。  
-&emsp;**接着**，我们遍历空数据和新数据，删除重复数据后，将数据添加到 `contactsData` 中。  
-&emsp;**最后**，我们才用上我们前面的页面滚动效果，滚动到我们希望跳转到的位置。
+**接着**，我们遍历空数据和新数据，删除重复数据后，将数据添加到 `contactsData` 中。  
 
-&emsp;以上，考虑到步骤繁杂，我们应该使用 `Promise` 来实现：
+**最后**，我们才用上我们前面的页面滚动效果，滚动到我们希望跳转到的位置。
+
+以上，考虑到步骤繁杂，我们应该使用 `Promise` 来实现：
 
 * [ES6 入门之 Promise | 阮一峰](http://es6.ruanyifeng.com/#docs/promise#Promise-%E7%9A%84%E5%90%AB%E4%B9%89)
 
@@ -2709,7 +2590,7 @@ Page({
 
 > [返回本节开头](#chapter-three-two-ten)
 
-```
+```js
 Page({
 
   /**
@@ -3007,15 +2888,15 @@ Page({
 })
 ```
 
-&emsp;如此，我们就实现了拼音导航的点击加载了！下面，我们紧接着将拼音导航功能的 **下拉刷新** 和 **上拉加载** 搞定吧~
+如此，我们就实现了拼音导航的点击加载了！下面，我们紧接着将拼音导航功能的 **下拉刷新** 和 **上拉加载** 搞定吧~
 
-&emsp;关于下拉刷新，我们需要现在 `json` 中开启下拉刷新的功能：
+关于下拉刷新，我们需要现在 `json` 中开启下拉刷新的功能：
 
 > addressList.json
 
 > [返回本节开头](#chapter-three-two-ten)
 
-```
+```json
 {
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",
@@ -3028,15 +2909,13 @@ Page({
 }
 ```
 
-<br>
-
-&emsp;然后，我们在 `onPullDownRefresh` 中实现代码效果即可：
+然后，我们在 `onPullDownRefresh` 中实现代码效果即可：
 
 > addressList.js 代码片段
 
 > [返回本节开头](#chapter-three-two-ten)
 
-```
+```js
 Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -3143,15 +3022,13 @@ Page({
 })
 ```
 
-<br>
-
-&emsp;同时，拼音导航功能的上拉功能实现如下：
+同时，拼音导航功能的上拉功能实现如下：
 
 > addressList.js 代码片段
 
 > [返回本节开头](#chapter-three-two-ten)
 
-```
+```js
 Page({
 onReachBottom: function () {
     if (this.data.normalModel) { // 正常模式上拉
@@ -3241,43 +3118,47 @@ onReachBottom: function () {
 })
 ```
 
-&emsp;如上，我们成功实现拼音导航全部功能！！！
+如上，我们成功实现拼音导航全部功能！！！
 
-<br>
-
-### <a name="chapter-three-two-eleven" id="chapter-three-two-eleven">3.2.11 一统天下 - 归纳总结</a>
+#### <a name="chapter-three-two-eleven" id="chapter-three-two-eleven">3.2.11 一统天下 - 归纳总结</a>
 
 > [返回目录](#catalog-chapter-three-two)
 
-<br>
+天下大势，分久必合，合久必分。  
 
-&emsp;天下大势，分久必合，合久必分。  
-&emsp;写到这里，我们的通讯录已然完结，在此附上 **jsliang** 的代码地址：[项目地址](https://github.com/LiangJunrong/WeChatApplet)  
-&emsp;然而，这是结束吗？并不是，我们的通讯录，还有个功能未实现：
+写到这里，我们的通讯录已然完结，在此附上 **jsliang** 的代码地址：[项目地址](https://github.com/LiangJunrong/WeChatApplet)  
 
-&emsp;**如何在新增、删除的时候，对新增的字母进行排序，并导航到具体位置？**
+然而，这是结束吗？并不是，我们的通讯录，还有个功能未实现：
 
-&emsp;在工作项目的开发中，**jsliang** 曾想到将新增的中文昵称转换为拼音，然后通过二分查找法，找到对应的位置并进行插入……  
-&emsp;但是，正印了那句话：**我的能力，可以造火箭，我却只有敲钉子的时间！**  
-&emsp;时间是一切程序猿的杀手，新增排序，咱们，有缘再会！
+**如何在新增、删除的时候，对新增的字母进行排序，并导航到具体位置？**
 
-<br>
+在工作项目的开发中，**jsliang** 曾想到将新增的中文昵称转换为拼音，然后通过二分查找法，找到对应的位置并进行插入……  
 
-# <a name="chapter-four" id="chapter-four">四 项目地址</a>
+但是，正印了那句话：**我的能力，可以造火箭，我却只有敲钉子的时间！**  
+
+时间是一切程序猿的杀手，新增排序，咱们，有缘再会！
+
+## <a name="chapter-four" id="chapter-four">四 项目地址</a>
 
 > [返回目录](#catalog-chapter-four)
 
-<br>
+不定期更新，详情可关注 **jsliang** 的 [GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletFunctionList.md)  
 
-&emsp;不定期更新，详情可关注 **jsliang** 的 [GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletFunctionList.md)  
-&emsp;最后的最后，奉上上面实例中的地址：  
+最后的最后，奉上上面实例中的地址：  
 
-&emsp;[项目地址](https://github.com/LiangJunrong/WeChatApplet)
+[项目地址](https://github.com/LiangJunrong/WeChatApplet)
 
-&emsp;撰文不易，如果文章对小伙伴有帮助，希望小伙伴们给勤劳敲代码、辛苦撰文的 **jsliang** 进行微信打赏，谢谢~
+撰文不易，如果文章对小伙伴有帮助，希望小伙伴们给勤劳敲代码、辛苦撰文的 **jsliang** 点点 star / 赞 / 广告推送
 
-![图](../../public-repertory/img/seek-reward.png)
+---
 
-<br>
+> **jsliang** 广告推送：  
+> 也许小伙伴想了解下云服务器  
+> 或者小伙伴想买一台云服务器  
+> 或者小伙伴需要续费云服务器  
+> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a xmlns:dct="http://purl.org/dc/terms/" property="dct:title">**jsliang** 的文档库</a> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.om/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
