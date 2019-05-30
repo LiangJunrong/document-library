@@ -2,23 +2,19 @@ jQuery 基础
 ===
 
 > Create by **jsliang** on **2018-05-07 15:56:17**  
-> Recently revised in **2019-2-11 11:18:19**
+> Recently revised in **2019-05-30 21:54:58**
 
-<br>
+jQuery 操作 DOM 的那一套，还是非常值得关注的。我那时候一直想看 妙味 的 jQuery 剖析，我会员都买了，但是那会又去折腾小程序了，所以就没空了。
 
-&emsp;jQuery 操作 DOM 的那一套，还是非常值得关注的。我那时候一直想看 妙味 的 jQuery 剖析，我会员都买了，但是那会又去折腾小程序了，所以就没空了。
+其实我觉得，jQuery 不是说丢就能丢的，只是前端新人，都觉得 Vue、React 工作好找，就学点 JavaScript 皮毛，去折腾那个去了。但是，讲真原生 JavaScript 还是要操作 DOM 的，DOM 操作哪家强，前端技术找 jQuery。
 
-&emsp;其实我觉得，jQuery 不是说丢就能丢的，只是前端新人，都觉得 Vue、React 工作好找，就学点 JavaScript 皮毛，去折腾那个去了。但是，讲真原生 JavaScript 还是要操作 DOM 的，DOM 操作哪家强，前端技术找 jQuery。
+而且，一些开发中，直接用 jQuery 暴力拆迁，还是挺快的。我觉得我以后不用  jQuery 的原因，可能是项目涉及的数据量太大，操作 DOM 太多的时候，我才会更换成 Vue 这些。
 
-&emsp;而且，一些开发中，直接用 jQuery 暴力拆迁，还是挺快的。我觉得我以后不用  jQuery 的原因，可能是项目涉及的数据量太大，操作 DOM 太多的时候，我才会更换成 Vue 这些。
+最后的最后，一句话吧：没有最屌的技术，只有最适合项目的技术。
 
-&emsp;最后的最后，一句话吧：没有最屌的技术，只有最适合项目的技术。
+## <a name="chapter-one" id="chapter-one">一 目录</a>
 
-<br>
-
-# <a name="chapter-one" id="chapter-one">一 目录</a>
-
-&emsp;**不折腾的前端，和咸鱼有什么区别**
+**不折腾的前端，和咸鱼有什么区别**
 
 | 目录 |                                                                             
 | --- | 
@@ -77,31 +73,27 @@ jQuery 基础
 | &emsp;[27.6 jQuery Prettydate](#chapter-twenty-seven-six) |
 | &emsp;[27.7 jQuery Treeview](#chapter-twenty-seven-seven) |
 
-<br>
-
-# <a name="chapter-two" id="chapter-two">二 前言</a>
+## <a name="chapter-two" id="chapter-two">二 前言</a>
 
 > [返回目录](#catalog-chapter-two)
 
-<br>
+本文最初用 `Word` 记录于 `2018-05-07`。  
 
-&emsp;本文最初用 `word` 记录于 `2018-05-07`。  
-&emsp;那时候还是前端职场新人，想在想起还是非常感谢带我的前端小姐姐的指导。  
-&emsp;这篇文章是在 **[jQuery 教程 | 菜鸟教程](https://www.runoob.com/jquery/jquery-tutorial.html)** 学习的过程中的记录笔记。  
-&emsp;如需系统学习 jQuery，建议参考网上现成的系统的 jQuery 网站教程/视频教程。  
-&emsp;本文仅供 jQueryer 复习自己所学知识。
+那时候还是前端职场新人，想在想起还是非常感谢带我的前端小姐姐的指导。  
 
-<br>
+这篇文章是在 **[jQuery 教程 | 菜鸟教程](https://www.runoob.com/jquery/jquery-tutorial.html)** 学习的过程中的记录笔记。  
 
-# <a name="chapter-three" id="chapter-three">三 尝试</a>
+如需系统学习 jQuery，建议参考网上现成的系统的 jQuery 网站教程/视频教程。  
+
+本文仅供 jQueryer 复习自己所学知识。
+
+## <a name="chapter-three" id="chapter-three">三 尝试</a>
 
 > [返回目录](#catalog-chapter-three)
 
-<br>
+jQuery是一个轻量级的 "写的少，做的多" 的 JavaScript 库。  
 
-&emsp;jQuery是一个轻量级的 "写的少，做的多" 的 JavaScript 库。  
-
-&emsp;jQuery 的引用：
+jQuery 的引用：
 
 * 百度 CDN：
 
@@ -119,13 +111,11 @@ jQuery 基础
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 ```
 
-<br>
-
-&emsp;尝试：
+尝试：
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
