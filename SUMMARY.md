@@ -79,7 +79,7 @@
     * [✘ 设计模式手册 - 13 - 综合应用](./JavaScript-library/design-pattern/design-pattern-chapter13.md)
 * [其他资料室](./other-library/README.md)
   * [Git](./other-library/Git/README.md)
-    * [Git 学习 ✘](./other-library/GitBook/GitBook-study.md)
+    * [Git 学习 ✘](./other-library/Git/Git-study.md)
   * [GitBook](./other-library/GitBook/README.md)
     * [GitBook 搭建 ✔](./other-library/GitBook/GitBook-study.md)
     * [GitBook 开发问题记录 ✔](./other-library/GitBook/GitBook-question.md)
