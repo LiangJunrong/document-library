@@ -2,7 +2,7 @@ GitHub Pages 学习
 ===
 
 > create by **jsliang** on **2019-5-30 08:31:37**  
-> Recently revised in **2019-5-30 08:55:13**
+> Recently revised in **2019-05-30 20:42:08**
 
 **小伙伴们如果觉得不错可以到 [jsliang 的文档库](https://github.com/LiangJunrong/document-library) 为 jsliang 点个 star，谢谢~**
 
@@ -37,7 +37,7 @@ Clone 项目至电脑：
 
 > README.md
 
-```md
+```
 Hello Github Pages
 ===
 
