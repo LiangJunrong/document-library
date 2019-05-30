@@ -2,7 +2,7 @@ Markdown 学习
 ===
 
 > create by **jsliang** on **2018-08-22 17:58:56**  
-> Recently revised in **2019-5-29 09:03:26**
+> Recently revised in **2019-5-30 08:28:18**
 
 什么是 Markdown？
 
@@ -20,6 +20,22 @@ Markdown 是一种可以使用普通文本编辑器编写的标记语言，通�
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Markdown 语法](#chapter-three) |
+| &emsp;[3.1 标题](#chapter-three-one) |
+| &emsp;[3.2 无序列表](#chapter-three-two) |
+| &emsp;[3.3 有序列表](#chapter-three-three) |
+| &emsp;[3.4 区块引用](#chapter-three-four) |
+| &emsp;[3.5 分割线](#chapter-three-five) |
+| &emsp;[3.6 链接](#chapter-three-six) |
+| &emsp;[3.7 图片](#chapter-three-seven) |
+| &emsp;[3.8 代码框](#chapter-three-eight) |
+| &emsp;[3.9 表格](#chapter-three-night) |
+| &emsp;[3.10 强调](#chapter-three-ten) |
+| &emsp;[3.11 转义](#chapter-three-eleven) |
+| &emsp;[3.12 删除线](#chapter-three-twelve) |
+| &emsp;[3.13 功能实现](#chapter-three-thirteen) |
+| &emsp;[3.14 缩略标签](#chapter-three-fourteen) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 结语](#chapter-four) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -143,11 +159,15 @@ ___
 ---
 ___
 
-### 3.6 链接
+### <a name="chapter-three-six" id="chapter-three-six">3.6 链接</a>
+
+> [返回目录](#chapter-one)
 
 链接分为行内式和参数式这两种方法
 
-#### 3.6.1 行内式  
+#### <a name="chapter-three-six-one" id="chapter-three-six-one">3.6.1 行内式</a>
+
+> [返回目录](#chapter-one)
 
 * **写法**：
 
@@ -155,9 +175,13 @@ ___
 [jsliang 的网站](http://www.jsliang.top)
 ```
 
+* **演示**：
+
 [jsliang 的网站](http://www.jsliang.top)
 
-#### 3.6.2 参数式
+#### <a name="chapter-three-six-two" id="chapter-three-six-two">3.6.2 参数式</a>
+
+> [返回目录](#chapter-one)
 
 * **写法**：  
 
@@ -168,12 +192,16 @@ ___
 这里是 [site]，这里是 [网站]
 ```
 
+* **演示**：
+
 [site]:http://www.jsliang.top "网站"
 [网站]:http://www.jsliang.top "网站"
 
 这里是 [site]，这里是 [网站]
 
-### 3.7 图片
+### <a name="chapter-three-seven" id="chapter-three-seven">3.7 图片</a>
+
+> [返回目录](#chapter-one)
 
 * **用法介绍**：  
 
@@ -189,13 +217,19 @@ ___
 ![图片](../../../public-repertory/img/other-markdown-logo.jpg)
 ```
 
+* **演示**：
+
 ![图片](../../../public-repertory/img/other-markdown-logo.jpg)
 
-### 3.8 代码框
+### <a name="chapter-three-eight" id="chapter-three-eight">3.8 代码框</a>
+
+> [返回目录](#chapter-one)
 
 代码框分为单行用和多行用这两种方法：
 
-#### 3.8.1 单行用  
+#### <a name="chapter-three-eight-one" id="chapter-three-eight-one">3.8.1 单行用</a>
+
+> [返回目录](#chapter-one)
 
 * **用法介绍**：` `` `  
 
@@ -205,79 +239,92 @@ ___
 `<p>你好使用者，要看看 jsliang 的网站吗？<a href="http://www.jsliang.top">点我跳转</a></p>`
 ```
 
+* **演示**：
+
 `<p>你好使用者，要看看 jsliang 的网站吗？<a href="http://www.jsliang.top">点我跳转</a></p>`
 
-#### 3.8.2 多行用
+#### <a name="chapter-three-eight-two" id="chapter-three-eight-two">3.8.2 多行用</a>
+
+> [返回目录](#chapter-one)
 
 * **用法介绍**：  
 
-> ```
+\`\`\`   
 \`\`\`
-
-\`\`\`
-> ```
 
 * **写法**：
 
-> ```
-\`\`\`注释  
+\`\`\`注释（可以换成 html css js 等，GitHub 或者掘金有相应的渲染机制）  
 多行代码文本1  
 多行代码文本2  
 \`\`\`
-> ```
+
+\`\`\`js  
+console.log('hello jsliang');  
+\`\`\`
+
+* **演示**：
 
 ```
 多行代码文本1  
 多行代码文本2  
 ```
 
-### 3.9 表格
+### <a name="chapter-three-night" id="chapter-three-night">3.9 表格</a>
+
+> [返回目录](#chapter-one)
 
 表格有三种表示方法：
 
-#### 3.9.1 第一类表格
+#### <a name="chapter-three-night-one" id="chapter-three-night-one">3.9.1 第一类表格</a>
+
+> [返回目录](#chapter-one)
 
 * **写法**：  
 
-> ```
 \| name    \| age  \| sex  \|  
 \| :-----: \| :--- \| ---: \|  
 \| jsliang \| 23   \| 男   \|  
 \| 小梁    \| 23   \| 男   \|  
-> ```
+
+* **演示**：
 
 | name    | age  | sex  |  
 | :-----: | :--- | ---: |  
 | jsliang | 23   | 男   |  
 | 小梁    | 23   | 男   |  
 
-#### 3.9.2 第二类表格
+#### <a name="chapter-three-night-two" id="chapter-three-night-two">3.9.2 第二类表格</a>
+
+> [返回目录](#chapter-one)
 
 * **写法**： 
 
-> ```
 \| name    \| age  \| sex  \|  
 \| ----- \| ----- \| -----  \|  
 \| jsliang \| 23   \| 男   \|  
 \| 小梁    \| 23   \| 男   \|  
-> ```
+
+* **演示**：
 
 | name | age | sex |
 | ----- | ----- | --- |
 | jsliang | 23   | 男   |  
 | 小梁    | 23   | 男   |  
 
-#### 3.9.3 第三类表格
+#### <a name="chapter-three-night-three" id="chapter-three-night-three">3.9.3 第三类表格</a>
+
+> [返回目录](#chapter-one)
 
 * **写法**：
 
-> ```
 学号 \| 姓名 \| 分数  
 \- \| - \| -  
 小明 \| 男 \| 75  
 小红 \| 女 \| 79  
 小陆 \| 男 \| 92  
-> ```
+
+* **演示**：
 
 学号 | 姓名 | 分数  
 - | - | -  
@@ -285,11 +332,15 @@ ___
 小红 | 女 | 79  
 小陆 | 男 | 92  
 
-### 3.10 强调
+### <a name="chapter-three-ten" id="chapter-three-ten">3.10 强调</a>
 
-#### 3.10.1 字体倾斜
+> [返回目录](#chapter-one)
 
-* **用法介绍**：`*字体倾斜*`或者`_字体倾斜_`  
+#### <a name="chapter-three-ten-one" id="chapter-three-ten-one">3.10.1 字体倾斜</a>
+
+> [返回目录](#chapter-one)
+
+* **用法介绍**：`*字体倾斜*` 或者`_字体倾斜_`  
 
 * **写法**：
 
@@ -298,10 +349,15 @@ ___
 _字体倾斜_
 ```
 
+* **演示**：
+
 *字体倾斜*
+
 _字体倾斜_
 
-### 10.2 字体加粗
+#### <a name="chapter-three-ten-two" id="chapter-three-ten-two">3.10.2 字体加粗</a>
+
+> [返回目录](#chapter-one)
 
 * **用法介绍**：`**字体加粗**` 或者 `__字体加粗__`  
 
@@ -312,10 +368,15 @@ _字体倾斜_
 __字体加粗__
 ```
 
+* **演示**：
+
 **字体加粗**
+
 __字体加粗__
 
-### 3.11 转义
+### <a name="chapter-three-eleven" id="chapter-three-eleven">3.11 转义</a>
+
+> [返回目录](#chapter-one)
 
 * **用法介绍**：通过使用\加上特殊字符，达到转义效果。  
 
@@ -334,6 +395,8 @@ __字体加粗__
 * ……
 ```
 
+* **演示**：
+
 * \\
 * \`
 * \~
@@ -345,7 +408,9 @@ __字体加粗__
 * \!
 * ……
 
-### 3.12 删除线
+### <a name="chapter-three-twelve" id="chapter-three-twelve">3.12 删除线</a>
+
+> [返回目录](#chapter-one)
 
 * **用法介绍**：`~~请删除我吧~~`  
 
@@ -355,11 +420,17 @@ __字体加粗__
 ~~请删除我吧！~~
 ```
 
+* **演示**：
+
 ~~请删除我吧！~~
 
-### 3.13 功能实现
+### <a name="chapter-three-thirteen" id="chapter-three-thirteen">3.13 功能实现</a>
 
-* **用法介绍**：实现的功能：`- [x]` 
+> [返回目录](#chapter-one)
+
+#### <a name="chapter-three-thriteen-one" id="chapter-three-thriteen-one">3.13.1 实现的功能</a>
+
+> [返回目录](#chapter-one)
 
 * **写法**：
 
@@ -368,10 +439,14 @@ __字体加粗__
 - [x] 功能2
 ```
 
+* **演示**：
+
 - [x] 功能1
 - [x] 功能2
 
-* **用法介绍**：未实现的功能：`- [ ]`
+#### <a name="chapter-three-thriteen-two" id="chapter-three-thriteen-two">3.13.2 未实现的功能</a>
+
+> [返回目录](#chapter-one)
 
 * **写法**：
 
@@ -380,10 +455,16 @@ __字体加粗__
 - [ ] 功能4
 ```
 
+* **演示**：
+
 - [ ] 功能3
 - [ ] 功能4
 
-### 3.14 缩略标签
+### <a name="chapter-three-fourteen" id="chapter-three-fourteen">3.14 缩略标签</a>
+
+> [返回目录](#chapter-one)
+
+* **介绍**：缩略标签属于 HTML 中的内容，但是巧妙用在 Markdown 也是可行的。
 
 * **写法**：
 
@@ -398,6 +479,8 @@ __字体加粗__
 </details>
 ```
 
+* **演示**：
+
 <details>
   <summary>基础知识</summary>
 
@@ -407,9 +490,11 @@ __字体加粗__
 
 </details>
 
-### 3.15 结语
+## <a name="chapter-four" id="chapter-four">四 结语</a>
 
-至此，Markdown 语法介绍完毕，有兴趣的小伙伴继续去了解更深层次的 Markdown 语法吧！——2018年8月21日10:54:26
+> [返回目录](#chapter-one)
+
+至此，Markdown 语法介绍完毕，有兴趣的小伙伴继续去了解更深层次的 Markdown 语法吧！
 
 ---
 
