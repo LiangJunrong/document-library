@@ -2,7 +2,7 @@ Markdown 打造静态网站
 ===
 
 > Create by **jsliang** on **2019-5-29 08:08:12**  
-> Recently revised in **2019-5-29 08:40:09**
+> Recently revised in **2019-5-30 09:01:43**
 
 Markdown 是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。
 
@@ -34,7 +34,7 @@ Markdown 是一种可以使用普通文本编辑器编写的标记语言，通�
 | 目录 | 简介 |
 | --- | --- |
 | [Markdown](./Markdown/README.md) | 扎实的 Markdown 基础可以让你更快速地编写笔记。 |
-| [GitHub Pages](./Github-Pages/README.md) | 本系列文章最终目标，将内容部署到 GitHub Pages 上。 |
+| [GitHub Pages](./GitHub-Pages/README.md) | 本系列文章最终目标，将内容部署到 GitHub Pages 上。 |
 | [VuePress](./VuePress/README.md) | 享受 Vue + Webpack + Markdown 的开发体验。 |
 | [GitBook](./GitBook/README.md) | 你只需要专注于编写文档，其他交给我们！ |
 
