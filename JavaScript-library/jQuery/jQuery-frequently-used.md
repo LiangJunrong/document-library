@@ -2,7 +2,7 @@ jQuery 工作常用解决方案
 ===
 
 > Create by **jsliang** on **2018-11-4 10:37:33**  
-> Recently revised in **2019-05-30 23:46:19**
+> Recently revised in **2019-05-31 00:06:05**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
@@ -127,21 +127,18 @@ function getUrlParam(name) {
 console.log("url name=" + getUrlParam("name") + ",url idNo=" + getUrlParam("idNo"));
 ```
 
-<br>
+### 1.6 常用正则表达式
 
-## 1.6 常用正则表达式
+**知识点 1**. 使用方式：
 
-1. 使用方式：
-```
+```js
 if(!/^((\d{8})|(1[35784]\d{9}))$/.test($("#user-phone").val())){
   alert('请填写11位手机号码或8位固话号码');
   return false;
 }
 ```
 
-<br>
-
-2. 密码强度
+**知识点 2**. 密码强度
 
 * 必须包含数字+小写字母+大写字母的密码，位数在8-10位之间：
 
@@ -155,82 +152,72 @@ if(!/^((\d{8})|(1[35784]\d{9}))$/.test($("#user-phone").val())){
 ^\w+$
 ```
 
-3. 校验中文：
+**知识点 3**. 校验中文：
 
 ```
 ^[\u4e00-\u9fa5]{0,}$
 ```
 
-4. Email验证：
+**知识点 4**. Email验证：
 
 ```
 [\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?
 ```
 
-5. 身份证验证
+**知识点 5**. 身份证验证
 
 ```
 ^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$
 ```
 
-6. 手机号验证：以1开头，第二位数是3/4/5/7/8的11位手机号码
+**知识点 6**. 手机号验证：以1开头，第二位数是3/4/5/7/8的11位手机号码
 
 ```
 ^1[3,4,5,7,8]\d{9}$
 ```
 
-<br>
+## 二 HTML
 
-# 二 HTML
+### 2.1 搜索跳转到百度
 
-<br>
-
-## 2.1 搜索跳转到百度
-
-```
+```js
 <form class="baidu-search" action="http://www.baidu.com/baidu" target="_blank">
   <input type="text" name="word" placeholder="我不要，给我滚开~" id="baidu-input"><br>
   <button type="submit">皮皮虾我们溜</button>
 </form>
 ```
 
-<br>
+## 三 CSS
 
-# 三 CSS
-
-<br>
-
-## 3.1 设置input的placeholder
+### 3.1 设置input的placeholder
 
 > reset.css
 
-```
+```css
 /** 设置input的placeholder - set input placeholder **/
 input::-webkit-input-placeholder { color: #727272; } /* Webkit browsers */
 input::-moz-placeholder { color: #727272; } /* Mozilla Firefox */
 input::-ms-input-placeholder { color: #727272; } /* Internet Explorer */
 ```
 
-<br>
-
-## 3.2 使图片根据不同设备自适应
+### 3.2 使图片根据不同设备自适应
 
 > reset.css
 
-```
+```css
 /** 图片自适应 - image responsize **/
 img { border: 0; display: inline-block; width: 100%; max-width: 100%; height: auto; }
 ```
 
-<br>
+### 3.3 垂直居中
 
-## 3.3 垂直居中
+首先，父元素设置relative；  
 
-&emsp;首先，父元素设置relative；  
-&emsp;然后，需要定位的元素设置absolute；  
-&emsp;最后，垂直居中的top为50%，margin-top为该元素高度的负一半的高度值。  
+然后，需要定位的元素设置absolute；  
 
-```
+最后，垂直居中的top为50%，margin-top为该元素高度的负一半的高度值。  
+
+```css
 .search-result-area {
   position: relative;
   padding: 0 36px;
@@ -248,19 +235,15 @@ img { border: 0; display: inline-block; width: 100%; max-width: 100%; height: au
 }
 ```
 
-<br>
-
-## 3.4 左右两栏布局
+### 3.4 左右两栏布局
 
 1. div1不变，div2浮动，div2的margin-left为div1的宽度。
 2. div1+div2浮动，父级overflow=hidden。
 3. 父级relative定位，子级absolute定位。
 
-<br>
+### 3.5 css reset
 
-## 3.5 css reset
-
-```
+```css
 /* 
   * reset 的目的不是让默认样式在所有浏览器下一致，而是减少默认样式有可能带来的问题。
   * The purpose of reset is not to allow default styles to be consistent across all browsers, but to reduce the potential problems of default styles.
@@ -326,21 +309,17 @@ input::-moz-placeholder { color: #919191; font-size: .32rem } /* Mozilla Firefox
 input::-ms-input-placeholder { color: #919191; font-size: .32rem } /* Internet Explorer */
 ```
 
-<br>
+### 3.6 li前面点换成图片
 
-## 3.6 li前面点换成图片
-
-```
+```css
 ul{
- list-style-image: url(img/5.jpg);
+  list-style-image: url(img/5.jpg);
 }
 ```
 
-<br>
+### 3.7 制作div的边框
 
-## 3.7 制作div的边框
-
-```
+```css
 .content:before {
   content: " ";
   display: block;
@@ -375,32 +354,26 @@ ul{
 }
 ```
 
-<br>
+### 3.8 手机端背景图不能正确放大
 
-## 3.8 手机端背景图不能正确放大
-
-```
+```css
 .banner {
   background: url("../images/banner.jpg") no-repeat;
   background-size: 100% auto;
 }
 ```
 
-<br>
+### 3.9 position情况下居中
 
-## 3.9 position情况下居中
+left 值计算：width - button宽度一半
 
-&emsp;left值计算：width - button宽度一半
+### 3.10 jsliang的弹窗
 
-<br>
-
-## 3.10 jsliang的弹窗
-
-&emsp;如果希望弹窗不固定大小，在手机端或者 PC 端都能使用，推荐使用百分比配置。
+如果希望弹窗不固定大小，在手机端或者 PC 端都能使用，推荐使用百分比配置。
 
 > *.html
 
-```
+```html
 <div class="jsliang-prompt">
   <div class="jsliang-mask"></div>
   <div class="jsliang-alert">
@@ -413,11 +386,9 @@ ul{
 </div>
 ```
 
-<br>
-
 > *.css
 
-```
+```css
 /** 弹窗 - alert **/
 .jsliang-prompt {
   display: none;
@@ -478,13 +449,11 @@ ul{
 /* end */
 ```
 
-<br>
+### 3.11 常用SVG
 
-## 3.11 常用SVG
+直接引用到页面即可。
 
-&emsp;直接引用到页面即可。
-
-```
+```css
 <div class="loading-spokes">
   <svg id="loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100" height="100" fill="black">
   <path opacity=".1" d="M14 0 H18 V8 H14 z" transform="rotate(0 16 16)">
@@ -515,21 +484,17 @@ ul{
 </div>
 ```
 
-<br>
-
-## 3.12 滚动条
+### 3.12 滚动条
 
 ```
 http://www.xuanfengge.com/demo/201311/scroll/css3-scroll.html
 ```
 
-<br>
-
-## 3.13 修改select样式
+### 3.13 修改select样式
 
 > *.html
 
-```
+```html
 <div class="activity-area-select">
   <select class="activity-area" id="activity-friday-area">
     <option value ="请选择商铺区域">请选择商铺区域</option>
@@ -543,11 +508,9 @@ http://www.xuanfengge.com/demo/201311/scroll/css3-scroll.html
 </div>
 ```
 
-<br>
-
 > *.css
 
-```
+```css
 .activity-area-select {
   width: 4.3rem;
   height: .6rem;
@@ -581,13 +544,11 @@ http://www.xuanfengge.com/demo/201311/scroll/css3-scroll.html
 }
 ```
 
-<br>
-
-## 3.14 修改table样式
+### 3.14 修改table样式
 
 > *.html
 
-```
+```html
 <table class="search-result-table" id="search-result-table">
   <thead>
     <tr>
@@ -608,11 +569,9 @@ http://www.xuanfengge.com/demo/201311/scroll/css3-scroll.html
 </table>
 ```
 
-<br>
-
 > *.css
 
-```
+```css
 .search-result-table {
   border:solid #e1e1e1;
   border-width:1px 0px 0px 1px;
@@ -649,63 +608,60 @@ table thead, tbody tr {
 }
 ```
 
-<br>
+## 四 Other
 
-# 四 Other
+### 4.1 VSCode 选中设置
 
-<br>
+文件 -> 设置 -> User Settings -> editor.wordSeparators  
 
-## 4.1 VSCode 选中设置
-
-&emsp;文件 -> 设置 -> User Settings -> editor.wordSeparators  
-&emsp;下划线选中：
+下划线选中：
 
 ```
 `~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?
 ```
 
-&emsp;横杠选中：
+横杠选中：
+
 ```
 ./\\()\"':,.;<>~!@#$%^&*|+=[]{}`~?  
 ```
 
-<br>
+### 4.2 浏览器前缀参照
 
-## 4.2 浏览器前缀参照
+-moz- 对应 Firefox,   
 
-&emsp;-moz- 对应 Firefox,   
-&emsp;-webkit- 对应 Safari and Chrome  
-&emsp;-o- 对应 Opera  
-&emsp;-ms- 对应 Internet Explorer
+-webkit- 对应 Safari and Chrome  
 
-<br>
+-o- 对应 Opera  
 
-## 4.3 git的使用
+-ms- 对应 Internet Explorer
 
-&emsp;本地仓库上传到GitHub：
+### 4.3 git的使用
+
+本地仓库上传到GitHub：
+
 1. git init
 2. git add .
 3. git commit -m "first commit"
 4. git remote add origin https://github.com/address
 5. git push -u origin master
 
-&emsp;更新本地仓库到GitHub
+更新本地仓库到GitHub
+
 1. git add .
 2. git commit -m "更新"
 3. git push -u origin master
 
-&emsp;拉取GitHub项目到本地
+拉取GitHub项目到本地
+
 1. git clone address
 
-<br>
-
-## 4.4 VS Code 设置模板页
+### 4.4 VS Code 设置模板页
 
 1. 安装插件 HTML Snippets
 2. 文件-首选项-用户代码片段-HTML
 3. 修改文件内容为：
-
-```
+```json
 {
   // Place your snippets for html here. Each snippet is defined under a snippet name and has a prefix, body and 
   // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
@@ -742,9 +698,17 @@ table thead, tbody tr {
   }
 }
 ```
+4. 在 HTML 页面输入！！然后回车，即可看到新效果
 
-4. 在HTML页面输入!!然后回车，即可看到新效果
+---
 
-<br>
+> **jsliang** 广告推送：  
+> 也许小伙伴想了解下云服务器  
+> 或者小伙伴想买一台云服务器  
+> 或者小伙伴需要续费云服务器  
+> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a xmlns:dct="http://purl.org/dc/terms/" property="dct:title">**jsliang** 的文档库</a> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.om/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
