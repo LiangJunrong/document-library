@@ -142,18 +142,15 @@ jQuery 的引用：
 </html>
 ```
 
-
-<br>
-
-# <a name="chapter-four" id="chapter-four">四 兼容</a>
+## <a name="chapter-four" id="chapter-four">四 兼容</a>
 
 > [返回目录](#catalog-chapter-four)
 
-<br>
+jQuery 版本 2 以上不支持 IE6，7，8 浏览器。  
 
-&emsp;jQuery 版本 2 以上不支持 IE6，7，8 浏览器。  
-&emsp;如果需要支持 IE6/7/8，那么请选择 1.9。  
-&emsp;你还可以通过条件注释在使用 IE6/7/8 时只包含进1.9。  
+如果需要支持 IE6/7/8，那么请选择 1.9。  
+
+你还可以通过条件注释在使用 IE6/7/8 时只包含进1.9。  
 
 ```
 <!--[if lt IE 9]>
@@ -162,9 +159,7 @@ jQuery 的引用：
   <script src="jquery-2.0.0.js"></script><!--<![endif]-->
 ```
 
-<br>
-
-# <a name="chapter-five" id="chapter-five">五 jQuery 语法</a>
+## <a name="chapter-five" id="chapter-five">五 jQuery 语法</a>
 
 > [返回目录](#catalog-chapter-five)
 
@@ -177,31 +172,23 @@ jQuery 的引用：
 * 写法1：`$(document).ready(function(){ // 开始写 jQuery 代码... });`
 * 写法2：`$(function(){ // 开始写 jQuery 代码... });`
 
-<br>
-
-# <a name="chapter-six" id="chapter-six">六 jQuery 选择器</a>
+## <a name="chapter-six" id="chapter-six">六 jQuery 选择器</a>
 
 > [返回目录](#catalog-chapter-six)
 
-<br>
+jQuery 选择器可以帮助我们更好地选择 DOM 元素。
 
-&emsp;jQuery 选择器可以帮助我们更好地选择 DOM 元素。
-
-<br>
-
-## <a name="chapter-six-one" id="chapter-six-one">6.1 元素选择器</a>
+### <a name="chapter-six-one" id="chapter-six-one">6.1 元素选择器</a>
 
 > [返回目录](#catalog-chapter-six)
 
-<br>
-
-&emsp;在页面中选取所有 `<p>` 元素:  
+在页面中选取所有 `<p>` 元素:  
 
 > js 代码片段
 
-```
-$("p")
-实例：
+```js
+// $("p");
+// 实例：
 $(document).ready(function(){ 
   $("button").click(function(){ 
     $("p").hide(); 
@@ -209,19 +196,15 @@ $(document).ready(function(){
 });
 ```
 
-<br>
-
-## <a name="chapter-six-two" id="chapter-six-two">6.2 #ID 选择器</a>
+### <a name="chapter-six-two" id="chapter-six-two">6.2 #ID 选择器</a>
 
 > [返回目录](#catalog-chapter-six)
 
-<br>
-
-&emsp;通过 id 选取元素语法如下：`$("#test")`  
+通过 id 选取元素语法如下：`$("#test")`  
 
 > js 代码片段
 
-```
+```js
 $(document).ready(function(){ 
   $("button").click(function(){ 
     $("#test").hide(); 
@@ -229,19 +212,15 @@ $(document).ready(function(){
 });
 ```
 
-<br>
-
-## <a name="chapter-six-three" id="chapter-six-three">6.3 .class 选择器</a>
+### <a name="chapter-six-three" id="chapter-six-three">6.3 .class 选择器</a>
 
 > [返回目录](#catalog-chapter-six)
 
-<br>
-
-&emsp;jQuery 类选择器可以通过指定的 class 查找元素：`$(".test")`  
+jQuery 类选择器可以通过指定的 class 查找元素：`$(".test")`  
 
 > js 代码片段
 
-```
+```js
 $(document).ready(function(){ 
   $("button").click(function(){ 
     $(".test").hide(); 
@@ -249,13 +228,9 @@ $(document).ready(function(){
 });
 ```
 
-<br>
-
-## <a name="chapter-six-four" id="chapter-six-four">6.4 其他用法</a>
+### <a name="chapter-six-four" id="chapter-six-four">6.4 其他用法</a>
 
 > [返回目录](#catalog-chapter-six)
-
-<br>
 
 | 语法 | 描述 |
 | --- | --- |
@@ -272,13 +247,9 @@ $(document).ready(function(){
 | `$("tr:even")` | 选取偶数位置的 `<tr>` 元素 |
 | `$("tr:odd")` | 选取奇数位置的 `<tr>` 元素 |
 
-<br>
-
-# <a name="chapter-seven" id="chapter-seven">七 DOM 事件</a>
+## <a name="chapter-seven" id="chapter-seven">七 DOM 事件</a>
 
 > [返回目录](#catalog-chapter-seven)
-
-<br>
 
 | 鼠标事件 | 键盘事件 | 表单事件 |文档/窗口事件 |
 | --- | --- | --- | --- |
@@ -287,55 +258,35 @@ $(document).ready(function(){
 | `mouseenter` - 鼠标进入 | `keyup` - 键被松开 | `focus` - 获得焦点 | scroll - 滚动 |
 | `mouseleave` - 鼠标离开| &emsp; | `blur` - 失去焦点 | `unload` - 离开页面（1.8已废弃） |
 
-<br>
-
-## <a name="chapter-seven-one" id="chapter-seven-one">7.1 mouseover 与 mouseenter</a>
+### <a name="chapter-seven-one" id="chapter-seven-one">7.1 mouseover 与 mouseenter</a>
 
 > [返回目录](#catalog-chapter-seven)
 
-<br>
+`mouseover` 事件在鼠标移动到选取的元素及其子元素上时触发。  
 
-&emsp;`mouseover` 事件在鼠标移动到选取的元素及其子元素上时触发。  
-&emsp;`mouseenter` 事件只在鼠标移动到选取的元素上时触发。  
-&emsp;`mouseleave` 与 `mouseout`同样。
+`mouseenter` 事件只在鼠标移动到选取的元素上时触发。  
 
-<br>
+`mouseleave` 与 `mouseout`同样。
 
-## <a name="chapter-seven-two" id="chapter-seven-two">7.2 键盘事件顺序</a>
+### <a name="chapter-seven-two" id="chapter-seven-two">7.2 键盘事件顺序</a>
 
 > [返回目录](#catalog-chapter-seven)
-
-<br>
 
 1. keydown - 键按下的过程
-
-&emsp;↓↓↓↓↓
-
 2. keypress - 键被按下
-
-&emsp;↓↓↓↓↓
-
 3. keyup - 键被松开
 
-<br>
-
-# <a name="chapter-eight" id="chapter-eight">八 jQuery 效果</a>
+## <a name="chapter-eight" id="chapter-eight">八 jQuery 效果</a>
 
 > [返回目录](#catalog-chapter-eight)
 
-<br>
+jQuery 可以使用其事件，做一些好玩的事情
 
-&emsp;jQuery 可以使用其事件，做一些好玩的事情
-
-<br>
-
-## <a name="chapter-eight-one" id="chapter-eight-one">8.1 显示/隐藏</a>
+### <a name="chapter-eight-one" id="chapter-eight-one">8.1 显示/隐藏</a>
 
 > [返回目录](#catalog-chapter-eight)
 
-<br>
-
-&emsp;语法：
+语法：
 
 * 隐藏：`$(selector).hide(speed,callback);`
 * 显示：`$(selector).show(speed,callback);`
@@ -345,7 +296,7 @@ $(document).ready(function(){
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 
 <html lang="en">
@@ -377,15 +328,11 @@ $(document).ready(function(){
 </html>
 ```
 
-<br>
-
-## <a name="chapter-eight-two" id="chapter-eight-two">8.2 淡入/淡出</a>
+### <a name="chapter-eight-two" id="chapter-eight-two">8.2 淡入/淡出</a>
 
 > [返回目录](#catalog-chapter-eight)
 
-<br>
-
-&emsp;语法：
+语法：
 
 * 淡入：`$(selector).fadeIn(speed,callback);`
 * 淡出：`$(selector).fadeOut(speed,callback);`
@@ -397,7 +344,7 @@ $(document).ready(function(){
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -469,15 +416,11 @@ $(document).ready(function(){
 </html>
 ```
 
-<br>
-
-## <a name="chapter-eight-three" id="chapter-eight-three">8.3 滑动</a>
+### <a name="chapter-eight-three" id="chapter-eight-three">8.3 滑动</a>
 
 > [返回目录](#catalog-chapter-eight)
 
-<br>
-
-&emsp;语法：
+语法：
 
 * `$(selector).slideDown(speed,callback);`
 * `$(selector).slideUp(speed,callback);`
@@ -487,7 +430,7 @@ $(document).ready(function(){
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -526,22 +469,19 @@ $(document).ready(function(){
 </html>
 ```
 
-<br>
-
-## <a name="chapter-eight-four" id="chapter-eight-four">8.4 动画</a>
+### <a name="chapter-eight-four" id="chapter-eight-four">8.4 动画</a>
 
 > [返回目录](#catalog-chapter-eight)
 
-<br>
-
-&emsp;语法：
+语法：
 
 * `$(selector).animate({params},speed,callback);`
 * `params`：css 属性（键值对形式，-号替换为驼峰 → `border-radius=borderRadius:'15px'`）
 * `speed`：时间
 * `callback`：回调函数
 
-&emsp;操作：
+操作：
+
 1. 能操作单个属性
 2. 能操作多个属性
 3. 值能使用相对值（+=、-=）
@@ -550,7 +490,7 @@ $(document).ready(function(){
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -631,15 +571,11 @@ $(document).ready(function(){
 </html>
 ```
 
-<br>
-
-## <a name="chapter-eight-five" id="chapter-eight-five">8.5 停止动画</a>
+### <a name="chapter-eight-five" id="chapter-eight-five">8.5 停止动画</a>
 
 > [返回目录](#catalog-chapter-eight)
 
-<br>
-
-&emsp;语法：
+语法：
 
 * `$(selector).stop(stopAll,goToEnd);`
 * `stopAll`：默认 `false`。`true`：停止包括后续 `animate` 的所有动作
@@ -647,7 +583,7 @@ $(document).ready(function(){
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -714,21 +650,17 @@ $(document).ready(function(){
 </html>
 ```
 
-<br>
-
-## <a name="chapter-eight-six" id="chapter-eight-six">8.6 链</a>
+### <a name="chapter-eight-six" id="chapter-eight-six">8.6 链</a>
 
 > [返回目录](#catalog-chapter-eight)
 
-<br>
+jQuery可以通过链的形式，链接多个动作。
 
-&emsp;jQuery可以通过链的形式，链接多个动作。
-
-&emsp;修改8.4动画的代码：
+修改 8.4 动画的代码：
 
 > js 代码片段
 
-```
+```js
 function runBall() {
   $("#circle").animate({
     left: '-=110px',
@@ -745,13 +677,9 @@ function runBall() {
 };
 ```
 
-<br>
-
-# <a name="chapter-night" id="chapter-night">九 捕获</a>
+## <a name="chapter-night" id="chapter-night">九 捕获</a>
 
 > [返回目录](#catalog-chapter-night)
-
-<br>
 
 * `text()`：捕获文本
 * `html()`：捕获HTML
@@ -760,7 +688,7 @@ function runBall() {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -812,24 +740,20 @@ function runBall() {
 </html>
 ```
 
-<br>
-
-# <a name="chapter-ten" id="chapter-ten">十 设置</a>
+## <a name="chapter-ten" id="chapter-ten">十 设置</a>
 
 > [返回目录](#catalog-chapter-ten)
-
-<br>
 
 * `text()`：捕获文本
 * `html()`：捕获HTML
 * `val()`：捕获表单文本值
 * `attr()`：捕获属性值
 
-&emsp; 在设置方面，这4个方法还提供回调函数。
+在设置方面，这4个方法还提供回调函数。
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -889,13 +813,9 @@ function runBall() {
 </html>
 ```
 
-<br>
-
-# <a name="chapter-eleven" id="chapter-eleven">十一 添加元素</a>
+## <a name="chapter-eleven" id="chapter-eleven">十一 添加元素</a>
 
 > [返回目录](#catalog-chapter-eleven)
-
-<br>
 
 * `append()` - 在被选的元素的结尾插入内容
 * `prepend()` - 在被选的元素的开头插入内容
@@ -904,7 +824,7 @@ function runBall() {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -952,20 +872,16 @@ function runBall() {
 </html>
 ```
 
-<br>
-
-# <a name="chapter-twelve" id="chapter-twelve">十二 删除元素</a>
+## <a name="chapter-twelve" id="chapter-twelve">十二 删除元素</a>
 
 > [返回目录](#catalog-chapter-twelve)
-
-<br>
 
 * `remove()` - 删除被选元素（及其子元素）（可附加参数）
 * `empty()` - 从被选元素中删除子元素
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -1017,13 +933,9 @@ function runBall() {
 </html>
 ```
 
-<br>
-
-# <a name="chapter-thirteen" id="chapter-thirteen">十三 CSS 类</a>
+## <a name="chapter-thirteen" id="chapter-thirteen">十三 CSS 类</a>
 
 > [返回目录](#catalog-chapter-thirteen)
-
-<br>
 
 * `addClass()` - 向被选元素添加一个类或多个类
 * `removeClass()` - 从被选元素删除一个或多个类
@@ -1032,7 +944,7 @@ function runBall() {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1077,22 +989,18 @@ function runBall() {
 </html>
 ```
 
-<br>
-
-# <a name="chapter-fourteen" id="chapter-fourteen">十四 CSS() 方法</a>
+## <a name="chapter-fourteen" id="chapter-fourteen">十四 CSS() 方法</a>
 
 > [返回目录](#catalog-chapter-fourteen)
 
-<br>
-
-&emsp;语法：
+语法：
 
 * 返回CSS： `css("propertyname");`
 * 修改CSS： `css("propertyname","value");`
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1139,13 +1047,9 @@ function runBall() {
 </html>
 ```
 
-<br>
-
-# <a name="chapter-fifteen" id="chapter-fifteen">十五 尺寸</a>
+## <a name="chapter-fifteen" id="chapter-fifteen">十五 尺寸</a>
 
 > [返回目录](#catalog-chapter-fifteen)
-
-<br>
 
 * `width()` - 元素宽度
 * `height()` - 元素高度
@@ -1158,7 +1062,7 @@ function runBall() {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1236,13 +1140,9 @@ function runBall() {
 </html>
 ```
 
-<br>
-
-# <a name="chapter-sixteen" id="chapter-sixteen">十六 祖先选择器</a>
+## <a name="chapter-sixteen" id="chapter-sixteen">十六 祖先选择器</a>
 
 > [返回目录](#catalog-chapter-sixteen)
-
-<br>
 
 * `parent()` - 上一级父元素
 * `parents()` - 上至html标签
@@ -1250,7 +1150,7 @@ function runBall() {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1313,9 +1213,7 @@ function runBall() {
 </html>
 ```
 
-<br>
-
-# <a name="chapter-seventeen" id="chapter-seventeen">十七 后代选择器</a>
+## <a name="chapter-seventeen" id="chapter-seventeen">十七 后代选择器</a>
 
 > [返回目录](#catalog-chapter-seventeen)
 
