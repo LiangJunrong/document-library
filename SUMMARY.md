@@ -162,6 +162,7 @@
       * [18 - Vue 基础 ✔](./other-library/short-article-library/old-web-article/18.md)
     * [VSCode 常用操作和配置 ✔](./other-library/short-article-library/Visual-Studio-Code/README.md)
   * [SQL](./other-library/SQL/README.md)
+    * [MySQL 安装 ✔](./other-library/SQL/MySQL-install.md)
     * [MySQL 学习 ✘](./other-library/SQL/MySQL-study.md)
   * [网站](./other-library/Website/README.md)
     * [Vue + Koa2 + MongoDB 搭建商城 ✘](./other-library/Website/Shopping-Mall.md)
