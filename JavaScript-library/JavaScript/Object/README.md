@@ -1,8 +1,8 @@
 JavaScript - Object
 ===
 
-> Create by **jsliang** on **2019-05-17 11:30:04**  
-> Recently revised in **2019-05-30 21:43:16**
+> Create by **jsliang** on **2019-05-30 21:46:21**  
+> Recently revised in **2019-05-30 21:46:24**
 
 记录一些 JavaScript 的关于 Function 的知识点。
 
