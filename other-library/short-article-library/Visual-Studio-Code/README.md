@@ -2,7 +2,7 @@ VSCode 常用操作和配置
 ===
 
 > create by **jsliang** on **2018-09-04 11:26:11**  
-> Recently revised in **2019-05-23 20:33:28**
+> Recently revised in **2019-05-30 19:22:28**
 
 ## 第一节 VSCode配置
 
