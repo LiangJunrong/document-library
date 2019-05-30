@@ -4,6 +4,8 @@ GitHub Pages 学习
 > create by **jsliang** on **2019-5-30 08:31:37**  
 > Recently revised in **2019-5-30 08:55:13**
 
+**小伙伴们如果觉得不错可以到 [jsliang 的文档库](https://github.com/LiangJunrong/document-library) 为 jsliang 点个 star，谢谢~**
+
 什么是 GitHub Pages？
 
 GitHub Pages 是一个通过 GitHub 项目/仓库 进行部署的，以 `用户名.github.io` 的形式生成用户的托管平台。
