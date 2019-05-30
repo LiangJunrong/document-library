@@ -2,7 +2,7 @@ jQuery 基础
 ===
 
 > Create by **jsliang** on **2018-05-07 15:56:17**  
-> Recently revised in **2019-05-30 21:54:58**
+> Recently revised in **2019-05-30 23:45:51**
 
 jQuery 操作 DOM 的那一套，还是非常值得关注的。我那时候一直想看 妙味 的 jQuery 剖析，我会员都买了，但是那会又去折腾小程序了，所以就没空了。
 
@@ -1217,14 +1217,12 @@ function runBall() {
 
 > [返回目录](#catalog-chapter-seventeen)
 
-<br>
-
 * `children()` - 所选元素的所有直接子元素
 * `find()` - 找到符合条件的子元素
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1274,13 +1272,9 @@ function runBall() {
 </html>
 ```
 
-<br>
-
-# <a name="chapter-eighteen" id="chapter-eighteen">十八 同胞选择器</a>
+## <a name="chapter-eighteen" id="chapter-eighteen">十八 同胞选择器</a>
 
 > [返回目录](#catalog-chapter-eighteen)
-
-<br>
 
 * `siblings()` - 被选元素的所有同胞元素
 * `next()` - 被选元素的下一个元素
@@ -1292,7 +1286,7 @@ function runBall() {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1371,13 +1365,9 @@ function runBall() {
 </html>
 ```
 
-<br>
-
-# <a name="chapter-nighteen" id="chapter-nighteen">十九 过滤选择器</a>
+## <a name="chapter-nighteen" id="chapter-nighteen">十九 过滤选择器</a>
 
 > [返回目录](#catalog-chapter-nighteen)
-
-<br>
 
 * `first()` - 第一个匹配条件的元素
 * `last()` - 最后一个匹配条件的元素
@@ -1387,7 +1377,7 @@ function runBall() {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1464,15 +1454,11 @@ function runBall() {
 </html>
 ```
 
-<br>
-
-# <a name="chapter-twenty" id="chapter-twenty">二十 load</a>
+## <a name="chapter-twenty" id="chapter-twenty">二十 load</a>
 
 > [返回目录](#catalog-chapter-twenty)
 
-<br>
-
-&emsp;语法：`$(selector).load(URL,data,callback);`
+语法：`$(selector).load(URL,data,callback);`
 
 * `URL`：请求加载的URL
 * `data`：查询字符串键值对集合
@@ -1481,38 +1467,31 @@ function runBall() {
   * `statusTxt` - 包含调用的状态
   * `xhr` - 包含XMLHttpRequest对象
 
-<br>
-
-# <a name="chapter-twenty-one" id="chapter-twenty-one">二十一 get() 和 post()</a>
+## <a name="chapter-twenty-one" id="chapter-twenty-one">二十一 get() 和 post()</a>
 
 > [返回目录](#catalog-chapter-twenty-one)
 
-<br>
+get - 从指定的资源请求数据  
 
-&emsp;get - 从指定的资源请求数据  
-&emsp;post - 向指定的资源提交要处理的数据  
+post - 向指定的资源提交要处理的数据  
 
-&emsp;语法：
+语法：
 
 * `$.get(URL,callback);`
 * `URL`：请求的 `URL`
 * `callback`：请求成功后所执行的函数名
 
-<br>
-
-# <a name="chapter-twenty-two" id="chapter-twenty-two">二十二 Ajax</a>
+## <a name="chapter-twenty-two" id="chapter-twenty-two">二十二 Ajax</a>
 
 > [返回目录](#catalog-chapter-twenty-two)
 
-<br>
+语法：`$.ajax({name:value, name:value, ... })`
 
-&emsp;语法：`$.ajax({name:value, name:value, ... })`
-
-&emsp;方法 1：
+方法 1：
 
 > js 代码片段1
 
-```
+```js
 $.ajax({
   url: host + '/addressInfo',
   type: 'get',
@@ -1529,13 +1508,11 @@ $.ajax({
 });
 ```
 
-<br>
-
-&emsp;方法 2：
+方法 2：
 
 > js 代码片段2
 
-```
+```js
 $.ajax({
     url: host + '/olduser/up',
     type: 'get',
@@ -1554,21 +1531,17 @@ $.ajax({
 })
 ```
 
-<br>
-
-# <a name="chapter-twenty-three" id="chapter-twenty-three">二十三 JSONP</a>
+## <a name="chapter-twenty-three" id="chapter-twenty-three">二十三 JSONP</a>
 
 > [返回目录](#catalog-chapter-twenty-three)
 
-<br>
-
-&emsp;跨域读取数据，请用 JSONP。
+跨域读取数据，请用 JSONP。
 
 > 注意：JSONP 与 Ajax 没任何关系！JSONP 是利用 script 标签来 get 到被包裹的 json 数据。
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1601,75 +1574,51 @@ $.ajax({
 </html>
 ```
 
-<br>
-
-# <a name="chapter-twenty-four" id="chapter-twenty-four">二十四 无冲突 - noConflict</a>
+## <a name="chapter-twenty-four" id="chapter-twenty-four">二十四 无冲突 - noConflict</a>
 
 > [返回目录](#catalog-chapter-twenty-four)
 
-<br>
+当 jQuery 和其他的 JavaScript 框架同时将$作为简写的使用，可以考虑使用noConflict()方法解决冲突。
 
-&emsp;当 jQuery 和其他的 JavaScript 框架同时将$作为简写的使用，可以考虑使用noConflict()方法解决冲突。
-
-<br>
-
-# <a name="chapter-twenty-five" id="chapter-twenty-five">二十五 jQuery 实例</a>
+## <a name="chapter-twenty-five" id="chapter-twenty-five">二十五 jQuery 实例</a>
 
 > [返回目录](#catalog-chapter-twenty-five)
 
-<br>
+总结前面的 jQuery 实例：[https://www.runoob.com/jquery/jquery-examples.html](https://www.runoob.com/jquery/jquery-examples.html)
 
-&emsp;总结前面的 jQuery 实例：[https://www.runoob.com/jquery/jquery-examples.html](https://www.runoob.com/jquery/jquery-examples.html)
-
-<br>
-
-# <a name="chapter-twenty-six" id="chapter-twenty-six">二十六 选择器扩展</a>
+## <a name="chapter-twenty-six" id="chapter-twenty-six">二十六 选择器扩展</a>
 
 > [返回目录](#catalog-chapter-twenty-six)
 
-<br>
-
-&emsp;选择器的扩展大全
-
-<br>
+选择器的扩展大全
 
 ## <a name="chapter-twenty-six-one" id="chapter-twenty-six-one">26.1 基本选择器</a>
 
 > [返回目录](#catalog-chapter-twenty-six)
 
-<br>
-
-```
+```js
 $("#id") // ID选择器
 $("div")  // 元素选择器
 $(".classname") // 类选择器
 $(".classname,.classname1,#id1") // 组合选择器
 ```
 
-<br>
-
-## <a name="chapter-twenty-six-two" id="chapter-twenty-six-two">26.2 层次选择器</a>
+### <a name="chapter-twenty-six-two" id="chapter-twenty-six-two">26.2 层次选择器</a>
 
 > [返回目录](#catalog-chapter-twenty-six)
 
-<br>
-
-```
+```js
 $("#id>.classname ")    // 子元素选择器
 $("#id .classname ")    // 后代元素选择器
 $("#id + .classname ")    // 紧邻下一个元素选择器
 $("#id ~ .classname ")    // 兄弟元素选择器
 ```
 
-<br>
-
-## <a name="chapter-twenty-six-three" id="chapter-twenty-six-three">26.3 过滤选择器（重点）</a>
+### <a name="chapter-twenty-six-three" id="chapter-twenty-six-three">26.3 过滤选择器（重点）</a>
 
 > [返回目录](#catalog-chapter-twenty-six)
 
-<br>
-
-```
+```js
 $("li:first")    // 第一个 li
 $("li:last")     // 最后一个 li
 $("li:even")     // 挑选下标为偶数的 li
@@ -1680,43 +1629,31 @@ $("li:lt(2)")    // 下标小于 2 的 li
 $("li:not(#runoob)") // 挑选除 id="runoob" 以外的所有 li
 ```
 
-<br>
-
-### <a name="chapter-twenty-six-three-one" id="chapter-twenty-six-three-one">26.3.1 内容过滤选择器</a>
+#### <a name="chapter-twenty-six-three-one" id="chapter-twenty-six-three-one">26.3.1 内容过滤选择器</a>
 
 > [返回目录](#catalog-chapter-twenty-six)
 
-<br>
-
-```
+```js
 $("div:contains('Runob')")    // 包含 Runob 文本的元素
 $("td:empty")                 // 不包含子元素或者文本的空元素
 $("div:has(selector)")        // 含有选择器所匹配的元素
 $("td:parent")                // 含有子元素或者文本的元素
 ```
 
-<br>
-
-### <a name="chapter-twenty-six-three-two" id="chapter-twenty-six-three-two">26.3.2 可见性过滤选择器</a>
+#### <a name="chapter-twenty-six-three-two" id="chapter-twenty-six-three-two">26.3.2 可见性过滤选择器</a>
 
 > [返回目录](#catalog-chapter-twenty-six)
 
-<br>
-
-```
+```js
 $("li:hidden")       // 匹配所有不可见元素，或 type 为 hidden 的元素
 $("li:visible")      // 匹配所有可见元素
 ```
 
-<br>
-
-## <a name="chapter-twenty-six-four" id="chapter-twenty-six-four">26.4 属性过滤选择器</a>
+### <a name="chapter-twenty-six-four" id="chapter-twenty-six-four">26.4 属性过滤选择器</a>
 
 > [返回目录](#catalog-chapter-twenty-six)
 
-<br>
-
-```
+```js
 $("div[id]")        // 所有含有 id 属性的 div 元素
 $("div[id='123']")        // id属性值为123的div 元素
 $("div[id!='123']")        // id属性值不等于123的div 元素
@@ -1726,30 +1663,22 @@ $("div[id*='bb']")        // id属性值包含bb的div 元素
 $("input[id][name$='man']") //多属性选过滤，同时满足两个属性的条件的元素
 ```
 
-<br>
-
-## <a name="chapter-twenty-six-five" id="chapter-twenty-six-five">26.5 状态过滤选择器</a>
+### <a name="chapter-twenty-six-five" id="chapter-twenty-six-five">26.5 状态过滤选择器</a>
 
 > [返回目录](#catalog-chapter-twenty-six)
 
-<br>
-
-```
+```js
 $("input:enabled")    // 匹配可用的 input
 $("input:disabled")   // 匹配不可用的 input
 $("input:checked")    // 匹配选中的 input
 $("option:selected")  // 匹配选中的 option
 ```
 
-<br>
-
-## <a name="chapter-twenty-six-six" id="chapter-twenty-six-six">26.6 表单选择器</a>
+### <a name="chapter-twenty-six-six" id="chapter-twenty-six-six">26.6 表单选择器</a>
 
 > [返回目录](#catalog-chapter-twenty-six)
 
-<br>
-
-```
+```js
 $(":input")      //匹配所有 input, textarea, select 和 button 元素
 $(":text")       //所有的单行文本框，$(":text") 等价于$("[type=text]")，推荐使用$("input:text")效率更高，下同
 $(":password")   //所有密码框
@@ -1761,93 +1690,77 @@ $(":button")     //所有button按钮
 $(":file")       //所有文件域
 ```
 
-<br>
-
-# <a name="chapter-twenty-seven" id="chapter-twenty-seven">二十七 插件扩展</a>
+## <a name="chapter-twenty-seven" id="chapter-twenty-seven">二十七 插件扩展</a>
 
 > [返回目录](#catalog-chapter-twenty-seven)
 
-<br>
+配合 jQuery 的插件，可以更好的进行工作。
 
-&emsp;配合 jQuery 的插件，可以更好的进行工作。
-
-<br>
-
-## <a name="chapter-twenty-seven-one" id="chapter-twenty-seven-one">27.1 jQuery Validate</a>
+### <a name="chapter-twenty-seven-one" id="chapter-twenty-seven-one">27.1 jQuery Validate</a>
 
 > [返回目录](#catalog-chapter-twenty-seven)
 
-<br>
+说明：jQuery Validate是在jQuery基础上扩展的为表单提供验证功能的插件。  
 
-&emsp;说明：jQuery Validate是在jQuery基础上扩展的为表单提供验证功能的插件。  
-&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-validate.html](https://www.runoob.com/jquery/jquery-plugin-validate.html)
+网址：[https://www.runoob.com/jquery/jquery-plugin-validate.html](https://www.runoob.com/jquery/jquery-plugin-validate.html)
 
-<br>
-
-## <a name="chapter-twenty-seven-two" id="chapter-twenty-seven-two">27.2 jQuery Accordion</a>
+### <a name="chapter-twenty-seven-two" id="chapter-twenty-seven-two">27.2 jQuery Accordion</a>
 
 > [返回目录](#catalog-chapter-twenty-seven)
 
-<br>
+说明：jQuery Accordion插件用于创建折叠菜单  
 
-&emsp;说明：jQuery Accordion插件用于创建折叠菜单  
-&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-accordion.html](https://www.runoob.com/jquery/jquery-plugin-accordion.html)
+网址：[https://www.runoob.com/jquery/jquery-plugin-accordion.html](https://www.runoob.com/jquery/jquery-plugin-accordion.html)
 
-<br>
-
-## <a name="chapter-twenty-seven-three" id="chapter-twenty-seven-three">27.3 jQuery Autocomplete</a>
+### <a name="chapter-twenty-seven-three" id="chapter-twenty-seven-three">27.3 jQuery Autocomplete</a>
 
 > [返回目录](#catalog-chapter-twenty-seven)
 
-<br>
+说明：jQuery Autocomplete插件根据用户输入值进行搜索和过滤  
 
-&emsp;说明：jQuery Autocomplete插件根据用户输入值进行搜索和过滤  
-&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-autocomplete.html](https://www.runoob.com/jquery/jquery-plugin-autocomplete.html)
+网址：[https://www.runoob.com/jquery/jquery-plugin-autocomplete.html](https://www.runoob.com/jquery/jquery-plugin-autocomplete.html)
 
-<br>
-
-## <a name="chapter-twenty-seven-four" id="chapter-twenty-seven-four">27.4 jQuery Growl</a>
+### <a name="chapter-twenty-seven-four" id="chapter-twenty-seven-four">27.4 jQuery Growl</a>
 
 > [返回目录](#catalog-chapter-twenty-seven)
 
-<br>
+说明：jQuery Growl用户做消息提醒  
 
-&emsp;说明：jQuery Growl用户做消息提醒  
-&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-message.html](https://www.runoob.com/jquery/jquery-plugin-message.html)
+网址：[https://www.runoob.com/jquery/jquery-plugin-message.html](https://www.runoob.com/jquery/jquery-plugin-message.html)
 
-<br>
-
-## <a name="chapter-twenty-seven-five" id="chapter-twenty-seven-five">27.5 jQuery Password Validation</a>
+### <a name="chapter-twenty-seven-five" id="chapter-twenty-seven-five">27.5 jQuery Password Validation</a>
 
 > [返回目录](#catalog-chapter-twenty-seven)
 
-<br>
+说明：jQuery Password Validation 在jQuery Validation 的基础上扩展，专门对密码进行验证  
 
-&emsp;说明：jQuery Password Validation 在jQuery Validation 的基础上扩展，专门对密码进行验证  
-&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-password-validation.html](https://www.runoob.com/jquery/jquery-plugin-password-validation.html)
+网址：[https://www.runoob.com/jquery/jquery-plugin-password-validation.html](https://www.runoob.com/jquery/jquery-plugin-password-validation.html)
 
-<br>
-
-## <a name="chapter-twenty-seven-six" id="chapter-twenty-seven-six">27.6 jQuery Prettydate</a>
+### <a name="chapter-twenty-seven-six" id="chapter-twenty-seven-six">27.6 jQuery Prettydate</a>
 
 > [返回目录](#catalog-chapter-twenty-seven)
 
-<br>
+说明：jQuery Prettydate为表单提供验证功能  
 
-&emsp;说明：jQuery Prettydate为表单提供验证功能  
-&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-prettydate.html](https://www.runoob.com/jquery/jquery-plugin-prettydate.html)
+网址：[https://www.runoob.com/jquery/jquery-plugin-prettydate.html](https://www.runoob.com/jquery/jquery-plugin-prettydate.html)
 
-<br>
-
-## <a name="chapter-twenty-seven-seven" id="chapter-twenty-seven-seven">27.7 jQuery Treeview</a>
+### <a name="chapter-twenty-seven-seven" id="chapter-twenty-seven-seven">27.7 jQuery Treeview</a>
 
 > [返回目录](#catalog-chapter-twenty-seven)
 
-<br>
+说明：jQuery Treeview提供无序灵活的可折叠树形菜单  
 
-&emsp;说明：jQuery Treeview提供无序灵活的可折叠树形菜单  
-&emsp;网址：[https://www.runoob.com/jquery/jquery-plugin-treeview.html](https://www.runoob.com/jquery/jquery-plugin-treeview.html)
+网址：[https://www.runoob.com/jquery/jquery-plugin-treeview.html](https://www.runoob.com/jquery/jquery-plugin-treeview.html)
 
-<br>
+---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a xmlns:dct="http://purl.org/dc/terms/" property="dct:title">**jsliang** 的文档库</a> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.om/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> **jsliang** 广告推送：  
+> 也许小伙伴想了解下云服务器  
+> 或者小伙伴想买一台云服务器  
+> 或者小伙伴需要续费云服务器  
+> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
+
+[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
