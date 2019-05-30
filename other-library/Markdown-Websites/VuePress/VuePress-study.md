@@ -2,7 +2,7 @@ VuePress 学习
 ===
 
 > Create by **jsliang** on **2018-10-20 10:34:39**  
-> Recently revised in **2019-05-30 15:49:24**
+> Recently revised in **2019-05-30 16:08:36**
 
 **小伙伴们如果觉得不错可以到 [jsliang 的文档库](https://github.com/LiangJunrong/document-library) 为 jsliang 点个 star，谢谢~**
 
@@ -178,11 +178,11 @@ module.exports = {
         items: [
           {
             text: '微信小程序 bug 集中营',
-            link: 'https://github.com/LiangJunrong/document-library/blob/master/other-library/WeChatApplet/WeChatAppletBug.md'
+            link: 'https://github.com/LiangJunrong/document-library'
           },
           {
             text: '使用 GitHub Pages 和 VuePress 搭建网站',
-            link: 'https://github.com/LiangJunrong/document-library/blob/master/other-library/GithubPages/GithubPages.md'
+            link: 'https://github.com/LiangJunrong/document-library'
           }
         ]
       },
@@ -297,6 +297,8 @@ OK，由于我们重新修改了首页（即 docs/README.md），所以我们重
 ## <a name="chapter-eight" id="chapter-eight">八 总结</a>
 
 > [返回目录](#chapter-one)
+
+至此，我们就完善了 VuePress 的 **入坑指南**，由于期间开发经历不太好，所以并没有坚持继续使用 VuePress，而是用了 GitBook，但是不排除有的小伙伴喜欢这种开发形式，所以在这里献上这篇 **入坑指南**，希望小伙伴们有愉快的编写文章的环境。
 
 ---
 
