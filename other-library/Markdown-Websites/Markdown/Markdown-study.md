@@ -2,7 +2,9 @@ Markdown 学习
 ===
 
 > create by **jsliang** on **2018-08-22 17:58:56**  
-> Recently revised in **2019-5-30 08:28:18**
+> Recently revised in **2019-05-30 16:16:12**
+
+**小伙伴们如果觉得不错可以到 [jsliang 的文档库](https://github.com/LiangJunrong/document-library) 为 jsliang 点个 star，谢谢~**
 
 什么是 Markdown？
 
