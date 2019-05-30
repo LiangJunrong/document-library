@@ -2,49 +2,40 @@ jQuery 工作常用解决方案
 ===
 
 > Create by **jsliang** on **2018-11-4 10:37:33**  
-> Recently revised in **2019-2-11 11:18:40**
+> Recently revised in **2019-05-30 23:46:19**
 
-<br>
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
-&emsp;**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/jQuery/jQueryFrequentlyUsed.md)**
+记录工作中，使用 jQuery、HTML、CSS 等技术的技巧，包括但不限于：`rem` 适配、`css reset`、活动边框、弹窗等。  
 
-&emsp;记录工作中，使用 jQuery、HTML、CSS 等技术的技巧，包括但不限于：`rem` 适配、`css reset`、活动边框、弹窗等。  
+比较琐碎，各取所需。
 
-&emsp;比较琐碎，各取所需。
+## 一 JavaScript
 
-<br>
+### 1.1 jQuery 引入
 
-# 一 JavaScript
+CDN：`<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>`
 
-<br>
+### 1.2 双引号与单引号的使用规范
 
-## 1.1 jQuery 引入
+在平时的时候，能使用双引号就用双引号。  
 
-&emsp;CDN：`<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>`
+在拼接字符串的时候，使用单引号裹住。
 
-<br>
+### 1.3 移动端rem适配
 
-## 1.2 双引号与单引号的使用规范
-
-&emsp;在平时的时候，能使用双引号就用双引号。  
-&emsp;在拼接字符串的时候，使用单引号裹住。
-
-<br>
-
-## 1.3 移动端rem适配
-
-&emsp;直接在 `index.html` 中引用该 `js` 文件即可。
+直接在 `index.html` 中引用该 `js` 文件即可。
 
 > mobile-terminal-adaptation.js
 
-```
+```js
 /*
  * 2018年7月25日10:38:23
- * 移动端rem适配，px:rem = 100:1
- * 该适配兼容UC竖屏转横屏出现的BUG
+ * 移动端 rem 适配，px:rem = 100:1
+ * 该适配兼容 UC 竖屏转横屏出现的BUG
  * 自定义设计稿的宽度：designWidth
- * 最大宽度:maxWidth
- * 这段js的最后面有两个参数记得要设置，一个为设计稿实际宽度，一个为制作稿最大宽度，例如设计稿为750，最大宽度为750，则为(750,750)
+ * 最大宽度: maxWidth
+ * 这段 js 的最后面有两个参数记得要设置，一个为设计稿实际宽度，一个为制作稿最大宽度，例如设计稿为 750，最大宽度为 750，则为(750,750)
  */
 ! function (e, t) {
   function n() {
@@ -74,13 +65,11 @@ jQuery 工作常用解决方案
 }(1000, 1000);
 ```
 
-<br>
+### 1.4 jQuery ajax
 
-## 1.4 jQuery ajax
+方法 1：
 
-&emsp;方法1：
-
-```
+```js
 $.ajax({
   url: host + '/addressInfo',
   type: 'get',
@@ -97,11 +86,9 @@ $.ajax({
 });
 ```
 
-<br>
+方法2：
 
-&emsp;方法2：
-
-```
+```js
 $.ajax({
     url: host + '/olduser/up',
     type: 'get',
@@ -120,21 +107,17 @@ $.ajax({
 })
 ```
 
-<br>
+### 1.5 URL加码及解码
 
-## 1.5 URL加码及解码
+加码：
 
-&emsp;加码：
-
-```
+```js
 window.location = "adslList.htm?name=" + escape(name) + "&idNo=" + escape(idNo);
 ```
 
-<br>
+解码：
 
-&emsp;解码：
-
-```
+```js
 function getUrlParam(name) {
   var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
   var r = window.location.search.substr(1).match(reg);
