@@ -2,17 +2,17 @@ JavaScript - Function
 ===
 
 > Create by **jsliang** on **2019-05-17 11:30:04**  
-> Recently revised in **2019-05-30 21:37:04**
+> Recently revised in **2019-05-30 21:41:33**
 
 记录一些 JavaScript 的关于 Function 的知识点。
 
 | 目录 |
 | --- |
-| [indexOf()](./indexOf.md) |
-| [map()](./map.md) |
-| [pop()](./pop.md) |
-| [sort()](./sort.md) |
-| [split()](./split.md) |
+| [方法 - indexOf()](./indexOf.md) |
+| [方法 - map()](./map.md) |
+| [方法 - pop()](./pop.md) |
+| [方法 - sort()](./sort.md) |
+| [方法 - split()](./split.md) |
 
 ---
 
