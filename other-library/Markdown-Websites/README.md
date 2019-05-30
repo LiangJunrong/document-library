@@ -2,7 +2,16 @@ Markdown 打造静态网站
 ===
 
 > Create by **jsliang** on **2019-5-29 08:08:12**  
-> Recently revised in **2019-5-30 09:01:43**
+> Recently revised in **2019-05-30 16:18:48**
+
+本系列教程涉及知识点：
+
+* Markdown
+* GitHub Pages
+* Git
+* npm
+* VuePress
+* GitBook
 
 Markdown 是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。
 
