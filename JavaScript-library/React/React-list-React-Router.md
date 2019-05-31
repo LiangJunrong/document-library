@@ -2,9 +2,9 @@ React List - React Router
 ===
 
 > Create by **jsliang** on **2019-04-26 13:13:18**  
-> Recently revised in **2019-04-29 15:25:01**
+> Recently revised in **2019-05-31 15:03:02**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactList-ReactRouter.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
 * [React 系列文章代码地址](https://github.com/LiangJunrong/React)
 
@@ -712,7 +712,7 @@ const ListItemLink = ({ to, ...rest }) => (
 
 **jsliang** 个人经验：
 
-1. 加了 `exact` 属性后，会完全匹配路径；如果没有加，则二级路径也会匹配当前路径（例如 `/timeline/book`）。
+**知识点 1**. 加了 `exact` 属性后，会完全匹配路径；如果没有加，则二级路径也会匹配当前路径（例如 `/timeline/book`）。
 
 ```js
 <BrowserRouter>
@@ -721,7 +721,7 @@ const ListItemLink = ({ to, ...rest }) => (
 </BrowserRouter>
 ```
 
-2. 我们可以动态设置 `extra` 的值，从而判断是否需要加载某个组件。
+**知识点 2**. 我们可以动态设置 `extra` 的值，从而判断是否需要加载某个组件。
 
 ```js
 const Home = () => <div>Home</div>;
@@ -823,8 +823,9 @@ const App = () => {
 
 所以，我们需要通过代码分割，依据不同的路由，加载不同的 js 文件。
 
-1. 安装 React Loadable：`npm i react-loadable -S`
-2. 结合 React Router 和 React Loadable 进行 Code Spliting：
+**步骤 1**. 安装 React Loadable：`npm i react-loadable -S`
+
+**步骤 2**. 结合 React Router 和 React Loadable 进行 Code Spliting：
 
 ```js
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -852,7 +853,7 @@ const App = () => (
 );
 ```
 
-3. 打包项目： `npm run build`
+**步骤 3**. 打包项目： `npm run build`
 
 ## <a name="chapter-fifteen" id="chapter-fifteen">十五 篇外三：Scroll To Top</a>
 
@@ -862,7 +863,7 @@ const App = () => (
 
 > [返回目录](#catalog-chapter-fifteen)
 
-1. **首先**，在全局 components 文件中定义 ScrollToTop 文件夹，其中 index.js 内容为：
+**首先**，在全局 components 文件中定义 ScrollToTop 文件夹，其中 index.js 内容为：
 
 > src/components/ScrollToTop/index.js
 
@@ -884,7 +885,7 @@ class ScrollToTop extends Component {
 export default withRouter(ScrollToTop);
 ```
 
-2. **然后**，在 App.js 或者其他页面中使用 ScrollToTop 功能：
+**然后**，在 App.js 或者其他页面中使用 ScrollToTop 功能：
 
 > src/App.js
 
@@ -916,7 +917,7 @@ function App() {
 export default App;
 ```
 
-3. **最后**，我们切换路由的时候，页面就会滚动到顶部。
+**最后**，我们切换路由的时候，页面就会滚动到顶部。
 
 ### <a name="chapter-fifteen-two" id="chapter-fifteen-two">15.2 页面滚动到顶部</a>
 
