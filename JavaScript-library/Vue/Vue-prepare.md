@@ -2,7 +2,7 @@ Vue 开发准备
 ===
 
 > Create by **jsliang** on **2018-12-24 11:54:30**  
-> Recently revised in **2019-3-13 11:11:31**
+> Recently revised in **2019-05-31 13:48:20**
 
 在使用 VueCli 开发之前，有些步骤是重复的，如果一个一个重新写过比较麻烦，故在此记录一些常用步骤。
 
@@ -99,8 +99,9 @@ Vue 开发准备
 
 > [返回目录](#chapter-one)
 
-1. 安装 less 和 less-loader：`cnpm i less less-loader -D`
-2. 添加 webpack 打包规则：
+**步骤 1**. 安装 less 和 less-loader：`cnpm i less less-loader -D`
+
+**步骤 2**. 添加 webpack 打包规则：
 
 > build/webpack.base.conf.js
 
@@ -111,7 +112,7 @@ Vue 开发准备
 }
 ```
 
-3. 在 style 中使用 less：
+**步骤 3**. 在 style 中使用 less：
 
 ```html
 <style lang="less" scoped>
@@ -124,7 +125,7 @@ Vue 开发准备
 </style>
 ```
 
-4. 引用下边的 reset.less 和 common.less
+**步骤 4**. 引用下边的 reset.less 和 common.less
 
 > App.vue
 
@@ -139,7 +140,7 @@ Vue 开发准备
 
 > [返回目录](#chapter-one)
 
-1. 引入重置样式表
+**步骤 1**. 引入重置样式表
 
 > static/css/reset.css
 
@@ -205,7 +206,7 @@ input::-moz-placeholder { color: #919191; font-size: .26rem } /* Mozilla Firefox
 input::-ms-input-placeholder { color: #919191; font-size: .26rem } /* Internet Explorer */
 ```
 
-2. 引用重置样式表
+**步骤 2**. 引用重置样式表
 
 > src/main.js
 
@@ -218,11 +219,11 @@ import '../static/css/reset.css'
 
 > [返回目录](#chapter-one)
 
-1. 在下面目录存放 ico 图片：[在线制作 ico 图标](http://www.bitbug.net/)
+**步骤 1**. 在下面目录存放 ico 图片：[在线制作 ico 图标](http://www.bitbug.net/)
 
 > static/img/icon.ico
 
-2. 引用左上角图标
+**步骤 2**. 引用左上角图标
 
 > index.html
 
@@ -280,8 +281,9 @@ new Vue({
 
 * 如果需要按需引用 ElementUI：
 
-1. 安装 babel 插件：`cnpm i babel-plugin-component -D`
-2. 修改 `.babelrc`：
+**步骤 1**. 安装 babel 插件：`cnpm i babel-plugin-component -D`
+
+**步骤 2**. 修改 `.babelrc`：
 
 > .babelrc
 
@@ -310,7 +312,7 @@ new Vue({
 }
 ```
 
-3. 按需引入 `Row` 与 `Col`：
+**步骤 3**. 按需引入 `Row` 与 `Col`：
 
 > main.js
 
@@ -372,8 +374,9 @@ import 'element-ui/lib/theme-chalk/display.css';
 
 > [返回目录](#chapter-one)
 
-1. 安装 Axios：`cnpm i axios -D`
-2. 封装 `api` 到 `src/api/api.js` 中
+**步骤 1**. 安装 Axios：`cnpm i axios -D`
+
+**步骤 2**. 封装 `api` 到 `src/api/api.js` 中
 
 > api.js
 
@@ -413,7 +416,7 @@ export const getUserName = data => request({
 })
 ```
 
-3. 在 `Pages` 中调用：
+**步骤 3**. 在 `Pages` 中调用：
 
 > UserInfo.vue
 
@@ -436,7 +439,7 @@ export default {
 }
 ```
 
-4. 设置 webpack 跨域 `index.js`：
+**步骤 4**. 设置 webpack 跨域 `index.js`：
 
 > config/index.js
 
@@ -451,7 +454,7 @@ dev: {
 },
 ```
 
-5. 更多参考：[Axios 中文说明](https://www.kancloud.cn/yunye/axios/234845)
+**步骤 5**. 更多参考：[Axios 中文说明](https://www.kancloud.cn/yunye/axios/234845)
 
 ### <a name="chapter-three-eight" id="chapter-three-eight">3.8 动态引用组件</a>
 
