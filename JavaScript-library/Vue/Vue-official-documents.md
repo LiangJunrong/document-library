@@ -2,7 +2,7 @@ Vue 官方文档二三事
 ===
 
 > Create by **jsliang** on **2019-1-14 10:40:32**  
-> Recently revised in **2019-1-22 08:31:29**
+> Recently revised in **2019-05-31 13:43:25**
 
 记录在阅读 Vue、VueRouter、VueCli 等官方文档时的一些笔记，仅供参考，不做意见发表。
 
@@ -50,7 +50,7 @@ Vue 官方文档二三事
 
 * 如果是 0 基础，推荐通过 CDN 引用 Vue：[BootCDN](https://www.bootcdn.cn/vue/)。
 
-```
+```html
 <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
 ```
 
@@ -96,15 +96,18 @@ npm i @vue/cli -g
 
 **watch** 与 **computed**：
 
-1. 对比一：
+**对比一**：
+
 * `computed` 强调计算。例如 `c = a + b`，因为你只要显示 `c`，所以不需要理会 `a` 与 `b` 的值是否动态传入，只需要使用 `computed` 监察 `c` 即可。
 * `watch` 属性强调自身值的变化前后的动作。如果需要完成 `c = a + b`，那么你需要 `watch` 数据 `a` 与 `b` 的变化，在这两者变化的时候，在方法中执行 `c = a + b`。
 
-2. 对比二：
+**对比二**：
+
 * `watch` 在处理异步操作或者开销较大的操作上有优势。执行异步操作不能串行返回结果、执行开销较大的操作避免堵塞主线程的时候，使用 `watch`。
 * 简单且串行返回的，使用 `computed`。
 
-3. 对比三：
+**对比三**：
+
 * `computed` 对绑定的值有依赖，如果每次操作的值不变化，则不进行计算，具有缓存特性。
 * `watch` 会侦听前后变化的状态，无论操作的值是否变化，都会执行定义的函数体，所以会有 `data(newVal, oldVal)`。
 
@@ -121,7 +124,7 @@ npm i @vue/cli -g
 
 > [返回目录](#catalog-chapter-two)
 
-1. 改变原数组的方法
+**改变原数组的方法**：
 
 * `push()` - 向数组尾部添加元素
 * `pop()` - 删除并导出数组最后一个元素
@@ -131,7 +134,7 @@ npm i @vue/cli -g
 * `sort()` - 排序
 * `reverse()` - 反转数组
 
-2. 不改变原数组的方法
+**不改变原数组的方法**：
 
 * `filter()` - 过滤数组
 * `concat()` - 拼接两至多个数组
@@ -226,7 +229,7 @@ npm i @vue/cli -g
 
 > src/mixins/mixins.js
 
-```
+```js
 export default {
   data() {
     return {
@@ -239,7 +242,7 @@ export default {
 
 > HomeHeader.vue
 
-```
+```js
 import mymixin from '../src/mixins/mixins'
 
 new Vue({
@@ -266,7 +269,7 @@ new Vue({
 
 > 测试代码.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -368,6 +371,7 @@ new Vue({
 * 可以针对某个路由进行守卫，即在 `new VueRouter({})` 中通过 `beforeEnter: (to, from, next) => {}` 进行守卫。
 * 可以直接在路由组件中定义：`beforeRouteEnter`、`beforeRouteUpdate` 以及 `beforeRouteLeave`。
 * 完整的导航解析流程：
+
 1. 导航被触发。
 2. 在失活的组件里调用离开守卫。
 3. 调用全局的 `beforeEach` 守卫。
@@ -421,9 +425,9 @@ new Vue({
 
 > [返回目录](#catalog-chapter-six)
 
-1. **组件名应该始终是多个单词的，根组件 App 除外**。这样做可以避免跟现有的以及未来的 HTML 元素相冲突，因为所有的 HTML 元素名称都是单个单词的。例如：`todo-item`、`TodoItem`。
+**知识点 1**. **组件名应该始终是多个单词的，根组件 App 除外**。这样做可以避免跟现有的以及未来的 HTML 元素相冲突，因为所有的 HTML 元素名称都是单个单词的。例如：`todo-item`、`TodoItem`。
 
-2. **只要有能够拼接文件的构建系统，就把每个组件单独分成文件**。例如：
+**知识点 2**. **只要有能够拼接文件的构建系统，就把每个组件单独分成文件**。例如：
 
 ```
 components/
@@ -431,7 +435,7 @@ components/
 |- TodoItem.vue
 ```
 
-3. **单文件组件的文件名应该要么始终是单词大写开头 `PascalCase`，要么始终是横线连接 `kebab-case`**。例如：
+**知识点 3**. **单文件组件的文件名应该要么始终是单词大写开头 `PascalCase`，要么始终是横线连接 `kebab-case`**。例如：
 
 ```
 components/
@@ -443,7 +447,7 @@ components/
 |- my-component.vue
 ```
 
-4. **基础文件名，即应用特定样式和约定的基础组件 (也就是展示类的、无逻辑的或无状态的组件) 应该全部以一个特定的前缀开头，比如 `Base`、`App` 或 `V`**。例如：
+**知识点 4**. **基础文件名，即应用特定样式和约定的基础组件 (也就是展示类的、无逻辑的或无状态的组件) 应该全部以一个特定的前缀开头，比如 `Base`、`App` 或 `V`**。例如：
 
 ```
 components/
@@ -459,7 +463,7 @@ components/
 |- VIcon.vue
 ```
 
-5. **如果某个组件，像菜单栏、左侧菜单一样，全局中只拥有一个，那就以 `The` 前缀命名**。例如：
+**知识点 5**. **如果某个组件，像菜单栏、左侧菜单一样，全局中只拥有一个，那就以 `The` 前缀命名**。例如：
 
 ```
 components/
@@ -467,7 +471,7 @@ components/
 |- TheSidebar.vue
 ```
 
-6. **和父组件紧密耦合的子组件应该以父组件名作为前缀命名**。例如：
+**知识点 6**. **和父组件紧密耦合的子组件应该以父组件名作为前缀命名**。例如：
 
 ```
 components/
@@ -476,7 +480,7 @@ components/
 |- TodoListItemButton.vue
 ```
 
-7. **组件名应该以高级别的 (通常是一般化描述的) 单词开头，以描述性的修饰词结尾；并且组件名应该倾向于完整单词而不是缩写**。例如：
+**知识点 7**. **组件名应该以高级别的 (通常是一般化描述的) 单词开头，以描述性的修饰词结尾；并且组件名应该倾向于完整单词而不是缩写**。例如：
 
 ```
 components/
@@ -502,7 +506,7 @@ components/
 
 > [返回目录](#catalog-chapter-six)
 
-1. **尽量别在组件模板中使用 JS 来 bb 套太多话语，毕竟 HTML 就尽量让它做 HTML 该有的事；更好的分类能使代码更加简洁易懂；并且将组件模板中多特性的元素分多行来写，看起来会更舒服点**。例如：
+**知识点 1**. **尽量别在组件模板中使用 JS 来 bb 套太多话语，毕竟 HTML 就尽量让它做 HTML 该有的事；更好的分类能使代码更加简洁易懂；并且将组件模板中多特性的元素分多行来写，看起来会更舒服点**。例如：
 
 ```
 |- HTML
@@ -533,7 +537,7 @@ computed: {
 }}
 ```
 
-2.  **尽可能在 HTML、CSS 中使用双引号（"），在 JS 中使用单引号（'）**。例如：
+**知识点 2**.  **尽可能在 HTML、CSS 中使用双引号（"），在 JS 中使用单引号（'）**。例如：
 
 ```
 <input type="text">
@@ -551,7 +555,7 @@ computed: {
 
 > [返回目录](#catalog-chapter-six)
 
-1. **在单文件组件、字符串模板和 `JSX` 中没有内容的组件应该是自闭合的，且使用 `PascalCase` 形式命名。然后在 `DOM` 模板中不应该闭合，且使用 `kebab-case` 形式命名**。例如：
+**知识点 1**. **在单文件组件、字符串模板和 `JSX` 中没有内容的组件应该是自闭合的，且使用 `PascalCase` 形式命名。然后在 `DOM` 模板中不应该闭合，且使用 `kebab-case` 形式命名**。例如：
 
 ```
 <!-- 在单文件组件、字符串模板和 JSX 中 -->
@@ -561,13 +565,13 @@ computed: {
 <my-component></my-component>
 ```
 
-2. **尽可能统一指令书写形式，例如统一用简写形式 `@` 及 `:` 或者统一用全拼形式 `v-bind` 及 `v-on`**。
+**知识点 2**. **尽可能统一指令书写形式，例如统一用简写形式 `@` 及 `:` 或者统一用全拼形式 `v-bind` 及 `v-on`**。
 
 ### <a name="chapter-six-four" id="chapter-six-four">6.4 JS 规范</a>
 
 > [返回目录](#catalog-chapter-six)
 
-1. **组件的 `data` 必须是一个函数**。当在组件中使用 `data` 属性的时候 (除了 new Vue 外的任何地方)，它的值必须是返回一个对象的函数。例如：
+**知识点 1**. **组件的 `data` 必须是一个函数**。当在组件中使用 `data` 属性的时候 (除了 new Vue 外的任何地方)，它的值必须是返回一个对象的函数。例如：
 
 ```
 data() {
@@ -577,7 +581,7 @@ data() {
 }
 ```
 
-2. **`Prop` 的定义应该尽量详细，至少指定其类型。并且在声明的时候采用 `camelCase`，在使用的时候采用 `kekab-case`**。例如：
+**知识点 2**. **`Prop` 的定义应该尽量详细，至少指定其类型。并且在声明的时候采用 `camelCase`，在使用的时候采用 `kekab-case`**。例如：
 
 ```
 <WelcomeMessage greeting-text="hi"/>
@@ -599,7 +603,7 @@ props: {
 }
 ```
 
-3. **总是用 `key` 配合 `v-for`**。`key` 的作用：a.`key` 的特殊属性主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。b. 在 `v-for` 中使用 `key`，方便 Vue 跟踪每个节点，从而重用和重新排序现有元素。例如：
+**知识点 3**. **总是用 `key` 配合 `v-for`**。`key` 的作用：a.`key` 的特殊属性主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。b. 在 `v-for` 中使用 `key`，方便 Vue 跟踪每个节点，从而重用和重新排序现有元素。例如：
 
 ```
 <ul>
@@ -611,7 +615,7 @@ props: {
 </transition>
 ```
 
-4. **永远不要把 `v-if` 和 `v-for` 同时用在同一个元素上**。例如：
+**知识点 4**. **永远不要把 `v-if` 和 `v-for` 同时用在同一个元素上**。例如：
 
 ```
 <ul v-if="shouldShowUsers">
@@ -628,7 +632,7 @@ props: {
 
 > [返回目录](#catalog-chapter-six)
 
-1. **为组件样式设置作用域**。给每个组件的 CSS 使用 `scoped`，避免组件之间的样式互相影响。
+**知识点 1**. **为组件样式设置作用域**。给每个组件的 CSS 使用 `scoped`，避免组件之间的样式互相影响。
 
 ```
 <style module>
@@ -639,7 +643,15 @@ props: {
 </style>
 ```
 
-> [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
-> **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
-> 基于 [https://github.om/LiangJunrong/document-library](https://github.om/LiangJunrong/document-library) 上的作品创作。  
-> 本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
+---
+
+> **jsliang** 广告推送：  
+> 也许小伙伴想了解下云服务器  
+> 或者小伙伴想买一台云服务器  
+> 或者小伙伴需要续费云服务器  
+> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
+
+[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
