@@ -2,22 +2,26 @@
 ===
 
 > create by **jsliang** on **2018年8月22日11:19:00**  
-> Recently revised in **2019-05-20 17:31:21**
+> Recently revised in **2019-05-31 16:59:10**
 
 ## 第一章 部署开发环境
-&emsp;为什么要部署个开发环境呢？我就不能直接将es6转成es5直接使用吗？回答是：可以啊！[链接拿去](https://www.cnblogs.com/yuanbo88/p/6389299.html)，里面告诉你怎么配置babel，将es6转es5。如果你觉得还要配置babel，也是挺麻烦的，[链接拿去](https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015,react,stage-2&targets=&browsers=&builtIns=false&debug=false&code=)，里面已经设置好了，直接在线将es8、es7、es6转es5，去吧少年~  
-&emsp;但是，怎么说呢，工欲善其事，必先利其器。一切的编程就是为了偷懒，所以jsliang配置个Webpack的es6环境，就是想：  
+
+为什么要部署个开发环境呢？我就不能直接将es6转成es5直接使用吗？回答是：可以啊！[链接拿去](https://www.cnblogs.com/yuanbo88/p/6389299.html)，里面告诉你怎么配置 babel，将 es6 转es5。
+
+如果你觉得还要配置babel，也是挺麻烦的，[链接拿去](https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015,react,stage-2&targets=&browsers=&builtIns=false&debug=false&code=)，里面已经设置好了，直接在线将es8、es7、es6转es5，去吧少年~  
+
+但是，怎么说呢，工欲善其事，必先利其器。一切的编程就是为了偷懒，所以jsliang配置个Webpack的es6环境，就是想：  
 
 * 偷懒。每次写完代码按Ctrl+C，就可以在另一个显示屏（jsliang两个显示屏的）直接看到编译结果了，而不是用命令行将ES6转为ES5.
 * 还是偷懒。有时候写个小项目，用原生搞的话，ES5有时候写起来不爽啊，能耍耍ES6就好了，到时候还要搞事情，转ES5、手机查看啥的，还不如直接配置好，到时候直接用啦。
 * 还是还是偷懒。要知道有些个玩意，叫vue-cli、react-cli、angular-cli，而且目前jsliang所知的，就是vue-cli是单页面SPA配置，到时候你要去搞多页面，还是需要学Webpack，所以事先学学，到时候就不用焦头烂额，又学react又搞Webpack啦~对了，顺带打个广告，Webpack的多页面配置jsliang已经配置好了，[Webpack学习链接拿去](https://github.com/LiangJunrong/webpack-study)、[多页面配置链接拿去](https://github.com/LiangJunrong/webpack-MPA-config)。  
 
-&emsp;好嘞，jsliang强行解释一通，不管你接不接受，反正我是接受了，部署开发环境走起~
-
-<br>
+好嘞，jsliang强行解释一通，不管你接不接受，反正我是接受了，部署开发环境走起~
 
 ### 1.1 打包JavaScript
-&emsp;**本节实现目的**：部署个能打包JavaScript的环境：
+
+* **本节实现目的**：部署个能打包 JavaScript 的环境：
+
 1. 执行命令行：`npm init -y`，初始化package.json文件。
 2. 执行命令行：`cnpm i webpack webpack-cli -D`，安装webpack及其命令行工具webpack-cli。
 3. 在根目录下新建src文件夹，并在里面新建index.js文件，该文件打印了个100。
