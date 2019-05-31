@@ -12,15 +12,15 @@ Vue
 
 | 目录 |
 | --- |
-| [Vue 基础 ✔](./Vue-base.md) |
-| [Vue 官方文档二三事 ✔](./Vue-official-documents.md) |
-| [Vue 开发准备 ✔](./Vue-prepare.md) |
-| [Axios ✘](./Axios.md) |
-| [Vue Router ✔](./Vue-Router.md) |
-| [Vue 上传文件 ✔](./Vue-upload-file.md) |
-| [Vue 部署优化 ✔](./Vue-deployment-optimization.md) |
-| [Vue Demo One - 功成千骨 ✔](./Vue-demo-one.md) |
-| [Vue Demo Two - 创意网站 ✘](./Vue-demo-two.md) |
+| [Vue 基础](./Vue-base.md) |
+| [Vue 官方文档二三事](./Vue-official-documents.md) |
+| [Vue 开发准备](./Vue-prepare.md) |
+| [Axios](./Axios.md) |
+| [Vue Router](./Vue-Router.md) |
+| [Vue 上传文件](./Vue-upload-file.md) |
+| [Vue 部署优化](./Vue-deployment-optimization.md) |
+| [Vue Demo One - 功成千骨](./Vue-demo-one.md) |
+| [Vue Demo Two - 创意网站](./Vue-demo-two.md) |
 
 ## <a name="chapter-two" id="chapter-two">二 写在前面</a>
 
