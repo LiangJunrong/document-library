@@ -1,8 +1,8 @@
-Angular Demo Two - Angular 股票管理平台
+Angular Demo Two - 股票管理平台
 ===
 
 > create by **jsliang** on **2018年9月5日17:28:51**   
-> Recently revised in **2018年9月6日16:47:36**
+> Recently revised in **2019-05-31 15:56:26**
 
 ## 前言
 
@@ -33,21 +33,25 @@ Angular 是一个开发平台。它能帮你更轻松的构建 Web 应用。Angu
 ### 1.1 Angular 的优点
 
 * 跨平台
+
 1. 渐进式应用：充分利用现代 Web 平台的各种能力，提供 App 式体验。高性能、离线使用、免安装。
 2. 原生：借助来自Ionic、NativeScript和React Native中的技术与思想，构建原生移动应用。
 3. 桌面：借助你已经在Web开发中学过的能力，结合访问原生操作系统API的能力，创造能在桌面环境下安装的应用，横跨Mac、Windows和Linux平台。
 
 * 速度与性能
+
 1. 代码生成：Angular会把你的模板转换成代码，针对现代JavaScript虚拟机进行高度优化，轻松获得框架提供的高生产率，同时又能保留所有手写代码的优点。
 2. 统一平台：在服务端渲染应用的首屏，像只有HTML和CSS的页面那样几乎瞬间展现，支持 Node.js®、.NET、PHP，以及其它服务器，为通过SEO来优化站点铺平了道路。
 3. 代码拆分：借助新的组件路由器，Angular可以实现快速加载。自动代码拆分机制可以让用户仅仅加载那些用于渲染所请求页面的代码。
 
 * 生产率
+
 1. 模板：通过简单而强大的模板语法，快速创建UI视图。
 2. Angular CLI：命令行工具：快速进入构建环节、添加组件和测试，然后立即部署。
 3. 各种 IDE：在常用IDE和编辑器中获得智能代码补全、实时错误反馈及其它反馈等特性。
 
 * 完整开发故事
+
 1. 测试：使用Karma进行单元测试，让你在每次存盘时都能立即知道是否弄坏了什么。Protractor则让你的场景测试运行得又快又稳定。
 2. 动画：通过Angular中直观简便的API创建高性能复杂编排和动画时间线 —— 只要非常少的代码。
 3. 可访问性：通过支持ARIA的组件、开发者指南和内置的一体化测试基础设施，创建具有完备可访问性的应用。
@@ -123,11 +127,11 @@ Angular 是一个开发平台。它能帮你更轻松的构建 Web 应用。Angu
 
 在我们启动 `npm run start` 的过程中，Angular 做了什么事呢？这边我们讲解下：
 
-1. 首先，Angular-CLI 根据 `npm run start`，打开 **package.json** 这个文件：
+**首先**，Angular-CLI 根据 `npm run start`，打开 **package.json** 这个文件：
 
 > package.json
 
-```
+```json
 {
   "name": "stock-management-platform",
   "version": "0.0.0",
@@ -179,9 +183,9 @@ Angular 是一个开发平台。它能帮你更轻松的构建 Web 应用。Angu
 
 ```   
 
-然后发现这文件告诉 Angular-CLI，执行 `ng serve`，即 `npm run start` === `ng serve`。然后，它定义了主入口为 **main.js**，那么，我们以此寻找，发现有个 **main.ts**，可以想到是 TypeScript 编译成 JavaScript，所以我们首先打开 **main.ts** 进行查看。
+**然后**，发现这文件告诉 Angular-CLI，执行 `ng serve`，即 `npm run start` === `ng serve`。然后，它定义了主入口为 **main.js**，那么，我们以此寻找，发现有个 **main.ts**，可以想到是 TypeScript 编译成 JavaScript，所以我们首先打开 **main.ts** 进行查看。
 
-2. 在 **main.ts** 中：
+在 **main.ts** 中：
 
 > main.ts
 
@@ -207,7 +211,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 我们可以看到，它设置了启动模块为 APPModule ，所以，我们通过路径 src/app/app.module 找到 **app.module.ts** 这个文件。
 
-3. 我们打开 **app.module.ts** ：
+**接着**，我们打开 **app.module.ts** ：
 
 ```
 // 这是 Angular 的模块文件
@@ -239,7 +243,7 @@ export class AppModule { }
 
 在这里，我们可以看到它的主组件为 AppComponent ，所以我们找到 AppComponent 的路径为 src/app/app.component.ts ，因此我们打开该文件。
 
-4. 我们打开 **app.component.ts** ：
+**再来**，我们打开 **app.component.ts** ：
 
 ```
 // 从 angular 核心中引用 Component 这个装饰器
@@ -260,11 +264,11 @@ export class AppComponent {
 
 OK，从装饰器中我们可以看到，我们这个组件，挂载到 **index.html** 的 app-root 这个节点中，而且其模板文件由 **app.component.html** 与 **app.component.css** 这两个文件形成。
 
-5. 由此，我们知道，通过编写 **app.component.html** 和 **app.component.css** ，我们形成了一个 app 的组件(可以看成为一块 HTML 片段，而 index.html 是一个页面)，挂载到 **index.html** 中。这样，我们就能够编写SPA模式的页面了。
+**最后**，我们知道，通过编写 **app.component.html** 和 **app.component.css** ，我们形成了一个 app 的组件(可以看成为一块 HTML 片段，而 index.html 是一个页面)，挂载到 **index.html** 中。这样，我们就能够编写SPA模式的页面了。
 
 > 模拟的 index.html
 
-```
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -297,9 +301,9 @@ OK，从装饰器中我们可以看到，我们这个组件，挂载到 **index.
 
 ## 3.1 安装依赖
 
-1. 安装引用 jquery 和 bootstrap：
+**步骤 1**. 安装引用 jquery 和 bootstrap：
 
-```
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -318,7 +322,7 @@ OK，从装饰器中我们可以看到，我们这个组件，挂载到 **index.
 </html>
 ```
 
-2. 安装 TS 类型描述文件： `npm i @types/jquery @types/bootstrap -D` (由于 TypeScript 中不支持 $ ，所以我们需要先安装类型描述文件，让 TypeScript 认识 jQuery 和 Bootstrap ，以免它报错)
+**步骤 2**. 安装 TS 类型描述文件： `npm i @types/jquery @types/bootstrap -D` (由于 TypeScript 中不支持 $ ，所以我们需要先安装类型描述文件，让 TypeScript 认识 jQuery 和 Bootstrap ，以免它报错)
 
 ### 3.2 新建组件
 
@@ -329,9 +333,7 @@ OK，从装饰器中我们可以看到，我们这个组件，挂载到 **index.
 5. 新建产品信息组件： `ng g component product`
 6. 新建星级评价组件： `ng g component stars`
 7. 查看是否有生成新的组件：
-
 ![图](../../public-repertory/img/js-angular-stock-management-platform-chapter3-1.png)
-
 8. 此时，发现 **app.module.ts** 变为：
 
 ```
@@ -378,7 +380,7 @@ export class AppModule { }
 
 > app.component.html
 
-```
+```html
 <app-navbar></app-navbar>
 <div class="container">
   <div class="row">
@@ -396,7 +398,7 @@ export class AppModule { }
 
 > navbar.component.html
 
-```
+```html
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">管理平台</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -424,7 +426,7 @@ export class AppModule { }
 
 > navbar.component.css
 
-```
+```css
 .navbar {
     margin-bottom: 30px;
 }
@@ -432,7 +434,7 @@ export class AppModule { }
 
 > footer.component.html
 
-```
+```html
 <div class="container">
   <hr>
   <footer>
@@ -447,7 +449,7 @@ export class AppModule { }
 
 > search.component.html
 
-```
+```html
 <form name="searchForm">
   <div class="form-group">
     <label for="productTitle">商品名称</label>
@@ -469,7 +471,7 @@ export class AppModule { }
 
 > carousel.component.html
 
-```
+```html
 <div class="row">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -589,7 +591,7 @@ export class Product {
 
 > product.component.html
 
-```
+```html
 <div class="row">
   <div *ngFor="let product of products" class="col-sm-4 col-md-4 col-lg-4">
     <div class="thumbnail">
@@ -644,19 +646,19 @@ export class Product {
 
 在路由时传递数据的方法有：
 
-1. 在查询参数中传递数据
+**方法 1**. 在查询参数中传递数据
 
 ```
 /product?id=1&name=2 => ActivatedRoute.queryParams[id]
 ```
 
-2. 在路由路径中传递参数
+**方法 2**. 在路由路径中传递参数
 
 ```
 {path:/product/:id} => /product/1 => ActivatedRoute.params[id]
 ```
 
-3. 在路由配置中传递参数
+**方法 3**. 在路由配置中传递参数
 
 ```
 {path:/product, component:ProductComponent, data:[{isProd:true}]} => ActivatedRoute.data[0][isProd]
@@ -774,4 +776,15 @@ www.aaa.com/x => www.aaa.com/y
 * 构建和部署
 * 多环境支撑
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+---
+
+> **jsliang** 广告推送：  
+> 也许小伙伴想了解下云服务器  
+> 或者小伙伴想买一台云服务器  
+> 或者小伙伴需要续费云服务器  
+> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
+
+[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
