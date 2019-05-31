@@ -2,7 +2,7 @@ Vue 基础
 ===
 
 > Create by **jsliang** on **2018-11-8 13:34:30**  
-> Recently revised in **2019-05-20 19:35:47**
+> Recently revised in **2019-05-31 13:31:39**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 你们的 **star** 是我学习的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/Vue/VueBase.md)**
 
@@ -74,7 +74,7 @@ Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -123,7 +123,7 @@ Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进
 
 现在，我们解析下代码运行：
 
-1. 首先，创建一个空白的 html 模板文件，通过 CDN 引用 Vue：
+**首先**，创建一个空白的 html 模板文件，通过 CDN 引用 Vue：
 
 > Vue 一般分两个版本：  
 > 开发版本：开发中有友好的错误提示。  
@@ -131,23 +131,23 @@ Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进
 
 > index.html 代码片段
 
-```
+```html
 <!-- 1. 引用 Vue -->
 <!-- Vue CDN - 提供 Vue 服务 -->
 <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
 ```
 
-2. 然后，我们编写一个挂载点，即我们的 Vue，最终会在哪个 DOM 里面进行操作：
+**然后**，我们编写一个挂载点，即我们的 Vue，最终会在哪个 DOM 里面进行操作：
 
-```
+```html
 <!-- 2. Vue 挂载点 - Vue 的虚拟 DOM 在这里操作到实际渲染 -->
 <!-- 简单理解为 jQuery 的拼接字符串（并不全是） -->
 <div id="app"></div>
 ```
 
-3. 最后，我们通过 New 一个 Vue 实例对象，对我们 id 为 `app` 的 DOM 节点进行操作：
+**最后**，我们通过 New 一个 Vue 实例对象，对我们 id 为 `app` 的 DOM 节点进行操作：
 
-```
+```js
 new Vue({
   // 3. el - 挂载目标，即渲染在哪个挂载点
   el: document.getElementById('app'),
@@ -173,7 +173,7 @@ new Vue({
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -231,13 +231,13 @@ new Vue({
 
 在这里，我们可以看到，我们在 `template` 中加了一个 `<p>` 标签，通过 `{{ text }}` 形式，引入了一个叫 `text` 的 `data` 数据：
 
-```
+```html
 <p>{{ text }}</p>
 ```
 
 接着我们在 `<scirpt>` 中定义了 `text` 的内容，从而实现数据渲染：
 
-```
+```js
 data() {
   return {
     // template 中要使用的数据
@@ -293,7 +293,7 @@ el: document.getElementById('app'),
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -360,7 +360,7 @@ el: document.getElementById('app'),
 
 关键代码讲解：
 
-```
+```html
 <div>
   <!-- 赋值 text 到 <p> 标签中 -->
   <p>{{ text }}</p>
@@ -408,7 +408,7 @@ el: document.getElementById('app'),
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -572,7 +572,7 @@ el: document.getElementById('app'),
 
 在这里，我们对代码进行下讲解：
 
-```
+```html
 <div>
   <!-- 
     1. v-html
@@ -682,7 +682,7 @@ v-bind 和 v-model 的区别：
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -748,23 +748,23 @@ v-bind 和 v-model 的区别：
 
 此刻我们分析下页面：
 
-1. **首先**，在上面的 `<button>` 中，我们通过 `@click` 绑定了事件 `addStyle`：
+**首先**，在上面的 `<button>` 中，我们通过 `@click` 绑定了事件 `addStyle`：
 
-```
+```html
 <button @click="addStyle">添加行内样式</button>
 ```
 
-2. **接着**，方法的编写，需要写到与 `data` 同级的 `methods` 中：
+**接着**，方法的编写，需要写到与 `data` 同级的 `methods` 中：
 
 ```
- methods: { // 方法
+methods: { // 方法
   addStyle: function(e) {
     e.toElement.style.background = "red"
   }
 }
 ```
 
-3. **然后**，我们通过传递参数 `e`，可以获取到点击的时候的元素，通过查找，我们发现它的样式所在的目录结构如下：
+**然后**，我们通过传递参数 `e`，可以获取到点击的时候的元素，通过查找，我们发现它的样式所在的目录结构如下：
 
 ```
 - button
@@ -773,7 +773,7 @@ v-bind 和 v-model 的区别：
       - background
 ```
 
-4. **最后**，我们在用户点击按钮的时候，直接修改了它的背景。
+**最后**，我们在用户点击按钮的时候，直接修改了它的背景。
 
 ### <a name="chapter-two-seven" id="chapter-two-seven">2.7 组件 - components</a>
 
@@ -810,7 +810,7 @@ v-bind 和 v-model 的区别：
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -892,7 +892,7 @@ v-bind 和 v-model 的区别：
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -965,7 +965,7 @@ v-bind 和 v-model 的区别：
 
 > 例如：
 
-```
+```js
 var MyHeader = {
   data() {
     return {
@@ -993,7 +993,7 @@ var MyHeader = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1094,7 +1094,7 @@ var MyHeader = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1209,7 +1209,7 @@ var MyHeader = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1317,7 +1317,7 @@ var MyHeader = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1410,7 +1410,7 @@ var MyHeader = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1500,7 +1500,7 @@ var MyHeader = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1635,7 +1635,7 @@ watch: {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1742,7 +1742,7 @@ watch: {
 
 **首先**，如上代码及其结果图，我们的 `new Vue` 中挂载了一个组件 `App`。
 
-```
+```js
 new Vue({
   el: document.getElementById('app'),
   components: {
@@ -1756,7 +1756,7 @@ new Vue({
 
 **然后**，该 `App` 的目的，是想动态引用一个 `li` 组件
 
-```
+```js
 var App = {
   template: `
     <div>
@@ -1773,7 +1773,7 @@ var App = {
 
 **接着**，我们在全局定义 `myLi` 组件的同时，通过 `<slot></slot>` 插槽，使它能够动态地加载 `dom` 节点。
 
-```
+```js
 var myLi = {
   template: `
     <li><slot></slot></li>
@@ -1785,7 +1785,7 @@ Vue.component('my-li', myLi);
 
 **最后**，我们在 `App` 中，传递给它不同的 `dom` 节点，从而动态生成 `App`。
 
-```
+```js
 var App = {
   template: `
     <div>
@@ -1810,7 +1810,7 @@ var App = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1929,7 +1929,7 @@ var App = {
 
 **首先**，我们通过下面代码可以知道，第一个 `li` 的 `slot` 是未命名的默认 `slot`，所以它在页面中展示为 `p` 的数据。
 
-```
+```js
 var mySlot = {
   template: `
     <ul>
@@ -2004,7 +2004,7 @@ var App = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2101,7 +2101,7 @@ var App = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2194,7 +2194,7 @@ var App = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2300,7 +2300,7 @@ var App = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2395,7 +2395,7 @@ var App = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2497,7 +2497,7 @@ var App = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2582,7 +2582,7 @@ var App = {
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2658,7 +2658,7 @@ var App = {
 
 然后发现元素 `$el`是 DOM 节点的内容，我们尝试打印出来看一下：
 
-```
+```js
 console.log(this.$refs.temp.$el);
 ```
 
@@ -2680,7 +2680,7 @@ console.log(this.$refs.temp.$el);
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2778,7 +2778,15 @@ console.log(this.$refs.temp.$el);
 
 如果小伙伴们不知道该怎么选择云服务器，可以查看 [详细介绍](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md) 或者加 **jsliang** QQ：`1741020489` 咨询。
 
-> [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
-> **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
-> 基于 [https://github.om/LiangJunrong/document-library](https://github.om/LiangJunrong/document-library) 上的作品创作。  
-> 本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
+---
+
+> **jsliang** 广告推送：  
+> 也许小伙伴想了解下云服务器  
+> 或者小伙伴想买一台云服务器  
+> 或者小伙伴需要续费云服务器  
+> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
+
+[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
