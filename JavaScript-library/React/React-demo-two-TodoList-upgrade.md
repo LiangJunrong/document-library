@@ -2,9 +2,9 @@ React Demo Two - TodoList 升级
 ===
 
 > create by **jsliang** on **2019-3-26 09:26:53**   
-> Recently revised in **2019-4-7 03:04:02**
+> Recently revised in **2019-05-31 15:18:52**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoTwo-TodoListUpgrade.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
 * [React 系列文章代码地址](https://github.com/LiangJunrong/React)
 
@@ -74,11 +74,7 @@ Redux-Base 项目最终目录如下，小伙伴可以先创建空文件放着，
 
 下面我们开始修改：
 
-> 1. src/index.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/index.js
 
 ```js
 import React from 'react';
@@ -88,13 +84,7 @@ import TodoList from './TodoList';
 ReactDOM.render(<TodoList />, document.getElementById('root'));
 ```
 
-</details>
-
-> 2. src/~~App.js~~ TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/~~App.js~~ TodoList.js
 
 ```js
 import React, { Component } from 'react';
@@ -113,19 +103,11 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
-> 3. src/index.css
-
-<details>
-
-  <summary>代码详情</summary>
+> src/index.css
 
 ```css
 /* 尚未进行编写 */
 ```
-
-</details>
 
 此时我们在终端运行 `npm run start`，显示结果为：
 
@@ -142,11 +124,7 @@ export default TodoList;
 * 安装：`npm i antd -S`
 * 使用：
 
-> 1. src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/TodoList.js
 
 ```js
 import React, { Component } from 'react'; // 引入 React 及其 Component
@@ -191,13 +169,7 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
-> 2. src/index.css
-
-<details>
-
-  <summary>代码详情</summary>
+> src/index.css
 
 ```css
 .todo {
@@ -220,8 +192,6 @@ export default TodoList;
   margin-top: 30px;
 }
 ```
-
-</details>
 
 在这里，我们引用 Ant Design 的步骤大致为：
 
@@ -248,11 +218,7 @@ export default TodoList;
 
 **首先**，我们编写 reducer.js 文件，该文件的作用是定义并处理数据：
 
-> 1. src/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/store/reducer.js
 
 ```js
 // 1. 我们定义一个数据 defaultState
@@ -272,15 +238,9 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
 **然后**，我们编写 index.js 文件，该文件的作用是通过 createStore 方法创建数据仓库并导出去给 TodoList.js 使用。
 
-> 2. src/store/index.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/store/index.js
 
 ```js
 import { createStore } from 'redux'; // 3. 我们引用 redux 这个库中的 createStore
@@ -293,15 +253,9 @@ const store = createStore(reducer);
 export default store;
 ```
 
-</details>
-
 **最后**，我们在 TodoList.js 中引用 store/index.js 并到列表中进行使用，以及打印出来 store 传递给我们的数据：
 
-> 3. src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/TodoList.js
 
 ```js
 import React, { Component } from 'react'; // 引入 React 及其 Component
@@ -349,8 +303,6 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
 这时候，我们查看 Chrome 控制台和页面，发现它的确起作用了：
 
 ![图](../../public-repertory/img/js-react-demo-two-4.png)
@@ -378,10 +330,6 @@ export default TodoList;
 
 > src/store/index.js
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 import { createStore } from 'redux';
 import reducer from './reducer';
@@ -394,8 +342,6 @@ const store = createStore(
 
 export default store;
 ```
-
-</details>
 
 ### <a name="chapter-six-two" id="chapter-six-two">6.2 Redux 知识点讲解</a>
 
@@ -443,11 +389,7 @@ export default store;
 
 > [返回目录](#chapter-one)
 
-> 1. src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/TodoList.js
 
 ```js
 import React, { Component } from 'react'; // 引入 React 及其 Component
@@ -529,13 +471,7 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
-> 2. src/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/store/reducer.js
 
 ```js
 // 定义一个数据 defaultState
@@ -566,8 +502,6 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
 此时，我们打开控制台，一边在 Input 输入框输入内容，一边查看 Console 输出，会发现：
 
 ![图](../../public-repertory/img/js-react-demo-two-7.gif)
@@ -588,10 +522,6 @@ export default (state = defaultState, action) => {
 * 前往：[6.2 Redux 知识点讲解](#chapter-six-two)
 
 > 参考：计数器
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import { createStore } from 'redux';
@@ -637,8 +567,6 @@ store.dispatch({ type: 'DECREMENT' });
 // 1
 ```
 
-</details>
-
 ### <a name="chapter-seven-two" id="chapter-seven-two">7.2 Button 提交数据</a>
 
 > [返回目录](#chapter-one)
@@ -646,10 +574,6 @@ store.dispatch({ type: 'DECREMENT' });
 下面，我们为 Input 提供回车事件，以及使用 Button 的提交事件，小伙伴们可以参照 Input 的输入事件，先自行编写，写完再查看这个章节收获会更大。
 
 > src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react'; // 引入 React 及其 Component
@@ -757,13 +681,7 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
 > src/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 定义一个数据 defaultState
@@ -802,8 +720,6 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
 这时候，我们的 Button 提交事件都处理完毕了，此时页面的功能实现：
 
 ![图](../../public-repertory/img/js-react-demo-two-8.gif)
@@ -828,10 +744,6 @@ OK，我们再来梳理一遍流程：
 那么接下来，我们再给列表项点击添加删除事件。
 
 > src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react'; // 引入 React 及其 Component
@@ -953,13 +865,7 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
 > src/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 定义一个数据 defaultState
@@ -1005,8 +911,6 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
 现在我们先进行功能演示：
 
 ![图](../../public-repertory/img/js-react-demo-two-9.gif)
@@ -1044,10 +948,6 @@ export default (state = defaultState, action) => {
 
 > src/store/actionTypes.js
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 // 1. 定义 actionTypes
 export const CHANGE_INPUT_VALUE = 'change_input_value';
@@ -1055,15 +955,9 @@ export const ADD_TODO_ITEM =  'add_todo_item';
 export const DELETE_TODO_ITEM = 'delete_todo_item';
 ```
 
-</details>
-
 然后在 TodoList.js 和 reducer.js 中使用：
 
 > src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react'; // 引入 React 及其 Component
@@ -1189,13 +1083,7 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
 > src/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './actionTypes'; // 2. 引用 actionTypes
@@ -1246,8 +1134,6 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
 另外，抽取 actionTypes.js 的意义在于，固定 action.type 值，从而不会因为在两处不同地方使用，导致报错。
 
 ## <a name="chapter-night" id="chapter-night">九 优化：抽取整个 action</a>
@@ -1261,10 +1147,6 @@ export default (state = defaultState, action) => {
 我们在 store 目录中新建一个 actionCreators.js：
 
 > src/store/actionCreators.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 1. 引入 actionTypes
@@ -1286,15 +1168,9 @@ export const getItemDeleteAction = (index) => ({
 })
 ```
 
-</details>
-
 机智的小伙伴，看到这里，应该就明白我们的意图了，所以，我们再修改下 TodoList.js 即可：
 
 > src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -1385,8 +1261,6 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
 这样，我们就把整个 `action` 抽取出来了，在大型项目中，对我们的工作会非常方便。
 
 ## <a name="chapter-ten" id="chapter-ten">十 优化：UI 组件和容器组件</a>
@@ -1403,10 +1277,6 @@ export default TodoList;
 在这里，我们进行组件的拆分：
 
 > src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -1481,15 +1351,9 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
 在这里，我们将 render 中的内容抽取到子组件，该子组件在 src 目录下，叫 TodoListUI，我们将 TodoList.js 当成容器组件中，只需要将数据传递给 TodoListUI 就行了，然后我们编写 UI 组件内容：
 
 > src/TodoListUI.js
- 
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 3. 引入 Input 等组件
@@ -1541,8 +1405,6 @@ class TodoListUI extends Component {
 export default TodoListUI;
 ```
 
-</details>
-
 这样，我们就完成了 UI 组件和容器组件的拆分。
 
 我们所做的内容有：
@@ -1566,10 +1428,6 @@ export default TodoListUI;
 在 TodoList 这个项目中，我们的 TodoListUI 就只做了 render() 工作，所以可以将 TodoListUI 作为一个无状态组件：
 
 > src/TodoListUI
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 1. 我们不需要 react 中的 Component 了
@@ -1623,8 +1481,6 @@ const TodoListUI = (props) => {
 export default TodoListUI;
 ```
 
-</details>
-
 在这里，大致做了 5 项工作：
 
 1. 我们不需要 react 中的 `Component` 了，所以我们去掉了 `Component`
@@ -1643,10 +1499,6 @@ export default TodoListUI;
 * 在 `componentDidMount` 中获取接口数据，并走流程，最终渲染到页面上：
 
 > TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -1732,13 +1584,7 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
 > actionCreators.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 5. 从 actionTypes 引入 INIT_LIST_ACTION
@@ -1765,13 +1611,7 @@ export const initListAction = (data) => ({
 })
 ```
 
-</details>
-
 > actionTypes.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 export const CHANGE_INPUT_VALUE = 'change_input_value';
@@ -1781,13 +1621,7 @@ export const DELETE_TODO_ITEM = 'delete_todo_item';
 export const INIT_LIST_ACTION = 'init_list_action';
 ```
 
-</details>
-
 > reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 9. 从 actionTypes 引用 INIT_LIST_ACTION
@@ -1829,8 +1663,6 @@ export default (state = defaultState, action) => {
   return state;
 }
 ```
-
-</details>
 
 这样，我们就完成了 axios 的调用，并渲染到页面上，整理出来，思路为：
 
@@ -1898,10 +1730,6 @@ export default (state = defaultState, action) => {
 
 > test.js
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -1913,15 +1741,9 @@ const store = createStore(
 )
 ```
 
-</details>
-
 很好看上去非常 easy 有木有，那么我们在项目中尝试一下。
 
 > src/store/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 2. 从 redux 中引入 applyMiddleware，applyMiddleware 的作用是应用 redux 中间件
@@ -1948,8 +1770,6 @@ const store = createStore(
 export default store;
 ```
 
-</details>
-
 在这里，我们做了几件事：
 
 1. 从 `redux-thunk` 中引入 `thunk`
@@ -1964,10 +1784,6 @@ export default store;
 接下来，我们就要使用 `redux-thunk` 了
 
 > src/store/actionCreators.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_ACTION } from './actionTypes';
@@ -2007,13 +1823,7 @@ export const getTodoList = () => {
 }
 ```
 
-</details>
-
 > src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -2088,8 +1898,6 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
 看到这里，我们或许已经懵逼，所以先瞅瞅思路：
 
 1. 把 `axios` 从 TodoList.js 中剪切到 actionCreators.js 中
@@ -2134,10 +1942,6 @@ export default TodoList;
 
 > test.js
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
@@ -2159,17 +1963,11 @@ sagaMiddleware.run(mySaga)
 // render the application
 ```
 
-</details>
-
 噗呲，可以看出，Redux-Saga 的引用方式跟 Redux-Thunk 一样简单。但是，请抱着接受一定复杂性的形式继续学习。
 
 下面我们操作 store 目录下的 index.js 文件，进行 Redux-Saga 的引用：
 
 > src/store/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 1. 引入 applyMiddleware 和 compose 进行多个中间件的处理
@@ -2202,13 +2000,7 @@ sagaMiddleware.run(todoSaga);
 export default store;
 ```
 
-</details>
-
 > src/store/sagas.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 8. 使用 generator 函数定义 todoSaga
@@ -2219,8 +2011,6 @@ function* todoSaga() {
 // 9. 将 generator 函数导出去
 export default todoSaga;
 ```
-
-</details>
 
 如此，我们就完成了 Redux-Saga 的引用，大致做了如下步骤：
 
@@ -2238,11 +2028,7 @@ export default todoSaga;
 
 下面我们将 `componentDidMount()` 方法中的 `axios.get()` 这些异步接口提取到 `src/store/sagas.js` 中进行处理：
 
-> 1. src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/TodoList.js
 
 ```js
 import React, { Component } from 'react';
@@ -2316,13 +2102,7 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
-> 2. src/store/actionCreators.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/store/actionCreators.js
 
 ```js
 // 2. 导入 actionTypes.js 中的 GET_INIT_LIST
@@ -2353,13 +2133,7 @@ export const getInitList = () => ({
 });
 ```
 
-</details>
-
-> 3. src/store/actionTypes.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/store/actionTypes.js
 
 ```js
 export const CHANGE_INPUT_VALUE = 'change_input_value';
@@ -2370,13 +2144,7 @@ export const INIT_LIST_ACTION = 'init_list_action';
 export const GET_INIT_LIST = 'get_init_list';
 ```
 
-</details>
-
-> 4. src/store/sagas.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/store/sagas.js
 
 ```js
 // 6. 引用 redux-saga/effets 中的 takeEvery
@@ -2411,8 +2179,6 @@ function* getInitList() {
 
 export default todoSaga;
 ```
-
-</details>
 
 这样，我们就把调用接口的异步请求函数，抽取到了 sagas.js 文件中，期间我们做了：
 
@@ -2458,11 +2224,7 @@ export default todoSaga;
 
 下面 **jsliang** 贴出自己的初始化后的代码：
 
-> 1. src/index.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/index.js
 
 ```js
 import React from 'react';
@@ -2472,13 +2234,7 @@ import TodoList from './TodoList';
 ReactDOM.render(<TodoList />, document.getElementById('root'));
 ```
 
-</details>
-
 > 2. src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -2520,13 +2276,7 @@ class TodoList extends Component {
 export default TodoList;
 ```
 
-</details>
-
 > 3. src/index.css
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```css
 .todo {
@@ -2550,13 +2300,7 @@ export default TodoList;
 }
 ```
 
-</details>
-
 > 4. src/store/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import { createStore } from 'redux';
@@ -2567,13 +2311,7 @@ const store = createStore(reducer);
 export default store;
 ```
 
-</details>
-
 > 5. src/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 const defaultState = {
@@ -2591,8 +2329,6 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
 此时页面展示为第四章最后的页面样子：
 
 ![图](../../public-repertory/img/js-react-demo-two-3.png)
@@ -2605,10 +2341,6 @@ export default (state = defaultState, action) => {
 我们在 `src/index.js` 中引用 `react-redux`：
 
 > src/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React from 'react';
@@ -2631,15 +2363,9 @@ const App = (
 ReactDOM.render(App, document.getElementById('root'));
 ```
 
-</details>
-
 接着可以在 `src/TodoList.js` 中使用：
 
 > src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -2693,8 +2419,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, null)(TodoList);
 ```
 
-</details>
-
 现在，我们发现代码仍能正常运行，我们分析下我们做了什么步骤：
 
 1. 引入 `react-redux` 的 `Provider`
@@ -2715,10 +2439,6 @@ export default connect(mapStateToProps, null)(TodoList);
 下面我们再试试修改 `store` 的值：
 
 > src/TodoList.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -2784,15 +2504,9 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
 ```
 
-</details>
-
 在修改 `src/reducer.js`：
 
 > src/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 const defaultState = {
@@ -2816,8 +2530,6 @@ export default (state = defaultState, action) => {
   return state;
 }
 ```
-
-</details>
 
 这时候，我们做了 7 个步骤：
 
