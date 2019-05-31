@@ -2,9 +2,9 @@ React Demo Three - 简书
 ===
 
 > Create by **jsliang** on **2019-4-7 19:37:41**  
-> Recently revised in **2019-04-23 09:40:45**
+> Recently revised in **2019-05-31 15:34:04**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoThree-JianShu.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
 * [React 系列文章代码地址](https://github.com/LiangJunrong/React)
 
@@ -85,10 +85,6 @@ React 的学习，迈开 TodoList，进一步前行。
 
 > src/reset.css
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 /* 
   * reset 的目的不是让默认样式在所有浏览器下一致，而是减少默认样式有可能带来的问题。
@@ -155,17 +151,11 @@ input::-moz-placeholder { color: #919191; font-size: 1em } /* Mozilla Firefox */
 input::-ms-input-placeholder { color: #919191; font-size: 1em } /* Internet Explorer */
 ```
 
-</details>
-
 顺带创建一个空的全局样式 index.css 文件。
 
 并在 index.js 中引入 reset.css 和 index.css。
 
 > src/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React from 'react';
@@ -177,8 +167,6 @@ import './index.css';
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-</details>
-
 ## <a name="chapter-four" id="chapter-four">四 创建 React 头部组件</a>
 
 > [返回目录](#chapter-one)
@@ -186,10 +174,6 @@ ReactDOM.render(<App />, document.getElementById('root'));
 **首先**，在 src 目录下，新建 common 目录，并在 common 目录下，新建 header 目录，其中的 index.js 内容如下：
 
 > src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -207,15 +191,9 @@ class Header extends Component {
 export default Header;
 ```
 
-</details>
-
 **然后**，我们在 App.js 中引入 header.js：
 
 > src/App.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -234,9 +212,7 @@ class App extends Component {
 export default App;
 ```
 
-</details>
-
-最后，页面显示为：
+**最后**，页面显示为：
 
 ![图](../../public-repertory/img/js-react-demo-three-4.png)
 
@@ -249,10 +225,6 @@ export default App;
 **首先**，我们编写 src/common/header 下的 index.js：
 
 > src/common/heder/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -329,15 +301,9 @@ class Header extends Component {
 export default Header;
 ```
 
-</details>
-
 **然后**，我们添加 CSS 样式：
 
 > src/common/heder/index.css
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```css
 header {
@@ -422,15 +388,9 @@ header {
 }
 ```
 
-</details>
-
 **接着**，由于图标这些，我们可以抽取到公用样式表中，所以我们在 src 目录下添加 common.css：
 
 > src/common.css
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```css
 .icon {
@@ -457,17 +417,11 @@ header {
 }
 ```
 
-</details>
-
 当然，我们需要位置存放图片，所以需要在 src 目录下，新建 recourses 目录，recourses 目录下存放 img 文件夹，该文件夹存放这些图标文件。
 
 **最后**，我们在 src 下的 index.js 中引用 common.css
 
 > src/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React from 'react';
@@ -479,8 +433,6 @@ import './common.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
-
-</details>
 
 至此，我们页面展示为：
 
@@ -497,10 +449,6 @@ ReactDOM.render(<App />, document.getElementById('root'));
 修改代码：
 
 > src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -587,13 +535,7 @@ class Header extends Component {
 export default Header;
 ```
 
-</details>
-
 > src/common/header/index.css
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```css
 header {
@@ -692,8 +634,6 @@ header {
 }
 ```
 
-</details>
-
 这样，经过四个操作步骤：
 
 1. 安装动画库：`npm i react-transition-group -S`
@@ -713,13 +653,9 @@ header {
 * 安装 React-Redux：`npm i react-redux -S`
 * 开始在代码中加入 Redux 和 React-Redux
 
-1. **首先**，创建 store 文件夹，并在里面创建 index.js 和 reducer.js：
+**首先**，创建 store 文件夹，并在里面创建 index.js 和 reducer.js：
 
 > src/store/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import { createStore } from 'redux';
@@ -730,13 +666,7 @@ const store = createStore(reducer);
 export default store;
 ```
 
-</details>
-
 > src/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 const defaultState = {
@@ -748,15 +678,9 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
-2. **接着**，在 App.js 中引用 react-redux 以及 store/index.js：
+**接着**，在 App.js 中引用 react-redux 以及 store/index.js：
 
 > src/App.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -777,15 +701,9 @@ class App extends Component {
 export default App;
 ```
 
-</details>
-
-3. **然后**，修改 src 下 common 中 header 里面 index.js 中的内容：
+**然后**，修改 src 下 common 中 header 里面 index.js 中的内容：
 
 > src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -871,15 +789,9 @@ const mapDispathToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispathToProps)(Header);
 ```
 
-</details>
-
-4. **再来**，我们再修改下 reducer.js，获取并处理 src/index.js 中 `dispatch` 过来的值：
+**再来**，我们再修改下 reducer.js，获取并处理 src/index.js 中 `dispatch` 过来的值：
 
 > src/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 const defaultState = {
@@ -896,15 +808,9 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
-5. **此时**，我们完成了修改的步骤。同时，这时候因为 src 下 common 中 header 里面的 index.js 中只有 `render` 方法体，它构成了无状态组件，所以我们将其转换成无状态组件：
+**此时**，我们完成了修改的步骤。同时，这时候因为 src 下 common 中 header 里面的 index.js 中只有 `render` 方法体，它构成了无状态组件，所以我们将其转换成无状态组件：
 
 > src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React from 'react';
@@ -988,9 +894,7 @@ const mapDispathToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispathToProps)(Header);
 ```
 
-</details>
-
-6. **最后**，我们完成了 Redux、React-Redux 的引用及使用，以及对 header/index.js 的无状态组件的升级。
+**最后**，我们完成了 Redux、React-Redux 的引用及使用，以及对 header/index.js 的无状态组件的升级。
 
 > 由于我们只是将必要的数据存储到 state 中，所以样式和功能无变化，故不贴出效果图。
 
@@ -1002,10 +906,6 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 > src/store/index.js
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 import { createStore, compose } from 'redux';
 import reducer from './reducer';
@@ -1016,8 +916,6 @@ const store = createStore(reducer, composeEnhancers())
 
 export default store;
 ```
-
-</details>
 
 这时候，我们就成功开启之前安装过的 redux-devtools-extension 插件。
 
@@ -1039,10 +937,6 @@ export default store;
 
 > src/common/header/store/reducer.js
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 // 1. 将 reducer.js 转移到 header/store/reducer.js 中
 const defaultState = {
@@ -1059,15 +953,9 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
 **然后**，我们修改 src/store/reducer.js 的内容为：
 
 > src/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 2. 通过 combineReducers 整合多个 reducer.js 文件
@@ -1081,15 +969,9 @@ const reducer =  combineReducers({
 export default reducer;
 ```
 
-</details>
-
 **最后**，我们修改 src/common/header/index.js 内容：
 
 > src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 代码省略 。。。
@@ -1102,8 +984,6 @@ const mapStateToProps = (state) => {
 // 代码省略 。。。
 ```
 
-</details>
-
 在这里，我们需要知道的是：之前我们只有一层目录，所以修改的是 `state.inputBlur`。
 
 但是，因为通过 `combineReducers` 将 reducer.js 进行了整合，所以需要修改为 `state.header.inputBlur`
@@ -1114,13 +994,9 @@ const mapStateToProps = (state) => {
 
 > [返回目录](#chapter-one)
 
-1. **首先**，在 header 的 store 中新建 actionCreators.js 文件：
+**首先**，在 header 的 store 中新建 actionCreators.js 文件：
 
 > src/common/header/store/actionCreators.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 1. 定义 actionCreators
@@ -1129,15 +1005,9 @@ export const searchFocusOrBlur = () => ({
 })
 ```
 
-</details>
-
-2. **然后**，我们在 header 中的 index.js 文件引入 actionCreators.js，并在 `mapDispathToProps` 方法体中将其 `dispatch` 出去：
+**然后**，我们在 header 中的 index.js 文件引入 actionCreators.js，并在 `mapDispathToProps` 方法体中将其 `dispatch` 出去：
 
 > src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React from 'react';
@@ -1221,29 +1091,17 @@ const mapDispathToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispathToProps)(Header);
 ```
 
-</details>
-
-3. **接着**，因为我们在 actionCreators.js 中使用的 `type` 是字符串，所以我们同样在 store 中创建 actionTypes.js，将其变成常量：
+**接着**，因为我们在 actionCreators.js 中使用的 `type` 是字符串，所以我们同样在 store 中创建 actionTypes.js，将其变成常量：
 
 > src/common/header/store/actionTypes.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 export const SEARCH_FOCUS_OR_BLUR = 'search_focus_or_blur';
 ```
 
-</details>
-
-4. **再然后**，我们在 actionCreators.js 中引入 actionTypes.js：
+**再然后**，我们在 actionCreators.js 中引入 actionTypes.js：
 
 > src/common/header/store/actionCreators.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 4. 引入常量
@@ -1256,15 +1114,9 @@ export const searchFocusOrBlur = () => ({
 })
 ```
 
-</details>
-
-5. **再接着**，我们修改下 header 目录中 store 下的 reducer.js，因为我们的字符串变成了常量，所以这里也需要做相应变更：
+**再接着**，我们修改下 header 目录中 store 下的 reducer.js，因为我们的字符串变成了常量，所以这里也需要做相应变更：
 
 > src/common/header/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 6. 引入常量
@@ -1285,15 +1137,9 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
-6. **然后**，我们现在 header/store 目录下有：actionCreators.js、actionTypes.js、reducer.js 三个文件，如果我们每次引入都要一个一个找，那是相当麻烦的，所以我们在 header/store 目录下再新建一个 index.js，通过 index.js 来管理这三个文件，这样我们其他页面需要引入它们的时候，我们只需要引入 store 下的 index.js 即可。
+**然后**，我们现在 header/store 目录下有：actionCreators.js、actionTypes.js、reducer.js 三个文件，如果我们每次引入都要一个一个找，那是相当麻烦的，所以我们在 header/store 目录下再新建一个 index.js，通过 index.js 来管理这三个文件，这样我们其他页面需要引入它们的时候，我们只需要引入 store 下的 index.js 即可。
 
 > src/common/header/store/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 8. 统一管理 store 目录中的文件
@@ -1304,13 +1150,7 @@ import reducer from './reducer';
 export { actionCreators, actionTypes, reducer };
 ```
 
-</details>
-
-7. **此时**，值得注意的是，这时候我们需要处理下 header/index.js 文件：
-
-<details>
-
-  <summary>代码详情</summary>
+**此时**，值得注意的是，这时候我们需要处理下 header/index.js 文件：
 
 ```js
 import React from 'react';
@@ -1327,13 +1167,7 @@ import homeImage from '../../resources/img/header-home.png';
 // 代码省略
 ```
 
-</details>
-
-8. **最后**，再处理下 src/store/reducer.js，因为它引用了 common/header/store 中的 reducer.js：
-
-<details>
-
-  <summary>代码详情</summary>
+**最后**，再处理下 src/store/reducer.js，因为它引用了 common/header/store 中的 reducer.js：
 
 ```js
 import { combineReducers } from 'redux';
@@ -1346,8 +1180,6 @@ const reducer =  combineReducers({
 
 export default reducer;
 ```
-
-</details>
 
 至此，我们就完成了本次的优化抽取。
 
@@ -1373,10 +1205,6 @@ map1.get('b') + " vs. " + map2.get('b'); // 2 vs. 50
 
 > src/common/header/store/reducer.js
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 import * as actionTypes from './actionTypes'
 // 1. 通过 immutable 引入 fromJS
@@ -1401,13 +1229,7 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
 > src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React from 'react';
@@ -1490,8 +1312,6 @@ const mapDispathToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispathToProps)(Header);
 ```
 
-</details>
-
 我们大致做了四个步骤，从而完成了 immutable.js 的引用及使用：
 
 1. 通过 `import` `immutable` 引入 `fromJS`
@@ -1518,10 +1338,6 @@ inputBlur: state.header.get('inputBlur')
 
 > src/store/reducer.js
 
-<details>
-
-  <summary>代码详情</summary>
-
 ```js
 // import { combineReducers } from 'redux';
 // 1. 通过 redux-immutable 引入 combineReducers 而非原先的 redux
@@ -1535,13 +1351,7 @@ const reducer =  combineReducers({
 export default reducer;
 ```
 
-</details>
-
 > src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 代码省略。。。
@@ -1553,8 +1363,6 @@ const mapStateToProps = (state) => {
 }
 // 代码省略。。。
 ```
-
-</details>
 
 这样，通过简单的三个步骤，我们就保护了主 `state` 的值：
 
@@ -1575,10 +1383,6 @@ const mapStateToProps = (state) => {
 **首先**，我们完成热门搜索的显示隐藏：
 
 > src/common.css
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```css
 .icon {
@@ -1611,13 +1415,7 @@ const mapStateToProps = (state) => {
 }
 ```
 
-</details>
-
 > src/common/header/index.css
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```css
 header {
@@ -1786,14 +1584,7 @@ header {
 }
 ```
 
-</details>
-
-
 > src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React from 'react';
@@ -1893,8 +1684,6 @@ const mapDispathToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispathToProps)(Header);
 ```
 
-</details>
-
 由此，我们完成了热门搜索的显示隐藏：
 
 ![图](../../public-repertory/img/js-react-demo-three-8.gif)
@@ -1902,10 +1691,6 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 PS：由于页面逐渐增大，所以我们 header 中使用无状态组件已经满足不了我们要求了，我们需要将无状态组件改成正常的组件：
 
 > src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -2006,8 +1791,6 @@ const mapDispathToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispathToProps)(Header);
 ```
 
-</details>
-
 **然后**，由于我们的数据是从接口模拟过来的，而在上一篇文章说过，如果要对接口代码进行管理，最好使用 Redux-Thunk 和 Redux-Saga，这里我们使用 Redux-Thunk：
 
 1. 安装 redux-thunk：`cnpm i redux-thunk -S`
@@ -2018,10 +1801,6 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 下面开始开发：
 
 > src/store/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 // 2. 引入 redux 的 applyMiddleware，进行多中间件的使用
@@ -2040,19 +1819,13 @@ const store = createStore(reducer, composeEnhancers(
 export default store;
 ```
 
-</details>
-
 1. 引入 redux-thunk
 2. 引入 redux 的 `applyMiddleware`，进行多中间件的使用
 3. 通过 `applyMiddleware` 同时使用 redux-thunk 和 redux-dev-tools
 
 这样，我们就可以正常使用 redux-thunk 了。
 
-> 1. src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/common/header/index.js
 
 ```js
 import React, { Component } from 'react';
@@ -2157,13 +1930,7 @@ const mapDispathToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispathToProps)(Header);
 ```
 
-</details>
-
-> 2. src/common/header/store/actionCreators.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/common/header/store/actionCreators.js
 
 ```js
 import * as actionTypes from './actionTypes'
@@ -2201,13 +1968,7 @@ export const getList = () => {
 }
 ```
 
-</details>
-
-> 3. src/common/header/store/actionTypes.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/common/header/store/actionTypes.js
 
 ```js
 export const SEARCH_FOCUS_OR_BLUR = 'header/search_focus_or_blur';
@@ -2215,13 +1976,7 @@ export const SEARCH_FOCUS_OR_BLUR = 'header/search_focus_or_blur';
 export const GET_LIST = 'header/get_list';
 ```
 
-</details>
-
-> 4. src/common/header/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/common/header/store/reducer.js
 
 ```js
 import * as actionTypes from './actionTypes'
@@ -2245,13 +2000,7 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
-> 5. public/api/headerList.json
-
-<details>
-
-  <summary>代码详情</summary>
+> public/api/headerList.json
 
 ```js
 {
@@ -2260,22 +2009,20 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
 通过下面步骤：
 
-4. 派发 `action` 到 actionCreators.js 中的 `getList()` 方法
-5. 编写 `getList` 的 `action`，由于需要 `actionTypes` 中定义，所以前往 actionTypes.js 中新增
-6. 新增 actionType
-7. 引入 axios
-8. 调用 create-react-app 中提供的 Node 服务器，从而 mock 数据
-9. 给 header 下的 reducer.js 提供存储数据的地方
-10. 定义 `action`，接受参数 `data`，同时因为我们使用了 Immutable，所以需要将获取的数据转换为 `immutable` 类型
-11. 引入 Immutable 的类型转换
-12. 派发 `changeList` 类型
-13. 判断 `actionTypes` 是否为 `GET_LIST`，如果是则执行该 `action`
-14. 获取 reducer.js 中的 `list` 数据
-15. 遍历输出该数据
+1. 派发 `action` 到 actionCreators.js 中的 `getList()` 方法
+2. 编写 `getList` 的 `action`，由于需要 `actionTypes` 中定义，所以前往 actionTypes.js 中新增
+3. 新增 actionType
+4. 引入 axios
+5. 调用 create-react-app 中提供的 Node 服务器，从而 mock 数据
+6. 给 header 下的 reducer.js 提供存储数据的地方
+7.  定义 `action`，接受参数 `data`，同时因为我们使用了 Immutable，所以需要将获取的数据转换为 `immutable` 类型
+8.  引入 Immutable 的类型转换
+9.  派发 `changeList` 类型
+10. 判断 `actionTypes` 是否为 `GET_LIST`，如果是则执行该 `action`
+11. 获取 reducer.js 中的 `list` 数据
+12. 遍历输出该数据
 
 这样，我们就成功地获取了 mock 提供的数据：
 
@@ -2288,10 +2035,6 @@ export default (state = defaultState, action) => {
 * reducer.js 中使用 `switch...case...` 替换掉 `if...` 语句。
 
 > src/common/header/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import * as actionTypes from './actionTypes'
@@ -2314,19 +2057,13 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
 ## <a name="chapter-fifteen" id="chapter-fifteen">十五 解决历史遗留问题</a>
 
 > [返回目录](#chapter-one)
 
 在这里，我们解决下历史遗留问题：在我们失焦于输入框的时候，我们的【热门搜索】模块就会消失，从而看不到我们点击【换一换】按钮的效果，所以我们需要修改下代码，在我们鼠标在【热门模块】中时，这个模块不会消失，当我们鼠标失焦且鼠标不在热门模块中时，热门模块才消失。
 
-> 1. src/common/header/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/common/header/store/reducer.js
 
 ```js
 import * as actionTypes from './actionTypes'
@@ -2358,13 +2095,7 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
 > 2. src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -2484,13 +2215,7 @@ const mapDispathToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispathToProps)(Header);
 ```
 
-</details>
-
-> 3. src/common/header/store/actionCreators.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/common/header/store/actionCreators.js
 
 ```js
 import * as actionTypes from './actionTypes'
@@ -2535,13 +2260,7 @@ const changeList = (data) => ({
 })
 ```
 
-</details>
-
-> 4. src/common/header/store/actionTypes.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/common/header/store/actionTypes.js
 
 ```js
 export const SEARCH_FOCUS = 'header/search_focus';
@@ -2551,8 +2270,6 @@ export const GET_LIST = 'header/get_list';
 export const ON_MOUSE_ENTER_HOT = 'header/on_mouse_enter_hot';
 export const ON_MOUSE_LEAVE_HOT = 'header/on_mouse_leave_hot';
 ```
-
-</details>
 
 我们先看实现：
 
@@ -2577,11 +2294,7 @@ export const ON_MOUSE_LEAVE_HOT = 'header/on_mouse_leave_hot';
 
 下面我们开始做换一换功能：
 
-> 1. src/common/header/store/reducer.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/common/header/store/reducer.js
 
 ```js
 import * as actionTypes from './actionTypes'
@@ -2621,13 +2334,7 @@ export default (state = defaultState, action) => {
 }
 ```
 
-</details>
-
 > 2. src/common/header/store/actionCreators.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import * as actionTypes from './actionTypes'
@@ -2679,13 +2386,7 @@ export const changePage = (page) => ({
 })
 ```
 
-</details>
-
-> 3. src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/common/header/index.js
 
 ```js
 import React, { Component } from 'react';
@@ -2820,13 +2521,7 @@ const mapDispathToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispathToProps)(Header);
 ```
 
-</details>
-
-> 4. src/common/header/store/actionTypes.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/common/header/store/actionTypes.js
 
 ```js
 export const SEARCH_FOCUS = 'header/search_focus';
@@ -2837,8 +2532,6 @@ export const ON_MOUSE_LEAVE_HOT = 'header/on_mouse_leave_hot';
 // 10. 定义 action 
 export const CHANGE_PAGE = 'header/change_page';
 ```
-
-</details>
 
 此时我们代码思路是：
 
@@ -2867,10 +2560,6 @@ export const CHANGE_PAGE = 'header/change_page';
 > [返回目录](#chapter-one)
 
 > src/common/header/index.css
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```css
 header {
@@ -3045,13 +2734,7 @@ header {
 }
 ```
 
-</details>
-
 > src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -3189,8 +2872,6 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 ```
 
-</details>
-
 这里我们通过三个步骤实现了图标旋转：
 
 1. 在 index.css 中添加动画
@@ -3208,10 +2889,6 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 在代码中，我们每次聚焦，都会请求数据，所以我们需要根据 `list` 的值来判断是否请求数据：
 
 > src/common/header/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -3351,8 +3028,6 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 
 ```
 
-</details>
-
 在这里，我们做了两个步骤：
 
 1. 给 `searchFocus` 传递 `list`
@@ -3377,10 +3052,6 @@ export default connect(mapStateToProps, mapDispathToProps)(Header);
 安装完毕之后，我们只需要修改下 `src/App.js`，就可以体验到路由：
 
 > src/App.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -3408,8 +3079,6 @@ class App extends Component {
 export default App;
 ```
 
-</details>
-
 在这里我们仅需要做两个步骤：
 
 1. 引入 React 路由的 `BrowserRouter` 和 `Route`
@@ -3423,18 +3092,15 @@ export default App;
 
 > [返回目录](#chapter-one)
 
-1. 在 src 下新建 pages 文件夹，然后在该文件夹下新建文件夹和文件：
+**首先**，在 src 下新建 pages 文件夹，然后在该文件夹下新建文件夹和文件：
    1. src/pages/detail/index.js
    2. src/pages/home/index.js
-2. 它们的内容如下：
+
+**此时**，它们的内容如下：
 
 ![图](../../public-repertory/img/js-react-demo-three-14.png)
 
 > src/pages/detail/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react'
@@ -3450,13 +3116,7 @@ class Detail extends Component {
 export default Detail;
 ```
 
-</details>
-
 > src/pages/home/index.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react'
@@ -3472,17 +3132,11 @@ class Home extends Component {
 export default Home;
 ```
 
-</details>
-
 在有 header 的经验下，我们应该知道，我们希望在 URL 输入路径 `localhost:3000` 的时候，访问 home 组件；在输入 `localhost:3000/detail` 的时候，访问 detail 组件。
 
-3. 到这步，我们仅需要修改下 `src/App.js`，就可以实现目标：
+**最后**，到这步，我们仅需要修改下 `src/App.js`，就可以实现目标：
 
 > src/App.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -3512,10 +3166,7 @@ class App extends Component {
 export default App;
 ```
 
-</details>
-
 现在，我们切换下路由，就可以看到不用的页面，这些页面我们也可以通过编辑对应的 index.js 来修改了。
-
 
 ## <a name="chapter-nighteen" id="chapter-nighteen">十九 页面实现：二级导航栏</a>
 
@@ -3549,11 +3200,7 @@ export default App;
     - index.js
 ```
 
-> 1. src/index.css
-
-<details>
-
-  <summary>代码详情</summary>
+> src/index.css
 
 ```css
 body {
@@ -3561,13 +3208,7 @@ body {
 }
 ```
 
-</details>
-
 > 2. src/App.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -3595,13 +3236,7 @@ class App extends Component {
 export default App;
 ```
 
-</details>
-
-> 3. src/common/header/index.css
-
-<details>
-
-  <summary>代码详情</summary>
+> src/common/header/index.css
 
 ```css
 header {
@@ -3783,13 +3418,7 @@ header {
 
 ```
 
-</details>
-
-> 4. src/pages/home/index.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/pages/home/index.js
 
 ```js
 import React, { Component } from 'react';
@@ -3815,13 +3444,7 @@ class Home extends Component {
 export default Home;
 ```
 
-</details>
-
-> 5. src/pages/home/index.css
-
-<details>
-
-  <summary>代码详情</summary>
+> src/pages/home/index.css
 
 ```css
 /* 主体 */
@@ -3890,13 +3513,7 @@ export default Home;
 }
 ```
 
-</details>
-
-> 6. src/pages/home/components/TopNav.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/pages/home/components/TopNav.js
 
 ```js
 import React, { Component } from 'react';
@@ -3949,13 +3566,7 @@ class TopNav extends Component {
 export default TopNav;
 ```
 
-</details>
-
-> 7. src/pages/home/components/LeftList.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/pages/home/components/LeftList.js
 
 ```js
 import React, { Component } from 'react'
@@ -3973,13 +3584,7 @@ class LeftList extends Component {
 export default LeftList;
 ```
 
-</details>
-
-> 8. src/pages/home/components/RightRecommend.js
-
-<details>
-
-  <summary>代码详情</summary>
+> src/pages/home/components/RightRecommend.js
 
 ```js
 import React, { Component } from 'react'
@@ -3997,8 +3602,6 @@ class RightRecommend extends Component {
 export default RightRecommend;
 ```
 
-</details>
-
 此时，页面显示为：
 
 ![图](../../public-repertory/img/js-react-demo-three-16.png)
@@ -4014,10 +3617,6 @@ export default RightRecommend;
 在我们规划中，App 是主组件，下面有 header | home | detail，然后 home 下面有 LeftList | RightRecommend，那么 App/home/leftList 如何引用 store 呢？
 
 > src/pages/home/components/LeftList.js
-
-<details>
-
-  <summary>代码详情</summary>
 
 ```js
 import React, { Component } from 'react';
@@ -4125,8 +3724,6 @@ const mapDispathToProps = (dispatch) => {
 // 2. 在 LeftList 中使用 connect
 export default connect(mapStateToProps, mapDispathToProps)(LeftList);
 ```
-
-</details>
 
 ### <a name="chapter-twenty-two" id="chapter-twenty-two">20.2 完善整个首页</a>
 
