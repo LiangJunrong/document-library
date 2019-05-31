@@ -2,9 +2,9 @@ React Demo One - TodoList
 ===
 
 > Create by **jsliang** on **2019-3-18 08:37:10**  
-> Recently revised in **2019-05-20 17:50:01**
+> Recently revised in **2019-05-31 15:05:26**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-TodoList.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
 * [React 系列文章代码地址](https://github.com/LiangJunrong/React)
 
@@ -143,7 +143,7 @@ Now，开始搞事情。
 
 `favicon.ico`、`.gitignore`、`README.md` 是我们无需理会的，但是其他文件，我们需要精简下它们的代码：
 
-> 1. index.html
+> index.html
 
 ```html
 <!DOCTYPE html>
@@ -164,7 +164,7 @@ Now，开始搞事情。
 </html>
 ```
 
-> 2. App.js
+> App.js
 
 ```js
 import React, { Component } from 'react';
@@ -182,7 +182,7 @@ class App extends Component {
 export default App;
 ```
 
-> 3. index.js
+> index.js
 
 ```js
 import React from 'react';
@@ -192,7 +192,7 @@ import App from './App';
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-> 4. package.json
+> package.json
 
 ```json
 {
@@ -571,8 +571,9 @@ export default TodoList;
 
 在这一部分，我们需要了解 3 个知识点：
 
-1. 在 `render` 中 `closeStyle` 这个变量，我们用来定义 CSS 属性，然后我们通过 `style={closeStyle}`，直接写了个行内样式（下面我们会抽离出来）
-2. 关于 JSX 遍历输出的形式：
+**知识点 1**. 在 `render` 中 `closeStyle` 这个变量，我们用来定义 CSS 属性，然后我们通过 `style={closeStyle}`，直接写了个行内样式（下面我们会抽离出来）
+
+**知识点 2**. 关于 JSX 遍历输出的形式：
 
 ```js
 {
@@ -589,7 +590,7 @@ export default TodoList;
 
 在这里我们不用理会为什么这么写，我们先接受这种写法先。
 
-3. 关于改变 `constructor` 中的数据，我们使用：
+**知识点 3**. 关于改变 `constructor` 中的数据，我们使用：
 
 ```js
 this.setState({
@@ -763,7 +764,7 @@ export default TodoList;
 
 我们关注下 TodoList.js 的改变：
 
-1. 我们在 `constructor` 中，将方法进行了提前定义：
+**首先**. 我们在 `constructor` 中，将方法进行了提前定义：
 
 ```js
 this.handleInputChange = this.handleInputChange.bind(this);
@@ -771,7 +772,7 @@ this.handleInputChange = this.handleInputChange.bind(this);
 
 这样，我们在下面就不用写 `.bind(this)` 形式了。
 
-2. 我们修改了下 `this.setState()` 的形式：
+**然后**. 我们修改了下 `this.setState()` 的形式：
 
 > 原写法：
 
@@ -791,7 +792,7 @@ this.setState( () => ({
 
 因为 React 16 版本进行了更新，使用这种写法比之前的好，至于好在哪，咱先不关心，以后就用这种写法了。
 
-3. 我们引用了组件：
+**最后**，我们引用了组件：
 
 ```js
 import TodoItem from './TodoItem';
