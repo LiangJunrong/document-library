@@ -2,44 +2,44 @@ Vue 上传文件
 ===
 
 > Create by **jsliang** on **2019-3-21 16:57:58**  
-> Recently revised in **2019-3-21 16:58:02**
+> Recently revised in **2019-05-31 14:21:24**
 
-## 步骤 1. 设置 Node 跨域代理
+## 一 设置 Node 跨域代理
 
 修改 `项目/config/index.js` 下的 `dev` 设置：
 
 > 原 build/index.js 配置：
 
 ```js
-  dev: {
-    // Paths
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    proxyTable: {},
-  }
+dev: {
+  // Paths
+  assetsSubDirectory: 'static',
+  assetsPublicPath: '/',
+  proxyTable: {},
+}
 ```
 
 > 修改后 build/index.js 配置：
 
 ```js
-  dev: {
-    // Paths
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    proxyTable: {
-      '/services': { // 碰到 /services 类型的接口，使用 node 代理
-        target: 'http://172.**.**.49:8080', // 需要将开发模式的 localhost:8080 代理到哪个接口
-        changeOrigin: true, // 如果接口跨域，需要设置这个参数为 true
-      }
-    },
+dev: {
+  // Paths
+  assetsSubDirectory: 'static',
+  assetsPublicPath: '/',
+  proxyTable: {
+    '/services': { // 碰到 /services 类型的接口，使用 node 代理
+      target: 'http://172.**.**.49:8080', // 需要将开发模式的 localhost:8080 代理到哪个接口
+      changeOrigin: true, // 如果接口跨域，需要设置这个参数为 true
+    }
   },
+},
 ```
 
 这时，我们在 `npm run dev` 下，就可以将 `localhost:8080` 调用 `http://172.**.**.49:8080` 的接口由 Node 代理转发，从而实现接口的跨域请求。
 
-## 步骤 2. 实现原生上传图片
+## 二 实现原生上传图片
 
-> 步骤 1 为前置条件
+> 章节 1 为前置条件
 
 如何实现 `<input type="file" />` 上传图片：
 
@@ -145,9 +145,9 @@ export const uploadFile = data => request({
 
 这样，当我们使用方法 1 的时候，我们直接调用接口即可。
 
-## 步骤 3. 实现 ElementUI 上传图片
+## 三 实现 ElementUI 上传图片
 
-> 步骤 1 为前置条件
+> 章节 1 为前置条件
 
 相对于原生上传图片来说，ElementUI 上传图片更为便捷：
 
