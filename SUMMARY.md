@@ -33,7 +33,7 @@
     * [jQuery 工作常用解决方案 ✔](./JavaScript-library/jQuery/jQuery-frequently-used.md)
   * [Vue](JavaScript-library/Vue/README.md)
     * [Vue 基础 ✔](./JavaScript-library/Vue/Vue-base.md)
-    * [Vue 官方文档二三事 ✔](./JavaScript-library/Vue/VueOfficialDocuments.md)
+    * [Vue 官方文档二三事 ✔](./JavaScript-library/Vue/Vue-official-documents.md)
     * [Vue 开发准备 ✔](./JavaScript-library/Vue/Vue-prepare.md)
     * [Axios ✘](./JavaScript-library/Vue/Axios.md)
     * [Vue Router ✔](./JavaScript-library/Vue/Vue-Router.md)
