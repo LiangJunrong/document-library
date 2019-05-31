@@ -2,7 +2,7 @@ React 基础
 ===
 
 > create by **jsliang** on **2019-3-26 09:25:41**   
-> Recently revised in **2019-04-23 16:14:43**
+> Recently revised in **2019-05-31 14:45:14**
 
 记录 React 基础知识，并尝试构建个人知识体系。
 
@@ -133,7 +133,7 @@ const element = <h1>Hello, world</h1>;
 
 我们可以拿 `create-react-app` 中的简化代码来看看：
 
-> 1. index.html
+> index.html
 
 ```html
 <!DOCTYPE html>
@@ -154,7 +154,7 @@ const element = <h1>Hello, world</h1>;
 </html>
 ```
 
-> 2. index.js
+> index.js
 
 ```js
 import React from 'react';
@@ -164,7 +164,7 @@ import App from './App';
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-> 3. App.js
+> App.js
 
 ```js
 import React, { Component } from 'react';
@@ -349,30 +349,24 @@ export default TodoItem;
 1. `state` 数据
 2. `JSX` 模板
 3. 数据 + 模板生成虚拟 DOM（虚拟 DOM 就是一个 JS 对象，用来描述真实 DOM）（损耗了性能）
-
 ```js
 ['div', {id: 'abc'}, [
   'span', {}, 'Hello World!'
 ]]
 ```
-
 4. 用虚拟 DOM 的解构生成真实的 DOM，来显示
-
 ```html
 <div id='abc'>
   <span>Hello World!</span>
 </div>
 ```
-
 5. `state` 发生变化
 6. 数据 + 模板生成新的虚拟 DOM（极大提升了性能）
-
 ```js
 ['div', {id: 'abc'}, [
   'span', {}, 'Hello jsliang!'
 ]]
 ```
-
 7. 比较原始虚拟 DOM 和新的虚拟 DOM 的区别，找到区别是 `span` 中内容（极大提升了性能）
 8. 直接操作 DOM，改变 `span` 中的内容
 
