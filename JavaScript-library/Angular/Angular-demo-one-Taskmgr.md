@@ -2,16 +2,9 @@ Angular Demo One - 打造企业级协作平台
 ===
 
 > create by **jsliang** on **2018-9-5 11:56:07**  
-> Recently revised in **2019-05-31 15:54:57**
+> Recently revised in **2019-05-31 16:06:16**
 
-## 目录
-
-| 章节名 | 导航                                |
-| ------ | ----------------------------------- |
-| 第一章 | [环境搭建](./taskmgr-chapter1.md) |
-| 第二章 | [项目工程结构介绍 UI](./taskmgr-chapter2.md) |
-| 第三章 | [UI整体布局](./taskmgr-chapter3.md) |
-| More... | 已断更！缺乏对应基础，补基础去了！ |
+已断更！缺乏对应基础，补基础去了！
 
 ## 第一章 环境搭建
 
