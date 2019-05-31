@@ -2,7 +2,7 @@ Angular Demo Two - 股票管理平台
 ===
 
 > create by **jsliang** on **2018年9月5日17:28:51**   
-> Recently revised in **2019-05-31 15:56:26**
+> Recently revised in **2019-05-31 16:04:33**
 
 ## 前言
 
