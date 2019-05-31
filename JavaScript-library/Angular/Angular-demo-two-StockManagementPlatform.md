@@ -2,7 +2,7 @@ Angular Demo Two - 股票管理平台
 ===
 
 > create by **jsliang** on **2018年9月5日17:28:51**   
-> Recently revised in **2019-05-31 16:04:33**
+> Recently revised in **2019-05-31 16:08:23**
 
 ## 前言
 
@@ -12,19 +12,15 @@ AngularJS 有着诸多特性，最为核心的是：MVVM、模块化、自动化
 
 由于 AngularJS 有着诸多不便，AngularJS 在 2.0 版本进行了重写，于是有了现在的 Angular。
 
-## 目录
-
-| 章节名 | 导航                                |
-| ------ | ----------------------------------- |
-| 第一章 | [介绍](./stock-management-platform-chapter1.md) |
-| 第二章 | [开始 Angular 开发](./stock-management-platform-chapter2.md) |
-| 第三章 | [路由和导航](./stock-management-platform-chapter3.md) |
-| 第四章 | [依赖注入](./stock-management-platform-chapter4.md) |
-| 第五章 | [绑定、响应式编程和管道](./stock-management-platform-chapter5.md) |
-| 第六章 | [组件间通讯](./stock-management-platform-chapter6.md) |
-| 第七章 | [表单处理](./stock-management-platform-chapter7.md) |
-| 第八章 | [与服务器通讯](./stock-management-platform-chapter8.md) |
-| 第九章 | [构建和部署](./stock-management-platform-chapter9.md) |
+* 第一章 介绍
+* 第二章 开始 Angular 开发
+* 第三章 路由和导航
+* 第四章 依赖注入
+* 第五章 绑定、响应式编程和管道
+* 第六章 组件间通讯
+* 第七章 表单处理
+* 第八章 与服务器通讯
+* 第九章 构建和部署
 
 ## 第一章 - 介绍
 
