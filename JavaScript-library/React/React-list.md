@@ -2,9 +2,9 @@ React 知识点清单
 ===
 
 > create by **jsliang** on **2019-04-23 14:10:18**   
-> Recently revised in **2019-04-26 11:49:38**
+> Recently revised in **2019-05-31 14:54:33**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactList.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
 * [React 系列文章代码地址](https://github.com/LiangJunrong/React)
 
@@ -170,8 +170,9 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 
 可以通过 Visio Studio Code 的插件 Debugger for Chrome 调试 Create React App：
 
-1. 安装 -> Debugger for Chrome
-2. 调试 -> 添加配置：
+**步骤 1**. 安装 -> Debugger for Chrome
+
+**步骤 2**. 调试 -> 添加配置：
 
 > launch.json
 
@@ -194,8 +195,9 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 }
 ```
 
-3. 保存 -> 开始调试
-4. 通过上述步骤即可开始调试
+**步骤 3**. 保存 -> 开始调试
+
+**步骤 4**. 通过上述步骤即可开始调试
 
 > 如有问题可以参考下面资料
 
@@ -209,8 +211,9 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 
 这有助于你了解代码膨胀的来源，从而配合其他插件来减少每个包的大小，优化项目。
 
-1. 安装：`npm i source-map-explorer -S`
-2. 修改 package.json：
+**步骤 1**. 安装：`npm i source-map-explorer -S`
+
+**步骤 2**. 修改 package.json：
 
 > package.json
 
@@ -223,8 +226,9 @@ Service Workers 本质上充当 Web 应用程序与浏览器之间的代理服�
 }
 ```
 
-3. 打包：`npm run build`
-4. 分析：`npm run analyze`
+**步骤 3**. 打包：`npm run build`
+
+**步骤 4**. 分析：`npm run analyze`
 
 * 参考资料：[React App 中如何分析Bundle Size？ - 简书](https://www.jianshu.com/p/02259b9b52a5)
 
