@@ -2,9 +2,9 @@ React List - Create React App
 ===
 
 > create by **jsliang** on **2019-04-24 11:36:57**   
-> Recently revised in **2019-04-25 10:44:54**
+> Recently revised in **2019-05-31 14:57:54**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactList-CreateReactApp.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
 * [React 系列文章代码地址](https://github.com/LiangJunrong/React)
 
@@ -113,8 +113,9 @@ Create React App 是一个官方支持的创建 React 单页应用程序的方�
 
 可以通过 Visio Studio Code 的插件 Debugger for Chrome 调试 Create React App：
 
-1. 安装 -> Debugger for Chrome
-2. 调试 -> 添加配置：
+**步骤 1**. 安装 -> Debugger for Chrome
+
+**步骤 2**. 调试 -> 添加配置：
 
 > launch.json
 
@@ -137,8 +138,9 @@ Create React App 是一个官方支持的创建 React 单页应用程序的方�
 }
 ```
 
-3. 保存 -> 开始调试
-4. 通过上述步骤即可开始调试
+**步骤 3**. 保存 -> 开始调试
+
+**步骤 4**. 通过上述步骤即可开始调试
 
 > 如有问题可以参考下面资料
 
@@ -152,8 +154,9 @@ Create React App 是一个官方支持的创建 React 单页应用程序的方�
 
 这有助于你了解代码膨胀的来源，从而配合其他插件来减少每个包的大小，优化项目。
 
-1. 安装：`npm i source-map-explorer -S`
-2. 修改 package.json：
+**步骤 1**. 安装：`npm i source-map-explorer -S`
+
+**步骤 2**. 修改 package.json：
 
 > package.json
 
@@ -166,8 +169,9 @@ Create React App 是一个官方支持的创建 React 单页应用程序的方�
 }
 ```
 
-3. 分析：`npm run build`
-4. 分析：`npm run analyze`
+**步骤 3**. 分析：`npm run build`
+
+**步骤 4**. 分析：`npm run analyze`
 
 * 参考资料：[React App 中如何分析Bundle Size？ - 简书](https://www.jianshu.com/p/02259b9b52a5)
 
@@ -209,7 +213,9 @@ class Button extends Component {
 
 > [返回目录](#chapter-one)
 
-1. 添加图片：通过 `import` 引入即可。
+**1. 添加图片**：
+
+通过 `import` 引入即可。
 
 ```js
 import React from 'react';
@@ -225,7 +231,9 @@ function Header() {
 export default Header;
 ```
 
-2. 引用背景：通过 `url` 引用即可。
+**2. 引用背景**：
+
+通过 `url` 引用即可。
 
 ```css
 .logo {
@@ -233,7 +241,7 @@ export default Header;
 }
 ```
 
-3. 引用 SVG：
+**3. 引用 SVG**：
 
 ```js
 import React from 'react';
