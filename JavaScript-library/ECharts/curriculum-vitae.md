@@ -2,7 +2,7 @@ ECharts 打造在线个人简历
 ===
 
 > Create by **jsliang** on **2018-12-5 11:48:56**  
-> Recently revised in **2019-2-11 11:08:28**
+> Recently revised in **2019-05-31 19:16:24**
 
 **Hello 小伙伴们，如果觉得本文还不错，记得点个赞或者给个 star，你们的赞和 star 是我编写更多更精彩文章的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
@@ -647,7 +647,7 @@ export default {
 
 > App.vue
 
-```
+```html
 <template>
   <div class="app" id="app">
     <div class="banner">
@@ -1325,7 +1325,7 @@ export default {
 
 > PartFive.vue
 
-```
+```html
 <template>
   <div :class="partFive">
     <h3 class="text-center text-top">工作经验</h3>
@@ -1401,7 +1401,7 @@ a:hover {
 
 > PartSix.vue
 
-```
+```html
 <template>
   <div :class="partSix">
     <h3 class="text-center">编程技能</h3>
@@ -1468,7 +1468,7 @@ export default {
 
 > PartSeven.vue
 
-```
+```html
 <template>
   <div :class="partSeven">
     <h3 class="text-center">求职意向</h3>
