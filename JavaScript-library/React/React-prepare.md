@@ -2,9 +2,9 @@ React 开发准备
 ===
 
 > Create by **jsliang** on **2019-04-25 16:20:59**  
-> Recently revised in **2019-04-26 11:57:21**
+> Recently revised in **2019-05-31 14:51:17**
 
-**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactPrepare.md)**
+**Hello 小伙伴们，如果觉得本文还不错，记得给个 **star** ， 小伙伴们的 **star** 是我持续更新的动力！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
 * [React 系列文章代码地址](https://github.com/LiangJunrong/React)
 
