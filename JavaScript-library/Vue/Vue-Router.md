@@ -2,11 +2,11 @@ Vue Router
 ===
 
 > Create by **jsliang** on **2018-11-8 13:39:39**  
-> Recently revised in **2019-1-23 08:26:17**
+> Recently revised in **2019-05-31 14:13:54**
 
-&emsp;**饮水思源：[Vue Router 官方文档](https://router.vuejs.org/zh/)**
+**饮水思源：[Vue Router 官方文档](https://router.vuejs.org/zh/)**
 
-&emsp;Vue Router 是 Vue.js 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌。包含的功能有：
+Vue Router 是 Vue.js 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌。包含的功能有：
 
 * 嵌套的路由/视图表
 * 模块化的、基于组件的路由配置
@@ -35,23 +35,20 @@ Vue Router
 
 > [返回目录](#catalog-chapter-two-one)
 
-&emsp;在介绍路由的时候，我们先理清下传统开发方式的路由和 SPA 页面的路由：
+在介绍路由的时候，我们先理清下传统开发方式的路由和 SPA 页面的路由：
+
 * 传统开发方式中，url 改变后，立刻发起请求，响应整个页面，渲染整个页面。
 * SPA 锚点值改变后，不会发起立即发起请求。发起 ajax 请求，SPA 应用会局部改变页面数据。
-
-<br>
 
 ## <a name="chapter-two-two" id="chapter-two-two">2.2 路由初定义</a>
 
 > [返回目录](#catalog-chapter-two-two)
 
-<br>
-
-&emsp;话不多说，先上代码：
+话不多说，先上代码：
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -121,34 +118,35 @@ Vue Router
 </html>
 ```
 
-<br>
+在上面代码中，我们先编写第 1 步，引用 `vue-router` 这个插件。  
 
-&emsp;在上面代码中，我们先编写第 1 步，引用 `vue-router` 这个插件。  
-&emsp;然后，我们通过第 2 步 `Vue.use(VueRouter)` 来使用这个插件。  
-&emsp;接着，我们通过第 3 步来定义路由对象，即我们的子组件页面。  
-&emsp;再来，我们通过第 4 步创建路由挂载对象后，在第 5 步配置路由对象。  
-&emsp;紧接着，我们通过第 6 步的 `<router-view></router-view>` 来挂载我们的路由子组件。  
-&emsp;最后，我们通过第 7 步的操作，在 `new Vue` 中使用 `router`，从而做到 SPA 页面路由的使用。  
+**然后**，我们通过第 2 步 `Vue.use(VueRouter)` 来使用这个插件。  
 
-&emsp;那么，他们是怎么显示的呢？  
-&emsp;我们在展示的页面后面敲上 `/login`，页面就会加载 `Login` 子组件。例如 **jsliang** 的就是 `http://127.0.0.1:8080/#/login`。  
-&emsp;此刻页面显示为：
+**接着**，我们通过第 3 步来定义路由对象，即我们的子组件页面。  
+
+**再来**，我们通过第 4 步创建路由挂载对象后，在第 5 步配置路由对象。  
+
+**紧接着**，我们通过第 6 步的 `<router-view></router-view>` 来挂载我们的路由子组件。  
+
+**最后**，我们通过第 7 步的操作，在 `new Vue` 中使用 `router`，从而做到 SPA 页面路由的使用。  
+
+那么，他们是怎么显示的呢？  
+
+我们在展示的页面后面敲上 `/login`，页面就会加载 `Login` 子组件。例如 **jsliang** 的就是 `http://127.0.0.1:8080/#/login`。  
+
+此刻页面显示为：
 
 ![图](../../public-repertory/img/js-vue-router-1.png)
-
-<br>
 
 ## <a name="chapter-two-three" id="chapter-two-three">2.3 router-view 与 router-link</a>
 
 > [返回目录](#catalog-chapter-two-three)
 
-<br>
-
-&emsp;话不多说，先看代码：
+话不多说，先看代码：
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -231,30 +229,27 @@ Vue Router
 </html>
 ```
 
-<br>
+在上一章节理解了路由的使用之后，现在我们要做的很简单，就是在第 3 步中定义 `Register` 组件，并在第 5 步中挂载该组件，最后通过第 6 步的 `<router-link to="***"></router-link>`，从而达到 `<router-view></router-view>` 中展示对应路由组件的目的。  
 
-&emsp;在上一章节理解了路由的使用之后，现在我们要做的很简单，就是在第 3 步中定义 `Register` 组件，并在第 5 步中挂载该组件，最后通过第 6 步的 `<router-link to="***"></router-link>`，从而达到 `<router-view></router-view>` 中展示对应路由组件的目的。  
-
-&emsp;下面我们查看下该代码是否能正确运行：
+下面我们查看下该代码是否能正确运行：
 
 ![图](../../public-repertory/img/js-vue-router-2.gif)
-
-<br>
 
 ## <a name="chapter-two-four" id="chapter-two-four">2.4 路由 name 的使用</a>
 
 > [返回目录](#catalog-chapter-two-four)
 
-<br>
+在章节 `3.13.1` 和章节 `3.13.2` 中，我们都是通过 `<router-link to="***"></router-link>` 来切换路由的。  
 
-&emsp;在章节 `3.13.1` 和章节 `3.13.2` 中，我们都是通过 `<router-link to="***"></router-link>` 来切换路由的。  
-&emsp;假如某天需求改了，产品经理或者项目经理说页面上不能用 `localhost:8080/#/login`，那样子太 `low`（真的 `low` 吗？不见得，但是它们要求就是这样，能咋办啊~ o(╥﹏╥)o），而是用 `localhost:8080/#/mylogin`，所以我们需要修改页面两次（`<router-link>` 和 `path`）……  
-&emsp;又到了哪天，它丢你个文档说，我们路由定好了，照着文档写。然后你一看，我天，页面上显示的路径都和你做的不一样……所以有没有更好的方法解决这个问题呢？  
-&emsp;有的，那就是给 `routes` 起 `name` 值：
+假如某天需求改了，产品经理或者项目经理说页面上不能用 `localhost:8080/#/login`，那样子太 `low`（真的 `low` 吗？不见得，但是它们要求就是这样，能咋办啊~ o(╥﹏╥)o），而是用 `localhost:8080/#/mylogin`，所以我们需要修改页面两次（`<router-link>` 和 `path`）……  
+
+又到了哪天，它丢你个文档说，我们路由定好了，照着文档写。然后你一看，我天，页面上显示的路径都和你做的不一样……所以有没有更好的方法解决这个问题呢？  
+
+有的，那就是给 `routes` 起 `name` 值：
 
 > index.html 
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -339,28 +334,25 @@ Vue Router
 </html>
 ```
 
-<br>
+**首先**，在代码方面，我们通过沿用章节 `3.13.2` 中的代码来演示 `name` 的使用。  
 
-&emsp;首先，在代码方面，我们通过沿用章节 `3.13.2` 中的代码来演示 `name` 的使用。  
-&emsp;然后，在第 5 步中，我们分别给两个路由对象起了名字。  
-&emsp;最后，我们在第 6 步中，通过 `:to` 来动态绑定了路由值为 `name: '***`，从而达到了我们的目的。
+**然后**，在第 5 步中，我们分别给两个路由对象起了名字。  
 
-&emsp;这样，当我们上头想修改网址路径的时候，我们只需要到第 5 步的代码中修改即可。
+**最后**，我们在第 6 步中，通过 `:to` 来动态绑定了路由值为 `name: '***`，从而达到了我们的目的。
 
-<br>
+这样，当我们上头想修改网址路径的时候，我们只需要到第 5 步的代码中修改即可。
 
 ## <a name="chapter-two-five" id="chapter-two-five">2.5 路由传参</a>
 
 > [返回目录](#catalog-chapter-two-five)
 
-<br>
+在平时开发中，我们经常给我们的 `url` 传参，那么在 Vue 开发中，Vue 是如何在路径中带参数，并且在对应路由中获取到参数的呢？  
 
-&emsp;在平时开发中，我们经常给我们的 `url` 传参，那么在 Vue 开发中，Vue 是如何在路径中带参数，并且在对应路由中获取到参数的呢？  
-&emsp;先上代码，先睹为快：
+先上代码，先睹为快：
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -455,20 +447,17 @@ Vue Router
 </html>
 ```
 
-<br>
-
-&emsp;下面我们先查看其结果：
+下面我们先查看其结果：
 
 ![图](../../public-repertory/img/js-vue-router-3.gif)
 
-<br>
-
-&emsp;在这里，我们有两种传参方式：
+在这里，我们有两种传参方式：
 
 * query 传参：
 
-&emsp;首先，在第 6 步的 `:to` 中，我们通过 `<router-link :to="{ name: 'login', query: { id: 1 } }">登录</router-link>`，设置传参的值为 `id=1`。  
-&emsp;接着，在第 3 步的 `Login` 组件中定义 `created`，打印出它的对象及其参数：
+**首先**，在第 6 步的 `:to` 中，我们通过 `<router-link :to="{ name: 'login', query: { id: 1 } }">登录</router-link>`，设置传参的值为 `id=1`。  
+
+**接着**，在第 3 步的 `Login` 组件中定义 `created`，打印出它的对象及其参数：
 
 ```
 {name: "login", meta: {…}, path: "/myLogin", hash: "", query: {…}, …}
@@ -476,13 +465,15 @@ Vue Router
 {id: 1}
 ```    
 
-&emsp;最后，在页面中路径显示为显示为：`http://127.0.0.1:8080/#/myLogin?id=1`
+最后，在页面中路径显示为显示为：`http://127.0.0.1:8080/#/myLogin?id=1`
 
 * params 传参：
 
-&emsp;首先，在第 6 步的 `:to` 中，我们通过 `<router-link :to="{ name: 'register', params:{ name: 'jsliang' } }">注册</router-link>`，设置传参的值为 `name=jsliang`。  
-&emsp;接着，在第 5 步中，给它的 `path` 预留个 `name` 的插槽：` path: '/myRegister/:name'`  
-&emsp;然后，在第 3 步的 `Login` 组件中定义 `created`，打印出它的对象及其参数：
+**首先**，在第 6 步的 `:to` 中，我们通过 `<router-link :to="{ name: 'register', params:{ name: 'jsliang' } }">注册</router-link>`，设置传参的值为 `name=jsliang`。  
+
+**接着**，在第 5 步中，给它的 `path` 预留个 `name` 的插槽：` path: '/myRegister/:name'`  
+
+**然后**，在第 3 步的 `Login` 组件中定义 `created`，打印出它的对象及其参数：
 
 ```
 {name: "register", meta: {…}, path: "/myRegister/jsliang", hash: "", query: {…}, …}
@@ -490,19 +481,15 @@ Vue Router
 {name: "jsliang"}
 ```
 
-&emsp;最后，在页面中路径显示为：`http://127.0.0.1:8080/#/myRegister/jsliang`
+**最后**，在页面中路径显示为：`http://127.0.0.1:8080/#/myRegister/jsliang`
 
-<br>
-
-&emsp;当然，小伙伴可能会考虑到传多个参数：
+当然，小伙伴可能会考虑到传多个参数：
 
 > query 传多个参数代码片段：`http://127.0.0.1:8080/#/myLogin?id=1&name=jsliang`
 
 ```
 <router-link :to="{ name: 'login', query: { id: 1, name: 'jsliang' } }">登录</router-link>
 ```
-
-<br>
 
 > params 传多个参数代码片段：`http://127.0.0.1:8080/#/myRegister/2/梁峻荣`
 
@@ -512,20 +499,17 @@ path: '/myRegister/:id/:name'
 <router-link :to="{ name: 'register', params:{ id: 2, name: '梁峻荣' } }">注册</router-link>
 ```
 
-<br>
-
 ## <a name="chapter-two-six" id="chapter-two-six">2.6 嵌套路由</a>
 
 > [返回目录](#catalog-chapter-two-six)
 
-<br>
+在章节 `3.10 传递 DOM - slot` 中，我们提到了 `slot` 及具名 `slot` 的区分。然后，在 Vue 日常开发中，如果我们的路由只能一个 `<router-view></router-view>` 放整版页面，这是满足不了我们需求的。  
 
-&emsp;在章节 `3.10 传递 DOM - slot` 中，我们提到了 `slot` 及具名 `slot` 的区分。然后，在 Vue 日常开发中，如果我们的路由只能一个 `<router-view></router-view>` 放整版页面，这是满足不了我们需求的。  
-&emsp;所以，你考虑到的，大佬们也考虑到了：嵌套路由！通过不同锚点值，填入不同的组件。
+所以，你考虑到的，大佬们也考虑到了：嵌套路由！通过不同锚点值，填入不同的组件。
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -639,16 +623,13 @@ path: '/myRegister/:id/:name'
 </html>
 ```
 
-<br>
-
-&emsp;先看看代码的实现效果：
+先看看代码的实现效果：
 
 ![图](../../public-repertory/img/js-vue-router-4.gif)
 
-<br>
+**首先**，我们使用章节 `3.13.3 路由 name 的使用` 的代码，在其基础上开发，没有搞懂该章节代码的小伙伴可以先看该章节代码讲解。  
 
-&emsp;首先，我们使用章节 `3.13.3 路由 name 的使用` 的代码，在其基础上开发，没有搞懂该章节代码的小伙伴可以先看该章节代码讲解。  
-&emsp;然后，我们在第 8 步中，给路由对象再嵌套子路由：
+**然后**，我们在第 8 步中，给路由对象再嵌套子路由：
 
 ```
 // 8. 插槽。路由对象下中还有 <router-view>
@@ -662,24 +643,21 @@ template: `
 `
 ```
 
-&emsp;接着，我们在第 9 步中定义这两个路由子组件。  
-&emsp;最后，我们在第 10 步中，通过 `children` 数组，将这两个子组件配置到路由对象上，我们就可以在 `<router-view>` 的组件中，再定义一层 `<router-view>`，并使用它，从而做到嵌套路由的开发。
+**接着**，我们在第 9 步中定义这两个路由子组件。  
 
-&emsp;看到这里，小伙伴们是不是也想到了，可以用嵌套路由来满足用单页应用来开发多页应用的目的~
+**最后**，我们在第 10 步中，通过 `children` 数组，将这两个子组件配置到路由对象上，我们就可以在 `<router-view>` 的组件中，再定义一层 `<router-view>`，并使用它，从而做到嵌套路由的开发。
 
-<br>
+看到这里，小伙伴们是不是也想到了，可以用嵌套路由来满足用单页应用来开发多页应用的目的~
 
 ## <a name="chapter-two-seven" id="chapter-two-seven">3.7 路由守卫</a>
 
 > [返回目录](#catalog-chapter-two-seven)
 
-<br>
-
-&emsp;话不多说，先上代码：
+话不多说，先上代码：
 
 > index.html
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -810,34 +788,40 @@ template: `
 </html>
 ```
 
-<br>
-
-&emsp;看下代码成果：
+看下代码成果：
 
 ![图](../../public-repertory/img/js-vue-router-5.gif)
 
-<br>
-
-&emsp;首先，我们做下知识点讲解：
+**首先**，我们做下知识点讲解：
 
 * 路由元数据 `meta`
+
 1. `meta` 是对于路由规则是否需要验证权限的配置。
 2. 在路由对象中和 `name` 属性同级的代码上添加 `{ meta: { isChecked: true }}` 即可做标记。
 
 * 路由钩子 
+
 1. 路由钩子发生在权限控制的函数执行时期。在每次路由匹配后，渲染组件到 `router-view` 之前触发。
 2. `router.beforeEach(function(to, from, next){  })`
 3. `next()` 有三种状态：1.`next()` 为放行，即路由可以正常跳转；2.`next(false)` 为取消用户导航的行为，即不放行；3.`next({name:'***'})` 为重定向到某个页面。
 
-&emsp;然后，在 `index.html` 中，我们在第 3 步中，做了个简单登录页面，将用户输入的信息 `userName`，存储到了 `localStorage`。  
-&emsp;接着，在第 5 步中，我们对 `user` 路由，做了 `meta` 判断，进行权限控制。  
-&emsp;最后，我们在第 6 步中，定义了路由守卫，先判断是哪个页面登录，如果是登录页或者首页，则直接前往；如果是用户页，则进行 `localStorage` 判断，如果用户输入了并保存了 `userName`，则跳往用户页，否则不给跳转。
+**然后**，在 `index.html` 中，我们在第 3 步中，做了个简单登录页面，将用户输入的信息 `userName`，存储到了 `localStorage`。  
 
-&emsp;如此，我们做到了路由守卫。
+**接着**，在第 5 步中，我们对 `user` 路由，做了 `meta` 判断，进行权限控制。  
 
-<br>
+**最后**，我们在第 6 步中，定义了路由守卫，先判断是哪个页面登录，如果是登录页或者首页，则直接前往；如果是用户页，则进行 `localStorage` 判断，如果用户输入了并保存了 `userName`，则跳往用户页，否则不给跳转。
 
-> [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
-> **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
-> 基于 [https://github.om/LiangJunrong/document-library](https://github.om/LiangJunrong/document-library) 上的作品创作。  
-> 本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
+如此，我们做到了路由守卫。
+
+---
+
+> **jsliang** 广告推送：  
+> 也许小伙伴想了解下云服务器  
+> 或者小伙伴想买一台云服务器  
+> 或者小伙伴需要续费云服务器  
+> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
+
+[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
