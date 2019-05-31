@@ -2,7 +2,7 @@ React
 ===
 
 > create by **jsliang** on **2018-9-5 08:59:31**   
-> Recently revised in **2019-04-23 14:32:31**
+> Recently revised in **2019-05-31 15:49:14**
 
 ## 一 React 介绍
 
@@ -18,19 +18,20 @@ React 16.0 及以上版本，又被成为 React Fiber。
 > 具体选用何种框架，还是取决于个人/团队对于该框架的驾驭程度
 
 ## 三 目录
-| 文章 | 知识点 |
-| --- | --- |
-| [《React Demo One - TodoList》]([./ReactDemoOne-TodoList.md](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoOne-TodoList.md)) | React |
-| [《React Demo Two - TodoList 升级》](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoTwo-TodoListUpgrade.md) | React、Redux、Redux-Thunk、Redux-Saga、React-Redux |
-| [《React Demo Three - 简书》](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/React/ReactDemoThree-JianShu.md) | React、Redux、React-Redux、Redux-Thunk |
 
-## 四 学习顺序
-
-1. ReactBase
-2. ReactDemoOne-TodoList
-3. ReactRedux
-4. ReactDemoTwo-TodoListUpgrade
-5. ReactDemoThree-JianShu
+| 目录 |
+| --- |
+| [React 基础](./React-base.md) |
+| [React 开发准备](./React-prepare.md) |
+| [React 知识点清单](./React-list.md) |
+| [React List - Create React App](./React-list-Create-React-App.md) |
+| [React List - React Redux](./React-list-React-Redux.md) |
+| [React List - React Router](./React-list-React-Router.md) |
+| [React Demo One - TodoList](./React-demo-one-TodoList.md) |
+| [React Demo Two - TodoList 升级](./React-demo-two-TodoList-upgrade.md) |
+| [React Demo Three - 简书](./React-demo-three-JianShu.md) |
+| [React Demo Four - 掘金](./React-demo-four-JueJin.md) |
+| [React Demo Five - 员岗周边](./React-demo-five-RegionalCircle.md) |
 
 ---
 
