@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-03 15:19:08**  
-> Recently revised in **2019-06-03 15:19:12**
+> Recently revised in **2019-06-03 16:19:51**
 
 * **原文**：[MDN - substring()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
 
