@@ -203,19 +203,15 @@ var longestCommonPrefix = function(strs) {
   if (strs.length < 2) {
     return !strs.length ? '' : strs[0];
   }
-
-  // strs = ["flower","flow","flight"]
-  let base = strs.shift(), // flower
-    splitTag = '@', // @
-    joinStrs = splitTag + strs.join(splitTag), // @flow@flight
-    regx = splitTag, // @
-    res = ''; // ''
+  
+  let base = strs.shift(),
+    joinStrs = '@' + strs.join('@'),
+    regx = '@',
+    res = '';
 
   for(let i = 0; i < base.length; i++){
-    regx += base.substring(i, i + 1); // 第一次 @f、第二次 @fl
-    // 匹配 @flow@flight 看看是否有 @f、@fl……
+    regx += base.substring(i, i + 1);
     let matchArr = joinStrs.match(new RegExp(`${regx}`,"g")) || [];
-    // 判断返回的数组长度是不是 strs.length - 1 的长度（因为是 shift()）
     if(matchArr.length === strs.length){
       res += base.substring(i, i+1);
     }
@@ -224,11 +220,25 @@ var longestCommonPrefix = function(strs) {
 };
 ```
 
-* **执行测试**：
+* **执行测试 1**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `strs`：`["flower","flow","flight"]`
+2. `return`：
+
+```js
+"fl"
+```
+
+* **执行测试 2**：
+
+1. `strs`：`["dog","racecar","car"]`
+2. `return`：
+
+```js
+""
+```
+
+* **LeetCode Submit**：
 
 ```js
 ✔ Accepted
@@ -237,25 +247,27 @@ var longestCommonPrefix = function(strs) {
   ✔ Your memory usage beats 16.23 % of javascript submissions (35.9 MB)
 ```
 
-* **LeetCode Submit**：
-
-```js
-
-```
-
 * **知识点**：
 
-1. 
+1. `join()`：`join()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`join()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/join.md)
+2. `substring()`：`substring()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`substring()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/substring.md)
+3. `RegExp`：构造函数的原型对象。常用语一些便捷操作。[`RegExp` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/RegExp.md)
 
 * **解题思路**：
 
-[图]
+![图](../../../public-repertory/img/other-algorithm-014-3.png)
 
-[分析]
+**首先**，我们跟前两种方法一样进行空数组和数组长度为 1 时的判断。
 
-* **进一步思考**：
+**然后**，我们将数组第一个字符串通过 `shift()` 的形式给裁剪出来。
 
-### <a name="chapter-three-four" id="chapter-three-four">3.4 解法 - 正则表达式</a>
+**接着**，我们将数组以 `@` 的形式拼接成字符串。因为下面我们将通过 `@` 的形式来判断代码是否符合正则校验。
+
+**再然后**，通过 `for` 循环和正则表达式判断，如果成立了，下次再判断的时候，就通过字符串拼接的形式，拓展校验规则字段 `regx`。
+
+**最后**，如果匹配返回的长度和数组总长度相等的情况下，我们就通过字符串拼接的形式修改返回值。
+
+### <a name="chapter-three-four" id="chapter-three-four">3.4 解法 - 水平扫描</a>
 
 > [返回目录](#chapter-one)
 
@@ -263,22 +275,39 @@ var longestCommonPrefix = function(strs) {
 
 ```js
 var longestCommonPrefix = function(strs) {
-  'use strict';
-  if (strs === undefined || strs.length === 0) { return ''; }
+  if (strs.length < 2) {
+    return !strs.length ? '' : strs[0];
+  }
   
   return strs.reduce((prev, next) => {
     let i = 0;
-    while (prev[i] && next[i] && prev[i] === next[i]) i++;
+    while (prev[i] && next[i] && prev[i] === next[i]) {
+      i++;
+    };
     return prev.slice(0, i);
   });
 };
 ```
 
-* **执行测试**：
+* **执行测试 1**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `strs`：`["flower","flow","flight"]`
+2. `return`：
+
+```js
+"fl"
+```
+
+* **执行测试 2**：
+
+1. `strs`：`["dog","racecar","car"]`
+2. `return`：
+
+```js
+""
+```
+
+* **LeetCode Submit**：
 
 ```js
 ✔ Accepted
@@ -287,23 +316,19 @@ var longestCommonPrefix = function(strs) {
   ✔ Your memory usage beats 21.06 % of javascript submissions (35.5 MB)
 ```
 
-* **LeetCode Submit**：
-
-```js
-
-```
-
 * **知识点**：
 
-1. 
+1. `reduce()`
 
 * **解题思路**：
 
 [图]
 
-[分析]
+**首先**，这无疑是这四种思路中，写法看起来最简洁的。
 
-* **进一步思考**：
+**然后**，通过 `reduce()`，我们可以进行一项累加操作：先比较第一项和第二项，然后找到它们共通值后，剪切并 `return`；再比较的时候，使用 `return` 出来的值和第三项进行比较……依次类推
+
+**最后**，返回最后一次 `return` 的值。
 
 ---
 
