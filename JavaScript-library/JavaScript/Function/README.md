@@ -2,7 +2,7 @@ JavaScript - Function
 ===
 
 > Create by **jsliang** on **2019-05-30 21:46:39**  
-> Recently revised in **2019-06-03 13:34:51**
+> Recently revised in **2019-06-03 15:23:16**
 
 记录一些 JavaScript 的关于 Function 的知识点。
 
@@ -14,6 +14,7 @@ JavaScript - Function
 | [方法 - sort()](./sort.md) |
 | [方法 - split()](./split.md) |
 | [方法 - join()](./join.md) |
+| [方法 - substring()](./substring.md) |
 
 ---
 
