@@ -184,15 +184,13 @@ var longestCommonPrefix = function(strs) {
 
 * **知识点**：
 
-1. substring
+1. `substring()`：`substring()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`substring()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/substring.md)
 
 * **解题思路**：
 
-[图]
+![图](../../../public-repertory/img/other-algorithm-014-2.png)
 
-[分析]
-
-* **进一步思考**：
+该思路和 3.1 解法相似，理解了上面，看这幅图就是 OK 的了。
 
 ### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 正则表达式</a>
 
