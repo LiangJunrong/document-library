@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-05-27 13:04:06**
+> Recently revised in **2019-6-3 08:24:09**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -65,6 +65,20 @@
 | 9. teachat8 | [GitHub](https://github.com/teachat8) | [参赛地址](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95.md) |
 
 ## 五 比赛历史
+
+### 2019-06-03
+
+这一周参赛
+
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参与周竞赛，已交 35 元。
+* - [x] [teachat8](https://github.com/teachat8) 参与周竞赛，已交 35 元。
+
+上一周情况
+
+* - [x] [梁峻荣](https://github.com/LiangJunrong) 参赛 7 天，完成了 7 天的提交。
+* - [x] [豆包君](https://github.com/danygitgit) 参赛 7 天，完成了 6 天的提交。
+* - [x] [huqi](https://github.com/hu-qi) 参赛 7 天，完成了 6 天的提交。
+* - [x] [teachat8](https://github.com/teachat8) 参赛 7 天，完成了 7 天的提交。
 
 ### 2019-5-27
 
