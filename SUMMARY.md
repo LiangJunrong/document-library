@@ -26,6 +26,7 @@
       * [对象 - Math ✔](./JavaScript-library/JavaScript/Object/Math.md)
       * [对象 - Number ✔](./JavaScript-library/JavaScript/Object/Number.md)
       * [对象 - String ✔](./JavaScript-library/JavaScript/Object/String.md)
+      * [对象 - RegExp ✔](./JavaScript-library/JavaScript/Object/RegExp.md)
     * [其他](./JavaScript-library/JavaScript/Other/README.md)
       * [删除数组项目的技巧 ✔](./JavaScript-library/JavaScript/Other/DeleteArrrayItem.md)
       * [ES6学习 - 1 - Promise ✘](./JavaScript-library/JavaScript/Other/Promise.md)
