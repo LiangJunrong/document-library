@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-03 10:13:01**  
-> Recently revised in **2019-06-03 10:13:05**
+> Recently revised in **2019-06-03 15:18:19**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -47,7 +47,7 @@
 
 > [返回目录](#chapter-one)
 
-* **官方题解**：
+* **官方题解**：https://leetcode-cn.com/problems/longest-common-prefix/solution/zui-chang-gong-gong-qian-zhui-by-leetcode/
 
 解题千千万，官方独一家，上面是官方使用 Java 进行的题解。
 
@@ -63,11 +63,9 @@
 var longestCommonPrefix = function(strs) {
   if (!strs.length) {
     return '';
-  } else if (strs.length == 1) {
-    return strs[0];
   }
-  let shortStrLength = strs[0].length;
-  let shortStrPosition = 0;
+  let shortStrLength = strs[0].length; // 最短字符串的长度
+  let shortStrPosition = 0; // 最短字符串的位置
   for (let i = 0; i < strs.length; i++){
     if (strs[i].length < shortStrLength) {
       shortStrLength = strs[i].length;
@@ -118,7 +116,75 @@ var longestCommonPrefix = function(strs) {
 
 * **知识点**：
 
-1. 
+1. `join()`：`join()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`join()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/join.md)
+
+* **解题思路**：
+
+![图](../../../public-repertory/img/other-algorithm-014-1.png)
+
+**首先**，我们进行非空判断，当它是 `['']` 这样子时，我们直接返回 `''`。
+
+**然后**，我们进行第一次遍历，我们需要获取到最短字符串，因为这样我们就可以进行最短的 `for` 遍历；我们顺带存储下位置，方便获取这个字符串。
+
+**接着**，我们进行双重遍历（第二/第三次遍历），将最短字符串的每个字符和其他字符串进行比对，正常情况下，我们找到不相同后，就返回结果。
+
+**最后**，如果我们第二/第三次遍历没有做到执行，我们返回空字符串即可。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 水平扫描</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
+```js
+var longestCommonPrefix = function(strs) {
+  if (strs.length < 2) {
+    return !strs.length ? '' : strs[0];
+  }
+  
+  var result = strs[0];
+  
+  for(let i = 0; i < result.length; i++) {
+    for(let j = 1; j < strs.length; j++) {
+      if (result[i] !== strs[j][i]) {
+        return result.substring(0, i);
+      }
+    }
+  }
+  return result;
+};
+```
+
+* **执行测试 1**：
+
+1. `strs`：`["flower","flow","flight"]`
+2. `return`：
+
+```js
+"fl"
+```
+
+* **执行测试 2**：
+
+1. `strs`：`["dog","racecar","car"]`
+2. `return`：
+
+```js
+""
+```
+
+* **LeetCode Submit**：
+
+```js
+✔ Accepted
+  ✔ 118/118 cases passed (88 ms)
+  ✔ Your runtime beats 91.9 % of javascript submissions
+  ✔ Your memory usage beats 46.38 % of javascript submissions (34.9 MB)
+```
+
+* **知识点**：
+
+1. substring
 
 * **解题思路**：
 
@@ -128,14 +194,36 @@ var longestCommonPrefix = function(strs) {
 
 * **进一步思考**：
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 正则表达式</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
+var longestCommonPrefix = function(strs) {
+  if (strs.length < 2) {
+    return !strs.length ? '' : strs[0];
+  }
 
+  // strs = ["flower","flow","flight"]
+  let base = strs.shift(), // flower
+    splitTag = '@', // @
+    joinStrs = splitTag + strs.join(splitTag), // @flow@flight
+    regx = splitTag, // @
+    res = ''; // ''
+
+  for(let i = 0; i < base.length; i++){
+    regx += base.substring(i, i + 1); // 第一次 @f、第二次 @fl
+    // 匹配 @flow@flight 看看是否有 @f、@fl……
+    let matchArr = joinStrs.match(new RegExp(`${regx}`,"g")) || [];
+    // 判断返回的数组长度是不是 strs.length - 1 的长度（因为是 shift()）
+    if(matchArr.length === strs.length){
+      res += base.substring(i, i+1);
+    }
+  }
+  return res;
+};
 ```
 
 * **执行测试**：
@@ -145,7 +233,10 @@ var longestCommonPrefix = function(strs) {
 3. `return`：
 
 ```js
-
+✔ Accepted
+  ✔ 118/118 cases passed (108 ms)
+  ✔ Your runtime beats 45.03 % of javascript submissions
+  ✔ Your memory usage beats 16.23 % of javascript submissions (35.9 MB)
 ```
 
 * **LeetCode Submit**：
@@ -166,14 +257,23 @@ var longestCommonPrefix = function(strs) {
 
 * **进一步思考**：
 
-### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 暴力破解</a>
+### <a name="chapter-three-four" id="chapter-three-four">3.4 解法 - 正则表达式</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var longestCommonPrefix = function(strs) {
+  'use strict';
+  if (strs === undefined || strs.length === 0) { return ''; }
+  
+  return strs.reduce((prev, next) => {
+    let i = 0;
+    while (prev[i] && next[i] && prev[i] === next[i]) i++;
+    return prev.slice(0, i);
+  });
+};
 ```
 
 * **执行测试**：
@@ -183,7 +283,10 @@ var longestCommonPrefix = function(strs) {
 3. `return`：
 
 ```js
-
+✔ Accepted
+  ✔ 118/118 cases passed (80 ms)
+  ✔ Your runtime beats 96.32 % of javascript submissions
+  ✔ Your memory usage beats 21.06 % of javascript submissions (35.5 MB)
 ```
 
 * **LeetCode Submit**：
