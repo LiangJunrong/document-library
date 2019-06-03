@@ -2,11 +2,11 @@
 ===
 
 > Create by **jsliang** on **2019-06-03 16:53:03**  
-> Recently revised in **2019-06-03 16:53:06**
+> Recently revised in **2019-06-03 17:06:15**
 
 * **原文**：[MDN - reduce()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 
-* **功能**：`reduce()` 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。。
+* **功能**：`reduce()` 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
 
 * **语法**：`arr.reduce((prev, next) => { return prev + next }`
   * `prev`：数组前一项的值
