@@ -21,6 +21,7 @@
       * [方法 - split() ✔](./JavaScript-library/JavaScript/Function/split.md)
       * [方法 - join() ✔](./JavaScript-library/JavaScript/Function/join.md)
       * [方法 - substring() ✔](./JavaScript-library/JavaScript/Function/substring.md)
+      * [方法 - reduce() ✔](./JavaScript-library/JavaScript/Function/reduce.md)
     * [Object](./JavaScript-library/JavaScript/Object/README.md)
       * [对象 - Map ✔](./JavaScript-library/JavaScript/Object/Map.md)
       * [对象 - Math ✔](./JavaScript-library/JavaScript/Object/Math.md)
