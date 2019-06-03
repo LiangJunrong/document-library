@@ -98,6 +98,7 @@
       * [007 - 整数反转（reverse-integer） ✔](./other-library/LeetCode/easy/007-整数反转（reverse-integer）.md)
       * [009 - 回文数（palindrome-number） ✔](./other-library/LeetCode/easy/009-回文数（palindrome-number）.md)
       * [013 - 罗马数字转整数（roman-to-integer） ✔](./other-library/LeetCode/easy/013-罗马数字转整数（roman-to-integer）.md)
+      * [014 - 最长公共前缀（longest-common-prefix） ✔](./other-library/LeetCode/easy/014-最长公共前缀（longest-common-prefix）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
