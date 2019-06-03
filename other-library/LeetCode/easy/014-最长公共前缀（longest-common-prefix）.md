@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-03 10:13:01**  
-> Recently revised in **2019-06-03 15:18:19**
+> Recently revised in **2019-06-03 17:17:56**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,10 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
+| &emsp;[3.2 解法 - 水平扫描](#chapter-three-two) |
+| &emsp;[3.3 解法 - 正则表达式](#chapter-three-three) |
+| &emsp;[3.4 解法 - 水平扫描](#chapter-three-four) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -318,11 +321,12 @@ var longestCommonPrefix = function(strs) {
 
 * **知识点**：
 
-1. `reduce()`
+1. `reduce()`：`reduce()` 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。[`reduce()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/reduce.md)
+2. `slice()`：`slice()` 方法提取一个字符串的一部分，并返回一新的字符串。[`slice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/slice.md)
 
 * **解题思路**：
 
-[图]
+![图](../../../public-repertory/img/other-algorithm-014-4.png)
 
 **首先**，这无疑是这四种思路中，写法看起来最简洁的。
 
