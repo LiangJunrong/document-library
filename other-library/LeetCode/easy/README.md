@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-05-24 11:48:21**
+> Recently revised in **2019-06-04 15:45:52**
 
 LeetCode 简单难度攻略
 
@@ -11,7 +11,9 @@ LeetCode 简单难度攻略
 | 001 - 两数之和（two-sum） | [#1 解题](./001-两数之和（two-sum）.md) |
 | 007 - 整数反转（reverse-integer） | [#7 解题](./007-整数反转（reverse-integer）.md) |
 | 009 - 回文数（palindrome-number） | [#9 解题](./009-回文数（palindrome-number）.md) |
-| 013-罗马数字转整数（roman-to-integer） | [#13 解题](./013-罗马数字转整数（roman-to-integer）.md) |
+| 013 - 罗马数字转整数（roman-to-integer） | [#13 解题](./013-罗马数字转整数（roman-to-integer）.md) |
+| 014 - 最长公共前缀（longest-common-prefix） | [#14 解题](./014-最长公共前缀（longest-common-prefix）.md) |
+| 020 - 有效的括号（valid-parentheses） | [#20 解题](./020-有效的括号（valid-parentheses）.md) |
 
 ---
 
