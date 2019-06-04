@@ -2,7 +2,7 @@ JavaScript - Function
 ===
 
 > Create by **jsliang** on **2019-05-30 21:46:39**  
-> Recently revised in **2019-06-03 17:04:41**
+> Recently revised in **2019-06-04 14:40:07**
 
 记录一些 JavaScript 的关于 Function 的知识点。
 
@@ -10,6 +10,7 @@ JavaScript - Function
 | --- |
 | [方法 - indexOf()](./indexOf.md) |
 | [方法 - map()](./map.md) |
+| [方法 - push()](./push.md) |
 | [方法 - pop()](./pop.md) |
 | [方法 - sort()](./sort.md) |
 | [方法 - split()](./split.md) |
