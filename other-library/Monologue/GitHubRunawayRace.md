@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-6-3 08:24:09**
+> Recently revised in **2019-06-04 19:04:18**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -55,14 +55,10 @@
 | 昵称 | GitHub 账号 | 竞赛记录地址 | 
 | --- | --- | --- | 
 | 1. jsliang | [GitHub](https://github.com/LiangJunrong) | [参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/Logs) |
-| 2. Liutaochange | [GitHub](https://github.com/liutaochange) | ——空—— |
-| 3. jerry | [GitHub](https://github.com/jgchenu) | ——空—— |
-| 4. 邵威儒 | [GitHub](https://github.com/iamswr) | ——空—— |
-| 5. HESUIJUN | [GitHub](https://github.com/HESUIJUN) | ——空—— |
-| 6. 豆包君 | [GitHub](https://github.com/danygitgit) | [参赛地址](https://github.com/danygitgit/Cheer-for-yourself/blob/master/myAchievement/%E6%AF%8F%E5%91%A8%E8%AE%A1%E5%88%92%E5%8F%8A%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95.md) |
-| 7. huqi | [GitHub](https://github.com/hu-qi) | [参赛地址](https://github.com/hu-qi/Loner/tree/master/other-library/change-for-myself) |
-| 8. imNaive | [GitHub](https://github.com/HashidaHaru) | ——空—— |
-| 9. teachat8 | [GitHub](https://github.com/teachat8) | [参赛地址](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-06.md) |
+| 2. 豆包君 | [GitHub](https://github.com/danygitgit) | [参赛地址](https://github.com/danygitgit/Cheer-for-yourself/blob/master/myAchievement/%E6%AF%8F%E5%91%A8%E8%AE%A1%E5%88%92%E5%8F%8A%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95.md) |
+| 3. huqi | [GitHub](https://github.com/hu-qi) | [参赛地址](https://github.com/hu-qi/Loner/tree/master/other-library/change-for-myself) |
+| 4. teachat8 | [GitHub](https://github.com/teachat8) | [参赛地址](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-06.md) |
+| 5. LienJack | [GitHub](https://github.com/LienJack) | [参赛地址](https://github.com/LienJack/daliy-study) |
 
 ## 五 比赛历史
 
