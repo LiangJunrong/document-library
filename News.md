@@ -2,17 +2,18 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-06-03 17:24:42**
+> Recently revised in **2019-06-04 14:43:53**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 一 目前
 
-* **更新时间**：2019-06-03。
-* [x] **链接**：[014 - 最长公共前缀（longest-common-prefix）](././other-library/LeetCode/Easy/014-最长公共前缀（longest-common-prefix）.md)
+* **更新时间**：2019-06-04。
+* [x] **链接**：[LeetCode - 20 - 有效的括号](./other-library/LeetCode/easy/020-有效的括号（valid-parentheses）.md)
 
 ## 二 历史
 
+* [x] [LeetCode - 14 - 最长公共前缀](././other-library/LeetCode/Easy/014-最长公共前缀（longest-common-prefix）.md)
 * [x] [Markdown 打造静态网站](./other-library/Markdown-Websites/README.md)
 * [x] [LeetCode - 13 - 罗马数字转整数](./other-library/LeetCode/Easy/013-罗马数字转整数（roman-to-integer）.md)
 * [x] [LeetCode - 9 - 回文数](./other-library/LeetCode/Easy/009-回文数（palindrome-number）.md)
