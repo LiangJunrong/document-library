@@ -12,7 +12,8 @@ Document Library - 文档库
 
 **jsliang 制作了这个文档库的在线小册**：
 
-* [LiangJunrong.github.io](http://liangjunrong.github.io)
+* [LiangJunrong.github.io](http://liangjunrong.github.io)（每天更新）
+* [document.jsliang.top](http://document.jsliang.top/)（每周更新）
 
 **欢迎评论吐槽！**
 
