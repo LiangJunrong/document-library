@@ -549,7 +549,7 @@ GitBook 搭建
 
 **然后**，部署到 GitHub Pages 或者个人云服务器。
 
-* [GitHub Pages 教程](../Github-Pages/GitHub-Pages-study.md)
+* [GitHub Pages 教程](../GitHub-Pages/GitHub-Pages-study.md)
 * [Nginx 配置](../../Node/build-web-station.md)
 
 **最后**，我们查看下我们的部署页面：
