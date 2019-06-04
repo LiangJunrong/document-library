@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-04 11:39:30**  
-> Recently revised in **2019-06-04 11:39:33**
+> Recently revised in **2019-06-04 14:33:38**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,6 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -58,87 +57,111 @@
 
 > [返回目录](#chapter-one)
 
-* **官方题解**：
+* **官方题解**：https://leetcode-cn.com/problems/valid-parentheses/solution/you-xiao-de-gua-hao-by-leetcode/
 
 解题千千万，官方独一家，上面是官方使用 Java 进行的题解。
 
 小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var isValid = function(s) {
+  let judge = {
+    '[': ']',
+    '(': ')',
+    '{': '}',
+  }
+  let parameter = s.split('');
+  let stack = [];
+  for (let i = 0; i < parameter.length; i++) {
+    if (judge[stack[stack.length - 1]] === parameter[i]) {
+      stack.pop();
+    } else {
+      stack.push(parameter[i]);
+    }
+  }
+  if (stack.length == 0) {
+    return true;
+  }
+  return false;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `s`：`()[]{}`
+2. `return`：`true`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 76/76 cases passed (76 ms)
+  ✔ Your runtime beats 96.48 % of javascript submissions
+  ✔ Your memory usage beats 66.23 % of javascript submissions (33.8 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
+2. `push()`：
+3. `pop()`：
 
 * **解题思路**：
 
-[图]
+**首先**，我们来想下平时玩的翻牌游戏：
 
-[分析]
+游戏屏幕中有 4 * 4 共 16 张牌。
 
-* **进一步思考**：
+如果在同一个回合中（一个回合能翻 2 次牌），我们翻出来相同的两张牌，就把它摊开（消掉）；
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+如果在同一个回合中翻到两张不同的牌，我们就要把它覆盖回去。
 
-> [返回目录](#chapter-one)
+![图](../../../public-repertory/img/other-algorithm-020-1.png)
 
-* **解题代码**：
+这时候，机智如你，有没有想过要一个作弊器，用来记录我们翻过的牌？！
 
-```js
+就好比：我们先翻到红包，再翻到炸弹，下一次翻到红包的时候，我们就打开一开始翻到红包的地方……
 
-```
+OK，这么讲，小伙伴们大致清楚了。
 
-* **执行测试**：
+**现在**，我们有一个字符串：`(()[]{})`，我们要判断它是否是有效的括号，怎么判断呢：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. 这些括号必须成对出现，例如：`()`、`[]`、`{}`。
+2. 这些括号出现的情况不能乱序，例如：`([)]`、`{[}]`
 
-```js
+**同时**，我们初始化下数据：
 
-```
-
-* **LeetCode Submit**：
-
-```js
+* `judge`: 
 
 ```
+{
+  '[': ']',
+  '(': ')',
+  '{': '}',
+}
+```
 
-* **知识点**：
+* `parameter`：`[ '(', '(', ')', '[', ']', '{', '}', ')' ]`
+* `stack`：`[]`
 
-1. 
+**然后**，我们是不是该开始使用我们的作弊器了：
 
-* **解题思路**：
+![图](../../../public-repertory/img/other-algorithm-020-2.png)
 
-[图]
+在这个作弊器中，我们将碰到的括号记录起来。
 
-[分析]
+如果碰到下一个括号，是我们想要的类型，那么就消掉最上层的括号；
 
-* **进一步思考**：
+如果碰到下一个括号，不是我们想要的类型，那么就把它放到数组的最上层。
+
+1. 遍历第一次，`stack` 末尾是空的，所以我们执行 `push()` 操作，`stack`：`['(']`
+2. 遍历第二次，`stack` 末尾是 `'('`，通过 `judge` 转换就是 `')'`，而在这个位置的 `parameter[i]` 是 `'('`，两者不相同，所以我们还是执行 `push()` 操作，`stack`：`['(', '(']`
+3. 遍历第三次，`stack` 末尾是 `'('`，通过 `judge` 转换就是 `')'`，而在这个位置的 `parameter[i]` 是 `')'`，两者相同，所以我们执行 `pop()` 操作，将数组的末尾给删掉，`stack`：`['(']`
+4. ……以此类推，最后我们的 `stack` 变成 `[]` 空数组。
+
+**最后**，我们根据 `stack` 是否为空数组，来进行判断这个字符串是不是有效数组。
 
 ---
 
