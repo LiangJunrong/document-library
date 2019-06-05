@@ -49,6 +49,84 @@
 * **解题代码**：
 
 ```js
+var mergeTwoLists = function(l1, l2) {
+  return [...l1, ...l2].sort();
+};
+```
+
+* **执行测试**：
+
+1. 形参 1
+2. 形参 2
+3. `return`：
+
+```js
+
+```
+
+* **LeetCode Submit**：
+
+```js
+
+```
+
+* **知识点**：
+
+1. 
+
+* **解题思路**：
+
+[图]
+
+[分析]
+
+* **进一步思考**：
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
+```js
+
+```
+
+* **执行测试**：
+
+1. 形参 1
+2. 形参 2
+3. `return`：
+
+```js
+
+```
+
+* **LeetCode Submit**：
+
+```js
+
+```
+
+* **知识点**：
+
+1. 
+
+* **解题思路**：
+
+[图]
+
+[分析]
+
+* **进一步思考**：
+
+### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 暴力破解</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
+```js
 
 ```
 
