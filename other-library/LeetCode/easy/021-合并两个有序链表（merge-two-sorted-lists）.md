@@ -1,8 +1,8 @@
 021 - 合并两个有序链表（merge-two-sorted-lists）
 ===
 
-> Create by **jsliang** on **2019-6-5 08:37:00**  
-> Recently revised in **2019-6-5 08:37:04**
+> Create by **jsliang** on **2019-06-05 08:37:00**  
+> Recently revised in **2019-06-05 13:48:22**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,6 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -25,7 +24,9 @@
 * **题目内容**：
 
 ```
-将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
+将两个有序链表合并为一个新的有序链表并返回。
+
+新链表是通过拼接给定的两个链表的所有节点组成的。 
 
 示例：
 输入：1->2->4, 1->3->4
@@ -36,127 +37,123 @@
 
 > [返回目录](#chapter-one)
 
-* **官方题解**：
+### <a name="chapter-three-one" id="chapter-three-one">3.1 官方题解</a>
+
+> [返回目录](#chapter-one)
+
+https://leetcode-cn.com/problems/merge-two-sorted-lists/solution/he-bing-liang-ge-you-xu-lian-biao-by-leetcode/
 
 解题千千万，官方独一家，上面是官方使用 Java 进行的题解。
 
 小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解题代码</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
-
 ```js
-var mergeTwoLists = function(l1, l2) {
-  return [...l1, ...l2].sort();
+var mergeTwoLists = function (l1, l2) {
+  var mergedHead = {
+      val: -1,
+      next: null
+    },
+    crt = mergedHead;
+  while (l1 && l2) {
+    if (l1.val > l2.val) {
+      crt.next = l2;
+      l2 = l2.next;
+    } else {
+      crt.next = l1;
+      l1 = l1.next;
+    }
+    crt = crt.next;
+  }
+  crt.next = l1 || l2;
+
+  return mergedHead.next;
 };
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+### <a name="chapter-three-three" id="chapter-three-three">3.3 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+* **参数 1**：
 
 ```js
-
+l1 = {
+  val: 1,
+  next: {
+    val: 2,
+    next: {
+      val: 4,
+      next: null
+    }
+  }
+}
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+* **参数 2**：
 
 ```js
-
+l2 = {
+  val: 1,
+  next: {
+    val: 3,
+    next: {
+      val: 5,
+      next: null
+    }
+  }
+}
 ```
 
-* **LeetCode Submit**：
+* **返回值**：
 
 ```js
-
+{
+  val: 1,
+  next: {
+    val: 1,
+    next: {
+      val: 2,
+      next: {
+        val: 3,
+        next: {
+          val: 4,
+          next: {
+            val:5,
+            next: null,
+          }
+        }
+      }
+    }
+  }
+}
 ```
 
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 暴力破解</a>
+### <a name="chapter-three-four" id="chapter-three-four">3.4 LeetCode Submit</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
-
 ```js
-
+✔ Accepted
+  ✔ 208/208 cases passed (84 ms)
+  ✔ Your runtime beats 98.22 % of javascript submissions
+  ✔ Your memory usage beats 87.2 % of javascript submissions (35 MB)
 ```
 
-* **执行测试**：
+### <a name="chapter-three-five" id="chapter-three-five">3.5 知识补充</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> [返回目录](#chapter-one)
 
-```js
+### <a name="chapter-three-six" id="chapter-three-six">3.6 解题思路</a>
 
-```
+> [返回目录](#chapter-one)
 
-* **LeetCode Submit**：
+## <a name="chapter-four" id="chapter-four">四 总结</a>
 
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
+> [返回目录](#chapter-one)
 
 ---
 
