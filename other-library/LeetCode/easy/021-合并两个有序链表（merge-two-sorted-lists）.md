@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-05 08:37:00**  
-> Recently revised in **2019-06-05 14:39:04**
+> Recently revised in **2019-06-05 17:31:37**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,6 +13,13 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
+| &emsp;[3.1 官方题解](#chapter-three-one) |
+| &emsp;[3.2 解题代码](#chapter-three-two) |
+| &emsp;[3.3 执行测试](#chapter-three-three) |
+| &emsp;[3.4 LeetCode Submit](#chapter-three-four) |
+| &emsp;[3.5 知识补充](#chapter-three-five) |
+| &emsp;[3.6 解题思路](#chapter-three-six) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 总结](#chapter-four) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -147,15 +154,29 @@ l2 = {
 
 > [返回目录](#chapter-one)
 
+在这道题的解题知识中，存在一个知识点：链表。
 
+然后因为 **jsliang** 跟小伙伴们一样，也是 **算法与数据结构** 的菜鸟，所以网上找了篇文章：
+
+js实现链表： https://www.cnblogs.com/EganZhang/p/6594830.html
+
+**jsliang** 碰到这种结构的时候，也是挠头抓耳，然后百度找到这篇文章，基本的结构看懂了，所以在这推荐给小伙伴们。
+
+当然，**jsliang** 立马下单了一本书 《学习 JavaScript 数据结构与算法》，有没用不知道，先买了再说，后面 **jsliang** 会补上相关的知识点，小伙伴们先看下上面大佬写的文章咯~
 
 ### <a name="chapter-three-six" id="chapter-three-six">3.6 解题思路</a>
 
 > [返回目录](#chapter-one)
 
+![图](../../../public-repertory/img/other-algorithm-021-1.png)
+
 ## <a name="chapter-four" id="chapter-four">四 总结</a>
 
 > [返回目录](#chapter-one)
+
+这样，我们就完成了 21 题的题解，感觉理解出来的话，其实是挺容易实现的。
+
+如果小伙伴们还是有点懵，最好多打印几个 `console.log`，就清楚它是怎么运行的了！
 
 ---
 
