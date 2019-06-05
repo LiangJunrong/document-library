@@ -104,6 +104,7 @@
       * [013 - 罗马数字转整数（roman-to-integer） ✔](./other-library/LeetCode/easy/013-罗马数字转整数（roman-to-integer）.md)
       * [014 - 最长公共前缀（longest-common-prefix） ✔](./other-library/LeetCode/easy/014-最长公共前缀（longest-common-prefix）.md)
       * [020 - 有效的括号（valid-parentheses） ✔](./other-library/LeetCode/easy/020-有效的括号（valid-parentheses）.md)
+      * [021 - 合并两个有序链表（merge-two-sorted-lists） ✔](./other-library/LeetCode/easy/021-合并两个有序链表（merge-two-sorted-lists）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
