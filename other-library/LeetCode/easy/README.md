@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-06-04 15:45:52**
+> Recently revised in **2019-6-5 08:38:35**
 
 LeetCode 简单难度攻略
 
@@ -14,6 +14,7 @@ LeetCode 简单难度攻略
 | 013 - 罗马数字转整数（roman-to-integer） | [#13 解题](./013-罗马数字转整数（roman-to-integer）.md) |
 | 014 - 最长公共前缀（longest-common-prefix） | [#14 解题](./014-最长公共前缀（longest-common-prefix）.md) |
 | 020 - 有效的括号（valid-parentheses） | [#20 解题](./020-有效的括号（valid-parentheses）.md) |
+| 021 - 合并两个有序链表（merge-two-sorted-lists） | [#21 解题](./021-合并两个有序链表（merge-two-sorted-lists）.md) |
 
 ---
 
