@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-19 11:17:49**  
-> Recently revised in **2019-05-19 11:22:42**
+> Recently revised in **2019-06-06 13:52:16**
 
 * **原文**：[MDN - String](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
 
