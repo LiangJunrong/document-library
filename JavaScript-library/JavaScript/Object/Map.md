@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-17 11:45:35**  
-> Recently revised in **2019-05-17 15:05:47**
+> Recently revised in **2019-06-06 13:51:17**
 
 * **原文**：[MDN - Map](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map)
 
