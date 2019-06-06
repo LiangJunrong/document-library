@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-6-5 08:38:35**
+> Recently revised in **2019-06-06 14:31:59**
 
 LeetCode 简单难度攻略
 
@@ -15,6 +15,7 @@ LeetCode 简单难度攻略
 | 014 - 最长公共前缀（longest-common-prefix） | [#14 解题](./014-最长公共前缀（longest-common-prefix）.md) |
 | 020 - 有效的括号（valid-parentheses） | [#20 解题](./020-有效的括号（valid-parentheses）.md) |
 | 021 - 合并两个有序链表（merge-two-sorted-lists） | [#21 解题](./021-合并两个有序链表（merge-two-sorted-lists）.md) |
+| 026 - 删除排序数组中的重复项（remove-duplicates-from-sorted-array） | [#26 解题](./026-删除排序数组中的重复项（remove-duplicates-from-sorted-array）.md) |
 
 ---
 
