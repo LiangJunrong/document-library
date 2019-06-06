@@ -2,17 +2,19 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-06-04 14:43:53**
+> Recently revised in **2019-06-06 17:16:44**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 一 目前
 
-* **更新时间**：2019-06-04。
-* [x] **链接**：[LeetCode - 20 - 有效的括号](./other-library/LeetCode/easy/020-有效的括号（valid-parentheses）.md)
+* **更新时间**：2019-06-06
+* [x] **链接**：[LeetCode - 027 - 移除元素](./other-library/LeetCode/easy/027-移除元素（remove-element）.md)
 
 ## 二 历史
 
+* [x] [LeetCode - 026 - 删除排序数组中的重复项](./other-library/LeetCode/easy/026-删除排序数组中的重复项（remove-duplicates-from-sorted-array）.md)
+* [x] [LeetCode - 20 - 有效的括号](./other-library/LeetCode/easy/020-有效的括号（valid-parentheses）.md)
 * [x] [LeetCode - 14 - 最长公共前缀](././other-library/LeetCode/Easy/014-最长公共前缀（longest-common-prefix）.md)
 * [x] [Markdown 打造静态网站](./other-library/Markdown-Websites/README.md)
 * [x] [LeetCode - 13 - 罗马数字转整数](./other-library/LeetCode/Easy/013-罗马数字转整数（roman-to-integer）.md)
