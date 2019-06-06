@@ -2,7 +2,7 @@ JavaScript - Object
 ===
 
 > Create by **jsliang** on **2019-05-30 21:46:21**  
-> Recently revised in **2019-06-03 16:20:45**
+> Recently revised in **2019-06-06 13:53:33**
 
 记录一些 JavaScript 的关于 Function 的知识点。
 
@@ -11,8 +11,9 @@ JavaScript - Object
 | [对象 - Map](./Map.md) |
 | [对象 - Math](./Math.md) |
 | [对象 - Number](./Number.md) |
-| [对象 - String](./String.md) |
 | [对象 - RegExp](./RegExp.md) |
+| [对象 - Set](./Set.md) |
+| [对象 - String](./String.md) |
 
 ---
 
