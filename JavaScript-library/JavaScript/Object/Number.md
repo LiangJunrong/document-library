@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-19 11:17:28**  
-> Recently revised in **2019-05-19 11:17:31**
+> Recently revised in **2019-06-06 13:51:59**
 
 * **原文**：[MDN - Number](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
