@@ -98,7 +98,10 @@ var removeDuplicates = function(nums) {
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 161/161 cases passed (124 ms)
+  ✔ Your runtime beats 72.77 % of javascript submissions
+  ✔ Your memory usage beats 15.24 % of javascript submissions (37.6 MB)
 ```
 
 * **知识点**：
@@ -120,7 +123,24 @@ var removeDuplicates = function(nums) {
 * **解题代码**：
 
 ```js
-
+var removeDuplicates = function(nums) {
+  let map = new Map()
+  for(let i = 0; i < nums.length; i++) {
+    if(!map.has(nums[i])) {
+       map.set(nums[i])
+    }
+  }
+  let mk = map.keys()
+  let len = map.size
+  let n = 0
+  for(let j of mk) {
+    if (n < len) {
+      nums.splice(n, 1, j)
+      n++
+    }
+  }
+  return len
+};
 ```
 
 * **执行测试**：
@@ -130,7 +150,10 @@ var removeDuplicates = function(nums) {
 3. `return`：
 
 ```js
-
+✔ Accepted
+  ✔ 161/161 cases passed (188 ms)
+  ✔ Your runtime beats 26.39 % of javascript submissions
+  ✔ Your memory usage beats 7.78 % of javascript submissions (38 MB)
 ```
 
 * **LeetCode Submit**：
@@ -158,7 +181,11 @@ var removeDuplicates = function(nums) {
 * **解题代码**：
 
 ```js
-
+var removeDuplicates = function(nums) {
+  var a = [...new Set(nums)];
+  for (var i = 0;i < a.length;i++) nums[i] = a[i];
+  return a.length;
+};
 ```
 
 * **执行测试**：
@@ -174,7 +201,10 @@ var removeDuplicates = function(nums) {
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 161/161 cases passed (112 ms)
+  ✔ Your runtime beats 93.2 % of javascript submissions
+  ✔ Your memory usage beats 45.6 % of javascript submissions (37.1 MB)
 ```
 
 * **知识点**：
