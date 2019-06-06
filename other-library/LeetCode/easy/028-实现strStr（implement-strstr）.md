@@ -74,7 +74,10 @@ var strStr = function(haystack, needle) {
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 74/74 cases passed (76 ms)
+  ✔ Your runtime beats 95.5 % of javascript submissions
+  ✔ Your memory usage beats 38.43 % of javascript submissions (34.2 MB)
 ```
 
 * **知识点**：
@@ -97,7 +100,15 @@ var strStr = function(haystack, needle) {
 
 ```js
 var strStr = function(haystack, needle) {
-  return haystack.indexOf(needle);
+  if (!haystack && !needle) {
+    return 0;
+  }
+  for (let i = 0; i < haystack.length; i++) {
+    if (haystack.substring(i, i + needle.length) === needle) {
+      return i;
+    }
+  }
+  return -1;
 };
 ```
 
@@ -108,7 +119,10 @@ var strStr = function(haystack, needle) {
 3. `return`：
 
 ```js
-
+✔ Accepted
+  ✔ 74/74 cases passed (76 ms)
+  ✔ Your runtime beats 95.5 % of javascript submissions
+  ✔ Your memory usage beats 9.51 % of javascript submissions (35.8 MB)
 ```
 
 * **LeetCode Submit**：
@@ -136,9 +150,7 @@ var strStr = function(haystack, needle) {
 * **解题代码**：
 
 ```js
-var strStr = function(haystack, needle) {
-  return haystack.indexOf(needle);
-};
+
 ```
 
 * **执行测试**：
