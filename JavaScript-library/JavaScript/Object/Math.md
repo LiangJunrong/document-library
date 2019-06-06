@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-19 11:32:44**  
-> Recently revised in **2019-05-19 11:32:47**
+> Recently revised in **2019-06-06 13:51:34**
 
 * **原文**：[MDN - Math](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math)
 
