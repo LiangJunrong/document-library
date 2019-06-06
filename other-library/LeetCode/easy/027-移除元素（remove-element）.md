@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-06 15:56:49**  
-> Recently revised in **2019-06-06 15:56:52**
+> Recently revised in **2019-06-06 17:12:43**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - 双指针](#chapter-three-one) |
+| &emsp;[3..2 解法 - 递归](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -71,119 +72,133 @@ for (int i = 0; i < len; i++) {
 
 小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 双指针</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var removeElement = function(nums, val) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === val) {
+      nums.splice(i, 1);
+      i--;
+    }
+  }
+  return nums.length;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `nums`：`[0,1,2,2,3,0,4,2]`
+2. `val`：`2`
 3. `return`：
 
 ```js
-
+// [ 0, 1, 3, 0, 4 ]
+5
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 113/113 cases passed (96 ms)
+  ✔ Your runtime beats 54.39 % of javascript submissions
+  ✔ Your memory usage beats 95.17 % of javascript submissions (33.4 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `splice()`：`splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。[`splice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/splice.md)
 
 * **解题思路**：
 
-[图]
+如果小伙伴们看过上一道（第 26 题）中关于双指针的解法，那么小伙伴对这道题应该非常清晰。
 
-[分析]
+如果小伙伴们没有看过上一篇的题解，建议先去接触那道题。
 
-* **进一步思考**：
+思路：
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+1. 遍历整个数组
+2. 判断数组中的某个数字是否和需要移除的元素相等
+3. 如果两者相等，则移除改元素，并且遍历索引 `i = i - 1`（因为 `splice()` 改变了原数组，所以我们需要重新检查本次索引）
+
+这样，我们就简单完成了这道题的破解。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 递归</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var removeElement = function(nums, val) {
+  if(nums.indexOf(val) != -1) {
+    nums.splice(nums.indexOf(val), 1);
+    return removeElement(nums, val);
+  }
+  return nums.length;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `nums`：`[0,1,2,2,3,0,4,2]`
+2. `val`：`2`
 3. `return`：
 
 ```js
-
+// [ 0, 1, 3, 0, 4 ]
+5
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 113/113 cases passed (104 ms)
+  ✔ Your runtime beats 38.48 % of javascript submissions
+  ✔ Your memory usage beats 86.91 % of javascript submissions (33.5 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `splice()`：`splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。[`splice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/splice.md)
+2. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf.md)
 
 * **解题思路**：
 
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
-* **解题代码**：
-
 ```js
-
+var removeElement = function(nums, val) {
+  if(nums.indexOf(val) != -1) {
+    nums.splice(nums.indexOf(val), 1);
+    return removeElement(nums, val);
+  }
+  return nums.length;
+};
 ```
 
-* **执行测试**：
+总有那么一两个破解的方式，令人眼前一亮！
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+虽然使用递归来破解这道题，可能比不上双指针破解法，但是感觉思路还是不错的：
 
-```js
-
-```
-
-* **LeetCode Submit**：
+**首先**，我们通过 `indexOf()` 方法来判断我们的数组中是否还存在需要移除的那个元素。在测试数据 `[0,1,2,2,3,0,4,2]` 和 `2` 的遍历中，`nums,indexOf(val)` 的值分别为：
 
 ```js
-
+2
+2
+5
+-1
 ```
 
-* **知识点**：
+即对应我们的 `2` 出现的位置。
 
-1. 
+**然后**，我们通过 `splice()` 来裁剪原数组，起始位置就是找到 `2` 的位置，裁剪长度就是 1 个。
 
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
+**最后**，如果是存在移除元素，我们裁剪完后，就再执行一遍自身（递归），否则就返回最终的长度。
 
 ---
 
