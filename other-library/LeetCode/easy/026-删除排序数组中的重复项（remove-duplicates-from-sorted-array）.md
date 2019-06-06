@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-06 11:11:26**  
-> Recently revised in **2019-06-06 11:11:30**
+> Recently revised in **2019-06-06 14:30:57**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - 双指针](#chapter-three-one) |
+| &emsp;[3.2 解法 - 违规操作](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -68,7 +69,7 @@ for (int i = 0; i < len; i++) {
 
 小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 双指针</a>
 
 > [返回目录](#chapter-one)
 
@@ -87,12 +88,11 @@ var removeDuplicates = function(nums) {
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `nums`：`[1, 1, 2]`
+2. `return`：
 
 ```js
-
+2
 ```
 
 * **LeetCode Submit**：
@@ -106,75 +106,92 @@ var removeDuplicates = function(nums) {
 
 * **知识点**：
 
-1. 
+1. `splice()`：`splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。[`splice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/splice.md)
 
 * **解题思路**：
 
-[图]
+**首先**，这道题涉及到所谓的 **双指针** 了，什么是 **双指针** 呢？
 
-[分析]
+* [《LeetBook（LeetCode详解）》 - 双指针](https://hk029.gitbooks.io/leetbook/twopoint.html)
 
-* **进一步思考**：
+双指针，顾名思义，就是利用两个指针去遍历数组，一般来说，遍历数组采用的是单指针（index) 去遍历，两个指针一般是在有序数组中使用，一个放首，一个放尾，同时向中间遍历，直到两个指针相交，完成遍历，时间复杂度也是O(n)。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
-* **解题代码**：
+啥意思咧？就好比我们的代码：
 
 ```js
-var removeDuplicates = function(nums) {
-  let map = new Map()
-  for(let i = 0; i < nums.length; i++) {
-    if(!map.has(nums[i])) {
-       map.set(nums[i])
-    }
+for (let i = 0; i < nums.length; i++) {
+  if (nums[i] === nums[i + 1]) {
+    nums.splice(i, 1);
+    i--;
   }
-  let mk = map.keys()
-  let len = map.size
-  let n = 0
-  for(let j of mk) {
-    if (n < len) {
-      nums.splice(n, 1, j)
-      n++
-    }
+}
+```
+
+在这里，我们是不是使用了数组的两个位置？`[i]` 以及 `[i + 1]`。
+
+通过这两个指针的不断移动，直到把整个数组遍历一次，从而得到最终解。
+
+**然后**，我们需要知道的是，由于代码中，我们使用了 `for()` + `splice()`，从而造成的耗时和空间会比其他代码大，因为 `splice()` 是 JavaScript 封装好的方法。
+
+是不是觉得无法理解？那么我们稍微看一眼 `splice()` 的源码吧：
+
+> 仅仅看看就行了，这里不做过多讲解，刚兴趣的小伙伴可以前往 [V8 引擎源码](https://github.com/v8/v8/blob/ad82a40509c5b5b4680d4299c8f08d6c6d31af3c/src/js/array.js)
+
+```js
+function ArraySplice(start, delete_count) {
+  CHECK_OBJECT_COERCIBLE(this, "Array.prototype.splice");
+
+  var num_arguments = arguments.length;
+  var array = TO_OBJECT(this);
+  var len = TO_LENGTH(array.length);
+  var start_i = ComputeSpliceStartIndex(TO_INTEGER(start), len);
+  var del_count = ComputeSpliceDeleteCount(delete_count, num_arguments, len, start_i);
+  var deleted_elements = ArraySpeciesCreate(array, del_count);
+  deleted_elements.length = del_count;
+  var num_elements_to_add = num_arguments > 2 ? num_arguments - 2 : 0;
+
+  if (del_count != num_elements_to_add && %object_is_sealed(array)) {
+    throw %make_type_error(kArrayFunctionsOnSealed);
+  } else if (del_count > 0 && %object_is_frozen(array)) {
+    throw %make_type_error(kArrayFunctionsOnFrozen);
   }
-  return len
-};
+
+  var changed_elements = del_count;
+  if (num_elements_to_add != del_count) {
+    // If the slice needs to do a actually move elements after the insertion
+    // point, then include those in the estimate of changed elements.
+    changed_elements += len - start_i - del_count;
+  }
+  if (UseSparseVariant(array, len, IS_ARRAY(array), changed_elements)) {
+    %NormalizeElements(array);
+    if (IS_ARRAY(deleted_elements)) %NormalizeElements(deleted_elements);
+    SparseSlice(array, start_i, del_count, len, deleted_elements);
+    SparseMove(array, start_i, del_count, len, num_elements_to_add);
+  } else {
+    SimpleSlice(array, start_i, del_count, len, deleted_elements);
+    SimpleMove(array, start_i, del_count, len, num_elements_to_add);
+  }
+
+  // Insert the arguments into the resulting array in
+  // place of the deleted elements.
+  var i = start_i;
+  var arguments_index = 2;
+  var arguments_length = arguments.length;
+  while (arguments_index < arguments_length) {
+    array[i++] = arguments[arguments_index++];
+  }
+  array.length = len - del_count + num_elements_to_add;
+
+  // Return the deleted elements.
+  return deleted_elements;
+}
 ```
 
-* **执行测试**：
+如上，`splice()` 先执行删除操作，删除指定个数的元素，然后再插入 `elements`（元素或数组），他的每次删除都涉及大量元素的重新排列，而在插入元素时引入队列来管理。所以 `splice()` 的效率不高
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+**最后**，我们要做的就是返回数组的长度，就这样就 OK 了。
 
-```js
-✔ Accepted
-  ✔ 161/161 cases passed (188 ms)
-  ✔ Your runtime beats 26.39 % of javascript submissions
-  ✔ Your memory usage beats 7.78 % of javascript submissions (38 MB)
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 暴力破解</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 违规操作</a>
 
 > [返回目录](#chapter-one)
 
@@ -190,12 +207,11 @@ var removeDuplicates = function(nums) {
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `nums`：`[1, 1, 2]`
+2. `return`：
 
 ```js
-
+2
 ```
 
 * **LeetCode Submit**：
@@ -209,15 +225,17 @@ var removeDuplicates = function(nums) {
 
 * **知识点**：
 
-1. 
+1. `Set`：`Set` 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。[`Set` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Set.md)
 
 * **解题思路**：
 
-[图]
+**首先**，**jsliang** 表示这种方法可能不符合题意，但是它又是可行的！所以不管怎么说，莽就对了~
 
-[分析]
+**然后**，`Set` 对象会对值进行唯一操作，如果输入 `[1, 1, 2]`，那么这个 `Set` 会变成 `Set(2) {1, 2}`：`let a = new Set([1, 1, 2]);`。
 
-* **进一步思考**：
+**接着**，我们利用 ES6 的扩展运算符：`[...new Set(nums)]`，可以直接将 `Set` 类型转换成 `Array` 类型。
+
+**最后**，循环遍历 `a`，将 `a` 的内容赋值到 `nums` 即可（注意，`nums` 后面还是会有一些乱七八糟的数据，不过它不影响我们的解题）。
 
 ---
 
