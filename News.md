@@ -9,7 +9,7 @@
 ## 一 目前
 
 * **更新时间**：2019-06-10
-* [x] **链接**：[028 - 实现strStr（implement-strstr）](./other-library/LeetCode/easy/028-实现strStr（implement-strstr）.md)
+* [x] **链接**：[LeetCode - 028 - 实现strStr（implement-strstr）](./other-library/LeetCode/easy/028-实现strStr（implement-strstr）.md)
 
 ## 二 历史
 
