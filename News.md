@@ -2,17 +2,18 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-06-10 15:09:18**
+> Recently revised in **2019-06-10 19:43:33**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 一 目前
 
 * **更新时间**：2019-06-10
-* [x] **链接**：[LeetCode - 053 - 最大子序和（maximum-subarray）](./other-library/LeetCode/easy/053-最大子序和（maximum-subarray）.md)
+* [x] **链接**：[LeetCode - 058 - 最后一个单词的长度（length-of-last-word）](./other-library/LeetCode/easy/058-最后一个单词的长度（length-of-last-word）.md)
 
 ## 二 历史
 
+* [x] [LeetCode - 053 - 最大子序和（maximum-subarray）](./other-library/LeetCode/easy/053-最大子序和（maximum-subarray）.md)
 * [x] [LeetCode - 038 - 报数（count-and-say）](./other-library/LeetCode/easy/038-报数（count-and-say）.md)
 * [x] [LeetCode - 029 - 搜索插入位置（search-insert-position）](./other-library/LeetCode/easy/029-搜索插入位置（search-insert-position）.md)
 * [x] [LeetCode - 028 - 实现strStr（implement-strstr）](./other-library/LeetCode/easy/028-实现strStr（implement-strstr）.md)
