@@ -110,6 +110,7 @@
       * [026 - 删除排序数组中的重复项（remove-duplicates-from-sorted-array） ✔](./other-library/LeetCode/easy/026-删除排序数组中的重复项（remove-duplicates-from-sorted-array）.md)
       * [027 - 移除元素（remove-element） ✔](./other-library/LeetCode/easy/027-移除元素（remove-element）.md)
       * [028 - 实现strStr（implement-strstr） ✔](./other-library/LeetCode/easy/028-实现strStr（implement-strstr）.md)
+      * [029 - 搜索插入位置（search-insert-position） ✔](./other-library/LeetCode/easy/029-搜索插入位置（search-insert-position）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
