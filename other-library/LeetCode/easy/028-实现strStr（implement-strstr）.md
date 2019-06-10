@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-06 19:34:22**  
-> Recently revised in **2019-06-06 19:34:25**
+> Recently revised in **2019-6-10 08:02:34**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,6 +13,7 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
+| &emsp;[3.1 解题 - 转数组](#chapter-three) |
 | &emsp;[3.1 解题 - 转数组](#chapter-three) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
@@ -63,12 +64,12 @@ var strStr = function(haystack, needle) {
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `haystack`：`hello`
+2. `needle`：`ll`
 3. `return`：
 
 ```js
-
+2
 ```
 
 * **LeetCode Submit**：
@@ -82,15 +83,11 @@ var strStr = function(haystack, needle) {
 
 * **知识点**：
 
-1. 
+1. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf.md)
 
 * **解题思路**：
 
-[图]
-
-[分析]
-
-* **进一步思考**：
+破解的最快思路，帅的嘛就不谈了，直接使用 JS 内置方法……
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
 
@@ -114,9 +111,15 @@ var strStr = function(haystack, needle) {
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `haystack`：`hello`
+2. `needle`：`ll`
 3. `return`：
+
+```js
+2
+```
+
+* **LeetCode Submit**：
 
 ```js
 ✔ Accepted
@@ -125,61 +128,17 @@ var strStr = function(haystack, needle) {
   ✔ Your memory usage beats 9.51 % of javascript submissions (35.8 MB)
 ```
 
-* **LeetCode Submit**：
-
-```js
-
-```
-
 * **知识点**：
 
-1. 
+1. `substring()`：`substring()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`substring()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/substring.md)
 
 * **解题思路**：
 
-[图]
+这道题讲点道理，还是有双指针的影子在里面的，所以用 `substring` 又做了一遍：
 
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
-* **解题代码**：
-
-```js
-
-```
-
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
+1. 判断 `haystack` 和 `needle` 是否为空，为空返回 0。
+2. 遍历 `haystack`，判断 `haystack` 中某个字符串是不是等于 `needle` 的第一个字符串。
+3. 如果相等，则从 `i` 开始，判断 `haystack` 中的 `i + needle.length` 位是否等于 `needle`，是则返回对应的坐标 `i`。
 
 ---
 
