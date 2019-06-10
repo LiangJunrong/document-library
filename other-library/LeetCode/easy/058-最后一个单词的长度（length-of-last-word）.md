@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-10 18:18:16**  
-> Recently revised in **2019-06-10 19:40:49**
+> Recently revised in **2019-06-10 19:46:34**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解题 - 暴力破解](#chapter-three-one) |
+| &emsp;[3.2 解法 - 正则表达式](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
