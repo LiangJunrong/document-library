@@ -66,7 +66,7 @@ for (int i = 0; i < len; i++) {
 
 > [返回目录](#chapter-one)
 
-* **官方题解**：
+* **官方题解**：https://leetcode-cn.com/problems/remove-element/solution/yi-chu-yuan-su-by-leetcode/
 
 解题千千万，官方独一家，上面是官方使用 Java 进行的题解。
 
