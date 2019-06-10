@@ -113,6 +113,7 @@
       * [029 - 搜索插入位置（search-insert-position） ✔](./other-library/LeetCode/easy/029-搜索插入位置（search-insert-position）.md)
       * [038 - 报数（count-and-say） ✔](./other-library/LeetCode/easy/038-报数（count-and-say）.md)
       * [053 - 最大子序和（maximum-subarray） ✔](./other-library/LeetCode/easy/053-最大子序和（maximum-subarray）.md)
+      * [058 - 最后一个单词的长度（length-of-last-word） ✔](./other-library/LeetCode/easy/058-最后一个单词的长度（length-of-last-word）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
