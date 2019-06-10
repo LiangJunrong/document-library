@@ -63,37 +63,46 @@
 * **解题代码**：
 
 ```js
-var strStr = function(haystack, needle) {
-  return haystack.indexOf(needle);
+var searchInsert = function(nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === target || nums[i] > target) {
+      return i;
+    }
+  }
+  return nums.length;
 };
 ```
 
 * **执行测试**：
 
-1. `haystack`：`hello`
-2. `needle`：`ll`
+1. 形参 1
+2. 形参 2
 3. `return`：
 
 ```js
-2
+
 ```
 
 * **LeetCode Submit**：
 
 ```js
-✔ Accepted
-  ✔ 74/74 cases passed (76 ms)
-  ✔ Your runtime beats 95.5 % of javascript submissions
-  ✔ Your memory usage beats 38.43 % of javascript submissions (34.2 MB)
+√ Accepted
+  √ 62/62 cases passed (84 ms)
+  √ Your runtime beats 88.72 % of javascript submissions
+  √ Your memory usage beats 16.22 % of javascript submissions (34.7 MB)
 ```
 
 * **知识点**：
 
-1. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf.md)
+1. 
 
 * **解题思路**：
 
-破解的最快思路，帅的嘛就不谈了，直接使用 JS 内置方法……
+[图]
+
+[分析]
+
+* **进一步思考**：
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
 
@@ -102,49 +111,37 @@ var strStr = function(haystack, needle) {
 * **解题代码**：
 
 ```js
-var strStr = function(haystack, needle) {
-  if (!haystack && !needle) {
-    return 0;
-  }
-  for (let i = 0; i < haystack.length; i++) {
-    if (haystack.substring(i, i + needle.length) === needle) {
-      return i;
-    }
-  }
-  return -1;
-};
+
 ```
 
 * **执行测试**：
 
-1. `haystack`：`hello`
-2. `needle`：`ll`
+1. 形参 1
+2. 形参 2
 3. `return`：
 
 ```js
-2
+
 ```
 
 * **LeetCode Submit**：
 
 ```js
-✔ Accepted
-  ✔ 74/74 cases passed (76 ms)
-  ✔ Your runtime beats 95.5 % of javascript submissions
-  ✔ Your memory usage beats 9.51 % of javascript submissions (35.8 MB)
+
 ```
 
 * **知识点**：
 
-1. `substring()`：`substring()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`substring()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/substring.md)
+1. 
 
 * **解题思路**：
 
-这道题讲点道理，还是有双指针的影子在里面的，所以用 `substring` 又做了一遍：
+[图]
 
-1. 判断 `haystack` 和 `needle` 是否为空，为空返回 0。
-2. 遍历 `haystack`，判断 `haystack` 中某个字符串是不是等于 `needle` 的第一个字符串。
-3. 如果相等，则从 `i` 开始，判断 `haystack` 中的 `i + needle.length` 位是否等于 `needle`，是则返回对应的坐标 `i`。
+[分析]
+
+* **进一步思考**：
+
 
 ---
 
