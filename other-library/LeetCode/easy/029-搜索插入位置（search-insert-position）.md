@@ -1,8 +1,8 @@
 029 - 搜索插入位置（search-insert-position）
 ===
 
-> Create by **jsliang** on **2019-6-10 08:54:47**  
-> Recently revised in **2019-6-10 09:05:41**
+> Create by **jsliang** on **2019-06-10 08:54:47**  
+> Recently revised in **2019-06-10 11:16:26**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
+| &emsp;[3.2 解法 - 二分法](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -41,7 +42,7 @@
 输入: [1,3,5,6], 7
 输出: 4
 
-示例 4:0
+示例 4:
 输入: [1,3,5,6], 0
 输出: 0
 ```
@@ -50,11 +51,7 @@
 
 > [返回目录](#chapter-one)
 
-* **官方题解**：
-
-解题千千万，官方独一家，上面是官方使用 Java 进行的题解。
-
-小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
+小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
 
 ### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
 
@@ -75,73 +72,91 @@ var searchInsert = function(nums, target) {
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `nums`：`[1, 3, 5, 6]`
+2. `target`：`2`
 3. `return`：
 
 ```js
-
+1
 ```
 
 * **LeetCode Submit**：
 
 ```js
-√ Accepted
-  √ 62/62 cases passed (84 ms)
-  √ Your runtime beats 88.72 % of javascript submissions
-  √ Your memory usage beats 16.22 % of javascript submissions (34.7 MB)
+✔ Accepted
+  ✔ 62/62 cases passed (88 ms)
+  ✔ Your runtime beats 84.85 % of javascript submissions
+  ✔ Your memory usage beats 56.95 % of javascript submissions (33.9 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+这道题通过遍历暴力破解的话，分 3 种情况判断：
 
-[分析]
+1. 如果 `nums[i]` 直到最终都小于 `target`，即 `target` 比整个数组中的元素都大，那么我们返回 `nums.length`（因为数组长度为 `length - 1`，往后添加就是 `length` 位了）。
+2. 如果 `nums[i] === target`，那么直接返回这个索引。
+3. 如果 `nums[i] > target`，那么还是返回这个索引，例如 `[1, 3, 5, 6]`，我们判断 `2`，当遍历到 `i === 1` 的时候，`nums[2] === 3`，它大于 `target 2` 这个数，所以我们需要往 `[1, 3]` 直接插入，就是索引值为 `1` 了。
 
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 二分法</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var searchInsert = function(nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+  
+  while (left <= right) {
+    let middle = Math.round((left + right) / 2);
+    if (target === nums[middle]) {
+      return middle;
+    } else if (target < nums[middle]) {
+      right = middle - 1;
+    } else if (target > nums[middle]) {
+      left = middle + 1;
+    }
+  } 
+  return left;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `nums`：`[1, 3, 5, 6]`
+2. `target`：`2`
 3. `return`：
 
 ```js
-
+1
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 62/62 cases passed (72 ms)
+  ✔ Your runtime beats 96.67 % of javascript submissions
+  ✔ Your memory usage beats 47.82 % of javascript submissions (34.2 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
 
 * **解题思路**：
 
-[图]
+**首先**，我们需要了解的是，`一个数 / 2`，大概率返回的是小数，而我们的索引需要的是整数，所以我们通过 `Math.round()` 来四舍五入获取整数。
 
-[分析]
+**然后**，就是 `while` 的逻辑判断：
 
-* **进一步思考**：
+1. `nums`：`[1, 3, 5, 6]`
+2. `target`：`2`
 
+![图](../../../public-repertory/img/other-algorithm-029-1.png)
+
+**最后**，我们需要知道的是，如果 `target` 是 `2`，那么返回的 `[left, right]` 是：`[1, 1]`；如果
 
 ---
 
