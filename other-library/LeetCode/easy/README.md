@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-06-10 17:49:37**
+> Recently revised in **2019-06-10 19:41:57**
 
 LeetCode 简单难度攻略
 
@@ -19,8 +19,9 @@ LeetCode 简单难度攻略
 | 027 - 移除元素（remove-element） | [#27 解题](./027-移除元素（remove-element）.md) |
 | 028 - 实现strStr（implement-strstr） | [#28 解题](./028-实现strStr（implement-strstr）.md) |
 | 029 - 搜索插入位置（search-insert-position） | [#29 解题](./029-搜索插入位置（search-insert-position）.md) |
-| 038 - 报数（count-and-say） | [#38 解题](./038-报数（count-and-say）) |
-| 053 - 最大子序和（maximum-subarray） | [#53 解题](./053-最大子序和（maximum-subarray）) |
+| 038 - 报数（count-and-say） | [#38 解题](./038-报数（count-and-say）.md) |
+| 053 - 最大子序和（maximum-subarray） | [#53 解题](./053-最大子序和（maximum-subarray）.md) |
+| 058 - 最后一个单词的长度（length-of-last-word） | [#58 解题](./058-最后一个单词的长度（length-of-last-word）.md) |
 
 ---
 
