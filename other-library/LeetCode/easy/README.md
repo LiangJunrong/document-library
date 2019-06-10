@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-6-10 08:39:57**
+> Recently revised in **2019-06-10 13:08:32**
 
 LeetCode 简单难度攻略
 
@@ -18,6 +18,7 @@ LeetCode 简单难度攻略
 | 026 - 删除排序数组中的重复项（remove-duplicates-from-sorted-array） | [#26 解题](./026-删除排序数组中的重复项（remove-duplicates-from-sorted-array）.md) |
 | 027 - 移除元素（remove-element） | [#27 解题](./027-移除元素（remove-element）.md) |
 | 028 - 实现strStr（implement-strstr） | [#28 解题](./028-实现strStr（implement-strstr）.md) |
+| 029 - 搜索插入位置（search-insert-position） | [#29 解题](./029-搜索插入位置（search-insert-position）.md) |
 
 ---
 
