@@ -9,10 +9,11 @@
 ## 一 目前
 
 * **更新时间**：2019-06-10
-* [x] **链接**：[LeetCode - 038 - 报数（count-and-say）](./other-library/LeetCode/easy/038-报数（count-and-say）.md)
+* [x] **链接**：[LeetCode - 053 - 最大子序和（maximum-subarray）](./other-library/LeetCode/easy/053-最大子序和（maximum-subarray）.md)
 
 ## 二 历史
 
+* [x] [LeetCode - 038 - 报数（count-and-say）](./other-library/LeetCode/easy/038-报数（count-and-say）.md)
 * [x] [LeetCode - 029 - 搜索插入位置（search-insert-position）](./other-library/LeetCode/easy/029-搜索插入位置（search-insert-position）.md)
 * [x] [LeetCode - 028 - 实现strStr（implement-strstr）](./other-library/LeetCode/easy/028-实现strStr（implement-strstr）.md)
 * [x] [LeetCode - 027 - 移除元素](./other-library/LeetCode/easy/027-移除元素（remove-element）.md)
