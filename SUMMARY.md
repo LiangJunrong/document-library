@@ -111,6 +111,7 @@
       * [027 - 移除元素（remove-element） ✔](./other-library/LeetCode/easy/027-移除元素（remove-element）.md)
       * [028 - 实现strStr（implement-strstr） ✔](./other-library/LeetCode/easy/028-实现strStr（implement-strstr）.md)
       * [029 - 搜索插入位置（search-insert-position） ✔](./other-library/LeetCode/easy/029-搜索插入位置（search-insert-position）.md)
+      * [038 - 报数（count-and-say） ✔](./other-library/LeetCode/easy/038-报数（count-and-say）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
