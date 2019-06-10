@@ -2,17 +2,18 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-06-10 13:09:32**
+> Recently revised in **2019-06-10 15:09:18**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 一 目前
 
 * **更新时间**：2019-06-10
-* [x] **链接**：[LeetCode - 029 - 搜索插入位置（search-insert-position）](./other-library/LeetCode/easy/029-搜索插入位置（search-insert-position）.md)
+* [x] **链接**：[LeetCode - 038 - 报数（count-and-say）](./other-library/LeetCode/easy/038-报数（count-and-say）.md)
 
 ## 二 历史
 
+* [x] [LeetCode - 029 - 搜索插入位置（search-insert-position）](./other-library/LeetCode/easy/029-搜索插入位置（search-insert-position）.md)
 * [x] [LeetCode - 028 - 实现strStr（implement-strstr）](./other-library/LeetCode/easy/028-实现strStr（implement-strstr）.md)
 * [x] [LeetCode - 027 - 移除元素](./other-library/LeetCode/easy/027-移除元素（remove-element）.md)
 * [x] [LeetCode - 026 - 删除排序数组中的重复项](./other-library/LeetCode/easy/026-删除排序数组中的重复项（remove-duplicates-from-sorted-array）.md)
