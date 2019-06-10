@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-10 08:54:47**  
-> Recently revised in **2019-06-10 11:16:26**
+> Recently revised in **2019-06-10 13:07:28**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -156,7 +156,7 @@ var searchInsert = function(nums, target) {
 
 ![图](../../../public-repertory/img/other-algorithm-029-1.png)
 
-**最后**，我们需要知道的是，如果 `target` 是 `2`，那么返回的 `[left, right]` 是：`[1, 1]`；如果
+**最后**，我们需要知道的是，如果 `target` 是 `2`，那么返回的 `[left, right]` 是：`[1, 0]`；如果 `target` 是 `4`，那么返回的 `[left, right]` 是 `[2, 1]`。因为循环结束的条件是 `left > right`，所以无疑 `left` 是更接近中间值的。
 
 ---
 
