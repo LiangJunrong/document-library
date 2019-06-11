@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-11 10:07:17**  
-> Recently revised in **2019-06-11 14:46:35**
+> Recently revised in **2019-06-11 14:54:52**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解题 - 转数组](#chapter-three-one) |
+| &emsp;[3.2 解题 - 数学算法](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -145,7 +146,7 @@ var addBinary = function (a, b) {
 
 **最后**，经过分析，小伙伴们是不是觉得这思路非常正常了，然后能不能自己脑补下 `(a, b) => ('1111', '1111')` 的过程，哈哈~
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 数学算法</a>
 
 > [返回目录](#chapter-one)
 
@@ -193,16 +194,18 @@ var addBinary = function (a, b) {
 * **知识点**：
 
 1. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
-2. `reverse()`：
+2. `reverse()`：`reverse()` 方法将数组中元素的位置颠倒,并返回该数组。该方法会改变原数组。[`reverse()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/reverse.md)
 3. `join()`：`join()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`join()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/join.md)
 
 * **解题思路**：
 
-[图]
+**首先**，毋庸置疑，这个方法比 **jsliang** 写的方法好多了。
 
-[分析]
+**然后**，通过进位标志 `carry` 和结果值 `res`，它将每一步的值都存储起来。
 
-* **进一步思考**：
+**接着**，当循环遍历完毕，但是 `carry` 还有值（不为 `0`）的时候，就给数组首位添加 `1`。
+
+**最后**，因为数组遍历是顺序，所以需要通过 `reverse()` 将数组反转，再通过 `split()` 转成字符串即可。
 
 ---
 
