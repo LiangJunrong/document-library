@@ -397,10 +397,14 @@ export default {
 
 然后，为了使项目尽可能小巧，**jsliang** 打算按需引入 ElementUI：
 
-1. 安装 ElementUI：`npm i element-ui -S`
-2. 安装 babel-plugin-component：`npm i babel-plugin-component -D`
-3. 修改 .babelrc：
+**步骤 1**. 安装 ElementUI：`npm i element-ui -S`
+
+**步骤 2**. 安装 babel-plugin-component：`npm i babel-plugin-component -D`
+
+**步骤 3**. 修改 .babelrc：
+
 > .babelrc
+
 ```
 {
   "presets": [
@@ -425,8 +429,11 @@ export default {
   ]
 }
 ```
-4. 按需引入 `Row` 与 `Col`：
+
+**步骤 4**. 按需引入 `Row` 与 `Col`：
+
 > main.js
+
 ```js
 import Vue from 'vue'
 import App from './App'
@@ -647,7 +654,7 @@ export default {
 
 > App.vue
 
-```html
+```
 <template>
   <div class="app" id="app">
     <div class="banner">
@@ -1325,7 +1332,7 @@ export default {
 
 > PartFive.vue
 
-```html
+```
 <template>
   <div :class="partFive">
     <h3 class="text-center text-top">工作经验</h3>
@@ -1401,7 +1408,7 @@ a:hover {
 
 > PartSix.vue
 
-```html
+```
 <template>
   <div :class="partSix">
     <h3 class="text-center">编程技能</h3>
@@ -1468,7 +1475,7 @@ export default {
 
 > PartSeven.vue
 
-```html
+```
 <template>
   <div :class="partSeven">
     <h3 class="text-center">求职意向</h3>
