@@ -2,17 +2,18 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-06-11 14:56:57**
+> Recently revised in **2019-06-11 16:26:32**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 一 目前
 
 * **更新时间**：2019-06-11
-* [x] **链接**：[LeetCode - 067 - 二进制求和](./other-library/LeetCode/easy/067-二进制求和（add-binary）.md)
+* [x] **链接**：[LeetCode - 069 - x 的平方根](./other-library/LeetCode/easy/069-x的平方根（sqrtx）.md)
 
 ## 二 历史
 
+* [x] [LeetCode - 067 - 二进制求和](./other-library/LeetCode/easy/067-二进制求和（add-binary）.md)
 * [x] [LeetCode - 066 - 加一](./other-library/LeetCode/easy/066-加一（plus-one）.md)
 * [x] [LeetCode - 058 - 最后一个单词的长度](./other-library/LeetCode/easy/058-最后一个单词的长度（length-of-last-word）.md)
 * [x] [LeetCode - 053 - 最大子序和](./other-library/LeetCode/easy/053-最大子序和（maximum-subarray）.md)
