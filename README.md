@@ -19,7 +19,7 @@ jsliang 的文档库
 
 ![微信公众号](./public-repertory/img/z-small-wechat-public-address.jpg)
 
-**欢迎评论吐槽！**
+**欢迎关注，欢迎评论吐槽！**
 
 ## 一 前言
 
