@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-06-10 13:34:03**
+> Recently revised in **2019-6-11 22:08:21**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -14,7 +14,7 @@
 
 ## 二 竞赛规则
 
-1. 需提供一个仅包含 `README.md` 的仓库，或者在自己的文档库提供一个 Markdown 页面，像记日记一般用于记录个人成长。[jsliang 的参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/Logs)
+1. 需提供一个仅包含 `README.md` 的仓库，或者在自己的文档库提供一个 Markdown 页面，像记日记一般用于记录个人成长。[jsliang 的参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs)
 2. 比赛内容不限，但请在 `README.md` 中记录你每天点滴成长。同时小伙伴应注意适当休息，磨刀不误砍柴工，休赛记得提醒 **jsliang**！
 3. 可选择按天、周、月参与。
 4. 每天的比赛金为 5 元，每周的比赛金为 35 元。
@@ -39,7 +39,7 @@
 
 **jsliang** 我想参与你组织的 **暴走前端 - GitHub 竞赛**：
 
-1. 我竞赛的 `README.md` 仓库在 [jsliang 的参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/Logs)（GitHub 仓库地址）
+1. 我竞赛的 `README.md` 仓库在 [jsliang 的参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs)（GitHub 仓库地址）
 2. 我参赛昵称是 **广州-jsliang**（进群请修改成该昵称）
 3. 目前我的发展是先搞 `React` 基础，然后写几个 `React` Demo，最后深入探究下 `React` 源码。
 4. 本周我想开始参与，截止至周日还有 3 天，我先交 15 元（3 天 * 5 元）给你报名，今天开始记录。
@@ -54,7 +54,7 @@
 
 | 昵称 | GitHub 账号 | 竞赛记录地址 | 
 | --- | --- | --- | 
-| 1. jsliang | [GitHub](https://github.com/LiangJunrong) | [参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/Logs) |
+| 1. jsliang | [GitHub](https://github.com/LiangJunrong) | [参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs) |
 | 2. 豆包君 | [GitHub](https://github.com/danygitgit) | [参赛地址](https://github.com/danygitgit/Cheer-for-yourself/blob/master/myAchievement/%E6%AF%8F%E5%91%A8%E8%AE%A1%E5%88%92%E5%8F%8A%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95.md) |
 | 3. huqi | [GitHub](https://github.com/hu-qi) | [参赛地址](https://github.com/hu-qi/Loner/tree/master/other-library/change-for-myself) |
 | 4. teachat8 | [GitHub](https://github.com/teachat8) | [参赛地址](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-06.md) |
