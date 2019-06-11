@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-11 10:07:17**  
-> Recently revised in **2019-06-11 13:21:23**
+> Recently revised in **2019-06-11 13:29:46**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -122,7 +122,7 @@ var addBinary = function (a, b) {
 * **知识点**：
 
 1. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
-2. `unshift()`：
+2. `unshift()`：`unshift()` 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度。[`unshift()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/unshift.md)
 3. `join()`：`join()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`join()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/join.md)
 
 * **解题思路**：
