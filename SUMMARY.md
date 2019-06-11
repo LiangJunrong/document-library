@@ -20,6 +20,7 @@
       * [方法 - pop() ✔](./JavaScript-library/JavaScript/Function/pop.md)
       * [方法 - push() ✔](./JavaScript-library/JavaScript/Function/push.md)
       * [方法 - reduce() ✔](./JavaScript-library/JavaScript/Function/reduce.md)
+      * [方法 - reverse() ✔](./JavaScript-library/JavaScript/Function/reverse.md)
       * [方法 - slice() ✔](./JavaScript-library/JavaScript/Function/slice.md)
       * [方法 - sort() ✔](./JavaScript-library/JavaScript/Function/sort.md)
       * [方法 - splice() ✔](./JavaScript-library/JavaScript/Function/splice.md)
