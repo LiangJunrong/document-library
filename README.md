@@ -1,4 +1,4 @@
-Document Library - 文档库
+jsliang 的文档库
 ===
 
 * Here is the jsliang's learning and working experience document on programming. If you have doubts about this, please send an email to 1741020489@qq.com.
@@ -14,6 +14,10 @@ Document Library - 文档库
 
 * [LiangJunrong.github.io](http://liangjunrong.github.io)（每天更新）
 * [document.jsliang.top](http://document.jsliang.top/)（每周更新）
+
+**并且开通了微信公众号，每天更新一道 LeetCode 题**：
+
+![微信公众号](./public-repertory/img/z-small-wechat-public-address.jpg)
 
 **欢迎评论吐槽！**
 
