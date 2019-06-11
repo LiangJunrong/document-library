@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-17 13:06:52**  
-> Recently revised in **2019-05-24 11:34:37**
+> Recently revised in **2019-06-11 15:18:49**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -32,11 +32,7 @@
 
 > [返回目录](#chapter-one)
 
-* **官方题解**：
-
-解题千千万，官方独一家，上面是官方使用 Java 进行的题解。
-
-小伙伴可以先自己在本地尝试解题，再看看官方解题，最后再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
+小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
 
 ### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
 
