@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-6-11 08:49:28**
+> Recently revised in **2019-06-11 14:55:59**
 
 LeetCode 简单难度攻略
 
@@ -23,6 +23,7 @@ LeetCode 简单难度攻略
 | 053 - 最大子序和（maximum-subarray） | [#53 解题](./053-最大子序和（maximum-subarray）.md) |
 | 058 - 最后一个单词的长度（length-of-last-word） | [#58 解题](./058-最后一个单词的长度（length-of-last-word）.md) |
 | 066 - 加一（plus-one） | [#66 解题](./066-加一（plus-one）.md) |
+| 067 - 二进制求和（add-binary） | [#67 解题](./067-二进制求和（add-binary）.md) |
 
 ---
 
