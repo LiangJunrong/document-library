@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-11 07:52:37**  
-> Recently revised in **2019-06-11 07:52:43**
+> Recently revised in **2019-06-11 08:48:21**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,7 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解题 - 数学运算](#chapter-three-one) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -48,81 +48,139 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 数学运算</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var plusOne = function(digits) {
+  for (let i = digits.length - 1; i >=0; i--) {
+    digits[i]++;
+    digits[i] = digits[i] % 10;
+    if (digits[i] > 0) {
+      return digits;
+    }
+  }
+  return [1, ...digits];
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `digits`：`[9, 9, 9]`
+2. `return`：
 
 ```js
-
+[1, 0, 0, 0]
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+√ Accepted
+  √ 109/109 cases passed (76 ms)
+  √ Your runtime beats 94.21 % of javascript submissions
+  √ Your memory usage beats 46.4 % of javascript submissions (33.7 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
-* **解题代码**：
+看到题目，一开始 **jsliang** 觉得 so easy 啦，于是：
 
 ```js
-
+var plusOne = function(digits) {
+  return String(Number(digits.join('')) + 1).split('');
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+然后它告诉我报错了：
 
 ```js
-
+× Wrong Answer
+  × 69/109 cases passed (N/A)
+  × testcase: '[6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]'
+  × answer: [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,0,0,0]
+  × expected_answer: [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,4]
+  × stdout:
 ```
 
-* **LeetCode Submit**：
+发愣了几秒，于是我百度了下 JS 的最大值：`9007199254740992`（16 位数），而测试需要计算的数字为：`6145390195186705543`（19 位数）。
+
+众所周知，JS 超过最大值后，计算会出现不精确的问题，因此 `6145390195186705543 + 1` 后会出现答案：`6145390195186705000`。
+
+所以想了另外一个法子：
 
 ```js
-
+var plusOne = function(digits) {
+  if (digits[digits.length - 1] === 9) {
+    return String(Number(digits.join('')) + 1).split('');
+  }
+  digits[digits.length - 1] = digits[digits.length - 1] + 1;
+  return digits;
+};
 ```
 
-* **知识点**：
+这个法子，对末尾是 `9` 的进行转字符串再转数字，加一后再转字符串并转成数组。对末尾不是 `9` 的，直接进行后面一位的操作。
 
-1. 
+我以为我能过，结果还是：so naive!
 
-* **解题思路**：
+```js
+× Wrong Answer
+  × 104/109 cases passed (N/A)
+  × testcase: '[5,2,2,6,5,7,1,9,0,3,8,6,8,6,5,2,1,8,7,9,8,3,8,4,7,2,5,8,9]'
+  × answer: [5,NaN,2,2,6,5,7,1,9,0,3,8,6,8,6,5,2,NaN,NaN,2,8]
+  × expected_answer: [5,2,2,6,5,7,1,9,0,3,8,6,8,6,5,2,1,8,7,9,8,3,8,4,7,2,5,9,0]
+  × stdout:
+```
 
-[图]
+还是输在了 JS 超过最大值的位置。
 
-[分析]
+只能认输，寻求题解：
 
-* **进一步思考**：
+```js
+var plusOne = function(digits) {
+  for (let i = digits.length - 1; i >=0; i--) {
+    digits[i]++;
+    digits[i] = digits[i] % 10;
+    if (digits[i] > 0) {
+      return digits;
+    }
+  }
+  return [1, ...digits];
+};
+```
+
+> [题解](https://leetcode-cn.com/problems/plus-one/solution/java-shu-xue-jie-ti-by-yhhzw/) 中使用的是 Java 解题思路，不过无大碍，转换成 JavaScript 就行了。
+
+那么它这个什么意思呢？
+
+**首先**，末尾开始遍历，正常情况下直到 `i` 小于 `0` 的时候终止循环。
+
+**然后**，当碰到 `111`、`236` 这类末尾非 `9` 的情况时。
+
+1. 我们会先让其 `(末位 + 1) % 10`。因为我们知道，`1` 至 `9` 中任意的数 `% 10`，得到的答案还是 `1 - 9`，但是 `10 % 10`，得到的答案是 `0` ！
+2. 所以当 `111`、`236` 这种情况，末尾数字 `(1 + 1) % 10`、`(6 + 1) % 10` 后，得到的数字 `2` 和 `7` 会大于 `0`。因为它大于 `0` ，所以我们直接 `return` 出来即可。
+3. 综上，小伙伴们可以先想想 `989` 的计算情况。
+
+**最后**，当碰到 `999` 这类情况时。循环会执行到最后一位，因为它是极致情况，最后遍历出来的是 `[0, 0, 0]`，这时候，我们只需要往数组首位添加一个 `1` 即可，所以我们使用 ES6 的 `[...]` 扩展运算符来快速达到我们的目的。
+
+> 如何使用 `unshift()` 方法来添加？
+
+```js
+var plusOne = function(digits) {
+  for (let i = digits.length - 1; i >=0; i--) {
+    digits[i]++;
+    digits[i] = digits[i] % 10;
+    if (digits[i] > 0) {
+      return digits;
+    }
+  }
+  digits.unshift(1);
+  return digits;
+};
+```
 
 ---
 
