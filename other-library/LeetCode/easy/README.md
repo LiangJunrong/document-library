@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-06-11 14:55:59**
+> Recently revised in **2019-06-11 16:24:18**
 
 LeetCode 简单难度攻略
 
@@ -24,6 +24,7 @@ LeetCode 简单难度攻略
 | 058 - 最后一个单词的长度（length-of-last-word） | [#58 解题](./058-最后一个单词的长度（length-of-last-word）.md) |
 | 066 - 加一（plus-one） | [#66 解题](./066-加一（plus-one）.md) |
 | 067 - 二进制求和（add-binary） | [#67 解题](./067-二进制求和（add-binary）.md) |
+| 069 - x 的平方根（sqrtx） | [#69 解题](./069-x的平方根（sqrtx）.md) |
 
 ---
 
