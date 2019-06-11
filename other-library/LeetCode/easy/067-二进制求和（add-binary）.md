@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-11 10:07:17**  
-> Recently revised in **2019-06-11 13:29:46**
+> Recently revised in **2019-06-11 14:46:35**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -44,7 +44,7 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 讲解下使用 JavaScript 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 转数组</a>
 
 > [返回目录](#chapter-one)
 
@@ -58,7 +58,6 @@ var addBinary = function (a, b) {
   
   // 补位
   const mark = arrA.length > arrB.length ? 'a' : 'b'; // 标记
-  const maxLength = mark === 'a' ? arrA.length : arrB.length; // 最长数组的长度
   const differenceLength = mark === 'a' ? arrA.length - arrB.length : arrB.length - arrA.length; // 需要补位的次数
   let patch = mark === 'a' ? arrA : arrB; // 最长的数组，用来补位
   let willBePatch = mark === 'b' ? arrA : arrB; // 较短的数组，需要被补位
@@ -67,6 +66,7 @@ var addBinary = function (a, b) {
   }
 
   // 二进制加法
+  const maxLength = mark === 'a' ? arrA.length : arrB.length; // 最长数组的长度
   let result = [];
   for (let i = maxLength - 1; i >= 0; i--) {
     const sum = Number(patch[i]) + Number(willBePatch[i]);
@@ -127,22 +127,23 @@ var addBinary = function (a, b) {
 
 * **解题思路**：
 
-```
-11
-1
+**首先**，看到本次解题，小伙伴们应该被震惊到了。
 
-1011
-1101
+的确，**jsliang** 一开始本来打算按照正常思路写的，后面写着写着，提交成功后，发现它居然有那么多代码，也是愣了！
 
-1111
-1111
-```
+不过不要紧，**jsliang** 感觉自己的思路应该按照了正常人的思路，所以会尝试给小伙伴们讲解下这个解法的思路，如果小伙伴们听不懂不要紧，可以看下面的解法。（推荐还是看下正常思路，有利于思维的提升）
 
-[图]
+**然后**，我们分两组情况进行讲解：
 
-[分析]
+* **第一组**：`(a, b) => ('11', '1')`
 
-* **进一步思考**：
+![图](../../../public-repertory/img/other-algorithm-067-1.png)
+
+* **第二组**：`(a, b) => ('1011', '1101')`
+
+![图](../../../public-repertory/img/other-algorithm-067-2.png)
+
+**最后**，经过分析，小伙伴们是不是觉得这思路非常正常了，然后能不能自己脑补下 `(a, b) => ('1111', '1111')` 的过程，哈哈~
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
 
@@ -156,12 +157,12 @@ var addBinary = function (a, b) {
   let res = [];
   aindex = a.length - 1;
   bindex = b.length - 1;
-  while (aindex >= 0 || bindex >= 0) { // a或b还有位可以相加
-    sum = (+a[aindex] || 0) + (+b[bindex] || 0) + carry; // aindex bindex可能为负数值转化为0
+  while (aIndex >= 0 || bIndex >= 0) { // a 或 b 还有位可以相加
+    sum = (+a[aIndex] || 0) + (+b[bIndex] || 0) + carry; // aIndex bIndex可能为负数值，需要转化为 0
     carry = sum >= 2 ? 1 : 0;
     res.push(sum % 2);
-    aindex--;
-    bindex--;
+    aIndex--;
+    bIndex--;
   }
   if (carry) {
     res.push(1);
@@ -172,12 +173,12 @@ var addBinary = function (a, b) {
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `a`：`['1', '1', '1'`
+2. `b`：`['1']`
 3. `return`：
 
 ```js
-
+1000
 ```
 
 * **LeetCode Submit**：
@@ -191,7 +192,9 @@ var addBinary = function (a, b) {
 
 * **知识点**：
 
-1. 
+1. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
+2. `reverse()`：
+3. `join()`：`join()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`join()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/join.md)
 
 * **解题思路**：
 
