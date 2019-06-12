@@ -121,6 +121,7 @@
       * [067 - 二进制求和（add-binary） ✔](./other-library/LeetCode/easy/067-二进制求和（add-binary）.md)
       * [069 - x 的平方根（sqrtx） ✔](./other-library/LeetCode/easy/069-x的平方根（sqrtx）.md)
       * [070 - 爬楼梯（climbing-stairs） ✔](./other-library/LeetCode/easy/070-爬楼梯（climbing-stairs）.md)
+      * [083 - 删除排序链表中的重复元素（remove-duplicates-from-sorted-list） ✔](./other-library/LeetCode/easy/083-删除排序链表中的重复元素（remove-duplicates-from-sorted-list）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
