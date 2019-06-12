@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-17 13:06:52**  
-> Recently revised in **2019-06-11 18:39:43**
+> Recently revised in **2019-6-12 08:54:24**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -28,7 +28,7 @@
 
 ```
 
-## <a name="chapter-three" id="chapter-threed">三 解题</a>
+## <a name="chapter-three" id="chapter-three">三 解题</a>
 
 > [返回目录](#chapter-one)
 
