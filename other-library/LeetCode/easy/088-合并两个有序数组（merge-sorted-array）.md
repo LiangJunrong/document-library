@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-12 10:47:55**  
-> Recently revised in **2019-06-12 19:07:45**
+> Recently revised in **2019-06-12 19:29:28**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -88,13 +88,15 @@ var merge = function(nums1, m, nums2, n) {
 
 * **知识点**：
 
-1. `sort()`
+1. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort.md)
 
 * **解题思路**：
 
-[图]
+**首先**，我们遍历一次小于 `n` 的次数，将 `nums2` 逐个替换到 `nums1` 中 `m` 长度后。
 
-[分析]
+**然后**，我们通过 `sort()` 进行排序，因为 JavaScript 中的 `sort()`，对于 `[1, 5, 2, 10]` 来说，它的结果就是 `[1, 10, 2, 5]`，所以需要打下补丁。
+
+**最后**，我们不需要 `return`，因为它会默认取 `nums1`。
 
 * **进一步思考**：
 
