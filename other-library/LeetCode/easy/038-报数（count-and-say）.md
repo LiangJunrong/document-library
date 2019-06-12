@@ -63,7 +63,7 @@
 * 5：当它是 `5` 的时候，我们就对 `4` 报数，即 `1` 个 `1` 加上 `1` 个 `2` 加上 `2` 个 `1`（`111221`）
 * 以此类推……
 
-## <a name="chapter-three" id="chapter-threed">三 解题</a>
+## <a name="chapter-three" id="chapter-three">三 解题</a>
 
 > [返回目录](#chapter-one)
 
