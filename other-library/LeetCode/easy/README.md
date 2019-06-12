@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-6-12 09:27:04**
+> Recently revised in **2019-06-12 19:30:49**
 
 LeetCode 简单难度攻略
 
@@ -27,6 +27,7 @@ LeetCode 简单难度攻略
 | 069 - x 的平方根（sqrtx） | [#69 解题](./069-x的平方根（sqrtx）.md) |
 | 070 - 爬楼梯（climbing-stairs） | [#70 解题](./070-爬楼梯（climbing-stairs）.md) |
 | 083 - 删除排序链表中的重复元素（remove-duplicates-from-sorted-list） | [#83 解题](./083-删除排序链表中的重复元素（remove-duplicates-from-sorted-list）.md) |
+| 088 - 合并两个有序数组（merge-sorted-array） | [#88 解题](./088-合并两个有序数组（merge-sorted-array）.md) |
 
 ---
 
