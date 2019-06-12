@@ -40,7 +40,7 @@
 输出：1->1->2->3->4->4
 ```
 
-## <a name="chapter-three" id="chapter-threed">三 解题</a>
+## <a name="chapter-three" id="chapter-three">三 解题</a>
 
 > [返回目录](#chapter-one)
 
