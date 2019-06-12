@@ -44,7 +44,7 @@
 对于本题而言，当 needle 是空字符串时我们应当返回 0 。这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。
 ```
 
-## <a name="chapter-three" id="chapter-threed">三 解题</a>
+## <a name="chapter-three" id="chapter-three">三 解题</a>
 
 > [返回目录](#chapter-one)
 
