@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-06-12 11:02:47**
+> Recently revised in **2019-6-13 07:39:54**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -59,7 +59,7 @@
 | 3. huqi | [GitHub](https://github.com/hu-qi) | [参赛地址](https://github.com/hu-qi/Loner/tree/master/other-library/change-for-myself) |
 | 4. teachat8 | [GitHub](https://github.com/teachat8) | [参赛地址](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-06.md) |
 | 5. LienJack | [GitHub](https://github.com/LienJack) | [参赛地址](https://github.com/LienJack/daliy-study) |
-| 5. liutaochange | [GitHub](https://github.com/liutaochange) | [参赛地址]([liutaochange](https://github.com/liutaochange)) |
+| 5. liutaochange | [GitHub](https://github.com/liutaochange) | [参赛地址](https://github.com/liutaochange) |
 
 ## 五 本周记录
 
