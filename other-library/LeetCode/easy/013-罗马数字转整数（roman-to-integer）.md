@@ -69,7 +69,7 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
 解释: M = 1000, CM = 900, XC = 90, IV = 4.
 ```
 
-## <a name="chapter-three" id="chapter-threed">三 解题</a>
+## <a name="chapter-three" id="chapter-three">三 解题</a>
 
 > [返回目录](#chapter-one)
 
