@@ -2,17 +2,18 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-06-11 19:37:52**
+> Recently revised in **2019-6-12 09:27:52**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 一 目前
 
 * **更新时间**：2019-06-11
-* [x] **链接**：[LeetCode - 070 - 爬楼梯](./other-library/LeetCode/easy/070-爬楼梯（climbing-stairs）.md)
+* [x] **链接**：[LeetCode - 083 - 删除排序链表中的重复元素](./other-library/LeetCode/easy/083-删除排序链表中的重复元素（remove-duplicates-from-sorted-list）.md)
 
 ## 二 历史
 
+* [x] [LeetCode - 070 - 爬楼梯](./other-library/LeetCode/easy/070-爬楼梯（climbing-stairs）.md)
 * [x] [LeetCode - 069 - x 的平方根](./other-library/LeetCode/easy/069-x的平方根（sqrtx）.md)
 * [x] [LeetCode - 067 - 二进制求和](./other-library/LeetCode/easy/067-二进制求和（add-binary）.md)
 * [x] [LeetCode - 066 - 加一](./other-library/LeetCode/easy/066-加一（plus-one）.md)
