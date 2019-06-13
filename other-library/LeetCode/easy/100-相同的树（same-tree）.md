@@ -205,7 +205,7 @@ let serialize = function(root) {
 
 * [写树算法的套路框架](https://leetcode-cn.com/problems/same-tree/solution/xie-shu-suan-fa-de-tao-lu-kuang-jia-by-wei-lai-bu-/)
 
-> 由于原文采用 C++ 的编程风格，**jsliang** 引入的时候会自动转换成 JavaScript
+> 由于原文采用 C++ 的编程风格，**jsliang** 引入的时候自动转换成 JavaScript。
 
 以下是其内容：
 
