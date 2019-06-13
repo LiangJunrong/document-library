@@ -59,7 +59,8 @@
 | 3. huqi | [GitHub](https://github.com/hu-qi) | [参赛地址](https://github.com/hu-qi/Loner/tree/master/other-library/change-for-myself) |
 | 4. teachat8 | [GitHub](https://github.com/teachat8) | [参赛地址](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-06.md) |
 | 5. LienJack | [GitHub](https://github.com/LienJack) | [参赛地址](https://github.com/LienJack/daliy-study) |
-| 5. liutaochange | [GitHub](https://github.com/liutaochange) | [参赛地址](https://github.com/liutaochange) |
+| 6. liutaochange | [GitHub](https://github.com/liutaochange) | [参赛地址](https://github.com/liutaochange) |
+| 7. 踩坑侠 | [GitHub](https://github.com/924950698) | [参赛地址](https://github.com/924950698) |
 
 ## 五 本周记录
 
@@ -70,6 +71,7 @@
 * teachat8：参与一周竞赛
 * LienJack：参与一周竞赛
 * liutaochange：参与 06-12 ~ 06-16 竞赛
+* 踩坑侠：参与 06-13 ~ 06-16 竞赛
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
