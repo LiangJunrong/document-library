@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-14 17:56:48**  
-> Recently revised in **2019-06-14 17:56:53**
+> Recently revised in **2019-6-14 22:19:59**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,9 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -35,8 +37,8 @@
   9  20
     /  \
    15   7
-返回其自底向上的层次遍历为：
 
+返回其自底向上的层次遍历为：
 [
   [15,7],
   [9,20],
@@ -116,11 +118,70 @@ let root = {
 
 > [返回目录](#chapter-one)
 
-[图]
+又到了每日解题
 
-[分析]
+**首先**，如果 `root` 是空的话，就返回 `[]`。
 
-* **进一步思考**：
+```js
+if (!root) {
+  return [];
+}
+```
+
+**然后**，我们设置 `result` 来返回结果。
+
+```js
+let result = [];
+```
+
+**接着**，我们开始递归之旅：
+
+* 步骤 1：如果节点没有下一个了，那么我们终止递归。
+
+```js
+if (!root) {
+  return;
+}
+```
+
+* 步骤 2：如果 `root.val` 存在值，那么我们设置 `result`：
+
+```js
+if (!result[depth]) {
+  result[depth] = [];
+}
+result[depth] = [root.val, ...result[depth]];
+```
+
+小伙伴们可能比较在意这两段 JS 的作用。
+
+```js
+  3
+ / \
+9  20
+  /  \
+ 15   7
+```
+
+假设，我们现在 `result: []`，我们递归第一遍，那么 `result[1]` 是不是要开辟一个数组空间，即：`result: [[]]`。然后通过 `[a, ...b]` 的形式，将数组扩展开来，即：`[3, ...[]]`，结果自然而然就是 `[3]` 了，所以 `result` 变成：`result: [[3]]`。
+
+当我们递归第二遍的时候，我们先遍历的是右节点，故 `result:[[3], [20]]`……以此递归：
+
+```js
+[]
+[ [ 3 ] ]
+[ [ 3 ], [ 20 ] ]
+[ [ 3 ], [ 20 ], [ 7 ] ]
+[ [ 3 ], [ 20 ], [ 15, 7 ] ]
+```
+
+**最后**，我们通过 `return result.reverse()`，将数组反转并返回出去，从而得到倒序结果：
+
+```js
+[ [ 15, 7 ], [ 9, 20 ], [ 3 ] ]
+```
+
+我们就完成了对应的攻略。
 
 ---
 
