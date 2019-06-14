@@ -2,7 +2,7 @@ LeetCode - 中等模式
 ===
 
 > Create by **jsliang** on **2019-05-24 11:44:30**  
-> Recently revised in **2019-06-14 17:31:22**
+> Recently revised in **2019-06-14 17:31:41**
 
 LeetCode 中等难度攻略
 
