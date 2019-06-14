@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-6-14 08:57:13**
+> Recently revised in **2019-06-14 17:16:42**
 
 LeetCode 简单难度攻略
 
@@ -30,6 +30,7 @@ LeetCode 简单难度攻略
 | 088 - 合并两个有序数组（merge-sorted-array） | [#88 解题](./088-合并两个有序数组（merge-sorted-array）.md) |
 | 100 - 相同的树（same-tree） | [#100 解题](./100-相同的树（same-tree）.md) |
 | 101 - 对称二叉树（symmetric-tree） | [#101 解题](./101-对称二叉树（symmetric-tree）.md) |
+| 104 - 二叉树的最大深度（maximum-depth-of-binary-tree） | [#104 解题](./104-二叉树的最大深度（maximum-depth-of-binary-tree）.md) |
 
 ---
 
