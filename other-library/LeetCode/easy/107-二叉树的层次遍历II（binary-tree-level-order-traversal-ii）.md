@@ -50,75 +50,71 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var levelOrderBottom = function(root) {
+  if (!root) {
+    return [];
+  }
+  let result = [];
+  let ergodic = function(root, depth) {
+    if (!root) {
+      return;
+    }
+    if (root.val != null) {
+      if (!result[depth]) {
+        result[depth] = [];
+      }
+      result[depth] = [root.val, ...result[depth]];
+      depth += 1;
+      ergodic(root.right, depth);
+      ergodic(root.left, depth);
+    }
+  };
+  ergodic(root, 0);
+  return result.reverse();
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+* 参数 `root`：
 
 ```js
-
+let root = {
+  val: 3,
+  left: { val: 9, left: null, right: null, },
+  right: {
+    val: 20,
+    left: { val: 15, left: null, right: null },
+    right: { val: 7, left: null, right: null },
+  },
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+* 返回值 `return`：
 
 ```js
-
+[ [ 15, 7 ], [ 9, 20 ], [ 3 ] ]
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 34/34 cases passed (88 ms)
+  ✔ Your runtime beats 86.53 % of javascript submissions
+  ✔ Your memory usage beats 5.59 % of javascript submissions (37 MB)
 ```
 
-* **知识点**：
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
 
-1. 
-
-* **解题思路**：
+> [返回目录](#chapter-one)
 
 [图]
 
