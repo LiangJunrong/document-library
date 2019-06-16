@@ -10,6 +10,8 @@
 
 六月飞霜，对于现在毕业等于失业的广大应届生，或者各种原因出来了想找份 “好” 工作的大佬来说，这无疑是个尴尬的季节，大部分公司的坑位已经被占满，奈何身有丈八法威而跨不过小小门槛……
 
+> 本文记录于 **jsliang** - [2019 面试专栏](https://liangjunrong.github.io/other-library/interview/personal-experience/)
+
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
 **不折腾的前端，和咸鱼有什么区别**
