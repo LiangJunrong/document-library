@@ -10,7 +10,7 @@
 
 六月飞霜，对于现在毕业等于失业的广大应届生，或者各种原因出来了想找份 “好” 工作的大佬来说，这无疑是个尴尬的季节，大部分公司的坑位已经被占满，奈何身有丈八法威而跨不过小小门槛……
 
-> 本文记录于 **jsliang** - [2019 面试专栏](https://liangjunrong.github.io/other-library/interview/personal-experience/)
+> 本文记录于 **jsliang** - [2019 面试专栏](http://document.jsliang.top/other-library/interview/personal-experience/)
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -256,7 +256,7 @@ OK，话不多说，本篇文章内容主题为：
 * 丰富的面试经验
 * ……
 
-如果小伙伴们想知道更多，可以查看 **jsliang** 的 [2019 面试专栏](https://liangjunrong.github.io/other-library/interview/personal-experience/)
+如果小伙伴们想知道更多，可以查看 **jsliang** 的 [2019 面试专栏](http://document.jsliang.top/other-library/interview/personal-experience/)
 
 那么，我们关于简历的经验介绍就到这里了，如果小伙伴们有其他好的建议，欢迎留言评论。
 
