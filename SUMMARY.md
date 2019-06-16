@@ -101,6 +101,7 @@
       * [面试知识点 - JS 原型与原型链 ✔](./other-library/interview/personal-experience/JavaScript-原型与原型链.md)
       * [面试知识点 - JS 防抖与节流 ✔](./other-library/interview/personal-experience/JavaScript-防抖与节流.md)
       * [面试知识点 - 图片 ✔](./other-library/interview/personal-experience/other-图片.md)
+      * [面试知识点 - 简历 ✔](./other-library/interview/personal-experience/other-简历.md)
   * [LeetCode](./other-library/LeetCode/README.md)
     * [LeetCode - 简单模式](./other-library/LeetCode/easy/README.md)
       * [001 - 两数之和（two-sum） ✔](./other-library/LeetCode/easy/001-两数之和（two-sum）.md)
