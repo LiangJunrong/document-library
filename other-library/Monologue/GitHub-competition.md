@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-6-13 07:39:54**
+> Recently revised in **2019-6-17 07:55:21**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -64,14 +64,10 @@
 
 ## 五 本周记录
 
-06-10 ~ 06-16
+06-17 ~ 06-23
 
 * 豆包君：参与一周竞赛
-* huqi：参与一周竞赛
 * teachat8：参与一周竞赛
-* LienJack：参与一周竞赛
-* liutaochange：参与 06-12 ~ 06-16 竞赛
-* 踩坑侠：参与 06-13 ~ 06-16 竞赛
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
