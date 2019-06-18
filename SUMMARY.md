@@ -145,6 +145,8 @@
     * [提问的艺术](./other-library/Monologue/the-art-of-questioning.md)
     * [稳食艰难 - 云服务器推广](./other-library/Monologue/稳食艰难.md)
     * [朝花夕拾](./other-library/Monologue/morning-and-evening/README.md)
+      * [朝花夕拾 - 分手 ✔](./other-library/Monologue/morning-and-evening/2019-06-17.md)
+      * [朝花夕拾 - 变更 ✔](./other-library/Monologue/morning-and-evening/2019-05-31.md)
       * [朝花夕拾 - 工作与生活 ✔](./other-library/Monologue/morning-and-evening/2019-04-29.md)
       * [朝花夕拾 - 生日 ✔](./other-library/Monologue/morning-and-evening/2019-04-05.md)
       * [朝花夕拾 - 徒步 ✔](./other-library/Monologue/morning-and-evening/2019-03-31.md)
