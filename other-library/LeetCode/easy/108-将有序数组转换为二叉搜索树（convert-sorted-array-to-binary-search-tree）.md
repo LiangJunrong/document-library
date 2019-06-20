@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-17 08:57:03**  
-> Recently revised in **2019-06-17 09:58:12**
+> Recently revised in **2019-6-20 08:24:18**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -55,20 +55,19 @@
 * **解题代码**：
 
 ```js
-var sortedArrayToBST = function (nums) {
-
+var sortedArrayToBST = function(nums) {
   let sort = (left, right) => {
-
     if (left > right) {
       return null;
     }
-    // console.log(`${left} ${right}`);
-    var m = left + Math.floor((right - left) / 2);
-    var node = new TreeNode(nums[m]);
-    node.left = sort(left, m - 1);
-    node.right = sort(m + 1, right);
+    let m = left + Math.floor((right - left) / 2);
+    let node = {
+      val: nums[m],
+      left: sort(left, m - 1),
+      right: sort(m + 1, right),
+    }
     return node;
-  }
+  };
   return sort(0, nums.length - 1);
 };
 ```
@@ -80,10 +79,10 @@ var sortedArrayToBST = function (nums) {
 3. `return`：
 
 ```js
-✔ Accepted
-  ✔ 32/32 cases passed (92 ms)
-  ✔ Your runtime beats 97.67 % of javascript submissions
-  ✔ Your memory usage beats 30.5 % of javascript submissions (37.8 MB)
+√ Accepted
+  √ 32/32 cases passed (100 ms)
+  √ Your runtime beats 92.7 % of javascript submissions
+  √ Your memory usage beats 25.53 % of javascript submissions (37.8 MB)
 ```
 
 * **LeetCode Submit**：
@@ -102,6 +101,27 @@ var sortedArrayToBST = function (nums) {
 
 [分析]
 
+```js
+var sortedArrayToBST = function(nums) {
+  let sort = (left, right) => {
+    if (left > right) {
+      return null;
+    }
+    let m = left + Math.floor((right - left) / 2);
+    let node = {
+      val: nums[m],
+      left: sort(left, m - 1),
+      right: sort(m + 1, right),
+    }
+    console.log("------");
+    console.log(`${left} ${right}`);
+    console.log(node);
+    return node;
+  };
+  return sort(0, nums.length - 1);
+};
+```
+
 * **进一步思考**：
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
@@ -114,9 +134,11 @@ var sortedArrayToBST = function (nums) {
 var sortedArrayToBST = function(nums) {
   if (!nums.length) return null;
   let mid = Math.floor(nums.length / 2);
-  let root = new TreeNode(nums[mid]);
-  root.left = sortedArrayToBST(nums.slice(0, mid));
-  root.right = sortedArrayToBST(nums.slice(mid+1));
+  let root = {
+    val: nums[mid],
+    left: sortedArrayToBST(nums.slice(0, mid)),
+    right: sortedArrayToBST(nums.slice(mid + 1)),
+  }
   return root;
 };
 ```
@@ -138,59 +160,6 @@ var sortedArrayToBST = function(nums) {
   ✔ 32/32 cases passed (108 ms)
   ✔ Your runtime beats 84.88 % of javascript submissions
   ✔ Your memory usage beats 66.67 % of javascript submissions (37.5 MB)
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
-* **解题代码**：
-
-```js
-var sortedArrayToBST = function(nums) {
-  var createtree=function(arr){
-      if(arr.length==0){
-          return null;
-      }
-      var middle=parseInt(arr.length/2),
-          node=new TreeNode(arr[middle]);
-      node.left=createtree(arr.slice(0,middle));
-      node.right=createtree(arr.slice(middle+1));
-      return node;
-  }
-  return createtree(nums);
-};
-```
-
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-✔ Accepted
-  ✔ 32/32 cases passed (108 ms)
-  ✔ Your runtime beats 84.88 % of javascript submissions
-  ✔ Your memory usage beats 43.26 % of javascript submissions (37.7 MB)
 ```
 
 * **知识点**：
