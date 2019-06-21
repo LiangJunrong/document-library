@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-17 08:57:03**  
-> Recently revised in **2019-6-20 08:24:18**
+> Recently revised in **2019-6-21 08:30:276**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -48,7 +48,7 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 后序遍历</a>
 
 > [返回目录](#chapter-one)
 
@@ -74,9 +74,22 @@ var sortedArrayToBST = function(nums) {
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `nums`：`[-10, -3, 0, 1, 5, 9]`
+2. `return`：
+
+```js
+{ val: 0,
+  left:
+   { val: -10,
+     left: null,
+     right: { val: -3, left: null, right: null } },
+  right:
+   { val: 5,
+     left: { val: 1, left: null, right: null },
+     right: { val: 9, left: null, right: null } } }
+```
+
+* **LeetCode Submit**：
 
 ```js
 √ Accepted
@@ -85,21 +98,27 @@ var sortedArrayToBST = function(nums) {
   √ Your memory usage beats 25.53 % of javascript submissions (37.8 MB)
 ```
 
-* **LeetCode Submit**：
-
-```js
-
-```
-
 * **知识点**：
 
-1. 
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
 
 * **解题思路**：
 
-[图]
+**首先**，这次解题涉及到一个名词，叫 **后序遍历**，希望了解更多的小伙伴，可以百度了解更多，这里仅做简单介绍。
 
-[分析]
+* **后序遍历**：**后序遍历**（LRD）是二叉树遍历的一种，也叫作后根遍历、后序周游。在 **后序遍历** 中，它会先访问左节点，再访问右节点，最后访问根节点。
+
+话再多还不如上图：
+
+![图](../../../public-repertory/img/other-algorithm-108-1.png)
+
+现在，有这样一棵树如上所示，那么，它怎么通过后序遍历来访问节点的呢？
+
+![图](../../../public-repertory/img/other-algorithm-108-2.png)
+
+按照我们所说的，遍历步骤是：D -> E -> B -> F -> C -> A。
+
+很好，看到这里，你应该对后续遍历有个大致的映像了，如果你还没通，别急，咱们看代码：
 
 ```js
 var sortedArrayToBST = function(nums) {
@@ -120,11 +139,50 @@ var sortedArrayToBST = function(nums) {
   };
   return sort(0, nums.length - 1);
 };
+
+sortedArrayToBST([-10, -3, 0, 1, 5, 9]);
 ```
 
-* **进一步思考**：
+在这里，我们进行了 `console` 打印，那么小伙伴可以先想下，它会打印出什么来：
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+```js
+------
+1 1
+{ val: -3, left: null, right: null }
+------
+0 1
+{ val: -10,
+  left: null,
+  right: { val: -3, left: null, right: null } }
+------
+3 3
+{ val: 1, left: null, right: null }
+------
+5 5
+{ val: 9, left: null, right: null }
+------
+3 5
+{ val: 5,
+  left: { val: 1, left: null, right: null },
+  right: { val: 9, left: null, right: null } }
+------
+0 5
+{ val: 0,
+  left:
+   { val: -10,
+     left: null,
+     right: { val: -3, left: null, right: null } },
+  right:
+   { val: 5,
+     left: { val: 1, left: null, right: null },
+     right: { val: 9, left: null, right: null } } }
+```
+
+OK，看到这里，小伙伴们应该有谱了，是怎么跑起来的。
+
+那么，回归这道题本质，我们还能不能找到其他方法呢？
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 后序遍历（简化）</a>
 
 > [返回目录](#chapter-one)
 
@@ -145,12 +203,19 @@ var sortedArrayToBST = function(nums) {
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `nums`：`[-10, -3, 0, 1, 5, 9]`
+2. `return`：
 
 ```js
-
+{ val: 1,
+  left:
+   { val: -3,
+     left: { val: -10, left: null, right: null },
+     right: { val: 0, left: null, right: null } },
+  right:
+   { val: 9,
+     left: { val: 5, left: null, right: null },
+     right: null } }
 ```
 
 * **LeetCode Submit**：
@@ -164,15 +229,59 @@ var sortedArrayToBST = function(nums) {
 
 * **知识点**：
 
-1. 
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
 
 * **解题思路**：
 
-[图]
+经过上面一节的提示，这节小伙伴们可能就需要自己思考了：
 
-[分析]
+```js
+var sortedArrayToBST = function(nums) {
+  if (!nums.length) return null;
+  let mid = Math.floor(nums.length / 2);
+  let root = {
+    val: nums[mid],
+    left: sortedArrayToBST(nums.slice(0, mid)),
+    right: sortedArrayToBST(nums.slice(mid + 1)),
+  }
+  console.log('------');
+  console.log(root);
+  return root;
+};
 
-* **进一步思考**：
+sortedArrayToBST([-10, -3, 0, 1, 5, 9]);
+```
+
+这次打印会输出什么？
+
+```js
+------
+{ val: -10, left: null, right: null }
+------
+{ val: 0, left: null, right: null }
+------
+{ val: -3,
+  left: { val: -10, left: null, right: null },
+  right: { val: 0, left: null, right: null } }
+------
+{ val: 5, left: null, right: null }
+------
+{ val: 9,
+  left: { val: 5, left: null, right: null },
+  right: null }
+------
+{ val: 1,
+  left:
+   { val: -3,
+     left: { val: -10, left: null, right: null },
+     right: { val: 0, left: null, right: null } },
+  right:
+   { val: 9,
+     left: { val: 5, left: null, right: null },
+     right: null } }
+```
+
+这样，我们就完成了本次的解题，下期再会~
 
 ---
 
