@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-6-24 07:48:53**  
-> Recently revised in **2019-6-24 07:48:58**
+> Recently revised in **2019-6-24 21:42:26**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,10 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 知识点](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 进一步思考](#chapter-seven) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -60,10 +63,6 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
@@ -86,11 +85,18 @@ var isBalanced = function(root) {
 };
 ```
 
-* **执行测试**：
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
+
+> [返回目录](#chapter-one)
 
 * `root`：
 
 ```js
+//   3
+//  / \
+// 9  20
+//   /  \
+//  15   7
 let root = {
   val: 3,
   left: { val: 9, left: null, right: null },
@@ -117,55 +123,175 @@ true
   √ Your memory usage beats 31.68 % of javascript submissions (37.7 MB)
 ```
 
-* **知识点**：
-
-1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-five" id="chapter-five">五 知识点</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+`Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
+
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
+
+> [返回目录](#chapter-one)
+
+**首先**，我们需要明白题意，怎样的树不符合平衡二叉树呢？
+
+> 案例 1
 
 ```js
-
+  3
+ / \
+9  20
+     \
+      7
+       \
+        2
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+> 案例 2
 
 ```js
-
+  3
+ / \
+9  20
+  /  \
+ 3    7
+       \
+        2
 ```
 
-* **LeetCode Submit**：
+**然后**，我们查看下它遍历情况，它为什么不符合我们的要求了？
+
+> 以案例 2 为参考
 
 ```js
+let root = {
+  val: 3,
+  left: { val: 9, left: null, right: null },
+  right: {
+    val: 20,
+    left: { val: 3, left: null, right: null },
+    right: {
+      val: 7,
+      left: null,
+      right: { val: 2, left: null, right: null },
+    },
+  },
+}
 
+var isBalanced = function(root) {
+  let ergodic = function(root) {
+    if (!root) {
+      return 0;
+    }
+    let left = ergodic(root.left);
+    if (left === -1) {
+      return -1;
+    }
+    let right = ergodic(root.right);
+    if (right === -1) {
+      return -1;
+    }
+    console.log('------');
+    console.log(left, right);
+    console.log(root);
+    return Math.abs(left - right) < 2 ? Math.max(left, right) + 1 : -1;
+  }
+  return ergodic(root) != -1;
+};
+
+console.log(isBalanced(root));
 ```
 
-* **知识点**：
+小伙伴们可以猜测下打印结果：
 
-1. 
+```js
+------
+0 0
+{ val: 9, left: null, right: null }
+------
+0 0
+{ val: 3, left: null, right: null }
+------
+0 0
+{ val: 2, left: null, right: null }
+------
+0 1
+{ val: 7,
+  left: null,
+  right: { val: 2, left: null, right: null } }
+------
+1 2
+{ val: 20,
+  left: { val: 3, left: null, right: null },
+  right:
+   { val: 7,
+     left: null,
+     right: { val: 2, left: null, right: null } } }
+------
+1 3
+{ val: 3,
+  left: { val: 9, left: null, right: null },
+  right:
+   { val: 20,
+     left: { val: 3, left: null, right: null },
+     right: { val: 7, left: null, right: [Object] } } }
+false
+```
 
-* **解题思路**：
+在这里，由于我们是以递归的形式，所以，我们会先遍历左节点，再遍历右节点，最后再遍历根节点（后序遍历）
 
-[图]
+同时，我们判断左右树的高度差是否超过 `1`，如果是，则进行中断，返回 `false`；否则，继续递归。
 
-[分析]
+**最后**，我们将遍历的结果与 `-1` 进行比较，返回 `true` 或者 `false`
 
-* **进一步思考**：
+## <a name="chapter-seven" id="chapter-seven">七 进一步思考</a>
+
+> [返回目录](#chapter-one)
+
+这里给基础教弱的同学补个知识点：**递归**
+
+我们结合题意来讲，假设我们有一个对象：
+
+```js
+const obj = {
+  val: 1,
+  next: {
+    val: 2,
+    next: {
+      val: 3,
+      next: {
+        val: null,
+      }
+    }
+  }
+}
+
+// 1 -> 2 -> 3 -> null
+```
+
+我们需要遍历这个链表的所有节点，我们会怎么做呢？
+
+```js
+let regodic = function(obj) {
+  if (!obj.next) return '!#';
+  return '!' + obj.val + regodic(obj.next);
+}
+console.log(regodic(obj));
+```
+
+那么它会输出什么呢？
+
+答案是：`!1!2!3!#`
+
+是的，最底层返回 `!#`
+
+然后递归上一层，变成 `!3!#`
+
+再上一层，变成 `!2!3!#`
+
+再再上一层，得到最终答案，变成 `!1!2!3!#`
+
+那么，讲到这里，小伙伴们再回顾这道题，应该知道为什么 `left` 和 `right` 的值会按照我们想法行事的了。
 
 ---
 
