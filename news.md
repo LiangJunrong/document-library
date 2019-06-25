@@ -2,17 +2,18 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-6-24 21:43:48**
+> Recently revised in **2019-6-25 09:27:33**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 一 目前
 
-* **更新时间**：2019-06-24
-* [x] **链接**：[LeetCode - 110 - 平衡二叉树](./other-library/LeetCode/easy/110-平衡二叉树（balanced-binary-tree）.md)
+* **更新时间**：2019-06-25
+* [x] **链接**：[LeetCode - 111 - 二叉树的最小深度](./other-library/LeetCode/easy/111-二叉树的最小深度（minimum-depth-of-binary-tree）.md)
 
 ## 二 历史
 
+* [x] [LeetCode - 110 - 平衡二叉树](./other-library/LeetCode/easy/110-平衡二叉树（balanced-binary-tree）.md)
 * [x] [LeetCode - 108 - 将有序数组转换为二叉搜索树](./other-library/LeetCode/easy/108-将有序数组转换为二叉搜索树（convert-sorted-array-to-binary-search-tree）.md)
 * [x] [面试知识点 - 简历](./other-library/interview/personal-experience/other-简历.md)
 * [x] [LeetCode - 107 - 二叉树的层次遍历 II](./other-library/LeetCode/easy/107-二叉树的层次遍历II（binary-tree-level-order-traversal-ii）.md)
