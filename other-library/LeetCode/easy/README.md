@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-6-24 21:43:16**
+> Recently revised in **2019-6-25 09:27:05**
 
 LeetCode 简单难度攻略
 
@@ -34,6 +34,7 @@ LeetCode 简单难度攻略
 | 107 - 二叉树的层次遍历II（binary-tree-level-order-traversal-ii） | [#107 解题](./107-二叉树的层次遍历II（binary-tree-level-order-traversal-ii）.md) |
 | 108 - 将有序数组转换为二叉搜索树（convert-sorted-array-to-binary-search-tree） | [#108 解题](./108-将有序数组转换为二叉搜索树（convert-sorted-array-to-binary-search-tree）.md) |
 | 110 - 平衡二叉树（balanced-binary-tree） | [#110 解题](./110-平衡二叉树（balanced-binary-tree）.md) |
+| 111 - 二叉树的最小深度（minimum-depth-of-binary-tree） | [#111 解题](./111-二叉树的最小深度（minimum-depth-of-binary-tree）.md) |
 
 ---
 
