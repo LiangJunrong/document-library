@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-6-26 07:43:40**  
-> Recently revised in **2019-6-26 07:43:44**
+> Recently revised in **2019-6-26 09:02:42**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -48,81 +48,300 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var hasPathSum = function(root, sum) {
+  if (!root) {
+    return false;
+  }
+  sum -= root.val;
+  if (!root.left && !root.right) {
+    return sum === 0;
+  }
+  return hasPathSum(root.left, sum) || hasPathSum(root.right, sum);
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+* `sum`：`18`
+* `root`：
 
 ```js
-
+//       5
+//      / \
+//     4   8
+//    /   / \
+//   11  13  4
+//  /  \      \
+// 7    2      1
+const root = {
+  val: 5,
+  left: {
+    val: 4,
+    left: {
+      val: 11,
+      left: { val: 7, left: null, right: null },
+      right: { val: 2, left: null, right: null },
+    },
+    right: null,
+  },
+  right: {
+    val: 8,
+    left: { val: 13, left: null, right: null },
+    right: {
+      val: 4,
+      left: null,
+      right: { val: 1, left: null, right: null },
+    }
+  }
+}
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+* `return`：
 
 ```js
-
+true
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+√ Accepted
+  √ 114/114 cases passed (96 ms)
+  √ Your runtime beats 91.36 % of javascript submissions
+  √ Your memory usage beats 24.14 % of javascript submissions (37.3 MB)
 ```
 
-* **知识点**：
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
 
-1. 
+> [返回目录](#chapter-one)
 
-* **解题思路**：
+**首先**，我们尝试打印下递归路线：
 
-[图]
+```js
+// root：
+//       5
+//      / \
+//     4   8
+//    /   / \
+//   11  13  4
+//  /  \      \
+// 7    2      1
+// 
+// sum：18
+var hasPathSum = function(root, sum) {
+  if (!root) {
+    return false;
+  }
+  sum -= root.val;
+  console.log('------');
+  console.log(root);
+  console.log(sum);
+  if (!root.left && !root.right) {
+    return sum === 0;
+  }
+  return hasPathSum(root.left, sum) || hasPathSum(root.right, sum);
+};
+```
 
-[分析]
+**然后**，其结果为：
 
-* **进一步思考**：
+```js
+------
+{ val: 5,
+  left:
+   { val: 4,
+     left: { val: 11, left: [Object], right: [Object] },
+     right: null },
+  right:
+   { val: 8,
+     left: { val: 13, left: null, right: null },
+     right: { val: 4, left: null, right: [Object] } } }
+13
+------
+{ val: 4,
+  left:
+   { val: 11,
+     left: { val: 7, left: null, right: null },
+     right: { val: 2, left: null, right: null } },
+  right: null }
+9
+------
+{ val: 11,
+  left: { val: 7, left: null, right: null },
+  right: { val: 2, left: null, right: null } }
+-2
+------
+{ val: 7, left: null, right: null }
+-9
+------
+{ val: 2, left: null, right: null }
+-4
+------
+{ val: 8,
+  left: { val: 13, left: null, right: null },
+  right:
+   { val: 4,
+     left: null,
+     right: { val: 1, left: null, right: null } } }
+5
+------
+{ val: 13, left: null, right: null }
+-8
+------
+{ val: 4,
+  left: null,
+  right: { val: 1, left: null, right: null } }
+1
+------
+{ val: 1, left: null, right: null }
+0
+```
+
+**最后**，看到这里，小伙伴就清楚了，这道题的解题思路！
+
+## <a name="chapter-seven" id="chapter-seven">七 进一步思考</a>
+
+> [返回目录](#chapter-one)
+
+有时候，很多小伙伴会说：**哇，jsliang 又破解了一题，然而我看到题目就头痛！**
+
+其实，**jsliang** 有时候也感到烦恼，因为有些题目，非得看题解。
+
+就好比目前这题，一开始我的思路跟题解是反过来的：
+
+```js
+//       5
+//      / \
+//     4   8
+//    /   / \
+//   11  13  4
+//  /  \      \
+// 7    2      1
+const sum = 22
+const root = {
+  val: 5,
+  left: {
+    val: 4,
+    left: {
+      val: 11,
+      left: { val: 7, left: null, right: null },
+      right: { val: 2, left: null, right: null },
+    },
+    right: null,
+  },
+  right: {
+    val: 8,
+    left: { val: 13, left: null, right: null },
+    right: {
+      val: 4,
+      left: null,
+      right: { val: 1, left: null, right: null },
+    }
+  }
+}
+
+var hasPathSum = function(root, sum) {
+  if (!root) {
+    return false;
+  }
+  let index = 0;
+  let arr = [];
+  let ergodic = function(root) {
+    console.log('------');
+    console.log(root);
+    console.log(arr);
+    if (!root) {
+      return 0;
+    }
+    if (!arr[index]) {
+      arr[index] = 0;
+    }
+    arr[index] += root.val;
+    if (!root.left && !root.right) {
+      // 找到叶子节点，开始逆推
+      index += 1;
+      return arr[index];
+    }
+    return ergodic(root.left) + ergodic(root.right);
+  }
+  ergodic(root);
+};
+
+hasPathSum(root, sum);
+```
+
+结果打印：
+
+```js
+------
+{ val: 5,
+  left:
+   { val: 4,
+     left: { val: 11, left: [Object], right: [Object] },
+     right: null },
+  right:
+   { val: 8,
+     left: { val: 13, left: null, right: null },
+     right: { val: 4, left: null, right: [Object] } } }
+[]
+------
+{ val: 4,
+  left:
+   { val: 11,
+     left: { val: 7, left: null, right: null },
+     right: { val: 2, left: null, right: null } },
+  right: null }
+[ 5 ]
+------
+{ val: 11,
+  left: { val: 7, left: null, right: null },
+  right: { val: 2, left: null, right: null } }
+[ 9 ]
+------
+{ val: 7, left: null, right: null }
+[ 20 ]
+------
+{ val: 2, left: null, right: null }
+[ 27 ]
+------
+null
+[ 27, 2 ]
+------
+{ val: 8,
+  left: { val: 13, left: null, right: null },
+  right:
+   { val: 4,
+     left: null,
+     right: { val: 1, left: null, right: null } } }
+[ 27, 2 ]
+------
+{ val: 13, left: null, right: null }
+[ 27, 2, 8 ]
+------
+{ val: 4,
+  left: null,
+  right: { val: 1, left: null, right: null } }
+[ 27, 2, 21 ]
+------
+null
+[ 27, 2, 21, 4 ]
+------
+{ val: 1, left: null, right: null }
+[ 27, 2, 21, 4 ]
+```
+
+是的，这份遍历节点的，不完善，我想统计每个分支的和，但它遍历了一遍所有节点，却没做到统计和。
+
+这时候，就涉及到知识盲区了，我知道有 4 条分支，但是如何将 4 条分支统计起来呢？为什么我可以求到所有节点的和，以及知道有 4 条分支，却不能统计 4 条分支的和呢？
+
+抱着这种好奇心，我翻开了题解……
 
 ---
 
