@@ -131,6 +131,7 @@
       * [108 - 将有序数组转换为二叉搜索树（convert-sorted-array-to-binary-search-tree） ✔](./other-library/LeetCode/easy/108-将有序数组转换为二叉搜索树（convert-sorted-array-to-binary-search-tree）.md)
       * [110 - 平衡二叉树（balanced-binary-tree） ✔](./other-library/LeetCode/easy/110-平衡二叉树（balanced-binary-tree）.md)
       * [111 - 二叉树的最小深度（minimum-depth-of-binary-tree） ✔](./other-library/LeetCode/easy/111-二叉树的最小深度（minimum-depth-of-binary-tree）.md)
+      * [112 - 路径总和（path-sum） ✔](./other-library/LeetCode/easy/112-路径总和（path-sum）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
