@@ -1,30 +1,20 @@
-# 以'#' 开始的行为注释
-# 在我们使用Git的过程中，有时候喜欢建一些文件给自己查看使用，或者说像是 node_modules 这些文件不希望上传到代码仓库的，这时候就需要设置响应的忽略规则，来忽略这些文件的提交
+# Git 忽略
 
-# 定义全局 .gitignore 文件，将其放在任意位置即可生效
-# git config --global core.excludesfile ~/.gitignore
-
-# VS Code 隐藏工作区中的 node_modules 文件夹： 主菜单 -> 文件 -> 首选项 -> 用户设置
-# "file.exclude": {
-#   "node_modules/": true
-# }
-
-# 忽略掉所有文件名是 test.html 的文件
-# test.html
+# 以 '#' 开始的行是注释
+# 在我们使用 Git 的过程中，有时候喜欢建一些文件给自给自己查看使用，或者说像是 node_modules 这些文件不希望上传到代码仓库的，这时候就需要设置响应的忽略规则，来忽略这些文件的提交。
 
 # 忽略掉 node_modules 文件夹
 **/node_modules/
 
-# 忽略掉所有生成的备份文件
-# *.*~
+# 忽略掉 GitBook 打包的 _book 文件
+_book
+LiangJunrong.github.io
 
-# 忽略所有 .o 和 .a 文件
-# *.[oa]
-
-# 忽略掉所有的 .DS_Store 文件
+# 忽略掉 Mac 中自带的 .DS_Store 文件
 .DS_Store
 .DS_Store?
 */.DS_Store
 
 # 详细用法看文档：https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gitignore.html 
-# gitignore忽略.DS_Store文件：https://www.jianshu.com/p/e3d8eb2a4295
+
+# gitignore 忽略 .DS_Store 文件：https://www.jianshu.com/p/e3d8eb2a4295

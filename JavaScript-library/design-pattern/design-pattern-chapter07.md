@@ -2,7 +2,7 @@
 ===
 
 > create by **jsliang** on **2018年8月30日15:47:00**  
-> Recently revised in **2018-10-28 10:54:44**
+> Recently revised in **2019-05-20 17:38:16**
 
 ## 第七章 代理模式
 * 使用者无权访问目标对象
@@ -22,7 +22,8 @@
 
 ### 7.2 代码演示
 &emsp;代理模式中，代理的类提供的接口必须跟被代理的类名一样。
-```
+
+```js
 class ReadImg {
     constructor(fileName) {
         this.fileName = fileName;
@@ -59,7 +60,8 @@ proxyImg.display();
 * jQuery $.proxy
 
 > 网页时间代理
-```
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,7 +98,8 @@ proxyImg.display();
 <br>
 
 > $.proxy
-```
+
+```js
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,7 +156,8 @@ proxyImg.display();
 <br>
 
 > ES6 Proxy
-```
+
+```js
 // 明星
 let star = {
     name: "张××",

@@ -2,11 +2,11 @@ Axios
 ===
 
 > Create by **jsliang** on **2018-11-8 13:41:10**  
-> Recently revised in **2018-12-25 21:47:43**
+> Recently revised in **2019-05-31 13:50:06**
 
-&emsp;饮水思源：[Axios 中文文档](https://www.kancloud.cn/yunye/axios/234845)
+饮水思源：[Axios 中文文档](https://www.kancloud.cn/yunye/axios/234845)
 
-&emsp;Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。
+Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。
 
 * 从浏览器中创建 XMLHttpRequests
 * 从 node.js 创建 http 请求
@@ -30,19 +30,17 @@ Axios
 
 > [返回目录](#catalog-chapter-two)
 
-&emsp;axios 实战经验
+axios 实战经验
 
-## <a name="chapter-two-one" id="chapter-two-one">2.1 get</a>
+### <a name="chapter-two-one" id="chapter-two-one">2.1 get</a>
 
 > [返回目录](#catalog-chapter-two-one)
 
-<br>
+方法：`axios.get(url, options)`
 
-&emsp;方法：`axios.get(url, options)`
+话不多说，先上代码：
 
-&emsp;话不多说，先上代码：
-
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,7 +96,7 @@ Axios
 </html>
 ```
 
-&emsp;如上，我们使用 axios 非常简单，只需要引用它的 cdn，然后通过：
+如上，我们使用 axios 非常简单，只需要引用它的 cdn，然后通过：
 
 ```
 axios.get()
@@ -106,21 +104,21 @@ axios.get()
 .catch()
 ```
 
-&emsp;就可以直接调用 axios 获取数据。
+就可以直接调用 axios 获取数据。
 
-## <a name="chapter-two-two" id="chapter-two-two">2.2 post</a>
+### <a name="chapter-two-two" id="chapter-two-two">2.2 post</a>
 
 > [返回目录](#catalog-chapter-two-two)
 
-&emsp;post 请求讲解
+post 请求讲解
 
 # 三 杂记
 
 ## 3.1 跨域代理
 
-&emsp;[http-proxy-middleware | 代理了解推荐文章](https://npm.taobao.org/package/http-proxy-middleware)
+* [http-proxy-middleware | 代理了解推荐文章](https://npm.taobao.org/package/http-proxy-middleware)
 
-1. 设置 `index.js`：
+**步骤 1**. 设置 `index.js`：
 
 ```
 dev: {
@@ -133,7 +131,7 @@ dev: {
 },
 ```
 
-2. 设置 `main.js` 全局拦截器：
+**步骤 2**. 设置 `main.js` 全局拦截器：
 
 ```
 // 设置 axios
@@ -151,7 +149,7 @@ axios.interceptors.request.use( (config) => {
 })
 ```
 
-3. 调用 `PartOne.vue`：
+**步骤 3**. 调用 `PartOne.vue`：
 
 ```
 axios({
@@ -165,11 +163,9 @@ axios({
 })
 ```
 
-<br>
+### 3.2 单个页面多 API 调用
 
-## 3.2 单个页面多 API 调用
-
-1. 全代码为：
+**步骤 1**. 全代码为：
 
 ```
 create() {
@@ -188,23 +184,23 @@ methods: {
 }
 ```
 
-2. 理解：
+**步骤 2**. 理解：
 
-&emsp;**首先**，在 `create()` 中调用方法体。  
-&emsp;**然后**，在 `methods()` 中编写方法体，方法体调用 `axios`。  
-&emsp;**最后**，在方法体中通过 `axios` 获取到数据之后，将数据传入到方法中进行处理。
+**首先**，在 `create()` 中调用方法体。  
 
-3. 缘故：这样分布处理，有利于代码逻辑优化，当某步出现错误的时候，方便调试。同时使用 `_` 开头命名方法，防止与其他 `api` 冲突。
+**然后**，在 `methods()` 中编写方法体，方法体调用 `axios`。  
 
-<br>
+**最后**，在方法体中通过 `axios` 获取到数据之后，将数据传入到方法中进行处理。
 
-## 3.3 Axios 封装
+**步骤 3**. 缘故：这样分布处理，有利于代码逻辑优化，当某步出现错误的时候，方便调试。同时使用 `_` 开头命名方法，防止与其他 `api` 冲突。
 
-1. 封装 `api` 到 `src/api/api.js` 中
+### 3.3 Axios 封装
+
+**步骤 1**. 封装 `api` 到 `src/api/api.js` 中
 
 > api.js
 
-```
+```js
 /**
  * 封装逻辑
  * 1. 引入 axios。
@@ -240,13 +236,11 @@ export const getUserName = data => request({
 })
 ```
 
-<br>
-
-2. 在 `Pages` 中调用：
+**步骤 2**. 在 `Pages` 中调用：
 
 > UserInfo.vue
 
-```
+```js
 // 引用接口
 import { getUserName } from "@/api/api"
 
@@ -265,7 +259,15 @@ export default {
 }
 ```
 
-> [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
-> **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
-> 基于 [https://github.om/LiangJunrong/document-library](https://github.om/LiangJunrong/document-library) 上的作品创作。  
-> 本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
+---
+
+> **jsliang** 广告推送：  
+> 也许小伙伴想了解下云服务器  
+> 或者小伙伴想买一台云服务器  
+> 或者小伙伴需要续费云服务器  
+> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
+
+[![图](../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
+[![图](../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。

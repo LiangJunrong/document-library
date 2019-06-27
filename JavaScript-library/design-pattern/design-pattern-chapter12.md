@@ -2,7 +2,7 @@
 ===
 
 > create by **jsliang** on **2018年9月3日11:53:05**  
-> Recently revised in **2018-10-28 10:54:44**
+> Recently revised in **2019-05-20 17:42:42**
 
 ## 第十二章 其他模式
 
@@ -22,7 +22,7 @@
 3. 若干年后如果 ES6 全面普及，大家可能会忽略掉 prototype
 4. 但是 Object.create 却会长久存在
 
-```
+```js
 // `Object.create` 用到了原型模式的思想（虽然不是 java 中的 clone ）
 // 基于一个原型创建一个对象
 var prototype = {
@@ -50,7 +50,7 @@ x.say(); // hello
 
 > 原实例场景
 
-```
+```js
 class ColorShape {
     yellowCircle() {
         console.log("yellow circle");
@@ -76,7 +76,7 @@ cs.redTriangle(); // red triangle
 
 > 使用桥接模式
 
-```
+```js
 class Color {
     constructor(name) {
         this.name = name;
@@ -113,7 +113,7 @@ triangle.draw(); // yellow triangle
 * 生成树形结构，表示“整体-部分”关系
 * 让整体和部分都具有一致的操作模式
 
-```
+```js
 <div id="div1" class="container">
     <p>123</p>
     <p>456</p>
@@ -153,7 +153,7 @@ triangle.draw(); // yellow triangle
 * 共享内存（主要考虑内存，而非效率）
 * 相同的数据，共享使用
 
-```
+```html
 <!-- 无限下拉列表，将事件代理到高层节点上 -->
 <!-- 如果都绑定到`<a>`标签，对内存开销太大 -->
 <div id="div1">
@@ -186,7 +186,8 @@ triangle.draw(); // yellow triangle
 * 避免出现大量 if...else... 或者 switch...case...
 
 > 原代码实现
-```
+
+```js
 class User {
     constructor(type) {
         this.type = type;
@@ -205,7 +206,8 @@ class User {
 
 > 策略模式代码实现  
 > 针对不用的用户，设计不用的类，从而解耦用户等级
-```
+
+```js
 class OrdinaryUser {
     buy() {
         console.log("普通用户购买");
@@ -249,7 +251,8 @@ u3.buy(); // vip 用户购买
 <br>
 
 ### 12.6 模板方法模式
-```
+
+```js
 class Action {
     handle() {
         handle1();
@@ -278,7 +281,7 @@ action.handle();
 * 把这些角色都分开，然后用一个链串起来
 * 将发起者和各个处理者进行隔离
 
-```
+```js
 // 请假审批，需要组长审批、经理审批、最后总监审批
 class Action {
     constructor(name) {
@@ -324,7 +327,7 @@ a1.handle();
 > 将军发布命令，先告诉副官，由副官进行传达，而不是将军一个一个告诉军队
 > 董事长实施战略，先告诉经理，至于各部门如何协调，让经理进行排期。
 
-```
+```js
 // 接受者
 class Receiver {
     exec() {
@@ -382,7 +385,7 @@ general.invoke();
 * 随时记录一个对象的状态变化
 * 随时可以恢复之前的某个状态（如撤销功能）
 
-```
+```js
 // 状态备忘
 class Memento {
     constructor(content) {
@@ -462,7 +465,7 @@ console.log(editor.getContent()); // 222
 * 中介者原理
 ![图](../../public-repertory/img/js-design-pattern-chapter12-1.png)
 
-```
+```js
 class Mediator {
     constructor(a, b) {
         this.a = a;

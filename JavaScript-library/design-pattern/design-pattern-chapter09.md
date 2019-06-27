@@ -2,7 +2,7 @@
 ===
 
 > create by **jsliang** on **2018年8月30日15:47:00**  
-> Recently revised in **2018-10-28 10:54:44**
+> Recently revised in **2019-05-20 17:40:14**
 
 ## 第九章 观察者模式
 * 发布 & 订阅
@@ -26,7 +26,7 @@
 
 > 网页绑定事件
 
-```
+```html
 <button id="btn1">btn</button>
 <script>
     // 等待按钮被点击，被点击就触发
@@ -46,7 +46,7 @@
 
 > Promise
 
-```
+```js
 function loadImg(src) {
     var promise = new Promise(function(resolve, reject) {
         var img = document.createElement("img");
@@ -75,7 +75,7 @@ result.then(function(img) {
 
 > jQuery callbacks
 
-```
+```js
 var callbacks = $.Callbacks(); // 注意大小写
 callbacks.add(function(info) {
     console.log("fn1", info);
@@ -100,7 +100,8 @@ callbacks.fire("fire!");
 
 > nodejs 自定义事件
 * 代码1
-```
+
+```js
 const EventEmitter = require("events").EventEmitter;
 const emitter1 = new EventEmitter();
 emitter1.on("some", () => {
@@ -118,7 +119,8 @@ emitter1.emit("some");
 ```
 
 * 代码2
-```
+
+```js
 const EventEmitter = require("events").EventEmitter;
 const emitter = new EventEmitter();
 emitter.on("showName", () => {
@@ -130,7 +132,8 @@ emitter.emit("showName", "jsliang"); // emit 时候可以传递参数过去
 ```
 
 * 代码3
-```
+
+```js
 const EventEmitter = require('events').EventEmitter;
 
 // 任何构造函数都可以继承 EventEmitter 的方法 on emit
@@ -154,7 +157,8 @@ setInterval(function() {
 ```
 
 * 代码4
-```
+
+```js
 // Stream 用到了自定义事件
 var fs = require("fs");
 var readStream = fs.createReadStream("./dist/js/index.js"); // 读取文件的 Stream

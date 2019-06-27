@@ -1,0 +1,14 @@
+.gitbook-link {
+  display: none !important;
+}
+.summary .divider {
+  display: none !important;
+}
+.book .book-summary {
+  padding-bottom: 100px;
+}
+.book .book-summary .exc-trigger {
+  color: #0098cc;
+  font-size: 1px;
+  line-height: 15px;
+}

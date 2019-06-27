@@ -2,7 +2,7 @@
 ===
 
 > create by **jsliang** on **2018年8月22日11:19:00**  
-> Recently revised in **2018-10-28 10:54:44**
+> Recently revised in **2019-05-20 17:34:16**
 
 ## 第三章 工厂模式
 
@@ -16,8 +16,10 @@
 <br>
 
 ### 3.2 UML类图及其实现
+
 ![图](../../public-repertory/img/js-design-pattern-chapter3-1.png)
-```
+
+```js
 class Product {
     constructor(name) {
         this.name = name;
@@ -54,7 +56,8 @@ p.fun1(); // fun1
 * vue 异步组件
 
 > jQuery
-```
+
+```js
 class jQuery {
     constructor(selector) {
         let slice = Array.prototype.slice;
@@ -87,7 +90,8 @@ p.addClass("jsliang"); // Hello function addClass! jsliang
 ```
 
 > React
-```
+
+```js
 var profile = <div>
     <img src="avatar.png" className="profile" />
     <h3>{[user.firstName, user.lastName].join(' ')}</h3>
@@ -98,7 +102,8 @@ var profile = React.createElement("div", null,
     React.createElement("h3", null, [user.firstName, user.lastName].join(" "));
 );
 ```
-```
+
+```js
 class Vnode(tag, attr, children) {
     // ...省略内部代码...
 }
@@ -108,7 +113,8 @@ React.createElement = function(tag, attrs, children) {
 ```
 
 > Vue
-```
+
+```js
 Vue.component('async-example', function(resolve, reject) {
     setTimeout(function() {
         resolve({

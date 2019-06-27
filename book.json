@@ -1,0 +1,72 @@
+{
+  "title": "jsliang 的文档库",
+  "author": "梁峻荣 - jsliang",
+  "description": "jsliang 的文档库. 里面包含了个人撰写的所有前端文章，例如 Vue、React,、ECharts、微信小程序等……",
+  "language": "zh-hans",
+  "styles": {
+    "website": "./public-repertory/css/gitbook-configure.css"
+  },
+  "plugins": [
+    "theme-comscore",
+    "prism",
+    "-highlight",
+    "copy-code-button",
+    "search-pro",
+    "-search",
+    "-lunr",
+    "expandable-chapters",
+    "splitter",
+    "-sharing",
+    "github-buttons",
+    "donate",
+    "tbfed-pagefooter",
+    "baidu-tongji",
+    "anchor-navigation-ex"
+  ],
+  "pluginsConfig": {
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-solarizedlight.css"
+      ],
+      "lang": {
+        "shell": "bash"
+      }
+    },
+    "github-buttons": {
+      "buttons": [
+        {
+          "user": "LiangJunrong",
+          "repo": "document-library", 
+          "type": "star",
+          "count": true,
+          "size": "small"
+        }, 
+        {
+          "user": "LiangJunrong",
+          "width": "160", 
+          "type": "follow", 
+          "count": true,
+          "size": "small"
+        }
+      ]
+    },
+    "donate": {
+      "button": "打赏",
+      "alipayText": "支付宝打赏",
+      "wechatText": "微信打赏",
+      "alipay": "https://github.com/LiangJunrong/document-library/blob/master/public-repertory/img/seek-reward.jpg?raw=true",
+      "wechat": "https://github.com/LiangJunrong/document-library/blob/master/public-repertory/img/seek-reward.png?raw=true"
+    },
+    "tbfed-pagefooter": {
+      "copyright":"Copyright &copy jsliang.top 2019",
+      "modify_label": "该文件修订时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "baidu-tongji": {
+      "token": "55e7dfe47f4dc1c018d4042fdfa62565"
+    },
+    "anchor-navigation-ex": {
+      "showLevel": false
+    }
+  }
+}
