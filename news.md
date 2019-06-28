@@ -8,7 +8,7 @@
 
 ## 2019-06-27
 
-* [x] **链接**：[LeetCode - 119 - 杨辉三角II（pascals-triangle-ii）](./other-library/LeetCode/easy/119-杨辉三角II（pascals-triangle-ii）.md)
+* [x] **链接**：[LeetCode - 119 - 杨辉三角II](./other-library/LeetCode/easy/119-杨辉三角II（pascals-triangle-ii）.md)
 
 ## 历史
 
