@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-6-27 08:54:17**
+> Recently revised in **2019-6-28 08:32:11**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-06-27
 
-* [x] **链接**：[LeetCode - 118 - 杨辉三角](./other-library/LeetCode/easy/118-杨辉三角（pascals-triangle）.md)
+* [x] **链接**：[LeetCode - 119 - 杨辉三角II](./other-library/LeetCode/easy/119-杨辉三角II（pascals-triangle-ii）.md)
 
 ## 历史
 
+* [x] [LeetCode - 118 - 杨辉三角](./other-library/LeetCode/easy/118-杨辉三角（pascals-triangle）.md)
 * [x] [LeetCode - 112 - 路径总和](./other-library/LeetCode/easy/112-路径总和（path-sum）.md)
 * [x] [LeetCode - 111 - 二叉树的最小深度](./other-library/LeetCode/easy/111-二叉树的最小深度（minimum-depth-of-binary-tree）.md)
 * [x] [LeetCode - 110 - 平衡二叉树](./other-library/LeetCode/easy/110-平衡二叉树（balanced-binary-tree）.md)

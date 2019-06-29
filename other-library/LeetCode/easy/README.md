@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-6-27 08:53:25**
+> Recently revised in **2019-6-28 08:31:32**
 
 LeetCode 简单难度攻略
 
@@ -37,6 +37,7 @@ LeetCode 简单难度攻略
 | 111 - 二叉树的最小深度（minimum-depth-of-binary-tree） | [#111 解题](./111-二叉树的最小深度（minimum-depth-of-binary-tree）.md) |
 | 112 - 路径总和（path-sum） | [#112 解题](./112-路径总和（path-sum）.md) |
 | 118 - 杨辉三角（pascals-triangle） | [#118 解题](./118-杨辉三角（pascals-triangle）.md) |
+| 119 - 杨辉三角II（pascals-triangle-ii） | [#119 解题](./119-杨辉三角II（pascals-triangle-ii）.md) |
 
 ---
 

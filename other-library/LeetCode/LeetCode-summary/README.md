@@ -1,42 +1,38 @@
-LeetCode
+LeetCode 汇总
 ===
 
-> Create by **jsliang** on **2019-5-16 22:12:29**  
-> Recently revised in **2019-6-28 08:45:21**
+> Create by **jsliang** on **2019-6-28 08:47:36**  
+> Recently revised in **2019-06-28 15:23:19**
 
-## <a name="chapter-one" id="chapter-one">一 目录</a>
+* 一把王者荣耀，可能需要 20 分钟以上
+* 一把英雄联盟，可能需要 30 分钟以上
+* 一把 LeetCode，可能需要 40 分钟以上
 
-**不折腾的前端，和咸鱼有什么区别**
+虽然玩游戏是件愉快的事，但是刷 LeetCode 也不差！
 
-| 目录 |
-| --- | 
-| [一 目录](#chapter-one) | 
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 攻略](#chapter-three) |
+刷 LeetCode 其实是件有意思的事，锻炼你的思维，丰富你对 JS API 的了解。
 
-## <a name="chapter-two" id="chapter-two">二 前言</a>
+从 `2019-05-16` 开始，**jsliang** 便开启了自己的 LeetCode 之旅，并在公众号成立稳定后，坚持每天刷一道 LeetCode。
 
-> [返回目录](#chapter-one)
+LeetCode 目前有 1098 道题，其中：
 
-LeetCode 是个题库，里面有很编程多面试的题目，可以在线编译运行。
+* 简单：272 题
+* 中等：439 题
+* 困难：182 题
 
-在这里，你可以使用 C、C++、Java、Python、PHP、JavaScript 共 14 种编程语言进行解题。
+所以，**jsliang** 的攻略的题目连 LeetCode 的零头都不到。
 
-在这里，你可以接触到许许多多算法相关的知识，并且提升自己的职业竞争能力，在面试的时候秀一秀自己的代码。
+但是，坚持刷题是件有意义的事情，希望自己能坚持下去。
 
-## <a name="chapter-three" id="chapter-three">三 攻略</a>
+在此汇总，记录每月情况：
 
-> [返回目录](#chapter-one)
-
-* [简单难度攻略](./easy/README.md)
-* [中等难度攻略](./medium/README.md)
-* [困难难度攻略](./hard/README.md)
+* [2019-06](./2019-06.md)
 
 ---
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-![图](../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
 
 **jsliang** 会每天更新一道 LeetCode 题解，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构。
 

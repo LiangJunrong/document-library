@@ -2,41 +2,21 @@ JavaScript 知识点
 ===
 
 > Create by **jsliang** on **2018-12-11 09:21:24**  
-> Recently revised in **2019-05-30 21:50:15**
-
-## 一 序
+> Recently revised in **2019-06-28 14:46:08**
 
 万丈高楼平地起
 
 地基还得自己起
 
-记录 JavaScript 各个知识点
+记录 JavaScript 的各个知识点
 
----
+在探索 JS 知识点的过程中，发现 MDN 是个非常实用的网站，有不懂的知识点可尽管搜索：[MDN 搜索页](https://developer.mozilla.org/zh-CN/search?q=&topic=api&topic=css&topic=html&topic=js&topic=svg&topic=standards) 
 
-MDN 是个非常实用的网站，有不懂的知识点可尽管搜索：
+本栏目目录：
 
-* [MDN 搜索页](https://developer.mozilla.org/zh-CN/search?q=&topic=api&topic=css&topic=html&topic=js&topic=svg&topic=standards) 
-
-下面知识点不分先后，如果有目的查找，请使用 `Ctrl/Command + F`：
-
-## 二 Function
-
-| 类型 | 名称 | 简介 | 地址 |
-| --- | --- | --- | --- |
-| 方法 | `indexOf()` | 判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。 | [`indexOf()` 详细介绍](./Function/indexOf.md) |
-| 方法 | `map()` | 遍历数组，`item` 返回遍历项，`index` 返回当前索引。 | [`map()` 详细介绍](./Function/map.md) |
-| 方法 | `pop()` | 从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。 | [`pop()` 详细介绍](./Function/pop.md) |
-| 方法 | `sort()` | 排序，数字 1-9，字母 a-z。 | [`sort()` 详细介绍](./Function/sort.md) |
-
-## 三 Object
-
-| 类型 | 名称 | 简介 | 地址 |
-| --- | --- | --- | --- |
-| 对象 | `Map` | 保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。 | [`Map` 详细介绍](./Object/Map.md) |
-| 对象 | `Math` | 内置对象，它具有数学常数和函数的属性和方法。不是一个函数对象。 | [`Math` 详细介绍](./Object/Math.md) |
-| 对象 | `Number` | 可以将其他类型的值转为数字。 | [`Number` 详细介绍](./Object/Number.md) |
-| 对象 | `String` | 将其他格式转成字符串。 | [`String` 详细介绍](./Object/String.md) |
+* [方法 - Function](./Function/README.md)
+* [对象 - Object](./Object/README.md)
+* [其他 - Other](./Other/README.md)
 
 ---
 
