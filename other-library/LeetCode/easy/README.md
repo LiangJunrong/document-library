@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-6-28 08:31:32**
+> Recently revised in **2019-7-1 09:16:06**
 
 LeetCode 简单难度攻略
 
@@ -38,6 +38,7 @@ LeetCode 简单难度攻略
 | 112 - 路径总和（path-sum） | [#112 解题](./112-路径总和（path-sum）.md) |
 | 118 - 杨辉三角（pascals-triangle） | [#118 解题](./118-杨辉三角（pascals-triangle）.md) |
 | 119 - 杨辉三角II（pascals-triangle-ii） | [#119 解题](./119-杨辉三角II（pascals-triangle-ii）.md) |
+| 121 - 买卖股票的最佳时机（best-time-to-buy-and-sell-stock） | [#121 解题](./121-买卖股票的最佳时机（best-time-to-buy-and-sell-stock）.md) |
 
 ---
 
