@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-7-1 08:33:42**
+> Recently revised in **2019-07-01 10:18:10**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -52,15 +52,15 @@
 
 ## 四 成员名单
 
-| 昵称 | GitHub 账号 | 竞赛记录地址 | 
-| --- | --- | --- | 
-| 1. jsliang | [GitHub](https://github.com/LiangJunrong) | [参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs) |
-| 2. 豆包君 | [GitHub](https://github.com/danygitgit) | [参赛地址](https://github.com/danygitgit/Cheer-for-yourself/blob/master/myAchievement/%E6%AF%8F%E5%91%A8%E8%AE%A1%E5%88%92%E5%8F%8A%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95.md) |
-| 3. huqi | [GitHub](https://github.com/hu-qi) | [参赛地址](https://github.com/hu-qi/Loner/tree/master/other-library/change-for-myself) |
-| 4. teachat8 | [GitHub](https://github.com/teachat8) | [参赛地址](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-06.md) |
-| 5. LienJack | [GitHub](https://github.com/LienJack) | [参赛地址](https://github.com/LienJack/daliy-study) |
-| 6. liutaochange | [GitHub](https://github.com/liutaochange) | [参赛地址](https://github.com/liutaochange) |
-| 7. 踩坑侠 | [GitHub](https://github.com/924950698) | [参赛地址](https://github.com/924950698) |
+| 昵称 | GitHub 账号 |
+| --- | --- |
+| 1. jsliang | [LiangJunrong](https://github.com/LiangJunrong) |
+| 2. 豆包君 | [danygitgit](https://github.com/danygitgit) |
+| 3. huqi | [hu-qi](https://github.com/hu-qi) |
+| 4. teachat8 | [teachat8](https://github.com/teachat8) |
+| 5. LienJack | [LienJack](https://github.com/LienJack) |
+| 6. liutaochange | [liutaochange](https://github.com/liutaochange) |
+| 7. 踩坑侠 | [924950698](https://github.com/924950698) |
 
 ## 五 本周记录
 
@@ -68,6 +68,8 @@
 
 * 豆包君：参与一周竞赛
 * huqi：参与一周竞赛
+* teachat8：参与一周竞赛
+* 踩坑侠：参与一周竞赛
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
