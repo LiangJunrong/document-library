@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-01 17:45:53**  
-> Recently revised in **2019-07-01 17:46:01**
+> Recently revised in **2019-07-01 19:42:53**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,9 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -56,81 +58,67 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var maxProfit = function (prices) {
+  var res = 0;
+  for (var i = 0; i < prices.length - 1; i++) {
+    if (prices[i] < prices[i + 1]) {
+      res += prices[i + 1] - prices[i];
+    }
+  }
+  return res;
+}
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+1. `prices`：`[7,1,5,3,6,4]`
+2. `return`：`7`
+
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 201/201 cases passed (80 ms)
+  ✔ Your runtime beats 93.2 % of javascript submissions
+  ✔ Your memory usage beats 61.2 % of javascript submissions (35.2 MB)
 ```
 
-* **执行测试**：
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> [返回目录](#chapter-one)
 
-```js
+**首先**，这道题的解法肯定不止我这一种，但是我没想到会是这么 ** 的解法也是可以的。
 
-```
+按照论坛的意思：**只要后一天价格比前一天高，就在前一天买进后一天卖出**
 
-* **LeetCode Submit**：
+就是说：
 
-```js
+* `[1,2,3,4,5]`：
 
-```
+1. 1 买 2 卖，收益 `2 - 1 = 1`
+2. 2 买 3 卖，收益 `3 - 2 = 1`
+3. 3 买 4 卖，收益 `4 - 3 = 1`
+4. 4 买 5 卖，收益 `5 - 4 = 1`
+5. `sum = 1 + 1 + 1 + 1 = 4`
 
-* **知识点**：
+* `[7,1,5,3,6,4]`：
 
-1. 
+1. 1 买 5 卖，收益 `5 - 1 = 4`
+2. 3 卖 6 卖，收益 `6 - 3 = 3`
+3. `sum = 4 + 3 = 7`
 
-* **解题思路**：
+即当天可以立即卖出，立即买入。
 
-[图]
+**然后**，股票的价格千变万化，只会在某个瞬间，股票的价格是确定的，A 股一天的交易总时间为 4 个小时，这种瞬间太多了，想要在买入前找到价格最低的那一瞬间，几乎是不可能的。
 
-[分析]
-
-* **进一步思考**：
+**最后**，感觉做完这道题（看我题解），对我毫无帮助，感觉没学到知识点，可能是我层次太低没理解到，希望之后能有所收获。
 
 ---
 
