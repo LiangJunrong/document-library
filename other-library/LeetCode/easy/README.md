@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-7-2 08:58:31**
+> Recently revised in **2019-7-2 20:48:38**
 
 LeetCode 简单难度攻略
 
@@ -41,6 +41,7 @@ LeetCode 简单难度攻略
 | 121 - 买卖股票的最佳时机（best-time-to-buy-and-sell-stock） | [#121 解题](./121-买卖股票的最佳时机（best-time-to-buy-and-sell-stock）.md) |
 | 122 - 买卖股票的最佳时机II（best-time-to-buy-and-sell-stock-ii） | [#122 解题](./122-买卖股票的最佳时机II（best-time-to-buy-and-sell-stock-ii）.md) |
 | 125 - 验证回文串（valid-palindrome） | [#125 解题](./125-验证回文串（valid-palindrome）.md) |
+| 136 - 只出现一次的数字（single-number） | [#136 解题](./136-只出现一次的数字（single-number）.md) |
 
 ---
 
