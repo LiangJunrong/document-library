@@ -8,7 +8,7 @@
 
 ## 2019-07-02
 
-* [x] **链接**：[LeetCode - 136 - 只出现一次的数字（single-number）](./other-library/LeetCode/easy/136-只出现一次的数字（single-number）.md)
+* [x] **链接**：[LeetCode - 136 - 只出现一次的数字](./other-library/LeetCode/easy/136-只出现一次的数字（single-number）.md)
 
 ## 历史
 
