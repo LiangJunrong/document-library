@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-7-2 07:50:41**  
-> Recently revised in **2019-7-2 07:50:45**
+> Recently revised in **2019-7-2 08:57:36**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
+| &emsp;[3.2 解法 - 双指针](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -82,49 +83,83 @@ var isPalindrome = function(s) {
 
 * **解题思路**：
 
-[图]
+暴力破解，无疑是最不耗脑力的，你只需要知道几个 JS 的 API 即可：
 
-[分析]
+**首先**，规整字符串：
 
-* **进一步思考**：
+> `s = s.replace(/[^0-9a-zA-Z]/g, '').toLocaleLowerCase();`
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+* `replace()`：将 `s` 中非大小写字符或者数字的内容替换掉。
+* `toLocaleLowerCase`：将字符串转成小写。
+
+此时，`s = amanaplanacanalpanama`
+
+**然后**，将字符串转成数组，调用数组的 `reverse()`，再将数组换成字符串：
+
+> `let reverse = s.split('').reverse().join('');`
+
+* `split()`：将字符串转成数组
+* `reverse()`：反转数组
+* `join()`：将数组转成字符串
+
+**最后**，判断下 `s === reverse`，`return` 这个结果值即可。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 双指针</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var isPalindrome = function(s) {
+  s = s.replace(/[^0-9a-zA-Z]/g, "").toLocaleLowerCase();
+  for (let i = 0; i < s.length / 2; i++) {
+    if (s[i] !== s[s.length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `s`：`A man, a plan, a canal: Panama`
+2. `return`：`true`
 
 * **LeetCode Submit**：
 
 ```js
-
+√ Accepted
+  √ 476/476 cases passed (92 ms)
+  √ Your runtime beats 97.57 % of javascript submissions
+  √ Your memory usage beats 75.72 % of javascript submissions (37.1 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+**首先**，国际惯例去掉非大小写字符或者数字的字符串，并将字符串转换成小写。
 
-[分析]
+**然后**，我们对字符串进行一个遍历（有的小伙伴可能不知道，JS 字符串也可以通过 `for` 遍历，但是听说字符串的遍历会比数组的遍历消耗多点）。
 
-* **进一步思考**：
+由于是判断回文，所以我们只需要循环一半即可（如果长度为 3/5/7 等奇数值，忽略中间那个字符串，例如 abcba，忽略 c 也是可行的）。
+
+```js
+if (s[i] !== s[s.length - 1 - i]) {
+  return false;
+}
+```
+
+**最后**，我们通过双指针的移动：
+
+`0 1 2 3 4`
+`a b c b a`
+
+* 0 对应着 length - 1 - 0 = 4
+* 1 对应着 length - 1 - 1 = 3
+* 2 对应着 length - 1 - 2 = 2
+
+这样，当它们对应的数字不同时，返回 `false`；否则返回 `true`。
 
 ---
 
