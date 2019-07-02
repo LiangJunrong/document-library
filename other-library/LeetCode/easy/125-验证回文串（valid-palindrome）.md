@@ -51,28 +51,34 @@
 * **解题代码**：
 
 ```js
-
+var isPalindrome = function(s) {
+  s = s.replace(/[^0-9a-zA-Z]/g, '').toLocaleLowerCase();
+  let reverse = s.split('').reverse().join('');
+  return s === reverse;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `s`：`A man, a plan, a canal: Panama`
+2. `return`：`true`
 
 * **LeetCode Submit**：
 
 ```js
-
+√ Accepted
+  √ 476/476 cases passed (96 ms)
+  √ Your runtime beats 95.55 % of javascript submissions
+  √ Your memory usage beats 42.1 % of javascript submissions (38.3 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `replace()`：`replace()`方法返回一个由替换值（replacement）替换一些或所有匹配的模式（pattern）后的新字符串。模式可以是一个字符串或者一个正则表达式，替换值可以是一个字符串或者一个每次匹配都要调用的回调函数。[`replace()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/replace.md)
+2. `toLocaleLowerCase()`：`toLocaleLowerCase()`方法根据任何特定于语言环境的案例映射，返回调用字符串值转换为小写的值。。[`toLocaleLowerCase()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/toLocaleLowerCase.md)
+3. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
+4. `reverse()`：`reverse()` 方法将数组中元素的位置颠倒,并返回该数组。该方法会改变原数组。[`reverse()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/reverse.md)
+5. `join()`：`join()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`join()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/join.md)
 
 * **解题思路**：
 
