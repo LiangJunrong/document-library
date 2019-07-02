@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-02 18:54:59**  
-> Recently revised in **2019-07-02 18:55:03**
+> Recently revised in **2019-7-2 20:47:42**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,9 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - 最菜解法](#chapter-three-one) |
+| &emsp;[3.2 解法 - 双指针](#chapter-three-two) |
+| &emsp;[3.3 解法 - 玄学异或](#chapter-three-three) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -158,7 +160,7 @@ var singleNumber = function(nums) {
 2. 通过双指针的移动，判断 `nums[i + 1]` 是否与 `nums[i]` 相等，相等则前进两位（`if` 条件中的 `i++` 和 `for` 的 i++） 相叠加，就是 `+2` 了
 3. 返回不同的那一个数字。
 
-### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 双指针</a>
+### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 玄学异或</a>
 
 > [返回目录](#chapter-one)
 
@@ -176,31 +178,35 @@ var singleNumber = function(nums) {
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[4,1,2,1,2]`
+2. `return`：`4`
 
 * **LeetCode Submit**：
 
 ```js
-
+√ Accepted
+  √ 16/16 cases passed (72 ms)
+  √ Your runtime beats 98.94 % of javascript submissions
+  √ Your memory usage beats 73.15 % of javascript submissions (35.3 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+**最后这个题解不做讲解，请小伙伴们自行思考。**
 
-[分析]
+> 大佬思路
 
-* **进一步思考**：
+```
+交换律：a ^ b ^ c <=> a ^ c ^ b
+
+任何数于 0 异或为任何数 0 ^ n => n
+
+相同的数异或为 0: n ^ n => 0
+
+var a = [2, 3, 2, 4, 4]
+
+2 ^ 3 ^ 2 ^ 4 ^ 4 等价于 2 ^ 2 ^ 4 ^ 4 ^ 3 => 0 ^ 0 ^3 => 3
+```
 
 ---
 
