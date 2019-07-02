@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-01 19:45:37**
+> Recently revised in **2019-7-2 08:59:39**
 
 **不折腾的前端，和咸鱼有什么区别**
 
-## 2019-06-27
+## 2019-07-02
 
-* [x] **链接**：[LeetCode - 122 - 买卖股票的最佳时机II](./other-library/LeetCode/easy/122-买卖股票的最佳时机II（best-time-to-buy-and-sell-stock-ii）.md)
+* [x] **链接**：[LeetCode - 125 - 验证回文串](./other-library/LeetCode/easy/125-验证回文串（valid-palindrome）.md)
 
 ## 历史
 
+* [x] [LeetCode - 122 - 买卖股票的最佳时机II](./other-library/LeetCode/easy/122-买卖股票的最佳时机II（best-time-to-buy-and-sell-stock-ii）.md)
 * [x] [LeetCode - 121 - 买卖股票的最佳时机](./other-library/LeetCode/easy/121-买卖股票的最佳时机（best-time-to-buy-and-sell-stock）.md)
 * [x] [LeetCode - 119 - 杨辉三角II](./other-library/LeetCode/easy/119-杨辉三角II（pascals-triangle-ii）.md)
 * [x] [LeetCode - 118 - 杨辉三角](./other-library/LeetCode/easy/118-杨辉三角（pascals-triangle）.md)
