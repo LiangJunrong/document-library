@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-7-2 08:20:16**  
-> Recently revised in **2019-7-2 08:25:49**
+> Recently revised in **2019-7-2 08:26:27**
 
 * **原文**：[MDN - replace()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
 
