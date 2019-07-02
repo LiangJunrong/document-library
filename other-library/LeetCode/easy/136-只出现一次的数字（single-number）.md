@@ -46,52 +46,132 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 最菜解法</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var singleNumber = function(nums) {
+  while(nums.length > 1) {
+    for (let i = 1; i < nums.length; i++) {
+      if (nums[i] === nums[0]) {
+        nums.splice(i, 1);
+        nums.splice(0, 1);
+        break;
+      } else if (i === nums.length - 1 && nums[i] !== nums[0]) {
+        return nums[0];
+      }
+    }
+  }
+  return nums[0];
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[4,1,2,1,2]`
+2. `return`：`4`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 16/16 cases passed (252 ms)
+  ✔ Your runtime beats 21.3 % of javascript submissions
+  ✔ Your memory usage beats 15.97 % of javascript submissions (37.7 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `splice()`：`splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。[`splice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/splice.md)
 
 * **解题思路**：
 
-[图]
+**最菜思路，LeetCode 第 34 题破新低！**
 
-[分析]
+**首先**，通过 `while` 判断，在 `while` 内部不断切割数组，直至它剩下长度为 1。
 
-* **进一步思考**：
+**然后**，遍历一次数组，判断是否存在相同的，存在则切割数组，并中断这次遍历。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+> 特殊情况：如果遍历到了最末尾，且数组末尾不等于开头，那么我们返回开头数字，因为它没有相同的值
+
+```js
+if (nums[i] === nums[0]) {
+  nums.splice(i, 1);
+  nums.splice(0, 1);
+  break;
+} else if (i === nums.length - 1 && nums[i] !== nums[0]) {
+  return nums[0];
+}
+```
+
+**最后**，返回最终的数组的第 1 个数字。
+
+解题思路对了，但是看到 LeetCode Submit 的结果，肯定是被大佬打爆了，那么一定会有更优解，继续思考。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 双指针</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
+var singleNumber = function(nums) {
+  nums.sort();
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === nums[i + 1]) {
+      i++;
+    } else {
+      return nums[i];
+    }
+  }
+};
+```
 
+* **执行测试**：
+
+1. `nums`：`[4,1,2,1,2]`
+2. `return`：`4`
+
+* **LeetCode Submit**：
+
+```js
+✔ Accepted
+  ✔ 16/16 cases passed (148 ms)
+  ✔ Your runtime beats 33.85 % of javascript submissions
+  ✔ Your memory usage beats 37.98 % of javascript submissions (36.3 MB)
+```
+
+* **知识点**：
+
+1. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort.md)
+
+* **解题思路**：
+
+**百尺竿头，更进一步！**
+
+此时的题解，相对于前面的解题思路，无疑更进了一步，主要思路是：
+
+1. 将数字数组通过 `sort()` 排序
+2. 通过双指针的移动，判断 `nums[i + 1]` 是否与 `nums[i]` 相等，相等则前进两位（`if` 条件中的 `i++` 和 `for` 的 i++） 相叠加，就是 `+2` 了
+3. 返回不同的那一个数字。
+
+### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 双指针</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
+```js
+var singleNumber = function(nums) {
+  let res = 0;
+  for (let i = 0; i < nums.length; i++) {
+    res ^= nums[i];
+  }
+  return res;
+};
 ```
 
 * **执行测试**：
