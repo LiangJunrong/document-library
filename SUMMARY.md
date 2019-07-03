@@ -138,6 +138,7 @@
       * [122 - 买卖股票的最佳时机II（best-time-to-buy-and-sell-stock-ii） ✔](./other-library/LeetCode/easy/122-买卖股票的最佳时机II（best-time-to-buy-and-sell-stock-ii）.md)
       * [125 - 验证回文串（valid-palindrome） ✔](./other-library/LeetCode/easy/125-验证回文串（valid-palindrome）.md)
       * [136 - 只出现一次的数字（single-number） ✔](./other-library/LeetCode/easy/136-只出现一次的数字（single-number）.md)
+      * [141 - 环形链表（linked-list-cycle） ✔](./other-library/LeetCode/easy/141-环形链表（linked-list-cycle）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
