@@ -8,7 +8,7 @@
 
 ## 2019-07-02
 
-* [x] **链接**：[LeetCode - 141 - 环形链表（linked-list-cycle）](./other-library/LeetCode/easy/141-环形链表（linked-list-cycle）.md)
+* [x] **链接**：[LeetCode - 141 - 环形链表](./other-library/LeetCode/easy/141-环形链表（linked-list-cycle）.md)
 
 ## 历史
 
