@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-7-3 08:10:25**  
-> Recently revised in **2019-7-3 08:10:30**
+> Recently revised in **2019-7-3 08:52:02**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,6 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -53,83 +52,69 @@
 
 > [返回目录](#chapter-one)
 
-小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
+第一眼看题，**没懂**
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+不对，再瞅瞅，**还是没懂**
 
-> [返回目录](#chapter-one)
+难道，我想错了？看下题解，**还还是没懂**
 
-* **解题代码**：
+这我就震惊了，我不会是遇到假题目了吧~
 
-```js
-
-```
-
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+看下代码：
 
 ```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *   this.val = val;
+ *   this.next = null;
+ * }
+ */
 
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var hasCycle = function(head) {
+    
+};
 ```
 
-* **LeetCode Submit**：
+enm...怎么只有 `head`，那个 `pos` 呢？
+
+回头看了下题解：
+
+* 官方题解：https://leetcode-cn.com/problems/linked-list-cycle/solution/huan-xing-lian-biao-by-leetcode/
+* 个人题解：https://leetcode-cn.com/problems/linked-list-cycle/solution/8mskuai-man-zhi-zhen-hashsi-lu-de-go-shi-xian-by-e/
+
+> 比较有意思的题解：
 
 ```js
-
+var hasCycle = function(head) {
+  while (head) {
+    if (head.val === 'jsliang') {
+      return true;
+    } else {
+      head.val = 'jsliang';
+    }
+    head = head.next;
+  }
+  return false;
+};
 ```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
-* **解题代码**：
 
 ```js
-
+√ Accepted
+  √ 17/17 cases passed (84 ms)
+  √ Your runtime beats 98.59 % of javascript submissions
+  √ Your memory usage beats 75.67 % of javascript submissions (36.4 MB)
 ```
 
-* **执行测试**：
+凉了凉了，怎么它们讲得头头是道，我却连题目都不懂~
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+无解，放着，等回头系统学下算法与数据结构的书，再看看是不是我哪里出问题了。
 
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
+小伙伴们如果对这道题有个人见解，可以提出来，感谢分享~
 
 ---
 
