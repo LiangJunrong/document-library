@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-04 10:32:24**  
-> Recently revised in **2019-07-04 10:32:28**
+> Recently revised in **2019-07-04 16:40:14**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,9 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -68,10 +70,17 @@
 
 ![图](../../../public-repertory/img/other-algorithm-160-4.png)
 
-输入：intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
+```
+输入：intersectVal = 0,
+  listA = [2,6,4],
+  listB = [1,5],
+  skipA = 3,
+  skipB = 2
 输出：null
-输入解释：从各自的表头开始算起，链表 A 为 [2,6,4]，链表 B 为 [1,5]。由于这两个链表不相交，所以 intersectVal 必须为 0，而 skipA 和 skipB 可以是任意值。
+输入解释：从各自的表头开始算起，链表 A 为 [2,6,4]，链表 B 为 [1,5]。
+  由于这两个链表不相交，所以 intersectVal 必须为 0，而 skipA 和 skipB 可以是任意值。
 解释：这两个链表不相交，因此返回 null。
+```
  
 注意：
 
@@ -86,81 +95,190 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
+var getIntersectionNode = function(headA, headB) {
+  if (!headA || !headB) {
+    return null;
+  }
+  let a = headA,
+    b = headB;
 
+  // 相交则返回当前节点，否则返回 null
+  // 当 a、b 不相交时：
+  // 1. 如果 a 为 null，将 headB 赋值给 a；
+  // 2. 如果 b 为 null，将 headA 赋值给 b；
+  while (a !== b) {
+    a = a ? a.next : headB;
+    b = b ? b.next : headA;
+  }
+  return a;
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
-
 ```js
+let base = {
+  val: 8, next: {
+    val: 4, next: {
+      val: 5, next: null,
+    },
+  },
+};
 
+let headA = {
+  val: 4, next: {
+    val: 1, next: base,
+  },
+};
+
+let headB = {
+  val: 5, next: {
+    val: 0, next: {
+      val: 1, next: base,
+    },
+  },
+}
 ```
 
-* **执行测试**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 45/45 cases passed (124 ms)
+  ✔ Your runtime beats 84.62 % of javascript submissions
+  ✔ Your memory usage beats 49.21 % of javascript submissions (42.9 MB)
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
+
+> [返回目录](#chapter-one)
+
+**首先**，拿到题目，我怀疑题目又有问题了，尝试了下 `test`，显示为：
 
 ```js
+Input data:
+8
+[4,1,8,4,5]
+[5,0,1,8,4,5]
+2
+3
 
+Actual
+  ✔ runtime: 72 ms
+  ✘ answer: No intersection
+  ✔ stdout: ''
+
+Expected
+  ✔ runtime: 28 ms
+  ✔ answer: Intersected at '8'
+  ✔ stdout: ''
 ```
 
-* **知识点**：
+然而给我的代码是：
 
-1. 
+```js
+var getIntersectionNode = function(headA, headB) {
+  // 代码
+};
+```
 
-* **解题思路**：
+闹哪样呢！为什么它有那么多参数，我只有两个！
 
-[图]
+而且，`[4, 1, 8, 4, 5]` 和 `[5, 0, 1, 8, 4, 5]`，不是在 `1` 就相同了吗？怎么是 `8` 才相交！摔！！！
 
-[分析]
+**然后**，仔细思考一下……卧槽，它说的相同，不会是地址相同吧？
 
-* **进一步思考**：
+小伙伴们都知道，在 JS 中，如果是 Number、String 等的复制，是通过传值来实现的；而 Array、Ojbect 等，是通过传址来实现了，看例子：
+
+```js
+let a = 1;
+let b = a;
+b = 2;
+console.log(a); // 1
+
+let c = [1, 2, 3];
+let d = c;
+d.push(4);
+console.log(c); // [1, 2, 3, 4]
+```
+
+在这里，我们修改 `b` 的时候，`a` 是不会发生对应改变的。
+
+而修改 `d` 的时候，因为修改了原数组，所以 `c` 也会对应变成 `[1, 2, 3, 4]`。
+
+> 小伙伴们想了解更多，可以搜索 **JS 深拷贝与浅拷贝**
+
+**划重点**：简单来说，有两个对象 A 和 B，B = A，当你修改 A 时，B 的值也跟着发生了变化，这时候就叫浅拷贝。如果不发生变化，就叫深拷贝。
+
+所以，如果和猜测的一样，那么 `[4, 1, 8, 4, 5]` 和 `[5, 0, 1, 8, 4, 5]` 需要判断的，是它们在某个位置开始是否在同一地址。
+
+不清楚 C、C++、Java 等编程语言是否可行，但是在 JS 中，这样的数据，即：
+
+* **原始数据**：`[8, 4, 5]`
+* **拷贝数据 A**：`[4, 1, 8, 4, 5]`
+* **拷贝数据 B**：`[5, 0, 1, 8, 4, 5]`
+
+那么，它在 JS 中如何表示呢？**jsliang** 在这里尝试了一下：
+
+```js
+let base = {
+  val: 8, next: {
+    val: 4, next: {
+      val: 5, next: null,
+    },
+  },
+};
+
+let headA = {
+  val: 4, next: {
+    val: 1, next: base,
+  },
+};
+
+let headB = {
+  val: 5, next: {
+    val: 0, next: {
+      val: 1, next: base,
+    },
+  },
+}
+```
+
+**接着**，我们分析下我们的代码：
+
+```js
+  let a = headA,
+    b = headB;
+
+  // 相交则返回当前节点，否则返回 null
+  // 当 a、b 不相交时：
+  // 1. 如果 a 为 null，将 headB 赋值给 a；
+  // 2. 如果 b 为 null，将 headA 赋值给 b；
+  while (a !== b) {
+    a = a ? a.next : headB;
+    b = b ? b.next : headA;
+  }
+```
+
+怎么说呢？我们是不是有两条链表：`a` 和 `b`。
+
+`a` 的长度是 5，`b` 的长度是 6，那么，我们就可以利用这个长度差，做一些羞羞的事：
+
+```
+[4, 1, 8, 4, 5][5, 0, 1, 8, 4, 5]
+[5, 0, 1, 8, 4, 5][4, 1, 8, 4, 5]
+```
+
+可以看到的是，遍历一轮后，刚好接触到了一块，从而返回最终结果。
+
+**最后**，把这个尝试的在本地测试了一下，完全 OK，说明我们假设的数据 OK 了，再配合上面的解题代码，成功完成了这道题的破解。
 
 ---
 
