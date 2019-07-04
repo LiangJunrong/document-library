@@ -1,28 +1,26 @@
-JavaScript - Function
+方法 - toLocaleLowerCase()
 ===
 
-> Create by **jsliang** on **2019-05-30 21:46:39**  
-> Recently revised in **2019-7-2 08:30:41**
+> Create by **jsliang** on **2019-7-2 08:28:22**  
+> Recently revised in **2019-7-2 08:29:58**
 
-记录一些 JavaScript 的关于 Function 的知识点。
+* **原文**：[MDN - toLocaleLowerCase()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase)
 
-| 目录 |
-| --- |
-| [方法 - indexOf()](./indexOf.md) |
-| [方法 - join()](./join.md) |
-| [方法 - map()](./map.md) |
-| [方法 - pop()](./pop.md) |
-| [方法 - push()](./push.md) |
-| [方法 - reduce()](./reduce.md) |
-| [方法 - reverse()](./reverse.md) |
-| [方法 - replace()](./replace.md) |
-| [方法 - slice()](./slice.md) |
-| [方法 - sort()](./sort.md) |
-| [方法 - splice()](./splice.md) |
-| [方法 - split()](./split.md) |
-| [方法 - substring()](./substring.md) |
-| [方法 - toLocaleLowerCase()](./toLocaleLowerCase.md) |
-| [方法 - unshift()](./unshift.md) |
+* **功能**：`toLocaleLowerCase()` 方法根据任何特定于语言环境的案例映射，返回调用字符串值转换为小写的值。
+
+* **语法**：`str.toLocaleLowerCase()`
+
+* **返回值**：根据任何特定于语言环境的案例映射，将表示调用字符串的新字符串转换为小写。
+
+* **代码**：
+
+```js
+console.log('JSLIANG'.toLocaleLowerCase()); 
+// 'jsliang'
+
+console.log('中文简体 zh-CN || zh-Hans'.toLocaleLowerCase());
+// '中文简体 zh-cn || zh-hans'
+```
 
 ---
 

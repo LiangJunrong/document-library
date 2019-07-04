@@ -1,28 +1,30 @@
-JavaScript - Function
+方法 - replace()
 ===
 
-> Create by **jsliang** on **2019-05-30 21:46:39**  
-> Recently revised in **2019-7-2 08:30:41**
+> Create by **jsliang** on **2019-7-2 08:20:16**  
+> Recently revised in **2019-7-2 08:26:27**
 
-记录一些 JavaScript 的关于 Function 的知识点。
+* **原文**：[MDN - replace()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
 
-| 目录 |
-| --- |
-| [方法 - indexOf()](./indexOf.md) |
-| [方法 - join()](./join.md) |
-| [方法 - map()](./map.md) |
-| [方法 - pop()](./pop.md) |
-| [方法 - push()](./push.md) |
-| [方法 - reduce()](./reduce.md) |
-| [方法 - reverse()](./reverse.md) |
-| [方法 - replace()](./replace.md) |
-| [方法 - slice()](./slice.md) |
-| [方法 - sort()](./sort.md) |
-| [方法 - splice()](./splice.md) |
-| [方法 - split()](./split.md) |
-| [方法 - substring()](./substring.md) |
-| [方法 - toLocaleLowerCase()](./toLocaleLowerCase.md) |
-| [方法 - unshift()](./unshift.md) |
+* **功能**：`replace()` 方法返回一个由替换值（replacement）替换一些或所有匹配的模式（pattern）后的新字符串。模式可以是一个字符串或者一个正则表达式，替换值可以是一个字符串或者一个每次匹配都要调用的回调函数。
+
+* **语法**：`str.replace(regexp|str)`
+  * `str`：需要过滤替换的字符串
+  * `regexp`：正则表达式或者字符串均可
+
+* **返回值**：一个部分或全部匹配由替代模式所取代的新的字符串。
+
+* **代码**：
+
+```js
+let aim = 'dog is good friend, I love my dog.';
+
+console.log(aim.replace('dog', 'cat'));
+// cat is good friend, I love my dog.
+
+console.log(aim.replace(/dog/g, 'cat'));
+// cat is good friend, I love my cat.
+```
 
 ---
 
