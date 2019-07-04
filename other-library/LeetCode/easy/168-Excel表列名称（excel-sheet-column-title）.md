@@ -64,7 +64,17 @@
 * **解题代码**：
 
 ```js
-
+var convertToTitle = function(n) {
+  if (n <= 26) {
+    return String.fromCharCode(n + 64);
+  } else {
+    let left = String.fromCharCode(Math.floor(n / 26) + 64);
+    let right = n % 26 === 0
+      ? 'Z'
+      : String.fromCharCode(n % 26 + 64)
+    return left + right;
+  }
+};
 ```
 
 * **执行测试**：
