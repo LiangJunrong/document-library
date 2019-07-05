@@ -29,14 +29,14 @@
 
 例如，
 
-    1 -> A
-    2 -> B
-    3 -> C
-    ...
-    26 -> Z
-    27 -> AA
-    28 -> AB 
-    ...
+  1 -> A
+  2 -> B
+  3 -> C
+  ...
+  26 -> Z
+  27 -> AA
+  28 -> AB 
+  ...
 
 示例 1:
 输入: 1
@@ -57,91 +57,57 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
 var convertToTitle = function(n) {
-  if (n <= 26) {
-    return String.fromCharCode(n + 64);
-  } else {
-    let left = String.fromCharCode(Math.floor(n / 26) + 64);
-    let right = n % 26 === 0
-      ? 'Z'
-      : String.fromCharCode(n % 26 + 64)
-    return left + right;
+  let res = '';
+  while (n !== 0) {
+    n--;
+    res = String.fromCharCode(n % 26 + 65) + res;
+    n = parseInt(n / 26);
   }
+  return res;
 };
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+1. `703`
+2. `return`：`AAA`
+
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+√ Accepted
+  √ 18/18 cases passed (68 ms)
+  √ Your runtime beats 92.89 % of javascript submissions
+  √ Your memory usage beats 23.3 % of javascript submissions (33.7 MB)
 ```
 
-* **执行测试**：
+## <a name="chapter-six" id="chapter-six">六 知识点</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
+> [返回目录](#chapter-one)
 
 1. 
 
-* **解题思路**：
+## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
+
+> [返回目录](#chapter-one)
 
 [图]
 
 [分析]
 
-* **进一步思考**：
+## <a name="chapter-eight" id="chapter-eight">八 进一步探索</a>
+
+> [返回目录](#chapter-one)
+
+
 
 ---
 
