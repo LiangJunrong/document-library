@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-05 13:54:05**  
-> Recently revised in **2019-07-05 13:54:24**
+> Recently revised in **2019-07-05 14:48:53**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,7 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - Map()](#chapter-three-one) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -44,81 +44,64 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - Map()</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var majorityElement = function(nums) {
+  let map = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (map.get(nums[i]) !== undefined) {
+      map.set(nums[i], map.get(nums[i]) + 1);
+      if (map.get(nums[i]) > nums.length / 2) {
+        return nums[i];
+      }
+    } else {
+      map.set(nums[i], 1);
+      if (map.get(nums[i]) > nums.length / 2) {
+        return nums[i];
+      }
+    }
+  }
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[2,2,1,1,1,2,2]`
+2. `return`：`2`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 44/44 cases passed (96 ms)
+  ✔ Your runtime beats 83.27 % of javascript submissions
+  ✔ Your memory usage beats 24.14 % of javascript submissions (37.7 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
 
 * **解题思路**：
 
-[图]
+**首先**，`Map()` 作为一个 **有记忆功能** 的 `Object`，在 LeetCode 中经常以哈希算法的形式出现，是个非常实用的 API，小伙伴们可以尝试多使用几次，记住 `Map()` 的使用技巧。
 
-[分析]
+**然后**，**jsliang** 讲讲使用 `Map()` 的解题思路：
 
-* **进一步思考**：
+1. 通过 `for()` 遍历一遍 `nums`
+2. 判断 `nums` 中的每个元素，如果在 `Map()` 中有存在，则将其出现次数 + 1，如果它的出现次数已经超过 `nums.length / 2`，那么它就是众数。
+3. 然后，如果它没在 `Map()` 中存在，那么就直接存为 `1`，同时给个判断是否出现次数超过 `nums.length / 2`，这是预防如果数组为 `[1]` 的情况。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
-* **解题代码**：
-
-```js
-
-```
-
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
+**这样**，我们就完成了这道题的破解。
 
 * **进一步思考**：
+
+除了 `Map()`，可能还有其他方法，这就需要小伙伴们去探索啦~
 
 ---
 
