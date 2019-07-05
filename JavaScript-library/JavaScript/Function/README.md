@@ -2,12 +2,13 @@ JavaScript - Function
 ===
 
 > Create by **jsliang** on **2019-05-30 21:46:39**  
-> Recently revised in **2019-7-2 08:30:41**
+> Recently revised in **2019-7-5 08:49:15**
 
 记录一些 JavaScript 的关于 Function 的知识点。
 
 | 目录 |
 | --- |
+| [方法 - fromCharCode()](./fromCharCode.md) |
 | [方法 - indexOf()](./indexOf.md) |
 | [方法 - join()](./join.md) |
 | [方法 - map()](./map.md) |
