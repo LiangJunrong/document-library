@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-7-5 09:13:12**
+> Recently revised in **2019-07-05 14:50:18**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-07-05
 
-* [x] **链接**：[LeetCode - 168 - Excel表列名称](./other-library/LeetCode/easy/168-Excel表列名称（excel-sheet-column-title）.md)
+* [x] **链接**：[LeetCode - 169 - 求众数](./other-library/LeetCode/easy/169-求众数（majority-element）.md)
 
 ## 历史
 
+* [x] [LeetCode - 168 - Excel表列名称](./other-library/LeetCode/easy/168-Excel表列名称（excel-sheet-column-title）.md)
 * [x] [LeetCode - 167 - 两数之和II](./other-library/LeetCode/easy/167-两数之和II（two-sum-ii-input-array-is-sorted）.md)
 * [x] [LeetCode - 160 - 相交链表](./other-library/LeetCode/easy/160-相交链表（intersection-of-two-linked-lists）.md)
 * [x] [LeetCode - 155 - 最小栈](./other-library/LeetCode/easy/155-最小栈（min-stack）.md)
