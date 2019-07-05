@@ -143,6 +143,7 @@
       * [160 - 相交链表（intersection-of-two-linked-lists） ✔](./other-library/LeetCode/easy/160-相交链表（intersection-of-two-linked-lists）.md)
       * [167 - 两数之和II（two-sum-ii-input-array-is-sorted） ✔](./other-library/LeetCode/easy/167-两数之和II（two-sum-ii-input-array-is-sorted）.md)
       * [168 - Excel表列名称（excel-sheet-column-title） ✔](./other-library/LeetCode/easy/168-Excel表列名称（excel-sheet-column-title）.md)
+      * [169 - 求众数（majority-element） ✔](./other-library/LeetCode/easy/169-求众数（majority-element）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
