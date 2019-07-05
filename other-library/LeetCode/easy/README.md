@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-7-5 09:12:32**
+> Recently revised in **2019-07-05 14:49:31**
 
 LeetCode 简单难度攻略
 
@@ -47,6 +47,7 @@ LeetCode 简单难度攻略
 | 160 - 相交链表（intersection-of-two-linked-lists） | [#160 解题](./160-相交链表（intersection-of-two-linked-lists）.md) |
 | 167 - 两数之和II（two-sum-ii-input-array-is-sorted） | [#167 解题](./167-两数之和II（two-sum-ii-input-array-is-sorted）.md) |
 | 168 - Excel表列名称（excel-sheet-column-title） | [#168 解题](./168-Excel表列名称（excel-sheet-column-title）.md) |
+| 169 - 求众数（majority-element） | [#169 解题](./169-求众数（majority-element）.md) |
 
 ---
 
