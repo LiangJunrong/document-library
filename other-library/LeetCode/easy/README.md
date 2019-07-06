@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-05 14:49:31**
+> Recently revised in **2019-07-06 15:00:20**
 
 LeetCode 简单难度攻略
 
@@ -48,6 +48,7 @@ LeetCode 简单难度攻略
 | 167 - 两数之和II（two-sum-ii-input-array-is-sorted） | [#167 解题](./167-两数之和II（two-sum-ii-input-array-is-sorted）.md) |
 | 168 - Excel表列名称（excel-sheet-column-title） | [#168 解题](./168-Excel表列名称（excel-sheet-column-title）.md) |
 | 169 - 求众数（majority-element） | [#169 解题](./169-求众数（majority-element）.md) |
+| 171 - Excel表列序号（excel-sheet-column-number） | [#171 解题](./171-Excel表列序号（excel-sheet-column-number）.md) |
 
 ---
 
