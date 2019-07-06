@@ -2,7 +2,7 @@ JavaScript - Function
 ===
 
 > Create by **jsliang** on **2019-05-30 21:46:39**  
-> Recently revised in **2019-7-5 08:49:15**
+> Recently revised in **2019-07-06 14:40:40**
 
 记录一些 JavaScript 的关于 Function 的知识点。
 
@@ -15,8 +15,9 @@ JavaScript - Function
 | [方法 - pop()](./pop.md) |
 | [方法 - push()](./push.md) |
 | [方法 - reduce()](./reduce.md) |
-| [方法 - reverse()](./reverse.md) |
 | [方法 - replace()](./replace.md) |
+| [方法 - reverse()](./reverse.md) |
+| [方法 - shift()](./shift.md) |
 | [方法 - slice()](./slice.md) |
 | [方法 - sort()](./sort.md) |
 | [方法 - splice()](./splice.md) |
