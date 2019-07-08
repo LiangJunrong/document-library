@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-7-8 08:07:23**  
-> Recently revised in **2019-7-8 08:07:29**
+> Recently revised in **2019-7-8 09:14:41**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,9 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -46,81 +48,145 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var trailingZeroes = function(n) {
+  let total = 0;
+  while (n >= 5) {
+    n = Math.floor(n / 5);
+    total += n;
+  }
+  return total;
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+1. `30`
+2. `return`：`7`
+
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+√ Accepted
+  √ 502/502 cases passed (80 ms)
+  √ Your runtime beats 92.95 % of javascript submissions
+  √ Your memory usage beats 68.18 % of javascript submissions (33.9 MB)
 ```
 
-* **执行测试**：
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> [返回目录](#chapter-one)
+
+**首先**，需要明确的是，这道题不能使用递归，因为超时了。
+
+**然后**，这道题还需要考虑超限：
 
 ```js
-
+var trailingZeroes = function(n) {
+  let result = 1;
+  while(n > 0) {
+    result = result * n;
+    n--;
+  }
+  result = result.toString().split('').reverse();
+  for (let i = 0; i < result.length; i++) {
+    if (result[i] !== '0') {
+      return i;
+    }
+  }
+  return 0;
+};
 ```
 
-* **LeetCode Submit**：
+在这份代码中，当你的数字为 30 的时候，你就超限了：
 
 ```js
-
+× Wrong Answer
+  × 21/502 cases passed (N/A)
+  × testcase: '30'
+  × answer: 0
+  × expected_answer: 7
 ```
 
-* **知识点**：
+个人觉得这是正常思路，但是看到它这里显示 `21/502`，那么我就知道，它又想考我的智商了。
 
-1. 
+**智商税得交，谁让你数学没那么好呢！**
 
-* **解题思路**：
+**接着**，咱访问下【评论】和【题解】，看看别人怎么破解，其中思路非常 nice 的是：
 
-[图]
+* https://leetcode-cn.com/problems/factorial-trailing-zeroes/solution/jie-cheng-hou-de-ling-die-dai-ji-di-gui-jie-fa-by-/
 
-[分析]
+它的题解有两种：
 
-* **进一步思考**：
+> 题解 1 - 迭代
+
+```js
+var trailingZeroes = function(n) {
+  let total = 0;
+  while (n >= 5) {
+    n = Math.floor(n / 5);
+    total += n;
+  }
+  return total;
+};
+```
+
+> 题解 2 - 递归
+
+```js
+var trailingZeroes = function(n) {
+  const helper = (n, total) => {
+    if (n < 5) {
+      return total;
+    }
+    const count = Math.floor(n / 5);
+    return helper(count, total + count);
+  };
+  return helper(n, 0);
+};
+```
+
+那么，**jsliang** 看完题解，以自己意思表述一下：
+
+**1**. 末尾有 0 是因为其中有 10 的因数，即 `2 * 5`、`1 * 10` 这种情况。
+
+**2**. 找规律：当 `n` 为 5 时，有 1 个 0，当 `n` 为 10 时，有 2 个 0……但是，碰到某个特定的数时，会有意外，详情看表格：
+
+| n | 个数 |
+| --- | --- |
+| 5 | 1 |
+| 10 | 2 |
+| 15 | 3 |
+| 20 | 4 |
+| 25 | 6 |
+| 30 | 7 |
+| 35 | 8 |
+| 40 | 9 |
+| 45 | 10 |
+| 50 | 12 |
+
+即当 `n` 为 25 倍数的时候，还需要将个数调整一次：
+
+```js
+var trailingZeroes = function(n) {
+  let total = 0;
+  while (n >= 5) {
+    n = Math.floor(n / 5);
+    total += n;
+  }
+  return total;
+};
+```
+
+再结合题意，小伙伴们应该就比较清晰了。
+
+**最后**，我们就得出了这道题的题解。
 
 ---
 
