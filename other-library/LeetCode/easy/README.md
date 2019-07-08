@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-08 16:40:20**
+> Recently revised in **2019-07-08 19:54:16**
 
 LeetCode 简单难度攻略
 
@@ -53,6 +53,7 @@ LeetCode 简单难度攻略
 | 189 - 旋转数组（rotate-array） | [#189 解题](./189-旋转数组（rotate-array）.md) |
 | 190 - 颠倒二进制位（reverse-bit） | [#190 解题](./190-颠倒二进制位（reverse-bit）.md) |
 | 191 - 位1的个数（number-of-1-bits） | [#191 解题](./191-位1的个数（number-of-1-bits）.md) |
+| 198 - 打家劫舍（house-robber） | [#198 解题](./198-打家劫舍（house-robber）.md) |
 
 ---
 
