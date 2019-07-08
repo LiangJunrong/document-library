@@ -2,7 +2,7 @@ JavaScript - Function
 ===
 
 > Create by **jsliang** on **2019-05-30 21:46:39**  
-> Recently revised in **2019-07-06 14:40:40**
+> Recently revised in **2019-07-08 14:52:44**
 
 记录一些 JavaScript 的关于 Function 的知识点。
 
@@ -12,6 +12,8 @@ JavaScript - Function
 | [方法 - indexOf()](./indexOf.md) |
 | [方法 - join()](./join.md) |
 | [方法 - map()](./map.md) |
+| [方法 - padStart()](./padStart.md) |
+| [方法 - parseInt()](./parseInt.md) |
 | [方法 - pop()](./pop.md) |
 | [方法 - push()](./push.md) |
 | [方法 - reduce()](./reduce.md) |
@@ -24,6 +26,7 @@ JavaScript - Function
 | [方法 - split()](./split.md) |
 | [方法 - substring()](./substring.md) |
 | [方法 - toLocaleLowerCase()](./toLocaleLowerCase.md) |
+| [方法 - toString()](./toString.md) |
 | [方法 - unshift()](./unshift.md) |
 
 ---
