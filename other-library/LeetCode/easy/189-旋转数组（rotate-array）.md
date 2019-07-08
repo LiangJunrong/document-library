@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-08 11:44:01**  
-> Recently revised in **2019-07-08 11:44:03**
+> Recently revised in **2019-07-08 13:53:47**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - 逐步移动](#chapter-three-one) |
+| &emsp;[3.2 解法 - 一次到位](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -53,81 +54,97 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 逐步移动</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var rotate = function(nums, k) {
+  for (let i = 0; i < k; i++) {
+    nums.unshift(nums.pop());
+  }
+  return nums;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[1, 2, 3, 4, 5, 6, 7]`
+2. `k`：`3`
+3. `return`：`[5, 6, 7, 1, 2, 3, 4]`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 34/34 cases passed (124 ms)
+  ✔ Your runtime beats 67.01 % of javascript submissions
+  ✔ Your memory usage beats 20.6 % of javascript submissions (35.7 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `unshift()`：`unshift()` 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度。[`unshift()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/unshift.md)
+2. `pop()`：`pop()` 方法从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。[`pop()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/pop.md)
 
 * **解题思路**：
 
-[图]
+这里的思路就是逐步推进：
 
-[分析]
+1. 将数组尾部的数字通过 `pop()` 给推出来
+2. 往数组头部通过 `unshift()` 插入数字
+3. 这样形成了一次旋转
 
-* **进一步思考**：
+以此往复，`k` 的值为多少，就旋转几次。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 一次到位</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var rotate = function(nums, k) {
+  if (k) {
+    nums.unshift(...nums.splice(nums.length - k, k))
+  }
+  return nums;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[1, 2, 3, 4, 5, 6, 7]`
+2. `k`：`3`
+3. `return`：`[5, 6, 7, 1, 2, 3, 4]`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 34/34 cases passed (96 ms)
+  ✔ Your runtime beats 90.45 % of javascript submissions
+  ✔ Your memory usage beats 78.3 % of javascript submissions (35.1 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `unshift()`：`unshift()` 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度。[`unshift()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/unshift.md)
+2. `splice()`：`splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。[`splice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/splice.md)
 
 * **解题思路**：
 
-[图]
+相比于逐步推进，那么这次解法就是一次到位了。
 
-[分析]
+在 `splice(开始坐标，剪切长度)` 中，我们的开始坐标是：`nums.length - k`
 
-* **进一步思考**：
+假如：`[1,2,3,4,5,6,7]`，那么就是 `7 - 3 = 4` 了，
+
+我们的剪切长度即是 `k` 的长度。
+
+这样，我们就通过两种解法解决了这道题，如果小伙伴们还有其他题解，欢迎评论留言~
 
 ---
 
