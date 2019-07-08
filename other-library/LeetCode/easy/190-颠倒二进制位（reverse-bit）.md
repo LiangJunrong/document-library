@@ -13,7 +13,6 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -57,10 +56,6 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
@@ -69,12 +64,16 @@ var reverseBits = function(n) {
 };
 ```
 
-* **执行测试**：
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
+
+> [返回目录](#chapter-one)
 
 1. `n`：`10111100`
 2. `return`：`1041389824`
 
-* **LeetCode Submit**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
 ✔ Accepted
@@ -83,7 +82,9 @@ var reverseBits = function(n) {
   ✔ Your memory usage beats 88.23 % of javascript submissions (35.5 MB)
 ```
 
-* **知识点**：
+## <a name="chapter-six" id="chapter-six">六 知识点</a>
+
+> [返回目录](#chapter-one)
 
 1. parseInt
 2. toString
@@ -92,7 +93,9 @@ var reverseBits = function(n) {
 5. reverse
 6. join
 
-* **解题思路**：
+## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
+
+> [返回目录](#chapter-one)
 
 **曾经有一份真诚摆在我面前，到最后才发现，原来是笑里藏刀。**
 
@@ -120,7 +123,11 @@ var reverseBits = function(n) {
 
 > 虽然我代码本身就是错的，哭唧唧
 
-**最后**，发现一份正经的题解，小伙伴们可以瞅瞅，我就不多逼逼啦~
+## <a name="chapter-eight" id="chapter-eight">八 进一步拓展</a>
+
+> [返回目录](#chapter-one)
+
+最后的最后，发现一份正经的题解，小伙伴们可以瞅瞅，我就不多逼逼啦~
 
 ```js
 var reverseBits = function (n) {
