@@ -13,6 +13,11 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 知识点](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 解题思路](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 进一步拓展](#chapter-eight) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -59,8 +64,8 @@
 * **解题代码**：
 
 ```js
-var reverseBits = function(n) {
-  return parseInt((n).toString(2).padStart(32,'0').split('').reverse().join(''),2)
+var reverseBits = function (n) {
+  return parseInt((n).toString(2).padStart(32, '0').split('').reverse().join(''), 2);
 };
 ```
 
@@ -89,9 +94,9 @@ var reverseBits = function(n) {
 1. parseInt
 2. toString
 3. padStart
-4. split
-5. reverse
-6. join
+4. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
+5. `reverse()`：`reverse()` 方法将数组中元素的位置颠倒,并返回该数组。该方法会改变原数组。[`reverse()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/reverse.md)
+6. `join()`：`join()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`join()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/join.md)
 
 ## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
@@ -135,14 +140,14 @@ var reverseBits = function (n) {
     count = 0;
   while (count <= 31) {
     if (count <= 30) {
-      newN += ((n & 1) << (30 - count)) * 2
+      newN += ((n & 1) << (30 - count)) * 2;
     } else {
-      newN += (n & 1)
+      newN += (n & 1);
     }
     n >>= 1;
     count++;
   }
-  return newN
+  return newN;
 };
 ```
 
