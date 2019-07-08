@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-7-8 09:21:57**
+> Recently revised in **2019-07-08 13:54:31**
 
 LeetCode 简单难度攻略
 
@@ -50,6 +50,7 @@ LeetCode 简单难度攻略
 | 169 - 求众数（majority-element） | [#169 解题](./169-求众数（majority-element）.md) |
 | 171 - Excel表列序号（excel-sheet-column-number） | [#171 解题](./171-Excel表列序号（excel-sheet-column-number）.md) |
 | 172 - 阶乘后的零（factorial-trailing-zeroes） | [#172 解题](./172-阶乘后的零（factorial-trailing-zeroes）.md) |
+| 189 - 旋转数组（rotate-array） | [#189 解题](./189-旋转数组（rotate-array）.md) |
 
 ---
 
