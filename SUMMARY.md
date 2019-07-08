@@ -145,6 +145,7 @@
       * [168 - Excel表列名称（excel-sheet-column-title） ✔](./other-library/LeetCode/easy/168-Excel表列名称（excel-sheet-column-title）.md)
       * [169 - 求众数（majority-element） ✔](./other-library/LeetCode/easy/169-求众数（majority-element）.md)
       * [171 - Excel表列序号（excel-sheet-column-number） ✔](./other-library/LeetCode/easy/171-Excel表列序号（excel-sheet-column-number）.md)
+      * [172 - 阶乘后的零（factorial-trailing-zeroes） ✔](./other-library/LeetCode/easy/172-阶乘后的零（factorial-trailing-zeroes）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
