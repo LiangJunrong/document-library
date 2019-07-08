@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-08 19:12:26**  
-> Recently revised in **2019-07-08 19:12:30**
+> Recently revised in **2019-07-08 19:53:37**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -48,81 +48,83 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var rob = function (nums) {
+  let len = nums.length;
+  if (len == 0)
+    return 0;
+  let dp = [];
+  dp[0] = 0;
+  dp[1] = nums[0];
+  for (let i = 2; i <= len; i++) {
+    dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i - 1]);
+  }
+  return dp[len];
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+1. `nums`：`[1, 2, 3, 1]`
+2. `return`：`4`
+
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 69/69 cases passed (80 ms)
+  ✔ Your runtime beats 76.13 % of javascript submissions
+  ✔ Your memory usage beats 13.37 % of javascript submissions (33.9 MB)
 ```
 
-* **执行测试**：
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> [返回目录](#chapter-one)
+
+**首先**，要感谢大佬的详细题解：https://leetcode-cn.com/problems/house-robber/solution/hua-jie-suan-fa-198-da-jia-jie-she-by-guanpengchn/
+
+**然后**，**jsliang** 复述下动态规划的知识点：
+
+* 动态规划方程：`dp[n] = MAX(dp[n-1], dp[n-2] + num)`
+
+很好，结合题意来讲解下这个什么意思：
+
+> [2,12,9,1,3]
+
+**步骤 1**. `dp[0]` 和 `dp[1]` 固定为 `0` 和 `nums[0]`，这样我们就有起手数字。
+
+**步骤 2**. 那么，`dp[2]` 如何求解呢？我们可以了解到，隔房取数，那么是不是应该找最大价值的。`nums[0] + nums[2] = 2 + 9 < nums[1]`，所以，动态比较，我们应该取 `nums[1]`，毕竟 `nums[0]` 和 `nums[2]` 加上都没有这个数高，所以 `dp[2] === 12`。
+
+**步骤 3**. 此时，我们还剩 `[1, 3]` 这两个数字，我们继续套用公式：`dp[n] = MAX(dp[n-1], dp[n-2] + num)` 来理解，`dp[3]` 应该是 `2 + 1` 还是 `12`，那么 `dp[3]` 还是 `12`
+
+……以此类推，到最后得出 `15`
 
 ```js
-
+[ 0, 2, 12 ]
+[ 0, 2, 12, 12 ]
+[ 0, 2, 12, 12, 13 ]
+[ 0, 2, 12, 12, 13, 15 ]
 ```
 
-* **LeetCode Submit**：
+**最后**，我们将动态规划得出的结果返回出去即可。
 
-```js
+## <a name="chapter-seven" id="chapter-seven">七 进一步思考</a>
 
-```
+> [返回目录](#chapter-one)
 
-* **知识点**：
+今天能看到大佬讲解下动态规划，个人还是觉得非常开心的。
 
-1. 
+就好比第一次解【树】的题目能看到大佬讲【树】的万能公式，解【双指针】能看到详细题解一样，都是非常让人开心的。
 
-* **解题思路**：
+这次看到【动态规划】的详细讲解。虽然我压根就没思考过这道题题解，看着大佬的 Java 代码直接改写成 JavaScript 拿来用，但是我觉得学到了本身就是赚了。
 
-[图]
-
-[分析]
-
-* **进一步思考**：
+下一次看到【动态规划】的题目，我就有这种思路了，nice。
 
 ---
 
