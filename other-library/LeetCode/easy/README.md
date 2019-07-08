@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-7-8 09:15:22**
+> Recently revised in **2019-7-8 09:21:57**
 
 LeetCode 简单难度攻略
 
