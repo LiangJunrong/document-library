@@ -1,0 +1,146 @@
+190 - 颠倒二进制位（reverse-bit）
+===
+
+> Create by **jsliang** on **2019-07-08 14:04:54**  
+> Recently revised in **2019-07-08 14:04:57**
+
+## <a name="chapter-one" id="chapter-one">一 目录</a>
+
+**不折腾的前端，和咸鱼有什么区别**
+
+| 目录 |
+| --- | 
+| [一 目录](#chapter-one) | 
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
+| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+
+## <a name="chapter-two" id="chapter-two">二 前言</a>
+
+> [返回目录](#chapter-one)
+
+* **难度**：简单
+* **涉及知识**：位运算
+* **题目地址**：https://leetcode-cn.com/problems/reverse-bits/
+* **题目内容**：
+
+```
+颠倒给定的 32 位无符号整数的二进制位。
+
+示例 1：
+输入: 00000010100101000001111010011100
+输出: 00111001011110000010100101000000
+解释: 输入的二进制串 00000010100101000001111010011100 表示无符号整数 43261596，
+      因此返回 964176192，其二进制表示形式为 00111001011110000010100101000000。
+
+示例 2：
+输入：11111111111111111111111111111101
+输出：10111111111111111111111111111111
+解释：输入的二进制串 11111111111111111111111111111101 表示无符号整数 4294967293，
+      因此返回 3221225471 其二进制表示形式为 10101111110010110010011101101001。
+ 
+
+提示：
+请注意，在某些语言（如 Java）中，没有无符号整数类型。
+在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现。
+因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。
+在 Java 中，编译器使用二进制补码记法来表示有符号整数。
+因此，在上面的 示例 2 中，输入表示有符号整数 -3，输出表示有符号整数 -1073741825。
+
+进阶:
+如果多次调用这个函数，你将如何优化你的算法？
+```
+
+## <a name="chapter-three" id="chapter-three">三 解题</a>
+
+> [返回目录](#chapter-one)
+
+小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
+
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
+```js
+
+```
+
+* **执行测试**：
+
+1. 形参 1
+2. 形参 2
+3. `return`：
+
+```js
+
+```
+
+* **LeetCode Submit**：
+
+```js
+
+```
+
+* **知识点**：
+
+1. 
+
+* **解题思路**：
+
+[图]
+
+[分析]
+
+* **进一步思考**：
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
+```js
+
+```
+
+* **执行测试**：
+
+1. 形参 1
+2. 形参 2
+3. `return`：
+
+```js
+
+```
+
+* **LeetCode Submit**：
+
+```js
+
+```
+
+* **知识点**：
+
+1. 
+
+* **解题思路**：
+
+[图]
+
+[分析]
+
+* **进一步思考**：
+
+---
+
+**不折腾的前端，和咸鱼有什么区别！**
+
+![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
+
+**jsliang** 会每天更新一道 LeetCode 题解，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构。
+
+扫描上方二维码，关注 **jsliang** 的公众号，让我们一起折腾！
+
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
