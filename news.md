@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-08 13:55:10**
+> Recently revised in **2019-07-08 15:22:36**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-07-08
 
-* [x] **链接**：[LeetCode - 189 - 旋转数组](./other-library/LeetCode/easy/189-旋转数组（rotate-array）.md)
+* [x] **链接**：[LeetCode - 190 - 颠倒二进制位](./other-library/LeetCode/easy/190-颠倒二进制位（reverse-bit）.md)
 
 ## 历史
 
+* [x] [LeetCode - 189 - 旋转数组](./other-library/LeetCode/easy/189-旋转数组（rotate-array）.md)
 * [x] [LeetCode - 172 - 阶乘后的零](./other-library/LeetCode/easy/172-阶乘后的零（factorial-trailing-zeroes）.md)
 * [x] [LeetCode - 171 - Excel表列序号](./other-library/LeetCode/easy/171-Excel表列序号（excel-sheet-column-number）.md)
 * [x] [LeetCode - 169 - 求众数](./other-library/LeetCode/easy/169-求众数（majority-element）.md)
