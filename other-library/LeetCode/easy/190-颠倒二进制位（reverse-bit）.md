@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-08 14:04:54**  
-> Recently revised in **2019-07-08 14:04:57**
+> Recently revised in **2019-07-08 15:21:20**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -91,9 +91,9 @@ var reverseBits = function (n) {
 
 > [返回目录](#chapter-one)
 
-1. parseInt
-2. toString
-3. padStart
+1. `parseInt()`：`parseInt(string, radix)`，`string` 为字符串，`radix` 为介于 2-36 之间的数。使用者告诉这个函数 `string`（比如 11）是 `radix`（比如 2 ）进制的，函数将固定返回 `string` 以十进制时显示的数（3）。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/parseInt.md)
+2. `toString()`：`toString()` 返回一个字符串，表示指定的数组及其元素。[`toString()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/toString.md)
+3. `padStart()`：`padStart()` 方法用另一个字符串填充当前字符串(重复，如果需要的话)，以便产生的字符串达到给定的长度。填充从当前字符串的开始(左侧)应用的。[`padStart()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/padStart.md)
 4. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
 5. `reverse()`：`reverse()` 方法将数组中元素的位置颠倒,并返回该数组。该方法会改变原数组。[`reverse()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/reverse.md)
 6. `join()`：`join()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`join()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/join.md)
@@ -104,7 +104,7 @@ var reverseBits = function (n) {
 
 **曾经有一份真诚摆在我面前，到最后才发现，原来是笑里藏刀。**
 
-一开始 **jsliang** 的题解是：
+**首先**，**jsliang** 的题解是：
 
 ```js
 var reverseBits = function(n) {
@@ -127,6 +127,26 @@ var reverseBits = function(n) {
 该死的超限！！！
 
 > 虽然我代码本身就是错的，哭唧唧
+
+**然后**，从【评论】【题解】中翻找能解题的思路，找到其中这份，咱将其分解：
+
+```js
+parseInt((n).toString(2).padStart(32, '0').split('').reverse().join(''), 2);
+```
+
+分解：
+
+```js
+console.log(n.toString(2));
+console.log(n.toString(2).padStart(32, '0'));
+console.log(n.toString(2).padStart(32, '0').split('').reverse().join(''));
+```
+
+其中，`toString(2)` 将内容转换成 `2` 进制，然后 `padStart()` 将其填充到 32 个长度，如果不到 32 个长度，则以 `0` 填充
+
+再通过 `split('')` 转数组，通过 `reverse()` 反转数组，通过 `join('')` 将数组转回字符串。
+
+**最后**，通过 `parseInt(str, 2)` 将这个数转回二进制，完成转换。
 
 ## <a name="chapter-eight" id="chapter-eight">八 进一步拓展</a>
 
