@@ -82,9 +82,10 @@ var hammingWeight = function (n) {
 > [返回目录](#chapter-one)
 
 ```js
-var hammingWeight = function (n) {
-  return ((n.toString(2)).match(/1/g) || []).length;
-};
+✔ Accepted
+  ✔ 601/601 cases passed (96 ms)
+  ✔ Your runtime beats 70.51 % of javascript submissions
+  ✔ Your memory usage beats 20.53 % of javascript submissions (35.1 MB)
 ```
 
 ## <a name="chapter-six" id="chapter-six">六 知识点</a>
