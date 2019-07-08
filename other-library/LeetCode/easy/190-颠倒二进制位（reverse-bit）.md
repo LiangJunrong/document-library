@@ -64,74 +64,87 @@
 * **解题代码**：
 
 ```js
-
+var reverseBits = function(n) {
+  return parseInt((n).toString(2).padStart(32,'0').split('').reverse().join(''),2)
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `n`：`10111100`
+2. `return`：`1041389824`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 600/600 cases passed (140 ms)
+  ✔ Your runtime beats 26.29 % of javascript submissions
+  ✔ Your memory usage beats 88.23 % of javascript submissions (35.5 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. parseInt
+2. toString
+3. padStart
+4. split
+5. reverse
+6. join
 
 * **解题思路**：
 
-[图]
+**曾经有一份真诚摆在我面前，到最后才发现，原来是笑里藏刀。**
 
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
-* **解题代码**：
+一开始 **jsliang** 的题解是：
 
 ```js
-
+var reverseBits = function(n) {
+  n = parseInt(parseInt(n, 2).toString().split('').reverse()).toString(2);
+  return n;
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+比如输入：`10111100`，然后输出：`1000`，但是测试用例却是：
 
 ```js
-
+✘ Wrong Answer
+  ✘ 1/600 cases passed (N/A)
+  ✘ testcase: '00000010100101000001111010011100'
+  ✘ answer:          NaN (00000000000000000000000000000NaN)
+  ✘ expected_answer:    964176192 (00111001011110000010100101000000)
+  ✘ stdout:
 ```
 
-* **LeetCode Submit**：
+该死的超限！！！
+
+> 虽然我代码本身就是错的，哭唧唧
+
+**最后**，发现一份正经的题解，小伙伴们可以瞅瞅，我就不多逼逼啦~
 
 ```js
-
+var reverseBits = function (n) {
+  var newN = 0,
+    count = 0;
+  while (count <= 31) {
+    if (count <= 30) {
+      newN += ((n & 1) << (30 - count)) * 2
+    } else {
+      newN += (n & 1)
+    }
+    n >>= 1;
+    count++;
+  }
+  return newN
+};
 ```
 
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
+```js
+✔ Accepted
+  ✔ 600/600 cases passed (84 ms)
+  ✔ Your runtime beats 99.2 % of javascript submissions
+  ✔ Your memory usage beats 22.35 % of javascript submissions (36.1 MB)
+```
 
 ---
 
