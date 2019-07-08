@@ -65,7 +65,7 @@ var trailingZeroes = function(n) {
 
 > [返回目录](#chapter-one)
 
-1. `30`
+1. `n`：`30`
 2. `return`：`7`
 
 ## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
