@@ -2,7 +2,7 @@ LeetCode
 ===
 
 > Create by **jsliang** on **2019-5-16 22:12:29**  
-> Recently revised in **2019-6-28 08:45:21**
+> Recently revised in **2019-07-09 16:22:28**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -27,6 +27,15 @@ LeetCode 是个题库，里面有很编程多面试的题目，可以在线编�
 ## <a name="chapter-three" id="chapter-three">三 攻略</a>
 
 > [返回目录](#chapter-one)
+
+关于 LeetCode 攻略步骤，我个人的想法是：
+
+1. 攻略简单
+2. 系统学习算法与数据结构
+3. 攻略中等
+4. 巩固算法与数据接口
+5. 攻略困难
+6. 熟练算法与数据结构
 
 * [简单难度攻略](./easy/README.md)
 * [中等难度攻略](./medium/README.md)
