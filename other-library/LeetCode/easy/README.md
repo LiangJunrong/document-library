@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-7-8 22:06:16**
+> Recently revised in **2019-7-9 09:07:19**
 
 LeetCode 简单难度攻略
 
@@ -54,6 +54,7 @@ LeetCode 简单难度攻略
 | 190 - 颠倒二进制位（reverse-bit） | [#190 解题](./190-颠倒二进制位（reverse-bit）.md) |
 | 191 - 位1的个数（number-of-1-bits） | [#191 解题](./191-位1的个数（number-of-1-bits）.md) |
 | 198 - 打家劫舍（house-robber） | [#198 解题](./198-打家劫舍（house-robber）.md) |
+| 202 - 快乐数（happy-number） | [#202 解题](./202-快乐数（happy-number）.md) |
 
 ---
 
