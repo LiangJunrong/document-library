@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-10 19:07:34**  
-> Recently revised in **2019-07-10 19:07:37**
+> Recently revised in **2019-07-10 19:57:36**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -40,43 +40,91 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 厄拉多塞筛法</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var countPrimes = function (n) {
+  if (n < 3) {
+    return 0;
+  }
+  let result = [...new Array(n).keys()];
+  result[0] = result[1] = null;
+  for (let i = 2; i < n; i++) {
+    for (let j = 2; i * j <= n; j++) {
+      result[i * j] = null;
+    }
+  }
+  result = result.filter(a => {
+    return a != null;
+  });
+  return result.length;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `n`：`10000`
+2. `return`：`1229`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 20/20 cases passed (344 ms)
+  ✔ Your runtime beats 51.99 % of javascript submissions
+  ✔ Your memory usage beats 11.65 % of javascript submissions (129.8 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+**算法？数学？你会不会觉得智商往往不足了**~
 
-[分析]
+**首先**，讲下什么是 **厄拉多塞筛法**：
+
+西元前 250 年，希腊数学家厄拉多塞（Eeatosthese）想到了一个非常美妙的质数筛法，减少了逐一检查每个数的的步骤，可以比较简单的从一大堆数字之中，筛选出质数来，这方法被称作厄拉多塞筛法（Sieve of Eeatosthese）。
+
+具体操作：
+
+1. 先将 2~n 的各个数放入表中，然后在 2 的上面画一个圆圈，表示 2 是质数，然后划去 2 的其他倍数；
+2. 接着，上一步中第 1 个既未画圈又没有被划去的数是 3，将它画圈，表示它是质数，再划去3的其他倍数；
+3. 再来，现在既未画圈又没有被划去的第 1 个数是 5，将它画圈，表示它是质数，并划去 5 的其他倍数
+4. ……依次类推，一直到所有小于或等于 n 的各数都画了圈或划去为止。这时，表中画了圈的以及未划去的那些数正好就是小于 n 的素数。
+
+**然后**，我们查看大神操作：
+
+```js
+var countPrimes = function (n) {
+  if (n < 3) {
+    return 0;
+  }
+  let result = [...new Array(n).keys()];
+  result[0] = result[1] = null;
+  for (let i = 2; i < n; i++) {
+    for (let j = 2; i * j <= n; j++) {
+      result[i * j] = null;
+    }
+  }
+  result = result.filter(a => {
+    return a != null;
+  });
+  return result.length;
+};
+```
+
+1. 生成一个数组，表示从 `0` 到 `n - 1`，就好比输入 `10`，返回的即是：`[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`。
+2. 然后设置 `0` 和 `1` 为 `null`，表明它两不参与筛选。
+3. 循环遍历，`i` 即底数，`j` 为倍数，先画掉 `2` 的倍数，再画掉 `3` 的倍数，依次类推。（这里没处理好的是，它会循环到 `4`、`6` 等）
+4. 双重 `for()` 遍历之后，现在只剩下 `null` 和质数，我们通过 `filter` 将 `null` 去掉。
+
+**最后**，统计剩下的长度，就是我们需要的结果值。
 
 * **进一步思考**：
+
+前面我们发现了一个问题，下面我们进行处理。
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
 
