@@ -14,7 +14,7 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
 | &emsp;[3.1 解法 - 最蠢解题](#chapter-three-one) |
-| &emsp;[3.2 解法 - 暴力破解](#chapter-three-two) |
+| &emsp;[3.2 解法 - 数学解法](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -28,7 +28,9 @@
 ```
 编写一个算法来判断一个数是不是“快乐数”。
 
-一个“快乐数”定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。
+一个“快乐数”定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，
+然后重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。
+如果可以变为 1，那么这个数就是快乐数。
 
 示例: 
 输入: 19
@@ -169,7 +171,7 @@ OK，咱们优化完毕，查看提交成果：
 
 虽然，还是那么愚蠢，但是我们可以猜测，大佬们是不是又用了数学算法了！
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 数学解法</a>
 
 > [返回目录](#chapter-one)
 
