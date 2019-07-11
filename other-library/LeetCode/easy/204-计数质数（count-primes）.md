@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-10 19:07:34**  
-> Recently revised in **2019-07-10 19:57:36**
+> Recently revised in **2019-7-11 10:54:28**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -40,11 +40,7 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 厄拉多塞筛法</a>
-
-> [返回目录](#chapter-one)
-
-* **解题代码**：
+* **解题代码 - 厄拉多塞筛法**：
 
 ```js
 var countPrimes = function (n) {
@@ -65,12 +61,16 @@ var countPrimes = function (n) {
 };
 ```
 
-* **执行测试**：
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
+
+> [返回目录](#chapter-one)
 
 1. `n`：`10000`
 2. `return`：`1229`
 
-* **LeetCode Submit**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
 ✔ Accepted
@@ -79,7 +79,9 @@ var countPrimes = function (n) {
   ✔ Your memory usage beats 11.65 % of javascript submissions (129.8 MB)
 ```
 
-* **解题思路**：
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
+
+> [返回目录](#chapter-one)
 
 **算法？数学？你会不会觉得智商往往不足了**~
 
@@ -106,6 +108,7 @@ var countPrimes = function (n) {
   for (let i = 2; i < n; i++) {
     for (let j = 2; i * j <= n; j++) {
       result[i * j] = null;
+      console.log(result);
     }
   }
   result = result.filter(a => {
@@ -120,49 +123,98 @@ var countPrimes = function (n) {
 3. 循环遍历，`i` 即底数，`j` 为倍数，先画掉 `2` 的倍数，再画掉 `3` 的倍数，依次类推。（这里没处理好的是，它会循环到 `4`、`6` 等）
 4. 双重 `for()` 遍历之后，现在只剩下 `null` 和质数，我们通过 `filter` 将 `null` 去掉。
 
+> **jsliang** 在代码中埋了个 `console.log`，方便小伙伴们观察：
+
+```js
+[ null, null, 2, 3, null, 5, 6, 7, 8, 9 ]
+[ null, null, 2, 3, null, 5, null, 7, 8, 9 ]
+[ null, null, 2, 3, null, 5, null, 7, null, 9 ]
+[ null, null, 2, 3, null, 5, null, 7, null, 9, null ]
+[ null, null, 2, 3, null, 5, null, 7, null, 9, null ]
+[ null, null, 2, 3, null, 5, null, 7, null, null, null ]
+[ null, null, 2, 3, null, 5, null, 7, null, null, null ]
+[ null, null, 2, 3, null, 5, null, 7, null, null, null ]
+```
+
 **最后**，统计剩下的长度，就是我们需要的结果值。
 
-* **进一步思考**：
-
-前面我们发现了一个问题，下面我们进行处理。
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-seven" id="chapter-seven">七 进一步思考</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+前面我们发现了一个问题，就是当我们的底数为 `4`、`6` 等数的时候，我们还会执行一遍 `for()` 循环，这样就有些浪费时间了，下面我们进行处理：
 
 ```js
-
+var countPrimes = function (n) {
+  if (n < 3) {
+    return 0;
+  }
+  let result = [...new Array(n).keys()];
+  result[0] = result[1] = null;
+  for (let i = 2; i < n; i++) {
+		if (result[i]) {
+			for (let j = 2; i * j <= n; j++) {
+				result[i * j] = null;
+			}
+		}
+  }
+  result = result.filter(a => {
+    return a != null;
+  });
+  return result.length;
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+经过处理，效果是有的：
 
 ```js
-
+√ Accepted
+  √ 20/20 cases passed (244 ms)
+  √ Your runtime beats 65.56 % of javascript submissions
+  √ Your memory usage beats 11.65 % of javascript submissions (134.9 MB)
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-eight" id="chapter-eight">八 再进一步思考</a>
+
+> [返回目录](#chapter-one)
+
+经过大佬启发，想到自己能不能解出来呢？于是想到 **暴力破解**：
 
 ```js
-
+var countPrimes = function (n) {
+  if (n < 3) {
+    return 0;
+	}
+	let length = 1;
+	n = n - 1;
+	while(n > 2) {
+		for (let i = 2; i < n; i++) {
+			if (n % i === 0) {
+				break;
+			} else if (i === n - 1 && n % i !== 0) {
+				length++;
+			}
+		};
+		n--;
+	}
+	return length;
+};
 ```
 
-* **知识点**：
+当然，失败了：
 
-1. 
+```js
+× Time Limit Exceeded
+  × 17/20 cases passed (N/A)
+  × testcase: '499979'
+  × answer: 
+  × expected_answer: 
+  × stdout:
+```
 
-* **解题思路**：
+在测试用例 `17` 的时候就超时了，思路没错，只是耗费的时间太长了。
 
-[图]
-
-[分析]
-
-* **进一步思考**：
+所以，小伙伴们有更好的方法，可以贴出来~
 
 ---
 
