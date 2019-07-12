@@ -54,43 +54,69 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - Map()</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var isIsomorphic = function(s, t) {
+  let sMap = new Map(); // 记录 s 哈希表
+  let tMap = new Map(); // 记录 t 哈希表
+  let sFlag = 0;
+  let tFlag = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (sMap.get(s[i])) {
+      s[i] = sMap.get(s[i]);
+    } else {
+      sFlag++;
+      sMap.set(s[i], sFlag);
+      s[i] = sFlag;
+    }
+    if (tMap.get(t[i])) {
+      t[i] = tMap.get(t[i]);
+    } else {
+      tFlag++;
+      tMap.set(t[i], tFlag);
+      t[i] = tFlag;
+    }
+    if (sMap.get(s[i]) !== tMap.get(t[i])) {
+      return false;
+    }
+  }
+  return true;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `s`：`ab`
+2. `t`：`ac`
+3. `return`：`true`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 30/30 cases passed (116 ms)
+  ✔ Your runtime beats 44.62 % of javascript submissions
+  ✔ Your memory usage beats 17.35 % of javascript submissions (39.8 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `map()`：遍历数组，`item` 返回遍历项，`index` 返回当前索引。[`map()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/map.md)
 
 * **解题思路**：
 
-[图]
+**最愚蠢的就是老想着奇技淫巧**。
 
-[分析]
+**首先**，我们分两个 `Map()` 记录哈希表（如果只有一个 `Map()`，碰到 `ab` 和 `ac` 这种组合的时候会挂），使用 `sFlag` 和 `tFlag` 来表示这个字符是否重复出现。
 
-* **进一步思考**：
+**然后**，我们判断 `s` 的 `Map()` 和 `t` 的 `Map()` 是否有已经出现的字符串，如果出现，则直接设置值；如果没出现，则先设置下 `Map()` 值，再设置下这个位置的值。
+
+**最后**，判断这两个值是否相同，相同则是 `true`，否则是 `false`。
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
 
