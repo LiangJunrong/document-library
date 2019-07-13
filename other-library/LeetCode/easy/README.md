@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-7-13 08:43:05**
+> Recently revised in **2019-07-13 14:39:31**
 
 LeetCode 简单难度攻略
 
@@ -59,6 +59,7 @@ LeetCode 简单难度攻略
 | 204 - 计数质数（count-primes） | [#204 解题](./204-计数质数（count-primes）.md) |
 | 205 - 同构字符串（isomorphic-strings） | [#205 解题](./205-同构字符串（isomorphic-strings）.md) |
 | 206 - 反转链表（reverse-linked-list） | [#206 解题](./206-反转链表（reverse-linked-list）.md) |
+| 217 - 存在重复元素（contains-duplicate） | [#217 解题](./217-存在重复元素（contains-duplicate）.md) |
 
 ---
 
