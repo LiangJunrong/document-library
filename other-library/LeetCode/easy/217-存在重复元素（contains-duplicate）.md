@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-13 13:47:41**  
-> Recently revised in **2019-07-13 13:47:44**
+> Recently revised in **2019-07-13 14:38:27**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,10 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - indexOf()](#chapter-three-one) |
+| &emsp;[3.2 解法 - 双指针](#chapter-three-two) |
+| &emsp;[3.3 解法 - Map](#chapter-three-three) |
+| &emsp;[3.4 解法 - Set](#chapter-three-four) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -48,81 +51,191 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - indexOf()</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var containsDuplicate = function(nums) {
+  for(let i = 0; i < nums.length; i++) {
+    if (nums.indexOf(nums[i]) < i) {
+      return true;
+    }
+  }
+  return false;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[1,1,1,3,3,4,3,2,4,2]`
+2. `return`：`true`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 18/18 cases passed (1984 ms)
+  ✔ Your runtime beats 17.34 % of javascript submissions
+  ✔ Your memory usage beats 80.95 % of javascript submissions (37 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf.md)
 
 * **解题思路**：
 
-[图]
+解题思路非常清晰：判断这个元素的 `indexOf()` 的位置是多少，如果不是当前的索引位置，则它不是第一次出现，即存在重复元素。
 
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 双指针</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var containsDuplicate = function(nums) {
+  nums.sort();
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === nums[i + 1]) {
+      return true;
+    }
+  }
+  return false;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[1,1,1,3,3,4,3,2,4,2]`
+2. `return`：`true`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 18/18 cases passed (168 ms)
+  ✔ Your runtime beats 35.21 % of javascript submissions
+  ✔ Your memory usage beats 66.53 % of javascript submissions (38.3 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort.md)
 
 * **解题思路**：
 
-[图]
+**首先**，将数组排序，因为是整数数组，所以可以直接用 `sort()`。
 
-[分析]
+**然后**，我们标明两个指针，一个指向当前位置，另一个指向下一个位置，比较这两个位置的值是否相同。
 
-* **进一步思考**：
+**最后**，根据比较返回 `true` 或者 `false` 即可。
+
+### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - Map</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
+```js
+var containsDuplicate = function(nums) {
+  let map = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (map.get(nums[i]) !== undefined) {
+      return true;
+    } else {
+      map.set(nums[i], i)
+    }
+  }
+  return false;
+};
+```
+
+* **执行测试**：
+
+1. `nums`：`[1,1,1,3,3,4,3,2,4,2]`
+2. `return`：`true`
+
+* **LeetCode Submit**：
+
+```js
+✔ Accepted
+  ✔ 18/18 cases passed (88 ms)
+  ✔ Your runtime beats 93.69 % of javascript submissions
+  ✔ Your memory usage beats 39.58 % of javascript submissions (41.5 MB)
+```
+
+* **知识点**：
+
+1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
+
+* **解题思路**：
+
+`Map` 作为一个好用的 JS 对象，作用于哈希表特别 nice。
+
+我们将每个经历的数字存储起来，然后每次遍历的时候，判断这个数字是否存储在哈希表中，如果存在，则返回 `true`，否则返回 `false`。
+
+### <a name="chapter-three-four" id="chapter-three-four">3.4 解法 - Set</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
+```js
+var containsDuplicate = function(nums) {
+  const tempSet = new Set();
+  for (const item of nums) {
+    if (tempSet.has(item)) {
+      return true;
+    } else {
+      tempSet.add(item);
+    }
+  }
+  return false;
+}
+```
+
+* **执行测试**：
+
+1. `nums`：`[1,1,1,3,3,4,3,2,4,2]`
+2. `return`：`true`
+
+* **LeetCode Submit**：
+
+```js
+✔ Accepted
+  ✔ 18/18 cases passed (92 ms)
+  ✔ Your runtime beats 90.17 % of javascript submissions
+  ✔ Your memory usage beats 42.71 % of javascript submissions (40.3 MB)
+```
+
+* **知识点**：
+
+1. `Set`：`Set` 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。由于唯一性，一般用于去重。[`Set` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Set.md)
+
+* **解题思路**：
+
+想比于 `Map` 来说，`Set` 作为 ES6 的新工具，无疑也是非常好用的。
+
+`Set` 通过 `add()` 和 `has()` 也能做到 `Map()` 的 `get()` 和 `set()`，除此之外我们也可以利用它的去重功能：
+
+```js
+var containsDuplicate = function(nums) {
+  return nums.length === new Set([...nums]).size ? false : true;
+};
+```
+
+提交：
+
+```js
+✔ Accepted
+  ✔ 18/18 cases passed (80 ms)
+  ✔ Your runtime beats 97.37 % of javascript submissions
+  ✔ Your memory usage beats 16.04 % of javascript submissions (42.7 MB)
+```
 
 ---
 
