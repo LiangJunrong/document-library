@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-13 14:53:51**  
-> Recently revised in **2019-07-13 14:53:54**
+> Recently revised in **2019-07-13 15:19:38**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - Map](#chapter-three-one) |
+| &emsp;[3.2 解法 - 双指针](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -46,81 +47,120 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - Map</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var containsNearbyDuplicate = function(nums, k) {
+  let map = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (map.get(nums[i]) !== undefined) {
+      if (i - map.get(nums[i]) <= k) {
+        return true;
+      }
+      map.set(nums[i], i);
+    } else {
+      map.set(nums[i], i);
+    }
+  }
+  return false;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[1,2,3,1,2,3]`
+2. `k`：`2`
+3. `return`：`false`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 23/23 cases passed (80 ms)
+  ✔ Your runtime beats 98.81 % of javascript submissions
+  ✔ Your memory usage beats 47.94 % of javascript submissions (39.7 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
 
 * **解题思路**：
 
-[图]
+**首先**，首推小伙伴们先看看上一题的题解（217 - 存在重复元素），里面讲解了 4 种题解。
 
-[分析]
+**然后**，我们看看 `Map()` 如何操作：
 
-* **进一步思考**：
+1. 如果这个元素不存在，则将其存到哈希表 `map` 中。
+2. 如果这个元素存在。先判断这个元素的索引和之前出现位置的索引的差值是否小于等于 `k`，如果是那么就为 `true`；如果不是，那么就存储这个位置，方便下一次的比较。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+**最后**，如果上面的步骤都成，则返回 `false`。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 双指针</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var containsNearbyDuplicate = function(nums, k) {
+  for (let i = 0; i < nums.length - 1; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[j] === nums[i] && (j - i <= k)) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[1,2,3,1,2,3]`
+2. `k`：`2`
+3. `return`：`false`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 23/23 cases passed (1752 ms)
+  ✔ Your runtime beats 33.14 % of javascript submissions
+  ✔ Your memory usage beats 57.03 % of javascript submissions (36.4 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+**首先**，指针 `i` 指向当前元素，指针 `j` 指向 `i` 之后的元素，即：
 
-[分析]
+> `[1, 2, 3, 1, 2, 3]`
+
+| i | j |
+| --- | --- |
+| 0 | 1 2 3 4 5 |
+| 1 | 2 3 4 5 |
+| 2 | 3 4 5 |
+| 3 | 4 5 |
+| 4 | 5 |
+
+这样，我们的双指针就会不停挪动，从而遍历整个数组。
+
+**然后**，我们比较 `nums` 在指针 `i` 和 `j` 的位置的值是否相同，即 `nums[i] === nums[j]`，如果相同，再看 `j - i` 的值是否小于等于 `k`，如果是则返回 `true`。
+
+**最后**，如果以上的条件都不成功，则返回 `false`。
 
 * **进一步思考**：
+
+这里我们提供了两种解法，那么还有没有其他解法呢？
+
+**肯定有！**
+
+所以小伙伴们可以自行尝试下，从而学到更多的知识~
 
 ---
 
