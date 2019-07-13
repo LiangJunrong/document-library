@@ -2,13 +2,13 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-13 19:32:05**
+> Recently revised in **2019-07-13 19:32:59**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-07-13
 
-* [x] **链接**：[LeetCode -225 - 用队列实现栈](./other-library/LeetCode/easy/225-用队列实现栈（implement-stack-using-queues）.md)
+* [x] **链接**：[LeetCode - 225 - 用队列实现栈](./other-library/LeetCode/easy/225-用队列实现栈（implement-stack-using-queues）.md)
 
 ## 历史
 
