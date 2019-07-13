@@ -155,6 +155,7 @@
       * [204 - 计数质数（count-primes） ✔](./other-library/LeetCode/easy/204-计数质数（count-primes）.md)
       * [205 - 同构字符串（isomorphic-strings） ✔](./other-library/LeetCode/easy/205-同构字符串（isomorphic-strings）.md)
       * [206 - 反转链表（reverse-linked-list） ✔](./other-library/LeetCode/easy/206-反转链表（reverse-linked-list）.md)
+      * [217 - 存在重复元素（contains-duplicate） ✔](./other-library/LeetCode/easy/217-存在重复元素（contains-duplicate）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
