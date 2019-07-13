@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-7-13 07:54:49**  
-> Recently revised in **2019-7-13 07:54:520**
+> Recently revised in **2019-7-13 08:42:07**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,10 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 进一步思考](#chapter-seven) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -42,81 +45,145 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var reverseList = (head, q = null) => {
+  if (head) {
+    return reverseList(head.next, {
+      val: head.val,
+      next: q,
+    });
+  }
+  return q;
+}
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+* `head`：
 
 ```js
-
+let head = {
+  val: 1, next: {
+    val: 2, next: {
+      val: 3, next: {
+        val: 4, next: {
+          val: 5, next: null,
+        },
+      },
+    },
+  },
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+* `return`：
 
 ```js
-
+{
+  val: 5, next: {
+    val: 4, next: {
+      val: 3, next: {
+        val: 2, next: {
+          val: 1, next: null,
+        },
+      },
+    },
+  },
+}
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+√ Accepted
+  √ 27/27 cases passed (80 ms)
+  √ Your runtime beats 92.17 % of javascript submissions
+  √ Your memory usage beats 6.29 % of javascript submissions (36.1 MB)
 ```
 
-* **知识点**：
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
 
-1. 
+> [返回目录](#chapter-one)
 
-* **解题思路**：
+**智商是硬伤，知识点也可能是**。
 
-[图]
+经过这次解题，**jsliang** 将链表给标记上了，等到系统学习算法与数据结构的时候，链表是必须搞懂的点之一。
 
-[分析]
+**首先**，上面题解不是我写出来的，看的是评论区的题解，原代码是：
 
-* **进一步思考**：
+```js
+const reverseList = (head, q = null) => head !== null ? reverseList(head.next, { val: head.val, next: q }) : q;
+```
+
+传说中的一行题解。
+
+**然后**，怕小伙伴们跟我一样懵逼，**jsliang** 进行了改编：
+
+```js
+var reverseList = (head, q = null) => {
+  console.log(q);
+  if (head) {
+    return reverseList(head.next, {
+      val: head.val,
+      next: q,
+    });
+  }
+  return q;
+}
+```
+
+**最后**，为了方便小伙伴们理解，**jsliang** 将 `q` 的过程打印了出来：
+
+```js
+null
+{ val: 1, next: null }
+{ val: 2, next: { val: 1, next: null } }
+{ val: 3, next: { val: 2, next: { val: 1, next: null } } }
+{ val: 4, next: { val: 3, next: { val: 2, next: [Object] } } }
+{ val: 5, next: { val: 4, next: { val: 3, next: [Object] } } }
+{ val: 5, next: { val: 4, next: { val: 3, next: [Object] } } }
+```
+
+嗯，对着 `console.log()` 来思考这次递归的用意，小伙伴们应该能清楚怎么反转链表了。（虽然下次还是可能写不出，但是没关系，后面大家一起系统学习~）
+
+## <a name="chapter-seven" id="chapter-seven">七 进一步思考</a>
+
+> [返回目录](#chapter-one)
+
+上面使用了递归，下面看看迭代解法：
+
+```js
+var reverseList = function(head) {
+  if (head == null || head.next == null) {
+    return head;
+  }
+  var current = head;
+  var previous = null;
+  while (current != null) {
+    next = current.next;
+    current.next = previous;
+    previous = current;
+    current = next;
+  }
+  return previous;
+};
+```
+
+提交结果是：
+
+```js
+√ Accepted
+  √ 27/27 cases passed (80 ms)
+  √ Your runtime beats 92.17 % of javascript submissions
+  √ Your memory usage beats 70.6 % of javascript submissions (34.8 MB)
+```
+
+感兴趣的小伙伴可以推演下迭代的思路，在此 **jsliang** 就不多滴滴啦~
 
 ---
 
