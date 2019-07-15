@@ -159,6 +159,7 @@
       * [219 - 存在重复元素II（contains-duplicate-ii） ✔](./other-library/LeetCode/easy/219-存在重复元素II（contains-duplicate-ii）.md)
       * [225 - 用队列实现栈（implement-stack-using-queues） ✔](./other-library/LeetCode/easy/225-用队列实现栈（implement-stack-using-queues）.md)
       * [226 - 翻转二叉树（invert-binary-tree） ✔](./other-library/LeetCode/easy/226-翻转二叉树（invert-binary-tree）.md)
+      * [231 - 2的幂（power-of-two） ✔](./other-library/LeetCode/easy/231-2的幂（power-of-two）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
