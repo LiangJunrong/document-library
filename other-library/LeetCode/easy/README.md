@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-13 19:31:27**
+> Recently revised in **2019-07-15 11:44:07**
 
 LeetCode 简单难度攻略
 
@@ -62,6 +62,7 @@ LeetCode 简单难度攻略
 | 217 - 存在重复元素（contains-duplicate） | [#217 解题](./217-存在重复元素（contains-duplicate）.md) |
 | 219 - 存在重复元素II（contains-duplicate-ii） | [#219 解题](./219-存在重复元素II（contains-duplicate-ii）.md) |
 | 225 - 用队列实现栈（implement-stack-using-queues） | [#225 解题](./225-用队列实现栈（implement-stack-using-queues）.md) |
+| 226 - 翻转二叉树（invert-binary-tree） | [#226 解题](./226-翻转二叉树（invert-binary-tree）.md) |
 
 ---
 
