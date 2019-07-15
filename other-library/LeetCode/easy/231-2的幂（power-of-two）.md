@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-15 15:41:43**  
-> Recently revised in **2019-07-15 15:41:46**
+> Recently revised in **2019-07-15 19:14:46**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
+| &emsp;[3.2 解法 - 无脑梭哈](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -55,74 +56,85 @@
 * **解题代码**：
 
 ```js
-
+var isPowerOfTwo = function(n) {
+  if (n === 1 || n === 2) {
+    return true;
+  }
+  while (n > 2) {
+    n = n / 2;
+    if (n === 2) {
+      return true;
+    }
+  }
+  return false;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `n`：`16`
+2. `return`：`true`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 1108/1108 cases passed (84 ms)
+  ✔ Your runtime beats 99.6 % of javascript submissions
+  ✔ Your memory usage beats 23.18 % of javascript submissions (35.5 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+将这个数一直除于 2，当它的值接近 2 时，它有两种可能：
 
-[分析]
+1. 等于 2，即这个数它刚好是 2 的幂。
+2. 小于 2，即这个数不是 2 的幂。
 
-* **进一步思考**：
+最后，直接判断返回即可。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+> 简单到 **jsliang** 无力吐槽
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 无脑梭哈</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var isPowerOfTwo = function(n) {
+  return Number.isInteger(Math.log2(n));
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `n`：`16`
+2. `return`：`true`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 1108/1108 cases passed (96 ms)
+  ✔ Your runtime beats 91.7 % of javascript submissions
+  ✔ Your memory usage beats 12.28 % of javascript submissions (35.7 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `Number`：将其他值转成数字值。[`Number` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Number.md)
+2. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
 
 * **解题思路**：
 
-[图]
+通过 `Number` 来判断进行求底运算后的数字，是否为整数，如果是，则 `n` 是 2 的幂，如果不是，则返回 `false`。
 
-[分析]
+> **jsliang** 更加无力吐槽了
 
-* **进一步思考**：
+* **进一步拓展**：
+
+这道题还可以通过二进制进行位运算，不过 **jsliang** 兴致缺缺，小伙伴们可以进行尝试~
 
 ---
 
