@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-16 19:21:54**  
-> Recently revised in **2019-07-16 19:21:56**
+> Recently revised in **2019-07-16 19:48:50**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,11 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 知识点](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 解题思路](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 进一步思考](#chapter-eight) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -45,81 +49,118 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var isPalindrome = function(head) {
+  let result = [];
+  while (head) {
+    result.push(head.val);
+    head = head.next;
+  }
+  for (let i = 0; i < result.length / 2; i++) {
+    if (result[i] !== result[result.length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+* `head`：
 
 ```js
-
+const head = {
+  val: 1, next: {
+    val: 2, next: {
+      val: 2, next: {
+        val: 1,
+      },
+    },
+  },
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+* `return`：
 
 ```js
-
+true
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 26/26 cases passed (84 ms)
+  ✔ Your runtime beats 94.25 % of javascript submissions
+  ✔ Your memory usage beats 50 % of javascript submissions (39.7 MB)
 ```
 
-* **知识点**：
+## <a name="chapter-six" id="chapter-six">六 知识点</a>
 
-1. 
+> [返回目录](#chapter-one)
 
-* **解题思路**：
+1. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
 
-[图]
+## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
-[分析]
+> [返回目录](#chapter-one)
 
-* **进一步思考**：
+**要相信你的直觉**。
+
+**首先**，拿到题目的第一时间，我想到的就是：**将链表抽取成数组，然后判断数组是否为回文**。
+
+```js
+while (head) {
+  result.push(head.val);
+  head = head.next;
+}
+```
+
+**然后**，我们只需要遍历一半的数组（因为回文意味着左右相等），坐标 `0` 对应 `length - 1 - 0`，坐标 `1` 对应 `length - 1 - 1`，坐标 `i` 对应 `length - 1 - i`：
+
+```js
+for (let i = 0; i < result.length / 2; i++) {
+  if (result[i] !== result[result.length - 1 - i]) {
+    return false;
+  }
+}
+```
+
+**最后**，我们如果遍历了还是 OK，则返回 `true`。
+
+OK，直接很准确~
+
+## <a name="chapter-eight" id="chapter-eight">八 进一步思考</a>
+
+> [返回目录](#chapter-one)
+
+那么，除了双指针形式，还有其他的吗？
+
+有的！
+
+> 递归：
+
+```js
+var isPalindrome = function(head, queue = []) {
+  if (!head) {
+    return true;
+  }
+  queue.push(head.val);
+  let flag = isPalindrome(head.next, queue);
+  return queue.shift() === head.val && flag;
+}
+```
+
+当然，方法不止一种，**jsliang** 这里就不做过多讲解和展示啦~
+
+有思路的小伙伴可以留言或者评论哈~
 
 ---
 
