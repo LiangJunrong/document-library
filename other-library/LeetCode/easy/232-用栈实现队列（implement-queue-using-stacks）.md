@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-7-16 08:15:25**  
-> Recently revised in **2019-7-16 08:38:15**
+> Recently revised in **2019-7-16 08:39:59**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -53,10 +53,6 @@ queue.empty(); // 返回 false
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
@@ -96,7 +92,9 @@ MyQueue.prototype.empty = function() {
 };
 ```
 
-* **执行测试**：
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
+
+> [返回目录](#chapter-one)
 
 ```js
 let queue = new MyQueue();
@@ -108,7 +106,9 @@ console.log(queue.pop());   // 1
 console.log(queue.empty()); // false
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
 √ Accepted
@@ -117,7 +117,9 @@ console.log(queue.empty()); // false
   √ Your memory usage beats 98.9 % of javascript submissions (33.1 MB)
 ```
 
-* **解题思路**：
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
+
+> [返回目录](#chapter-one)
 
 如果小伙伴们看过 **225-用队列实现栈**，那么小伙伴对这道题也是迎刃而解；
 
