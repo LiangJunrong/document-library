@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-16 19:54:09**
+> Recently revised in **2019-07-17 15:27:42**
 
 **不折腾的前端，和咸鱼有什么区别**
 
-## 2019-07-16
+## 2019-07-17
 
-* [x] **链接**：[LeetCode - 234 - 回文链表](./other-library/LeetCode/easy/234-回文链表（palindrome-linked-list）.md)
+* [x] **链接**：[LeetCode - 235 - 二叉树的最近公共祖先](./other-library/LeetCode/easy/235-二叉树的最近公共祖先（lowest-common-ancestor-of-a-binary-search-tree）.md)
 
 ## 历史
 
+* [x] [LeetCode - 234 - 回文链表](./other-library/LeetCode/easy/234-回文链表（palindrome-linked-list）.md)
 * [x] [LeetCode - 232 - 用栈实现队列](./other-library/LeetCode/easy/232-用栈实现队列（implement-queue-using-stacks）.md)
 * [x] [LeetCode - 231 - 2的幂](./other-library/LeetCode/easy/231-2的幂（power-of-two）.md)
 * [x] [LeetCode - 226 - 翻转二叉树](./other-library/LeetCode/easy/226-翻转二叉树（invert-binary-tree）.md)
