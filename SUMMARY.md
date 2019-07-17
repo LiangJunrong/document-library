@@ -162,6 +162,7 @@
       * [231 - 2的幂（power-of-two） ✔](./other-library/LeetCode/easy/231-2的幂（power-of-two）.md)
       * [232 - 用栈实现队列（implement-queue-using-stacks） ✔](./other-library/LeetCode/easy/232-用栈实现队列（implement-queue-using-stacks）.md)
       * [234 - 回文链表（palindrome-linked-list） ✔](./other-library/LeetCode/easy/234-回文链表（palindrome-linked-list）.md)
+      * [235 - 二叉树的最近公共祖先lowest-common-ancestor-of-a-binary-search-tree） ✔](./other-library/LeetCode/easy/235-二叉树的最近公共祖先（lowest-common-ancestor-of-a-binary-search-tree）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
