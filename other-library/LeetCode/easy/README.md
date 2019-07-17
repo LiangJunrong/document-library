@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-17 15:38:48**
+> Recently revised in **2019-07-17 17:31:24**
 
 LeetCode 简单难度攻略
 
@@ -67,6 +67,7 @@ LeetCode 简单难度攻略
 | 232 - 用栈实现队列（implement-queue-using-stacks） | [#232 解题](./232-用栈实现队列（implement-queue-using-stacks）.md) |
 | 234 - 回文链表（palindrome-linked-list） | [#234 解题](./234-回文链表（palindrome-linked-list）.md) |
 | 235 - 二叉树的最近公共祖先（lowest-common-ancestor-of-a-binary-search-tree） | [#235 解题](./235-二叉树的最近公共祖先（lowest-common-ancestor-of-a-binary-search-tree）.md) |
+| 237 - 删除链表中的节点（delete-node-in-a-linked-list） | [#237 解题](./237-删除链表中的节点（delete-node-in-a-linked-list）.md) |
 
 ---
 
