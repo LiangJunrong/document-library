@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-17 10:04:00**  
-> Recently revised in **2019-07-17 10:04:03**
+> Recently revised in **2019-07-17 15:26:00**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -54,81 +54,224 @@ p、q 为不同节点且均存在于给定的二叉搜索树中。
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 递归</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var lowestCommonAncestor = function(root, p, q) {
+  const val = root.val;
+  const pVal = p.val;
+  const qVal = q.val;
+  if (pVal > val && qVal > val) {
+    return lowestCommonAncestor(root.right, p, q);
+  } else if (pVal < val && qVal < val) {
+    return lowestCommonAncestor(root.left, p, q);
+  } else {
+    return root;
+  }
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> `root`：
 
 ```js
+const root = {
+  val: 6,
+  left: {
+    val: 2,
+    left: { val: 0, left: null, right: null },
+    right: {
+      val: 4,
+      left: { val: 3, left: null, right: null },
+      right: { val: 5, left: null, right: null },
+    },
+  },
+  right: {
+    val: 8,
+    left: { val: 7, left: null, right: null },
+    right: { val: 9, left: null, right: null },
+  },
+};
+```
 
+> `p`：
+
+```js
+const p = { val: 0, left: null, right: null };
+```
+
+> `q`：
+
+```
+const q = { val: 5, left: null, right: null };
+```
+
+> `return`：
+
+```js
+{ val: 2,
+  left: { val: 0, left: null, right: null },
+  right:
+   { val: 4,
+     left: { val: 3, left: null, right: null },
+     right: { val: 5, left: null, right: null } } }
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 27/27 cases passed (152 ms)
+  ✔ Your runtime beats 22.81 % of javascript submissions
+  ✔ Your memory usage beats 92.59 % of javascript submissions (43.4 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+**首先**，看到这题目，思路是乱糟糟的。
 
-[分析]
+有心想下是不是需要后序遍历判断，但是想想又不对。
 
-* **进一步思考**：
+**然后**，看了下官方的 Java 解法，恍然大悟：
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+* 这是一棵二叉搜索树。
+
+什么是二叉搜索树？
+
+百度百科的说法是：二叉查找树（Binary Search Tree），（又：二叉搜索树，二叉排序树）它或者是一棵空树，或者是具有下列性质的二叉树： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值； 它的左、右子树也分别为二叉排序树。
+
+怎么通俗解释呢？
+
+![图](../../../public-repertory/img/other-algorithm-235-1.png) 
+
+看图，在节点 `val = 4` 中，左边的节点为 3（即小于 4），右边的节点为 5（即大于 4）。同理，在节点 `val = 6` 中，左边的节点都小于 6，右边的节点都大于 6。
+
+这样，想必小伙伴们就有思路了：
+
+* 如果给出的节点是 `0` 和 `4`，那么先判断它在左子树，因为 `0` 和 `4` 都小于 6。再到节点 `2` 的时候，因为 `0 < 2 < 4`，所以，它们的最近祖先节点为 `2`。
+* 如果给出的节点是 `0` 和 `5`，那么先判断它在左子树，因为 `0` 和 `5` 都小于 6。再到节点 `2` 的时候，因为 `0 < 2 < 5`，所以，它们的最近祖先节点为 `2`。
+* ……
+
+最后，我们就根据这个提示写出了递归题解：
+
+```js
+if (pVal > val && qVal > val) {
+  return lowestCommonAncestor(root.right, p, q);
+} else if (pVal < val && qVal < val) {
+  return lowestCommonAncestor(root.left, p, q);
+} else {
+  return root;
+}
+```
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 迭代</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var lowestCommonAncestor = function(root, p, q) {
+  const pVal = p.val;
+  const qVal = q.val;
+  while (root) {
+    const parentVal = root.val;
+    if (pVal > parentVal && qVal > parentVal) {
+      root = root.right;
+    } else if (pVal < parentVal && qVal < parentVal) {
+      root = root.left;
+    } else {
+      return root;
+    }
+  }
+  return null;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> `root`：
 
 ```js
+const root = {
+  val: 6,
+  left: {
+    val: 2,
+    left: { val: 0, left: null, right: null },
+    right: {
+      val: 4,
+      left: { val: 3, left: null, right: null },
+      right: { val: 5, left: null, right: null },
+    },
+  },
+  right: {
+    val: 8,
+    left: { val: 7, left: null, right: null },
+    right: { val: 9, left: null, right: null },
+  },
+};
+```
 
+> `p`：
+
+```js
+const p = { val: 0, left: null, right: null };
+```
+
+> `q`：
+
+```
+const q = { val: 5, left: null, right: null };
+```
+
+> `return`：
+
+```js
+{ val: 2,
+  left: { val: 0, left: null, right: null },
+  right:
+   { val: 4,
+     left: { val: 3, left: null, right: null },
+     right: { val: 5, left: null, right: null } } }
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 27/27 cases passed (96 ms)
+  ✔ Your runtime beats 99.65 % of javascript submissions
+  ✔ Your memory usage beats 64.82 % of javascript submissions (43.7 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+相比于递归，这次使用迭代方式无疑会更加，因为它不仅易解并且效率方面比递归快很多：
 
-[分析]
+> 递归
 
-* **进一步思考**：
+```js
+✔ Accepted
+  ✔ 27/27 cases passed (152 ms)
+  ✔ Your runtime beats 22.81 % of javascript submissions
+  ✔ Your memory usage beats 92.59 % of javascript submissions (43.4 MB)
+```
+
+> 迭代
+
+```js
+✔ Accepted
+  ✔ 27/27 cases passed (96 ms)
+  ✔ Your runtime beats 99.65 % of javascript submissions
+  ✔ Your memory usage beats 64.82 % of javascript submissions (43.7 MB)
+```
+
+至于迭代怎么解题的，**jsliang** 在这里就不做过多解释了，因为它们的判断都是一致的 —— 只要你了解了二叉搜索树的特性！
 
 ---
 
