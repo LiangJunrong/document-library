@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-16 19:53:32**
+> Recently revised in **2019-07-17 15:26:39**
 
 LeetCode 简单难度攻略
 
@@ -66,6 +66,7 @@ LeetCode 简单难度攻略
 | 231 - 2的幂（power-of-two） | [#231 解题](./231-2的幂（power-of-two）.md) |
 | 232 - 用栈实现队列（implement-queue-using-stacks） | [#232 解题](./232-用栈实现队列（implement-queue-using-stacks）.md) |
 | 234 - 回文链表（palindrome-linked-list） | [#234 解题](./234-回文链表（palindrome-linked-list）.md) |
+| 235 - 二叉树的最近公共祖先（lowest-common-ancestor-of-a-binary-search-tree） | [#235 解题](./235-二叉树的最近公共祖先（lowest-common-ancestor-of-a-binary-search-tree）.md) |
 
 ---
 
