@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-17 16:54:11**  
-> Recently revised in **2019-07-17 16:54:16**
+> Recently revised in **2019-07-17 17:30:39**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -54,81 +55,60 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var deleteNode = function(node) {
+  node.val = node.next.val;
+  node.next = node.next.next;
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 LeetCode Submit</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
-
 ```js
-
+✔ Accepted
+  ✔ 41/41 cases passed (144 ms)
+  ✔ Your runtime beats 10.41 % of javascript submissions
+  ✔ Your memory usage beats 98.49 % of javascript submissions (35.2 MB)
 ```
 
-* **执行测试**：
+## <a name="chapter-five" id="chapter-five">五 解题思路</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> [返回目录](#chapter-one)
 
-```js
+**这道题的解题思路，就是没有思路**！
 
-```
-
-* **LeetCode Submit**：
+**首先**，这道题就是脑经急转弯：
 
 ```js
-
+var deleteNode = function(node) {
+  // ...
+};
 ```
 
-* **知识点**：
+它给的代码上，标明传的参是 `node`，所以 **jsliang** 就懵圈了，这是想干啥。
 
-1. 
+**然后**，我开始逛论坛，骂的老惨了：
 
-* **解题思路**：
+https://leetcode-cn.com/problems/delete-node-in-a-linked-list/comments/
 
-[图]
+官方题解的意思就是：**与下一个节点交换**。
 
-[分析]
+所以，答案就是：
 
-* **进一步思考**：
+```js
+var deleteNode = function(node) {
+  node.val = node.next.val;
+  node.next = node.next.next;
+};
+```
+
+**最后**，怎么想都想不透，这智商锅我背不背~
+
+> 真心不是 **jsliang** 想水题解，而是……真的题目很水。
 
 ---
 
