@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-18 13:05:14**
+> Recently revised in **2019-07-18 16:48:44**
 
 LeetCode 简单难度攻略
 
@@ -70,6 +70,7 @@ LeetCode 简单难度攻略
 | 237 - 删除链表中的节点（delete-node-in-a-linked-list） | [#237 解题](./237-删除链表中的节点（delete-node-in-a-linked-list）.md) |
 | 242 - 有效的字母异位词（valid-anagram） | [#242 解题](./242-有效的字母异位词（valid-anagram）.md) |
 | 257 - 二叉树的所有路径（binary-tree-paths） | [#257 解题](./257-二叉树的所有路径（binary-tree-paths）.md) |
+| 258 - 各位相加（add-digits） | [#258 解题](./258-各位相加（add-digits）.md) |
 
 ---
 
