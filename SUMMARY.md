@@ -165,6 +165,7 @@
       * [235 - 二叉树的最近公共祖先lowest-common-ancestor-of-a-binary-search-tree） ✔](./other-library/LeetCode/easy/235-二叉树的最近公共祖先（lowest-common-ancestor-of-a-binary-search-tree）.md)
       * [237 - 删除链表中的节点（delete-node-in-a-linked-list） ✔](./other-library/LeetCode/easy/237-删除链表中的节点（delete-node-in-a-linked-list）.md)
       * [242 - 有效的字母异位词（valid-anagram） ✔](./other-library/LeetCode/easy/242-有效的字母异位词（valid-anagram）.md)
+      * [257 - 二叉树的所有路径（binary-tree-paths） ✔](./other-library/LeetCode/easy/257-二叉树的所有路径（binary-tree-paths）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
