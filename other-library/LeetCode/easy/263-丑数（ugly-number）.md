@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-18 17:15:35**  
-> Recently revised in **2019-07-18 17:15:38**
+> Recently revised in **2019-07-18 17:42:39**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -55,81 +55,140 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 数学</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var isUgly = function(num) {
+  if (!num) {
+    return false;
+  }
+  while (num % 2 === 0 || num % 3 === 0 || num % 5 === 0) {
+    if (num % 2 === 0) {
+      num = num / 2;
+    }
+    if (num % 3 === 0) {
+      num = num / 3;
+    }
+    if (num % 5 === 0) {
+      num = num / 5;
+    }
+  }
+  if (num === 1) {
+    return true;
+  }
+  if (num !== 2 || num !== 3 || num !== 5) {
+    return false;
+  }
+  return true;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `num`：`14`
+2. `return`：`false`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 1012/1012 cases passed (92 ms)
+  ✔ Your runtime beats 94.63 % of javascript submissions
+  ✔ Your memory usage beats 43.01 % of javascript submissions (35.4 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+**最复杂的思路，有可能是你最原始的思路**。
 
-[分析]
+**首先**，虽然我这个题解可能复杂，但是我觉得我开始的思维是极其简单的。
 
-* **进一步思考**：
+1. 如果这个 `num === 0`，那么它不是丑数。
+2. 如果这个数 `% 2 === 0` 或者 `% 3 === 0` 或者 `%5 === 0`，那么证明这个数是 2/3/5 的公倍数，那么我们就将它除于 `2/3/5`，同时这个数还可能是丑数。（例如 30 / 2 = 15，15 可能是丑数，所以可以继续循环）
+3. 循环这个数，直到它不能 `%2`、`%3` 或者 `%5` 得出的结果为 0。
+4. `while` 后，这个数已经不能整除 2/3/5 了，所以我们最终判断它的值为多少。如果是 2/3/5，表明它是丑数；如果不是，则它不是丑数。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+```js
+var isUgly = function(num) {
+  if (!num) {
+    return false;
+  }
+  while (num % 2 === 0 || num % 3 === 0 || num % 5 === 0) {
+    if (num % 2 === 0) {
+      num = num / 2;
+    }
+    if (num % 3 === 0) {
+      num = num / 3;
+    }
+    if (num % 5 === 0) {
+      num = num / 5;
+    }
+  }
+  if (num === 1) {
+    return true;
+  }
+  if (num !== 2 || num !== 3 || num !== 5) {
+    return false;
+  }
+  return true;
+};
+```
+
+**最后**，将结果值返回出去。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 递归</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
+var isUgly = function (num) {
+  var list = [1, 2, 3, 5];
 
+  if (num <= 0) {
+    return false;
+  }
+
+  if (list.includes(num)) {
+    return true;
+  } else {
+    for (li in list) {
+      if (num % list[li] === 0 && list[li] !== 1) {
+        return isUgly(num / list[li]);
+      }
+    }
+  }
+
+  return false;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `num`：`14`
+2. `return`：`false`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 1012/1012 cases passed (104 ms)
+  ✔ Your runtime beats 76.45 % of javascript submissions
+  ✔ Your memory usage beats 7.53 % of javascript submissions (35.8 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `includes()`：`includes()` 方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回 false。[`reduce()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/includes.md)
 
 * **解题思路**：
 
-[图]
-
-[分析]
-
-* **进一步思考**：
+判断这个数，是否属于 1、2、3、5，如果不属于，则按照丑数规则进行递归，最后返回这个数的结果即可。
 
 ---
 
