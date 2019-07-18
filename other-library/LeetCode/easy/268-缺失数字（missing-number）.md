@@ -13,7 +13,9 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
+| &emsp;[3.2 解法 - 数学](#chapter-three-two) |
+| &emsp;[3.3 解法 - 位运算](#chapter-three-three) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -109,43 +111,110 @@ if (nums[i] === i && !nums[i + 1]) {
 
 **最后**，我们就通过了这道题。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 数学</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var missingNumber = function (nums) {
+  let expectedSum = nums.length * (nums.length + 1) / 2;
+  let actualSum = nums.reduce((prev, next) => {
+    return prev + next;
+  });
+  return expectedSum - actualSum;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[9, 6, 4, 2, 3, 5, 7, 0, 1, 8, 11]`
+2. `return`：`10`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 122/122 cases passed (84 ms)
+  ✔ Your runtime beats 91.08 % of javascript submissions
+  ✔ Your memory usage beats 68.32 % of javascript submissions (36 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `reduce()`：`reduce()` 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。[`reduce()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/reduce.md)
 
 * **解题思路**：
 
-[图]
+**首先**，我们需要知道一个公式，叫 [高斯求和公式](https://baike.baidu.com/item/%E9%AB%98%E6%96%AF%E6%B1%82%E5%92%8C)，即：
 
-[分析]
+```
+sum(0, n) === n * (n + 1) / 2
+```
+
+根据 **高斯求和公式**，我们可以算出 `0 - n` 的总和。
+
+**然后**，我们再通过 `reduce()`，求出这个数组的总和。
+
+**最后**，这两者的差值，即是缺漏的数字！
 
 * **进一步思考**：
+
+如果不希望产生变量，那么，可以缩成一行~
+
+```js
+var missingNumber = function (nums) {
+  return nums.length * (nums.length + 1) / 2 - nums.reduce((prev, next) => {
+    return prev + next;
+  });
+};
+```
+
+相对的，Submit 变为：
+
+```js
+✔ Accepted
+  ✔ 122/122 cases passed (84 ms)
+  ✔ Your runtime beats 91.08 % of javascript submissions
+  ✔ Your memory usage beats 76.02 % of javascript submissions (35.9 MB)
+```
+
+### <a name="chapter-three-three" id="chapter-three-three">3.3 解法 - 位运算</a>
+
+> [返回目录](#chapter-one)
+
+* **解题代码**：
+
+```js
+var missingNumber = function(nums) {
+  let missing = nums.length;
+  for (let i = 0; i < nums.length; i++) {
+      missing ^= i ^ nums[i];
+  }
+  return missing;
+};
+```
+
+* **执行测试**：
+
+1. `nums`：`[9, 6, 4, 2, 3, 5, 7, 0, 1, 8, 11]`
+2. `return`：`10`
+
+* **LeetCode Submit**：
+
+```js
+✔ Accepted
+  ✔ 122/122 cases passed (80 ms)
+  ✔ Your runtime beats 95.13 % of javascript submissions
+  ✔ Your memory usage beats 39.82 % of javascript submissions (36.6 MB)
+```
+
+* **解题思路**：
+
+位运算大法好，只可意会不可言传。
+
+> 其实 **jsliang** 也不懂，也不想懂，哈哈~
 
 ---
 
