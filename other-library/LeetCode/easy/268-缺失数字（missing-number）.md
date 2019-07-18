@@ -52,36 +52,62 @@
 * **解题代码**：
 
 ```js
-
+var missingNumber = function(nums) {
+  nums.sort((a, b) => a - b);
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== i) {
+      return i;
+    }
+    if (nums[i] === i && !nums[i + 1]) {
+      return i + 1;
+    }
+  }
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[9, 6, 4, 2, 3, 5, 7, 0, 1, 8, 11]`
+2. `return`：`10`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 122/122 cases passed (156 ms)
+  ✔ Your runtime beats 32.25 % of javascript submissions
+  ✔ Your memory usage beats 16.29 % of javascript submissions (37.6 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort.md)
 
 * **解题思路**：
 
-[图]
+**首先**，因为数组是无序的，所以对数组进行排序。同时，因为 JavaScript 的 `sort()` 方法，如果你不传参的话，对 `[9, 6, 4, 2, 3, 5, 7, 0, 1, 8, 11]` 的排序是：
 
-[分析]
+```js
+[ 0, 1, 11, 2, 3, 4, 5, 6, 7, 8, 9 ]
+```
 
-* **进一步思考**：
+所以需要 `sort((a, b) => a - b)`，得出：
+
+```js
+[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11 ]
+```
+
+**然后**，遍历这个数组，`index` 也是从 `0` 开始，这个数组也是从 `0` 开始，所以刚好判断 `nums[i] !== i` 的时候，我们将 `i` 给返回出去即可。
+
+当然，LeetCode 还设置了一种情况，即 `[0]`、`[0, 1]`、`[0, 1, 2]` 这种，所以我们还需要另外一种判断：
+
+```js
+if (nums[i] === i && !nums[i + 1]) {
+  return i + 1;
+}
+```
+
+**最后**，我们就通过了这道题。
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
 
