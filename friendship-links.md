@@ -2,15 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-06-11 17:32:40**  
-> Recently revised in **2019-06-11 17:41:21**
+> Recently revised in **2019-7-18 08:33:10**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
 在学习折腾的路上，总能找到志同道合的小伙伴，于是互相交换了下友情链接~
 
-如果你的 GitHub、掘金、博客园…… 拥有不错的内容，欢迎联系 **jsliang** 互换友情链接~
+如果你的 GitHub、掘金、公众号、博客园、SegmentFault（思否）、简书、CSDN 等论坛社区拥有不错的内容，欢迎联系 **jsliang** 互换友情链接~
 
-## 一 面试系列
+> 联系方式在本仓库首页
+
+## 友情链接 - 面试系列
 
 * [前端面试每日 3+1（每日三问） - haizlin](https://github.com/haizlin/fe-interview)
 
