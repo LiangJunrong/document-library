@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-18 17:43:57**
+> Recently revised in **2019-07-18 19:31:33**
 
 LeetCode 简单难度攻略
 
@@ -72,6 +72,7 @@ LeetCode 简单难度攻略
 | 257 - 二叉树的所有路径（binary-tree-paths） | [#257 解题](./257-二叉树的所有路径（binary-tree-paths）.md) |
 | 258 - 各位相加（add-digits） | [#258 解题](./258-各位相加（add-digits）.md) |
 | 263 - 丑数（ugly-number） | [#263 解题](./263-丑数（ugly-number）.md) |
+| 268 - 缺失数字（missing-number） | [#268 解题](./268-缺失数字（missing-number）.md) |
 
 ---
 
