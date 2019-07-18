@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-18 10:15:11**  
-> Recently revised in **2019-07-18 10:15:14**
+> Recently revised in **2019-07-18 11:53:38**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,11 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 知识点](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 解题思路](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 进一步思考](#chapter-eight) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -48,81 +52,157 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var binaryTreePaths = function(root) {
+  let result = [];
+  const ergodic = function(root, path) {
+    if (!root) {
+      return;
+    }
+    path = path + root.val + (root.left || root.right ? '->' : '');
+    if (!root.left && !root.right) {
+      result.push(path);
+      return;
+    }
+    ergodic(root.left, path);
+    ergodic(root.right, path);
+  };
+  ergodic(root, '');
+  return result;
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+* `root`：
 
 ```js
-
+const root = {
+  val: 1,
+  left: {
+    val: 2,
+    left: null,
+    right: { val: 5, left: null, right: null },
+  },
+  right: { val: 3, left: null, right: null },
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+* `return`：
 
 ```js
-
+[ '1->2->5', '1->3' ]
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 209/209 cases passed (84 ms)
+  ✔ Your runtime beats 82.32 % of javascript submissions
+  ✔ Your memory usage beats 66 % of javascript submissions (34.3 MB)
 ```
 
-* **知识点**：
+## <a name="chapter-six" id="chapter-six">六 知识点</a>
 
-1. 
+> [返回目录](#chapter-one)
 
-* **解题思路**：
+1. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
 
-[图]
+## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
-[分析]
+> [返回目录](#chapter-one)
 
-* **进一步思考**：
+**首先**，还是提下我们的万能公式：
+
+```js
+const ergodic = function(root) {
+  if (!root) {
+    return;
+  }
+  ergodic(root.left);
+  ergodic(root.right);
+}
+```
+
+将一棵树丢进去，它会遍历这棵树中的所有节点。
+
+**然后**，我们解析下代码：
+
+```js
+var binaryTreePaths = function(root) {
+  let result = [];
+  const ergodic = function(root, path) {
+    if (!root) {
+      return;
+    }
+    path = path + root.val + (root.left || root.right ? '->' : '');
+    if (!root.left && !root.right) {
+      result.push(path);
+      return;
+    }
+    ergodic(root.left, path);
+    ergodic(root.right, path);
+  };
+  ergodic(root, '');
+  return result;
+};
+```
+
+1. 定义 `result` 来接收最终结果。
+2. 定义 `path` 来接收每次到叶子节点（叶子节点是指这个节点的左节点和右节点都为空的最终节点）时，这条路径的长度。
+3. 将 `root` 丢进万能公式中遍历，不同的是，添加多一个 `path` 节点。
+4. 最终，我们的 `result` 会获取到所有的内容。
+
+**最后**，我们将 `result` 给返回出去即可。
+
+## <a name="chapter-eight" id="chapter-eight">八 进一步思考</a>
+
+> [返回目录](#chapter-one)
+
+当然，我们可以吸取下其他小伙伴/大佬的解法，毕竟集思广益，说不定对你下次解题有帮助：
+
+> 参考 1：递归
+
+```js
+var binaryTreePaths = function (root) {
+  if (!root) return [];
+  if (!root.left && !root.right) {
+    return [root.val + ''];
+  }
+  let left = binaryTreePaths(root.left).map(key => root.val + '->' + key);
+  let right = binaryTreePaths(root.right).map(key => root.val + '->' + key);
+  return left.concat(right);
+};
+```
+
+> 参考 2：递归
+
+```js
+var binaryTreePaths = function (root) {
+  var res = [];
+
+  function dfs(root, str) {
+    if (!root) return;
+    str += root.val;
+    if (!root.left && !root.right) {
+      res.push(str);
+      return;
+    }
+    str += '->';
+    dfs(root.left, str);
+    dfs(root.right, str);
+  }
+  dfs(root, '');
+  return res;
+};
+```
 
 ---
 
