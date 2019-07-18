@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-17 19:24:04**
+> Recently revised in **2019-07-18 13:06:08**
 
 **不折腾的前端，和咸鱼有什么区别**
 
-## 2019-07-17
+## 2019-07-18
 
-* [x] **链接**：[LeetCode - 242 - 有效的字母异位词](./other-library/LeetCode/easy/242-有效的字母异位词（valid-anagram）.md)
+* [x] **链接**：[LeetCode - 257 - 二叉树的所有路径](./other-library/LeetCode/easy/257-二叉树的所有路径（binary-tree-paths）.md)
 
 ## 历史
 
+* [x] [LeetCode - 242 - 有效的字母异位词](./other-library/LeetCode/easy/242-有效的字母异位词（valid-anagram）.md)
 * [x] [LeetCode - 237 - 删除链表中的节点](./other-library/LeetCode/easy/237-删除链表中的节点（delete-node-in-a-linked-list）.md)
 * [x] [LeetCode - 235 - 二叉树的最近公共祖先](./other-library/LeetCode/easy/235-二叉树的最近公共祖先（lowest-common-ancestor-of-a-binary-search-tree）.md)
 * [x] [LeetCode - 234 - 回文链表](./other-library/LeetCode/easy/234-回文链表（palindrome-linked-list）.md)
