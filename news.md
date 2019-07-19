@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-18 19:32:12**
+> Recently revised in **2019-07-19 11:39:10**
 
 **不折腾的前端，和咸鱼有什么区别**
 
-## 2019-07-18
+## 2019-07-19
 
-* [x] **链接**：[LeetCode - 268 - 缺失数字](./other-library/LeetCode/easy/268-缺失数字（missing-number）.md)
+* [x] **链接**：[LeetCode - 278 - 第一个错误的版本](./other-library/LeetCode/easy/278-第一个错误的版本（first-bad-version）.md)
 
 ## 历史
 
+* [x] [LeetCode - 268 - 缺失数字](./other-library/LeetCode/easy/268-缺失数字（missing-number）.md)
 * [x] [LeetCode - 263 - 丑数](./other-library/LeetCode/easy/263-丑数（ugly-number）.md)
 * [x] [LeetCode - 258 - 各位相加](./other-library/LeetCode/easy/258-各位相加（add-digits）.md)
 * [x] [LeetCode - 257 - 二叉树的所有路径](./other-library/LeetCode/easy/257-二叉树的所有路径（binary-tree-paths）.md)
