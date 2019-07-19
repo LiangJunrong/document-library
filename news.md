@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-19 15:16:57**
+> Recently revised in **2019-07-19 16:19:00**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-07-19
 
-* [x] **链接**：[LeetCode - 283 - 移动零](./other-library/LeetCode/easy/283-移动零（move-zeroes）.md)
+* [x] **链接**：[LeetCode - 290 - 单词规律](./other-library/LeetCode/easy/290-单词规律（word-pattern）.md)
 
 ## 历史
 
+* [x] [LeetCode - 283 - 移动零](./other-library/LeetCode/easy/283-移动零（move-zeroes）.md)
 * [x] [LeetCode - 278 - 第一个错误的版本](./other-library/LeetCode/easy/278-第一个错误的版本（first-bad-version）.md)
 * [x] [LeetCode - 268 - 缺失数字](./other-library/LeetCode/easy/268-缺失数字（missing-number）.md)
 * [x] [LeetCode - 263 - 丑数](./other-library/LeetCode/easy/263-丑数（ugly-number）.md)
