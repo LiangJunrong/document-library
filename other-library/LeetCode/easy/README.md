@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-19 11:38:34**
+> Recently revised in **2019-07-19 15:16:25**
 
 LeetCode 简单难度攻略
 
@@ -74,6 +74,7 @@ LeetCode 简单难度攻略
 | 263 - 丑数（ugly-number） | [#263 解题](./263-丑数（ugly-number）.md) |
 | 268 - 缺失数字（missing-number） | [#268 解题](./268-缺失数字（missing-number）.md) |
 | 278 - 第一个错误的版本（first-bad-version） | [#278 解题](./278-第一个错误的版本（first-bad-version）.md) |
+| 283 - 移动零（move-zeroes） | [#283 解题](./283-移动零（move-zeroes）.md) |
 
 ---
 
