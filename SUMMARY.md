@@ -178,6 +178,7 @@
       * [258 - 各位相加（add-digits） ✔](./other-library/LeetCode/easy/258-各位相加（add-digits）.md)
       * [263 - 丑数（ugly-number） ✔](./other-library/LeetCode/easy/263-丑数（ugly-number）.md)
       * [268 - 缺失数字（missing-number） ✔](./other-library/LeetCode/easy/268-缺失数字（missing-number）.md)
+      * [278 - 第一个错误的版本（first-bad-version） ✔](./other-library/LeetCode/easy/278-第一个错误的版本（first-bad-version）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
