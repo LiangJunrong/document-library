@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-19 16:18:24**
+> Recently revised in **2019-07-19 17:40:18**
 
 LeetCode 简单难度攻略
 
@@ -76,6 +76,7 @@ LeetCode 简单难度攻略
 | 278 - 第一个错误的版本（first-bad-version） | [#278 解题](./278-第一个错误的版本（first-bad-version）.md) |
 | 283 - 移动零（move-zeroes） | [#283 解题](./283-移动零（move-zeroes）.md) |
 | 290 - 单词规律（word-pattern） | [#290 解题](./290-单词规律（word-pattern）.md) |
+| 292 - Nim游戏（nim-game） | [#292 解题](./292-Nim游戏（nim-game）.md) |
 
 ---
 
