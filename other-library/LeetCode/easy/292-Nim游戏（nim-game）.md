@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-19 16:54:36**  
-> Recently revised in **2019-07-19 16:54:39**
+> Recently revised in **2019-07-19 17:38:27**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,6 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -43,81 +42,72 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var canWinNim = function(n) {
+  return n % 4;
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+1. `n`：`4`
+2. `return`：
 
 ```js
-
+false
 ```
 
-* **执行测试**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 60/60 cases passed (68 ms)
+  ✔ Your runtime beats 93.84 % of javascript submissions
+  ✔ Your memory usage beats 5.03 % of javascript submissions (34.3 MB)
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
 
-```js
+> [返回目录](#chapter-one)
 
-```
+**所谓传奇，有可能是你触发了传说中的幸运 1**。
 
-* **知识点**：
+**首先**，我觉得我这代码应该在时间和空间上打败任何人了。但是可惜不是。
 
-1. 
+**然后**，**jsliang** 是通过找规律来破解的：
 
-* **解题思路**：
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| √ | √ | √ | x | √ | √ | √ | x | √ |
 
-[图]
+因为你和你的小伙伴都是极其机智的人，所以假设在你先手并且知道牌数的情况下，你一定不会让最后的数小于 3，毕竟这样你就输了（小伙伴可以一把拿走最大 3 张牌）。
 
-[分析]
+同时你希望最后牌数为 4 张，并且到你的小伙伴拿牌。这样不管它怎么拿，你都赢了（拿走剩下的牌）。
 
-* **进一步思考**：
+有没有想到什么？是的，剩下 4 张的时候，如果小伙伴拿牌，那它肯定输，所以我们根据小伙伴的抽牌，跟他的和保持为 4 即可。（死亡轮回）
+
+假设：
+
+1. 总共 5 张牌，你肯定先拿 1 张，这样小伙伴不管拿几张，你都可以将剩下的拿走。
+2. 总共 10 张牌，那么你的计算中将其除于 4，余数 2 即是你的起手拿牌数。
+3. 总数 50 张牌，那么你的计算中将其除于 4，余数 2 即是你的起手拿牌数。
+4. 总数 100 张，那么你的计算中将其除于 4，余数为 0，所以说明你不管怎么抽取，你的小伙伴一定会凑齐 4 张，到最后他一定会赢！
+
+**最后**，我们就清楚了，如果这个数，刚好是 4 的倍数，我们铁定输。但是如果不是，我们必赢！
+
+## <a name="chapter-seven" id="chapter-seven">七 题外话</a>
+
+> [返回目录](#chapter-one)
+
+最后的最后，突然想起这个游戏好像我玩过，然后坑了小学同学几次零食~
+
+小学的时候从某本数学书上看到的游戏，具体什么忘记了。
 
 ---
 
