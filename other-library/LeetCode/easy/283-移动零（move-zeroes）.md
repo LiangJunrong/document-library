@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-19 14:19:24**  
-> Recently revised in **2019-07-19 14:19:27**
+> Recently revised in **2019-07-19 15:15:12**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -49,74 +49,138 @@
 * **解题代码**：
 
 ```js
-
+var moveZeroes = function(nums) {
+  let map = new Map();
+  map.set(0, 0);
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      nums.splice(i, 1);
+      map.set(0, map.get(0) + 1);
+      i--;
+    }
+  }
+  for (let i = 0; i < map.get(0); i++) {
+    nums.push(0);
+  }
+  return nums;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[0, 1, 0, 3, 12]`
+2. `return`：`[1, 3, 12, 0, 0]`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 21/21 cases passed (100 ms)
+  ✔ Your runtime beats 64.67 % of javascript submissions
+  ✔ Your memory usage beats 55.1 % of javascript submissions (35.6 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
+2. `splice()`：`splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。[`splice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/splice.md)
+3. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
 
 * **解题思路**：
 
-[图]
+**首先**，记住一点，它要求在原数组操作，不得逾越。
 
-[分析]
+**然后**，我们的思路就是：
+
+1. 使用 `Map` 来记录 0 出现的次数。
+2. 使用 `splice()` 来切割原数组。
+3. 判断 `Map` 中 0 出现的次数，将 0 `push` 进数组。
+
+**最后**，我们可以返回数组，也可以不返回数组，结束这道题题解。
 
 * **进一步思考**：
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+这代码可不可以优化呢？
+
+```js
+var moveZeroes = function(nums) {
+  let count = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      nums.splice(i, 1);
+      count.push(0);
+      i--;
+    }
+  }
+  nums.push(...count);
+  return nums;
+};
+```
+
+Submit 提交结果为：
+
+```js
+✔ Accepted
+  ✔ 21/21 cases passed (80 ms)
+  ✔ Your runtime beats 97.1 % of javascript submissions
+  ✔ Your memory usage beats 44.37 % of javascript submissions (35.7 MB)
+```
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 冒泡排序</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
+var moveZeroes = function (nums) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length - i - 1; j++) {
+      if (nums[j + 1] !== 0 && nums[j] === 0) {
+        nums[j] = nums[j + 1];
+        nums[j + 1] = 0;
+      }
+    }
+  }
 
+  return nums;
+}
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
+1. `nums`：`[0, 1, 0, 3, 12]`
+2. `return`：`[1, 3, 12, 0, 0]`
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 21/21 cases passed (272 ms)
+  ✔ Your runtime beats 6.17 % of javascript submissions
+  ✔ Your memory usage beats 34.33 % of javascript submissions (35.7 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+**一种效率低下但仍不失为解决方案之一的方法**
 
-[分析]
+冒泡排序（Bubble Sort），是一种计算机科学领域的较简单的排序算法。
 
-* **进一步思考**：
+它重复地走访过要排序的元素列，依次比较两个相邻的元素，如果他们的顺序（如从大到小、首字母从 A 到 Z）错误就把他们交换过来。走访元素的工作是重复地进行直到没有相邻元素需要交换，也就是说该元素列已经排序完成。
+
+在本题中：
+
+```js
+if (nums[j + 1] !== 0 && nums[j] === 0) {
+  nums[j] = nums[j + 1];
+  nums[j + 1] = 0;
+}
+```
+
+如果当前的数字为 0，且它后面的那个数字不为 0，则把这个 0 往后移。
+
+直到 0 都移动到了后面为止。
 
 ---
 
