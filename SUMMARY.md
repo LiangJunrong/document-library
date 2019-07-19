@@ -181,6 +181,7 @@
       * [278 - 第一个错误的版本（first-bad-version） ✔](./other-library/LeetCode/easy/278-第一个错误的版本（first-bad-version）.md)
       * [283 - 移动零（move-zeroes） ✔](./other-library/LeetCode/easy/283-移动零（move-zeroes）.md)
       * [290 - 单词规律（word-pattern） ✔](./other-library/LeetCode/easy/290-单词规律（word-pattern）.md)
+      * [292 - Nim游戏（nim-game） ✔](./other-library/LeetCode/easy/292-Nim游戏（nim-game）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
