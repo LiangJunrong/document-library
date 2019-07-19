@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-19 10:08:17**  
-> Recently revised in **2019-07-19 10:08:21**
+> Recently revised in **2019-07-19 11:37:57**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,11 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 知识点](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 解题思路](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 进一步思考](#chapter-eight) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -48,81 +52,125 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var solution = function (isBadVersion) {
+  return function (n) {
+    let i = 1,
+        j = n;
+    while (i <= j) {
+      let mid = parseInt((j - i) / 2) + i;
+      if (isBadVersion(mid)) {
+        j = mid - 1;
+      } else {
+        i = mid + 1;
+      }
+    }
+    return i;
+  };
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">五 LeetCode Submit</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
-
 ```js
-
+✔ Accepted
+  ✔ 22/22 cases passed (60 ms)
+  ✔ Your runtime beats 99.6 % of javascript submissions
+  ✔ Your memory usage beats 40 % of javascript submissions (33.7 MB)
 ```
 
-* **执行测试**：
+## <a name="chapter-five" id="chapter-five">六 知识点</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> [返回目录](#chapter-one)
+
+1. `parseInt()`：`parseInt(string, radix)`，`string` 为字符串，`radix` 为介于 2-36 之间的数。使用者告诉这个函数 `string`（比如 11）是 `radix`（比如 2 ）进制的，函数将固定返回 `string` 以十进制时显示的数（3）。[`parseInt()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/parseInt.md)
+
+## <a name="chapter-six" id="chapter-six">七 解题思路</a>
+
+> [返回目录](#chapter-one)
+
+**三分天下，二分算法**。
+
+**首先**，今天先回顾下二分法：
+
+> [1, 2, 3, 4, 5]
+
+假设有个数组如上所示，我们需要快速定位 4 的位置。
+
+如果我们通过遍历，那么需要走的路是：1 -> 2 -> 3 -> 4。
+
+那么使用二分法怎么查找呢？3 -> 4。
+
+怎么理解呢？二分法，就是不停地比较目标和中间数：
+
+1. 目标 4。先获取数组 `[1,2,3,4,5]` 的中间值，即 3。跟 4 进行比较，而 3 比 4 小，所以数组范围缩小为：`[3,4,5]`。
+2. 目标 4。再对数组 `[3,4,5]` 进行中间值对比，即 4。跟 4 进行比较，刚好找到值，从而返回结果。
+
+这样，小伙伴们应该清楚二分法了。
+
+**然后**，咱们根据题意，结合二分法进行解析：
 
 ```js
-
+var solution = function (isBadVersion) {
+  return function (n) {
+    let i = 1,
+        j = n;
+    while (i <= j) {
+      let mid = parseInt((j - i) / 2) + i;
+      if (isBadVersion(mid)) {
+        j = mid - 1;
+      } else {
+        i = mid + 1;
+      }
+    }
+    return i;
+  };
+};
 ```
 
-* **LeetCode Submit**：
+假设有 `[1, 2, 3, 4, 5]` 共 5 个版本，然后我们先取中，通过 `isBadVersion(3)` 判断，返回 `false`，即这个版本是没有错误的版本，所以数组缩短到 `[4, 5]`。
+
+这时候，`i = 4, j = 5`，计算出 `mid = 4`，这时候 `isBadVersion(4)` 返回 `true`，所以数组变成 `[4, 4]`。
+
+到此，`i === j`，所以还要再执行一次循环，从而得到结果：`i = 4, j = 3`，从而得到结果为 `4`。
+
+**最后**，我们将 `4` 给返回出去即可。
+
+## <a name="chapter-seven" id="chapter-seven">八 进一步思考</a>
+
+> [返回目录](#chapter-one)
+
+小伙伴可能还抱有幻想，我们直接遍历也是可行的啊：
 
 ```js
-
+var solution = function (isBadVersion) {
+	return function (n) {
+		for (let i = 1; i < n; i++) {
+			if (isBadVersion(i)) {
+				return i;
+			}
+		}
+		return n;
+	};
+};
 ```
 
-* **知识点**：
+抱歉，LeetCode 就是来打击你的，人家的版本提交了 `2126753390` 次，错误的在 `1702766719` 版本，然后毫不客气地告诉你：
 
-1. 
+```js
+✘ Time Limit Exceeded
+  ✘ 11/22 cases passed (N/A)
+  ✘ testcase: '2126753390\n1702766719'
+  ✘ answer: 
+  ✘ expected_answer: 
+  ✘ stdout:
+```
 
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
+**尊敬的 LeetCode 官方，请告诉我，哪家的版本有这么多了，从远古时代开始提交的么？！**
 
 ---
 
