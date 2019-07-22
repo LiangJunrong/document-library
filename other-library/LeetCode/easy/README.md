@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-22 18:56:10**
+> Recently revised in **2019-07-22 19:25:08**
 
 LeetCode 简单难度攻略
 
@@ -80,6 +80,7 @@ LeetCode 简单难度攻略
 | 303 - 区域和检索之数组不可变（range-sum-query-immutable） | [#303 解题](./303-区域和检索之数组不可变（range-sum-query-immutable）.md) |
 | 326 - 3的幂（power-of-three） | [#326 解题](./326-3的幂（power-of-three）.md) |
 | 342 - 4的幂（power-of-four） | [#342 解题](./342-4的幂（power-of-four）.md) |
+| 344 - 反转字符串（reverse-string） | [#344 解题](./344-反转字符串（reverse-string）.md) |
 
 ---
 
