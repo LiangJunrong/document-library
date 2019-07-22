@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-22 18:43:57**  
-> Recently revised in **2019-07-22 18:44:01**
+> Recently revised in **2019-07-22 18:54:48**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -49,19 +49,27 @@ Follow up: Could you solve it without loops/recursion?
 * **解题代码**：
 
 ```js
-
+var isPowerOfFour = function(num) {
+  while (num > 4) {
+    num = num / 4;
+  }
+  if (num === 4 || num === 1) {
+    return true;
+  } else {
+    return false;
+  }
+};
 ```
 
 ## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `num`：`64`
+2. `return`：
 
 ```js
-
+true
 ```
 
 ## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
@@ -69,14 +77,20 @@ Follow up: Could you solve it without loops/recursion?
 > [返回目录](#chapter-one)
 
 ```js
-
+Success
+Runtime: 72 ms, faster than 68.45% of JavaScript online submissions for Power of Four.
+Memory Usage: 35.5 MB, less than 98.97% of JavaScript online submissions for Power of Four.
 ```
 
 ## <a name="chapter-six" id="chapter-six">六 解题思路</a>
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，刚好看到 LeetCode 崩溃的一幕，所以去英文官网找题做了。
+
+**然后**，这道题的题解跟 231-2的幂 以及 326-3的幂 重复了，感觉 LeetCode 是不是有点黔驴技穷。
+
+**最后**，这道题的题解即是通过循环得到最终数，判断是否为 4 或者 1 即可。
 
 ---
 
