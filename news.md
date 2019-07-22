@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-22 18:27:33**
+> Recently revised in **2019-07-22 18:56:56**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-07-22
 
-* [x] **链接**：[LeetCode - 326 - 3的幂](./other-library/LeetCode/easy/326-3的幂（power-of-three）.md)
+* [x] **链接**：[LeetCode - 342 - 4的幂](./other-library/LeetCode/easy/342-4的幂（power-of-four）.md)
 
 ## 历史
 
+* [x] [LeetCode - 326 - 3的幂](./other-library/LeetCode/easy/326-3的幂（power-of-three）.md)
 * [x] [LeetCode - 303 - 区域和检索之数组不可变](./other-library/LeetCode/easy/303-区域和检索之数组不可变（range-sum-query-immutable）.md)
 * [x] [LeetCode - 292 - Nim游戏](./other-library/LeetCode/easy/292-Nim游戏（nim-game）.md)
 * [x] [LeetCode - 290 - 单词规律](./other-library/LeetCode/easy/290-单词规律（word-pattern）.md)
