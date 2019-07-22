@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-22 17:59:48**
+> Recently revised in **2019-07-22 18:56:10**
 
 LeetCode 简单难度攻略
 
@@ -79,6 +79,7 @@ LeetCode 简单难度攻略
 | 292 - Nim游戏（nim-game） | [#292 解题](./292-Nim游戏（nim-game）.md) |
 | 303 - 区域和检索之数组不可变（range-sum-query-immutable） | [#303 解题](./303-区域和检索之数组不可变（range-sum-query-immutable）.md) |
 | 326 - 3的幂（power-of-three） | [#326 解题](./326-3的幂（power-of-three）.md) |
+| 342 - 4的幂（power-of-four） | [#342 解题](./342-4的幂（power-of-four）.md) |
 
 ---
 
