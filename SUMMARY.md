@@ -184,6 +184,7 @@
       * [292 - Nim游戏（nim-game） ✔](./other-library/LeetCode/easy/292-Nim游戏（nim-game）.md)
       * [303 - 区域和检索之数组不可变（range-sum-query-immutable） ✔](./other-library/LeetCode/easy/303-区域和检索之数组不可变（range-sum-query-immutable）.md)
       * [326 - 3的幂（power-of-three） ✔](./other-library/LeetCode/easy/326-3的幂（power-of-three）.md)
+      * [342 - 4的幂（power-of-four）](./other-library/LeetCode/easy/342-4的幂（power-of-four）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
