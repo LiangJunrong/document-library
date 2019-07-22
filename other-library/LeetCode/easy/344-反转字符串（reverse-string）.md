@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-22 19:06:50**  
-> Recently revised in **2019-07-22 19:06:53**
+> Recently revised in **2019-07-22 19:24:28**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
+| &emsp;[3.2 解法 - 双指针](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -53,74 +54,105 @@
 * **解题代码**：
 
 ```js
-
+var reverseString = function(s) {
+  return s.reverse();
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `s`：`['h', 'e', 'l', 'l', 'o']`
+2. `return`：
 
 ```js
-
+['o', 'l', 'l', 'e', 'h']
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 478/478 cases passed (168 ms)
+  ✔ Your runtime beats 92.8 % of javascript submissions
+  ✔ Your memory usage beats 22.13 % of javascript submissions (47 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `reverse()`：`reverse()` 方法将数组中元素的位置颠倒,并返回该数组。该方法会改变原数组。[`reverse()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/reverse.md)
 
 * **解题思路**：
 
-[图]
+**看到这道题的第一眼，我就觉得非常熟悉，我是否曾经做过？**
 
-[分析]
+然后我仔细审了下题：反转数组、原地操作。
+
+所以我直接上了代码：
+
+```js
+var reverseString = function(s) {
+  return s.reverse();
+};
+```
+
+最后就告诉我提交成功了，enm...是我变强了还是 LeetCode 的简单类型的题目重复了？
 
 * **进一步思考**：
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+如果不使用 JS 原生 API，有其他解法吗？
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 双指针</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var reverseString = function(s) {
+  for (let i = 0; i < (s.length - 1) / 2; i++) {
+    let temp = s[s.length - 1 - i];
+    s[s.length - 1 - i] = s[i];
+    s[i] = temp;
+  }
+  return s;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `s`：`['h', 'e', 'l', 'l', 'o']`
+2. `return`：
 
 ```js
-
+['o', 'l', 'l', 'e', 'h']
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 478/478 cases passed (152 ms)
+  ✔ Your runtime beats 98.85 % of javascript submissions
+  ✔ Your memory usage beats 65.2 % of javascript submissions (46.6 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+**首先**，我们想到头尾调转。
 
-[分析]
+当我们有数组：`['0', '1', '2', '3', '4']` 的时候，我们需要调转的是：
 
-* **进一步思考**：
+* `'0'` 和 `'4'`
+* `'1'` 和 `'3'`
+
+**然后**，它们转换成编程来讲，即是：
+
+* `'0'` 和 `'4'`：`i === 0`，`j === s.length - 1 - i`
+* `'1'` 和 `'3'`：`i === 1`，`j === s.length - 1 - i`
+
+OK，顺势推导，我们就可以完成这道题的题解。
+
+**最后**，返回不返回 `s` 都是 OK 的，因为它要求的是原地遍历，最终 LeetCode 会取传进去的参数 `s` 进行查看。
 
 ---
 
