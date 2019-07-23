@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-23 15:16:40**  
-> Recently revised in **2019-07-23 15:16:43**
+> Recently revised in **2019-07-23 15:52:36**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,10 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 知识点](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 解题思路](#chapter-seven) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -51,81 +54,86 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var intersect = function(nums1, nums2) {
+  let result = [];
+  nums1.forEach(value => {
+    let index = nums2.indexOf(value);
+    if (index > -1) {
+      result.push(value);
+      nums2.splice(index, 1);
+    }
+  })
+  return result;
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
-
-```js
-
-```
-
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
+1. `nums1`：`[4, 9, 5]`
+2. `nums2`：`[9, 4, 9, 8, 4]`
 3. `return`：
 
 ```js
-
+[ 4, 9 ]
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 61/61 cases passed (76 ms)
+  ✔ Your runtime beats 96.61 % of javascript submissions
+  ✔ Your memory usage beats 63.3 % of javascript submissions (34.4 MB)
 ```
 
-* **知识点**：
+## <a name="chapter-six" id="chapter-six">六 知识点</a>
 
-1. 
+> [返回目录](#chapter-one)
 
-* **解题思路**：
+1. `forEach()`：`forEach()` 方法对数组的每个元素执行一次提供的函数。[`forEach()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/forEach.md)
+2. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf.md)
+3. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
+4. `splice()`：`splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。[`splice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/splice.md)
 
-[图]
+## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
-[分析]
+> [返回目录](#chapter-one)
 
-* **进一步思考**：
+**首先**，这道题和 **349-两个数组的交集（intersection-of-two-arrays）** 没有任何区别，顶多就是多了个进阶。
+
+**然后**，看了下这道题的【评论】，找了条更简单的解法：
+
+```js
+var intersect = function(nums1, nums2) {
+  let result = [];
+  nums1.forEach(value => {
+    let index = nums2.indexOf(value);
+    if (index > -1) {
+      result.push(value);
+      nums2.splice(index, 1);
+    }
+  })
+  return result;
+};
+```
+
+它的主要思路是：
+
+1. 使用 `result` 来存储最终结果。
+2. 通过 `forEach` 遍历数组 `nums1`。
+3. 判断数组 `nums2` 中是否存在与 `nums1` 相同的值 `value`，即 `indexOf()` 后的值是否大于 `-1`，大于表明存在。
+4. 如果存在 `value`，那么就将其添加到最终结果 `result` 中去，并且切割 `nums2` 中的这个元素，避免 `result` 数组中数据重复。（例如：`[1,2,2,1]` 和 `[2]`，会得出 `[2,2]` 这个错误答案）
+
+**最后**，将结果返回出去即可。
+
+除此之外，**jsliang** 没有看到更优秀的思路了，所以这里就不提供其他解了，小伙伴们如果看到，可以评论或者留言哈~
 
 ---
 
