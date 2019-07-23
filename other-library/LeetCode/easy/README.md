@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-23 15:53:21**
+> Recently revised in **2019-07-23 16:49:07**
 
 LeetCode 简单难度攻略
 
@@ -84,6 +84,7 @@ LeetCode 简单难度攻略
 | 345 - 反转字符串中的元音字母（reverse-vowels-of-a-string） | [#344 解题](./345-反转字符串中的元音字母（reverse-vowels-of-a-string）.md) |
 | 349 - 两个数组的交集（intersection-of-two-arrays） | [#349 解题](./349-两个数组的交集（intersection-of-two-arrays）.md) |
 | 350 - 两个数组的交集II（intersection-of-two-arrays-ii） | [#350 解题](./350-两个数组的交集II（intersection-of-two-arrays-ii）.md) |
+| 367 - 有效的完全平方数（valid-perfect-square） | [#367 解题](./367-有效的完全平方数（valid-perfect-square）.md) |
 
 ---
 
