@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-23 10:11:48**  
-> Recently revised in **2019-07-23 10:11:51**
+> Recently revised in **2019-07-23 11:40:16**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -46,81 +46,113 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - Set</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var intersection = function(nums1, nums2) {
+  return [...new Set(nums1.filter(item => new Set(nums2).has(item)))];
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `nums1`：`[4, 9, 5]`
+2. `nums2`：`[9, 4, 9, 8, 4]`
 3. `return`：
 
 ```js
-
+[ 4, 9 ]
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 60/60 cases passed (312 ms)
+  ✔ Your runtime beats 5.95 % of javascript submissions
+  ✔ Your memory usage beats 5.11 % of javascript submissions (40 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `filter()`：`filter()` 方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。[`filter()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/filter.md)
+2. `Set`：`Set` 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。[`Set` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Set.md)
 
 * **解题思路**：
 
-[图]
+**最差的 Submit，可能出自最简洁的代码。**
 
-[分析]
+1. 取交集：`nums1.filter(item => new Set(nums2).has(item))`
+2. 去重：`[...new Set(arr)]`
 
-* **进一步思考**：
+这样，就可以取到去重的两个数组的交集，从而完成解题。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var intersection = function(nums1, nums2) {
+  let map = new Map();
+  let result = [];
+  for (let i = 0; i < nums1.length; i++) {
+    map.set(nums1[i], i);
+  }
+  for (let j = 0; j < nums2.length; j++) {
+    if (map.get(nums2[j]) !== undefined && result.indexOf(nums2[j]) === -1) {
+      result.push(nums2[j]);
+    }
+  }
+  return result;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `nums1`：`[4, 9, 5]`
+2. `nums2`：`[9, 4, 9, 8, 4]`
 3. `return`：
 
 ```js
-
+[ 4, 9 ]
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 60/60 cases passed (72 ms)
+  ✔ Your runtime beats 97.22 % of javascript submissions
+  ✔ Your memory usage beats 26.87 % of javascript submissions (35.2 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
+2. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
+3. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf.md)
 
 * **解题思路**：
 
-[图]
+既然前面使用了内置函数 `Set`，那么再推荐下 `Map` 无可厚非。
 
-[分析]
+`Map` 作为 JS 的内置函数，可用来做哈希表的题解。
+
+在本题中，我们将 `nums1` 的值，都存储到 `Map` 中。
+
+然后，遍历 `nums2`，如果 `Map` 中包含这个元素，并且数组 `result` 中不存在这个元素，我们就将它存入到数组中。
+
+最后，根据前面的步骤，我们做到了去重 + 取交集。
 
 * **进一步思考**：
+
+使用 `Map` 或者 `Set` 肯定不是唯一的两个解，还有更多的其他解，就需要小伙伴个人挖掘了~
 
 ---
 
