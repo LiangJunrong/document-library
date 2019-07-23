@@ -193,6 +193,7 @@
       * [350 - 两个数组的交集II（intersection-of-two-arrays-ii） ✔](./other-library/LeetCode/easy/350-两个数组的交集II（intersection-of-two-arrays-ii）.md)
       * [367 - 有效的完全平方数（valid-perfect-square） ✔](./other-library/LeetCode/easy/367-有效的完全平方数（valid-perfect-square）.md)
       * [371 - 两整数之和（sum-of-two-integers） ✔](./other-library/LeetCode/easy/371-两整数之和（sum-of-two-integers）.md)
+      * [383 - 赎金信（ransom-note） ✔](./other-library/LeetCode/easy/383-赎金信（ransom-note）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
