@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-23 17:01:33**  
-> Recently revised in **2019-07-23 17:01:36**
+> Recently revised in **2019-07-23 17:14:46**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,9 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -42,81 +44,98 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var getSum = function (a, b) {
+  var sum = a ^ b;
+  var carry = (a & b) << 1;
+  while (carry) {
+    var temp = sum;
+    sum ^= carry;
+    carry = (temp & carry) << 1;
+  }
+  return sum;
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
-
-```js
-
-```
-
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
+1. `a`：`1`
+2. `b`：`2`
 3. `return`：
 
 ```js
-
+3
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 13/13 cases passed (92 ms)
+  ✔ Your runtime beats 27.45 % of javascript submissions
+  ✔ Your memory usage beats 98.92 % of javascript submissions (33.3 MB)
 ```
 
-* **知识点**：
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
 
-1. 
+> [返回目录](#chapter-one)
 
-* **解题思路**：
+**首先**，恕我愚钝，上来就是破坏题意：
 
-[图]
+```js
+var getSum = function(a, b) {
+  return a + b;
+};
+```
 
-[分析]
+得到 Submit：
 
-* **进一步思考**：
+```js
+✔ Accepted
+  ✔ 13/13 cases passed (104 ms)
+  ✔ Your runtime beats 20.91 % of javascript submissions
+  ✔ Your memory usage beats 98.92 % of javascript submissions (33.3 MB)
+```
+
+居然还成功了，虽然在面试中，可能第一个会被淘汰掉的吧……
+
+因为……我不会位运算啊！！！
+
+**然后**，还是看看大佬怎么做的吧：
+
+```js
+var getSum = function (a, b) {
+  /* 按位与：只有两个操作数中相应位为 1 结果才为 1，其余情况结果为 0。
+   * 按位异或：只有两个操作数同时为 1 或为 0 结果为 0，其余情况结果为 1。
+   * + 运算符：两操作数同时为 1 结果为 0 并进位 1，其余为 0。
+   */
+  var sum = a ^ b;
+  var carry = (a & b) << 1;
+  while (carry) {
+    var temp = sum;
+    sum ^= carry;
+    carry = (temp & carry) << 1;
+  }
+  return sum;
+};
+```
+
+Submit 后：
+
+```js
+✔ Accepted
+  ✔ 13/13 cases passed (92 ms)
+  ✔ Your runtime beats 27.45 % of javascript submissions
+  ✔ Your memory usage beats 98.92 % of javascript submissions (33.3 MB)
+```
+
+**最后**，咱就不做过多评论啦，毕竟 **位运算** 这个点，**jsliang** 还是太薄弱了（毕竟工作中几乎不会用到啊）。
 
 ---
 
