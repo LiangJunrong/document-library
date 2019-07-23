@@ -188,6 +188,7 @@
       * [342 - 4的幂（power-of-four） ✔](./other-library/LeetCode/easy/342-4的幂（power-of-four）.md)
       * [344 - 反转字符串（reverse-string） ✔](./other-library/LeetCode/easy/344-反转字符串（reverse-string）.md)
       * [345 - 反转字符串中的元音字母（reverse-vowels-of-a-string） ✔](./other-library/LeetCode/easy/345-反转字符串中的元音字母（reverse-vowels-of-a-string）.md)
+      * [349 - 两个数组的交集（intersection-of-two-arrays） ✔](./other-library/LeetCode/easy/349-两个数组的交集（intersection-of-two-arrays）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
