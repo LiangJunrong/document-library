@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-23 15:54:06**
+> Recently revised in **2019-07-23 16:49:45**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-07-23
 
-* [x] **链接**：[LeetCode - 350 - 两个数组的交集II](./other-library/LeetCode/easy/350-两个数组的交集II（intersection-of-two-arrays-ii）.md)
+* [x] **链接**：[LeetCode - 367 - 有效的完全平方数](./other-library/LeetCode/easy/367-有效的完全平方数（valid-perfect-square）.md)
 
 ## 历史
 
+* [x] [LeetCode - 350 - 两个数组的交集II](./other-library/LeetCode/easy/350-两个数组的交集II（intersection-of-two-arrays-ii）.md)
 * [x] [LeetCode - 349 - 两个数组的交集](./other-library/LeetCode/easy/349-两个数组的交集（intersection-of-two-arrays）.md)
 * [x] [LeetCode - 345 - 反转字符串中的元音字母](./other-library/LeetCode/easy/345-反转字符串中的元音字母（reverse-vowels-of-a-string）.md)
 * [x] [LeetCode - 344 - 反转字符串](./other-library/LeetCode/easy/344-反转字符串（reverse-string）.md)
