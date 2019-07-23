@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-23 19:59:05**
+> Recently revised in **2019-7-23 22:49:37**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-07-23
 
-* [x] **链接**：[LeetCode - 387 - 字符串中的第一个唯一字符](./other-library/LeetCode/easy/387-字符串中的第一个唯一字符（first-unique-character-in-a-string）.md)
+* [x] **链接**：[LeetCode - 389 - 找不同](./other-library/LeetCode/easy/389-找不同（find-the-difference）.md)
 
 ## 历史
 
+* [x] [LeetCode - 387 - 字符串中的第一个唯一字符](./other-library/LeetCode/easy/387-字符串中的第一个唯一字符（first-unique-character-in-a-string）.md)
 * [x] [LeetCode - 383 - 赎金信](./other-library/LeetCode/easy/383-赎金信（ransom-note）.md)
 * [x] [LeetCode - 371 - 两整数之和](./other-library/LeetCode/easy/371-两整数之和（sum-of-two-integers）.md)
 * [x] [LeetCode - 367 - 有效的完全平方数](./other-library/LeetCode/easy/367-有效的完全平方数（valid-perfect-square）.md)
