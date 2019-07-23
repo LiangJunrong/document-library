@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-23 17:15:56**
+> Recently revised in **2019-07-23 19:36:23**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-07-23
 
-* [x] **链接**：[LeetCode - 371 - 两整数之和](./other-library/LeetCode/easy/371-两整数之和（sum-of-two-integers）.md)
+* [x] **链接**：[LeetCode - 383 - 赎金信(./other-library/LeetCode/easy/383-赎金信（ransom-note）.md)
 
 ## 历史
 
+* [x] [LeetCode - 371 - 两整数之和](./other-library/LeetCode/easy/371-两整数之和（sum-of-two-integers）.md)
 * [x] [LeetCode - 367 - 有效的完全平方数](./other-library/LeetCode/easy/367-有效的完全平方数（valid-perfect-square）.md)
 * [x] [LeetCode - 350 - 两个数组的交集II](./other-library/LeetCode/easy/350-两个数组的交集II（intersection-of-two-arrays-ii）.md)
 * [x] [LeetCode - 349 - 两个数组的交集](./other-library/LeetCode/easy/349-两个数组的交集（intersection-of-two-arrays）.md)
