@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-23 16:05:55**  
-> Recently revised in **2019-07-23 16:05:58**
+> Recently revised in **2019-07-23 16:47:48**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
+| &emsp;[3.2 解法 - 二分法](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -51,74 +52,131 @@
 * **解题代码**：
 
 ```js
-
+var isPerfectSquare = function(num) {
+  if (num === 1) {
+    return true;
+  }
+  for (let i = 1; i < num / 2 + 1; i++) {
+    if (i * i === num) {
+      return true;
+    }
+  }
+  return false;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `num`：`16`
+2. `return`：
 
 ```js
-
+true
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 68/68 cases passed (1756 ms)
+  ✔ Your runtime beats 14.34 % of javascript submissions
+  ✔ Your memory usage beats 7 % of javascript submissions (34.7 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+**最简单的想法往往是最暴力的。**
 
-[分析]
+**首先**，看到题目，明晰题意，什么数符合完全平方数？
 
-* **进一步思考**：
+1. 由某个整数的平方得出的数。
+2. 它的底数不能是 1，且大于等于 2。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
+> 并且，不要使用任何内置的库函数，如 `sqrt`。
+
+**然后**，我们直接暴力解题：
+
+```js
+for (let i = 1; i < num / 2 + 1; i++) {
+ if (i * i === num) {
+   return true;
+ }
+}
+return false;
+```
+
+1. 遍历一半的想法是，最小的完全平方数为 4，4 = 2 * 2。而 4 之后，它们的底数都小于它们的一半，例如 9 = 3 * 3、16 = 4 * 4……都是小于它们的一半。
+2. 如果它等于 `i * i`，那么它就是一个完全平方数。
+
+**最后**，返回相应的 `true` 或者 `false` 即可。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 二分法</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var isPerfectSquare = function(num) {
+  if (num === 1) {
+    return true;
+  }
+  let left = 1;
+  let right = num / 2 + 1;
+  while (left < right) {
+    let middle = Math.round((left + right) / 2);
+    if (middle === right) {
+      return false;
+    }
+    if (middle * middle < num) {
+      left = middle;
+    } else if (middle * middle > num) {
+      right = middle;
+    } else {
+      return true;
+    }
+  }
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `num`：`16`
+2. `return`：
 
 ```js
-
+true
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 68/68 cases passed (72 ms)
+  ✔ Your runtime beats 86.82 % of javascript submissions
+  ✔ Your memory usage beats 78 % of javascript submissions (33.5 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
 
 * **解题思路**：
 
-[图]
+**首先**，值得声明的是，这不是使用 `sqrt()` 直接求解，而是使用了 `Math.round()`，应该不算破坏了这道题的本意。
 
-[分析]
+**然后**，我们想到使用 **二分法** 进行求解，**二分法求解** 是什么思路呢？
 
-* **进一步思考**：
+> 假设数字为 14。
+
+1. 按照解法 1 的思路，我们设置限制为 `[1, 8]`（8 === 14 / 2 + 1，[1, 8] 代表闭区间）。此时，它们的中间数为 5（`Math.round(4.5)`），而 `5 * 5 > 14`，所以我们将右边数字往左移，即限制变为 `[1, 5]`。
+2. 此时限制为 `[1, 5]`，它们的中间数为 3，而 `3 * 3 < 14`，所以左边数字往右移，即限制变为 `[3, 5]`。
+3. 此时限制为 `[3, 5]`，它们的中间数为 4，而 `4 * 4 > 14`，所以右边数字往左移，即限制变为 `[3, 4]`。
+4. 此时限制为 `[3, 4]`，它们的中间数为 4，因为它跟右边限制相同了（即接下来它会无限循环，达到了二分最佳值），所以我们可以判断这个数不是完全平方数（`return false`）。
+
+> 如果小伙伴有兴趣，可以想想 16 的二分判断。
+
+**最后**，我们成功使用二分法求解。
 
 ---
 
