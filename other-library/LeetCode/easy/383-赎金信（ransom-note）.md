@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-23 18:53:59**  
-> Recently revised in **2019-07-23 18:54:02**
+> Recently revised in **2019-07-23 19:35:24**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,7 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解题 - 转数组](#chapter-three) |
+| &emsp;[3.1 解法 - Map](#chapter-three-one) |
+| &emsp;[3.2 解法 - 暴力破解](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -46,43 +47,141 @@ canConstruct("aa", "aab") -> true
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - Map</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var canConstruct = function(ransomNote, magazine) {
+  ransomNote = ransomNote.split('');
+  magazine = magazine.split('');
+  let map = new Map();
+  ransomNote.forEach(item => {
+    if (map.get(item) !== undefined) {
+      map.set(item, map.get(item) + 1);
+    } else {
+      map.set(item, 1);
+    }
+  })
+  magazine.forEach(item => {
+    if (map.get(item) !== undefined) {
+      map.set(item, map.get(item) - 1);
+      if (map.get(item) === 0) {
+        map.delete(item);
+      } 
+    }
+  })
+  return map.size === 0;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `ransomNote`：`aa`
+2. `magazine`：`aab`
 3. `return`：
 
 ```js
-
+true
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 126/126 cases passed (100 ms)
+  ✔ Your runtime beats 91 % of javascript submissions
+  ✔ Your memory usage beats 42.11 % of javascript submissions (37.8 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
+2. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
+3. `forEach()`：`forEach()` 方法对数组的每个元素执行一次提供的函数。[`forEach()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/forEach.md)
 
 * **解题思路**：
 
-[图]
+**首先**，尝试了下暴力破解：
 
-[分析]
+```js
+var canConstruct = function(ransomNote, magazine) {
+  ransomNote = ransomNote.split('');
+  magazine = magazine.split('');
+  for (let i = 0; i < ransomNote.length; i++) {
+    for (let j = 0; j < magazine.length; j++) {
+      if (ransomNote[i] === magazine[j]) {
+        ransomNote.splice(i, 1);
+        magazine.splice(j, 1);
+        i--;
+        j--;
+      }
+    }
+  }
+  return ransomNote.length === 0;
+};
+```
 
-* **进一步思考**：
+Submit 发现被无情否掉了：
+
+```js
+✘ Time Limit Exceeded
+  ✘ 114/126 cases passed (N/A)
+  ✘ testcase: '"ajbejfcgea。。。省略后面","jfcgea。。。省略后面"'
+  ✘ answer: 
+  ✘ expected_answer: 
+  ✘ stdout:
+```
+
+**然后**，仔细思考了下，暴力是行不通了，遍历耗时太多，那么可不可以用空间换时间，使用 `Map` 进行哈希表记忆呢？
+
+```js
+var canConstruct = function(ransomNote, magazine) {
+  ransomNote = ransomNote.split('');
+  magazine = magazine.split('');
+  let map = new Map();
+  ransomNote.forEach(item => {
+    if (map.get(item) !== undefined) {
+      map.set(item, map.get(item) + 1);
+    } else {
+      map.set(item, 1);
+    }
+  })
+  magazine.forEach(item => {
+    if (map.get(item) !== undefined) {
+      map.set(item, map.get(item) - 1);
+      if (map.get(item) === 0) {
+        map.delete(item);
+      } 
+    }
+  })
+  return map.size === 0;
+};
+```
+
+> 中间尝试了 n 遍后……
+
+Submit 试试：
+
+```js
+✔ Accepted
+  ✔ 126/126 cases passed (100 ms)
+  ✔ Your runtime beats 91 % of javascript submissions
+  ✔ Your memory usage beats 42.11 % of javascript submissions (37.8 MB)
+```
+
+OK 成功破解！
+
+顺带讲解下主要思路：
+
+1. 将两个字符串 `'aa'`、`'aab'` 切割成数组：`['a', 'a']`、`['a', 'a', 'b']`
+2. 第一个 `forEach` 将其中元素及其出现次数记录到 `Map` 中。
+3. 第二个 `forEach` 进行出现次数递减，如果次数为 0 的时候，删除这个元素。
+4. 最后判断 `Map` 的长度即可。
+
+**最后**，我们再思考下，还有其他方法吗？
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解</a>
 
@@ -91,36 +190,96 @@ canConstruct("aa", "aab") -> true
 * **解题代码**：
 
 ```js
-
+var canConstruct = function (ransomNote, magazine) {
+  magazine = magazine.split('');
+  for (let i = 0; i < ransomNote.length; i++) {
+    if (magazine.indexOf(ransomNote[i]) != -1) {
+      magazine.splice(magazine.indexOf(ransomNote[i]), 1)
+    } else {
+      return false;
+    }
+  }
+  return true;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `ransomNote`：`aa`
+2. `magazine`：`aab`
 3. `return`：
 
 ```js
-
+true
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 126/126 cases passed (108 ms)
+  ✔ Your runtime beats 81 % of javascript submissions
+  ✔ Your memory usage beats 31.05 % of javascript submissions (39.1 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
+2. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf.md)
+3. `splice()`：`splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。[`splice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/splice.md)
 
 * **解题思路**：
 
-[图]
+**首先**，看到评论区的这道题解，内心感情非常丰富：还记得前面的题解吗？
 
-[分析]
+```js
+var canConstruct = function(ransomNote, magazine) {
+  ransomNote = ransomNote.split('');
+  magazine = magazine.split('');
+  for (let i = 0; i < ransomNote.length; i++) {
+    for (let j = 0; j < magazine.length; j++) {
+      if (ransomNote[i] === magazine[j]) {
+        ransomNote.splice(i, 1);
+        magazine.splice(j, 1);
+        i--;
+        j--;
+      }
+    }
+  }
+  return ransomNote.length === 0;
+};
+```
 
-* **进一步思考**：
+这里我们使用了两次遍历，所以超时了。
+
+超时之后，我们立马更换了使用 `Map` 来做哈希表，从而解决了这道题。
+
+而看到评论区的这个题解，则是优化了我这个超时的代码：
+
+```js
+var canConstruct = function (ransomNote, magazine) {
+  magazine = magazine.split('');
+  for (let i = 0; i < ransomNote.length; i++) {
+    if (magazine.indexOf(ransomNote[i]) != -1) {
+      magazine.splice(magazine.indexOf(ransomNote[i]), 1)
+    } else {
+      return false;
+    }
+  }
+  return true;
+};
+```
+
+大佬的想法是：
+
+1. 将字符串 `magazine` 拆分成数组。
+2. 遍历 `ransomNote`，判断它每个字符串是否存在于 `magazine` 中。如果存在，则删掉 `magazine` 中的这个元素（相当于杂志剪去这个字母，防止杂志中的字母不够用）；如果不存在，表明 `magazine` 杂志的单词不够完成写赎金信。
+
+这样，就完成了我的想法的优化。
+
+* **结论**
+
+有时候你完成不了的，你可以换一个思路，也可以就原本思路进行优化，不要因为限制了，所以感觉苦恼，无法前行。
 
 ---
 
