@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-23 16:49:07**
+> Recently revised in **2019-07-23 17:15:21**
 
 LeetCode 简单难度攻略
 
@@ -85,6 +85,7 @@ LeetCode 简单难度攻略
 | 349 - 两个数组的交集（intersection-of-two-arrays） | [#349 解题](./349-两个数组的交集（intersection-of-two-arrays）.md) |
 | 350 - 两个数组的交集II（intersection-of-two-arrays-ii） | [#350 解题](./350-两个数组的交集II（intersection-of-two-arrays-ii）.md) |
 | 367 - 有效的完全平方数（valid-perfect-square） | [#367 解题](./367-有效的完全平方数（valid-perfect-square）.md) |
+| 371 - 两整数之和（sum-of-two-integers） | [#371 解题](./371-两整数之和（sum-of-two-integers）.md) |
 
 ---
 
