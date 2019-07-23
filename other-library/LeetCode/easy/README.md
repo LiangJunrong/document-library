@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-23 19:35:54**
+> Recently revised in **2019-07-23 19:58:29**
 
 LeetCode 简单难度攻略
 
@@ -87,6 +87,7 @@ LeetCode 简单难度攻略
 | 367 - 有效的完全平方数（valid-perfect-square） | [#367 解题](./367-有效的完全平方数（valid-perfect-square）.md) |
 | 371 - 两整数之和（sum-of-two-integers） | [#371 解题](./371-两整数之和（sum-of-two-integers）.md) |
 | 383 - 赎金信（ransom-note） | [#383 解题](./383-赎金信（ransom-note）.md) |
+| 387 - 字符串中的第一个唯一字符（first-unique-character-in-a-string） | [#387 解题](./387-字符串中的第一个唯一字符（first-unique-character-in-a-string）.md) |
 
 ---
 
