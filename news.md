@@ -8,7 +8,7 @@
 
 ## 2019-07-23
 
-* [x] **链接**：[LeetCode - 383 - 赎金信(./other-library/LeetCode/easy/383-赎金信（ransom-note）.md)
+* [x] **链接**：[LeetCode - 383 - 赎金信](./other-library/LeetCode/easy/383-赎金信（ransom-note）.md)
 
 ## 历史
 
