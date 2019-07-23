@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-7-23 09:04:46**
+> Recently revised in **2019-07-23 11:41:14**
 
 LeetCode 简单难度攻略
 
@@ -82,6 +82,7 @@ LeetCode 简单难度攻略
 | 342 - 4的幂（power-of-four） | [#342 解题](./342-4的幂（power-of-four）.md) |
 | 344 - 反转字符串（reverse-string） | [#344 解题](./344-反转字符串（reverse-string）.md) |
 | 345 - 反转字符串中的元音字母（reverse-vowels-of-a-string） | [#344 解题](./345-反转字符串中的元音字母（reverse-vowels-of-a-string）.md) |
+| 349 - 两个数组的交集（intersection-of-two-arrays） | [#349 解题](./349-两个数组的交集（intersection-of-two-arrays）.md) |
 
 ---
 
