@@ -196,6 +196,7 @@
       * [383 - 赎金信（ransom-note） ✔](./other-library/LeetCode/easy/383-赎金信（ransom-note）.md)
       * [387 - 字符串中的第一个唯一字符（first-unique-character-in-a-string） ✔](./other-library/LeetCode/easy/387-字符串中的第一个唯一字符（first-unique-character-in-a-string）.md)
       * [389 - 找不同（find-the-difference） ✔](./other-library/LeetCode/easy/389-找不同（find-the-difference）.md)
+      * [400 - 第N个数字（nth-digit） ✔](./other-library/LeetCode/easy/400-第N个数字（nth-digit）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
