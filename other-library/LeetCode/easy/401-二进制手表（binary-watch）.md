@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-7-24 08:26:47**  
-> Recently revised in **2019-07-24 19:55:14**
+> Recently revised in **2019-7-24 21:51:59**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -62,19 +62,30 @@
 * **解题代码**：
 
 ```js
-
+var readBinaryWatch = function (num) {
+  switch (num) {
+    case 0:
+      return ['0:00'];
+    case 1:
+      return ['0:01', '0:02', '0:04', '0:08', '0:16', '0:32', '1:00', '2:00', '4:00', '8:00'];
+    // 代码省略
+    case 8:
+      return ['7:31', '7:47', '7:55', '7:59', '11:31', '11:47', '11:55', '11:59'];
+    default:
+      break;
+  }
+}
 ```
 
 ## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `num`：`1`
+2. `return`：
 
 ```js
-
+['0:01', '0:02', '0:04', '0:08', '0:16', '0:32', '1:00', '2:00', '4:00', '8:00']
 ```
 
 ## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
@@ -82,14 +93,17 @@
 > [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 10/10 cases passed (76 ms)
+  ✔ Your runtime beats 93.62 % of javascript submissions
+  ✔ Your memory usage beats 94.44 % of javascript submissions (33.4 MB)
 ```
 
 ## <a name="chapter-six" id="chapter-six">六 知识点</a>
 
 > [返回目录](#chapter-one)
 
-1. 
+1. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
 
 ## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
@@ -141,16 +155,7 @@ var readBinaryWatch = function(num) {
 输出为：
 
 ```js
-[ '1:00',
-  '2:00',
-  '4:00',
-  '8:00',
-  '0:01',
-  '0:02',
-  '0:04',
-  '0:08',
-  '0:16',
-  '0:32' ]
+['1:00', '2:00', '4:00', '8:00', '0:01', '0:02', '0:04', '0:08', '0:16', '0:32']
 ```
 
 很好，那么考虑 `num` 为 2 及以上的情况。
@@ -227,11 +232,148 @@ Submit 尝试看看：
 
 > 这就是面向测试用例编程~
 
+**接着**，我们再细化最终结果应该如何求解：
+
+1. `hour` 求部分结果。
+2. `hour + minute` 求部分结果。
+3. `minute` 求部分结果。
+
+最好将它们的值记录到哈希表中。
+
+最终将这三部分组合起来，就是我们的最终结果。
+
+**最后**，这里贴下 **jsliang** 不完善的思路，下次有空或者哪个小伙伴提到，我们再继续挑战吧~
+
+```js
+// 求和
+const getHourSum = (array) => {
+  return array.reduce((prev, next) => {
+    return prev + next;
+  }, 0);
+}
+
+// 求 hour 或者 minute 部分
+const dealWithHourOrMinute = (num) => {
+  const hour = [1, 2, 4, 8];
+  let result = [];
+  for (let i = 0; i < hour.length; i++) {
+    if (hour.length - i >= num) {
+      const sum = getHourSum(hour.slice(i, i + num));
+      if (sum < 12) {
+        result.push(sum);
+      }
+    }
+  }
+  return result;
+}
+
+// 求 hour + minute 部分
+const dealWithHourAndMinute = (num) => {
+  // 代码省略
+}
+
+// 最终返回
+const readBinaryWatch = function(num) {
+  const minute = [1, 2, 4, 8, 16, 32];
+  let result = [];
+  dealWithHourOrMinute(num);
+  dealWithHourAndMinute(num);
+  return result;
+};
+```
+
 ## <a name="chapter-eight" id="chapter-eight">八 进一步思考</a>
 
 > [返回目录](#chapter-one)
 
+还有其他解法吗？有的：
 
+> 案例 1：
+
+```js
+var readBinaryWatch = function(num) {
+  var res = [];
+  for (var i = 0; i < 12; i++) {
+    for (var j = 0; j < 60; j++) {
+      // 计算 i, j 为 1 的个数和与 num 进行比较
+      if (count(i, j) === num) {
+        res.push(i + ":" + (j < 10 ? "0" + j : j));
+      }
+    }
+  }
+  function count(m, n) {
+    var count = 0;
+    while (m !== 0) {
+      m = m & (m - 1);
+      count++;
+    }
+    while (n !== 0) {
+      n = n & (n - 1);
+      count++;
+    }
+    return count;
+  }
+  return res;
+};
+```
+
+它的 Submit 提交是：
+
+```js
+√ Accepted
+  √ 10/10 cases passed (76 ms)
+  √ Your runtime beats 93.62 % of javascript submissions
+  √ Your memory usage beats 38.89 % of javascript submissions (34.7 MB)
+```
+
+或者使用位运算：
+
+> 案例 2：
+
+```js
+var readBinaryWatch = function(num) {
+  let res = [];
+  // 判断 1 的个数，位运算，所以很快
+  let countOne = function(hour, min) {
+    let count = 0;
+    while (hour) {
+      if (hour & 1) {
+        count++;
+      }
+      hour = hour >> 1;
+    }
+    while (min) {
+      if (min & 1) {
+        count++;
+      }
+      min = min >> 1;
+    }
+    return count;
+  };
+  // 遍历
+  for (let i = 0; i < 12; i++) {
+    for (let j = 0; j < 60; j++) {
+      // 如果 1 的个数等于 num
+      if (countOne(i, j) === num) {
+        // 格式化输出
+        res.push(i + ":" + (j < 10 ? "0" + j : j));
+      }
+    }
+  }
+  return res;
+};
+```
+
+它的 Submit 提交是：
+
+```js
+√ Accepted
+  √ 10/10 cases passed (72 ms)
+  √ Your runtime beats 97.87 % of javascript submissions
+  √ Your memory usage beats 38.89 % of javascript submissions (34.7 MB)
+```
+
+至于详细题解，**jsliang** 就不多说啦，小伙伴们可以自行解析，毕竟 **jsliang** 折腾完前面也累了，感觉这道题跟 **困难** 难度一样~
 
 ---
 
