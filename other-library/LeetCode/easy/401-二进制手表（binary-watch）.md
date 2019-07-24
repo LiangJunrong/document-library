@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-7-24 08:26:47**  
-> Recently revised in **2019-7-24 08:30:15**
+> Recently revised in **2019-7-24 08:42:40**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,8 +13,11 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 知识点](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 解题思路](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 进一步思考](#chapter-eight) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -56,17 +59,15 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
 
 ```
 
-* **执行测试**：
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
+
+> [返回目录](#chapter-one)
 
 1. 形参 1
 2. 形参 2
@@ -76,61 +77,49 @@
 
 ```
 
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
-
 ```js
 
 ```
 
-* **执行测试**：
+## <a name="chapter-six" id="chapter-six">六 知识点</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
+> [返回目录](#chapter-one)
 
 1. 
 
-* **解题思路**：
+## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
-[图]
+> [返回目录](#chapter-one)
 
-[分析]
+**有趣的人不管在哪都会让人身心愉悦，有趣的题会让你忍不住解析它。**
 
-* **进一步思考**：
+**首先**，这是道非常有意思的题目，让人忍不住想解析题目：
+
+```js
+var readBinaryWatch = function(num) {
+  const hour = [1, 2, 4, 8];
+  const minute = [1, 2, 4, 8, 16, 32];
+};
+```
+
+第一步先拆分，它的时钟和分钟分解为代码如上所示。
+
+**然后**，我们要清楚它的灯数限制：
+
+1. 最小为 0 个灯，表明为 `0:00`。
+2. 最多为 8 个灯，即 `hour = 1 + 2 + 8`，`minute = 1 + 2 + 8 + 16 + 32`，为 `11:59`。
+
+那么当中会发生什么情况呢，我们一一分析。
+
+## <a name="chapter-eight" id="chapter-eight">八 进一步思考</a>
+
+> [返回目录](#chapter-one)
+
+
 
 ---
 
