@@ -1,8 +1,8 @@
-算法文章模板
+LeetCode 文章模板 1
 ===
 
 > Create by **jsliang** on **2019-05-17 13:06:52**  
-> Recently revised in **2019-7-24 07:49:15**
+> Recently revised in **2019-07-25 19:21:47**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
