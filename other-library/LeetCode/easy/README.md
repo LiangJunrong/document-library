@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-25 15:34:04**
+> Recently revised in **2019-07-25 16:09:00**
 
 LeetCode 简单难度攻略
 
@@ -94,6 +94,7 @@ LeetCode 简单难度攻略
 | 404 - 左叶子之和（sum-of-left-leaves） | [#404 解题](./404-左叶子之和（sum-of-left-leaves）.md) |
 | 405 - 数字转换为十六进制（convert-a-number-to-hexadecimal） | [#405 解题](./405-数字转换为十六进制（convert-a-number-to-hexadecimal）.md) |
 | 409 - 最长回文串（longest-palindrome） | [#409 解题](./409-最长回文串（longest-palindrome）.md) |
+| 412 - FizzBuzz（fizz-buzz） | [#412 解题](./412-FizzBuzz（fizz-buzz）.md) |
 
 ---
 
