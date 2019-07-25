@@ -201,6 +201,7 @@
       * [404 - 左叶子之和（sum-of-left-leaves） ✔](./other-library/LeetCode/easy/404-左叶子之和（sum-of-left-leaves）.md)
       * [405 - 数字转换为十六进制（convert-a-number-to-hexadecimal） ✔](./other-library/LeetCode/easy/405-数字转换为十六进制（convert-a-number-to-hexadecimal）.md)
       * [409 - 最长回文串（longest-palindrome） ✔](./other-library/LeetCode/easy/409-最长回文串（longest-palindrome）.md)
+      * [412 - FizzBuzz（fizz-buzz） ✔](./other-library/LeetCode/easy/412-FizzBuzz（fizz-buzz）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
