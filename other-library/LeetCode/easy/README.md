@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-7-24 21:52:35**
+> Recently revised in **2019-7-25 08:54:09**
 
 LeetCode 简单难度攻略
 
@@ -91,6 +91,7 @@ LeetCode 简单难度攻略
 | 389 - 找不同（find-the-difference） | [#389 解题](./389-找不同（find-the-difference）.md) |
 | 400 - 第N个数字（nth-digit） | [#400 解题](./400-第N个数字（nth-digit）.md) |
 | 401 - 二进制手表（binary-watch） | [#401 解题](./401-二进制手表（binary-watch）.md) |
+| 404 - 左叶子之和（sum-of-left-leaves） | [#404 解题](./404-左叶子之和（sum-of-left-leaves）.md) |
 
 ---
 
