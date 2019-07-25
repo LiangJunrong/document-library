@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-25 15:48:32**  
-> Recently revised in **2019-07-25 15:48:35**
+> Recently revised in **2019-07-25 16:08:25**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -14,7 +14,7 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
 | &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| &emsp;[3.2 解法 - 奇技淫巧](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -69,74 +69,120 @@ n = 15,
 * **解题代码**：
 
 ```js
-
+var fizzBuzz = function(n) {
+  let result = [];
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      result.push('FizzBuzz');
+    } else if (i % 3 === 0) {
+      result.push('Fizz');
+    } else if (i % 5 === 0) {
+      result.push('Buzz');
+    } else {
+      result.push(i + '');
+    }
+  }
+  return result;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `n`：`15`
+2. `return`：
 
 ```js
-
+[ '1',
+  '2',
+  'Fizz',
+  '4',
+  'Buzz',
+  'Fizz',
+  '7',
+  '8',
+  'Fizz',
+  'Buzz',
+  '11',
+  'Fizz',
+  '13',
+  '14',
+  'FizzBuzz' ]
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 8/8 cases passed (92 ms)
+  ✔ Your runtime beats 76.26 % of javascript submissions
+  ✔ Your memory usage beats 57.05 % of javascript submissions (37.3 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
 
 * **解题思路**：
 
-[图]
+虽然这是一道 LeetCode 题，但是我觉得这是一道大一作业题，可以说是简单地不能再简单了，完全就是玩了可以丢的那种~
 
-[分析]
+> 自行解析，不做评论
 
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 奇技淫巧</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var fizzBuzz = function(n) {
+  return Array(n).fill(0).map((_, i) => (i + 1) % 3 === 0? (i + 1) % 5 === 0? 'FizzBuzz': 'Fizz': (i + 1) % 5 === 0? 'Buzz': i + 1 + '');
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `n`：`15`
+2. `return`：
 
 ```js
-
+[ '1',
+  '2',
+  'Fizz',
+  '4',
+  'Buzz',
+  'Fizz',
+  '7',
+  '8',
+  'Fizz',
+  'Buzz',
+  '11',
+  'Fizz',
+  '13',
+  '14',
+  'FizzBuzz' ]
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 8/8 cases passed (92 ms)
+  ✔ Your runtime beats 76.26 % of javascript submissions
+  ✔ Your memory usage beats 30.13 % of javascript submissions (37.4 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `map()`：遍历数组，`item` 返回遍历项，`index` 返回当前索引。[`map()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/map.md)
 
 * **解题思路**：
 
-[图]
+有点像是强行压缩成一行，引起极度不适~
 
-[分析]
+业务代码中不要这么写喔~要不然你队友会拍死你的。
 
-* **进一步思考**：
+> 这种写法不好维护
 
 ---
 
