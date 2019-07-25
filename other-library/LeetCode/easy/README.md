@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-25 17:06:23**
+> Recently revised in **2019-07-25 19:09:19**
 
 LeetCode 简单难度攻略
 
@@ -96,6 +96,7 @@ LeetCode 简单难度攻略
 | 409 - 最长回文串（longest-palindrome） | [#409 解题](./409-最长回文串（longest-palindrome）.md) |
 | 412 - FizzBuzz（fizz-buzz） | [#412 解题](./412-FizzBuzz（fizz-buzz）.md) |
 | 414 - 第三大的数（third-maximum-number） | [#414 解题](./414-第三大的数（third-maximum-number）.md) |
+| 415 - 字符串相加（add-strings） | [#415 解题](./415-字符串相加（add-strings）.md) |
 
 ---
 
