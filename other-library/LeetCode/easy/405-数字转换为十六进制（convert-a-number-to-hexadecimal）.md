@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-25 10:45:31**  
-> Recently revised in **2019-07-25 10:46:37**
+> Recently revised in **2019-07-25 11:40:47**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,8 +13,10 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 知识点](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 解题思路](#chapter-seven) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -31,12 +33,12 @@
 
 注意:
 
-十六进制中所有字母(a-f)都必须是小写。
-十六进制字符串中不能包含多余的前导零。
-如果要转化的数为0，那么以单个字符'0'来表示；
+1. 十六进制中所有字母(a-f)都必须是小写。
+2. 十六进制字符串中不能包含多余的前导零。
+如果要转化的数为 0，那么以单个字符'0'来表示；
 对于其他情况，十六进制字符串中的第一个字符将不会是0字符。 
-给定的数确保在32位有符号整数范围内。
-不能使用任何由库提供的将数字直接转换或格式化为十六进制的方法。
+3. 给定的数确保在32位有符号整数范围内。
+4. 不能使用任何由库提供的将数字直接转换或格式化为十六进制的方法。
 
 示例 1：
 输入:
@@ -57,81 +59,65 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
-
+var toHex = function (num) {
+  if (!num) {
+    return '0';
+  }
+  num = num > -1 ? num : num + Math.pow(2, 32);
+  let res = '',
+    Hex = '0123456789abcdef';
+  while (num) {
+    res = Hex[num % 16] + res;
+    num = num / 16 | 0;
+  }
+  return res;
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+1. `num`：`26`
+2. `return`：
 
 ```js
-
+1a
 ```
 
-* **执行测试**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 100/100 cases passed (108 ms)
+  ✔ Your runtime beats 8.7 % of javascript submissions
+  ✔ Your memory usage beats 6.06 % of javascript submissions (34.2 MB)
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-six" id="chapter-six">六 知识点</a>
 
-```js
+> [返回目录](#chapter-one)
 
-```
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
 
-* **知识点**：
+## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
-1. 
+> [返回目录](#chapter-one)
 
-* **解题思路**：
+**首先**，这道位运算，真的真的真的不想做。
 
-[图]
+**然后**，强忍住一脸懵逼，找到了一道题解，再细细解析：
 
-[分析]
+1. 如果这个数是负数，需要补码，补码即加上 2 的 32 次幂。
+2. 将这个数 `%16`，得到的是当前位的十六进制，将其添加到 `res` 前面。
+3. 将这个数 `/16` 来进行循环遍历，直至这个数小于或者等于 0 为止。
 
-* **进一步思考**：
+**最后**，返回最终求解。
 
 ---
 
