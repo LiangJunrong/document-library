@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-25 15:35:43**
+> Recently revised in **2019-07-25 16:10:36**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-07-25
 
-* [x] **链接**：[LeetCode - 409 - 最长回文串](./other-library/LeetCode/easy/409-最长回文串（longest-palindrome）.md)
+* [x] **链接**：[LeetCode - 412 - FizzBuzz](./other-library/LeetCode/easy/412-FizzBuzz（fizz-buzz）.md)
 
 ## 历史
 
+* [x] [LeetCode - 409 - 最长回文串](./other-library/LeetCode/easy/409-最长回文串（longest-palindrome）.md)
 * [x] [LeetCode - 405 - 数字转换为十六进制](./other-library/LeetCode/easy/405-数字转换为十六进制（convert-a-number-to-hexadecimal）.md)
 * [x] [LeetCode - 404 - 左叶子之和](./other-library/LeetCode/easy/404-左叶子之和（sum-of-left-leaves）.md)
 * [x] [LeetCode - 401 - 二进制手表](./other-library/LeetCode/easy/401-二进制手表（binary-watch）.md)
