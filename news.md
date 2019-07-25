@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-7-24 21:53:11**
+> Recently revised in **2019-7-25 08:54:47**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-07-24
 
-* [x] **链接**：[LeetCode - 401 - 二进制手表](./other-library/LeetCode/easy/401-二进制手表（binary-watch）.md)
+* [x] **链接**：[LeetCode - 404 - 左叶子之和](./other-library/LeetCode/easy/404-左叶子之和（sum-of-left-leaves）.md)
 
 ## 历史
 
+* [x] [LeetCode - 401 - 二进制手表](./other-library/LeetCode/easy/401-二进制手表（binary-watch）.md)
 * [x] [LeetCode - 400 - 第N个数字](./other-library/LeetCode/easy/400-第N个数字（nth-digit）.md)
 * [x] [LeetCode - 389 - 找不同](./other-library/LeetCode/easy/389-找不同（find-the-difference）.md)
 * [x] [LeetCode - 387 - 字符串中的第一个唯一字符](./other-library/LeetCode/easy/387-字符串中的第一个唯一字符（first-unique-character-in-a-string）.md)
