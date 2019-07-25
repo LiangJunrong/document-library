@@ -70,12 +70,40 @@
 
 > [返回目录](#chapter-one)
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+* `root`：
 
 ```js
+const root = {
+  val: 1,
+  $id: 1,
+  children: [{
+    val: 3,
+    $id: 2,
+    children: [{
+      val: 5,
+      $id: 5,
+      children: [],
+    }, {
+      val: 6,
+      $id: 6,
+      children: [],
+    }],
+  }, {
+    val: 2,
+    $id: 3,
+    children: [],
+  }, {
+    val: 4,
+    $id: 4,
+    children: [],
+  }],
+};
+```
 
+* `return`：
+
+```js
+[ [ 1 ], [ 3, 2, 4 ], [ 5, 6 ] ]
 ```
 
 ## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
@@ -96,9 +124,74 @@
 
 > [返回目录](#chapter-one)
 
-[图]
+```js
+/*
+ * @lc app=leetcode.cn id=429 lang=javascript
+ *
+ * [429] N叉树的层序遍历
+ */
+/**
+ * // Definition for a Node.
+ * function Node(val,children) {
+ *    this.val = val;
+ *    this.children = children;
+ * };
+ */
+/**
+ * @param {Node} root
+ * @return {number[][]}
+ */
 
-[分析]
+const root = {
+  $id: 1,
+  children: [{
+    $id: 2,
+    children: [{
+      $id: 3,
+      children: [],
+      val: 5
+    }, {
+      $id: 4,
+      children: [],
+      val: 0
+    }],
+    val: 10
+  }, {
+    $id: 5,
+    children: [{
+      $id: 6,
+      children: [],
+      val: 6
+    }],
+    val: 3
+  }],
+  val: 1
+};
+
+const levelOrder = (root) => {
+  let result = [];
+  const ergodic = (root, deep) => {
+    if (!root) {
+      return '!#';
+    }
+    deep++;
+    console.log('------');
+    console.log(root);
+    console.log(deep);
+    let temp = [];
+    if (temp.length) {
+      result[deep].push(root.val);
+    }
+    for (let i = 0; i < root.children.length; i++) {
+      ergodic(root.children[i], deep);
+    }
+  }
+  ergodic(root, 0);
+  return result;
+};
+
+console.log(levelOrder(root));
+```
 
 ## <a name="chapter-eight" id="chapter-eight">八 进一步思考</a>
 
