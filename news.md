@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-25 19:09:54**
+> Recently revised in **2019-07-26 10:11:56**
 
 **不折腾的前端，和咸鱼有什么区别**
 
-## 2019-07-25
+## 2019-07-26
 
-* [x] **链接**：[LeetCode - 415 - 字符串相加](./other-library/LeetCode/easy/415-字符串相加（add-strings）.md)
+* [x] **链接**：[LeetCode - 429 - n叉树的层序遍历](./other-library/LeetCode/easy/429-n叉树的层序遍历（n-ary-tree-level-order-traversal）.md)
 
 ## 历史
 
+* [x] [LeetCode - 415 - 字符串相加](./other-library/LeetCode/easy/415-字符串相加（add-strings）.md)
 * [x] [LeetCode - 414 - 第三大的数](./other-library/LeetCode/easy/414-第三大的数（third-maximum-number）.md)
 * [x] [LeetCode - 412 - FizzBuzz](./other-library/LeetCode/easy/412-FizzBuzz（fizz-buzz）.md)
 * [x] [LeetCode - 409 - 最长回文串](./other-library/LeetCode/easy/409-最长回文串（longest-palindrome）.md)
