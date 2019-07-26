@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-26 10:11:18**
+> Recently revised in **2019-07-26 11:25:03**
 
 LeetCode 简单难度攻略
 
@@ -98,6 +98,7 @@ LeetCode 简单难度攻略
 | 414 - 第三大的数（third-maximum-number） | [#414 解题](./414-第三大的数（third-maximum-number）.md) |
 | 415 - 字符串相加（add-strings） | [#415 解题](./415-字符串相加（add-strings）.md) |
 | 429 - n叉树的层序遍历（n-ary-tree-level-order-traversal） | [#429 解题](./429-n叉树的层序遍历（n-ary-tree-level-order-traversal）.md) |
+| 434 - 字符串中的单词数（number-of-segments-in-a-string） | [#434 解题](./434-字符串中的单词数（number-of-segments-in-a-string）.md) |
 
 ---
 
