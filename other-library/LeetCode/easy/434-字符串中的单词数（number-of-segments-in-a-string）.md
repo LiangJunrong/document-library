@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-26 10:54:15**  
-> Recently revised in **2019-07-26 10:54:18**
+> Recently revised in **2019-07-26 11:24:26**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,8 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| &emsp;[3.1 解法 - 暴力破解 1](#chapter-three-one) |
+| &emsp;[3.2 解法 - 暴力破解 2](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -49,74 +49,173 @@
 * **解题代码**：
 
 ```js
-
+var countSegments = function(s) {
+  s = s.split(' ');
+  let length = s.length;
+  s.forEach((item) => {
+    if (item === '') {
+      length--;
+    }
+  })
+  return length;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `s`：`Hello, my name is John`
+2. `return`：
 
 ```js
-
+5
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 26/26 cases passed (116 ms)
+  ✔ Your runtime beats 11.81 % of javascript submissions
+  ✔ Your memory usage beats 11.76 % of javascript submissions (33.9 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
+2. `forEach()`：`forEach()` 方法对数组的每个元素执行一次提供的函数。[`forEach()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/forEach.md)
 
 * **解题思路**：
 
-[图]
+**首先**，明确题意：
 
-[分析]
+1. `'Hello, my name is John'` 返回 5。
+2. `'           '` 返回 0。
 
-* **进一步思考**：
+**然后**，原本打算直接：
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+```js
+var countSegments = function(s) {
+  return s.split(' ').length;
+};
+```
+
+结果不满足条件 2，报错了。
+
+所以，修改为：
+
+```js
+var countSegments = function(s) {
+  s = s.split(' ');
+  let length = s.length;
+  s.forEach((item) => {
+    if (item === '') {
+      length--;
+    }
+  })
+  return length;
+};
+```
+
+即：我们先切割，再统计它的长度，遍历一次，如果发现里面存在 `''` 空字符串，那么我们就将其长度减一。
+
+**最后**，我们返回它的长度即可。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解 2</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var countSegments = function (s) {
+  let res = 0;
+  s.split(' ').map((val) => {
+    if (val !== '') {
+      res++;
+    }
+  })
+  return res;
+}
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `s`：`Hello, my name is John`
+2. `return`：
 
 ```js
-
+5
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 26/26 cases passed (84 ms)
+  ✔ Your runtime beats 48.03 % of javascript submissions
+  ✔ Your memory usage beats 42.65 % of javascript submissions (33.7 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
+2. `map()`：遍历数组，`item` 返回遍历项，`index` 返回当前索引。[`map()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/map.md)
 
 * **解题思路**：
 
-[图]
+思路同 3.1，先将字符串切割成数组，然后遍历数组。
 
-[分析]
+如果数组中的元素不是空格，那么就让元素 + 1，最终返回 `res` 即可。
 
 * **进一步思考**：
+
+> 扩展题解 1：
+
+```js
+var countSegments = function (s) {
+  let transfer = [
+      [0, 1],
+      [0, 1]
+    ],
+    state = 0,
+    count = 0;
+  s += " ";
+  for (let i = 0; i < s.length; ++i) {
+    let id = (s[i] != " ") | 0,
+      ns = transfer[state][id];
+    if (state > ns) count++;
+    state = ns;
+  }
+  return count;
+};
+```
+
+Submit 提交记录：
+
+```js
+✔ Accepted
+  ✔ 26/26 cases passed (116 ms)
+  ✔ Your runtime beats 11.81 % of javascript submissions
+  ✔ Your memory usage beats 23.53 % of javascript submissions (33.8 MB)
+```
+
+> 扩展题解 2：
+
+```js
+var countSegments = function (s) {
+  //去除前后空白符，用\s+任何Unicode空白符分割的数组
+  return (s.trim() === '') ? 0 : s.trim().split(/\s+/).length;
+};
+```
+
+Submit 提交记录：
+
+```js
+✔ Accepted
+  ✔ 26/26 cases passed (88 ms)
+  ✔ Your runtime beats 38.58 % of javascript submissions
+  ✔ Your memory usage beats 35.29 % of javascript submissions (33.7 MB)
+```
 
 ---
 
