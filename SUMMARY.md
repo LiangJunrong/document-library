@@ -204,6 +204,7 @@
       * [412 - FizzBuzz（fizz-buzz） ✔](./other-library/LeetCode/easy/412-FizzBuzz（fizz-buzz）.md)
       * [414 - 第三大的数（third-maximum-number） ✔](./other-library/LeetCode/easy/414-第三大的数（third-maximum-number）.md)
       * [415 - 字符串相加（add-strings） ✔](./other-library/LeetCode/easy/415-字符串相加（add-strings）.md)
+      * [429 - n叉树的层序遍历（n-ary-tree-level-order-traversal） ✔](./other-library/LeetCode/easy/429-n叉树的层序遍历（n-ary-tree-level-order-traversal）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
