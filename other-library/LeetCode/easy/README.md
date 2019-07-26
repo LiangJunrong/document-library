@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-25 19:09:19**
+> Recently revised in **2019-07-26 10:11:18**
 
 LeetCode 简单难度攻略
 
@@ -97,6 +97,7 @@ LeetCode 简单难度攻略
 | 412 - FizzBuzz（fizz-buzz） | [#412 解题](./412-FizzBuzz（fizz-buzz）.md) |
 | 414 - 第三大的数（third-maximum-number） | [#414 解题](./414-第三大的数（third-maximum-number）.md) |
 | 415 - 字符串相加（add-strings） | [#415 解题](./415-字符串相加（add-strings）.md) |
+| 429 - n叉树的层序遍历（n-ary-tree-level-order-traversal） | [#429 解题](./429-n叉树的层序遍历（n-ary-tree-level-order-traversal）.md) |
 
 ---
 
