@@ -208,6 +208,7 @@
       * [434 - 字符串中的单词数（number-of-segments-in-a-string） ✔](./other-library/LeetCode/easy/434-字符串中的单词数（number-of-segments-in-a-string）.md)
       * [437 - 路径总和III（path-sum-iii） ✔](./other-library/LeetCode/easy/437-路径总和III（path-sum-iii）.md)
       * [438 - 找到字符串中所有字母异位词（find-all-anagrams-in-a-string） ✔](./other-library/LeetCode/easy/438-找到字符串中所有字母异位词（find-all-anagrams-in-a-string）.md)
+      * [441 - 排列硬币（arranging-coins） ✔](./other-library/LeetCode/easy/441-排列硬币（arranging-coins）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
