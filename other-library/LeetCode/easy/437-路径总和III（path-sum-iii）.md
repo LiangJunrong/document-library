@@ -1,8 +1,8 @@
 437 - 路径总和III（path-sum-iii）
 ===
 
-> Create by **jsliang** on **2019-05-17 13:06:52**  
-> Recently revised in **2019-07-25 19:21:47**
+> Create by **jsliang** on **2019-07-29 11:25:06**  
+> Recently revised in **2019-07-29 11:25:09**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,8 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| &emsp;[3.1 解法 - 双重递归](#chapter-three-one) |
+| &emsp;[3.2 解法 - 单次递归](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -59,81 +59,354 @@ root = [10,5,-3,3,2,null,11,3,-2,null,1], sum = 8
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 双重递归</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+const pathSum = (root, sum) => {
+  let count = 0;
+  const ergodic = (root, num) => {
+    if (!root) {
+      return;
+    }
+    num -= root.val;
+    if (num === 0) {
+      count++;
+    }
+    ergodic(root.left, num);
+    ergodic(root.right, num);
+  }
+  const dfs = (root, num) => {
+    if (!root) {
+      return;
+    }
+    ergodic(root, num);
+    dfs(root.left, num);
+    dfs(root.right, num);
+  }
+  dfs(root, sum);
+  return count;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> `root`：
 
 ```js
+const root = {
+  val: 10,
+  left: {
+    val: 5,
+    left: {
+      val: 3,
+      left: { val: 3, left: null, right: null },
+      right: { val: -2, left: null, right: null },
+    },
+    right: {
+      val: 2,
+      left: null,
+      right: { val: 1, left: null, right: null },
+    },
+  },
+  right: {
+    val: -3,
+    left: null,
+    right: { val: 11, left: null, right: null },
+  }
+}
+```
 
+> `sum`：
+
+```js
+const sum = 8;
+```
+
+> `return`：
+
+```js
+3
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 126/126 cases passed (132 ms)
+  ✔ Your runtime beats 66.92 % of javascript submissions
+  ✔ Your memory usage beats 12.5 % of javascript submissions (37.3 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+**首先**，这道题可以理解为较接近中等难度的题，如果没做出来不要焦虑。
 
-[分析]
+**然后**，咱回顾下树的广度遍历原则：
 
-* **进一步思考**：
+```js
+const ergodic = (root) => {
+  if (!root) {
+    return '!#';
+  }
+  return '!' + root.val + ergodic(root.left) + ergodic(root.right);
+}
+```
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+假设我们传入的 `root` 为本题例子中的参数：
+
+> root
+
+```js
+const root = {
+  val: 10,
+  left: {
+    val: 5,
+    left: {
+      val: 3,
+      left: { val: 3, left: null, right: null },
+      right: { val: -2, left: null, right: null },
+    },
+    right: {
+      val: 2,
+      left: null,
+      right: { val: 1, left: null, right: null },
+    },
+  },
+  right: {
+    val: -3,
+    left: null,
+    right: { val: 11, left: null, right: null },
+  }
+}
+```
+
+那么结果会返回：
+
+```js
+!10!5!3!3!#!#!-2!#!#!2!#!1!#!#!-3!#!11!#!#
+```
+
+很好，这样我们就清楚了从根节点开始的递归形态广度遍历。
+
+**接着**，我们分析下题意：
+
+1. 我们需要广度遍历每个节点。
+2. 我们需要从每个节点开始，依次相加得到结果 `sum`，或者让 `sum` 一直减去每个节点的值，得到 0 的时候，表明找到了一条方式。
+3. 我们将最终得到的所有方式给返回出去就行了。
+
+所以我们有了代码：
+
+```js
+const pathSum = (root, sum) => {
+  let count = 0;
+  const ergodic = (root, num) => {
+    if (!root) {
+      return;
+    }
+    num -= root.val;
+    console.log(num);
+    if (num === 0) {
+      count++;
+    }
+    ergodic(root.left, num);
+    ergodic(root.right, num);
+  }
+  const dfs = (root, num) => {
+    if (!root) {
+      return;
+    }
+    console.log(root);
+    ergodic(root, num);
+    dfs(root.left, num);
+    dfs(root.right, num);
+  }
+  dfs(root, sum);
+  return count;
+};
+```
+
+看好 `console.log()` 的位置了，因为我们会打印出来证明下我们的结论：
+
+```js
+------
+{ val: 10,
+  left:
+   { val: 5,
+     left: { val: 3, left: [Object], right: [Object] },
+     right: { val: 2, left: null, right: [Object] } },
+  right:
+   { val: -3,
+     left: null,
+     right: { val: 11, left: null, right: null } } }
+-2
+-7
+-10
+-13
+-8
+-9
+-10
+1
+-10
+------
+{ val: 5,
+  left:
+   { val: 3,
+     left: { val: 3, left: null, right: null },
+     right: { val: -2, left: null, right: null } },
+  right:
+   { val: 2,
+     left: null,
+     right: { val: 1, left: null, right: null } } }
+3
+0
+-3
+2
+1
+0
+------
+{ val: 3,
+  left: { val: 3, left: null, right: null },
+  right: { val: -2, left: null, right: null } }
+5
+2
+7
+------
+{ val: 3, left: null, right: null }
+5
+------
+{ val: -2, left: null, right: null }
+10
+------
+{ val: 2,
+  left: null,
+  right: { val: 1, left: null, right: null } }
+6
+5
+------
+{ val: 1, left: null, right: null }
+7
+------
+{ val: -3,
+  left: null,
+  right: { val: 11, left: null, right: null } }
+11
+0
+------
+{ val: 11, left: null, right: null }
+-3
+3
+```
+
+可以看到的是，通过双重递归，我们将每个节点都进行了一次广度遍历，最终得到了每个节点的情况。
+
+如果计算的结果值为 0，证明是可以有的，那么 `count++`。
+
+**最后**，我们将 `count` 的数字返回出去，成功解题。
+
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 单次递归</a>
 
 > [返回目录](#chapter-one)
 
 * **解题代码**：
 
 ```js
-
+var pathSum = function (root, sum) {
+  if (!root) {
+    return 0;
+  }
+  let count = 0;
+  let stack = [];
+  let dfs = function (root, cur) {
+    // 当前路径和等于从根节点到此节点的 val 和
+    let curSum = cur + root.val;
+    // 遍历栈，子路径和 = 根到此节点的路径和 - 根到父节点的路径和
+    if (curSum === sum) {
+      count++;
+    }
+    for (let i = 0; i < stack.length; i++) {
+      if (curSum - stack[i] === sum)
+        count++;
+    }
+    // 当前路径和入栈备用
+    stack.push(curSum);
+    // 用完了就弹出
+    if (root.left) {
+      dfs(root.left, cur + root.val);
+      stack.pop();
+    }
+    if (root.right) {
+      dfs(root.right, cur + root.val);
+      stack.pop();
+    }
+  }
+  dfs(root, 0);
+  return count;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> `root`：
 
 ```js
+const root = {
+  val: 10,
+  left: {
+    val: 5,
+    left: {
+      val: 3,
+      left: { val: 3, left: null, right: null },
+      right: { val: -2, left: null, right: null },
+    },
+    right: {
+      val: 2,
+      left: null,
+      right: { val: 1, left: null, right: null },
+    },
+  },
+  right: {
+    val: -3,
+    left: null,
+    right: { val: 11, left: null, right: null },
+  }
+}
+```
 
+> `sum`：
+
+```js
+const sum = 8;
+```
+
+> `return`：
+
+```js
+3
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 126/126 cases passed (112 ms)
+  ✔ Your runtime beats 90.98 % of javascript submissions
+  ✔ Your memory usage beats 6.25 % of javascript submissions (38 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
+2. `pop()`：`pop()` 方法从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。[`pop()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/pop.md)
 
 * **解题思路**：
 
-[图]
+**更好的帮助形式是授之以渔**。
 
-[分析]
-
-* **进一步思考**：
+经过上面的讲解，单次递归的方式，我觉得小伙伴们可以自我尝试，挑战一下。
 
 ---
 
