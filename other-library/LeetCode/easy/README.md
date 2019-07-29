@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-29 19:38:24**
+> Recently revised in **2019-7-29 22:42:47**
 
 LeetCode 简单难度攻略
 
@@ -103,6 +103,7 @@ LeetCode 简单难度攻略
 | 438 - 找到字符串中所有字母异位词（find-all-anagrams-in-a-string） | [#438 解题](./438-找到字符串中所有字母异位词（find-all-anagrams-in-a-string）.md) |
 | 441 - 排列硬币（arranging-coins） | [#441 解题](./441-排列硬币（arranging-coins））.md) |
 | 443 - 压缩字符串（string-compression） | [#443 解题](./443-压缩字符串（string-compression）.md) |
+| 447 - 回旋镖的数量（number-of-boomerangs） | [#447 解题](./447-回旋镖的数量（number-of-boomerangs）.md) |
 
 ---
 
