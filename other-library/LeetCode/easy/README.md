@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-29 16:10:31**
+> Recently revised in **2019-07-29 17:10:09**
 
 LeetCode 简单难度攻略
 
@@ -101,6 +101,7 @@ LeetCode 简单难度攻略
 | 434 - 字符串中的单词数（number-of-segments-in-a-string） | [#434 解题](./434-字符串中的单词数（number-of-segments-in-a-string）.md) |
 | 437 - 路径总和III（path-sum-iii） | [#437 解题](./437-路径总和III（path-sum-iii）.md) |
 | 438 - 找到字符串中所有字母异位词（find-all-anagrams-in-a-string） | [#438 解题](./438-找到字符串中所有字母异位词（find-all-anagrams-in-a-string）.md) |
+| 441 - 排列硬币（arranging-coins） | [#441 解题](./441-排列硬币（arranging-coins））.md) |
 
 ---
 
