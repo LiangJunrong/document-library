@@ -210,6 +210,7 @@
       * [438 - 找到字符串中所有字母异位词（find-all-anagrams-in-a-string） ✔](./other-library/LeetCode/easy/438-找到字符串中所有字母异位词（find-all-anagrams-in-a-string）.md)
       * [441 - 排列硬币（arranging-coins） ✔](./other-library/LeetCode/easy/441-排列硬币（arranging-coins）.md)
       * [443 - 压缩字符串（string-compression） ✔](./other-library/LeetCode/easy/443-压缩字符串（string-compression）.md)
+      * [447 - 回旋镖的数量（number-of-boomerangs） ✔](./other-library/LeetCode/easy/447-回旋镖的数量（number-of-boomerangs）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
