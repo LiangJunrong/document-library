@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-29 19:45:23**  
-> Recently revised in **2019-07-29 19:50:34**
+> Recently revised in **2019-7-29 22:42:06**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -15,9 +15,7 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 知识点](#chapter-six) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 解题思路](#chapter-seven) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 进一步思考](#chapter-eight) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -54,19 +52,46 @@
 * **解题代码**：
 
 ```js
+const dist = (i, j) => {
+  return (i[0] - j[0]) * (i[0] - j[0]) + (i[1] - j[1]) * (i[1] - j[1]);
+};
 
+const judge = (i, j, k) => {
+  let count = 0;
+  if (dist(i, j) == dist(i, k)) {
+    count += 2;
+  }
+  if (dist(j, i) == dist(j, k)) {
+    count += 2;
+  }
+  if (dist(k, i) == dist(k, j)) {
+    count += 2;
+  }
+  return count;
+};
+
+const numberOfBoomerangs = (points) => {
+  let result = 0;
+  for (let i = 0; i < points.length - 2; i++) {
+    for (let j = i + 1; j < points.length - 1; j++) {
+      for (let k = j + 1; k < points.length; k++) {
+        result += judge(points[i], points[j], points[k]);
+      }
+    }
+  }
+  return result;
+};
 ```
 
 ## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `point`：`[[0,0],[1,0],[2,0]]`
+2. `return`：
 
 ```js
-
+2
 ```
 
 ## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
@@ -74,26 +99,179 @@
 > [返回目录](#chapter-one)
 
 ```js
-
+√ Accepted
+  √ 31/31 cases passed (2048 ms)
+  √ Your runtime beats 27.69 % of javascript submissions
+  √ Your memory usage beats 93.75 % of javascript submissions (35 MB)
 ```
 
-## <a name="chapter-six" id="chapter-six">六 知识点</a>
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
 
 > [返回目录](#chapter-one)
 
-1. 
+**目测第一眼，LeetCode 又丧心病狂啦！！！**
 
-## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
+**首先**，个人猜测，对于题意，个人先解析一波：
 
-> [返回目录](#chapter-one)
+* 回旋镖表示的为元组（i, j, k），咱不太理解，姑且认为 `x, y, z` 构成的三维地址。
+* i 到 j 的距离 === i 到 k 的距离。
+* `[[0,0],[1,0],[2,0]]` 对应的即是：`[[1,0],[0,0],[2,0]]` 和 `[[1,0],[2,0],[0,0]]`。
 
-**目测第一眼，LeetCode 又丧心病狂啦~**
+由于咱没有更多的数据支持，所以我们也无法确定，是元组可以随意组成任意组，然后差值相同？
 
-## <a name="chapter-eight" id="chapter-eight">八 进一步思考</a>
+一脸蒙圈~
 
-> [返回目录](#chapter-one)
+**然后**，只能求助【评论】和【题解】的大佬看看了：
 
+> Go 实现
 
+```go
+func dist(i,j []int) int {      // 两点间的距离
+  return (i[0]-j[0])*(i[0]-j[0]) + (i[1]-j[1])*(i[1]-j[1])
+}
+
+func judge(i,j,k []int) int {   // 计算这三个点能构成几个“回旋镖”
+  cnt := 0
+  if dist(i,j) == dist(i,k) {
+    cnt+=2
+  }
+  if dist(j,i) == dist(j,k) {
+    cnt+=2
+  }
+  if dist(k,i) == dist(k,j) {
+    cnt+=2
+  }
+  return cnt
+}
+
+func numberOfBoomerangs(points [][]int) int {   // 三层循环遍历每个三元组
+  ans := 0
+  for i:=0; i<len(points)-2; i++ {
+    for j:=i+1; j<len(points)-1; j++ {
+      for k:=j+1; k<len(points); k++ {
+        ans += judge(points[i],points[j],points[k])
+      }
+    }
+  }
+  return ans
+}
+```
+
+说实话我也不懂 Go 语言，但是我看到了，并且我懂一点后端语言，感觉可以理解，于是尝试转换成 JavaScript：
+
+```js
+const dist = (i, j) => {
+  return (i[0] - j[0]) * (i[0] - j[0]) + (i[1] - j[1]) * (i[1] - j[1]);
+};
+
+const judge = (i, j, k) => {
+  let count = 0;
+  if (dist(i, j) == dist(i, k)) {
+    count += 2;
+  }
+  if (dist(j, i) == dist(j, k)) {
+    count += 2;
+  }
+  if (dist(k, i) == dist(k, j)) {
+    count += 2;
+  }
+  return count;
+};
+
+const numberOfBoomerangs = (points) => {
+  let result = 0;
+  for (let i = 0; i < points.length - 2; i++) {
+    for (let j = i + 1; j < points.length - 1; j++) {
+      for (let k = j + 1; k < points.length; k++) {
+        result += judge(points[i], points[j], points[k]);
+      }
+    }
+  }
+  return result;
+};
+```
+
+Submit 提交：
+
+```js
+√ Accepted
+  √ 31/31 cases passed (2048 ms)
+  √ Your runtime beats 27.69 % of javascript submissions
+  √ Your memory usage beats 93.75 % of javascript submissions (35 MB)
+```
+
+还真的过了，所以我们就啃下它！
+
+**接着**，**jsliang** 通过讲解上面代码，讲讲自己的理解：
+
+> 1、计算两点之间的距离
+
+```js
+const dist = (i, j) => {
+  return (i[0] - j[0]) * (i[0] - j[0]) + (i[1] - j[1]) * (i[1] - j[1]);
+};
+```
+
+计算两个点的距离，就是它们对应坐标的差的平方相加。
+
+即：
+
+* x - [1, 2]
+* y - [2, 3]
+* dist(x, y) = (2 - 1)² + (3 - 2)²
+
+> 2、计算这三个点能构成几个“回旋镖”
+
+```js
+const judge = (i, j, k) => {
+  let count = 0;
+  if (dist(i, j) == dist(i, k)) {
+    count += 2;
+  }
+  if (dist(j, i) == dist(j, k)) {
+    count += 2;
+  }
+  if (dist(k, i) == dist(k, j)) {
+    count += 2;
+  }
+  return count;
+};
+```
+
+正如题目所言，i 到 j 的距离等于 i 到 k 的距离。
+
+同样：
+
+* i - j === i - k
+* j - i === j - k
+* k - i === k - j
+
+> 3、三层循环遍历每个三元组
+
+```js
+const numberOfBoomerangs = (points) => {
+  let result = 0;
+  for (let i = 0; i < points.length - 2; i++) {
+    for (let j = i + 1; j < points.length - 1; j++) {
+      for (let k = j + 1; k < points.length; k++) {
+        result += judge(points[i], points[j], points[k]);
+      }
+    }
+  }
+  return result;
+};
+```
+
+三层遍历数组，获取到每种可能，通过 `result` 获取最终结果，并输出最终结果。
+
+**最后**，我们解析了代码，虽然题意仍然不太清晰，但是我们可以了解到：
+
+1. 算法中两点距离的计算
+2. 构成一个立体物品的方法
+
+相信后面我们会接触更多的这种题，从而逐渐明朗~
+
+> 如果你有更好的理解，请留言~
 
 ---
 
