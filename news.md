@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-07-30 11:59:10**
+> Recently revised in **2019-07-30 15:45:52**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-07-30
 
-* [x] **链接**：[LeetCode - 455 - 分发饼干](./other-library/LeetCode/easy/455-分发饼干（assign-cookies）.md)
+* [x] **链接**：[LeetCode - 459 - 重复的字符串](./other-library/LeetCode/easy/459-重复的字符串（repeated-substring-pattern）.md)
 
 ## 历史
 
+* [x] [LeetCode - 455 - 分发饼干](./other-library/LeetCode/easy/455-分发饼干（assign-cookies）.md)
 * [x] [LeetCode - 453 - 最小移动次数使数组元素相等](./other-library/LeetCode/easy/453-最小移动次数使数组元素相等（minimum-moves-to-equal-array-elements）.md)
 * [x] [LeetCode - 448 - 找出所有数组中消失的数字](./other-library/LeetCode/easy/448-找出所有数组中消失的数字（find-all-numbers-disappeared-in-an-array）.md)
 * [x] [LeetCode - 447 - 回旋镖的数量](./other-library/LeetCode/easy/447-回旋镖的数量（number-of-boomerangs）.md)
