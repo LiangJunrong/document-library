@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-7-30 08:36:55**
+> Recently revised in **2019-07-30 11:03:57**
 
 LeetCode 简单难度攻略
 
@@ -105,6 +105,7 @@ LeetCode 简单难度攻略
 | 443 - 压缩字符串（string-compression） | [#443 解题](./443-压缩字符串（string-compression）.md) |
 | 447 - 回旋镖的数量（number-of-boomerangs） | [#447 解题](./447-回旋镖的数量（number-of-boomerangs）.md) |
 | 448 - 找出所有数组中消失的数字（find-all-numbers-disappeared-in-an-array） | [#448 解题](./448-找出所有数组中消失的数字（find-all-numbers-disappeared-in-an-array）.md) |
+| 453 - 最小移动次数使数组元素相等（minimum-moves-to-equal-array-elements） | [#453 解题](./453-最小移动次数使数组元素相等（minimum-moves-to-equal-array-elements）.md) |
 
 ---
 
