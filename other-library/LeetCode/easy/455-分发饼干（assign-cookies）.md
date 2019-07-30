@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-30 11:12:02**  
-> Recently revised in **2019-07-30 11:12:05**
+> Recently revised in **2019-07-30 11:49:34**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,8 +13,11 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 知识点](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 解题思路](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 进一步思考](#chapter-eight) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -56,87 +59,140 @@
 所以你应该输出2.
 ```
 
+
 ## <a name="chapter-three" id="chapter-three">三 解题</a>
 
 > [返回目录](#chapter-one)
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
+var findContentChildren = function(g, s) {
+  g.sort((a, b) => a - b);
+  s.sort((a, b) => a - b);
 
+  let result  = 0;
+
+  let i = 0;
+  let j = 0;
+
+  while (i < g.length && j < s.length) {
+    if (g[i] <= s[j]) {
+      // 可以满足胃口，喂食
+      result += 1;
+      i += 1;
+      j += 1;
+    } else {
+      // 不满足胃口，查看下一块小饼干
+      j += 1;
+    }
+  }
+
+  return result;
+};
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
-
-```js
-
-```
-
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
+1. `s`：`[1,2,3]`
+2. `g`：`[1,1]`
 3. `return`：
 
 ```js
-
+1
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 21/21 cases passed (148 ms)
+  ✔ Your runtime beats 71.6 % of javascript submissions
+  ✔ Your memory usage beats 21.05 % of javascript submissions (37.9 MB)
 ```
 
-* **知识点**：
+## <a name="chapter-six" id="chapter-six">六 知识点</a>
 
-1. 
+> [返回目录](#chapter-one)
 
-* **解题思路**：
+1. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort.md)
 
-[图]
+## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
-[分析]
+> [返回目录](#chapter-one)
 
-* **进一步思考**：
+
+**首先**，理解题意：
+
+1. 一个饼干对应一个小朋友
+2. 饼干不能拆分成更多小饼干
+3. 找到最好的解决方案
+
+**然后**，我们思考下：
+
+1. 对 `s` 和 `g` 进行排序，这样方便我们挪动指针位置，探测到饼干去向。
+2. 初始化两个指针 `i` 和 `j`，分别指向 `s` 和 `g`。
+3. 对比 `s[i]` 和 `g[j]`：
+
+如果 `s[i]` < `g[j]`，说明这块饼干能满足小朋友的胃口，那么我们就将 `i` 和 `j` 往前移动 1，并且小朋友的数量 `result` 加一。
+
+如果 `s[i]` > `g[j]`，说明这块饼干不能满足小朋友的胃口，并且这块饼干废了，我们将 `j` 往前移动 1 即可。
+
+```js
+var findContentChildren = function(g, s) {
+  g.sort((a, b) => a - b);
+  s.sort((a, b) => a - b);
+
+  let result  = 0;
+
+  let i = 0;
+  let j = 0;
+
+  while (i < g.length && j < s.length) {
+    if (g[i] <= s[j]) {
+      // 可以满足胃口，喂食
+      result += 1;
+      i += 1;
+      j += 1;
+    } else {
+      // 不满足胃口，查看下一块小饼干
+      j += 1;
+    }
+  }
+
+  return result;
+};
+```
+
+提交尝试下：
+
+```js
+✔ Accepted
+  ✔ 21/21 cases passed (148 ms)
+  ✔ Your runtime beats 71.6 % of javascript submissions
+  ✔ Your memory usage beats 21.05 % of javascript submissions (37.9 MB)
+```
+
+**这样**，我们就通过贪心算法完成了这道题的破解~
+
+## <a name="chapter-eight" id="chapter-eight">八 进一步思考</a>
+
+> [返回目录](#chapter-one)
+
+简单难度的分发饼干就此结束了。
+
+那么问题来了：
+
+1. 如果饼干能拆分成小饼干。
+2. 如果可以多块饼干满足一个小朋友的胃口。
+
+是不是会有不一样的求解。
 
 ---
 
