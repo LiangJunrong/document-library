@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-30 11:58:32**
+> Recently revised in **2019-07-30 15:45:19**
 
 LeetCode 简单难度攻略
 
@@ -107,6 +107,7 @@ LeetCode 简单难度攻略
 | 448 - 找出所有数组中消失的数字（find-all-numbers-disappeared-in-an-array） | [#448 解题](./448-找出所有数组中消失的数字（find-all-numbers-disappeared-in-an-array）.md) |
 | 453 - 最小移动次数使数组元素相等（minimum-moves-to-equal-array-elements） | [#453 解题](./453-最小移动次数使数组元素相等（minimum-moves-to-equal-array-elements）.md) |
 | 455 - 分发饼干（assign-cookies） | [#455 解题](./455-分发饼干（assign-cookies）.md) |
+| 459 - 重复的字符串（repeated-substring-pattern） | [#459 解题](./459-重复的字符串（repeated-substring-pattern）.md) |
 
 ---
 
