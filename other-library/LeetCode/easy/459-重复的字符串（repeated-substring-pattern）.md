@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-30 13:07:32**  
-> Recently revised in **2019-07-30 13:07:43**
+> Recently revised in **2019-07-30 15:44:42**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -14,7 +14,7 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
 | &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| &emsp;[3.2 解法 - 正则表达式](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -64,36 +64,94 @@
 * **解题代码**：
 
 ```js
-
+const repeatedSubstringPattern = (s) => {
+  let n = 1;
+  while (n <= s.length) {
+    let fragment = s.slice(0, n); // 用来做测试的片段
+    for (let i = n; i < s.length; i += n) {
+      let moveFragment = s.slice(i, i + n); // 移动的片段
+      // 如果移动的片段和用来做测试的片段不一致，终止本次循环
+      if (moveFragment !== fragment) {
+        break;
+      }
+      // 如果移动片段到最后了都和测试片段相同，说明这是真的
+      if (moveFragment === fragment && i === s.length - n) {
+        return true;
+      }
+    }
+    n++;
+  }
+  return false;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `s`：`ababab`
+2. `return`：
 
 ```js
-
+true
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 120/120 cases passed (116 ms)
+  ✔ Your runtime beats 83.38 % of javascript submissions
+  ✔ Your memory usage beats 30.22 % of javascript submissions (37.9 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `slice()`：`slice()` 方法提取一个字符串的一部分，并返回一新的字符串。[`slice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/slice.md)
 
 * **解题思路**：
 
-[图]
+**拿到题目满脑子骚操作**。
 
-[分析]
+**首先**，小分析走一波：
 
-* **进一步思考**：
+1. 我们可以设置一个固定片段
+2. 固定片段不停移动，直到移动到数组尾部
+3. 如果固定片段移动过来，发现目前的片段和固定片段不同，那么就中断本次循环
+4. 如果固定片段移动到数组末尾，且最后的一个片段和它相同，说明这个是重复的字符串
+
+**然后**，我们直接上代码：
+
+```js
+const repeatedSubstringPattern = (s) => {
+  let n = 1;
+  while (n <= s.length) {
+    let fragment = s.slice(0, n); // 用来做测试的片段
+    for (let i = n; i < s.length; i += n) {
+      let moveFragment = s.slice(i, i + n); // 移动的片段
+      // 如果移动的片段和用来做测试的片段不一致，终止本次循环
+      if (moveFragment !== fragment) {
+        break;
+      }
+      // 如果移动片段到最后了都和测试片段相同，说明这是真的
+      if (moveFragment === fragment && i === s.length - n) {
+        return true;
+      }
+    }
+    n++;
+  }
+  return false;
+};
+```
+
+Submit 提交是成功的：
+
+```js
+✔ Accepted
+  ✔ 120/120 cases passed (116 ms)
+  ✔ Your runtime beats 83.38 % of javascript submissions
+  ✔ Your memory usage beats 30.22 % of javascript submissions (37.9 MB)
+```
+
+**这样**，说明我们的思路是正确的，成功解题~
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
 
@@ -102,36 +160,41 @@
 * **解题代码**：
 
 ```js
-
+const repeatedSubstringPattern = (s) => {
+  return /^(\w+)\1+$/.test(s);
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `s`：`ababab`
+2. `return`：
 
 ```js
-
+true
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 120/120 cases passed (120 ms)
+  ✔ Your runtime beats 80.11 % of javascript submissions
+  ✔ Your memory usage beats 36.69 % of javascript submissions (36.1 MB)
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
-[图]
+**正则是真的秀**。
 
-[分析]
+那么，我们解析一下这个正则：
 
-* **进一步思考**：
+`/^(\w+)\1+$/.test(s)`
+
+1. `(\w+)` 表示任意多个字母或数字或下划线，也就是 A~Z,a~z,0~9,_ 中任意多个组成。
+2. `\1+` 表明前面的字母可能重复 1+ 次数。
+
+这样，正则表达式直接通过 `test()` 匹配 `s`，返回 `true` 或者 `false`。
 
 ---
 
