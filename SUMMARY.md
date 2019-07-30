@@ -212,6 +212,7 @@
       * [443 - 压缩字符串（string-compression） ✔](./other-library/LeetCode/easy/443-压缩字符串（string-compression）.md)
       * [447 - 回旋镖的数量（number-of-boomerangs） ✔](./other-library/LeetCode/easy/447-回旋镖的数量（number-of-boomerangs）.md)
       * [448 - 找出所有数组中消失的数字（find-all-numbers-disappeared-in-an-array） ✔](./other-library/LeetCode/easy/448-找出所有数组中消失的数字（find-all-numbers-disappeared-in-an-array）.md)
+      * [453 - 最小移动次数使数组元素相等（minimum-moves-to-equal-array-elements） ✔](./other-library/LeetCode/easy/453-最小移动次数使数组元素相等（minimum-moves-to-equal-array-elements）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
