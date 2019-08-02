@@ -29,11 +29,11 @@ jsliang 的文档库
 
 本文档库始建于 `2018-08-20`。  
 
-如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](./other-library/Monologue/Logs/README.md)** 进行查看。  
+如想知道 **jsliang** 最新学习进度，请前往 **[撰文思路](./other-library/Monologue/logs/README.md)** 进行查看。  
 
 如想知道 **jsliang** 各种新奇玩意，请前往 **[网站清单](./other-library/Website/README.md)** 进行查看。
 
-如想参与 **jsliang** 组织的小竞赛，请前往 **[个人竞赛](./other-library/Monologue/GitHubRunawayRace.md)** 进行查看。
+如想参与 **jsliang** 组织的小竞赛，请前往 **[个人竞赛](./other-library/Monologue/GitHub-competition.md)** 进行查看。
 
 建文档库的初始目的：**记录一下 `jsliang` 在折腾学习某个黑科技的时候的操作笔记。**
 
