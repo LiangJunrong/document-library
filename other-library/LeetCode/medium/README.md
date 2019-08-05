@@ -1,14 +1,14 @@
 LeetCode - 中等模式
 ===
 
-> Create by **jsliang** on **2019-05-24 11:44:30**  
-> Recently revised in **2019-06-14 17:31:41**
+> Create by **jsliang** on **2019-08-05 13:30:25**  
+> Recently revised in **2019-08-05 13:30:28**
 
 LeetCode 中等难度攻略
 
 | 题目 | 解题攻略 |
 | --- | --- |
-| 暂无 | 暂无 |
+| 036 - 有效的数独（valid-sudoku） | [#036 解题](./036-有效的数独（valid-sudoku）.md) |
 
 ---
 
