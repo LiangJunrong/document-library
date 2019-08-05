@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-08-05 10:22:26**  
-> Recently revised in **2019-08-05 13:29:25**
+> Recently revised in **2019-08-05 15:59:43**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -104,7 +104,116 @@
 * **解题代码**：
 
 ```js
+let map = new Map();
 
+// 计算横排
+const calculateHorizontalRow = (board) => {
+  map.clear();
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+    map.clear();
+  }
+  map.clear();
+  return true;
+}
+
+// 计算纵排
+const calculateTandem = (board) => {
+  map.clear();
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      if (board[j][i] !== '.' && map.get(board[j][i])) {
+        return false;
+      }
+      map.set(board[j][i], 1);
+    }
+    map.clear();
+  }
+  map.clear();
+  return true;
+}
+
+// 小九宫格计算
+const calculateTheNineSquares = (a, b, c, d, board) => {
+  map.clear();
+  for (let i = a; i < b; i++) {
+    for (let j = c; j < d; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+  }
+  map.clear();
+  return true;
+}
+
+const isValidSudoku = (board) => {
+  /**
+   * 计算横排
+   * board - 需要判断的数独
+   */
+  if (!calculateHorizontalRow(board)) {
+    return false;
+  };
+  /**
+   * 计算纵排
+   * board - 需要判断的数独
+   */
+  if (!calculateTandem(board)) {
+    return false;
+  };
+  /**
+   * 计算 3 * 3 宫格
+   * a - 横排起始位置
+   * b - 横排截止位置
+   * c - 纵排起始位置
+   * d - 纵排截止位置
+   * board - 需要判断的数独
+   */
+  // 左上角
+  if (!calculateTheNineSquares(0, 3, 0, 3, board) ) {
+    return false;
+  };
+  // 中上角
+  if (!calculateTheNineSquares(0, 3, 3, 6, board)) {
+    return false;
+  }
+  // 右上角
+  if (!calculateTheNineSquares(0, 3, 6, 9, board)) {
+    return false;
+  }
+  // 左中角
+  if (!calculateTheNineSquares(3, 6, 0, 3, board)) {
+    return false;
+  }
+  // 中间
+  if (!calculateTheNineSquares(3, 6, 3, 6, board)) {
+    return false;
+  }
+  // 右中角
+  if (!calculateTheNineSquares(3, 6, 6, 9, board)) {
+    return false;
+  }
+  // 左下角
+  if (!calculateTheNineSquares(6, 9, 0, 3, board)) {
+    return false;
+  }
+  // 中下角
+  if (!calculateTheNineSquares(6, 9, 3, 6, board)) {
+    return false;
+  }
+  // 右下角
+  if (!calculateTheNineSquares(6, 9, 6, 9, board)) {
+    return false;
+  }
+  return true;
+};
 ```
 
 ## <a name="chapter-four" id="chapter-four">四 执行测试</a>
