@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-08-05 10:22:26**  
-> Recently revised in **2019-08-05 10:27:56**
+> Recently revised in **2019-08-05 13:29:25**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -111,12 +111,26 @@
 
 > [返回目录](#chapter-one)
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+* `board`：
 
 ```js
+const board = [
+  ["5","3",".",".","7",".",".",".","."],
+  ["6",".",".","1","9","5",".",".","."],
+  [".","9","8",".",".",".",".","6","."],
+  ["8",".",".",".","6",".",".",".","3"],
+  ["4",".",".","8",".","3",".",".","1"],
+  ["7",".",".",".","2",".",".",".","6"],
+  [".","6",".",".",".",".","2","8","."],
+  [".",".",".","4","1","9",".",".","5"],
+  [".",".",".",".","8",".",".","7","9"]
+];
+```
 
+* `return`：
+
+```js
+true
 ```
 
 ## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
@@ -124,28 +138,404 @@
 > [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 504/504 cases passed (152 ms)
+  ✔ Your runtime beats 27.62 % of javascript submissions
+  ✔ Your memory usage beats 36.7 % of javascript submissions (38.4 MB)
 ```
 
 ## <a name="chapter-six" id="chapter-six">六 知识点</a>
 
 > [返回目录](#chapter-one)
 
-1. 
+1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
 
 ## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，看到这道题，就觉得很有意思。
 
-[分析]
+如果你是科班毕业（跟着老教授学过 C、C++ 等），那么你应该做过那道 **99 乘法表** 题目，知道双重 `for()` 暴力输出的快乐。
+
+如果你没做过，没事儿，咱这里玩玩（做过的可以跳过，或者看看预热）。
+
+```js
+let result = [];
+
+for (let i = 1; i <= 9; i++) {
+  let temp = [];
+  for (let j = i; j <= 9; j++) {
+    temp.push(`${i} * ${j} = ${i * j}`);
+  }
+  result.push(temp);
+}
+
+console.log(result);
+```
+
+打印出来非常好看：
+
+```js
+['1 * 1 = 1',  '1 * 2 = 2',  '1 * 3 = 3',  '1 * 4 = 4',  '1 * 5 = 5',  '1 * 6 = 6',  '1 * 7 = 7',  '1 * 8 = 8',  '1 * 9 = 9']
+['2 * 2 = 4',  '2 * 3 = 6',  '2 * 4 = 8',  '2 * 5 = 10', '2 * 6 = 12', '2 * 7 = 14', '2 * 8 = 16', '2 * 9 = 18']
+['3 * 3 = 9',  '3 * 4 = 12', '3 * 5 = 15', '3 * 6 = 18', '3 * 7 = 21', '3 * 8 = 24', '3 * 9 = 27']
+['4 * 4 = 16', '4 * 5 = 20', '4 * 6 = 24', '4 * 7 = 28', '4 * 8 = 32', '4 * 9 = 36']
+['5 * 5 = 25', '5 * 6 = 30', '5 * 7 = 35', '5 * 8 = 40', '5 * 9 = 45']
+['6 * 6 = 36', '6 * 7 = 42', '6 * 8 = 48', '6 * 9 = 54']
+['7 * 7 = 49', '7 * 8 = 56', '7 * 9 = 63']
+['8 * 8 = 64', '8 * 9 = 72']
+['9 * 9 = 81']
+```
+
+为什么会扯到这个呢，因为接下来需要双重 `for()` 遍历，怕小伙伴们看不懂。
+
+话不多说，先上代码：
+
+```js
+var isValidSudoku = function (board) {
+  let map = new Map();
+  // 计算横排
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+    map.clear();
+  }
+  // 计算竖排
+  map.clear();
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      if (board[j][i] !== '.' && map.get(board[j][i])) {
+        return false;
+      }
+      map.set(board[j][i], 1);
+    }
+    map.clear();
+  }
+  map.clear();
+  // 计算 3 * 3 宫格
+  for (let i = 0; i < 3; i++) { // 左上角
+    for (let j = 0; j < 3; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+  }
+  map.clear();
+  for (let i = 0; i < 3; i++) { // 中上角
+    for (let j = 3; j < 6; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+  }
+  map.clear();
+  for (let i = 0; i < 3; i++) { // 右上角
+    for (let j = 6; j < 9; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+  }
+  map.clear();
+  for (let i = 3; i < 6; i++) { // 左中角
+    for (let j = 0; j < 3; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+  }
+  map.clear();
+  for (let i = 3; i < 6; i++) { // 中间
+    for (let j = 3; j < 6; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+  }
+  map.clear();
+  for (let i = 3; i < 6; i++) { // 右中角
+    for (let j = 6; j < 9; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+  }
+  map.clear();
+  for (let i = 6; i < 9; i++) { // 左下角
+    for (let j = 0; j < 3; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+  }
+  map.clear();
+  for (let i = 6; i < 9; i++) { // 中下角
+    for (let j = 3; j < 6; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+  }
+  map.clear();
+  for (let i = 6; i < 9; i++) { // 右下角
+    for (let j = 6; j < 9; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+  }
+  map.clear();
+  return true;
+};
+```
+
+思路是怎样的呢：
+
+1. 设置 `Map`。 设置 `i` 为横坐标，`j` 为纵坐标。
+2. 先计算横排。通过每次都校验 `board[i][j]` 是否存在，如果出现过且不是 `'.'`，那么它就构成不了数独。同时，每计算完一排，清空 `Map` 的数据。
+3. 再计算纵排。相同于横排的计算，我们只需要把 `i` 和 `j` 的位置调换，就可以依次校验每纵排的数据，同时每次计算完一排，清空 `Map` 的数据。
+4. 最后计算每个小九宫格。**jsliang** 一开始没想到好的形式，于是分为 9 个方位分别计算了。
+
+**最后**，如果校验完毕，证明这个数独是可行的，返回 `false`。
+
+**最后的最后**，如果小伙伴发现一个代码是冗余的，类似于 **jsliang** 在上面写的 9 个小宫格的计算，那么我们可以尝试将其提取出来：
+
+```js
+let map = new Map();
+
+// 计算横排
+const calculateHorizontalRow = (board) => {
+  map.clear();
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+    map.clear();
+  }
+  map.clear();
+  return true;
+}
+
+// 计算纵排
+const calculateTandem = (board) => {
+  map.clear();
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      if (board[j][i] !== '.' && map.get(board[j][i])) {
+        return false;
+      }
+      map.set(board[j][i], 1);
+    }
+    map.clear();
+  }
+  map.clear();
+  return true;
+}
+
+// 小九宫格计算
+const calculateTheNineSquares = (a, b, c, d, board) => {
+  map.clear();
+  for (let i = a; i < b; i++) {
+    for (let j = c; j < d; j++) {
+      if (board[i][j] !== '.' && map.get(board[i][j])) {
+        return false;
+      }
+      map.set(board[i][j], 1);
+    }
+  }
+  map.clear();
+  return true;
+}
+
+const isValidSudoku = (board) => {
+  /**
+   * 计算横排
+   * board - 需要判断的数独
+   */
+  if (!calculateHorizontalRow(board)) {
+    return false;
+  };
+  /**
+   * 计算纵排
+   * board - 需要判断的数独
+   */
+  if (!calculateTandem(board)) {
+    return false;
+  };
+  /**
+   * 计算 3 * 3 宫格
+   * a - 横排起始位置
+   * b - 横排截止位置
+   * c - 纵排起始位置
+   * d - 纵排截止位置
+   * board - 需要判断的数独
+   */
+  // 左上角
+  if (!calculateTheNineSquares(0, 3, 0, 3, board) ) {
+    return false;
+  };
+  // 中上角
+  if (!calculateTheNineSquares(0, 3, 3, 6, board)) {
+    return false;
+  }
+  // 右上角
+  if (!calculateTheNineSquares(0, 3, 6, 9, board)) {
+    return false;
+  }
+  // 左中角
+  if (!calculateTheNineSquares(3, 6, 0, 3, board)) {
+    return false;
+  }
+  // 中间
+  if (!calculateTheNineSquares(3, 6, 3, 6, board)) {
+    return false;
+  }
+  // 右中角
+  if (!calculateTheNineSquares(3, 6, 6, 9, board)) {
+    return false;
+  }
+  // 左下角
+  if (!calculateTheNineSquares(6, 9, 0, 3, board)) {
+    return false;
+  }
+  // 中下角
+  if (!calculateTheNineSquares(6, 9, 3, 6, board)) {
+    return false;
+  }
+  // 右下角
+  if (!calculateTheNineSquares(6, 9, 6, 9, board)) {
+    return false;
+  }
+  return true;
+};
+```
+
+提升还是有的：
+
+```js
+✔ Accepted
+  ✔ 504/504 cases passed (120 ms)
+  ✔ Your runtime beats 69.41 % of javascript submissions
+  ✔ Your memory usage beats 70.16 % of javascript submissions (37.8 MB)
+```
 
 ## <a name="chapter-eight" id="chapter-eight">八 进一步思考</a>
 
 > [返回目录](#chapter-one)
 
+那么，还有没有其他方法呢？这里强烈推荐官方方法：
 
+> https://leetcode-cn.com/problems/valid-sudoku/solution/you-xiao-de-shu-du-by-leetcode/
+
+```java
+class Solution {
+  public boolean isValidSudoku(char[][] board) {
+    // init data
+    HashMap<Integer, Integer> [] rows = new HashMap[9];
+    HashMap<Integer, Integer> [] columns = new HashMap[9];
+    HashMap<Integer, Integer> [] boxes = new HashMap[9];
+    for (int i = 0; i < 9; i++) {
+      rows[i] = new HashMap<Integer, Integer>();
+      columns[i] = new HashMap<Integer, Integer>();
+      boxes[i] = new HashMap<Integer, Integer>();
+    }
+
+    // validate a board
+    for (int i = 0; i < 9; i++) {
+      for (int j = 0; j < 9; j++) {
+        char num = board[i][j];
+        if (num != '.') {
+          int n = (int)num;
+          int box_index = (i / 3 ) * 3 + j / 3;
+
+          // keep the current cell value
+          rows[i].put(n, rows[i].getOrDefault(n, 0) + 1);
+          columns[j].put(n, columns[j].getOrDefault(n, 0) + 1);
+          boxes[box_index].put(n, boxes[box_index].getOrDefault(n, 0) + 1);
+
+          // check if this value has been already seen before
+          if (rows[i].get(n) > 1 || columns[j].get(n) > 1 || boxes[box_index].get(n) > 1)
+            return false;
+        }
+      }
+    }
+
+    return true;
+  }
+}
+```
+
+* 时间复杂度：O(1)O(1)，因为我们只对 81 个单元格进行了一次迭代。
+* 空间复杂度：O(1)O(1)。
+
+翻译成 JavaScript 就是：
+
+```js
+const isValidSudoku = (board) => {
+  let rows = new Map();
+  let columns = new Map();
+  let boxes = new Map();
+
+  for (let i = 0; i < 9; i++) {
+    rows.set(`rows${i}`, new Map());
+    columns.set(`columns${i}`, new Map());
+    boxes.set(`boxes${i}`, new Map());
+  }
+
+  for (let i = 0; i < 9; i++) {
+
+    for (let j = 0; j < 9; j++) {
+      if (board[i][j] == '.') {
+        continue;
+      }
+      let boxIndex = Math.floor(i / 3) * 3 + Math.floor(j / 3);
+
+      let row = rows.get(`rows${i}`);
+      let col = columns.get(`columns${j}`);
+      let box = boxes.get(`boxes${boxIndex}`);
+
+      if (row.has(board[i][j]) || col.has(board[i][j]) || box.has(board[i][j])) {
+        return false;
+      } else {
+        row.set(board[i][j], 1);
+        col.set(board[i][j], 1);
+        box.set(board[i][j], 1);
+      }
+    }
+  }
+  return true;
+};
+```
+
+提交后：
+
+```js
+✔ Accepted
+  ✔ 504/504 cases passed (112 ms)
+  ✔ Your runtime beats 84.79 % of javascript submissions
+  ✔ Your memory usage beats 26.62 % of javascript submissions (38.9 MB)
+```
+
+相信看得懂的就看得懂了，看不懂的也不会看链接也不会百度也不会问的了。^_^ 滑稽脸
+
+那么这道题就这样子了。
 
 ---
 
