@@ -216,6 +216,7 @@
       * [455 - 分发饼干（assign-cookies） ✔](./other-library/LeetCode/easy/455-分发饼干（assign-cookies）.md)
       * [459 - 重复的字符串（repeated-substring-pattern） ✔](./other-library/LeetCode/easy/459-重复的字符串（repeated-substring-pattern）.md)
     * [LeetCode - 中等模式](./other-library/LeetCode/medium/README.md)
+      * [036 - 有效的数独（valid-sudoku） ✔](./other-library/LeetCode/easy/036-有效的数独（valid-sudoku）.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
     * [Markdown](./other-library/Markdown-Websites/Markdown/README.md)
