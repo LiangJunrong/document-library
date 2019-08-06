@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-08-06 11:07:31**  
-> Recently revised in **2019-08-06 11:40:50**
+> Recently revised in **2019-08-06 11:45:03**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -14,7 +14,7 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
 | &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| &emsp;[3.2 解法 - 二分查找](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -153,7 +153,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
 
 > 注：能解题，但是时间复杂度可能没有 `O(log(m + n))`。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 二分查找</a>
 
 > [返回目录](#chapter-one)
 
