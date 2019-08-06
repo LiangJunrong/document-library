@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-08-06 11:07:31**  
-> Recently revised in **2019-08-06 11:07:34**
+> Recently revised in **2019-08-06 11:40:50**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -60,36 +60,98 @@ nums2 = [3, 4]
 * **解题代码**：
 
 ```js
-
+var findMedianSortedArrays = function(nums1, nums2) {
+  const all = nums1.concat(nums2).sort((a, b) => a - b);
+  if (all.length % 2 === 0) {
+    return (all[all.length / 2] + all[all.length / 2 - 1]) / 2;
+  } else {
+    return all[(all.length - 1) / 2];
+  }
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `nums1`：`[1, 3]`
+2. `nums2`：`[2, 4]`
 3. `return`：
 
 ```js
-
+2.5
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 2085/2085 cases passed (232 ms)
+  ✔ Your runtime beats 33.82 % of javascript submissions
+  ✔ Your memory usage beats 81.59 % of javascript submissions (39.1 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `concat()`：`concat()` 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。[`concat()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/concat.md)
+2. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort.md)
 
 * **解题思路**：
 
-[图]
+**首先**，人生第一道困难难度的题目，怎么看起来好像有点简单啊，立马上手：
 
-[分析]
+```js
+var findMedianSortedArrays = function(nums1, nums2) {
+  const all = nums1.concat(nums2).sort();
+  if (all.length % 2 === 0) {
+    return (all[all.length / 2] + all[all.length / 2 - 1]) / 2;
+  } else {
+    return all[(all.length - 1) / 2];
+  }
+};
+```
 
-* **进一步思考**：
+Submit 提交看看：
+
+```js
+✘ Wrong Answer
+  ✘ 1041/2085 cases passed (N/A)
+  ✘ testcase: '[]\n[1,2,3,4]'
+  ✘ answer: -2.0
+  ✘ expected_answer: 2.5
+  ✘ stdout: [ 3 ]
+[ -2, -1 ]
+```
+
+一脸懵逼，还是我特意打印了下 `nums`、`nums2` 才知道，它给了未明觉利的东西啊。
+
+> 报错返回的测试用例是：`nums1 = [], nums2 = [1,2,3,4]`
+
+> 实测返回的测试用例是：`nums1 = [3], nums2 = [-2,-1]`
+
+**然后**，再仔细看了下，代码没写全，`sort()` 需要做下兼容：
+
+```js
+var findMedianSortedArrays = function(nums1, nums2) {
+  const all = nums1.concat(nums2).sort((a, b) => a - b);
+  if (all.length % 2 === 0) {
+    return (all[all.length / 2] + all[all.length / 2 - 1]) / 2;
+  } else {
+    return all[(all.length - 1) / 2];
+  }
+};
+```
+
+**最后**，提交：
+
+```js
+✔ Accepted
+  ✔ 2085/2085 cases passed (232 ms)
+  ✔ Your runtime beats 33.82 % of javascript submissions
+  ✔ Your memory usage beats 81.59 % of javascript submissions (39.1 MB)
+```
+
+就通了，估计是 LeetCode 返回的问题。
+
+> 注：能解题，但是时间复杂度可能没有 `O(log(m + n))`。
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
 
@@ -98,36 +160,85 @@ nums2 = [3, 4]
 * **解题代码**：
 
 ```js
+var findMedianSortedArrays = function (nums1, nums2) {
+  if (nums1.length > nums2.length) {
+    [nums1, nums2] = [nums2, nums1];
+  }
+  const nums1Length = nums1.length,
+    nums2Length = nums2.length;
+  let iMin = 0,
+    iMax = nums1Length;
+  const halfLen = Math.floor((nums1Length + nums2Length + 1) / 2); // +1 这种情况单数时取 maxleft
+  while (iMin <= iMax) {
+    let i = Math.floor((iMin + iMax) / 2); //   二分查找
+    let j = halfLen - i;
+    if (i < iMax && nums2[j - 1] > nums1[i]) {
+      iMin = i + 1;
+    } else if (i > iMin && nums1[i - 1] > nums2[j]) {
+      iMax = i - 1;
+    } else {
+      let maxLeft = 0;
+      if (i === 0) {
+        maxLeft = nums2[j - 1]
+      } else if (j === 0) {
+        maxLeft = nums1[i - 1]
+      } else {
+        maxLeft = Math.max(nums1[i - 1], nums2[j - 1]);
+      }
+      if ((nums1Length + nums2Length) % 2 === 1) {
+        return maxLeft;
+      }
 
+      let minRight = 0;
+      if (i === nums1Length) {
+        minRight = nums2[j];
+      } else if (j === nums2Length) {
+        minRight = nums1[i];
+      } else {
+        minRight = Math.min(nums2[j], nums1[i]);
+      }
+      return (maxLeft + minRight) / 2
+    }
+  }
+  return 0;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
+1. `nums1`：`[1, 3]`
+2. `nums2`：`[2, 4]`
 3. `return`：
 
 ```js
-
+2.5
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+✔ Accepted
+  ✔ 2085/2085 cases passed (160 ms)
+  ✔ Your runtime beats 94.83 % of javascript submissions
+  ✔ Your memory usage beats 81.18 % of javascript submissions (39.1 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
 
 * **解题思路**：
 
-[图]
+**首先**，**jsliang** 肯定写不出这种解析来的啦：
 
-[分析]
+> https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/javascriptban-ben-by-shen-zhen-dong-men-qing/
 
-* **进一步思考**：
+**然后**，这道题分析上，大佬给出的解释是：
+
+> 数组长度好像是千万。一个毫秒级，一个二十多秒。  
+> 作为一个前端，对于前端那种数据量，暴力破解这种就够用啦。
+
+**最后**，这道题肯定有更多二分查找之类的解法，但是这次是按照分组来解题，目前学习进度是【数组】，所以咱用了数组的方法求解，后面再持续维护，加油！
 
 ---
 
