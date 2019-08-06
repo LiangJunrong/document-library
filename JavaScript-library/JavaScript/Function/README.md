@@ -2,13 +2,14 @@ JavaScript - Function
 ===
 
 > Create by **jsliang** on **2019-05-30 21:46:39**  
-> Recently revised in **2019-07-23 15:38:34**
+> Recently revised in **2019-08-06 11:29:29**
 
 记录一些 JavaScript 的关于 Function 的知识点。
 
 | 目录 |
 | --- |
 | [方法 - charCodeAt()](./charCodeAt.md) |
+| [方法 - concat()](./concat.md) |
 | [方法 - filter()](./filter.md) |
 | [方法 - forEach()](./forEach.md) |
 | [方法 - fromCharCode()](./fromCharCode.md) |
