@@ -2,13 +2,14 @@ LeetCode - 中等模式
 ===
 
 > Create by **jsliang** on **2019-08-05 13:30:25**  
-> Recently revised in **2019-08-05 13:30:28**
+> Recently revised in **2019-8-7 08:36:40**
 
 LeetCode 中等难度攻略
 
 | 题目 | 解题攻略 |
 | --- | --- |
 | 036 - 有效的数独（valid-sudoku） | [#036 解题](./036-有效的数独（valid-sudoku）.md) |
+| 048 - 旋转图像（rotate-image） | [#048 解题](./048-旋转图像（rotate-image）.md) |
 
 ---
 
