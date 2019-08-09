@@ -2,12 +2,13 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-07-30 15:45:19**
+> Recently revised in **2019-08-09 15:23:06**
 
 LeetCode 简单难度攻略
 
 | 题目 | 解题攻略 |
 | --- | --- |
+| 000 - 字谜分组（puzzle-grouping） | [#0 解题](./000-字谜分组（puzzle-grouping）.md) |
 | 001 - 两数之和（two-sum） | [#1 解题](./001-两数之和（two-sum）.md) |
 | 007 - 整数反转（reverse-integer） | [#7 解题](./007-整数反转（reverse-integer）.md) |
 | 009 - 回文数（palindrome-number） | [#9 解题](./009-回文数（palindrome-number）.md) |
