@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-08-09 10:43:32**  
-> Recently revised in **2019-08-09 10:43:35**
+> Recently revised in **2019-08-09 11:43:55**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -111,9 +111,56 @@
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，就我这榆木脑袋，肯定不撞南墙不回头，先暴力试试：
 
-[分析]
+```js
+const setZeroes = (matrix) => {
+  const rowLength = matrix[0].length;
+  const verticalLength = matrix.length;
+  let temp = [];
+  for (let i = 0; i < verticalLength; i++) {
+    let zeroIndexList = [];
+    for (let j = 0; j < rowLength; j++) {
+      if (matrix[i][j] === 0) {
+        zeroIndexList.push(j);
+      }
+    }
+    temp.push(zeroIndexList);
+  }
+  for (let i = 0; i < verticalLength; i++) {
+    if (temp[i].length) {
+      // 计算横排
+      matrix[i] = new Array(rowLength).fill(0);
+      // 计算竖排
+      temp[i].forEach((item) => {
+        for (let i = 0; i < verticalLength; i++) {
+          matrix[i][item] = 0;
+        }
+      })
+    }
+  }
+  return matrix;
+};
+```
+
+提交看看：
+
+```js
+✔ Accepted
+  ✔ 159/159 cases passed (120 ms)
+  ✔ Your runtime beats 89.33 % of javascript submissions
+  ✔ Your memory usage beats 6.66 % of javascript submissions (37.9 MB)
+```
+
+立即成功~
+
+> 当然，中间尝试了几遍，就不说出来了。
+
+**然后**，咱们想想优化方案：
+
+```js
+
+```
 
 ## <a name="chapter-eight" id="chapter-eight">八 进一步思考</a>
 
