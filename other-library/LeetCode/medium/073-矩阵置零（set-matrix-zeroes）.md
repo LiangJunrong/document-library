@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-08-09 10:43:32**  
-> Recently revised in **2019-08-09 11:43:55**
+> Recently revised in **2019-08-09 14:41:28**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -17,7 +17,6 @@
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 知识点](#chapter-six) |
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 解题思路](#chapter-seven) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 进一步思考](#chapter-eight) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -78,19 +77,62 @@
 * **解题代码**：
 
 ```js
-
+const setZeroes = (matrix) => {
+  // 每排的长度
+  const rowLength = matrix[0].length;
+  // 总共有几排
+  const verticalLength = matrix.length;
+  // 标记 0 的数组
+  let mark = [];
+  // 遍历矩阵，将 0 都找出来。
+  for (let i = 0; i < verticalLength; i++) {
+    let zeroIndexList = [];
+    for (let j = 0; j < rowLength; j++) {
+      if (matrix[i][j] === 0) {
+        zeroIndexList.push(j);
+      }
+    }
+    mark.push(zeroIndexList);
+  }
+  // 遍历标记数组，修改对应的矩阵
+  for (let i = 0; i < verticalLength; i++) {
+    if (mark[i].length) {
+      // 计算横排
+      matrix[i] = new Array(rowLength).fill(0);
+      // 计算竖排
+      mark[i].forEach((item) => {
+        for (let i = 0; i < verticalLength; i++) {
+          matrix[i][item] = 0;
+        }
+      })
+    }
+  }
+  return matrix;
+};
 ```
 
 ## <a name="chapter-four" id="chapter-four">四 执行测试</a>
 
 > [返回目录](#chapter-one)
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+* `matrix`：
 
 ```js
+let matrix = [
+  [1,1,1],
+  [1,0,1],
+  [1,1,1]
+];
+```
 
+* `return`：
+
+```js
+[
+  [ 1, 0, 1 ],
+  [ 0, 0, 0 ],
+  [ 1, 0, 1 ]
+]
 ```
 
 ## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
@@ -98,14 +140,19 @@
 > [返回目录](#chapter-one)
 
 ```js
-
+✔ Accepted
+  ✔ 159/159 cases passed (128 ms)
+  ✔ Your runtime beats 74.67 % of javascript submissions
+  ✔ Your memory usage beats 8.33 % of javascript submissions (37.9 MB)
 ```
 
 ## <a name="chapter-six" id="chapter-six">六 知识点</a>
 
 > [返回目录](#chapter-one)
 
-1. 
+1. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
+2. `fill()`：`fill()` 方法用一个固定值填充一个数组中从起始索引到终止索引内的全部元素。不包括终止索引。[`fill()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/fill.md)
+3. `forEach()`：`forEach()` 方法对数组的每个元素执行一次提供的函数。[`forEach()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/forEach.md)
 
 ## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
@@ -143,6 +190,12 @@ const setZeroes = (matrix) => {
 };
 ```
 
+思路比较复杂点：
+
+1. 用 `rowLength` 记录横排长度，用 `verticalLength` 记录纵排长度。
+2. 用 `temp` 记录 0 出现的情况。
+3. 遍历 `temp`，当某行出现 0 的时候，我们就依题意进行 0 设置。
+
 提交看看：
 
 ```js
@@ -159,14 +212,43 @@ const setZeroes = (matrix) => {
 **然后**，咱们想想优化方案：
 
 ```js
-
+const setZeroes = (matrix) => {
+  // 每排的长度
+  const rowLength = matrix[0].length;
+  // 总共有几排
+  const verticalLength = matrix.length;
+  // 标记 0 的数组
+  let mark = [];
+  // 遍历矩阵，将 0 都找出来。
+  for (let i = 0; i < verticalLength; i++) {
+    let zeroIndexList = [];
+    for (let j = 0; j < rowLength; j++) {
+      if (matrix[i][j] === 0) {
+        zeroIndexList.push(j);
+      }
+    }
+    mark.push(zeroIndexList);
+  }
+  // 遍历标记数组，修改对应的矩阵
+  for (let i = 0; i < verticalLength; i++) {
+    if (mark[i].length) {
+      // 计算横排
+      matrix[i] = new Array(rowLength).fill(0);
+      // 计算竖排
+      mark[i].forEach((item) => {
+        for (let i = 0; i < verticalLength; i++) {
+          matrix[i][item] = 0;
+        }
+      })
+    }
+  }
+  return matrix;
+};
 ```
 
-## <a name="chapter-eight" id="chapter-eight">八 进一步思考</a>
+写死了~只要写写注释了。
 
-> [返回目录](#chapter-one)
-
-
+**最后**，翻了下【评论】和【题解】，我 JS 大佬呢，怎么没看到非常优秀的题解？伤心~
 
 ---
 
