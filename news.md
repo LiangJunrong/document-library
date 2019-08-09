@@ -2,13 +2,13 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-08-09 10:22:55**
+> Recently revised in **2019-08-09 10:23:48**
 
 **不折腾的前端，和咸鱼有什么区别**
 
 ## 2019-08-09
 
-* [x] **链接**：[LeetCode - 015 - 三数之和（3sum）](./other-library/LeetCode/easy/015-三数之和（3sum）.md)
+* [x] **链接**：[LeetCode - 015 - 三数之和](./other-library/LeetCode/easy/015-三数之和（3sum）.md)
 
 ## 历史
 
