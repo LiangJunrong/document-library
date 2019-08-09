@@ -220,6 +220,7 @@
       * [015 - 三数之和（3sum） ✔](./other-library/LeetCode/easy/015-三数之和（3sum）.md)
       * [036 - 有效的数独（valid-sudoku） ✔](./other-library/LeetCode/easy/036-有效的数独（valid-sudoku）.md)
       * [048 - 旋转图像（rotate-image） ✔](./other-library/LeetCode/easy/048-旋转图像（rotate-image）.md)
+      * [073 - 矩阵置零（set-matrix-zeroes） ✔](./other-library/LeetCode/easy/073-矩阵置零（set-matrix-zeroes）.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
       * [004 - 寻找两个数组的中位数（median-of-two-sorted-arrays） ✔](./other-library/LeetCode/easy/004-寻找两个数组的中位数（median-of-two-sorted-arrays）.md)
   * [Markdown 建站](./other-library/Markdown-Websites/README.md)
