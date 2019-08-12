@@ -2,9 +2,9 @@
 ===
 
 > Create by **jsliang** on **2019-06-03 13:27:36**  
-> Recently revised in **2019-06-03 13:32:51**
+> Recently revised in **2019-08-12 09:56:10**
 
-* **原文**：[MDN - map()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+* **原文**：[MDN - join()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
 
 * **功能**：`join()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串
 
