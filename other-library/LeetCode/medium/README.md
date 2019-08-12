@@ -2,7 +2,7 @@ LeetCode - 中等模式
 ===
 
 > Create by **jsliang** on **2019-08-05 13:30:25**  
-> Recently revised in **2019-08-12 14:50:16**
+> Recently revised in **2019-08-12 18:59:44**
 
 LeetCode 中等难度攻略
 
@@ -14,6 +14,7 @@ LeetCode 中等难度攻略
 | 036 - 有效的数独（valid-sudoku） | [#036 解题](./036-有效的数独（valid-sudoku）.md) |
 | 048 - 旋转图像（rotate-image） | [#048 解题](./048-旋转图像（rotate-image）.md) |
 | 073 - 矩阵置零（set-matrix-zeroes） | [#073 解题](./073-矩阵置零（set-matrix-zeroes）.md) |
+| 334 - 递增的三元子序列（increasing-triplet-subsequence） | [#334 解题](./334-递增的三元子序列（increasing-triplet-subsequence）.md) |
 
 ---
 
