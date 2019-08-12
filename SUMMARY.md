@@ -15,6 +15,7 @@
 * [JavaScript 资料室](./JavaScript-library/README.md)
   * [JavaScript](./JavaScript-library/JavaScript/README.md)
     * [Function](./JavaScript-library/JavaScript/Function/README.md)
+      * [方法 - charAt() ✔](./JavaScript-library/JavaScript/Function/charAt.md)
       * [方法 - charCodeAt() ✔](./JavaScript-library/JavaScript/Function/charCodeAt.md)
       * [方法 - concat() ✔](./JavaScript-library/JavaScript/Function/concat.md)
       * [方法 - filter() ✔](./JavaScript-library/JavaScript/Function/filter.md)
