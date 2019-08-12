@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-08-09 14:38:08**  
-> Recently revised in **2019-08-09 14:38:11**
+> Recently revised in **2019-08-12 09:58:28**
 
 * **原文**：[MDN - fill()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
 
