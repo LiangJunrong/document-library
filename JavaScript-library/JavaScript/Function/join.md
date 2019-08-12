@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-03 13:27:36**  
-> Recently revised in **2019-08-12 09:56:10**
+> Recently revised in **2019-08-12 09:58:13**
 
 * **原文**：[MDN - join()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
 
