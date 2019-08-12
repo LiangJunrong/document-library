@@ -2,13 +2,14 @@ LeetCode - 中等模式
 ===
 
 > Create by **jsliang** on **2019-08-05 13:30:25**  
-> Recently revised in **2019-08-09 16:56:22**
+> Recently revised in **2019-08-12 14:50:16**
 
 LeetCode 中等难度攻略
 
 | 题目 | 解题攻略 |
 | --- | --- |
 | 003 - 无重复长度的最长子串（longest-substring-without-repeating-characters） | [#003 解题](./003-无重复长度的最长子串（longest-substring-without-repeating-characters）.md) |
+| 005 - 最长回文子串（longest-palindromic-substring） | [#005 解题](./005-最长回文子串（longest-palindromic-substring）.md) |
 | 015 - 三数之和（3sum） | [#015 解题](./015-三数之和（3sum）.md) |
 | 036 - 有效的数独（valid-sudoku） | [#036 解题](./036-有效的数独（valid-sudoku）.md) |
 | 048 - 旋转图像（rotate-image） | [#048 解题](./048-旋转图像（rotate-image）.md) |
