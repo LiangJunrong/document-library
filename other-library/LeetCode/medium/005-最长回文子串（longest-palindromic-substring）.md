@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-08-12 10:48:42**  
-> Recently revised in **2019-08-12 10:48:45**
+> Recently revised in **2019-08-12 11:12:59**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,8 +13,11 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 知识点](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 解题思路](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 进一步思考](#chapter-eight) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -46,17 +49,15 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **解题代码**：
 
 ```js
 
 ```
 
-* **执行测试**：
+## <a name="chapter-four" id="chapter-four">四 执行测试</a>
+
+> [返回目录](#chapter-one)
 
 1. 形参 1
 2. 形参 2
@@ -66,61 +67,33 @@
 
 ```
 
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
-
 ```js
 
 ```
 
-* **执行测试**：
+## <a name="chapter-six" id="chapter-six">六 知识点</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
+> [返回目录](#chapter-one)
 
 1. 
 
-* **解题思路**：
+## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
-[图]
+> [返回目录](#chapter-one)
 
-[分析]
+**首先**，对于这道题，**jsliang** 毫无思路，不管是 **动态规划** 还是 **对称查找** 还是其他，都不太清楚，所以只能看官网和大佬们的题解。
 
-* **进一步思考**：
+**然后**，
+
+## <a name="chapter-eight" id="chapter-eight">八 进一步思考</a>
+
+> [返回目录](#chapter-one)
+
+
 
 ---
 
