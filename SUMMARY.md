@@ -224,6 +224,7 @@
       * [015 - 三数之和（3sum） ✔](./other-library/LeetCode/easy/015-三数之和（3sum）.md)
       * [036 - 有效的数独（valid-sudoku） ✔](./other-library/LeetCode/easy/036-有效的数独（valid-sudoku）.md)
       * [048 - 旋转图像（rotate-image） ✔](./other-library/LeetCode/easy/048-旋转图像（rotate-image）.md)
+      * [049 - 字母异位词分组（group-anagrams） ✔](./other-library/LeetCode/easy/049-字母异位词分组（group-anagrams）.md)
       * [073 - 矩阵置零（set-matrix-zeroes） ✔](./other-library/LeetCode/easy/073-矩阵置零（set-matrix-zeroes）.md)
       * [334 - 递增的三元子序列（increasing-triplet-subsequence） ✔](./other-library/LeetCode/easy/334-递增的三元子序列（increasing-triplet-subsequence）.md)
     * [LeetCode - 困难模式](./other-library/LeetCode/hard/README.md)
