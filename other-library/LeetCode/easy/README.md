@@ -2,33 +2,33 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-08-09 15:23:06**
+> Recently revised in **2019-08-13 10:33:50**
 
 LeetCode 简单难度攻略
 
 | 题目 | 解题攻略 |
 | --- | --- |
-| 000 - 字谜分组（puzzle-grouping） | [#0 解题](./000-字谜分组（puzzle-grouping）.md) |
-| 001 - 两数之和（two-sum） | [#1 解题](./001-两数之和（two-sum）.md) |
-| 007 - 整数反转（reverse-integer） | [#7 解题](./007-整数反转（reverse-integer）.md) |
-| 009 - 回文数（palindrome-number） | [#9 解题](./009-回文数（palindrome-number）.md) |
-| 013 - 罗马数字转整数（roman-to-integer） | [#13 解题](./013-罗马数字转整数（roman-to-integer）.md) |
-| 014 - 最长公共前缀（longest-common-prefix） | [#14 解题](./014-最长公共前缀（longest-common-prefix）.md) |
-| 020 - 有效的括号（valid-parentheses） | [#20 解题](./020-有效的括号（valid-parentheses）.md) |
-| 021 - 合并两个有序链表（merge-two-sorted-lists） | [#21 解题](./021-合并两个有序链表（merge-two-sorted-lists）.md) |
-| 026 - 删除排序数组中的重复项（remove-duplicates-from-sorted-array） | [#26 解题](./026-删除排序数组中的重复项（remove-duplicates-from-sorted-array）.md) |
-| 027 - 移除元素（remove-element） | [#27 解题](./027-移除元素（remove-element）.md) |
-| 028 - 实现strStr（implement-strstr） | [#28 解题](./028-实现strStr（implement-strstr）.md) |
-| 029 - 搜索插入位置（search-insert-position） | [#29 解题](./029-搜索插入位置（search-insert-position）.md) |
-| 038 - 报数（count-and-say） | [#38 解题](./038-报数（count-and-say）.md) |
-| 053 - 最大子序和（maximum-subarray） | [#53 解题](./053-最大子序和（maximum-subarray）.md) |
-| 058 - 最后一个单词的长度（length-of-last-word） | [#58 解题](./058-最后一个单词的长度（length-of-last-word）.md) |
-| 066 - 加一（plus-one） | [#66 解题](./066-加一（plus-one）.md) |
-| 067 - 二进制求和（add-binary） | [#67 解题](./067-二进制求和（add-binary）.md) |
-| 069 - x 的平方根（sqrtx） | [#69 解题](./069-x的平方根（sqrtx）.md) |
-| 070 - 爬楼梯（climbing-stairs） | [#70 解题](./070-爬楼梯（climbing-stairs）.md) |
-| 083 - 删除排序链表中的重复元素（remove-duplicates-from-sorted-list） | [#83 解题](./083-删除排序链表中的重复元素（remove-duplicates-from-sorted-list）.md) |
-| 088 - 合并两个有序数组（merge-sorted-array） | [#88 解题](./088-合并两个有序数组（merge-sorted-array）.md) |
+| 000 - 字谜分组（puzzle-grouping） | [#000 解题](./000-字谜分组（puzzle-grouping）.md) |
+| 001 - 两数之和（two-sum） | [#001 解题](./001-两数之和（two-sum）.md) |
+| 007 - 整数反转（reverse-integer） | [#007 解题](./007-整数反转（reverse-integer）.md) |
+| 009 - 回文数（palindrome-number） | [#009 解题](./009-回文数（palindrome-number）.md) |
+| 013 - 罗马数字转整数（roman-to-integer） | [#013 解题](./013-罗马数字转整数（roman-to-integer）.md) |
+| 014 - 最长公共前缀（longest-common-prefix） | [#014 解题](./014-最长公共前缀（longest-common-prefix）.md) |
+| 020 - 有效的括号（valid-parentheses） | [#020 解题](./020-有效的括号（valid-parentheses）.md) |
+| 021 - 合并两个有序链表（merge-two-sorted-lists） | [#021 解题](./021-合并两个有序链表（merge-two-sorted-lists）.md) |
+| 026 - 删除排序数组中的重复项（remove-duplicates-from-sorted-array） | [#026 解题](./026-删除排序数组中的重复项（remove-duplicates-from-sorted-array）.md) |
+| 027 - 移除元素（remove-element） | [#027 解题](./027-移除元素（remove-element）.md) |
+| 028 - 实现strStr（implement-strstr） | [#028 解题](./028-实现strStr（implement-strstr）.md) |
+| 029 - 搜索插入位置（search-insert-position） | [#029 解题](./029-搜索插入位置（search-insert-position）.md) |
+| 038 - 报数（count-and-say） | [#038 解题](./038-报数（count-and-say）.md) |
+| 053 - 最大子序和（maximum-subarray） | [#053 解题](./053-最大子序和（maximum-subarray）.md) |
+| 058 - 最后一个单词的长度（length-of-last-word） | [#058 解题](./058-最后一个单词的长度（length-of-last-word）.md) |
+| 066 - 加一（plus-one） | [#066 解题](./066-加一（plus-one）.md) |
+| 067 - 二进制求和（add-binary） | [#067 解题](./067-二进制求和（add-binary）.md) |
+| 069 - x 的平方根（sqrtx） | [#069 解题](./069-x的平方根（sqrtx）.md) |
+| 070 - 爬楼梯（climbing-stairs） | [#070 解题](./070-爬楼梯（climbing-stairs）.md) |
+| 083 - 删除排序链表中的重复元素（remove-duplicates-from-sorted-list） | [#083 解题](./083-删除排序链表中的重复元素（remove-duplicates-from-sorted-list）.md) |
+| 088 - 合并两个有序数组（merge-sorted-array） | [#088 解题](./088-合并两个有序数组（merge-sorted-array）.md) |
 | 100 - 相同的树（same-tree） | [#100 解题](./100-相同的树（same-tree）.md) |
 | 101 - 对称二叉树（symmetric-tree） | [#101 解题](./101-对称二叉树（symmetric-tree）.md) |
 | 104 - 二叉树的最大深度（maximum-depth-of-binary-tree） | [#104 解题](./104-二叉树的最大深度（maximum-depth-of-binary-tree）.md) |
