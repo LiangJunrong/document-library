@@ -24,6 +24,7 @@
       * [方法 - includes() ✔](./JavaScript-library/JavaScript/Function/includes.md)
       * [方法 - indexOf() ✔](./JavaScript-library/JavaScript/Function/indexOf.md)
       * [方法 - join() ✔](./JavaScript-library/JavaScript/Function/join.md)
+      * [方法 - lastIndexOf() ✔](./JavaScript-library/JavaScript/Function/lastIndexOf.md)
       * [方法 - map() ✔](./JavaScript-library/JavaScript/Function/map.md)
       * [方法 - padStart() ✔](./JavaScript-library/JavaScript/Function/padStart.md)
       * [方法 - parseInt() ✔](./JavaScript-library/JavaScript/Function/parseInt.md)
