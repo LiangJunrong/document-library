@@ -19,6 +19,8 @@
       * [方法 - charCodeAt() ✔](./JavaScript-library/JavaScript/Function/charCodeAt.md)
       * [方法 - concat() ✔](./JavaScript-library/JavaScript/Function/concat.md)
       * [方法 - filter() ✔](./JavaScript-library/JavaScript/Function/filter.md)
+      * [方法 - find() ✔](./JavaScript-library/JavaScript/Function/find.md)
+      * [方法 - findIndex() ✔](./JavaScript-library/JavaScript/Function/findIndex.md)
       * [方法 - forEach() ✔](./JavaScript-library/JavaScript/Function/forEach.md)
       * [方法 - fromCharCode() ✔](./JavaScript-library/JavaScript/Function/fromCharCode.md)
       * [方法 - includes() ✔](./JavaScript-library/JavaScript/Function/includes.md)
