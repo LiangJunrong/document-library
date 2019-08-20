@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-8-21 07:33:59**  
-> Recently revised in **2019-8-21 07:34:02**
+> Recently revised in **2019-8-21 07:47:46**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -83,36 +83,46 @@
 * **解题代码**：
 
 ```js
-
+const myAtoi = function(str) {
+  const result = str.trim().match(/^(-|\+)?\d+/g);
+  return result
+    ? Math.max(Math.min(Number(result[0]), 2 ** 31 - 1), -(2 ** 31))
+    : 0;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `str`：`   -42`
+2. `return`：
 
 ```js
-
+-42
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+√ Accepted
+  √ 1079/1079 cases passed (100 ms)
+  √ Your runtime beats 88.01 % of javascript submissions
+  √ Your memory usage beats 45.24 % of javascript submissions (35.9 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
 
 * **解题思路**：
 
-[图]
+**jsliang** 懂一点点正则，但是自己又写不出，只能求助于【题解】的大佬了：
 
-[分析]
+1. 使用正则提取满足条件的字符，`/^(-|\+)?\d+/g`，`(-|\+)?` 表示第一位是 - 或 + 或都不是，`\d+` 表示匹配多个数字。
+2. `Math.max(Math.min(Number(result[0]), 2 ** 31 - 1), -(2 ** 31))` 是 `- 2 ** 31 < num < 2 ** 31 - 1` 的js写法，保证不超出范围。
 
-* **进一步思考**：
+这道题考验的是一种设计能力，毕竟如果使用正常的 JavaScript 编写，是比较麻烦的（去空格以及匹配数字）。
+
+所以咱们实在不懂的，过一下就行了，下次如果面试，希望是原题吧。
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
 
@@ -121,36 +131,74 @@
 * **解题代码**：
 
 ```js
-
+var myAtoi = function(s) {
+  let i = 0,
+    reg = /\d|[+-]/;
+  let sign = "+",
+    arr = [];
+  let INT_MAX = 2 ** 31 - 1,
+    INT_MIN = -(2 ** 31); //模拟数值极限,实际上js中只有64位浮点数
+  while (s[i] === " ") {
+    ++i; //跳过首部的所有空字符
+  }
+  let firstChar = s[i];
+  if (!reg.test(firstChar)) return 0; //首个非空字符不是数字或者正负号
+  if (firstChar === "+" || firstChar === "-") {
+    sign = firstChar;
+    ++i; //记录并跳过正负号
+  }
+  while (/\d/.test(s[i])) {
+    let num = s[i].charCodeAt() - 48; //字符"0-9"的charCode: 48-57,这里用字符编码计算出字符对应的数值;
+    arr.push(num); //记录有效的连续数字
+    ++i;
+  }
+  let res = 0,
+    over = sign === "+" ? 7 : 8;
+  for (let index = 0; index < arr.length; ++index) {
+    let item = arr[index]; //当前数字
+    let pow = arr.length - 1 - index; //10的指数
+    let step = item * 10 ** pow; //即将累加到结果中的数值
+    if (
+      res - (res % 10) > 2147483640 ||
+      (res - (res % 10) === 2147483640 && step > over)
+    )
+      return sign === "+" ? INT_MAX : INT_MIN;
+    //注意题目的假设条件:环境仅支持32位带符号的整数,所以这一步是在溢出前 用max_int除以10来比较,以防止结果溢出
+    //很多人无视这个限制,先溢出再比较,这是不对的,因为按照题目意思,溢出后的数值是无法表达的,也就无法得知是否溢出了,只能提前判断.
+    res += item * 10 ** pow; //结果累加
+  }
+  return sign === "+" ? res : -res;
+};
 ```
 
 * **执行测试**：
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+1. `str`：`   -42`
+2. `return`：
 
 ```js
-
+-42
 ```
 
 * **LeetCode Submit**：
 
 ```js
-
+√ Accepted
+  √ 1079/1079 cases passed (116 ms)
+  √ Your runtime beats 50.81 % of javascript submissions
+  √ Your memory usage beats 20.84 % of javascript submissions (36.6 MB)
 ```
 
 * **知识点**：
 
-1. 
+1. `charCodeAt()`：`charCodeAt()` 获得字母对应的 ASCII 编码，例如 A - 65。[`charCodeAt()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/charCodeAt.md)
+2. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
 
 * **解题思路**：
 
-[图]
+正如前面所说，如果使用暴力破解，你会感到：**难受**。
 
-[分析]
-
-* **进一步思考**：
+小伙伴们可以瞅瞅这题的暴力解法，体会下这句话。
 
 ---
 
