@@ -2,16 +2,17 @@
 ===
 
 > Create by **jsliang** on **2019-5-24 08:25:32**  
-> Recently revised in **2019-08-13 10:34:41**
+> Recently revised in **2019-8-21 07:49:17**
 
 **不折腾的前端，和咸鱼有什么区别**
 
-## 2019-08-13
+## 2019-08-21
 
-* [x] **链接**：[LeetCode - 049 - 字母异位词分组](./other-library/LeetCode/easy/049-字母异位词分组（group-anagrams）.md)
+* [x] **链接**：[LeetCode - 008 - 字符串转换整数](./other-library/LeetCode/easy/008-字符串转换整数（string-to-integer-atoi）.md)
 
 ## 历史
 
+* [x] [LeetCode - 049 - 字母异位词分组](./other-library/LeetCode/easy/049-字母异位词分组（group-anagrams）.md)
 * [x] [LeetCode - 334 - 递增的三元子序列](./other-library/LeetCode/easy/334-递增的三元子序列（increasing-triplet-subsequence）.md)
 * [x] [LeetCode - 005 - 最长回文子串](./other-library/LeetCode/easy/005-最长回文子串（longest-palindromic-substring）.md)
 * [x] [LeetCode - 003 - 无重复长度的最长子串](./other-library/LeetCode/easy/003-无重复长度的最长子串（longest-substring-without-repeating-characters）.md)
