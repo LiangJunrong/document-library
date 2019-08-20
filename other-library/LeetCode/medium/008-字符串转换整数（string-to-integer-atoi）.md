@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-8-21 07:33:59**  
-> Recently revised in **2019-8-21 07:47:46**
+> Recently revised in **2019-8-21 07:50:48**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -13,8 +13,8 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| &emsp;[3.1 解法 - 正则表达式](#chapter-three-one) |
+| &emsp;[3.2 解法 - 暴力破解法](#chapter-three-two) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -76,7 +76,7 @@
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 正则表达式</a>
 
 > [返回目录](#chapter-one)
 
@@ -124,7 +124,7 @@ const myAtoi = function(str) {
 
 所以咱们实在不懂的，过一下就行了，下次如果面试，希望是原题吧。
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - 暴力破解法</a>
 
 > [返回目录](#chapter-one)
 
