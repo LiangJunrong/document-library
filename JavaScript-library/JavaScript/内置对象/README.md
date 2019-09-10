@@ -2,7 +2,7 @@ JavaScript - 内置对象
 ===
 
 > Create by **jsliang** on **2019-09-10 16:33:28**  
-> Recently revised in **2019-09-10 16:33:31**
+> Recently revised in **2019-09-10 16:34:23**
 
 在内置对象这系列文章中，我们会介绍 JavaScript 提供了一些内置的对象和函数。
 
@@ -30,6 +30,8 @@ JavaScript - 内置对象
 | [RegExp](./RegExp/README.md) |
 | [Set](./Set/README.md) |
 | [String](./String/README.md) |
+
+那么，祝你学习愉快~
 
 ---
 
