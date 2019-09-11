@@ -2,14 +2,14 @@
 ===
 
 > Create by **jsliang** on **2019-09-11 10:57:55**  
-> Recently revised in **2019-09-11 11:15:35**
+> Recently revised in **2019-09-11 11:18:02**
 
 * **原文**：[MDN - indexOf()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf)
 
 * **功能**：`indexOf()` 方法返回调用它的 `String` 对象中第一次出现的指定值的索引，从 fromIndex 处进行搜索。如果未找到该值，则返回 -1。
 
-* **语法**：`str.indexOf(searchValue, fromIndex)`
-  * `searchValue`：一个字符串表示被查找的值。
+* **语法**：`str.indexOf(searchString, fromIndex)`
+  * `searchString`：一个字符串表示被查找的值。
   * `fromIndex`：表示开始查找的位置。可以是任意整数，默认值为 0。
 
 * **返回值**：指定值的第一次出现的索引；如果没有找到，则返回 -1。
