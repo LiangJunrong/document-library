@@ -1,31 +1,23 @@
-方法 - findIndex()
+方法 - indexOf()
 ===
 
-> Create by **jsliang** on **2019-08-15 15:29:21**  
-> Recently revised in **2019-08-15 15:32:30**
+> Create by **jsliang** on **2019-09-11 10:57:55**  
+> Recently revised in **2019-09-11 11:15:35**
 
-* **原文**：[MDN - findIndex()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
+* **原文**：[MDN - indexOf()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf)
 
-* **功能**：`findIndex()` 方法返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1。
+* **功能**：`indexOf()` 方法返回调用它的 `String` 对象中第一次出现的指定值的索引，从 fromIndex 处进行搜索。如果未找到该值，则返回 -1。
 
-* **语法**：`arr.findIndex(callback)`
-  * `callback`：在数组每一项上执行的函数，接收 3 个参数：
-    * `element`：当前遍历到的元素。
-    * `index`：当前遍历到的索引。
-    * `array`：数组本身。
+* **语法**：`str.indexOf(searchValue, fromIndex)`
+  * `searchValue`：一个字符串表示被查找的值。
+  * `fromIndex`：表示开始查找的位置。可以是任意整数，默认值为 0。
 
-* **返回值**：返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1。
+* **返回值**：指定值的第一次出现的索引；如果没有找到，则返回 -1。
 
 * **代码**：
 
 ```js
-var array1 = [5, 12, 8, 130, 44];
-
-function isLargeNumber(element) {
-  return element > 13;
-}
-
-array1.findIndex(isLargeNumber); // 3
+'jsliang'.indexOf('liang'); // 2
 ```
 
 ---
