@@ -2,7 +2,7 @@ String
 ===
 
 > Create by **jsliang** on **2019-05-19 11:17:49**  
-> Recently revised in **2019-09-11 11:34:22**
+> Recently revised in **2019-09-11 17:01:51**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -81,15 +81,15 @@ str.indexOf(str[str.length - 1]); // 6
 3. `str.charCodeAt(index)`：返回表示给定索引的字符的 Unicode 的值。[详细学习](./charCodeAt.md)
 4. `str.includes(searchString, fromIndex))`：判断一个字符串里是否包含其他字符串。[详细学习](./includes.md)
 5. `str.indexOf(searchString, fromIndex)`：从字符串对象中返回首个被发现的给定值的索引值，如果没有找到则返回 -1。[详细学习](./indexOf.md)
-6. `str.lastIndexOf()`：从字符串对象中返回最后一个被发现的给定值的索引值，如果没有找到则返回 -1。[详细学习](./lastIndexOf.md)
-7.  `str.substring()`：返回在字符串中指定两个下标之间的字符。[详细学习](./substring.md)
+6. `str.lastIndexOf(searchString, fromIndex)`：从字符串对象中返回最后一个被发现的给定值的索引值，如果没有找到则返回 -1。[详细学习](./lastIndexOf.md)
+7.  `str.substring(indexStart, indexEnd)`：返回在字符串中指定两个下标之间的字符。[详细学习](./substring.md)
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 字符串 - 正则表达式</a>
 
 > [返回目录](#chapter-one)
 
-1. `str.match()`：使用正则表达式与字符串相比较。[详细学习](./match.md)
-2. `str.matchAll()`：返回一个包含所有匹配正则表达式及分组捕获结果的迭代器。[详细学习](./matchAll.md)
+1. `str.match(regexp)`：使用正则表达式与字符串相比较。[详细学习](./match.md)
+2. `str.matchAll(regexp)`：返回一个包含所有匹配正则表达式及分组捕获结果的迭代器。[详细学习](./matchAll.md)
 3. `str.replace()`：被用来在正则表达式和字符串直接比较，然后用新的子串来替换被匹配的子串。[详细学习](./replace.md)
 4. `str.search()`：对正则表达式和指定字符串进行匹配搜索，返回第一个出现的匹配项的下标。[详细学习](./search.md)
 
