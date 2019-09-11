@@ -2,7 +2,7 @@ String
 ===
 
 > Create by **jsliang** on **2019-05-19 11:17:49**  
-> Recently revised in **2019-09-10 17:52:04**
+> Recently revised in **2019-09-11 11:34:22**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -76,59 +76,54 @@ str.indexOf(str[str.length - 1]); // 6
 
 > [返回目录](#chapter-one)
 
-1. `str.length`：返回了字符串的长度。
-2. `str.charAt(index)`：返回特定位置的字符。
-3. `str.charCodeAt(index)`：返回表示给定索引的字符的 Unicode 的值。
-4. `str.startsWith()`：判断字符串的起始位置是否匹配其他字符串中的字符。
-5. `str.endsWith()`：判断一个字符串的是否以给定字符串结尾，结果返回布尔值。
-6. `str.includes()`：判断一个字符串里是否包含其他字符串。
-7. `str.indexOf()`：从字符串对象中返回首个被发现的给定值的索引值，如果没有找到则返回 -1。
-8. `str.lastIndexOf()`：从字符串对象中返回最后一个被发现的给定值的索引值，如果没有找到则返回 -1。
-9. `str.substr()`：返回在字符串中指定两个下标之间的字符。
-10. `str.substring()`：返回在字符串中指定两个下标之间的字符。
+1. `str.length`：返回了字符串的长度。[详细学习](./length.md)
+2. `str.charAt(index)`：返回特定位置的字符。[详细学习](./charAt.md)
+3. `str.charCodeAt(index)`：返回表示给定索引的字符的 Unicode 的值。[详细学习](./charCodeAt.md)
+4. `str.includes(searchString, fromIndex))`：判断一个字符串里是否包含其他字符串。[详细学习](./includes.md)
+5. `str.indexOf(searchString, fromIndex)`：从字符串对象中返回首个被发现的给定值的索引值，如果没有找到则返回 -1。[详细学习](./indexOf.md)
+6. `str.lastIndexOf()`：从字符串对象中返回最后一个被发现的给定值的索引值，如果没有找到则返回 -1。[详细学习](./lastIndexOf.md)
+7.  `str.substring()`：返回在字符串中指定两个下标之间的字符。[详细学习](./substring.md)
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 字符串 - 正则表达式</a>
 
 > [返回目录](#chapter-one)
 
-1. `str.match()`：使用正则表达式与字符串相比较。
-2. `str.matchAll()`：返回一个包含所有匹配正则表达式及分组捕获结果的迭代器。
-3. `str.replace()`：被用来在正则表达式和字符串直接比较，然后用新的子串来替换被匹配的子串。
-4. `str.search()`：对正则表达式和指定字符串进行匹配搜索，返回第一个出现的匹配项的下标。
+1. `str.match()`：使用正则表达式与字符串相比较。[详细学习](./match.md)
+2. `str.matchAll()`：返回一个包含所有匹配正则表达式及分组捕获结果的迭代器。[详细学习](./matchAll.md)
+3. `str.replace()`：被用来在正则表达式和字符串直接比较，然后用新的子串来替换被匹配的子串。[详细学习](./replace.md)
+4. `str.search()`：对正则表达式和指定字符串进行匹配搜索，返回第一个出现的匹配项的下标。[详细学习](./search.md)
 
 ### <a name="chapter-three-three" id="chapter-three-three">3.3 字符串 - 修改</a>
 
 > [返回目录](#chapter-one)
 
-1. `str.concat()`：连接两个字符串文本，并返回一个新的字符串。
-2. `str.padStart()`：在当前字符串头部填充指定的字符串，直到达到指定的长度。返回一个新的字符串。
-3. `str.padEnd()`：在当前字符串尾部填充指定的字符串，直到达到指定的长度。返回一个新的字符串。
-4. `str.repeat()`：返回指定重复次数的由元素组成的字符串对象。
-5. `str.slice()`：摘取一个字符串区域，返回一个新的字符串。
+1. `str.concat()`：连接两个字符串文本，并返回一个新的字符串。[详细学习](./concat.md)
+2. `str.padStart()`：在当前字符串头部填充指定的字符串，直到达到指定的长度。返回一个新的字符串。[详细学习](./padStart.md)
+3. `str.padEnd()`：在当前字符串尾部填充指定的字符串，直到达到指定的长度。返回一个新的字符串。[详细学习](./padEnd.md)
+4. `str.repeat()`：返回指定重复次数的由元素组成的字符串对象。[详细学习](./repeat.md)
+5. `str.slice()`：摘取一个字符串区域，返回一个新的字符串。[详细学习](./slice.md)
 
 ### <a name="chapter-three-four" id="chapter-three-four">3.4 字符串 - 转类型</a>
 
 > [返回目录](#chapter-one)
 
-1. `str.split()`：（字符串转数组）通过分离字符串成子串，将字符串对象分割成字符串数组。
-2. `type.toString()`：（其他类型转字符串）返回用字符串表示的特定对象。
+1. `str.split()`：（字符串转数组）通过分离字符串成子串，将字符串对象分割成字符串数组。[详细学习](./split.md)
+2. `type.toString()`：（其他类型转字符串）返回用字符串表示的特定对象。[详细学习](./toString.md)
 
 ### <a name="chapter-three-five" id="chapter-three-five">3.5 字符串 - 大小写</a>
 
 > [返回目录](#chapter-one)
 
-1. `str.toLocaleLowerCase()`：根据当前区域设置，将符串中的字符转换成小写。对于大多数语言来说，toLowerCase 的返回值是一致的。
-2. `str.toLocaleUpperCase()`：根据当前区域设置，将字符串中的字符转换成大写，对于大多数语言来说，toUpperCase的返回值是一致的。
-3. `str.toLowerCase()`：将字符串转换成小写并返回。
-4. `str.toUpperCase()`：将字符串转换成大写并返回。
+1. `str.toLocaleLowerCase()` / `str.toLowerCase()`：根据当前区域设置，将符串中的字符转换成小写。对于大多数语言来说，`toLowerCase` 的返回值是一致的。[详细学习](./toLowerCase.md)
+2. `str.toLocaleUpperCase()` / `str.toUpperCase()`：根据当前区域设置，将字符串中的字符转换成大写，对于大多数语言来说，`toUpperCase` 的返回值是一致的。[详细学习](./toUpperCase.md)
 
 ### <a name="chapter-three-six" id="chapter-three-six">3.6 字符串 - 去空格</a>
 
 > [返回目录](#chapter-one)
 
-1. `str.trim()`：从字符串的开始和结尾去除空格。
-2. `str.trimStart()` / `str.trimLeft()`：从字符串的左侧去除空格。
-3. `str.trimEnd()` / `str.trimRight()`：从字符串的右侧去除空格。
+1. `str.trim()`：从字符串的开始和结尾去除空格。[详细学习](./trim.md)
+2. `str.trimStart()` / `str.trimLeft()`：从字符串的左侧去除空格。[详细学习](./trimStart.md)
+3. `str.trimEnd()` / `str.trimRight()`：从字符串的右侧去除空格。[详细学习](./trimEnd.md)
 
 ## <a name="chapter-four" id="chapter-four">四 拓展</a>
 
@@ -149,10 +144,10 @@ String {
     bold: ƒ bold(), // 被限制使用，因为只对可用的 HTML 标签和属性提供部分支持。
     charAt: ƒ charAt(),
     charCodeAt: ƒ charCodeAt(),
-    codePointAt: ƒ codePointAt(), // 非常用，返回使用 UTF-16 编码的给定位置的值的非负整数。
+    codePointAt: ƒ codePointAt(), // 返回使用 UTF-16 编码的给定位置的值的非负整数。
     concat: ƒ concat(),
     constructor: ƒ String(), // 用于创造对象的原型对象的特定的函数。
-    endsWith: ƒ endsWith(),
+    endsWith: ƒ endsWith(), // 需要兼容处理（ES6）
     fixed: ƒ fixed(), // 被限制使用，因为只对可用的 HTML 标签和属性提供部分支持。
     fontcolor: ƒ fontcolor(), // 被限制使用，因为只对可用的 HTML 标签和属性提供部分支持。
     fontsize: ƒ fontsize(), // 被限制使用，因为只对可用的 HTML 标签和属性提供部分支持。
@@ -174,10 +169,10 @@ String {
     slice: ƒ slice(),
     small: ƒ small(), // 被限制使用，因为只对可用的 HTML 标签和属性提供部分支持。
     split: ƒ split(),
-    startsWith: ƒ startsWith(),
+    startsWith: ƒ startsWith(), // 需要兼容处理（ES6）
     strike: ƒ strike(), // 被限制使用，因为只对可用的 HTML 标签和属性提供部分支持。
     sub: ƒ sub(), // 被限制使用，因为只对可用的 HTML 标签和属性提供部分支持。
-    substr: ƒ substr(),
+    substr: ƒ substr(), // 避免使用，后期可能被移除
     substring: ƒ substring(),
     sup: ƒ sup(), // 被限制使用，因为只对可用的 HTML 标签和属性提供部分支持。
     toLocaleLowerCase: ƒ toLocaleLowerCase(),
