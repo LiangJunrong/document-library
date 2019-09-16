@@ -1,8 +1,8 @@
-对象 - Math
+Math
 ===
 
-> Create by **jsliang** on **2019-05-19 11:32:44**  
-> Recently revised in **2019-06-06 13:51:34**
+> Create by **jsliang** on **2019-09-16 15:40:47**  
+> Recently revised in **2019-09-16 15:40:50**
 
 * **原文**：[MDN - Math](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math)
 
