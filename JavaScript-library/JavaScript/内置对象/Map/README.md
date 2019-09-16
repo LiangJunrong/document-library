@@ -1,8 +1,8 @@
 对象 - Map
 ===
 
-> Create by **jsliang** on **2019-05-17 11:45:35**  
-> Recently revised in **2019-06-06 13:51:17**
+> Create by **jsliang** on **2019-09-16 15:41:07**  
+> Recently revised in **2019-09-16 15:41:09**
 
 * **原文**：[MDN - Map](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map)
 
