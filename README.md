@@ -5,10 +5,7 @@ jsliang 的文档库
 
 ## 一 最新
 
-* **在线小册**：
-
-1. [LiangJunrong.github.io](http://liangjunrong.github.io)（每天更新）
-2. [document.jsliang.top](http://document.jsliang.top/)（每周更新）
+* 【推荐】[前端面试每日3+1](https://github.com/haizlin/fe-interview)，以面试题来驱动学习，坚持每天学习与思考，每天进步一点！
 
 * **微信公众号**：
 
@@ -21,8 +18,6 @@ jsliang 的文档库
 ![个人微信](./public-repertory/img/z-small-wechat.jpeg)
 
 * **微信群**：（已满 100 人，需要先加 **jsliang** 微信，再拉你入群）
-
-* **个人 QQ**：`1741020489`
 * **QQ 群**：`798961601`
 
 ## 二 前言
