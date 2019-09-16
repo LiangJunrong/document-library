@@ -1,8 +1,8 @@
-对象 - Set
+Set
 ===
 
-> Create by **jsliang** on **2019-06-06 13:47:16**  
-> Recently revised in **2019-06-06 13:47:20**
+> Create by **jsliang** on **2019-09-16 15:39:51**  
+> Recently revised in **2019-09-16 15:39:54**
 
 * **原文**：[MDN - Set](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set)
 
