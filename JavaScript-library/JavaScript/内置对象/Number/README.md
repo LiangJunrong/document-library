@@ -1,8 +1,8 @@
-对象 - Number
+Number
 ===
 
-> Create by **jsliang** on **2019-05-19 11:17:28**  
-> Recently revised in **2019-06-06 13:51:59**
+> Create by **jsliang** on **2019-09-16 15:40:32**  
+> Recently revised in **2019-09-16 15:40:35**
 
 * **原文**：[MDN - Number](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
