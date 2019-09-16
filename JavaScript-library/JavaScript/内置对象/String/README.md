@@ -2,7 +2,7 @@ String
 ===
 
 > Create by **jsliang** on **2019-05-19 11:17:49**  
-> Recently revised in **2019-09-16 15:09:29**
+> Recently revised in **2019-09-16 15:55:07**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -90,24 +90,24 @@ str.indexOf(str[str.length - 1]); // 6
 
 1. `str.match(regexp)`：使用正则表达式与字符串相比较。[详细学习](./match.md)
 2. `str.matchAll(regexp)`：返回一个包含所有匹配正则表达式及分组捕获结果的迭代器。[详细学习](./matchAll.md)
-3. `str.replace()`：被用来在正则表达式和字符串直接比较，然后用新的子串来替换被匹配的子串。[详细学习](./replace.md)
-4. `str.search()`：对正则表达式和指定字符串进行匹配搜索，返回第一个出现的匹配项的下标。[详细学习](./search.md)
+3. `str.replace(regexp |substr, newSubStr| function)`：被用来在正则表达式和字符串直接比较，然后用新的子串来替换被匹配的子串。[详细学习](./replace.md)
+4. `str.search(regexp)`：对正则表达式和指定字符串进行匹配搜索，返回第一个出现的匹配项的下标。[详细学习](./search.md)
 
 ### <a name="chapter-three-three" id="chapter-three-three">3.3 字符串 - 修改</a>
 
 > [返回目录](#chapter-one)
 
-1. `str.concat()`：连接两个字符串文本，并返回一个新的字符串。[详细学习](./concat.md)
-2. `str.padStart()`：在当前字符串头部填充指定的字符串，直到达到指定的长度。返回一个新的字符串。[详细学习](./padStart.md)
-3. `str.padEnd()`：在当前字符串尾部填充指定的字符串，直到达到指定的长度。返回一个新的字符串。[详细学习](./padEnd.md)
-4. `str.repeat()`：返回指定重复次数的由元素组成的字符串对象。[详细学习](./repeat.md)
-5. `str.slice()`：摘取一个字符串区域，返回一个新的字符串。[详细学习](./slice.md)
+1. `str.concat(string2, string3, ..., stringN)`：连接两个字符串文本，并返回一个新的字符串。[详细学习](./concat.md)
+2. `str.padStart(targetLength, padString)`：在当前字符串头部填充指定的字符串，直到达到指定的长度。返回一个新的字符串。[详细学习](./padStart.md)
+3. `str.padEnd(targetLength, padString)`：在当前字符串尾部填充指定的字符串，直到达到指定的长度。返回一个新的字符串。[详细学习](./padEnd.md)
+4. `str.repeat(count)`：返回指定重复次数的由元素组成的字符串对象。[详细学习](./repeat.md)
+5. `str.slice(beginIndex, endIndex)`：摘取一个字符串区域，返回一个新的字符串。[详细学习](./slice.md)
 
 ### <a name="chapter-three-four" id="chapter-three-four">3.4 字符串 - 转类型</a>
 
 > [返回目录](#chapter-one)
 
-1. `str.split()`：（字符串转数组）通过分离字符串成子串，将字符串对象分割成字符串数组。[详细学习](./split.md)
+1. `str.split(separator, limit)`：（字符串转数组）通过分离字符串成子串，将字符串对象分割成字符串数组。[详细学习](./split.md)
 2. `type.toString()`：（其他类型转字符串）返回用字符串表示的特定对象。[详细学习](./toString.md)
 
 ### <a name="chapter-three-five" id="chapter-three-five">3.5 字符串 - 大小写</a>
