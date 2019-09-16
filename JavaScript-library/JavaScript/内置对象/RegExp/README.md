@@ -1,8 +1,8 @@
-对象 - RegExp
+RegExp
 ===
 
-> Create by **jsliang** on **2019-06-03 16:13:48**  
-> Recently revised in **2019-06-03 16:19:04**
+> Create by **jsliang** on **2019-09-16 15:40:10**  
+> Recently revised in **2019-09-16 15:40:13**
 
 * **原文**：[MDN - String](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/prototype)
 
