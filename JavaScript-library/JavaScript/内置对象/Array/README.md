@@ -2,7 +2,7 @@ Array
 ===
 
 > Create by **jsliang** on **2019-09-17 09:21:48**  
-> Recently revised in **2019-09-17 09:21:51**
+> Recently revised in **2019-09-17 10:00:10**
 
 数组 - 最简单的内存数据结构
 
@@ -76,7 +76,7 @@ Array
 
 > 更多精彩，欢迎关注下方公众号或者前往 **jsliang** 的 GitHub：https://github.com/LiangJunrong/document-library
 
-![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../../../public-repertory/img/z-small-wechat-public-address.jpg)
 
 ### <a name="chapter-two-one" id="chapter-two-one">2.1 为什么用数组？</a>
 
@@ -592,7 +592,7 @@ const id2 = list.find(item => item.name === 'JavaScriptLiang').id;
 
 > [返回目录](#chapter-one)
 
-* [MDN - push()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+* [push() 详细了解](./push.md)
 
 `push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。
 
@@ -615,7 +615,7 @@ arr.push(4); // [1, 2, 3, 4]
 
 > [返回目录](#chapter-one)
 
-* [MDN - unshift()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
+* [unshift() 详细了解](./unshift.md)
 
 `unshift()` 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度。
 
@@ -640,7 +640,7 @@ console.log(arrB); // [1, 2, 3, 4, 5, 6]
 
 > [返回目录](#chapter-one)
 
-* [MDN - pop()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+* [pop() 详细了解](./pop.md)
 
 `pop()` 方法从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。
 
@@ -684,7 +684,7 @@ for(let i = 0, time = 1; i < arr.length; time++) {
 
 > [返回目录](#chapter-one)
 
-* [MDN - shift()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)
+* [shift() 详细了解](./shift.md)
 
 `shift()` 方法从数组中删除第一个元素，并返回该元素的值。此方法更改数组的长度。
 
@@ -707,7 +707,7 @@ console.log(str.shift()); // undefined
 
 > [返回目录](#chapter-one)
 
-* [MDN - splice()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+* [splice() 详细了解](./splice.md)
 
 `splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。
 
@@ -736,7 +736,7 @@ console.log(months);
 
 > [返回目录](#chapter-one)
 
-* [MDN - concat()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
+* [concat() 详细了解](./concat.md)
 
 `concat()` 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。
 
@@ -754,7 +754,7 @@ const newArr = [1, 2, 3].concat(['a', 'b', 'c']);
 
 > [返回目录](#chapter-one)
 
-* [MDN - filter()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+* [filter() 详细了解](./filter.md)
 
 `filter()` 方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。
 
@@ -774,7 +774,7 @@ var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 
 > [返回目录](#chapter-one)
 
-* [MDN - forEach()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+* [forEach() 详细了解](./forEach.md)
 
 `forEach()` 方法对数组的每个元素执行一次提供的函数。
 
@@ -804,7 +804,7 @@ items.forEach(function(item){
 
 > [返回目录](#chapter-one)
 
-* [MDN - join()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+* [join() 详细了解](./join.md)
 
 `join()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。
 
@@ -828,7 +828,7 @@ var myVar4 = a.join('');    // myVar4的值变为"WindRainFire"
 
 > [返回目录](#chapter-one)
 
-* [MDN - indexOf()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf)
+* [indexOf() 详细了解](./indexOf.md)
 
 `indexOf()` 方法返回调用 String 对象中第一次出现的指定值的索引。
 
@@ -850,7 +850,7 @@ var myVar4 = a.join('');    // myVar4的值变为"WindRainFire"
 
 > [返回目录](#chapter-one)
 
-* [MDN - lastIndexOf()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf)
+* [lastIndexOf() 详细了解](./lastIndexOf.md)
 
 `lastIndexOf()` 方法返回指定元素（也即有效的 JavaScript 值或变量）在数组中的最后一个的索引，如果不存在则返回 -1。
 
@@ -867,7 +867,7 @@ var index = array.lastIndexOf(2); // 3
 
 > [返回目录](#chapter-one)
 
-* [MDN - map()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+* [map() 详细了解](./map.md)
 
 `map()` 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
 
@@ -896,7 +896,7 @@ var index = array.lastIndexOf(2); // 3
 
 > [返回目录](#chapter-one)
 
-* [MDN - reverse()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
+* [reverse() 详细了解](./reverse.md)
 
 `reverse()` 方法将数组中元素的位置颠倒,并返回该数组。该方法会改变原数组。
 
@@ -918,7 +918,7 @@ console.log(arr); // [3, 2, 1]
 
 > [返回目录](#chapter-one)
 
-* [MDN - slice()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/slice)
+* [slice() 详细了解](./slice.md)
 
 `slice()` 方法提取一个字符串的一部分，并返回一新的字符串。
 
@@ -939,7 +939,7 @@ str.slice(2); // 'liang'
 
 > [返回目录](#chapter-one)
 
-* [MDN - sort()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+* [sort()](./sort.md)
 
 `sort()` 对数组的元素进行排序，并返回数组。
 
@@ -962,7 +962,7 @@ str.slice(2); // 'liang'
 
 > [返回目录](#chapter-one)
 
-* [MDN - toString()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toString)
+* [toString()](./toString.md)
 
 `toString()` 返回一个字符串，表示指定的数组及其元素。
 
@@ -982,7 +982,7 @@ arr.toString(); // '1,2,3'
 
 > [返回目录](#chapter-one)
 
-* [MDN - includes()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
+* [includes() 详细了解](./includes.md)
 
 `includes()` 方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回 false。
 
@@ -1002,7 +1002,7 @@ arr.toString(); // '1,2,3'
 
 > [返回目录](#chapter-one)
 
-* [MDN - fill()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
+* [fill() 详细了解](./fill.md)
 
 `fill()` 方法用一个固定值填充一个数组中从起始索引到终止索引内的全部元素。不包括终止索引。
 
@@ -1020,7 +1020,7 @@ arr = new Array(arr.length).fill(0);
 
 > [返回目录](#chapter-one)
 
-* [MDN - reduce()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+* [reduce()](./reduce.md)
 
 `reduce()` 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
 
@@ -1045,7 +1045,7 @@ arr = new Array(arr.length).fill(0);
 
 > [返回目录](#chapter-one)
 
-* [MDN - find()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+* [find() 详细了解](./find.md)
 
 `find()` 方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。
 
@@ -1072,7 +1072,7 @@ inventory.find(findCherries));
 
 > [返回目录](#chapter-one)
 
-* [MDN - findIndex()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
+* [findIndex() 详细了解](./findIndex.md)
 
 `findIndex()` 方法返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1。
 
@@ -1096,7 +1096,7 @@ array1.findIndex(isLargeNumber); // 3
 
 经过前面一系列的折腾，我们基本对数组的各种操作有所了解，虽然谈不上 **精通**，但是支持日常工作是毫无问题的了。
 
-写到这里，**jsliang** 查询了下字数：36800。
+写到这里，**jsliang** 查询了下字数：36884。
 
 是的，路漫漫其修远兮，就连我一开始写这篇文章的时候，我也没想到它有这么多的内容可以写，而且还是没有将一些 ES6、ES7 的数组新特性加上的情况下篇幅。
 
@@ -1112,7 +1112,7 @@ array1.findIndex(isLargeNumber); // 3
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../../../public-repertory/img/z-small-wechat-public-address.jpg)
 
 **jsliang** 会每天更新一道 LeetCode 题解，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构。
 
