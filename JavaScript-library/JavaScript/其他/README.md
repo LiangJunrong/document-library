@@ -2,15 +2,9 @@ JavaScript - 其他
 ===
 
 > Create by **jsliang** on **2019-05-30 21:44:49**  
-> Recently revised in **2019-05-30 21:44:46**
+> Recently revised in **2019-09-17 10:09:27**
 
 记录一些 JavaScript 的关于 Function 的知识点。
-
-| 目录 |
-| --- |
-| [删除数组项目的技巧](./DeleteArrrayItem.md) |
-| [ES6学习 - 1 - Promise](./Promise.md) |
-| [JavaScript 之 构造函数与原型对象](./prototype&constructor.md) |
 
 ---
 
