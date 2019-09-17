@@ -2,9 +2,9 @@
 ===
 
 > Create by **jsliang** on **2019-09-17 09:35:04**  
-> Recently revised in **2019-09-17 09:35:13**
+> Recently revised in **2019-09-17 09:43:13**
 
-* **原文**：[MDN - indexOf()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf)
+* **原文**：[MDN - indexOf()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)
 
 * **功能**：`indexOf()` 方法返回调用 String 对象中第一次出现的指定值的索引。
 
