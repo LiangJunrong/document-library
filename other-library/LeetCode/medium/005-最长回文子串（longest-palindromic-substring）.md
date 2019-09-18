@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-08-12 10:48:42**  
-> Recently revised in **2019-08-12 14:48:55**
+> Recently revised in **2019-09-18 14:14:12**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -111,8 +111,8 @@ bab
 
 > [返回目录](#chapter-one)
 
-1. `slice()`：`slice()` 方法提取一个字符串的一部分，并返回一新的字符串。[`slice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/slice.md)
-2. `charAt()`：`charAt()` 方法从一个字符串中返回指定的字符。[`charAt()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/charAt.md)
+1. `slice()`：`slice()` 方法提取一个字符串的一部分，并返回一新的字符串。[`slice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/String/slice.md)
+2. `charAt()`：`charAt()` 方法从一个字符串中返回指定的字符。[`charAt()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/String/charAt.md)
 
 ## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
