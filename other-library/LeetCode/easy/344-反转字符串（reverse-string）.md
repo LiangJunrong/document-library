@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-22 19:06:50**  
-> Recently revised in **2019-07-22 19:24:28**
+> Recently revised in **2019-09-18 13:53:43**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -79,7 +79,7 @@ var reverseString = function(s) {
 
 * **知识点**：
 
-1. `reverse()`：`reverse()` 方法将数组中元素的位置颠倒,并返回该数组。该方法会改变原数组。[`reverse()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/reverse.md)
+1. `reverse()`：`reverse()` 方法将数组中元素的位置颠倒,并返回该数组。该方法会改变原数组。[`reverse()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/reverse.md)
 
 * **解题思路**：
 
