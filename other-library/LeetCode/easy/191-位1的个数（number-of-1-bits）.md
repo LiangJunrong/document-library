@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-08 16:16:00**  
-> Recently revised in **2019-07-08 16:29:25**
+> Recently revised in **2019-09-18 11:42:00**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -92,7 +92,7 @@ var hammingWeight = function (n) {
 
 > [返回目录](#chapter-one)
 
-`toString()`：`toString()` 返回一个字符串，表示指定的数组及其元素。[`toString()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/toString.md)
+`toString()`：`toString()` 返回一个字符串，表示指定的数组及其元素。[`toString()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/toString.md)
 
 ## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
