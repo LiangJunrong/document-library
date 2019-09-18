@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-05 13:54:05**  
-> Recently revised in **2019-07-05 14:48:53**
+> Recently revised in **2019-09-18 11:29:14**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -85,7 +85,7 @@ var majorityElement = function(nums) {
 
 * **知识点**：
 
-1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
+1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Map/README.md)
 
 * **解题思路**：
 
