@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-02 18:54:59**  
-> Recently revised in **2019-7-2 20:47:42**
+> Recently revised in **2019-09-18 10:40:45**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -87,7 +87,7 @@ var singleNumber = function(nums) {
 
 * **知识点**：
 
-1. `splice()`：`splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。[`splice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/splice.md)
+1. `splice()`：`splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。[`splice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/splice.md)
 
 * **解题思路**：
 
@@ -148,7 +148,7 @@ var singleNumber = function(nums) {
 
 * **知识点**：
 
-1. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort.md)
+1. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/sort.md)
 
 * **解题思路**：
 
