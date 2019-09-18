@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-13 13:47:41**  
-> Recently revised in **2019-07-13 14:38:27**
+> Recently revised in **2019-09-18 13:36:51**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -84,7 +84,7 @@ var containsDuplicate = function(nums) {
 
 * **知识点**：
 
-1. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf.md)
+1. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/indexOf.md)
 
 * **解题思路**：
 
@@ -124,7 +124,7 @@ var containsDuplicate = function(nums) {
 
 * **知识点**：
 
-1. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort.md)
+1. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/sort.md)
 
 * **解题思路**：
 
@@ -170,7 +170,7 @@ var containsDuplicate = function(nums) {
 
 * **知识点**：
 
-1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
+1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Map/README.md)
 
 * **解题思路**：
 
@@ -214,7 +214,7 @@ var containsDuplicate = function(nums) {
 
 * **知识点**：
 
-1. `Set`：`Set` 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。由于唯一性，一般用于去重。[`Set` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Set.md)
+1. `Set`：`Set` 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。由于唯一性，一般用于去重。[`Set` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Set/README.md)
 
 * **解题思路**：
 
