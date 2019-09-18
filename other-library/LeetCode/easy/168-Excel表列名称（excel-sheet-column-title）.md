@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-04 19:30:13**  
-> Recently revised in **2019-7-5 09:10:53**
+> Recently revised in **2019-09-18 10:43:31**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -96,7 +96,7 @@ var convertToTitle = function(n) {
 
 > [返回目录](#chapter-one)
 
-`fromCharCode()`：静态 `String.fromCharCode()` 方法返回由指定的 UTF-16 代码单元序列创建的字符串。简单来说，就是接受一个 Unicode 值，然后返回一个字符串。例如 65 - A，66 - B。[`fromCharCode()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/fromCharCode.md)
+`fromCharCode()`：静态 `String.fromCharCode()` 方法返回由指定的 UTF-16 代码单元序列创建的字符串。简单来说，就是接受一个 Unicode 值，然后返回一个字符串。例如 65 - A，66 - B。[`fromCharCode()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/String/fromCharCode.md)
 
 ## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
