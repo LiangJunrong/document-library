@@ -2,7 +2,7 @@ Array
 ===
 
 > Create by **jsliang** on **2019-09-17 09:21:48**  
-> Recently revised in **2019-09-17 10:00:10**
+> Recently revised in **2019-09-18 09:50:40**
 
 数组 - 最简单的内存数据结构
 
@@ -41,14 +41,13 @@ Array
 | &emsp;[4.11 lastIndexOf() - 倒序查找第一个](#chapter-four-eleven) |
 | &emsp;[4.12 map() - 遍历返回新数组](#chapter-four-twelve) |
 | &emsp;[4.13 reverse() - 反转数组元素](#chapter-four-thirteen) |
-| &emsp;[4.14 slice() - 查找指定位置元素](#chapter-four-fourteen) |
-| &emsp;[4.15 sort() - 数组排序](#chapter-four-fifteen) |
-| &emsp;[4.16 toString() - 数组转字符串](#chapter-four-sixteen) |
-| &emsp;[4.17 includes() - 数组包含某元素](#chapter-four-seventeen) |
-| &emsp;[4.18 fill() - 填充数组](#chapter-four-eighteen) |
-| &emsp;[4.19 reduce() - 数组累计](#chapter-four-nighteen) |
-| &emsp;[4.20 find() - 查找数组元素](#chapter-four-twenty) |
-| &emsp;[4.21 findIndex() - 查找元素索引](#chapter-four-twenty-one) |
+| &emsp;[4.14 sort() - 数组排序](#chapter-four-fourteen) |
+| &emsp;[4.15 toString() - 数组转字符串](#chapter-four-fifteen) |
+| &emsp;[4.16 includes() - 数组包含某元素](#chapter-four-sixteen) |
+| &emsp;[4.17 fill() - 填充数组](#chapter-four-seventeen) |
+| &emsp;[4.18 reduce() - 数组累计](#chapter-four-eighteen) |
+| &emsp;[4.19 find() - 查找数组元素](#chapter-four-nighteen) |
+| &emsp;[4.20 findIndex() - 查找元素索引](#chapter-four-twenty) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 总结](#chapter-five) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
@@ -914,28 +913,7 @@ console.log(arr); // [3, 2, 1]
 * [190 - 颠倒二进制位（reverse-bit）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/easy/190-%E9%A2%A0%E5%80%92%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%EF%BC%88reverse-bit%EF%BC%89.md)
 * [344 - 反转字符串（reverse-string）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/easy/344-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%88reverse-string%EF%BC%89.md)
 
-### <a name="chapter-four-fourteen" id="chapter-four-fourteen">4.14 slice() - 查找指定位置元素</a>
-
-> [返回目录](#chapter-one)
-
-* [slice() 详细了解](./slice.md)
-
-`slice()` 方法提取一个字符串的一部分，并返回一新的字符串。
-
-```js
-const str = 'jsliang';
-str.slice(0, 2); // 'js'
-str.slice(2); // 'liang'
-```
-
-**实战 LeetCode**：
-
-* [005 - 最长回文子串（longest-palindromic-substring）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/medium/005-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%EF%BC%88longest-palindromic-substring%EF%BC%89.md)
-* [014 - 最长公共前缀（longest-common-prefix）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/easy/014-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80%EF%BC%88longest-common-prefix%EF%BC%89.md)
-* [088 - 合并两个有序数组（merge-sorted-array）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/easy/088-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88merge-sorted-array%EF%BC%89.md)
-* [459 - 重复的字符串（repeated-substring-pattern）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/easy/459-%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%88repeated-substring-pattern%EF%BC%89.md)
-
-### <a name="chapter-four-fifteen" id="chapter-four-fifteen">4.15 sort() - 数组排序</a>
+### <a name="chapter-four-fourteen" id="chapter-four-fourteen">4.14 sort() - 数组排序</a>
 
 > [返回目录](#chapter-one)
 
@@ -958,7 +936,7 @@ str.slice(2); // 'liang'
 * [448 - 找出所有数组中消失的数字（find-all-numbers-disappeared-in-an-array）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/easy/448-%E6%89%BE%E5%87%BA%E6%89%80%E6%9C%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97%EF%BC%88find-all-numbers-disappeared-in-an-array%EF%BC%89.md)
 * [455 - 分发饼干（assign-cookies）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/easy/455-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2%EF%BC%88assign-cookies%EF%BC%89.md)
 
-### <a name="chapter-four-sixteen" id="chapter-four-sixteen">4.16 toString() - 数组转字符串</a>
+### <a name="chapter-four-fifteen" id="chapter-four-fifteen">4.15 toString() - 数组转字符串</a>
 
 > [返回目录](#chapter-one)
 
@@ -978,7 +956,7 @@ arr.toString(); // '1,2,3'
 * [258 - 各位相加（add-digits）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/easy/258-%E5%90%84%E4%BD%8D%E7%9B%B8%E5%8A%A0%EF%BC%88add-digits%EF%BC%89.md)
 * [443 - 压缩字符串（string-compression）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/easy/443-%E5%8E%8B%E7%BC%A9%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%88string-compression%EF%BC%89.md)
 
-### <a name="chapter-four-seventeen" id="chapter-four-seventeen">4.17 includes() - 数组包含某元素</a>
+### <a name="chapter-four-sixteen" id="chapter-four-sixteen">4.16 includes() - 数组包含某元素</a>
 
 > [返回目录](#chapter-one)
 
@@ -998,7 +976,7 @@ arr.toString(); // '1,2,3'
 
 * [263 - 丑数（ugly-number）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/easy/263-%E4%B8%91%E6%95%B0%EF%BC%88ugly-number%EF%BC%89.md)
 
-### <a name="chapter-four-eighteen" id="chapter-four-eighteen">4.18 fill() - 填充数组</a>
+### <a name="chapter-four-seventeen" id="chapter-four-seventeen">4.17 fill() - 填充数组</a>
 
 > [返回目录](#chapter-one)
 
@@ -1016,7 +994,7 @@ arr = new Array(arr.length).fill(0);
 
 * [073 - 矩阵置零（set-matrix-zeroes）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/medium/073-%E7%9F%A9%E9%98%B5%E7%BD%AE%E9%9B%B6%EF%BC%88set-matrix-zeroes%EF%BC%89.md)
 
-### <a name="chapter-four-nighteen" id="chapter-four-nighteen">4.19 reduce() - 数组累计</a>
+### <a name="chapter-four-eighteen" id="chapter-four-eighteen">4.18 reduce() - 数组累计</a>
 
 > [返回目录](#chapter-one)
 
@@ -1041,7 +1019,7 @@ arr = new Array(arr.length).fill(0);
 * [268 - 缺失数字（missing-number）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/easy/268-%E7%BC%BA%E5%A4%B1%E6%95%B0%E5%AD%97%EF%BC%88missing-number%EF%BC%89.md)
 * [049 - 字母异位词分组（group-anagrams）](https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/medium/049-%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84%EF%BC%88group-anagrams%EF%BC%89.md)
 
-### <a name="chapter-four-twenty" id="chapter-four-twenty">4.20 find() - 查找数组元素</a>
+### <a name="chapter-four-nighteen" id="chapter-four-nighteen">4.19 find() - 查找数组元素</a>
 
 > [返回目录](#chapter-one)
 
@@ -1068,7 +1046,7 @@ inventory.find(findCherries));
 
 暂无实战
 
-### <a name="chapter-four-twenty-one" id="chapter-four-twenty-one">4.21 findIndex() - 查找元素索引</a>
+### <a name="chapter-four-twenty" id="chapter-four-twenty">4.20 findIndex() - 查找元素索引</a>
 
 > [返回目录](#chapter-one)
 
