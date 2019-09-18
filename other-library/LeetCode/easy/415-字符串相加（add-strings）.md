@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-25 17:24:28**  
-> Recently revised in **2019-07-25 19:08:40**
+> Recently revised in **2019-09-18 14:04:32**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -115,8 +115,8 @@ var addStrings = function(num1, num2) {
 
 > [返回目录](#chapter-one)
 
-1. `String`：将其他值转成字符串。[`String` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/String.md)
-2. `Number`：将其他值转成数字值。[`Number` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Number.md)
+1. `String`：将其他值转成字符串。[`String` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/String/README.md)
+2. `Number`：将其他值转成数字值。[`Number` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Number/README.md)
 
 ## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
