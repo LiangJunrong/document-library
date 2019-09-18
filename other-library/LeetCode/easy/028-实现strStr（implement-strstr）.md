@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-06 19:34:22**  
-> Recently revised in **2019-6-10 08:57:32**
+> Recently revised in **2019-09-18 10:16:09**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -83,7 +83,7 @@ var strStr = function(haystack, needle) {
 
 * **知识点**：
 
-1. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf.md)
+1. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/indexOf.md)
 
 * **解题思路**：
 
@@ -130,7 +130,7 @@ var strStr = function(haystack, needle) {
 
 * **知识点**：
 
-1. `substring()`：`substring()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`substring()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/substring.md)
+1. `substring()`：`substring()` 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。[`substring()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/String/substring.md)
 
 * **解题思路**：
 
