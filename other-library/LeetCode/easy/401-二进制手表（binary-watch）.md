@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-7-24 08:26:47**  
-> Recently revised in **2019-7-24 21:51:59**
+> Recently revised in **2019-09-18 14:01:08**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -103,7 +103,7 @@ var readBinaryWatch = function (num) {
 
 > [返回目录](#chapter-one)
 
-1. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
+1. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/push.md)
 
 ## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
