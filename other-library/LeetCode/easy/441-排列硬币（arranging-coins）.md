@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-29 16:15:53**  
-> Recently revised in **2019-07-29 17:09:31**
+> Recently revised in **2019-09-18 14:07:32**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -188,7 +188,7 @@ var arrangeCoins = function(n) {
 
 * **知识点**：
 
-1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Map/README.md)
 
 * **解题思路**：
 
