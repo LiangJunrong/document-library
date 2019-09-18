@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-06 11:11:26**  
-> Recently revised in **2019-06-06 14:30:57**
+> Recently revised in **2019-09-18 10:05:22**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -106,7 +106,7 @@ var removeDuplicates = function(nums) {
 
 * **知识点**：
 
-1. `splice()`：`splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。[`splice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/splice.md)
+1. `splice()`：`splice()` 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。[`splice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/splice.md)
 
 * **解题思路**：
 
@@ -225,7 +225,7 @@ var removeDuplicates = function(nums) {
 
 * **知识点**：
 
-1. `Set`：`Set` 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。[`Set` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Set.md)
+1. `Set`：`Set` 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。[`Set` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Set/README.md)
 
 * **解题思路**：
 
