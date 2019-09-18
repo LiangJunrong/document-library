@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-12 18:40:54**  
-> Recently revised in **2019-07-12 19:29:09**
+> Recently revised in **2019-09-18 11:44:12**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -107,7 +107,7 @@ var isIsomorphic = function(s, t) {
 
 * **知识点**：
 
-1. `map()`：遍历数组，`item` 返回遍历项，`index` 返回当前索引。[`map()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/map.md)
+1. `map()`：遍历数组，`item` 返回遍历项，`index` 返回当前索引。[`map()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/map.md)
 
 * **解题思路**：
 
@@ -153,7 +153,7 @@ var isIsomorphic = function(s, t) {
 
 * **知识点**：
 
-1. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf.md)
+1. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/indexOf.md)
 
 * **解题思路**：
 
