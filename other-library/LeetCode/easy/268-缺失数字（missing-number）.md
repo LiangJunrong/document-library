@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-18 18:10:35**  
-> Recently revised in **2019-07-18 18:10:38**
+> Recently revised in **2019-09-18 13:49:46**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -83,7 +83,7 @@ var missingNumber = function(nums) {
 
 * **知识点**：
 
-1. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort.md)
+1. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/sort.md)
 
 * **解题思路**：
 
@@ -143,7 +143,7 @@ var missingNumber = function (nums) {
 
 * **知识点**：
 
-1. `reduce()`：`reduce()` 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。[`reduce()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/reduce.md)
+1. `reduce()`：`reduce()` 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。[`reduce()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/reduce.md)
 
 * **解题思路**：
 
