@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-23 13:24:24**  
-> Recently revised in **2019-05-24 11:36:30**
+> Recently revised in **2019-09-18 09:43:04**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -174,7 +174,7 @@ var romanToInt = function(s) {
 
 * **知识点**：
 
-1. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
+1. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/String/split.md)
 
 * **解题思路**：
 
@@ -273,7 +273,7 @@ var romanToInt = function(s) {
 
 * **知识点**：
 
-1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
+1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Map/README.md)
 
 * **解题思路**：
 
