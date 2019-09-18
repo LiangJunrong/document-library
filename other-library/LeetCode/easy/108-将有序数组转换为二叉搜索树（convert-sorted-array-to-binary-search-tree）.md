@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-17 08:57:03**  
-> Recently revised in **2019-6-22 07:41:48**
+> Recently revised in **2019-09-18 10:23:20**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -101,7 +101,7 @@ var sortedArrayToBST = function(nums) {
 
 * **知识点**：
 
-1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Math/README.md)
 
 * **解题思路**：
 
@@ -230,7 +230,7 @@ var sortedArrayToBST = function(nums) {
 
 * **知识点**：
 
-1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Math/README.md)
 
 * **解题思路**：
 
