@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-18 17:15:35**  
-> Recently revised in **2019-07-18 17:43:26**
+> Recently revised in **2019-09-18 13:49:13**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -185,7 +185,7 @@ var isUgly = function (num) {
 
 * **知识点**：
 
-1. `includes()`：`includes()` 方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回 false。[`includes()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/includes.md)
+1. `includes()`：`includes()` 方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回 false。[`includes()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/includes.md)
 
 * **解题思路**：
 
