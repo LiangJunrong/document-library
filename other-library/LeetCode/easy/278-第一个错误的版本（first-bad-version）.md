@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-19 10:08:17**  
-> Recently revised in **2019-07-19 11:37:57**
+> Recently revised in **2019-09-18 13:50:07**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -87,7 +87,7 @@ var solution = function (isBadVersion) {
 
 > [返回目录](#chapter-one)
 
-1. `parseInt()`：`parseInt(string, radix)`，`string` 为字符串，`radix` 为介于 2-36 之间的数。使用者告诉这个函数 `string`（比如 11）是 `radix`（比如 2 ）进制的，函数将固定返回 `string` 以十进制时显示的数（3）。[`parseInt()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/parseInt.md)
+1. `parseInt()`：`parseInt(string, radix)`，`string` 为字符串，`radix` 为介于 2-36 之间的数。使用者告诉这个函数 `string`（比如 11）是 `radix`（比如 2 ）进制的，函数将固定返回 `string` 以十进制时显示的数（3）。[`parseInt()` 详细介绍](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 
 ## <a name="chapter-six" id="chapter-six">七 解题思路</a>
 
