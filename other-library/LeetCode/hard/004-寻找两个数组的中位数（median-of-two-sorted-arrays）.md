@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-08-06 11:07:31**  
-> Recently revised in **2019-08-06 11:45:03**
+> Recently revised in **2019-09-18 14:12:44**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -91,8 +91,8 @@ var findMedianSortedArrays = function(nums1, nums2) {
 
 * **知识点**：
 
-1. `concat()`：`concat()` 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。[`concat()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/concat.md)
-2. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/sort.md)
+1. `concat()`：`concat()` 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。[`concat()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/String/concat.md)
+2. `sort()`：排序，保持返回数组的数字为顺序排列。[`sort()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/sort.md)
 
 * **解题思路**：
 
@@ -225,7 +225,7 @@ var findMedianSortedArrays = function (nums1, nums2) {
 
 * **知识点**：
 
-1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Math/README.md)
 
 * **解题思路**：
 
