@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-23 19:41:13**  
-> Recently revised in **2019-07-23 19:57:52**
+> Recently revised in **2019-09-18 13:58:52**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -82,11 +82,11 @@ var firstUniqChar = function(s) {
 
 * **知识点**：
 
-1. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf.md)
+1. `indexOf()`：判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。[`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/indexOf.md)
 
 * **解题思路**：
 
-**首先**，如果小伙伴们有印象的话，我们在 [`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/indexOf.md) 中有进行讲解，查找字母出现的一个位置用 `indexOf()`，查找字母出现的最后一个位置，使用 `lastIndexOf()`。
+**首先**，如果小伙伴们有印象的话，我们在 [`indexOf()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/indexOf.md) 中有进行讲解，查找字母出现的一个位置用 `indexOf()`，查找字母出现的最后一个位置，使用 `lastIndexOf()`。
 
 **那么**，我们就有思路破解本题了：
 
@@ -140,7 +140,7 @@ var firstUniqChar = function (s) {
 
 * **知识点**：
 
-1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Map.md)
+1. `Map`：保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。[`Map` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Map/README.md)
 
 * **解题思路**：
 
