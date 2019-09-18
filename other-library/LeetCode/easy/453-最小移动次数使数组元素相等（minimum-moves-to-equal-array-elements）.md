@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-30 09:44:22**  
-> Recently revised in **2019-07-30 11:02:54**
+> Recently revised in **2019-09-18 14:10:23**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -89,7 +89,7 @@ var minMoves = function(nums) {
 
 > [返回目录](#chapter-one)
 
-1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Math/README.md)
 
 ## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
 
