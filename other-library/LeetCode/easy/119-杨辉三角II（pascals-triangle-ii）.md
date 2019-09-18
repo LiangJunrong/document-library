@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-6-28 07:39:47**  
-> Recently revised in **2019-6-28 08:27:00**
+> Recently revised in **2019-09-18 10:25:46**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -102,7 +102,7 @@ var getRow = function(rowIndex) {
 
 * **知识点**：
 
-`push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
+`push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/push.md)
 
 * **解题思路**：
 
@@ -173,7 +173,7 @@ var getRow = function(rowIndex) {
 
 * **知识点**：
 
-`push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
+`push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/push.md)
 
 * **解题思路**：
 
