@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-05-22 19:30:42**  
-> Recently revised in **2019-05-24 11:36:11**
+> Recently revised in **2019-09-18 09:30:42**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -94,7 +94,7 @@ false
 
 * **知识点**：
 
-1. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/split.md)
+1. `split()`：`split()` 方法使用指定的分隔符字符串将一个 String 对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。[`split()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/String/split.md)
 
 * **解题思路**：
 
@@ -150,7 +150,7 @@ true
 
 * **知识点**：
 
-1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Object/Math.md)
+1. `Math`：JS 中的内置对象，具有数学常数和函数的属性和方法。[`Math` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Math/README.md)
 
 * **解题思路**：
 
