@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-30 13:07:32**  
-> Recently revised in **2019-07-30 15:44:42**
+> Recently revised in **2019-09-18 14:11:23**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -105,7 +105,7 @@ true
 
 * **知识点**：
 
-1. `slice()`：`slice()` 方法提取一个字符串的一部分，并返回一新的字符串。[`slice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/slice.md)
+1. `slice()`：`slice()` 方法提取一个字符串的一部分，并返回一新的字符串。[`slice()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/String/slice.md)
 
 * **解题思路**：
 
