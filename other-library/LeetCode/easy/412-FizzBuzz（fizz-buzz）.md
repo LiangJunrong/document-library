@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-07-25 15:48:32**  
-> Recently revised in **2019-07-25 16:08:25**
+> Recently revised in **2019-09-18 14:03:00**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -120,7 +120,7 @@ var fizzBuzz = function(n) {
 
 * **知识点**：
 
-1. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/push.md)
+1. `push()`：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。[`push()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/push.md)
 
 * **解题思路**：
 
@@ -174,7 +174,7 @@ var fizzBuzz = function(n) {
 
 * **知识点**：
 
-1. `map()`：遍历数组，`item` 返回遍历项，`index` 返回当前索引。[`map()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/Function/map.md)
+1. `map()`：遍历数组，`item` 返回遍历项，`index` 返回当前索引。[`map()` 详细介绍](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/Array/map.md)
 
 * **解题思路**：
 
