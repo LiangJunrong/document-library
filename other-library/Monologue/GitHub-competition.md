@@ -2,36 +2,73 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-07-10 19:22:53**
+> Recently revised in **2019-10-09 09:34:23**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-## 一 竞赛宣言
+## 一 竞赛前言
 
-这是一个竞赛，目标是让你成长，顺带让 GitHub Contribution 长成青青草原。
+这是一个竞赛，目标是让你确立自己学习目标，通过坚持、系统地学习，让自己的技术不断成长，顺带让 GitHub Contribution 长成青青草原。
 
 只要你提供 GitHub 账号，只要你记录自己的成长，就可以参加！
 
+![图](../../public-repertory/img/other-GitHub-competition-1.png)
+
 ## 二 竞赛规则
 
-1. 需提供一个仅包含 `README.md` 的仓库，或者在自己的文档库提供一个 Markdown 页面，像记日记一般用于记录个人成长。[jsliang 的参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs)
-2. 比赛内容不限，但请在 `README.md` 中记录你每天点滴成长。同时小伙伴应注意适当休息，磨刀不误砍柴工，休赛记得提醒 **jsliang**！
-3. 可选择按天、周、月参与。
-4. 每天的比赛金为 5 元，每周的比赛金为 35 元。
-5. 竞赛第二天 **jsliang** 会查看小伙伴前一天的 Markdown 页面以及 GitHub Contribution 中显示的提交，以此作为判断是否打卡。
-6. 当天没有打卡则扣除小伙伴当天的比赛金。
-7. 当天成功打卡则均摊其他失败者的比赛金。
-8. 一个月未参与竞赛的小伙伴会被清理出微信群。
+1、**竞赛日志**
 
-如果小伙伴想参赛，但是又不知道自己想发展啥，可以咨询 **jsliang**。  
+每个参与竞赛的小伙伴需有 GitHub 仓库存放竞赛日志，以提供给 **jsliang** 进行监督。
 
-**jsliang** 会根据他自己以及他大佬的经历给你建议，上班期间划水费 10 元/小时，下班期间免费咨询（调皮）。
+日志参考如：https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/logs/2019-09.md
 
-> 本活动玩法参考自 **支付宝 - 体育服务** 的 **早起打卡** 及 **天天红包赛**。
+下面是简略版演示：
+
+### 2019-10-13
+
+* [x] 休息
+
+### 2019-10-12
+
+* [x] 学习：插座学院
+* [x] 学习：算法与数据结构之栈和队列
+* [x] 锻炼：90 分钟
+
+---
+
+2、**竞赛形式**
+
+竞赛按周或者按月方式进行，小伙伴可以根据自身情况选择是按周还是按月参与。
+
+竞赛从每周一或者每月 1 号算起。
+
+每天的比赛金为 5 元，每月参赛金额按具体月份算。
+
+例如：参与周竞赛 35 元，参与月竞赛 150 元。
+
+---
+
+3、**竞赛结算**
+
+每天进行统计汇总，结算前一天的竞赛记录。
+
+小伙伴打卡表明正常参与，会返回前一天参赛金额（5 元）。
+
+小伙伴漏卡表明未参与，会被扣掉前一天参与金额。
+
+---
+
+4、**特殊说明**
+
+**jsliang** 会根据小伙伴的竞赛日志给予个人建议，帮助小伙伴修正自身发展路线以及学习状态（无需建议请提前说明）。
+
+一个月内未参与竞赛的小伙伴会被清理出微信群。
+
+如果小伙伴想参赛，但是又不知道自己想学习啥，可以咨询 **jsliang**。根据 **jsliang** 提供的建议再参与竞赛。
 
 ## 三 参赛方式
 
-本次活动规则解释归 **jsliang** 所有，需要参赛的小伙伴可加 **jsliang** 微信，并在好友通过后直接言明参赛（减少大家沟通时间），**jsliang** 会直接拉小伙伴进微信群。
+需要参赛的小伙伴可加 **jsliang** 微信，并在好友通过后直接言明参赛（减少大家沟通时间），**jsliang** 会直接拉小伙伴进 GitHub 竞赛微信群。
 
 下面是参考：
 
@@ -39,10 +76,10 @@
 
 **jsliang** 我想参与你组织的 **暴走前端 - GitHub 竞赛**：
 
-1. 我竞赛的 `README.md` 仓库在 [jsliang 的参赛地址](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs)（GitHub 仓库地址）
+1. 我竞赛的日志在 jsliang 的参赛地址：https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs （GitHub 仓库地址）
 2. 我参赛昵称是 **广州-jsliang**（进群请修改成该昵称）
 3. 目前我的发展是先搞 `React` 基础，然后写几个 `React` Demo，最后深入探究下 `React` 源码。
-4. 本周我想开始参与，截止至周日还有 3 天，我先交 15 元（3 天 * 5 元）给你报名，今天开始记录。
+4. 本周我想开始参与，截止至周日还有 3 天，我先交 15 元（3 天 * 5 元）给你报名，今天开始记录，下周按正常周参与。
 
 ---
 
@@ -55,22 +92,6 @@
 | 昵称 | GitHub 账号 |
 | --- | --- |
 | 1. jsliang | [LiangJunrong](https://github.com/LiangJunrong) |
-| 2. 豆包君 | [danygitgit](https://github.com/danygitgit) |
-| 3. huqi | [hu-qi](https://github.com/hu-qi) |
-| 4. teachat8 | [teachat8](https://github.com/teachat8) |
-| 5. LienJack | [LienJack](https://github.com/LienJack) |
-| 6. liutaochange | [liutaochange](https://github.com/liutaochange) |
-| 7. 踩坑侠 | [924950698](https://github.com/924950698) |
-
-## 五 本周记录
-
-07.08 ~ 07.14
-
-* 豆包君：参与一周竞赛
-* liutaochange：参与一周竞赛
-* LienJack：参与一周竞赛
-* teachat8：参与一周竞赛
-* 踩坑侠：参与一周竞赛
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
