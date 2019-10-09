@@ -97,6 +97,7 @@
 | --- | --- |
 | 1. jsliang | [LiangJunrong](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs) |
 | 2. teachat8 | [teachat8](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-10.md) |
+| 3. 黄敏坚 | [黄敏坚](https://github.com/huangminjianxx/LearningRecord/blob/master/Record) |
 
 ## 五 漏卡记录
 
