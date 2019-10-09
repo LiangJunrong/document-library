@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-10-09 15:46:24**
+> Recently revised in **2019-10-09 15:47:43**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -95,14 +95,12 @@
 
 | 昵称 | GitHub 账号 |
 | --- | --- |
-| 1. jsliang | [LiangJunrong](https://github.com/LiangJunrong) |
-| 2. teachat8 | [teachat8](https://github.com/teachat8) |
+| 1. jsliang | [LiangJunrong](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs) |
+| 2. teachat8 | [teachat8](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-10.md) |
 
-## 五 十月记录
+## 五 漏卡记录
 
-### 10-09
-
-* [teachat8](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-10.md)
+暂无
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
