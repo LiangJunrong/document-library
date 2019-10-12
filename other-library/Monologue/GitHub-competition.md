@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-10-11 09:54:10**
+> Recently revised in **2019-10-12 10:31:18**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -98,7 +98,7 @@
 | 1. jsliang | [LiangJunrong](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs) |
 | 2. teachat8 | [teachat8](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-10.md) |
 | 3. 黄敏坚 | [黄敏坚](https://github.com/huangminjianxx/LearningRecord/) |
-| 4. apple | [apple](https://github.com/donaf/daydayup) |
+| 4. apple | [apple](https://github.com/donaf/daydayup/blob/master/logs/2019-10.md) |
 
 ## 五 参赛记录和漏卡记录
 
