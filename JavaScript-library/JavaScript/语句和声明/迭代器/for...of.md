@@ -2,7 +2,7 @@
 ===
 
 > create by **jsliang** on **2019-10-14 11:09:21**  
-> Recently revised in **2019-10-14 15:06:07**
+> Recently revised in **2019-10-14 15:38:12**
 
 * **原文**：[MDN - for...of](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...of)
 
@@ -23,24 +23,24 @@
  * @name 案例1
  * @description 迭代 Array
  */
-const interable1 = [10, 20, 30];
-for (let value of interable1) {
+const iterable1 = [10, 20, 30];
+for (let value of iterable1) {
   value += 1;
   console.log(value);
 }
 // 11
 // 21
 // 31
-console.log('interable1: ' + interable1);
-// interable1: 10,20,30
+console.log('iterable1: ' + iterable1);
+// iterable1: 10,20,30
 
 
 /**
  * @name 案例2
  * @description 迭代 String
  */
-const interable2 = 'jsliang';
-for (let value of interable2) {
+const iterable2 = 'jsliang';
+for (let value of iterable2) {
   console.log(value);
 }
 // 'j'
@@ -55,14 +55,14 @@ for (let value of interable2) {
  * @name 案例3
  * @description 迭代 Map
  */
-const interable3 = new Map([['a', 1], ['b', 2], ['c', 3]]);
-for (let entry of interable3) {
+const iterable3 = new Map([['a', 1], ['b', 2], ['c', 3]]);
+for (let entry of iterable3) {
   console.log(entry);
 }
 // [ 'a', 1 ]
 // [ 'b', 2 ]
 // [ 'c', 3 ]
-for (let [key, value] of interable3) {
+for (let [key, value] of iterable3) {
   console.log(`${key}: ${value}`);
 }
 // 'a: 1'
@@ -73,8 +73,8 @@ for (let [key, value] of interable3) {
  * @name 案例4
  * @description 迭代 Set
  */
-const interable4 = new Set([1, 1, 2, 2, 3, 3]);
-for (let value of interable4) {
+const iterable4 = new Set([1, 1, 2, 2, 3, 3]);
+for (let value of iterable4) {
   console.log(value);
 }
 // 1
