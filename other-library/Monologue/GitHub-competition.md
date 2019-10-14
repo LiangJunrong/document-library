@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-10-14 09:58:42**
+> Recently revised in **2019-10-14 21:16:50**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -18,7 +18,7 @@
 
 1、**竞赛日志**
 
-每个参与竞赛的小伙伴需有 GitHub 仓库存放竞赛日志，以提供给 **jsliang** 进行监督。
+每个参与竞赛的小伙伴需有 GitHub 仓库存放竞赛日志，并且在一开始发给 **jsliang** 一个近期小目标，以提供给 **jsliang** 进行监督。
 
 日志参考如：https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/logs/2019-09.md
 
