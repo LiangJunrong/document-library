@@ -1,4 +1,4 @@
-语句和声明 - 迭代器 - for...in、for...of 对比
+语句和声明 - 迭代器 - for...in 和 for...of 对比
 ===
 
 > create by **jsliang** on **2019-10-14 15:29:27**  
