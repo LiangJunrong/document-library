@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-10-14 21:18:30**
+> Recently revised in **2019-10-14 21:32:24**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -100,6 +100,7 @@
 | 3. 黄敏坚 | [huangminjianxx](https://github.com/huangminjianxx/LearningRecord/) | 11 月找到实习 |
 | 4. apple | [donaf](https://github.com/donaf/daydayup/blob/master/logs/2019-10.md) |  |
 | 5. 浓茶 | [NingZhuo](https://github.com/NingZhuo/Note) | 年前跳槽 |
+| 5. lien | [LienJack](https://github.com/LienJack/daliy-study/blob/master/201910/14-20.md) | 深入 Vue 源码 |
 
 ## 五 参赛记录和漏卡记录
 
@@ -110,6 +111,7 @@
 3. 黄敏坚 - 6 天
 4. apple - 7 天
 5. 浓茶 - 6 天
+6. lien - 6 天
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
