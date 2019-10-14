@@ -96,7 +96,7 @@
 | 昵称 | GitHub 账号 | 小目标 |
 | --- | --- | --- |
 | 1. jsliang | [LiangJunrong](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs) | 技术提升 |
-| 2. teachat8 | [teachat8](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-10.md) |  |
+| 2. teachat8 | [teachat8](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-10.md) | 能写 Vue 组件 |
 | 3. 黄敏坚 | [huangminjianxx](https://github.com/huangminjianxx/LearningRecord/) |  |
 | 4. apple | [donaf](https://github.com/donaf/daydayup/blob/master/logs/2019-10.md) |  |
 | 5. 浓茶 | [NingZhuo](https://github.com/NingZhuo) | 年前跳槽 |
