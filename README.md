@@ -11,7 +11,7 @@ jsliang 的文档库
 
 > 目前每天一道 LeetCode 题，欢迎关注，一起成长
 
-![微信公众号](./public-repertory/img/z-small-wechat-public-address.jpg)
+![微信公众号](./public-repertory/img/z-index-source.png)
 
 * **个人微信**：
 
