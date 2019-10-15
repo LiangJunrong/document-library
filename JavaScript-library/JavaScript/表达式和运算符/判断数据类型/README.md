@@ -1,8 +1,8 @@
-判断数据类型 - 方法合集
+判断数据类型
 ===
 
 > Create by **jsliang** on **2019-10-16 00:42:32**  
-> Recently revised in **2019-10-16 01:12:08**
+> Recently revised in **2019-10-16 01:22:13**
 
 本文将通过下方知识点，来讲解判断 JavaScript 数据类型的 4 种方法：
 
