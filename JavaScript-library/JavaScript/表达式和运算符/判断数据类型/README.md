@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-16 00:42:32**  
-> Recently revised in **2019-10-16 01:27:30**
+> Recently revised in **2019-10-16 01:49:44**
 
 本文将通过下方知识点，来讲解判断 JavaScript 数据类型的 4 种方法：
 
@@ -20,7 +20,7 @@
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 typeof](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 instance](#chapter-four) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 instanceof](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 constructor](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Object.prototype.toString.call()](#chapter-six) |
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 总结](#chapter-seven) |
@@ -88,7 +88,7 @@ console.log(typeof(test.testObjectNumber));    // object
 
 > 详细研究可以看 **jsliang** 的学习文档[《判断数据类型 - typeof》](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-typeof.md)
 
-## <a name="chapter-four" id="chapter-four">四 instance</a>
+## <a name="chapter-four" id="chapter-four">四 instanceof</a>
 
 > [返回目录](#chapter-one)
 
