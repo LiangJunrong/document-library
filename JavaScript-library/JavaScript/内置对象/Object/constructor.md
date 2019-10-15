@@ -1,12 +1,12 @@
-方法 - constructor
+Object.prototype.constructor
 ===
 
 > Create by **jsliang** on **2019-10-15 13:35:33**  
-> Recently revised in **2019-10-15 21:32:12**
+> Recently revised in **2019-10-15 21:50:27**
 
 * **原文**：[MDN - constructor](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor)
 
-* **功能**：`constructor()` 返回创建实例对象的 Object 构造函数的引用。
+* **功能**：`constructor` 返回创建实例对象的 Object 构造函数的引用。
 
 * **描述**：
 
