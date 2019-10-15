@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-15 19:50:51**  
-> Recently revised in **2019-10-15 21:24:25**
+> Recently revised in **2019-10-16 01:12:27**
 
 * **原文**：[MDN - instanceof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
 
@@ -37,7 +37,7 @@ console.log(auto instanceof Object); // true
 
 ```js
 /**
- * @name typeof示例1
+ * @name instanceof示例1
  * @description 检测字符串类型
  */
 const simpleString = '这是简单的 String';
@@ -47,7 +47,7 @@ console.log(simpleString instanceof String); // false，检查原型链会返回
 console.log(newString instanceof String); // true
 
 /**
- * @name typeof示例2
+ * @name instanceof示例2
  * @description 检测数字类型
  */
 const simpleNumber = 123;
@@ -57,7 +57,7 @@ console.log(simpleNumber instanceof Number); // false
 console.log(newNumber instanceof Number); // true
 
 /**
- * @name typeof示例3
+ * @name instanceof示例3
  * @description 检测对象类型
  */
 const simpleOjbect = {};
