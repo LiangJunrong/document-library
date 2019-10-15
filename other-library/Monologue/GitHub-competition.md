@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-10-14 21:32:24**
+> Recently revised in **2019-10-15 08:50:03**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -58,6 +58,8 @@
 
 每周日会进行当周结算（上周日——本周六），将漏卡总金额以红包形式发给大家当福利（金额 = 漏卡总金额 / 参赛人数）。同时，接受下一周的竞赛参与（本周日——下周六）。
 
+**新增**：目前可以按日或者按周结算参赛金额。
+
 ---
 
 4、**特殊说明**
@@ -99,7 +101,7 @@
 | 2. teachat8 | [teachat8](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-10.md) | 能写 Vue 组件 |
 | 3. 黄敏坚 | [huangminjianxx](https://github.com/huangminjianxx/LearningRecord/) | 11 月找到实习 |
 | 4. apple | [donaf](https://github.com/donaf/daydayup/blob/master/logs/2019-10.md) |  |
-| 5. 浓茶 | [NingZhuo](https://github.com/NingZhuo/Note) | 年前跳槽 |
+| 5. 浓茶 | [NingZhuo](https://github.com/NingZhuo/Log/blob/master/Log.md) | 年前跳槽 |
 | 5. lien | [LienJack](https://github.com/LienJack/daliy-study/blob/master/201910/14-20.md) | 深入 Vue 源码 |
 
 ## 五 参赛记录和漏卡记录
@@ -109,7 +111,7 @@
 1. jsliang
 2. teachat8 - 7 天
 3. 黄敏坚 - 6 天
-4. apple - 7 天
+4. apple - 7 天（周结算）
 5. 浓茶 - 6 天
 6. lien - 6 天
 
