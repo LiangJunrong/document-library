@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-15 13:35:33**  
-> Recently revised in **2019-10-15 16:24:16**
+> Recently revised in **2019-10-15 16:30:51**
 
 * **原文**：[MDN - constructor](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor)
 
@@ -21,11 +21,29 @@ console.log(obj.constructor === Object); // true
 
 const num = 1;
 console.log(num.constructor === Number); // true
+
+const str = '1';
+console.log(str.constructor === String); // true
+
+const bool = true;
+console.log(bool.constructor === Boolean); // true
+
+const nul = null;
+// console.log(bool.constructor); // 报错：Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5
+
+const undefin = undefined;
+// console.log(undefin.constructor); // 报错：Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5
 ```
 
 * **说明**：
 
-本次我们了解的，是通过 `constructor` 来判断某个数据的类型，但是 `constructor` 的功能不限于此，更多的我们就后续进行跟进了。
+本次我们了解的，是通过 `constructor` 来判断某个数据的类型：
+
+* [判断数据类型-方法合集](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E6%96%B9%E6%B3%95%E5%90%88%E9%9B%86.md)
+
+在这篇文章中，我们会通过 `typeof`、`instanceof`、`constructor` 以及 `Object.prototype.toString().call()` 这四个方法，讲解这些方法判断数据类型的情况。
+
+但是 `constructor` 的功能不限于此，更多的我们就后续进行跟进了。
 
 ---
 
