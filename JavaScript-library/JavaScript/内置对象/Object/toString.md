@@ -1,4 +1,4 @@
-toString
+Object.prototype.toString
 ===
 
 > Create by **jsliang** on **2019-10-15 13:35:33**  
