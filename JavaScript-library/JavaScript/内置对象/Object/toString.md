@@ -1,49 +1,65 @@
 Object.prototype.toString
 ===
 
-> Create by **jsliang** on **2019-10-15 13:35:33**  
-> Recently revised in **2019-10-15 21:32:12**
+> Create by **jsliang** on **2019-10-15 21:50:45**  
+> Recently revised in **2019-10-15 22:08:11**
 
 * **原文**：[MDN - toString](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
 
-* **功能**：`toString` 返回创建实例对象的 Object 构造函数的引用。
+* **功能**：`toString()` 方法返回一个表示该对象的字符串。
 
-* **描述**：
+* **方法**：`obj.toString()`
 
-所有对象都会从它的原型上继承一个 `toString` 属性。
-
-```js
-const arr = [];
-console.log(arr.toString === Array); // true
-
-const obj = {};
-console.log(obj.toString === Object); // true
-
-const num = 1;
-console.log(num.toString === Number); // true
-
-const str = '1';
-console.log(str.toString === String); // true
-
-const bool = true;
-console.log(bool.toString === Boolean); // true
-
-const nul = null;
-// console.log(nul.toString); // 报错：Uncaught TypeError: Cannot read property 'toString' of null at <anonymous>:1:5
-
-const undefin = undefined;
-// console.log(undefin.toString); // 报错：Uncaught TypeError: Cannot read property 'toString' of null at <anonymous>:1:5
-```
+* **返回值**：一个表示该对象的字符串。
 
 * **说明**：
 
-本次我们了解的，是通过 `toString` 来判断某个数据的类型：
+每个对象都有一个 `toString()` 方法，当该对象被表示为一个文本值时，或者一个对象以预期的字符串方式引用时自动调用。
 
-* [判断数据类型-方法合集](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E6%96%B9%E6%B3%95%E5%90%88%E9%9B%86.md)
+默认情况下，`toString()` 方法被每个 `Object` 对象继承，如果该方法没有在自定义对象中被覆盖，`toString()` 返回 `'[object type]'`，其中 `type` 是类型
 
-在这篇文章中，我们会通过 `typeof`、`instanceof`、`toString` 以及 `Object.prototype.toString().call()` 这四个方法，讲解这些方法判断数据类型的情况。
+```js
+const obj = new Object();
+console.log(obj.toString()); // [object Object]
+```
 
-但是 `toString` 的功能不限于此，更多的我们就后续进行跟进了。
+当然，我们根据这点，可以通过 `toString()` 来获取每个对象的类型。
+
+为了每个对象都能通过 `Object.prototype.toString()` 来检测，我们需要用 `Function.prototype.call()` 或者 `Function.prototype.apply()` 的形式来调用，传递要检查的对象作为第一个参数，称为 `thisArg`。
+
+* **代码**：
+
+```js
+/**
+ * @name 示例
+ * @description toString 检测对象类型
+ */
+const toString = Object.prototype.toString;
+
+console.log(toString.call(new Date));     // [object Date]
+console.log(toString.call(new String));   // [object String]
+console.log(toString.call(Math));         // [object Math]
+console.log(toString.call('jsliang'));    // [object String]
+console.log(toString.call(123));          // [object Number]
+console.log(toString.call([]));           // [object Array]
+console.log(toString.call({}));           // [object Object]
+console.log(toString.call(undefined));    // [object Undefined]
+console.log(toString.call(null));         // [object Null]
+
+console.log('------');
+
+console.log(toString.apply(new Date));     // [object Date]
+console.log(toString.apply(new String));   // [object String]
+console.log(toString.apply(Math));         // [object Math]
+console.log(toString.apply('jsliang'));    // [object String]
+console.log(toString.apply(123));          // [object Number]
+console.log(toString.apply([]));           // [object Array]
+console.log(toString.apply({}));           // [object Object]
+console.log(toString.apply(undefined));    // [object Undefined]
+console.log(toString.apply(null));         // [object Null]
+```
+
+**PS**：当然，看到这里会不会有人忍不住查一下 `call()`、`apply()` 以及 `bind()` 三者的区别呢~
 
 ---
 
