@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-15 13:35:33**  
-> Recently revised in **2019-10-15 16:30:51**
+> Recently revised in **2019-10-15 21:32:12**
 
 * **原文**：[MDN - constructor](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor)
 
@@ -29,7 +29,7 @@ const bool = true;
 console.log(bool.constructor === Boolean); // true
 
 const nul = null;
-// console.log(bool.constructor); // 报错：Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5
+// console.log(nul.constructor); // 报错：Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5
 
 const undefin = undefined;
 // console.log(undefin.constructor); // 报错：Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5
