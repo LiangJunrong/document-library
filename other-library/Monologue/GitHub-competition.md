@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-10-21 09:11:51**
+> Recently revised in **2019-10-21 09:42:01**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -102,7 +102,7 @@
 | 3. 黄敏坚 | [huangminjianxx](https://github.com/huangminjianxx/LearningRecord/) | 11 月找到实习 |
 | 4. apple | [donaf](https://github.com/donaf/daydayup/blob/master/logs/2019-10.md) | **（周结）** |
 | 5. 浓茶 | [NingZhuo](https://github.com/NingZhuo/Log/blob/master/Log.md) | 年前跳槽 |
-| 5. lien | [LienJack](https://github.com/LienJack/daliy-study/blob/master/201910/14-20.md) | 深入 Vue 源码 |
+| 5. lien | [LienJack](https://github.com/LienJack/daliy-study/blob/master/201910/21-27.md) | 深入 Vue 源码 |
 | 6. chenxiaoyao | [chenxiaoyao6228](https://github.com/chenxiaoyao6228/daily-learing-log) |  |
 
 ## 五 参赛记录和漏卡记录
