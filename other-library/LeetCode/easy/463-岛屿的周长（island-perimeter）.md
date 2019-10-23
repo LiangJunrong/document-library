@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-23 10:40:38**  
-> Recently revised in **2019-10-23 11:36:29**
+> Recently revised in **2019-10-23 11:45:10**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -181,7 +181,7 @@ Accepted
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../../public-repertory/img/z-index-small.png)
 
 **jsliang** 会每天更新一道 LeetCode 题解，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构。
 
