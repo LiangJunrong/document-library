@@ -2,9 +2,11 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-08-13 10:33:50**
+> Recently revised in **2019-10-23 11:37:43**
 
 LeetCode 简单难度攻略
+
+## 0-100 道
 
 | 题目 | 解题攻略 |
 | --- | --- |
@@ -109,6 +111,13 @@ LeetCode 简单难度攻略
 | 453 - 最小移动次数使数组元素相等（minimum-moves-to-equal-array-elements） | [#453 解题](./453-最小移动次数使数组元素相等（minimum-moves-to-equal-array-elements）.md) |
 | 455 - 分发饼干（assign-cookies） | [#455 解题](./455-分发饼干（assign-cookies）.md) |
 | 459 - 重复的字符串（repeated-substring-pattern） | [#459 解题](./459-重复的字符串（repeated-substring-pattern）.md) |
+
+## 101-200 道
+
+| 题目 | 解题攻略 |
+| --- | --- |
+| 461 - 汉明距离（hamming-distance） | [#461 解题](./461-汉明距离（hamming-distance）.md) |
+| 463 - 岛屿的周长（island-perimeter） | [#463 解题](./463-岛屿的周长（island-perimeter）.md) |
 
 ---
 
