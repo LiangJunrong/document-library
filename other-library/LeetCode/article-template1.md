@@ -2,7 +2,7 @@ LeetCode 文章模板 1
 ===
 
 > Create by **jsliang** on **2019-05-17 13:06:52**  
-> Recently revised in **2019-10-23 11:18:24**
+> Recently revised in **2019-10-23 11:35:07**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -53,9 +53,15 @@ var islandPerimeter = function(grid) {
 
 根据上面的已知函数，尝试破解本题吧~
 
-> 确定了再看下面代码哈~
+> 确定了自己的答案再看下面代码哈~
 
 * **解题代码**：
+
+```js
+
+```
+
+`node index.js` 返回：
 
 ```js
 
