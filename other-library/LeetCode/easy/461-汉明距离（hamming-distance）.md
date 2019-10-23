@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-23 09:47:04**  
-> Recently revised in **2019-10-23 09:55:35**
+> Recently revised in **2019-10-23 10:34:32**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -14,9 +14,7 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题即测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 知识点](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 进一步思考](#chapter-seven) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -58,13 +56,30 @@
 > index.js
 
 ```js
+/**
+ * @param {number} x
+ * @param {number} y
+ * @return {number}
+ */
+const hammingDistance = (x, y) => {
+  let cnt = 0;
+  while (x != 0 || y != 0) {
+    if ((x & 1) != (y & 1)) {
+      cnt++;
+    }
+    x >>= 1;
+    y >>= 1;
+  }
+  return cnt;
+};
 
+console.log(hammingDistance(1, 4));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+2
 ```
 
 ## <a name="chapter-four" id="chapter-four">四 LeetCode Submit</a>
@@ -72,28 +87,16 @@
 > [返回目录](#chapter-one)
 
 ```js
-
+149/149 cases passed (64 ms)
+Your runtime beats 92.11 % of javascript submissions
+Your memory usage beats 53.01 % of javascript submissions (33.7 MB)
 ```
 
-## <a name="chapter-five" id="chapter-five">五 知识点</a>
+## <a name="chapter-five" id="chapter-five">五 解题思路</a>
 
 > [返回目录](#chapter-one)
 
-1. 
-
-## <a name="chapter-six" id="chapter-six">六 解题思路</a>
-
-> [返回目录](#chapter-one)
-
-[图]
-
-[分析]
-
-## <a name="chapter-seven" id="chapter-seven">七 进一步思考</a>
-
-> [返回目录](#chapter-one)
-
-……
+无法解释，因为 **jsliang** 也不太了解位运算！/(ㄒoㄒ)/~~
 
 ---
 
