@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-23 10:40:38**  
-> Recently revised in **2019-10-23 10:44:22**
+> Recently revised in **2019-10-23 11:36:29**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -12,9 +12,11 @@
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题即测试](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 知识点](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 进一步思考](#chapter-seven) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -59,87 +61,121 @@
 
 ![图](../../../public-repertory/img/other-algorithm-463-1.png)
 
-## <a name="chapter-three" id="chapter-three">三 解题</a>
+## <a name="chapter-three" id="chapter-three">三 解题及测试</a>
 
 > [返回目录](#chapter-one)
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+> index.js
 
-> [返回目录](#chapter-one)
+* **LeetCode 给定函数体**：
+
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var islandPerimeter = function(grid) {
+    
+};
+```
+
+> 确定了自己的答案再看下面代码哈~
 
 * **解题代码**：
 
 ```js
+/**
+ * @name 计算岛屿周长辅流程——计算岛屿含有几条边
+ * @description 判断传来地图对应坐标的上下左右是否存在 1
+ * @param {number[][]} grid 地图
+ * @param {number} i 横坐标
+ * @param {number} j 纵坐标
+ * @return {number}
+ */
+const judge = (grid, i, j) => {
+  // 如果有上下左右，那么就用上下左右的值
+  // 如果上下左右没值，那么就给 0
+  const top = grid[i - 1] ? grid[i - 1][j] : 0;
+  const bottom = grid[i + 1] ? grid[i + 1][j] : 0;
+  const left = grid[i][j - 1] || 0;
+  const right = grid[i][j + 1] || 0;
+  // 总共 4 条边，出现 1 表明这条边有岛屿
+  return 4 - (top + bottom + left + right);
+}
 
+/**
+ * @name 计算岛屿周长主流程
+ * @param {number[][]} grid 地图
+ * @return {number}
+ */
+const islandPerimeter = (grid) => {
+  if (grid.length <= 0 || grid.length > 100) {
+    return 0;
+  }
+  let result = 0;
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[i].length; j++) {
+      if (grid[i][j] === 1) {
+        result += judge(grid, i, j);
+      }
+    }
+  }
+  return result;
+};
+
+const grid = [
+  [0,1,0,0],
+  [1,1,1,0],
+  [0,1,0,0],
+  [1,1,0,0],
+];
+
+console.log(islandPerimeter(grid));
 ```
 
-* **执行测试**：
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+`node index.js` 返回：
 
 ```js
-
+16
 ```
 
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+## <a name="chapter-four" id="chapter-four">四 LeetCode Submit</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
-
 ```js
-
+Accepted
+* 5833/5833 cases passed (208 ms)
+* Your runtime beats 89.72 % of javascript submissions
+* Your memory usage beats 50 % of javascript submissions (44.3 MB)
 ```
 
-* **执行测试**：
+## <a name="chapter-five" id="chapter-five">五 解题思路</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> [返回目录](#chapter-one)
 
-```js
+**万物终归暴力可解**
 
-```
+当你想不到比较清晰的思路时，建议尝试暴力破解。
 
-* **LeetCode Submit**：
+通过题意，我们可以想明白关键的几个点：
 
-```js
+1. 岛屿是必定连在一块的。
+2. 其中每个小岛屿，都有 4 块边。
+3. 其中每个小岛屿，都会连着其他岛屿（至少一个），所以每有一个隔壁小岛屿，那么就需要减去 1 块边。
+4. 将每块岛屿的所有边统计起来，就是结果。
 
-```
+这样我们就很清晰啦：
 
-* **知识点**：
+1. 遍历岛屿地图 `grid`。其中 `i` 表示横坐标，类似于案例的 `grid[0] = [0,1,0,0]`；其中 `j` 表示纵坐标，`grid[i][j]` 就是具体到每个小岛屿。
+2. 判断在岛屿中，该小地图上下左右是否有邻居。总共 4 条边，那么 `grid[i][j]` 上下左右没出现一个 1（1 代表有岛屿），就减去一条边。
+3. 最后统计所有结果到 `result` 即可。
 
-1. 
+这就是 **jsliang** 破解本题的思路！
 
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
+> 当然，小伙伴们肯定有更好的，欢迎留言吐槽！
 
 ---
 
