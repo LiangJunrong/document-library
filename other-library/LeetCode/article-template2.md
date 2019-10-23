@@ -2,7 +2,7 @@ LeetCode 文章模板 2
 ===
 
 > Create by **jsliang** on **2019-07-25 19:21:17**  
-> Recently revised in **2019-07-25 19:21:19**
+> Recently revised in **2019-10-23 09:54:51**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -12,12 +12,11 @@ LeetCode 文章模板 2
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 执行测试](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 LeetCode Submit](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 知识点](#chapter-six) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 解题思路](#chapter-seven) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 进一步思考](#chapter-eight) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题即测试](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 知识点](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 进一步思考](#chapter-seven) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -32,31 +31,25 @@ LeetCode 文章模板 2
 
 ```
 
-## <a name="chapter-three" id="chapter-three">三 解题</a>
+## <a name="chapter-three" id="chapter-three">三 解题及测试</a>
 
 > [返回目录](#chapter-one)
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-* **解题代码**：
+> index.js
 
 ```js
 
 ```
 
-## <a name="chapter-four" id="chapter-four">四 执行测试</a>
-
-> [返回目录](#chapter-one)
-
-1. 形参 1
-2. 形参 2
-3. `return`：
+`node index.js` 返回：
 
 ```js
 
 ```
 
-## <a name="chapter-five" id="chapter-five">五 LeetCode Submit</a>
+## <a name="chapter-four" id="chapter-four">四 LeetCode Submit</a>
 
 > [返回目录](#chapter-one)
 
@@ -64,13 +57,13 @@ LeetCode 文章模板 2
 
 ```
 
-## <a name="chapter-six" id="chapter-six">六 知识点</a>
+## <a name="chapter-five" id="chapter-five">五 知识点</a>
 
 > [返回目录](#chapter-one)
 
 1. 
 
-## <a name="chapter-seven" id="chapter-seven">七 解题思路</a>
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
 
 > [返回目录](#chapter-one)
 
@@ -78,11 +71,11 @@ LeetCode 文章模板 2
 
 [分析]
 
-## <a name="chapter-eight" id="chapter-eight">八 进一步思考</a>
+## <a name="chapter-seven" id="chapter-seven">七 进一步思考</a>
 
 > [返回目录](#chapter-one)
 
-
+……
 
 ---
 
