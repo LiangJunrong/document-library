@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-23 09:47:04**  
-> Recently revised in **2019-10-23 10:34:44**
+> Recently revised in **2019-10-23 11:44:35**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -102,7 +102,7 @@ Your memory usage beats 53.01 % of javascript submissions (33.7 MB)
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../../public-repertory/img/z-index-small.png)
 
 **jsliang** 会每天更新一道 LeetCode 题解，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构。
 
