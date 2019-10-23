@@ -2,7 +2,7 @@ LeetCode 文章模板 1
 ===
 
 > Create by **jsliang** on **2019-05-17 13:06:52**  
-> Recently revised in **2019-07-25 19:21:47**
+> Recently revised in **2019-10-23 11:18:24**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -39,17 +39,23 @@ LeetCode 文章模板 1
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
+* **LeetCode 给定函数体**：
 
 ```js
-
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var islandPerimeter = function(grid) {
+    
+};
 ```
 
-* **执行测试**：
+根据上面的已知函数，尝试破解本题吧~
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> 确定了再看下面代码哈~
+
+* **解题代码**：
 
 ```js
 
