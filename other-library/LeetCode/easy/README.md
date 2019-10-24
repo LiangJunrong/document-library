@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-10-23 11:37:43**
+> Recently revised in **2019-10-24 09:39:23**
 
 LeetCode 简单难度攻略
 
@@ -118,6 +118,7 @@ LeetCode 简单难度攻略
 | --- | --- |
 | 461 - 汉明距离（hamming-distance） | [#461 解题](./461-汉明距离（hamming-distance）.md) |
 | 463 - 岛屿的周长（island-perimeter） | [#463 解题](./463-岛屿的周长（island-perimeter）.md) |
+| 475 - 供暖器（heaters） | [#475 解题](./475-供暖器（heaters）.md) |
 
 ---
 
