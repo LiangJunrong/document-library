@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-24 09:37:30**  
-> Recently revised in **2019-10-24 09:38:37**
+> Recently revised in **2019-10-24 17:38:26**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -12,9 +12,10 @@
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题即测试](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 知识点](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -54,99 +55,108 @@
 我们需要将加热半径设为1，这样所有房屋就都能得到供暖。
 ```
 
-## <a name="chapter-three" id="chapter-three">三 解题</a>
+## <a name="chapter-three" id="chapter-three">三 解题及测试</a>
 
 > [返回目录](#chapter-one)
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **LeetCode 给定函数体**：
 
 ```js
 /**
- * @param {number[][]} grid
+ * @param {number[]} houses
+ * @param {number[]} heaters
  * @return {number}
  */
-var islandPerimeter = function(grid) {
+var findRadius = function(houses, heaters) {
     
 };
 ```
 
 根据上面的已知函数，尝试破解本题吧~
 
-> 确定了自己的答案再看下面代码哈~
-
-* **解题代码**：
+确定了自己的答案再看下面代码哈~
 
 ```js
+/**
+ * @name 计算供暖器主方法
+ * @param {number[]} houses
+ * @param {number[]} heaters
+ * @return {number}
+ */
+const findRadius = (houses, heaters) => {
+  // 去除边界
+  if (
+    !houses.length
+    || !heaters.length
+    || houses.length > 25000
+    || heaters.length > 25000
+  ) {
+    return 0;
+  }
+  let result = Number.MIN_SAFE_INTEGER;
+  for (let i = 0; i < houses.length; i++) {
+    let max = Number.MAX_SAFE_INTEGER;
+    for (let j = 0; j < heaters.length; j++) {
+      max = Math.min(max, Math.abs(houses[i] - heaters[j]));
+    }
+    result = Math.max(result, max);
+  }
+  return result;
+};
 
+// 测试组 1
+const houses = [1, 5];
+const heaters = [2];
+
+// 测试组 2
+// const houses = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+// const heaters = [3, 8, 12];
+
+console.log(findRadius(houses, heaters));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+3
 ```
 
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+## <a name="chapter-four" id="chapter-four">四 LeetCode Submit</a>
 
 > [返回目录](#chapter-one)
 
-* **解题代码**：
-
 ```js
-
+Accepted
+* 30/30 cases passed (1596 ms)
+* Your runtime beats 24.07 % of javascript submissions
+* Your memory usage beats 94.12 % of javascript submissions (38.4 MB)
 ```
 
-* **执行测试**：
+## <a name="chapter-five" id="chapter-five">五 知识点</a>
 
-1. 形参 1
-2. 形参 2
-3. `return`：
+> [返回目录](#chapter-one)
 
-```js
+1. `Number.MIN_SAFE_INTEGER`：JavaScript 中最小的安全的 integer 型数字。
+2. `Number.Max_SAFE_INTEGER`：JavaScript 中最大的安全的 integer 型数字。
+3. `Math.min`：取两者最小值
+4. `Math.max`：取两者最大值
+5. `Math.abs(number)`：取 `number` 的绝对值
 
-```
+## <a name="chapter-six" id="chapter-six">六 解题思路</a>
 
-* **LeetCode Submit**：
+> [返回目录](#chapter-one)
 
-```js
+业务繁忙，没啥心情就暴力吧~
 
-```
+暴力的优雅在于简单：通过双重 `for` 循环，判断每一座房子和每一个供暖器的距离。
 
-* **知识点**：
+1. 遍历房子的长度
+2. 判断房子距离每个供暖器的距离，最短的就是距离房子最近的供暖器
+3. 判断条件 2 的距离中最大的距离，因为我们需要覆盖所有的范围
 
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
+这样，我们就暴力破解了这道题。
 
 ---
 
@@ -156,6 +166,8 @@ var islandPerimeter = function(grid) {
 
 **jsliang** 会每天更新一道 LeetCode 题解，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构。
 
-扫描上方二维码，关注 **jsliang** 的公众号，让我们一起折腾！
+**浪子神剑** 会每天更新面试题，以面试题为驱动来带动大家学习，坚持每天学习与思考，每天进步一点！
+
+扫描上方二维码，关注 **jsliang** 的公众号（左）和 **浪子神剑** 的公众号（右），让我们一起折腾！
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
