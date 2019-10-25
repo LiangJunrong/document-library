@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-25 09:17:22**  
-> Recently revised in **2019-10-25 11:31:26**
+> Recently revised in **2019-10-25 17:20:04**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -215,6 +215,20 @@ Accepted
 ```
 
 当然，**jsliang** 相信肯定有更好的解题答案，交由评论区的你们啦~
+
+---
+
+* 评论区代码秀：
+
+```js
+const findComplement = (num) => {
+  return parseInt(Number(num.toString(2).toString().split('').map(n => {
+    return Number(n) === 1 ? '0' : '1'
+  }).join('')), 2);
+};
+
+console.log(findComplement(5)); // 2
+```
 
 ---
 
