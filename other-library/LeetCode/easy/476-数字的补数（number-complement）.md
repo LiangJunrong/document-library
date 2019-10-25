@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-25 09:17:22**  
-> Recently revised in **2019-10-25 09:18:54**
+> Recently revised in **2019-10-25 09:59:12**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -12,9 +12,9 @@
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
-| &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
-| &emsp;[3.2 解法 - Map](#chapter-three-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -44,25 +44,21 @@
 解释: 1的二进制表示为1（没有前导零位），其补数为0。所以你需要输出0。
 ```
 
-## <a name="chapter-three" id="chapter-three">三 解题</a>
+## <a name="chapter-three" id="chapter-three">三 解题及测试</a>
 
 > [返回目录](#chapter-one)
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
-
-> [返回目录](#chapter-one)
-
 * **LeetCode 给定函数体**：
 
 ```js
 /**
- * @param {number[][]} grid
+ * @param {number} num
  * @return {number}
  */
-var islandPerimeter = function(grid) {
-    
+var findComplement = function(num) {
+  
 };
 ```
 
@@ -73,82 +69,152 @@ var islandPerimeter = function(grid) {
 * **解题代码**：
 
 ```js
-
-```
-
-`node index.js` 返回：
-
-```js
-
-```
-
-* **LeetCode Submit**：
-
-```js
-
-```
-
-* **知识点**：
-
-1. 
-
-* **解题思路**：
-
-[图]
-
-[分析]
-
-* **进一步思考**：
-
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
-
-> [返回目录](#chapter-one)
-
-* **LeetCode 给定函数体**：
-
-```js
 /**
- * @param {number[][]} grid
+ * 数字补位
+ * @param {string} string 
+ * @return {string}
+ */
+const digitComplement = (str) => {
+  const result = [];
+  for (let i = 0; i < str.length; i++) {
+    result.push(1 - Number(str[i]));
+  }
+  return result.join('');
+};
+
+/**
+ * @name 数字的补数
+ * @param {number} num
  * @return {number}
  */
-var islandPerimeter = function(grid) {
-    
+const findComplement = (num) => {
+  return parseInt(digitComplement(num.toString(2)), 2);
 };
 ```
 
-根据上面的已知函数，尝试破解本题吧~
-
-> 确定了自己的答案再看下面代码哈~
-
-* **解题代码**：
-
-```js
-
-```
-
 `node index.js` 返回：
 
 ```js
-
+2
 ```
 
-* **LeetCode Submit**：
+## <a name="chapter-four" id="chapter-four">四 LeetCode Submit</a>
+
+> [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 149/149 cases passed (64 ms)
+* Your runtime beats 89.84 % of javascript submissions
+* Your memory usage beats 54.32 % of javascript submissions (33.6 MB)
 ```
 
-* **知识点**：
+## <a name="chapter-five" id="chapter-five">五 解题思路</a>
 
-1. 
+> [返回目录](#chapter-one)
 
-* **解题思路**：
+**首先**，一切都在开始的尝试：
 
-[图]
+```js
+/**
+ * 十进制转二进制
+ * @param {number} num 
+ * @return {string}
+ */
+const decimalToBinary = (num) => {
+  const stack = [];
+  while (num > 0) {
+    stack.push(Math.floor(num % 2));
+    num = Math.floor(num / 2);
+  }
+  return stack.reverse().join('');
+};
 
-[分析]
+/**
+ * 数字补位
+ * @param {string} string 
+ * @return {string}
+ */
+const digitComplement = (str) => {
+  const result = [];
+  for (let i = 0; i < str.length; i++) {
+    result.push(1 - Number(str[i]));
+  }
+  return result.join('');
+};
 
-* **进一步思考**：
+/**
+ * 二进制转十进制
+ * @param {string} string
+ * @return {number} 
+ */
+const binaryToDecimal = (str) => {
+  return parseInt(str, 2);
+};
+
+/**
+ * @name 数字的补数
+ * @param {number} num
+ * @return {number}
+ */
+const findComplement = (num) => {
+  return binaryToDecimal(digitComplement(decimalToBinary(num)));
+};
+
+console.log(findComplement(5)); // 2
+```
+
+兴许看到这么一大串代码，小伙伴是懵逼的，我是谁，我在哪，**jsliang** 写了啥垃圾玩意。
+
+1. 刚好在昨天（2019-10-25）看了数据结构的栈，然后了解了下十进制转二进制。
+2. 在这步骤中，十进制转二进制，以及补位，**jsliang** 都写出来了，但是二进制转回十进制的时候，卡主了，不知道怎么转回去。
+3. 最后用了网上的快速方法：`parseInt(str, 2)`。
+
+提交发现：
+
+```js
+Accepted
+* 149/149 cases passed (76 ms)
+* Your runtime beats 44.39 % of javascript submissions
+* Your memory usage beats 6.17 % of javascript submissions (34.3 MB)
+```
+
+**然后**，既然知道有更好的方法，那当然是尝试弥补先前不足，于是稍微修改一点点：
+
+```js
+/**
+ * 数字补位
+ * @param {string} string 
+ * @return {string}
+ */
+const digitComplement = (str) => {
+  const result = [];
+  for (let i = 0; i < str.length; i++) {
+    result.push(1 - Number(str[i]));
+  }
+  return result.join('');
+};
+
+/**
+ * @name 数字的补数
+ * @param {number} num
+ * @return {number}
+ */
+const findComplement = (num) => {
+  return parseInt(digitComplement(num.toString(2)), 2);
+};
+```
+
+**最后**，提交查看了下，感觉 OK 了，就提交了：
+
+```js
+Accepted
+* 149/149 cases passed (64 ms)
+* Your runtime beats 89.84 % of javascript submissions
+* Your memory usage beats 54.32 % of javascript submissions (33.6 MB)
+```
+
+当然，**jsliang** 相信肯定有更好的解题答案，交由评论区的你们啦~
 
 ---
 
