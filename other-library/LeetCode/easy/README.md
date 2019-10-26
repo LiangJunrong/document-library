@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-10-25 11:32:09**
+> Recently revised in **2019-10-26 16:05:17**
 
 LeetCode 简单难度攻略
 
@@ -120,6 +120,7 @@ LeetCode 简单难度攻略
 | 463 - 岛屿的周长（island-perimeter） | [#463 解题](./463-岛屿的周长（island-perimeter）.md) |
 | 475 - 供暖器（heaters） | [#475 解题](./475-供暖器（heaters）.md) |
 | 476 - 数字的补数（number-complement） | [#476 解题](./476-数字的补数（number-complement）.md) |
+| 482 - 秘钥格式化（license-key-formatting） | [#482 解题](./482-秘钥格式化（license-key-formatting）.md) |
 
 ---
 
