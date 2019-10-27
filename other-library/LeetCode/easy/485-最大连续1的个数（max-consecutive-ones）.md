@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-27 18:51:17**  
-> Recently revised in **2019-10-27 18:51:21**
+> Recently revised in **2019-10-27 19:18:10**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -14,9 +14,7 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 知识点](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 进一步思考](#chapter-seven) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -66,13 +64,28 @@ var findMaxConsecutiveOnes = function(nums) {
 > index.js
 
 ```js
+/**
+ * @name 最大连续1的个数
+ * @param {number[]} nums
+ * @return {number}
+ */
+const findMaxConsecutiveOnes = (nums) => {
+  nums = nums.join('').split('0');
+  let result = 0;
+  nums.forEach((item) => {
+    result = Math.max(item.length, result);
+  });
+  return result;
+};
 
+const nums = [1, 1, 0, 1, 1, 1];
+console.log(findMaxConsecutiveOnes(nums));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+3
 ```
 
 ## <a name="chapter-four" id="chapter-four">四 LeetCode Submit</a>
@@ -80,28 +93,81 @@ var findMaxConsecutiveOnes = function(nums) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 41/41 cases passed (84 ms)
+* Your runtime beats 78.06 % of javascript submissions
+* Your memory usage beats 22.56 % of javascript submissions (37.4 MB)
 ```
 
-## <a name="chapter-five" id="chapter-five">五 知识点</a>
+## <a name="chapter-five" id="chapter-five">五 解题思路</a>
 
 > [返回目录](#chapter-one)
 
-1. 
+定睛一看，这题属于入门题，感觉基本没啥难度嘛：
 
-## <a name="chapter-six" id="chapter-six">六 解题思路</a>
+```js
+/**
+ * @name 最大连续1的个数
+ * @param {number[]} nums
+ * @return {number}
+ */
+const findMaxConsecutiveOnes = (nums) => {
+  let result = 0; // 存放最大值
+  let counter = 0; // 计数器，存放当前出现的次数
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 1) {
+      counter += 1;
+      result = Math.max(counter, result);
+    }
+    if (nums[i] === 0) {
+      counter = 0;
+    }
+  }
+  return result;
+};
+```
 
-> [返回目录](#chapter-one)
+Submit 提交一看，果然通过了！
 
-[图]
+```js
+Accepted
+* 41/41 cases passed (80 ms)
+* Your runtime beats 85.47 % of javascript submissions
+* Your memory usage beats 47.56 % of javascript submissions (36.9 MB)
+```
 
-[分析]
+思路很简单：
 
-## <a name="chapter-seven" id="chapter-seven">七 进一步思考</a>
+1. 使用 `result` 来存放最大值，即最大连续 1 的个数
+2. 使用 `counter` 来存放计数器，用来存放当前连续出现的个数
+3. 遍历数组，碰到 1 的那么计数器 +1，碰到 0 的那么计数器重置
+4. 最后在碰到 1 的时候，比较当前的次数是不是比 `result` 大了，是的话那就用最大的。
 
-> [返回目录](#chapter-one)
+这样，我们就可以完成这道题的破解。
 
-……
+当然，**jsliang** 在拿到题目的时候，还有第二种想法，感觉也是 OK 的，于是就顺带写了：
+
+```js
+/**
+ * @name 最大连续1的个数
+ * @param {number[]} nums
+ * @return {number}
+ */
+const findMaxConsecutiveOnes = (nums) => {
+  nums = nums.join('').split('0');
+  let result = 0;
+  nums.forEach((item) => {
+    result = Math.max(item.length, result);
+  });
+  return result;
+};
+```
+
+这种想法就是将数组合并成字符串，然后通过 0 去分割，从而得到 1 的分组，最后求这些分组的最长长度就行了~
+
+详细的小伙伴们可以看代码，这里就不过多逼逼啦~
+
+如果你有更好的想法，可以评论或者私聊我哈，感觉不错的话会加入到原文中~
 
 ---
 
