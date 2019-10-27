@@ -2,7 +2,7 @@ LeetCode 文章模板 2
 ===
 
 > Create by **jsliang** on **2019-07-25 19:21:17**  
-> Recently revised in **2019-10-24 17:41:03**
+> Recently revised in **2019-10-27 19:14:21**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -14,9 +14,8 @@ LeetCode 文章模板 2
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 知识点](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路](#chapter-six) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 进一步思考](#chapter-seven) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -73,13 +72,7 @@ var islandPerimeter = function(grid) {
 
 ```
 
-## <a name="chapter-five" id="chapter-five">五 知识点</a>
-
-> [返回目录](#chapter-one)
-
-1. 
-
-## <a name="chapter-six" id="chapter-six">六 解题思路</a>
+## <a name="chapter-five" id="chapter-five">五 解题思路</a>
 
 > [返回目录](#chapter-one)
 
@@ -87,7 +80,7 @@ var islandPerimeter = function(grid) {
 
 [分析]
 
-## <a name="chapter-seven" id="chapter-seven">七 进一步思考</a>
+## <a name="chapter-six" id="chapter-six">六 进一步思考</a>
 
 > [返回目录](#chapter-one)
 
