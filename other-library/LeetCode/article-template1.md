@@ -2,7 +2,7 @@ LeetCode 文章模板 1
 ===
 
 > Create by **jsliang** on **2019-05-17 13:06:52**  
-> Recently revised in **2019-10-24 17:37:40**
+> Recently revised in **2019-10-27 19:13:34**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -73,10 +73,6 @@ var islandPerimeter = function(grid) {
 
 ```
 
-* **知识点**：
-
-1. 
-
 * **解题思路**：
 
 [图]
@@ -122,10 +118,6 @@ var islandPerimeter = function(grid) {
 ```js
 
 ```
-
-* **知识点**：
-
-1. 
 
 * **解题思路**：
 
