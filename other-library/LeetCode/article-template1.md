@@ -2,9 +2,9 @@ LeetCode 文章模板 1
 ===
 
 > Create by **jsliang** on **2019-05-17 13:06:52**  
-> Recently revised in **2019-10-27 19:13:34**
+> Recently revised in **2019-10-27 19:23:35**
 
-## <a name="chapter-one" id="chapter-one">一 目录</a>
+## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
 
@@ -16,7 +16,7 @@ LeetCode 文章模板 1
 | &emsp;[3.1 解法 - 暴力破解](#chapter-three-one) |
 | &emsp;[3.2 解法 - Map](#chapter-three-two) |
 
-## <a name="chapter-two" id="chapter-two">二 前言</a>
+## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
@@ -29,13 +29,13 @@ LeetCode 文章模板 1
 
 ```
 
-## <a name="chapter-three" id="chapter-three">三 解题</a>
+## <a name="chapter-three" id="chapter-three"></a>三 解题
 
 > [返回目录](#chapter-one)
 
 小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
 
-### <a name="chapter-three-one" id="chapter-three-one">3.1 解法 - 暴力破解</a>
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 解法 - 暴力破解
 
 > [返回目录](#chapter-one)
 
@@ -81,7 +81,7 @@ var islandPerimeter = function(grid) {
 
 * **进一步思考**：
 
-### <a name="chapter-three-two" id="chapter-three-two">3.2 解法 - Map</a>
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 解法 - Map
 
 > [返回目录](#chapter-one)
 
