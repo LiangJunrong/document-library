@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-28 10:54:31**  
-> Recently revised in **2019-10-28 10:54:36**
+> Recently revised in **2019-10-28 12:32:14**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -22,7 +22,7 @@
 > [返回目录](#chapter-one)
 
 * **难度**：简单
-* **涉及知识**：
+* **涉及知识**：数学
 * **题目地址**：https://leetcode-cn.com/problems/construct-the-rectangle/
 * **题目内容**：
 
@@ -77,13 +77,28 @@ var constructRectangle = function(area) {
 > index.js
 
 ```js
+/**
+ * @name 构造矩形
+ * @param {number} area
+ * @return {number[]}
+ */
+const constructRectangle = (area) => {
+  const harf = Math.ceil(Math.sqrt(area));
+  for (let i = harf; i <= area; i++) {
+    if (Number.isInteger(area / i)) {
+      return [i, area / i];
+    }
+  }
+};
 
+const area = 4;
+console.log(constructRectangle(area));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[2, 2]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -91,22 +106,67 @@ var constructRectangle = function(area) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 50/50 cases passed (128 ms)
+* Your runtime beats 48.35 % of javascript submissions
+* Your memory usage beats 17.86 % of javascript submissions (34.9 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，稍微思考，写出代码：
 
-[分析]
+```js
+/**
+ * @name 构造矩形
+ * @param {number} area
+ * @return {number[]}
+ */
+const constructRectangle = (area) => {
+  const harf = Math.ceil(Math.sqrt(area));
+  for (let i = harf; i <= area; i++) {
+    if (Number.isInteger(area / i)) {
+      return [i, area / i];
+    }
+  }
+};
+
+const area = 2;
+console.log(constructRectangle(area));
+```
+
+**然后**，尝试提交：
+
+```js
+Accepted
+* 50/50 cases passed (128 ms)
+* Your runtime beats 48.35 % of javascript submissions
+* Your memory usage beats 17.86 % of javascript submissions (34.9 MB)
+```
+
+**最后**，讲下思路：
+
+1. 首先，最极端的状况肯定是：2 * 2 或者 3 * 3 等，所以先开方 `area`，再向上取整。
+2. 然后，从开方的地方开始，到 `area` 结束，进行遍历。
+3. 最后，判断 `area` 是否能整除 `i`，如果可以，说明它们有故事，就可以给 good ending 了。
+
+> PS：为什么不需要最后再返回一个默认数组？因为任何正整数都可以被 1 整除啊！
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+那么，还能不能更进一步呢？毕竟上面的只打败了 48% 的运行时间，18% 的空间。
+
+于是 **jsliang** 想了下，然后去 LeetCode 【题解】和【评论】查看了下，还真，没有……
+
+果然大佬都是静悄悄做完然后从不留言的么……
+
+如果小伙伴有更好的题解，欢迎评论留言私聊……
+
+enm...好像上面话语会让人有些误解？！！！
 
 ---
 
