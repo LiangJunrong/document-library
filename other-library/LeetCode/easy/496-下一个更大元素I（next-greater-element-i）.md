@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-29 10:40:59**  
-> Recently revised in **2019-10-29 10:42:32**
+> Recently revised in **2019-10-29 20:13:05**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -67,11 +67,12 @@ nums1和nums2 的数组大小都不超过1000。
 
 ```js
 /**
- * @param {number[][]} grid
- * @return {number}
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
  */
-var islandPerimeter = function(grid) {
-    
+var nextGreaterElement = function(nums1, nums2) {
+  
 };
 ```
 
@@ -82,13 +83,37 @@ var islandPerimeter = function(grid) {
 > index.js
 
 ```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+const nextGreaterElement = (nums1, nums2) => {
+  const result = [];
+  for (let i = 0; i < nums1.length; i++) {
+    const index = nums2.findIndex(item2 => item2 === nums1[i]);
+    const afterList = nums2.slice(index);
+    const afterListIndex = afterList.findIndex(item3 => item3 > nums1[i]);
+    if (afterListIndex > -1) {
+      result.push(afterList[afterListIndex]);
+    } else {
+      result.push(afterListIndex);
+    }
+  }
+  return result;
+};
 
+// const nums1 = [4, 1, 2];
+// const nums2 = [1, 3, 4, 2];
+const nums1 = [2, 4];
+const nums2 = [1, 2, 3, 4];
+console.log(nextGreaterElement(nums1, nums2));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[3, -1]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -96,22 +121,31 @@ var islandPerimeter = function(grid) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 17/17 cases passed (100 ms)
+* Your runtime beats 23.6 % of javascript submissions
+* Your memory usage beats 5.97 % of javascript submissions (41.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+暴力有时候可以快速解决问题，但是肯定不是最优的解决方式。
 
-[分析]
+**首先**，在这题的破解中，我们遍历 `nums1`，因为 `nums1` 是 `nums2` 的子集，所以在 `nums2` 中 `findIndex` 查找 `nums1` 的元素必定是有的，我们通过 `index` 来记录对应的位置。
+
+**然后**，我们裁剪该 `index` 后 `nums2` 的数组，并在当中查找是否有元素比 `nums1[i]` （当前元素）更大。
+
+**最后**，我们判断是否存在，如果存在则存入该位置对应的值；如果不存在则返回 `-1`（`findIndex` 不存在的时候返回的值）。
+
+这样，我们就完成这个题目啦！（最暴力的方式，排名垫底）
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+由于现在 2019-10-29 20:12:13 **jsliang** 还在加班，所以乘测试还在走业务流程，顺带写了这道题，如果小伙伴们有更好的题解或者思路，欢迎留言评论私聊~
 
 ---
 
