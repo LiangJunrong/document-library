@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-10-28 12:33:17**
+> Recently revised in **2019-10-29 10:43:09**
 
 LeetCode 简单难度攻略
 
@@ -123,6 +123,7 @@ LeetCode 简单难度攻略
 | 482 - 秘钥格式化（license-key-formatting） | [#482 解题](./482-秘钥格式化（license-key-formatting）.md) |
 | 485 - 最大连续1的个数（max-consecutive-ones） | [#485 解题](./485-最大连续1的个数（max-consecutive-ones）.md) |
 | 492 - 构造矩形（construct-the-rectangle） | [#492 解题](./492-构造矩形（construct-the-rectangle）.md) |
+| 496 - 下一个更大元素I（next-greater-element-i） | [#496 解题](./496-下一个更大元素I（next-greater-element-i）.md) |
 
 ---
 
