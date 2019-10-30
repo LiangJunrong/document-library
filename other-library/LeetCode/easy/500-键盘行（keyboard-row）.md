@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-30 11:13:45**  
-> Recently revised in **2019-10-30 11:16:06**
+> Recently revised in **2019-10-30 17:30:33**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -67,13 +67,31 @@ var findWords = function(words) {
 > index.js
 
 ```js
+/**
+ * @name 键盘行
+ * @param {string[]} words
+ * @return {string[]}
+ */
+const findWords = (words) => {
+  const rows = ['qwertyuiop','asdfghjkl','zxcvbnm'];
+  return words.filter(word => {
+    return rows.some(row => {
+      return word.toLocaleLowerCase().split('').every(z => {
+        return row.includes(z);
+      });
+    });
+  });
+};
 
+// const words = ['Hello', 'Alaska', 'Dad', 'Peace'];
+const words = ['a', 'b'];
+console.log(findWords(words));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+['a', 'b']
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -81,22 +99,176 @@ var findWords = function(words) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 22/22 cases passed (60 ms)
+* Your runtime beats 91.26 % of javascript submissions
+* Your memory usage beats 5.97 % of javascript submissions (33.9 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，这是道有意思的题，那么我们先意思意思：
 
-[分析]
+```js
+/**
+ * @name 键盘行
+ * @param {string[]} words
+ * @return {string[]}
+ */
+const findWords = (words) => {
+  const hash = [
+    { title: 'Q', index: 1 },
+    { title: 'W', index: 1 },
+    { title: 'E', index: 1 },
+    { title: 'R', index: 1 },
+    { title: 'T', index: 1 },
+    { title: 'Y', index: 1 },
+    { title: 'U', index: 1 },
+    { title: 'I', index: 1 },
+    { title: 'O', index: 1 },
+    { title: 'P', index: 1 },
+    { title: 'A', index: 2 },
+    { title: 'S', index: 2 },
+    { title: 'D', index: 2 },
+    { title: 'F', index: 2 },
+    { title: 'G', index: 2 },
+    { title: 'H', index: 2 },
+    { title: 'J', index: 2 },
+    { title: 'K', index: 2 },
+    { title: 'L', index: 2 },
+    { title: 'Z', index: 3 },
+    { title: 'X', index: 3 },
+    { title: 'C', index: 3 },
+    { title: 'V', index: 3 },
+    { title: 'B', index: 3 },
+    { title: 'N', index: 3 },
+    { title: 'M', index: 3 },
+  ]
+  const result = [];
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length === 1) {
+      result.push(words[i]);
+    } else {
+      for (let j = 0; j < words[i].length - 1; j++) {
+        const prevIndex = hash.find(item => item.title === words[i][j].toUpperCase()).index;
+        const nextIndex = hash.find(item => item.title === words[i][j + 1].toUpperCase()).index;
+        if (prevIndex !== nextIndex) {
+          break;
+        }
+        if (prevIndex === nextIndex && j === words[i].length - 2) {
+          result.push(words[i]);
+        }
+      }
+    }
+  }
+  return result;
+};
+
+
+// const words = ['Hello', 'Alaska', 'Dad', 'Peace'];
+const words = ['a', 'b'];
+console.log(findWords(words));
+```
+
+**然后**，Submit 提交看下：
+
+```js
+Accepted
+* 22/22 cases passed (96 ms)
+* Your runtime beats 7.28 % of javascript submissions
+* Your memory usage beats 5.97 % of javascript submissions (35 MB)
+```
+
+还有更菜的吗，有木有！！！(⊙﹏⊙)b
+
+**最后**，再菜也讲下思路：
+
+1. 定义哈希表，每个字母及其对应的行数。
+2. 遍历传进来的数组 `words`，然后判断每个 `words` 的长度，因为长度为 1 的，就是单独一行。
+3. 判断当前字母所在的行数和下一个字母所在的行数是否一致，如果不是，循环中断，如果直到数组倒数第二个（倒数第二和倒数第一），都是一致的话，那么这个单词就符合题目要求
+4. 返回最终结果 `result`。
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+既然今天有时间，肯定希望多折腾，多学习，然后提升自己，那么，Let's go：
+
+> 正则表达式
+
+```js
+const findWords = (words) => {
+  const regexp = /^([qwertyuiop]+|[asdfghjkl]+|[zxcvbnm]+)$/i;
+  return words.filter(item => {
+    return regexp.test(item);
+  })
+};
+```
+
+正则表达式的效率挺感人的：
+
+```js
+Accepted
+* 22/22 cases passed (52 ms)
+* Your runtime beats 98.54 % of javascript submissions
+* Your memory usage beats 53.73 % of javascript submissions (33.6 MB)
+```
+
+当然我这种正则渣渣，就算搞懂了也是打死写不出的了，下一个。
+
+> 复合计算
+
+```js
+const findWords = (words) => {
+  const rows = ['qwertyuiop','asdfghjkl','zxcvbnm'];
+  return words.filter(word => {
+    return rows.some(row => word.toLocaleLowerCase().split('').every(z => row.includes(z)));
+  });
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 22/22 cases passed (64 ms)
+* Your runtime beats 83.5 % of javascript submissions
+* Your memory usage beats 25.37 % of javascript submissions (33.7 MB)
+```
+
+OK，比起正则和我的暴力破解来，这个是比较中规中矩的，怕小伙伴们看不清楚，这里我们整理了下，顺带讲讲它的解法：
+
+```js
+const findWords = (words) => {
+  const rows = ['qwertyuiop','asdfghjkl','zxcvbnm'];
+  return words.filter(word => {
+    return rows.some(row => {
+      return word.toLocaleLowerCase().split('').every(z => {
+        return row.includes(z);
+      });
+    });
+  });
+};
+```
+
+1. `rows` 存储键盘对应的三行。
+2. 遍历 `rows` 和 `words`，每个 `word` 转小写并且转数组后，判断单个 `word` 的所有元素是否属于同一个 `row`。
+3. 条件 2 判断中只要有一个条件符合那就表明这个单词属于上述条件中的一个。
+
+口说无凭惹人烦，咱们还是看数据：
+
+1. 数据为：`["Hello", "Alaska", "Dad", "Peace"]`
+2. `Hello` 转小写转数组：`['h', 'e', 'l', 'l', 'o']`
+3. 数组中的所有元素，`h` 在 `rows[1]`，但是 `e` 在 `rows[0]`，不符合全部值在同一个位置，排除
+4. `Alaska` 转小写转数组：`['a','l','a','s','k','a']`
+5. 数组中的所有元素，都在 `rows[1]` 中，所以 `filter` 后返回该值
+6. 循环往复……
+
+最终得出答案。
+
+> 业务中多写这种代码 `filter`、`some`、`split`、`every`、`includes`……会让一些维护代码的菜鸡队友崩溃吧，如果数据再复杂点，估计一些比较牛的也琢磨不透吧~ /手动滑稽
 
 ---
 
