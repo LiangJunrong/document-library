@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-10-30 11:16:38**
+> Recently revised in **2019-10-31 19:31:28**
 
 LeetCode 简单难度攻略
 
@@ -125,6 +125,7 @@ LeetCode 简单难度攻略
 | 492 - 构造矩形（construct-the-rectangle） | [#492 解题](./492-构造矩形（construct-the-rectangle）.md) |
 | 496 - 下一个更大元素I（next-greater-element-i） | [#496 解题](./496-下一个更大元素I（next-greater-element-i）.md) |
 | 500 - 键盘行（keyboard-row） | [#500 解题](./500-键盘行（keyboard-row）.md) |
+| 501 - 二叉搜索树中的众数（find-mode-in-binary-search-tree） | [#501 解题](./501-二叉搜索树中的众数（find-mode-in-binary-search-tree）.md) |
 
 ---
 
