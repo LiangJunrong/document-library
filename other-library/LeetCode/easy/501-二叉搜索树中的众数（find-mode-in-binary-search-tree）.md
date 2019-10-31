@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-10-31 19:00:37**  
-> Recently revised in **2019-10-31 19:02:49**
+> Recently revised in **2019-10-31 19:30:55**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -79,13 +78,56 @@ var findMode = function(root) {
 > index.js
 
 ```js
+/**
+ * @name 二叉搜索树中的众数
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+const findMode = (root) => {
+  let result = [];
+  let map = new Map();
+  let max = 0;
+  const regodic = (root) => {
+    if (!root) {
+      return '!#'
+    }
+    if (map.get(root.val) === undefined) {
+      map.set(root.val, 1);
+    } else {
+      map.set(root.val, map.get(root.val) + 1);
+    }
+    max = Math.max(max, map.get(root.val));
+    return `!${root.val}${regodic(root.left)}${regodic(root.right)}`;
+  }
+  regodic(root);
+  for (let [key, value] of map.entries()) {
+    if (value === max) {
+      result.push(key);
+    }
+  }
+  return result;
+};
 
+const root = {
+  val: 1,
+  left: null,
+  right: {
+    val: 2,
+    left: {
+      val: 2,
+      left: null,
+      right: null,
+    },
+    right: null,
+  }
+};
+console.log(findMode(root));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[2]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -93,22 +135,78 @@ var findMode = function(root) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 25/25 cases passed (92 ms)
+* Your runtime beats 76.47 % of javascript submissions
+* Your memory usage beats 7.69 % of javascript submissions (44 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，说到树，第一时间我又想起了我的万能公式，试了下还没忘：
 
-[分析]
+```js
+const regodic = (root) => {
+  if (!root) {
+    return '!#'
+  }
+  return `!${root.val}${regodic(root.left)}${regodic(root.right)}`;
+}
+regodic(root);
+// 举例上面的树
+// !1!#!2!2!#!#!#
+```
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+**然后**，尝试解决问题：
 
-> [返回目录](#chapter-one)
+```js
+/**
+ * @name 二叉搜索树中的众数
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+const findMode = (root) => {
+  let result = [];
+  let map = new Map();
+  let max = 0;
+  const regodic = (root) => {
+    if (!root) {
+      return '!#'
+    }
+    if (map.get(root.val) === undefined) {
+      map.set(root.val, 1);
+    } else {
+      map.set(root.val, map.get(root.val) + 1);
+    }
+    max = Math.max(max, map.get(root.val));
+    return `!${root.val}${regodic(root.left)}${regodic(root.right)}`;
+  }
+  regodic(root);
+  for (let [key, value] of map.entries()) {
+    if (value === max) {
+      result.push(key);
+    }
+  }
+  return result;
+};
+```
 
-……
+Submit 提交试试：
+
+```js
+Accepted
+* 25/25 cases passed (92 ms)
+* Your runtime beats 76.47 % of javascript submissions
+* Your memory usage beats 7.69 % of javascript submissions (44 MB)
+```
+
+好，完事，跑路~
+
+> 感兴趣的小伙伴可以做下进阶，**jsliang** 这边还未下班先不搞了
+
+有更好的答案的小伙伴可以留言评论或者私聊哈~
 
 ---
 
