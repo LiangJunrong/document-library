@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-01 09:45:11**
+> Recently revised in **2019-11-2 09:56:35**
 
 LeetCode 简单难度攻略
 
@@ -127,6 +127,7 @@ LeetCode 简单难度攻略
 | 500 - 键盘行（keyboard-row） | [#500 解题](./500-键盘行（keyboard-row）.md) |
 | 501 - 二叉搜索树中的众数（find-mode-in-binary-search-tree） | [#501 解题](./501-二叉搜索树中的众数（find-mode-in-binary-search-tree）.md) |
 | 504 - 七进制数（base-7） | [#504 解题](./504-七进制数（base-7）.md) |
+| 506 - 相对名次（relative-ranks） | [#506 解题](./506-相对名次（relative-ranks）.md) |
 
 ---
 
