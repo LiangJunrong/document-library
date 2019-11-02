@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-2 09:19:17**  
-> Recently revised in **2019-11-2 09:55:55**
+> Recently revised in **2019-11-2 09:59:10**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -38,7 +38,9 @@
 
 输入: [5, 4, 3, 2, 1]
 输出: ["Gold Medal", "Silver Medal", "Bronze Medal", "4", "5"]
-解释: 前三名运动员的成绩为前三高的，因此将会分别被授予 “金牌”，“银牌”和“铜牌” ("Gold Medal", "Silver Medal" and "Bronze Medal").
+解释: 
+
+前三名运动员的成绩为前三高的，因此将会分别被授予 “金牌”，“银牌”和“铜牌” 
 余下的两名运动员，我们只需要通过他们的成绩计算将其相对名次即可。
 
 提示:
