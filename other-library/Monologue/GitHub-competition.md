@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-11-2 09:15:15**
+> Recently revised in **2019-11-3 11:28:25**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -100,7 +100,7 @@
 | 1. jsliang | [LiangJunrong](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs) | 技术提升 |
 | 2. teachat8 | [teachat8](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2019-11.md) | 能写 Vue 组件 |
 | 3. 黄敏坚 | [huangminjianxx](https://github.com/huangminjianxx/LearningRecord/) | 11 月找到实习 |
-| 4. apple | [donaf](https://github.com/donaf/daydayup/blob/master/logs/2019-10.md) | **（周结）** |
+| 4. apple | [donaf](https://github.com/donaf/daydayup/blob/master/logs/2019-11.md) | **（周结）** |
 | 5. 浓茶 | [NingZhuo](https://github.com/NingZhuo/Log/blob/master/Log.md) | 年前跳槽 |
 | 5. lien | [LienJack](https://github.com/LienJack/daliy-study/blob/master/201910/21-27.md) | 深入 Vue 源码 |
 | 6. chenxiaoyao | [chenxiaoyao6228](https://github.com/chenxiaoyao6228/daily-learing-log) |  |
