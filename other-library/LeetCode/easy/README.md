@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-04 09:16:02**
+> Recently revised in **2019-11-05 09:20:44**
 
 LeetCode 简单难度攻略
 
@@ -130,6 +130,7 @@ LeetCode 简单难度攻略
 | 506 - 相对名次（relative-ranks） | [#506 解题](./506-相对名次（relative-ranks）.md) |
 | 507 - 完美数（perfect-number） | [#507 解题](./507-完美数（perfect-number）.md) |
 | 509 - 斐波那契数列（fibonacci-number） | [#509 解题](./509-斐波那契数列（fibonacci-number）.md) |
+| 520 - 检测大写字母（detect-capital） | [#520 解题](./520-检测大写字母（detect-capital）.md) |
 
 ---
 
