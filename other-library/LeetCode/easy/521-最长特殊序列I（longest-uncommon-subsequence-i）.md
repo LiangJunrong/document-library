@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-06 08:27:51**  
-> Recently revised in **2019-11-06 09:06:09**
+> Recently revised in **2019-11-06 09:08:32**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -224,6 +224,8 @@ Accepted
 2. 如果 `a` 和 `b` 的长度相等，那么判断两者是不是一样的字符串，如果是，返回 -1，如果不是，返回 `a` 或者 `b` 的长度。
 
 **最后**，再缩短一下，写个一行题解留作纪念：
+
+> 第三次尝试
 
 ```js
 const findLUSlength = (a, b) => {
