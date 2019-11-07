@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-07 08:36:49**  
-> Recently revised in **2019-11-07 08:37:44**
+> Recently revised in **2019-11-07 09:46:40**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -80,13 +80,60 @@ var getMinimumDifference = function(root) {
 > index.js
 
 ```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @name 二叉搜索树的最小绝对差
+ * @param {TreeNode} root
+ * @return {number}
+ */
+const getMinimumDifference = (root) => {
+  const treeList = [];
+  const ergodic = (root) => {
+    if (!root) {
+      return '!#';
+    }
+    treeList.push(root.val);
+    return '!' + root.val + ergodic(root.left) + ergodic(root.right);
+  }
+  ergodic(root);
+  treeList.sort((a, b) => a - b);
+  let result = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < treeList.length - 1; i++) {
+    const max = Math.max(treeList[i + 1], treeList[i]);
+    const min = Math.min(treeList[i + 1], treeList[i]);
+    if (max - min < result) {
+      result = max - min;
+    }
+  }
+  return result;
+};
 
+const root = {
+  val: 1,
+  left: {
+    val: 5,
+    left: null,
+    right: null,
+  },
+  right: {
+    val: 3,
+    left: { val: 6, left: null, right: null },
+    right: null,
+  },
+};
+console.log(getMinimumDifference(root)); // 3
 ```
 
 `node index.js` 返回：
 
 ```js
-
+1
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -94,22 +141,268 @@ var getMinimumDifference = function(root) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 186/186 cases passed (104 ms)
+* Your runtime beats 50 % of javascript submissions
+* Your memory usage beats 6.9 % of javascript submissions (41 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，想到的是使用树的万能公式，套路整棵树拿到所有节点，从而得到差值：
 
-[分析]
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @name 二叉搜索树的最小绝对差
+ * @param {TreeNode} root
+ * @return {number}
+ */
+const getMinimumDifference = (root) => {
+  const treeList = [];
+  const ergodic = (root) => {
+    if (!root) {
+      return '!#';
+    }
+    treeList.push(root.val);
+    return '!' + root.val + ergodic(root.left) + ergodic(root.right);
+  }
+  ergodic(root);
+  treeList.sort((a, b) => a - b);
+  return treeList[1] - treeList[0];
+};
+
+const root = {
+  val: 1,
+  left: null,
+  right: {
+    val: 3,
+    left: { val: 2, left: null, right: null },
+    right: null,
+  },
+};
+console.log(getMinimumDifference(root));
+```
+
+**然后**，发现稍微理解错误，因为倒数第二个减去倒数第一个可能不是最小值，例如：
+
+* [1, 3, 4, 5]
+
+所以上面的代码 Submit 会出现这种情况：
+
+```js
+Wrong Answer
+33/186 cases passed (N/A)
+
+Testcase
+[543,384,652,null,445,null,699]
+
+Answer
+61
+
+Expected Answer
+47
+```
+
+所以重新修改了下代码：
+
+```js
+const getMinimumDifference = (root) => {
+  const treeList = [];
+  const ergodic = (root) => {
+    if (!root) {
+      return '!#';
+    }
+    treeList.push(root.val);
+    return '!' + root.val + ergodic(root.left) + ergodic(root.right);
+  }
+  ergodic(root);
+  let result = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < treeList.length - 1; i++) {
+    for (let j = i + 1; j < treeList.length; j++) {
+      let tempMax = treeList[i] > treeList[j] ? treeList[i] : treeList[j];
+      let tempMin = treeList[i] > treeList[j] ? treeList[j] : treeList[i];
+      if (tempMax - tempMin < result) {
+        result = tempMax - tempMin;
+      }
+    }
+  }
+  return result;
+};
+```
+
+Submit 提交试试：
+
+```js
+Accepted
+* 186/186 cases passed (196 ms)
+* Your runtime beats 5.26 % of javascript submissions
+* Your memory usage beats 6.9 % of javascript submissions (39.8 MB)
+```
+
+好的好的，耗时 15 分钟写出了最垃圾的代码，打不过 LeetCode 上任何一个人。
+
+**最后**，我们还是分析下：
+
+1. 通过 `ergodic` 遍历整棵树。
+2. 设定 `result` 为数字最大值，`Number.MAX_SAFE_INTEGER` 的值为 JavaScript 最大安全值，即 `2^53 - 1`。
+3. 通过 `for` 进行双重遍历，取最大值 - 最小值，判断它们的差值是否比 `result` 更小，如果是，则替代。
+4. 输出 `result`。
+
+那么，它有什么不足呢？
+
+1. 递归树，耗时较大
+2. 双重循环，耗时较大
+3. 定义多个变量，占用空间大
+
+很好，知道了缺陷，那么下面我们进行改善。
+
+> 很多时候，我们奉行可用原则，然后再进一步精简。
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+下面开始优化（搞事情）~
+
+> 第一次优化
+
+```js
+const getMinimumDifference = (root) => {
+  const treeList = [];
+  const ergodic = (root) => {
+    if (!root) {
+      return '!#';
+    }
+    treeList.push(root.val);
+    return '!' + root.val + ergodic(root.left) + ergodic(root.right);
+  }
+  ergodic(root);
+  treeList.sort((a, b) => a - b);
+  let result = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < treeList.length - 1; i++) {
+    const max = Math.max(treeList[i + 1], treeList[i]);
+    const min = Math.min(treeList[i + 1], treeList[i]);
+    if (max - min < result) {
+      result = max - min;
+    }
+  }
+  return result;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 186/186 cases passed (104 ms)
+* Your runtime beats 50 % of javascript submissions
+* Your memory usage beats 6.9 % of javascript submissions (41 MB)
+```
+
+这里通过对所有节点进行排序，因为相邻的两个节点的值是相对最小的：
+
+* [1, 3, 4, 5]
+
+例如上面，`4 - 1` 肯定没有 `3 - 1` 的值小。
+
+再通过一次遍历，算出结果值。
+
+所以这里的优化就是将双重遍历拆分成了两次单重遍历，用大 O 表示法来说，即将 O(n^2) 变成了 2 * O(n)。
+
+> 第二次优化
+
+```js
+const getMinimumDifference = (root) => {
+  let prevNode = null,
+      result = Number.MAX_SAFE_INTEGER;
+  const ergodic = (root) => {
+    if (!root) {
+      return;
+    }
+    ergodic(root.left);
+    if (prevNode !== null) {
+      result = Math.min(result, Math.abs(root.val - prevNode.val));
+    }
+    prevNode = root;
+    ergodic(root.right);
+  }
+  ergodic(root);
+  return result;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 186/186 cases passed (76 ms)
+* Your runtime beats 92.11 % of javascript submissions
+* Your memory usage beats 72.41 % of javascript submissions (37.6 MB)
+```
+
+有时候，很多小伙伴会跟我说，看不懂我写的代码。
+
+其实，有时候我也看不懂别人写的代码。
+
+但是，总得去接受改变，挑战自我。
+
+上面的代码是一份中序遍历破解，咱也没用过，这里说说对这代码的看法：
+
+1. 遍历左边树节点
+2. 求当前节点和上一个节点的差值
+3. 遍历右边数节点
+
+但是，经过测试，发现好像不够完善：
+
+```js
+const getMinimumDifference = (root) => {
+  let prevNode = null,
+      result = Number.MAX_SAFE_INTEGER;
+  const ergodic = (root) => {
+    if (!root) {
+      return;
+    }
+    ergodic(root.left);
+    if (prevNode !== null) {
+      result = Math.min(result, Math.abs(root.val - prevNode.val));
+    }
+    prevNode = root;
+    ergodic(root.right);
+  }
+  ergodic(root);
+  return result;
+};
+
+const root = {
+  val: 1,
+  left: {
+    val: 5,
+    left: null,
+    right: null,
+  },
+  right: {
+    val: 3,
+    left: { val: 6, left: null, right: null },
+    right: null,
+  },
+};
+console.log(getMinimumDifference(root)); // 3。但是按道理说是 1。但是但是它通过了！可能我不太熟悉中序遍历？
+```
+
+如果小伙伴有更好的观点，欢迎评论吐槽或者私聊 **jsliang**
+
+PS：写完已经过了 70 分钟，不得不吐槽时间过得真快。
+
+PS： 参考答案来自【评论】区的 JavaScript 中序解法以及【题解】区的 Java 解法： https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/solution/er-cha-sou-suo-shu-jiu-zhong-xu-bian-li-cun-chu-qi/
 
 ---
 
