@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-08 08:44:22**  
-> Recently revised in **2019-11-08 08:45:27**
+> Recently revised in **2019-11-08 09:52:50**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -81,13 +81,37 @@ var findPairs = function(nums, k) {
 > index.js
 
 ```js
+/**
+ * @name 数组中的K-diff数对
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+const findPairs = (nums, k) => {
+  const map = new Map();
+  let result = 0;
+  for (let i = 0; i < nums.length - 1; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      const max = Math.max(nums[i], nums[j]);
+      const min = Math.min(nums[i], nums[j]);
+      if (max - min === k && map.get(`${min}${max}`) === undefined) {
+        result += 1;
+        map.set(`${min}${max}`, `${min}${max}`,);
+      }
+    }
+  }
+  return result;
+};
 
+// console.log(findPairs([3, 1, 4, 1, 5], 2)); // 2
+// console.log(findPairs([1, 2, 3, 4, 5], 1)); // 4
+console.log(findPairs([1, 3, 1, 5, 4], 0)); // 1
 ```
 
 `node index.js` 返回：
 
 ```js
-
+1
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -95,22 +119,86 @@ var findPairs = function(nums, k) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 72/72 cases passed (2584 ms)
+* Your runtime beats 5.22 % of javascript submissions
+* Your memory usage beats 6.25 % of javascript submissions (40 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，拿到题目，本想秀一秀，使用双重 Map，但是霎时间失败，只好先使用暴力解题先：
 
-[分析]
+```js
+const findPairs = (nums, k) => {
+  const map = new Map();
+  let result = 0;
+  for (let i = 0; i < nums.length - 1; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      const max = Math.max(nums[i], nums[j]);
+      const min = Math.min(nums[i], nums[j]);
+      if (max - min === k && map.get(`${min}${max}`) === undefined) {
+        result += 1;
+        map.set(`${min}${max}`, `${min}${max}`,);
+      }
+    }
+  }
+  return result;
+};
+```
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+Submit 结果 *“非常不错”*：
 
-> [返回目录](#chapter-one)
+```js
+Accepted
+* 72/72 cases passed (2584 ms)
+* Your runtime beats 5.22 % of javascript submissions
+* Your memory usage beats 6.25 % of javascript submissions (40 MB)
+```
 
-……
+**然后**，你也知道，俺是喜欢较真的人，双重遍历实在太垃圾了，咱们试试优化一下：
+
+```js
+/**
+ * @name 数组中的K-diff数对
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+const findPairs = (nums, k) => {
+  if (k < 0) {
+    return 0;
+  }
+  const map1 = new Map();
+  const map2 = new Map();
+  let result = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] + k === map1.get(nums[i] + k) && map2.get(`${nums[i]}${nums[i] + k}`) === undefined) {
+      result += 1;
+      map2.set(`${nums[i]}${nums[i] + k}`, `${nums[i]}${nums[i] + k}`);
+    }
+    if (nums[i] - k === map1.get(nums[i] - k) && map2.get(`${nums[i] - k}${nums[i]}`) === undefined) {
+      result += 1;
+      map2.set(`${nums[i] - k}${nums[i]}`, `${nums[i] - k}${nums[i]}`);
+    }
+    map1.set(nums[i], nums[i]);
+  }
+  return result;
+};
+```
+
+Submit 试试：
+
+```js
+Accepted
+* 72/72 cases passed (92 ms)
+* Your runtime beats 83.48 % of javascript submissions
+* Your memory usage beats 6.25 % of javascript submissions (41.7 MB)
+```
+
+**最后**，有更好 idea 的小伙伴，欢迎评论吐槽或者直接私聊我咯~
 
 ---
 
