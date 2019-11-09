@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-08 09:53:22**
+> Recently revised in **2019-11-9 20:18:19**
 
 LeetCode 简单难度攻略
 
@@ -134,6 +134,7 @@ LeetCode 简单难度攻略
 | 521 - 最长特殊序列I（longest-uncommon-subsequence-i） | [#521 解题](./521-最长特殊序列I（longest-uncommon-subsequence-i）.md) |
 | 530 - 二叉搜索树的最小绝对差（minimum-absolute-difference-in-bst） | [#530 解题](./530-二叉搜索树的最小绝对差（minimum-absolute-difference-in-bst）.md) |
 | 532 - 数组中的K-diff数对（k-diff-pairs-in-an-array） | [#532 解题](./532-数组中的K-diff数对（k-diff-pairs-in-an-array）.md) |
+| 538 - 把二叉搜索树转换成累加树（convert-bst-to-greater-tree） | [#538 解题](./538-把二叉搜索树转换成累加树（convert-bst-to-greater-tree）.md) |
 
 ---
 
