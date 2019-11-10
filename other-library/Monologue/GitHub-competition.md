@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-11-3 12:25:21**
+> Recently revised in **2019-11-10 13:57:04**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -106,6 +106,11 @@
 | 6. chenxiaoyao | [chenxiaoyao6228](https://github.com/chenxiaoyao6228/daily-learing-log) |  |
 
 ## 五 参赛记录和漏卡记录
+
+> 2019-11-10 —— 2019-11-16
+
+1. jsliang
+2. teachat8 - 7 天
 
 > 2019-11-02 —— 2019-11-09
 
