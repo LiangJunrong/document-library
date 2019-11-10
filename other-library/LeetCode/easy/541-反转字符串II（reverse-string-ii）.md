@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-10 13:16:42**  
-> Recently revised in **2019-11-10 13:17:39**
+> Recently revised in **2019-11-10 13:53:02**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -71,13 +70,38 @@ var reverseStr = function(s, k) {
 > index.js
 
 ```js
+/**
+ * @name 反转字符串II
+ * @param {string} s
+ * @param {number} k
+ * @return {string}
+ */
+const reverseStr = (s, k) => {
+  s = s.split('');
+  const result = [];
+  while (s.length) {
+    result.push(s.splice(0, 2 * k));
+  }
+  for (let i = 0; i < result.length; i++) {
+    if (result[i].length < k) {
+      result[i].reverse();
+    }
+    if (result[i].length >= k && result[i].length <= 2 * k) {
+      const leftHarf = result[i].slice(0, k);
+      const rightHarf = result[i].slice(k);
+      result[i] = [...leftHarf.reverse(), ...rightHarf];
+    }
+  }
+  return result.map(item => item.join('')).join('');
+};
 
+console.log(reverseStr('abcdefg', 2));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+bacdfeg
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -85,22 +109,70 @@ var reverseStr = function(s, k) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 60/60 cases passed (80 ms)
+* Your runtime beats 61.72 % of javascript submissions
+* Your memory usage beats 45.45 % of javascript submissions (37.6 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+首先看题，又是长篇大论然后就给了一个示例，想想要先试探几次就感觉不嗨皮啊！
 
-[分析]
+```js
+/**
+ * @name 反转字符串II
+ * @param {string} s
+ * @param {number} k
+ * @return {string}
+ */
+const reverseStr = (s, k) => {
+  s = s.split('');
+  const result = [];
+  while (s.length) {
+    result.push(s.splice(0, 2 * k));
+  }
+  for (let i = 0; i < result.length; i++) {
+    if (result[i].length < k) {
+      result[i].reverse();
+    }
+    if (result[i].length >= k && result[i].length <= 2 * k) {
+      const leftHarf = result[i].slice(0, k);
+      const rightHarf = result[i].slice(k);
+      result[i] = [...leftHarf.reverse(), ...rightHarf];
+    }
+  }
+  return result.map(item => item.join('')).join('');
+};
+```
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+Submit 试试：
 
-> [返回目录](#chapter-one)
+```js
+Accepted
+* 60/60 cases passed (80 ms)
+* Your runtime beats 61.72 % of javascript submissions
+* Your memory usage beats 45.45 % of javascript submissions (37.6 MB)
+```
 
-……
+真失败！！！
+
+这么混乱的垃圾提交都通过了，哭~
+
+讲讲思路：
+
+1. 已知字符串： `abcdefg`。
+2. 通过 `while` 循环，尝试按照 2k 长度进行分割：`[ [ 'a', 'b', 'c', 'd' ], [ 'e', 'f', 'g' ] ]`。
+3. 通过 `for` 循环，将数组按照规矩进行翻转：
+   1. 如果长度小于 k，则所有内容翻转。
+   2. 如果长度大于或者等于 k，且小于或者等于 2k，那么将其拆分成两半，左半边翻转，右半边原样。
+4. 最后将每个二维数组转换成字符串，再将一位数组转换成字符串。
+
+很好，成功将一些小伙伴整懵逼~
+
+如果你有更好的法子或者更清晰的思路，欢迎评论吐槽或者直接私聊捶我~
 
 ---
 
