@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-11-10 13:57:04**
+> Recently revised in **2019-11-11 20:48:08**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -111,12 +111,7 @@
 
 1. jsliang
 2. teachat8 - 7 天
-
-> 2019-11-02 —— 2019-11-09
-
-1. jsliang
-2. chenxiaoyao - 7 天
-3. teachat8 - 7 天
+3. chenxiaoyao - 7 天
 4. apple - 7 天（周结）
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
