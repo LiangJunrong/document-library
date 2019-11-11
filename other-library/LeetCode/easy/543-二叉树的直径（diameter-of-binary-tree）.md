@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-11 08:40:04**  
-> Recently revised in **2019-11-11 08:40:07**
+> Recently revised in **2019-11-11 09:24:36**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -78,13 +77,49 @@ var diameterOfBinaryTree = function(root) {
 > index.js
 
 ```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @name 二叉树的直径
+ * @param {TreeNode} root
+ * @return {number}
+ */
+const diameterOfBinaryTree = (root) => {
+  let deep = 0;
+  const ergodic = (root) => {
+    if (!root) {
+      return 0;
+    }
+    const leftDepth = ergodic(root.left);
+    const rightDepth = ergodic(root.right);
+    deep = Math.max(deep, leftDepth + rightDepth);
+    return Math.max(leftDepth, rightDepth) + 1;
+  };
+  ergodic(root);
+  return deep;
+};
 
+const root = {
+  val: 1,
+  left: {
+    val: 2,
+    left: { val: 4, left: null, right: null },
+    right: { val: 5, left: null, right: null },
+  },
+  right: { val: 3, left: null, right: null },
+}
+console.log(diameterOfBinaryTree(root)); // 3
 ```
 
 `node index.js` 返回：
 
 ```js
-
+3
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -92,22 +127,72 @@ var diameterOfBinaryTree = function(root) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 106/106 cases passed (68 ms)
+* Your runtime beats 97.19 % of javascript submissions
+* Your memory usage beats 55 % of javascript submissions (37.1 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，看完题目，盖棺定论：
 
-[分析]
+* 该树的最大直径等于左子树的最大深度 + 右子树的最大深度。
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+定义完毕，直接躺尸试试：
 
-> [返回目录](#chapter-one)
+```js
+const diameterOfBinaryTree = (root) => {
+  let deep = 0;
+  const ergodic = (root) => {
+    if (!root) {
+      return 0;
+    }
+    const leftDepth = ergodic(root.left);
+    const rightDepth = ergodic(root.right);
+    deep = Math.max(deep, leftDepth + rightDepth);
+    return Math.max(leftDepth, rightDepth) + 1;
+  };
+  ergodic(root);
+  return deep;
+};
 
-……
+const root = {
+  val: 1,
+  left: {
+    val: 2,
+    left: { val: 4, left: null, right: null },
+    right: { val: 5, left: null, right: null },
+  },
+  right: { val: 3, left: null, right: null },
+}
+
+console.log(diameterOfBinaryTree(root)); // 3
+```
+
+Submit 提交结果：
+
+```js
+Accepted
+* 106/106 cases passed (68 ms)
+* Your runtime beats 97.19 % of javascript submissions
+* Your memory usage beats 55 % of javascript submissions (37.1 MB)
+```
+
+满足~
+
+下面说说解法：
+
+1. 定义深度 `deep`。
+2. 求出左子树的最大深度和右子树的最大深度
+3. `deep` 记录当前的最大直径
+4. `return` 左子树或者右子树的最大深度 + 1
+
+这样，我们就完成了这道题的破解啦！
+
+如果小伙伴们有更好的方式，可以评论留言或者直接私聊我~
 
 ---
 
