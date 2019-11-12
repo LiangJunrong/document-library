@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-12 08:30:53**  
-> Recently revised in **2019-11-12 09:15:16**
+> Recently revised in **2019-11-12 09:19:14**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -75,13 +75,39 @@ var checkRecord = function(s) {
 > index.js
 
 ```js
+/**
+ * @name 学生出勤记录I
+ * @param {string} s
+ * @return {boolean}
+ */
+const checkRecord = (s) => {
+  let AFlag = true;
+  let LFlag = true;
+  for (let i = 0; i < s.length; i++) {
+    if (AFlag && s[i] === 'A' && s.lastIndexOf('A') !== i) {
+      AFlag = false;
+    }
+    if (LFlag && s[i] === 'L' && s[i + 1] === 'L' && s[i + 2] === 'L') {
+      LFlag = false;
+    }
+    if (!AFlag || !LFlag) {
+      break;
+    }
+  }
+  return AFlag && LFlag;
+};
 
+console.log(checkRecord('PPALLP')); // true
+console.log(checkRecord('PPALLL')); // false
+console.log(checkRecord('AAAA')); // false
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -89,7 +115,10 @@ var checkRecord = function(s) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 113/113 cases passed (64 ms)
+* Your runtime beats 84.42 % of javascript submissions
+* Your memory usage beats 78.57 % of javascript submissions (33.6 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
