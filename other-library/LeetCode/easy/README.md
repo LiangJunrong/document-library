@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-11 09:25:14**
+> Recently revised in **2019-11-12 09:15:48**
 
 LeetCode 简单难度攻略
 
@@ -137,6 +137,7 @@ LeetCode 简单难度攻略
 | 538 - 把二叉搜索树转换成累加树（convert-bst-to-greater-tree） | [#538 解题](./538-把二叉搜索树转换成累加树（convert-bst-to-greater-tree）.md) |
 | 541 - 反转字符串II（reverse-string-ii） | [#541 解题](./541-反转字符串II（reverse-string-ii）.md) |
 | 543 - 二叉树的直径（diameter-of-binary-tree） | [#543 解题](./543-二叉树的直径（diameter-of-binary-tree）.md) |
+| 551 - 学生出勤记录I（student-attendance-record-i） | [#551 解题](./551-学生出勤记录I（student-attendance-record-i）.md) |
 
 ---
 
