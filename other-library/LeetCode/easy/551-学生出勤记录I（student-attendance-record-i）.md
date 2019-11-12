@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-12 08:30:53**  
-> Recently revised in **2019-11-12 08:32:17**
+> Recently revised in **2019-11-12 09:15:16**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -96,15 +96,115 @@ var checkRecord = function(s) {
 
 > [返回目录](#chapter-one)
 
-[图]
+**人生难得一道题，居然想的是用哪种骚方法实现比较炫酷。**
 
-[分析]
+```js
+// 实现记录……
+```
+
+然后，然后我就发现我被坑了：
+
+* 不超过一个'A'(缺勤)并且不超过两个连续的'L'(迟到)
+
+审题啊审题！
+
+再来一遍：
+
+```js
+/**
+ * @name 学生出勤记录I
+ * @param {string} s
+ * @return {boolean}
+ */
+const checkRecord = (s) => {
+  let AFlag = true;
+  let LFlag = true;
+  for (let i = 0; i < s.length; i++) {
+    if (AFlag && s[i] === 'A' && s.lastIndexOf('A') !== i) {
+      AFlag = false;
+    }
+    if (LFlag && s[i] === 'L' && s[i + 1] === 'L' && s[i + 2] === 'L') {
+      LFlag = false;
+    }
+    if (!AFlag || !LFlag) {
+      break;
+    }
+  }
+  return AFlag && LFlag;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 113/113 cases passed (64 ms)
+* Your runtime beats 84.42 % of javascript submissions
+* Your memory usage beats 78.57 % of javascript submissions (33.6 MB)
+```
+
+解法如下：
+
+1. 设置 A 和 L 的标志，都没有超标。
+2. 循环中。判断当前元素为 `'A'`，并且最后一个 `'A'` 的位置和当前位置不相同，意味着有 2 个 `'A'` 及以上，设置 `'A'` 超标。
+3. 循环中。判断当前元素为 `'L'`，并且 `i+1`、`i+2` 的元素都为 `'L'`，意味着有 3 个 `'L'`，设置 `'L'` 超标。
+4. 循环中。如果满足以上任意一个条件，那么就中止循环（减少时间成本）。
+5. 唯有 A 和 L 的标志同为 `true`，才能获得奖励。
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+不甚满意！
+
+1. 遍历中还设置了 `lastIndexOf`，成本较高。
+2. 判断有点绕。
+
+所以下面看看【题解区】和【评论区】有没大佬见解。
+
+> 官方题解 1 - 字符串解法
+
+```js
+const checkRecord = (s) => {
+  let count = 0;
+  for (let i = 0; i < s.length && count < 2; i++) {
+    if (s[i] === 'A') {
+      count++;
+    }
+  }
+  return count < 2 && s.indexOf('LLL') < 0;
+};
+```
+
+虽然官方题解比我的简练，但是效果好像没我好：
+
+```js
+Accepted
+* 113/113 cases passed (72 ms)
+* Your runtime beats 62.34 % of javascript submissions
+* Your memory usage beats 66.67 % of javascript submissions (33.7 MB)
+```
+
+> 官方题解 2 - 正则解法
+
+```js
+const checkRecord = (s) => {
+  return !s.match(".*(A.*A|LLL).*");
+};
+```
+
+任何方法，惯上了正则，都变得高大上，当然一般人都不怎么想搞，毕竟在 **jsliang** 的理解中，喜欢写正则要不就是大佬，要不就喜欢秀（然后业务代码不可维护 /手动滑稽）：
+
+```js
+Accepted
+* 113/113 cases passed (72 ms)
+* Your runtime beats 62.34 % of javascript submissions
+* Your memory usage beats 64.29 % of javascript submissions (33.7 MB)
+```
+
+好吧，其他大佬写得有点杂，这里就不一一展示了。
+
+如果小伙伴有更好的想法，欢迎评论留言或者直接私聊我，我们下期见~
 
 ---
 
