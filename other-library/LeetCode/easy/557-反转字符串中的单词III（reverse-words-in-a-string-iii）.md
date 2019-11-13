@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-13 08:24:02**  
-> Recently revised in **2019-11-13 08:25:03**
+> Recently revised in **2019-11-13 08:53:29**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -66,13 +66,27 @@ var reverseWords = function(s) {
 > index.js
 
 ```js
+/**
+ * @name 反转字符串中的单词III
+ * @param {string} s
+ * @return {string}
+ */
+const reverseWords = (s) => {
+  s = s.split(' ');
+  for (let i = 0; i < s.length; i++) {
+    s[i] = s[i].split('').reverse().join('');
+  }
+  return s.join(' ');
+};
 
+console.log(reverseWords(`Let's take LeetCode contest`));
+// s'teL ekat edoCteeL tsetnoc
 ```
 
 `node index.js` 返回：
 
-```js
-
+```
+s'teL ekat edoCteeL tsetnoc
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -80,22 +94,53 @@ var reverseWords = function(s) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 30/30 cases passed (92 ms)
+* Your runtime beats 83.51 % of javascript submissions
+* Your memory usage beats 60.67 % of javascript submissions (42.3 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+这道题简单我先来~
 
-[分析]
+```js
+const reverseWords = (s) => {
+  s = s.split(' ');
+  for (let i = 0; i < s.length; i++) {
+    s[i] = s[i].split('').reverse().join('');
+  }
+  return s.join(' ');
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 30/30 cases passed (92 ms)
+* Your runtime beats 83.51 % of javascript submissions
+* Your memory usage beats 60.67 % of javascript submissions (42.3 MB)
+```
+
+搞定完事，说说思路：
+
+1. 通过空格分割这个字符串为数组。
+2. 遍历这个数组，将数组中的每个元素打成数组，反转后再打成字符串。
+3. 最后将数组以空格分开的形式转换成字符串。
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+这道题肯定有其他解法，但是我不太想去了解，毕竟我觉得这道题没有更深层次的内涵可以挖掘。
+
+1. 你可以使用原生方式，抛弃 JavaScript API 编写
+2. 你可以换其他 JavaScript API 进行编写，但是感觉差不到哪
+
+当然，如果你有更多精巧的方式，欢迎评论留言或者私聊我~
 
 ---
 
