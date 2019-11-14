@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-14 08:42:39**  
-> Recently revised in **2019-11-14 09:14:32**
+> Recently revised in **2019-11-14 10:33:30**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -330,6 +330,10 @@ const intersect = (quadTree1, quadTree2) => {
 ```
 
 那么最重要的来了：**取交集**。
+
+……好吧，突然发现今天时间真的不够，折腾到接近开会才发现还没有完全思路（中间写了工作周报、看了插座学院、跟产品聊了会……）。
+
+！回来再搞！
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
