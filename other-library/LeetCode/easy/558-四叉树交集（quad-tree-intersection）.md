@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-14 08:42:39**  
-> Recently revised in **2019-11-14 08:45:35**
+> Recently revised in **2019-11-14 09:14:32**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -170,9 +170,166 @@ var intersect = function(quadTree1, quadTree2) {
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，先看题目，似懂非懂，那么只有一个法子：
 
-[分析]
+* **以身试法**。
+
+直接提交 Submit 看看它传进来的数据结构是怎样的：
+
+```js
+const quadTree1 = {
+  "$id": "1",
+  "isLeaf": false,
+  "val": true,
+  "bottomLeft": {
+    "$id": "4",
+    "isLeaf": true,
+    "val": false,
+    "bottomLeft": null,
+    "bottomRight": null,
+    "topLeft": null,
+    "topRight": null,
+  },
+  "bottomRight": {
+    "$id": "5",
+    "isLeaf": true,
+    "val": false,
+    "bottomLeft": null,
+    "bottomRight": null,
+    "topLeft": null,
+    "topRight": null,
+  },
+  "topLeft": {
+    "$id": "2",
+    "isLeaf": true,
+    "val": true,
+    "bottomLeft": null,
+    "bottomRight": null,
+    "topLeft": null,
+    "topRight": null,
+  },
+  "topRight": {
+    "$id": "3",
+    "isLeaf": true,
+    "val": true,
+    "bottomLeft": null,
+    "bottomRight": null,
+    "topLeft": null,
+    "topRight": null,
+  },
+}
+const quadTree2 = {
+  "$id": "1",
+  "isLeaf": false,
+  "val": true,
+  "bottomLeft": {
+    "$id": "8",
+    "isLeaf": true,
+    "val": true,
+    "bottomLeft": null,
+    "bottomRight": null,
+    "topLeft": null,
+    "topRight": null,
+  },
+  "bottomRight": {
+    "$id": "9",
+    "isLeaf": true,
+    "val": false,
+    "bottomLeft": null,
+    "bottomRight": null,
+    "topLeft": null,
+    "topRight": null,
+  },
+  "topLeft": {
+    "$id": "2",
+    "isLeaf": true,
+    "val": true,
+    "bottomLeft": null,
+    "bottomRight": null,
+    "topLeft": null,
+    "topRight": null,
+  },
+  "topRight": {
+    "$id": "3",
+    "isLeaf": false,
+    "val": true,
+    "bottomLeft": {
+      "$id": "6",
+      "isLeaf": true,
+      "val": true,
+      "bottomLeft": null,
+      "bottomRight": null,
+      "topLeft": null,
+      "topRight": null,
+    },
+    "bottomRight": {
+      "$id": "7",
+      "isLeaf": true,
+      "val": true,
+      "bottomLeft": null,
+      "bottomRight": null,
+      "topLeft": null,
+      "topRight": null,
+    },
+    "topLeft": {
+      "$id": "4",
+      "isLeaf": true,
+      "val": false,
+      "bottomLeft": null,
+      "bottomRight": null,
+      "topLeft": null,
+      "topRight": null,
+    },
+    "topRight": {
+      "$id": "5",
+      "isLeaf": true,
+      "val": false,
+      "bottomLeft": null,
+      "bottomRight": null,
+      "topLeft": null,
+      "topRight": null,
+    },
+  },
+}
+```
+
+OK，明白了，尝试解题：
+
+```js
+/**
+ * @param {Node} quadTree1
+ * @param {Node} quadTree2
+ * @return {Node}
+ */
+const intersect = (quadTree1, quadTree2) => {
+  const ergodic = (tree) => {
+    if (!tree) {
+      return '';
+    }
+    return '!'
+      + tree.val
+      + ergodic(tree.bottomLeft)
+      + ergodic(tree.bottomRight)
+      + ergodic(tree.topLeft)
+      + ergodic(tree.topRight);
+  };
+  console.log(ergodic(quadTree1));
+  console.log(ergodic(quadTree2));
+};
+```
+
+> 注：叶子节点即下面没有更深层次节点的最终节点。
+
+现在，将这两棵树都遍历了：
+
+> node index.js
+
+```
+!true!false!false!true!true
+!true!true!false!true!true!true!true!false!false
+```
+
+那么最重要的来了：**取交集**。
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
