@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-14 08:42:39**  
-> Recently revised in **2019-11-14 10:33:30**
+> Recently revised in **2019-11-15 08:34:55**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -149,13 +148,27 @@ var intersect = function(quadTree1, quadTree2) {
 > index.js
 
 ```js
-
-```
-
-`node index.js` 返回：
-
-```js
-
+const intersect = (quadTree1, quadTree2) => {
+  if (quadTree1.isLeaf && quadTree2.isLeaf)
+    return new Node(quadTree1.val || quadTree2.val, true);
+  if (quadTree1.isLeaf)
+    return quadTree1.val ? new Node(true, true) : quadTree2;
+  if (quadTree2.isLeaf)
+    return quadTree2.val ? new Node(true, true) : quadTree1;
+  return intersect(quadTree1.topLeft, quadTree2.topLeft).val &&
+    intersect(quadTree1.topRight, quadTree2.topRight).val &&
+    intersect(quadTree1.bottomLeft, quadTree2.bottomLeft).val &&
+    intersect(quadTree1.bottomRight, quadTree2.bottomRight).val ?
+    new Node(true, true) :
+    new Node(
+      quadTree1.val || quadTree2.val,
+      false,
+      intersect(quadTree1.topLeft, quadTree2.topLeft),
+      intersect(quadTree1.topRight, quadTree2.topRight),
+      intersect(quadTree1.bottomLeft, quadTree2.bottomLeft),
+      intersect(quadTree1.bottomRight, quadTree2.bottomRight),
+    );
+};
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -163,7 +176,10 @@ var intersect = function(quadTree1, quadTree2) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 58/58 cases passed (328 ms)
+* Your runtime beats 8.33 % of javascript submissions
+* Your memory usage beats 14.29 % of javascript submissions (44 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
@@ -333,13 +349,48 @@ const intersect = (quadTree1, quadTree2) => {
 
 ……好吧，突然发现今天时间真的不够，折腾到接近开会才发现还没有完全思路（中间写了工作周报、看了插座学院、跟产品聊了会……）。
 
-！回来再搞！
+查看了下【评论区】，找了份题解：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const intersect = (quadTree1, quadTree2) => {
+  if (quadTree1.isLeaf && quadTree2.isLeaf)
+    return new Node(quadTree1.val || quadTree2.val, true);
+  if (quadTree1.isLeaf)
+    return quadTree1.val ? new Node(true, true) : quadTree2;
+  if (quadTree2.isLeaf)
+    return quadTree2.val ? new Node(true, true) : quadTree1;
+  return intersect(quadTree1.topLeft, quadTree2.topLeft).val &&
+    intersect(quadTree1.topRight, quadTree2.topRight).val &&
+    intersect(quadTree1.bottomLeft, quadTree2.bottomLeft).val &&
+    intersect(quadTree1.bottomRight, quadTree2.bottomRight).val ?
+    new Node(true, true) :
+    new Node(
+      quadTree1.val || quadTree2.val,
+      false,
+      intersect(quadTree1.topLeft, quadTree2.topLeft),
+      intersect(quadTree1.topRight, quadTree2.topRight),
+      intersect(quadTree1.bottomLeft, quadTree2.bottomLeft),
+      intersect(quadTree1.bottomRight, quadTree2.bottomRight),
+    );
+};
+```
 
-> [返回目录](#chapter-one)
+Submit 提交后是可行的：
 
-……
+```js
+Accepted
+* 58/58 cases passed (328 ms)
+* Your runtime beats 8.33 % of javascript submissions
+* Your memory usage beats 14.29 % of javascript submissions (44 MB)
+```
+
+当然，将我们的参数丢上去就不行了，因为 JavaScript 没有 `new Node()` 这种原生操作。
+
+同时，【评论区】仅有 26 条回复，【题解区】仅有 7 条回复，怕不是跑到【困难】题集来了！
+
+经过两天的观看（2019-11-15 08:33:00），只能表示没有正确解释！
+
+如果小伙伴们感兴趣，并且有自己的想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
