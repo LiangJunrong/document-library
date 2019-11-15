@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-15 08:35:42**
+> Recently revised in **2019-11-15 09:13:12**
 
 LeetCode 简单难度攻略
 
@@ -140,6 +140,7 @@ LeetCode 简单难度攻略
 | 551 - 学生出勤记录I（student-attendance-record-i） | [#551 解题](./551-学生出勤记录I（student-attendance-record-i）.md) |
 | 557 - 反转字符串中的单词III（reverse-words-in-a-string-iii） | [#557 解题](./557-反转字符串中的单词III（reverse-words-in-a-string-iii）.md) |
 | 558 - 四叉树交集（quad-tree-intersection） | [#558 解题](./558-四叉树交集（quad-tree-intersection）.md) |
+| 559 - N叉树的最大深度（maximum-depth-of-n-ary-tree） | [#559 解题](./559-N叉树的最大深度（maximum-depth-of-n-ary-tree）.md) |
 
 ---
 
