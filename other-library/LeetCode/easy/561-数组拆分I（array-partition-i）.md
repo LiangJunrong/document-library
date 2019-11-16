@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-16 17:48:20**  
-> Recently revised in **2019-11-16 17:49:09**
+> Recently revised in **2019-11-16 18:03:25**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -72,13 +71,25 @@ var arrayPairSum = function(nums) {
 > index.js
 
 ```js
+/**
+ * @name 数组拆分I
+ * @param {number[]} nums
+ * @return {number}
+ */
+const arrayPairSum = (nums) => {
+  return nums.sort((a, b) => a - b).reduce((prev, next, index) => {
+    return index % 2 === 0 ? prev + next : prev;
+  });
+};
 
+const nums = [1, 4, 3, 2];
+console.log(arrayPairSum(nums));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+4
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -86,22 +97,69 @@ var arrayPairSum = function(nums) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 81/81 cases passed (144 ms)
+* Your runtime beats 71.83 % of javascript submissions
+* Your memory usage beats 32.56 % of javascript submissions (39 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，万物复苏，先解内涵：
 
-[分析]
+* 该题目希望我进行升序排序，然后求出所有奇数位的和
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+那么，我进行尝试一番：
 
-> [返回目录](#chapter-one)
+```js
+/**
+ * @name 数组拆分I
+ * @param {number[]} nums
+ * @return {number}
+ */
+const arrayPairSum = (nums) => {
+  return nums.sort((a, b) => a - b).reduce((prev, next, index) => {
+    return index % 2 === 0 ? prev + next : prev;
+  });
+};
+```
 
-……
+Submit 结果：
+
+```js
+Accepted
+* 81/81 cases passed (144 ms)
+* Your runtime beats 71.83 % of javascript submissions
+* Your memory usage beats 32.56 % of javascript submissions (39 MB)
+```
+
+**然后**，心再狠点，浓缩成一行，让队友（同事）不可维护：
+
+```js
+const arrayPairSum = (nums) => {
+  return nums.sort((a, b) => a - b).reduce((prev, next, index) => index % 2 === 0 ? prev + next : prev);
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 81/81 cases passed (136 ms)
+* Your runtime beats 86.3 % of javascript submissions
+* Your memory usage beats 24.03 % of javascript submissions (39.1 MB)
+```
+
+**最后**，进行下这次解题的解读：
+
+1. 将数组进行升序排序：`nums.sort((a, b) => a - b)`
+2. 将数组的奇数位累加起来：`nums.reduce((prev, next, index) => ...)`。这个 `reduce` 接受 4 个参数，第一个 `prev` 是之前累积的值，第二个 `next` 是当前遍历的值，第三个 `index` 是当前的值的索引，第四个 `arr` 是整个数组，在这里即 `nums`，没有使用到。
+
+这样，就简简单单地完成了这道题，是不是感觉 So easy~
+
+如果小伙伴有更好的方法或者思想，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
