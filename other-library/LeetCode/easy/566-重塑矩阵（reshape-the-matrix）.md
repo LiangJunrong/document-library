@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-18 08:23:14**  
-> Recently revised in **2019-11-18 08:26:23**
+> Recently revised in **2019-11-18 09:06:48**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -105,13 +104,34 @@ var matrixReshape = function(nums, r, c) {
 > index.js
 
 ```js
+/**
+ * @name 重塑矩阵
+ * @param {number[][]} nums
+ * @param {number} r
+ * @param {number} c
+ * @return {number[][]}
+ */
+const matrixReshape = (nums, r, c) => {
+  // 1. 获取二维数组的所有元素的个数，判断其值是否等于 r * c
+  const newNums = [].concat.apply([],nums);
+  if (newNums.length !== r * c) {
+    return nums;
+  }
+  // 2. 符合转换条件
+  const result = [];
+  for (let i = 0; i < r; i++) {
+    result[i] = newNums.splice(0, c);
+  }
+  return result;
+};
 
+console.log(matrixReshape([[1, 2], [3, 4]], 1, 4)); // [[1, 2, 3, 4]]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[[1, 2, 3, 4]]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -119,22 +139,61 @@ var matrixReshape = function(nums, r, c) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 56/56 cases passed (80 ms)
+* Your runtime beats 100 % of javascript submissions
+* Your memory usage beats 97.92 % of javascript submissions (39.3 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，审题，刨出关键字：
 
-[分析]
+1. 如果合理，则输出新数组；如果不合理，则保留其原始数据
+2. 参数：二维数组、正整数 r（行数）和 c（列数）
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+如上。
 
-> [返回目录](#chapter-one)
+**然后**，尝试按照自己理解解题：
 
-……
+```js
+const matrixReshape = (nums, r, c) => {
+  // 1. 获取二维数组的所有元素的个数，判断其值是否等于 r * c
+  const newNums = [].concat.apply([], nums);
+  if (newNums.length !== r * c) {
+    return nums;
+  }
+  // 2. 符合转换条件
+  const result = [];
+  for (let i = 0; i < r; i++) {
+    result[i] = newNums.splice(0, c);
+  }
+  return result;
+};
+```
+
+Submit 提交试试：
+
+```js
+Accepted
+* 56/56 cases passed (80 ms)
+* Your runtime beats 100 % of javascript submissions
+* Your memory usage beats 97.92 % of javascript submissions (39.3 MB)
+```
+
+哇！！这是直接跃升成第一名么，酷~
+
+**最后**，讲讲思路，思路非常简单：
+
+1. 将二维数组平整为一维数组。（通过 `apply` 将二维数组转成一维数组不会影响到原数组）
+2. 判断一维数组的长度能否换成 `r * c` 格式，如果不行，那么返回原数组。
+3. 如果可以，那么遍历 r 的个数，将 `newNums` 通过 `splice()` 依次切割到对应的位置即可。
+
+看到这里，会不会觉得这道题特别简单！
+
+如果小伙伴们有其他更好的方法或者思路，欢迎评论留言或者私聊~
 
 ---
 
