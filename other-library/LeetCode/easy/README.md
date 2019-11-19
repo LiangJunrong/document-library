@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-18 09:08:15**
+> Recently revised in **2019-11-19 09:10:44**
 
 LeetCode 简单难度攻略
 
@@ -144,6 +144,7 @@ LeetCode 简单难度攻略
 | 561 - 数组拆分I（array-partition-i） | [#561 解题](./561-数组拆分I（array-partition-i）.md) |
 | 563 - 二叉树的坡度（binary-tree-tilt） | [#563 解题](./563-二叉树的坡度（binary-tree-tilt）.md) |
 | 566 - 重塑矩阵（reshape-the-matrix） | [#566 解题](./566-重塑矩阵（reshape-the-matrix）.md) |
+| 572 - 另一个树的子树（subtree-of-another-tree） | [#572 解题](./572-另一个树的子树（subtree-of-another-tree）.md) |
 
 ---
 
