@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-20 09:21:38**
+> Recently revised in **2019-11-21 09:25:24**
 
 LeetCode 简单难度攻略
 
@@ -146,6 +146,7 @@ LeetCode 简单难度攻略
 | 566 - 重塑矩阵（reshape-the-matrix） | [#566 解题](./566-重塑矩阵（reshape-the-matrix）.md) |
 | 572 - 另一个树的子树（subtree-of-another-tree） | [#572 解题](./572-另一个树的子树（subtree-of-another-tree）.md) |
 | 575 - 分糖果（distribute-candies） | [#575 解题](./575-分糖果（distribute-candies）.md) |
+| 581 - 最短无序连续子数组（shortest-unsorted-continuous-subarray） | [#581 解题](./581-最短无序连续子数组（shortest-unsorted-continuous-subarray）.md) |
 
 ---
 
