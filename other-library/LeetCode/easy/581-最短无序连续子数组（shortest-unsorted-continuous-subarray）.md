@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-21 08:36:48**  
-> Recently revised in **2019-11-21 08:36:54**
+> Recently revised in **2019-11-21 09:24:34**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -72,13 +71,38 @@ var findUnsortedSubarray = function(nums) {
 > index.js
 
 ```js
+/**
+ * @name 最短无序连续子数组
+ * @param {number[]} nums
+ * @return {number}
+ */
+const findUnsortedSubarray = (nums) => {
+  const newNums = [...nums].sort((a, b) => a - b);
+  const result = [0, 0];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== newNums[i]) {
+      result[0] = i - 1;
+      break;
+    }
+  }
+  for (let j = nums.length - 1; j >= 0; j--) {
+    if (nums[j] !== newNums[j]) {
+      result[1] = j;
+      break;
+    }
+  }
+  return result[1] - result[0];
+};
 
+console.log(findUnsortedSubarray([2, 6, 4, 8, 10, 9, 15])); // 5
+console.log(findUnsortedSubarray([1, 2, 3, 4])); // 0
 ```
 
 `node index.js` 返回：
 
 ```js
-
+5
+0
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -86,22 +110,139 @@ var findUnsortedSubarray = function(nums) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 307/307 cases passed (124 ms)
+* Your runtime beats 68.45 % of javascript submissions
+* Your memory usage beats 51.61 % of javascript submissions (38.5 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，拿到题目，我是被标题折服了：
 
-[分析]
+* 最短无序连续子数组
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+一个标题包含 4 个以上含义啊：
 
-> [返回目录](#chapter-one)
+* 最短
+* 无序
+* 连续
+* 子数组
 
-……
+好好看看，这道题是不是有标题那么厉害。
+
+**然后**，发现题目内容烂的要死，内容新颖但是解释不清，看了两遍也没搞懂它想表达什么。
+
+**jsliang** 感觉 LeetCode 好像很喜欢考验我的语文功底，给的题目含义不清，然后示例又少！坑啊！！！
+
+看完第四遍，大致理解题意：
+
+* `[2, 6, 4, 8, 10, 9, 15]`
+
+假设有数组如上，从中找到一个子数组，进行升序排序后，整个数组就会变成升序排序。
+
+那么，在 `[2, 6, 4, 8, 10, 9, 15]` 中，我们仅需要排序 `[6, 4, 8, 10, 9]`，这样整个数组就会变成升序排序：`[2, 4, 6, 8, 9, 10, 15]`，这时候需要排序的子数组长度是 5（`[6, 4, 8, 10, 9]`）。
+
+所以我们返回的结果应该是 5。
+
+OK，题意剖析完毕，开始解题：
+
+> 第一次尝试
+
+```js
+const findUnsortedSubarray = (nums) => {
+  // 1. 拷贝一份 nums
+  const newNums = [...nums];
+  // 2. 排序新数组
+  newNums.sort((a, b) => a - b);
+  // 3. 如果新数组和旧数组排序一致，则没有子数组
+  if (nums.join('') === newNums.join('')) {
+    return 0;
+  }
+  // 4. 如果排序不一致，则从头遍历和尾遍历走一遍
+  let result = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== newNums[i]) {
+      break;
+    }
+    result += 1;
+  }
+  for (let j = nums.length - 1; j >= 0; j--) {
+    if (nums[j] !== newNums[j]) {
+      break;
+    }
+    result += 1;
+  }
+  // 5. 返回中间不同的子数组的长度
+  return nums.length - result;
+};
+```
+
+拷贝数组过程中，想法新奇：
+
+```js
+// 1. 拷贝一份数组
+const newNums = [...nums];
+
+// 2. 原本打算遍历拷贝，觉得麻烦
+// const newNums = [];
+// for (let i = 0; i < nums.length; i++) {
+//   newNums.push(nums[i]);
+// }
+
+// 3. 原本还打算使用 Object.assign，感觉不太漂亮
+// const newNums = Object.assign([], nums);
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 307/307 cases passed (144 ms)
+* Your runtime beats 43.45 % of javascript submissions
+* Your memory usage beats 6.45 % of javascript submissions (41.6 MB)
+```
+
+以上，感觉还是比较麻烦，有没有更简单的代码呢？
+
+如果你对自己的代码不满意，你是否会进行重新思考？
+
+> 第二次尝试
+
+```js
+const findUnsortedSubarray = (nums) => {
+  const newNums = [...nums].sort((a, b) => a - b);
+  const result = [0, 0];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== newNums[i]) {
+      result[0] = i - 1;
+      break;
+    }
+  }
+  for (let j = nums.length - 1; j >= 0; j--) {
+    if (nums[j] !== newNums[j]) {
+      result[1] = j;
+      break;
+    }
+  }
+  return result[1] - result[0];
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 307/307 cases passed (124 ms)
+* Your runtime beats 68.45 % of javascript submissions
+* Your memory usage beats 51.61 % of javascript submissions (38.5 MB)
+```
+
+还是不太满意，但是一时间想不到更好的了，去看看【题解区】和【评论区】大佬，也没有看到令我满意的。
+
+如果小伙伴们有更好的法子或者思路，欢迎评论留言或者私聊我~
 
 ---
 
