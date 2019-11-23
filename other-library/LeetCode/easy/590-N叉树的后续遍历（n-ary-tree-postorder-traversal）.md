@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-23 15:54:15**  
-> Recently revised in **2019-11-23 15:55:12**
+> Recently revised in **2019-11-23 16:53:48**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -74,13 +74,53 @@ var postorder = function(root) {
 > index.js
 
 ```js
+/**
+ * // Definition for a Node.
+ * function Node(val,children) {
+ *    this.val = val;
+ *    this.children = children;
+ * };
+ */
+/**
+ * @name N叉树的后序遍历
+ * @param {Node} root
+ * @return {number[]}
+ */
+const postorder = (root, result = []) => {
+  if (!root) {
+    return [];
+  }
+  if (root.children) {
+    for (let i = 0; i < root.children.length; i++) {
+      postorder(root.children[i], result);
+    }
+  }
+  result.push(root.val);
+  return result;
+};
 
+const root = {
+  val: 1,
+  children: [
+    {
+      val: 3,
+      children: [
+        { val: 5, children: null },
+        { val: 6, children: null },
+      ],
+    },
+    { val: 2, children: null },
+    { val: 4, children: null },
+  ],
+};
+
+console.log(postorder(root));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ 5, 6, 3, 2, 4, 1 ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -88,22 +128,178 @@ var postorder = function(root) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 37/37 cases passed (88 ms)
+* Your runtime beats 98.79 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (37.5 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**树的先序遍历和后序遍历，是怎么通过递归得出的呢？**
 
-[分析]
+1. 先序：通过外层的数组，逐一获取遍历的元素。
+2. 后序：通过内部的数组，逐一传递到外部。
+
+说地再多不如看代码：
+
+> 初始代码：
+
+```js
+const postorder = (root) => {
+  const ergodic = (root, result = []) => {
+    if (!root) {
+      return [];
+    }
+    if (root.children) {
+      for (let i = 0; i < root.children.length; i++) {
+        ergodic(root.children[i], result);
+      }
+    }
+    result.push(root.val);
+    return result;
+  };
+  return ergodic(root);
+};
+```
+
+这份代码 Submit 提交是 OK 的：
+
+```js
+Accepted
+* 37/37 cases passed (88 ms)
+* Your runtime beats 98.79 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (37.5 MB)
+```
+
+它的思路在于，通过一开始默认的空数组，不断【返回】上一层，往里面添加内容，最终返回后序遍历需要的结果。
+
+如果你还不够清晰，不急，咱们先优化下代码，说不定你会有灵感：
+
+> 第一次优化：精简代码
+
+```js
+const postorder = (root, result = []) => {
+  if (!root) {
+    return [];
+  }
+  if (root.children) {
+    for (let i = 0; i < root.children.length; i++) {
+      postorder(root.children[i], result);
+    }
+  }
+  result.push(root.val);
+  return result;
+};
+```
+
+在这份代码中，它主要功能：
+
+1. 第一个 `if` 判断数组是不是到了底部，如果是，那么返回 `[]` 数组。
+2. 第二个 `if` 判断数组是不是还未展开完毕，如果是，则逐层遍历它的 `children`，将 `result` 传递出去。
+3. 最后，`result` 添加这次节点的 `val` 值，并返回出去。
+
+我们不妨加两个 `console.log()`，小伙伴们会观察地更加仔细：
+
+```js
+const postorder = (root, result = []) => {
+  if (!root) {
+    return [];
+  }
+  if (root.children) {
+    for (let i = 0; i < root.children.length; i++) {
+      postorder(root.children[i], result);
+    }
+  }
+  result.push(root.val);
+  console.log('------');
+  console.log(root);
+  console.log(result);
+  return result;
+};
+```
+
+它的打印记录为：
+
+```
+------
+{ val: 5, children: null }
+[ 5 ]
+------
+{ val: 6, children: null }
+[ 5, 6 ]
+------
+{ val: 3,
+  children: [ { val: 5, children: null }, { val: 6, children: null } ] }
+[ 5, 6, 3 ]
+------
+{ val: 2, children: null }
+[ 5, 6, 3, 2 ]
+------
+{ val: 4, children: null }
+[ 5, 6, 3, 2, 4 ]
+------
+{ val: 1,
+  children:
+   [ { val: 3, children: [Array] },
+     { val: 2, children: null },
+     { val: 4, children: null } ] }
+[ 5, 6, 3, 2, 4, 1 ]
+```
+
+可以清楚的看到，它按照我们的想法进行操作了。
+
+当然，小伙伴们可以参考下上篇文章：589-N叉树的前序遍历（自行翻找 GitHub 或者公众号，这里不贴链接了），进行进一步的了解。
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+正如题目所说，我们不能仅仅只会递归，还可以尝试下迭代：
+
+```js
+const postorder = (root) => {
+  if (!root) {
+    return [];
+  }
+  const result = [];
+  const tempRoot = [root];
+  while (tempRoot.length) {
+    const current = tempRoot.pop();
+    result.unshift(current.val);
+    if (current.children) {
+      for (let i = 0; i < current.children.length; i++) {
+        tempRoot.push(current.children[i]);
+      }
+    }
+  }
+  return result;
+};
+```
+
+在这份代码中，做的操作有：
+
+1. 判断是否传入的为 `[]` 空树，如果是，则返回 `[]`。
+2. 将 `root` 变成一个数组 `[root]` 设为 `tempRoot`，进行遍历操作。
+3. 循环遍历 `tempRoot.length`，直到所有内容都遍历完毕。
+4. 定义 `current` 获取 `tempRoot` 的最末尾元素。
+5. 每次 `result` 获取当前元素的 `val` 值，将其塞入末尾。
+6. 判断 `current` 的 `children` 里面是否还有值，有的话就遍历它，将其推入 `tempRoot`。
+7. 循环步骤 4 - 步骤 6，直到当前元素都是最根层次的元素。
+8. 最终返回 `result` 值。
+
+Submit 提交结果：
+
+```js
+Accepted
+* 37/37 cases passed (116 ms)
+* Your runtime beats 97.57 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (37.4 MB)
+```
+
+这样，我们就完成了 N叉树的后序遍历 操作啦~
 
 ---
 
