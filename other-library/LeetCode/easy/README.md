@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-22 09:28:16**
+> Recently revised in **2019-11-23 16:54:23**
 
 LeetCode 简单难度攻略
 
@@ -148,6 +148,7 @@ LeetCode 简单难度攻略
 | 575 - 分糖果（distribute-candies） | [#575 解题](./575-分糖果（distribute-candies）.md) |
 | 581 - 最短无序连续子数组（shortest-unsorted-continuous-subarray） | [#581 解题](./581-最短无序连续子数组（shortest-unsorted-continuous-subarray）.md) |
 | 589 - N叉树的前序遍历（n-ary-tree-preorder-traversal） | [#589 解题](./589-N叉树的前序遍历（n-ary-tree-preorder-traversal）.md) |
+| 590 - N叉树的后续遍历（n-ary-tree-postorder-traversal） | [#590 解题](./590-N叉树的后续遍历（n-ary-tree-postorder-traversal）.md) |
 
 ---
 
