@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-24 11:38:39**
+> Recently revised in **2019-11-25 04:08:53**
 
 LeetCode 简单难度攻略
 
@@ -150,6 +150,7 @@ LeetCode 简单难度攻略
 | 589 - N叉树的前序遍历（n-ary-tree-preorder-traversal） | [#589 解题](./589-N叉树的前序遍历（n-ary-tree-preorder-traversal）.md) |
 | 590 - N叉树的后续遍历（n-ary-tree-postorder-traversal） | [#590 解题](./590-N叉树的后续遍历（n-ary-tree-postorder-traversal）.md) |
 | 594 - 最长和谐子序列（longest-harmonious-subsequence） | [#594 解题](./594-最长和谐子序列（longest-harmonious-subsequence）.md) |
+| 598 - 范围求和II（range-addition-ii） | [#598 解题](./598-范围求和II（range-addition-ii）.md) |
 
 ---
 
