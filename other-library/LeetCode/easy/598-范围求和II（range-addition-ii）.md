@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-25 03:03:45**  
-> Recently revised in **2019-11-25 03:05:23**
+> Recently revised in **2019-11-25 04:08:17**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -92,13 +92,29 @@ var maxCount = function(m, n, ops) {
 > index.js
 
 ```js
+/**
+ * @name 范围求和II
+ * @param {number} m
+ * @param {number} n
+ * @param {number[][]} ops
+ * @return {number}
+ */
+const maxCount = (m, n, ops) => {
+  const counter = [m, n]; // 横轴，纵轴
+  for (let i = 0; i < ops.length; i++) {
+    counter[0] = Math.min(counter[0], ops[i][0]);
+    counter[1] = Math.min(counter[1], ops[i][1]);
+  }
+  return counter[0] * counter[1];
+};
 
+console.log(maxCount(3, 3, [[2, 2], [3, 3]]));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+4
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -106,22 +122,190 @@ var maxCount = function(m, n, ops) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 69/69 cases passed (68 ms)
+* Your runtime beats 60.87 % of javascript submissions
+* Your memory usage beats 52.94 % of javascript submissions (35.3 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+2019-11-25 03:12:49
 
-[分析]
+**首先**，审题，题目表达意思是：
+
+1. 已知参数 `m`, `n`, `ops`。
+2. `m * n` 可以构造一个数组 M，是一个由 `m` 行 `n` 列组成的数组。
+3. 初始数组的所有元素为 0。
+4. 经过 `ops` 的多次渲染后，会逐步加一。
+5. 详情如下：
+
+```
+输入: 
+m = 3, n = 3
+operations = [[2,2],[3,3]]
+
+输出: 4
+
+解释: 
+初始状态, M = 
+[[0, 0, 0],
+ [0, 0, 0],
+ [0, 0, 0]]
+
+执行完操作 [2,2] 后, M = 
+[[1, 1, 0],
+ [1, 1, 0],
+ [0, 0, 0]]
+
+执行完操作 [3,3] 后, M = 
+[[2, 2, 1],
+ [2, 2, 1],
+ [1, 1, 1]]
+
+M 中最大的整数是 2, 而且 M 中有4个值为2的元素。因此返回 4。
+```
+
+那么，搞懂题目想要什么的情况下，我们需要注意它下面写的东西：
+
+1. `m` 和 `n` 的范围是 `[1,40000]`。
+2. `a` 的范围是 `[1,m]`，`b` 的范围是 `[1,n]`。
+3. 操作数目不超过 `10000`。
+
+往往很多时候，我们题目是解出来了，但是超时了。
+
+暴力虽好，但是对一个二维数组进行 10000 次的暴力，那就是残忍。
+
+**然后**，分析完毕，开始解题：
+
+```js
+const maxCount = (m, n, ops) => {
+  const counter = [m, n]; // 横轴，纵轴
+  for (let i = 0; i < ops.length; i++) {
+    counter[0] = Math.min(counter[0], ops[i][0]);
+    counter[1] = Math.min(counter[1], ops[i][1]);
+  }
+  return counter[0] * counter[1];
+};
+
+console.log(maxCount(3, 3, [[2, 2], [3, 3]]));
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 69/69 cases passed (68 ms)
+* Your runtime beats 60.87 % of javascript submissions
+* Your memory usage beats 52.94 % of javascript submissions (35.3 MB)
+```
+
+Perfect!
+
+证明我们的思路是没错的：
+
+1. 每次渲染的时候，`a` 的范围是 `[1, m]`，`b` 的范围是 `[1, n]`，证明数组至少有 1 * 1 = 1 个是会被渲染增加为最大整数的。
+2. 这时候，我们只需要知道它遍历了多少次 `ops.length`，然后将这些遍历中重叠的范围找出来即可。
+
+| 0 | 0 | 0 |
+| --- | --- | ---|
+| 0 | 0 | 0 |
+| 0 | 0 | 0 |
+
+假设数组如上：3 * 3（m * n）
+
+然后 `ops` 为 `[[1, 3], [2, 2]]`。
+
+那么第一次渲染 `[1, 3]` 后：
+
+| 1 | 1 | 1 |
+| --- | --- | ---|
+| 0 | 0 | 0 |
+| 0 | 0 | 0 |
+
+第二次渲染 `[2, 2]` 后：
+
+| 2 | 2 | 1 |
+| --- | --- | ---|
+| 1 | 1 | 0 |
+| 0 | 0 | 0 |
+
+很容易发现，最终的数量是 2 个，怎么来的呢？
+
+* 横轴：最小值为 `Math.min(1, 2)`。即 `ops[i][0]`
+* 纵轴：最小值为 `Math.min(3, 2)`。即 `ops[i][1]`
+* 结果：横轴最小值 * 纵轴最小值。
+
+这样，我们就完成了题目的破解啦！
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+今天的进一步思考，主要是讲解为什么有时候暴力不好使：
+
+> 暴力破解
+
+```js
+/**
+ * @name 范围求和II
+ * @param {number} m
+ * @param {number} n
+ * @param {number[][]} ops
+ * @return {number}
+ */
+const maxCount = (m, n, ops) => {
+  if (!ops.length) {
+    return m * n;
+  }
+  const list = [];
+  for (let i = 0; i < m; i++) {
+    list[i] = [];
+    for (let j = 0; j < n; j++) {
+      list[i][j] = 0;
+    }
+  }
+  const counter = [1, 0]; // 最大值, 元素个数
+  for (let k = 0; k < ops.length; k++) {
+    for (let i = 0; i < ops[k][0]; i++) {
+      for (let j = 0; j < ops[k][1]; j++) {
+        list[i][j] += 1;
+        if (list[i][j] === counter[0]) {
+          counter[1] += 1;
+        }
+        if (list[i][j] > counter[0]) {
+          counter[0] = list[i][j];
+          counter[1] = 1;
+        }
+      }
+    }
+  }
+  console.log(list);
+  return counter[1];
+};
+
+console.log(maxCount(3, 3, [[2, 2], [3, 3]]));
+```
+
+这种解法，在碰到 `maxCount(39999, 39999, [[19999, 19999]])` 这种情况的时候，无疑直接炸锅：
+
+```js
+Runtime Error
+7/69 cases passed (N/A)
+
+Testcase
+39999
+39999
+[[19999,19999]]
+```
+
+就好比妹子跟你约好 15:00 见面，然后你打了个游戏 03:00 再去找她一样~
+
+至于更深层次的，希望小伙伴能进一步思考探索啦~
+
+如果你有更好的思路或者方法，欢迎留言评论或者私聊 **jsliang**。
 
 ---
 
