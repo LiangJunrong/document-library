@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-24 10:40:03**  
-> Recently revised in **2019-11-24 10:40:49**
+> Recently revised in **2019-11-24 11:37:57**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -65,13 +64,31 @@ var findLHS = function(nums) {
 > index.js
 
 ```js
+/**
+ * @name 最长和谐子序列
+ * @param {number[]} nums
+ * @return {number}
+ */
+const findLHS = (nums) => {
+  let maxLHS = 0;
+  nums = nums.sort((a, b) => a - b);
+  const filterList = [...new Set(nums)];
+  for (let i = 0; i < filterList.length; i++) {
+    if (filterList[i + 1] - filterList[i] === 1) {
+      const tempLength = nums.lastIndexOf(filterList[i + 1]) - nums.indexOf(filterList[i]) + 1;
+      maxLHS = tempLength > maxLHS ? tempLength : maxLHS;
+    }
+  }
+  return maxLHS;
+};
 
+console.log(findLHS([1, 3, 2, 2, 5, 2, 3, 7]));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+5
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -79,22 +96,124 @@ var findLHS = function(nums) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 201/201 cases passed (356 ms)
+* Your runtime beats 5.38 % of javascript submissions
+* Your memory usage beats 56.76 % of javascript submissions (42.5 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，拿到题目，先行思考，写下代码：
 
-[分析]
+```js
+const findLHS = (nums) => {
+  let maxLHS = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (Math.abs(nums[i] - nums[i + 1]) === 1) {
+      const tempLHS = [...nums.filter(item => item === nums[i] || item === nums[i + 1])];
+      if (tempLHS.length > maxLHS.length) {
+        maxLHS = tempLHS;
+      }
+    }
+  }
+  return maxLHS.length;
+};
+```
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+Submit 提交发现：
 
-> [返回目录](#chapter-one)
+```
+Wrong Answer
+126/201 cases passed (N/A)
 
-……
+Testcase
+[1,4,1,3,1,-14,1,-13]
+
+Answer
+0
+
+Expected Answer
+2
+```
+
+那就是我理解错它的意思了，它还能隔元素，稍微修改代码：
+
+```js
+const findLHS = (nums) => {
+  let maxLHS = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums.findIndex(item => item === nums[i] + 1) > -1) {
+      const tempLHS1 = [...nums.filter(item => item === nums[i] || item === nums[i] + 1)];
+      if (tempLHS1.length > maxLHS.length) {
+        maxLHS = tempLHS1;
+      }
+    }
+    if (nums.findIndex(item => item === nums[i] - 1) > -1) {
+      const tempLHS2 = [...nums.filter(item => item === nums[i] || item === nums[i] - 1)];
+      if (tempLHS2.length > maxLHS.length) {
+        maxLHS = tempLHS2;
+      }
+    }
+  }
+  return maxLHS.length;
+};
+```
+
+Submit 提交后发现：
+
+```
+Time Limit Exceeded
+176/201 cases passed (N/A)
+
+Testcase
+[76092,69425,66303,77889,75136...后面包含 N 个元素]
+```
+
+要求真高，想想怎么缩短长度：
+
+```js
+const findLHS = (nums) => {
+  let maxLHS = 0;
+  nums = nums.sort((a, b) => a - b);
+  const filterList = [...new Set(nums)];
+  for (let i = 0; i < filterList.length; i++) {
+    if (filterList[i + 1] - filterList[i] === 1) {
+      const tempLength = nums.lastIndexOf(filterList[i + 1]) - nums.indexOf(filterList[i]) + 1;
+      maxLHS = tempLength > maxLHS ? tempLength : maxLHS;
+    }
+  }
+  return maxLHS;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 201/201 cases passed (356 ms)
+* Your runtime beats 5.38 % of javascript submissions
+* Your memory usage beats 56.76 % of javascript submissions (42.5 MB)
+```
+
+终于成功！说说思路：
+
+1. 设置 **最长和谐子序列** 的长度 `maxLHS` 为 0。
+2. 将 `nums` 排序一遍，这样方便查找（反正它不需要返回最长和谐子序列的数组）。
+3. 再将排序后的 `nums` 去重 `filterList`，相同元素都不要出现。
+4. 遍历 `filterList`，如果后一个元素减去前一个元素的结果是 1，这么表明它们有戏，进行下一步骤。
+5. 在 `[1, 2, 2, 2, 3, 3, 5, 7]` 中，1 和 2 的和谐子序列为：`[1, 2, 2, 2]`，那么对应的 1 的最开始索引为 0，2 的最末尾索引为 3，所以它的长度是 3 - 0 + 1。
+6. 同理，我们在 `nums` 中找到较小值的最开始索引，和较大值的最末尾索引，将它们的差值加上 1，即和谐子序列的长度。
+7. 判断这个和谐子序列的长度是不是比目前的还要长，是的话设置它为最长。
+8. 循环完毕，返回结果。
+
+以上，我们就破解了这道题。
+
+破解的过程是曲折的，但是也是有意思的，毕竟我们可以了解学习很多。
+
+如果小伙伴有更好的思路，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
