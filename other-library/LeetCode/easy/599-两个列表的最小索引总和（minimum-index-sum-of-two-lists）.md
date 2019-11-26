@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-26 08:21:55**  
-> Recently revised in **2019-11-26 08:23:46**
+> Recently revised in **2019-11-26 09:14:02**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -90,13 +89,50 @@ var findRestaurant = function(list1, list2) {
 > index.js
 
 ```js
+/**
+ * @name 两个列表的最小索引总和
+ * @param {string[]} list1
+ * @param {string[]} list2
+ * @return {string[]}
+ */
+const findRestaurant = (list1, list2) => {
+  const map = new Map();
+  let result = [];
+  let min = 2000; // 数组范围在 [1, 1000]
+  for (let i = 0; i < list1.length; i++) {
+    map.set(list1[i], i);
+  }
+  for (let j = 0; j < list2.length; j++) {
+    const mark = map.get(list2[j]);
+    if (mark !== undefined) {
+      if (mark + j === min) {
+        result.push(list2[j]);
+      } else if (mark + j < min) {
+        result = [list2[j]];
+        min = mark + j;
+      } else {
+        break;
+      }
+    }
+  }
+  return result;
+};
 
+// const list1 = ['Shogun', 'Tapioca Express', 'Burger King', 'KFC'];
+// const list2 = ['Piatti', 'The Grill at Torrey Pines', 'Hungry Hunter Steakhouse', 'Shogun'];
+// ['Shogun']
+
+const list1 = ['Shogun', 'Tapioca Express', 'Burger King', 'KFC'];
+const list2 = ['KFC', 'Shogun', 'Burger King'];
+// ['Shogun']
+
+console.log(findRestaurant(list1, list2));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+['Shogun']
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -104,22 +140,116 @@ var findRestaurant = function(list1, list2) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 133/133 cases passed (104 ms)
+* Your runtime beats 97.54 % of javascript submissions
+* Your memory usage beats 46.88 % of javascript submissions (43.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，拿到题目，心里想到的，有两种破解思路，咱一个一个试试：
 
-[分析]
+> 解法一
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const findRestaurant = (list1, list2) => {
+  let result = [];
+  let min = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < list1.length; i++) {
+    const index = list2.findIndex(item => item === list1[i]);
+    if (index > -1 && i + index === min) {
+      result.push(list1[i]);
+    }
+    if (index > -1 && i + index < min) {
+      result = [];
+      result.push(list1[i]);
+      min = i + index;
+    }
+  }
+  return result;
+};
+```
 
-> [返回目录](#chapter-one)
+这个方法的思路比较清晰：
 
-……
+1. 定义 `result` 接收结果。
+2. 定义 `min` 接收目前最少索引。
+3. 遍历 `list1`，然后再遍历 `list2` 查找是否存在元素和 `list[i]` 相等（`list2.findIndex()` 相当于遍历了 `list2`）。
+4. 如果找到了两个数组相同的元素，此时需要判断两种情况。
+5. 其一是 `i + index === min`，说明存在多个相同最小索引的元素，此时 `result` 需要添加多一个元素。
+6. 其二是 `i + index < min`，说明这次的索引比目前的最小索引还小，那就清空数组并添加当前元素，同时重新设置 `min`。
+7. 最后将 `result` 返回出去。
+
+Submit 提交结果：
+
+```js
+Accepted
+* 133/133 cases passed (144 ms)
+* Your runtime beats 39.34 % of javascript submissions
+* Your memory usage beats 53.13 % of javascript submissions (43 MB)
+```
+
+那么，挑刺：
+
+1. 使用了双重遍历：`for` + `findIndex`。
+2. 没有设置中断条件，例如一开始 `min` 已经是 3，后面 `i + index > 3` 了，就不需要继续遍历了。
+
+下面试试第二种方法：
+
+> 解法二
+
+```js
+const findRestaurant = (list1, list2) => {
+  const map = new Map();
+  let result = [];
+  let min = 2000; // 数组范围在 [1, 1000]
+  for (let i = 0; i < list1.length; i++) {
+    map.set(list1[i], i);
+  }
+  for (let j = 0; j < list2.length; j++) {
+    const mark = map.get(list2[j]);
+    if (mark !== undefined) {
+      if (mark + j === min) {
+        result.push(list2[j]);
+      } else if (mark + j < min) {
+        result = [list2[j]];
+        min = mark + j;
+      } else {
+        break;
+      }
+    }
+  }
+  return result;
+};
+```
+
+在这个方法中，我们添加了一个哈希表，并进行了两次遍历：
+
+1. 遍历 `list1`，将其所有元素添加进 `Map` 哈希表中。
+2. 遍历 `list2`，查找 `Map` 中是否存在 `list2[j]`。
+3. 如果查找的 `list2[j]` 存在于哈希表中，表明这个元素是存在的，进入 `if` 内部。
+4. 判断 **查找到的索引 + 当前索引** 是否等于当前最小值。如果是，则给 `result` 添加当前元素，表明当前最小值不止有一个。
+5. 判断 **查找到的索引 + 当前索引** 是否小于当前最小值。如果是，证明需要重新设置 `result`，即 `result = [list2[j]]`。
+6. 判断 **查找到的索引 + 当前索引** 是否超过最小值，如果超过，中断循环。
+7. 重复步骤 3 - 6，得到所有结果，最后通过 `result` 返回出去。
+
+Submit 提交：
+
+```js
+Accepted
+* 133/133 cases passed (104 ms)
+* Your runtime beats 97.54 % of javascript submissions
+* Your memory usage beats 46.88 % of javascript submissions (43.2 MB)
+```
+
+可以看到，时间超大幅度提升，空间较前面有所减少，牺牲了空间换来了时间的优化。
+
+以上，就是本题的解法。
+
+如果你有更好的想法或者思路，欢迎评论留言或者私聊~
 
 ---
 
