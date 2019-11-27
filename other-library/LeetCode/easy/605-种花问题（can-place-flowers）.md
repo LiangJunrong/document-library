@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-27 08:38:32**  
-> Recently revised in **2019-11-27 08:40:04**
+> Recently revised in **2019-11-27 09:10:23**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -43,10 +42,12 @@
 
 输入: flowerbed = [1,0,0,0,1], n = 1
 输出: True
+
 示例 2:
 
 输入: flowerbed = [1,0,0,0,1], n = 2
 输出: False
+
 注意:
 
 数组内已种好的花不会违反种植规则。
@@ -80,13 +81,39 @@ var canPlaceFlowers = function(flowerbed, n) {
 > index.js
 
 ```js
+/**
+ * @name 种花问题
+ * @param {number[]} flowerbed
+ * @param {number} n
+ * @return {boolean}
+ */
+const canPlaceFlowers = (flowerbed, n) => {
+  let flowers = 0;
+  for (let i = 0; i < flowerbed.length; i++) {
+    if (
+      flowerbed[i] === 0
+      && flowerbed[i - 1] !== 1
+      && flowerbed[i + 1] !== 1
+    ) {
+      flowers += 1;
+      flowerbed[i] = 1;
+    }
+    if (flowers >= n) {
+      return true;
+    }
+  }
+  return false;
+};
 
+console.log(canPlaceFlowers([1, 0, 0, 0, 1], 1)); // true
+console.log(canPlaceFlowers([1, 0, 0, 0, 1], 2)); // false
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -94,22 +121,110 @@ var canPlaceFlowers = function(flowerbed, n) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 123/123 cases passed (72 ms)
+* Your runtime beats 95.68 % of javascript submissions
+* Your memory usage beats 73.12 % of javascript submissions (36.1 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，个人思考：
 
-[分析]
+1. `[1, 0, 0, 0, 1]` 的情况，种一朵花可以。
+2. `[1, 0, 0, 0, 1]` 的情况，种两朵花不行。
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+那么，假设有 `[1, 0, 0, 0, 1, 0, 0, 1]` 的情况，能种几朵花？
 
-> [返回目录](#chapter-one)
+答案是一朵，**jsliang** 的拆分是：`[1, 0]`、`[0]`、`[0, 1, 0]`、`[0, 1]`。
 
-……
+就是说，一个 `1`，前一个索引或者后一个索引带的值，都会被去掉。
+
+这时候，我们就可以下手了：
+
+> 暴力破解
+
+```js
+const canPlaceFlowers = (flowerbed, n) => {
+  let flowers = 0;
+  for (let i = 0; i < flowerbed.length; i++) {
+    if (
+      flowerbed[i] === 0
+      && flowerbed[i - 1] !== 1
+      && flowerbed[i + 1] !== 1
+    ) {
+      flowers += 1;
+      flowerbed[i] = 1;
+    }
+  }
+  return flowers >= n;
+};
+```
+
+思路非常简单：
+
+1. 设置 `flowers` 为可种植的花朵。
+2. 遍历数组，如果数组 `i` 位置的前一个元素和后一个元素均为 0，并且数组 `i` 位置对应的元素也为 0，那么该位置可以种花。
+3. 根据步骤 2，我们将 `flowers` 的数量 + 1，同时设置 `flowered[i] = 1`，表明已经种上花了（假设后面也是 0，那么就可以根据前面是否种了新花来判断）
+4. 循环数组完毕，判断已种花的数量是否大于或者等于 n，返回结果。
+
+Submit 提交：
+
+```js
+Accepted
+* 123/123 cases passed (72 ms)
+* Your runtime beats 95.68 % of javascript submissions
+* Your memory usage beats 70.25 % of javascript submissions (36.1 MB)
+```
+
+OK，我们的思路是成功的。
+
+那么，我们还能不能进一步优化？
+
+> 优化暴力破解
+
+```js
+const canPlaceFlowers = (flowerbed, n) => {
+  let flowers = 0;
+  for (let i = 0; i < flowerbed.length; i++) {
+    if (
+      flowerbed[i] === 0
+      && flowerbed[i - 1] !== 1
+      && flowerbed[i + 1] !== 1
+    ) {
+      flowers += 1;
+      flowerbed[i] = 1;
+    }
+    if (flowers >= n) {
+      return true;
+    }
+  }
+  return false;
+};
+```
+
+在这个方法中，我们在 `for` 循环中设置的关卡：
+
+* 当种植的花朵已经足够，那么即可中止函数并且返回 `true`。
+
+这在应对一些特殊情况下是比较满足情况的，因为我们的数组长度范围在 `[1, 20000]`。
+
+如果执行到 `10000` 的时候，发现已经满足种植的花朵数了，我们就不需要继续种植了。
+
+```js
+Accepted
+* 123/123 cases passed (72 ms)
+* Your runtime beats 95.68 % of javascript submissions
+* Your memory usage beats 73.12 % of javascript submissions (36.1 MB)
+```
+
+当然，这个中止函数的关卡，如果碰到的是非常短的数组，可能比起一开始那个，会损耗一些时间，毕竟 `if` 判断也是需要时间的~
+
+如上，本题解析就此结束。
+
+如果你有更好的思路或者方法，欢迎留言评论或者私聊~
 
 ---
 
