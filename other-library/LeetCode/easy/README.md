@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-26 09:14:36**
+> Recently revised in **2019-11-27 09:10:58**
 
 LeetCode 简单难度攻略
 
@@ -152,6 +152,7 @@ LeetCode 简单难度攻略
 | 594 - 最长和谐子序列（longest-harmonious-subsequence） | [#594 解题](./594-最长和谐子序列（longest-harmonious-subsequence）.md) |
 | 598 - 范围求和II（range-addition-ii） | [#598 解题](./598-范围求和II（range-addition-ii）.md) |
 | 599 - 两个列表的最小索引总和（minimum-index-sum-of-two-lists） | [#599 解题](./599-两个列表的最小索引总和（minimum-index-sum-of-two-lists）.md) |
+| 605 - 种花问题（can-place-flowers） | [#605 解题](./605-种花问题（can-place-flowers）.md) |
 
 ---
 
