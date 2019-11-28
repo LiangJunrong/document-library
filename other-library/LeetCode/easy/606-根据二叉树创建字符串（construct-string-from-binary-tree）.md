@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-28 08:38:26**  
-> Recently revised in **2019-11-28 09:35:23**
+> Recently revised in **2019-11-28 19:38:59**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -319,6 +319,53 @@ const tree2str = (t) => {
 不行啊还是太嫩了，翻遍【题解区（29）】和【评论区（82）】，发现没有 JavaScript 迭代的，【官方题解】的还是 Java 搞得，无奈收场。
 
 如果小伙伴有更好的想法，欢迎评论留言或者私聊~
+
+> 小伙伴攻略
+
+```js
+const tree2str = (t) => {
+  if (!t) return '';
+  const stack = [t];
+  const visited = [];
+  let result = '';
+  while (stack.length > 0) {
+    const node = stack[stack.length - 1];
+    if (visited[visited.length - 1] === node) {
+      result += ')';
+      stack.pop();
+      visited.pop();
+    } else {
+      visited.push(node);
+      result += `(${node.val}`;
+      if (!node.left && node.right) {
+        result += '()';
+      }
+      if (node.right) {
+        stack.push(node.right)
+      }
+      if (node.left) {
+        stack.push(node.left);
+      }
+    }
+  }
+  return result.slice(1, -1);
+};
+```
+
+2019-11-28 19:36:53
+
+刚才看了下公众号，发现有个留言，就去尝试了下：
+
+```js
+Accepted
+* 162/162 cases passed (92 ms)
+* Your runtime beats 43.9 % of javascript submissions
+* Your memory usage beats 37.5 % of javascript submissions (38.4 MB)
+```
+
+看完表示小伙伴牛逼啊，这都搞出来了，不过这道题用迭代效果没有递归好。
+
+羡慕啊，感谢小伙伴的思路！୧(๑•̀◡•́๑)૭
 
 ---
 
