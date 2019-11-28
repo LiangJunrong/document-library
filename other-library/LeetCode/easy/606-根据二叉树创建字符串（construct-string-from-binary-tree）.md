@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-28 08:38:26**  
-> Recently revised in **2019-11-28 08:38:30**
+> Recently revised in **2019-11-28 09:35:23**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -96,13 +96,60 @@ var tree2str = function(t) {
 > index.js
 
 ```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @name 根据二叉树创建字符串
+ * @param {TreeNode} t
+ * @return {string}
+ */
+const tree2str = (t) => {
+  if (!t) {
+    return '';
+  }
+  if (!t.left && !t.right) {
+    return t.val + tree2str(t.left) + tree2str(t.right);
+  }
+  if (!t.right) {
+    return `${t.val}(${tree2str(t.left)})${tree2str(t.right)}`;
+  }
+  return `${t.val}(${tree2str(t.left)})(${tree2str(t.right)})`;
+};
 
+const t = {
+  val: 1,
+  left: {
+    val: 2,
+    left: { val: 4, left: null, right: null },
+    right: null,
+  },
+  right: { val: 3, left: null, right: null },
+};
+// 答案：1(2(4))(3)
+
+// const t = {
+//   val: 1,
+//   left: {
+//     val: 2,
+//     left: null,
+//     right: { val: 4, left: null, right: null },
+//   },
+//   right: { val: 3, left: null, right: null },
+// };
+// 答案：1(2()(4))(3)
+
+console.log(tree2str(t));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+1(2()(4))(3)
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -110,22 +157,168 @@ var tree2str = function(t) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 162/162 cases passed (76 ms)
+* Your runtime beats 92.68 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (37.6 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，咱们很久没回顾树的万能公式了，这里再瞅瞅：
 
-[分析]
+> 树的万能公式
+
+```js
+const ergodic = (root) => {
+  if (!root) {
+    return '!#';
+  }
+  return '!' + root.val + ergodic(root.left) + ergodic(root.right);
+}
+
+const root = {
+  val: 1,
+  left: { val: 2, left: null, right: null },
+  right: {
+    val: 3,
+    left: { val: 4, left: null, right: null },
+    right: { val: 5, left: null, right: null },
+  },
+};
+console.log(ergodic(root));
+```
+
+打印一下看看：
+
+```js
+
+```
+
+虽然说，一下子接触的时候可能不太熟练，但是后面拿多几道树的简单题练习，你会发现这个还是挺简单的。
+
+**然后**，咱们开始解题：
+
+> 第一次递归破解
+
+```js
+const tree2str = (t) => {
+  const ergodic = (t) => {
+    if (!t) {
+      return '';
+    }
+    if (!t.left && !t.right) {
+      return t.val + ergodic(t.left) + ergodic(t.right);
+    }
+    if (!t.left) {
+      return `${t.val}(${ergodic(t.left)})(${ergodic(t.right)})`;
+    }
+    if (!t.right) {
+      return `${t.val}(${ergodic(t.left)})${ergodic(t.right)}`;
+    }
+    return `${t.val}(${ergodic(t.left)})(${ergodic(t.right)})`;
+  };
+  return ergodic(t);
+};
+```
+
+可以看出，我们分了 5 种判断：
+
+1. 如果树是空节点（`t = null`），返回 `''` 空字符串。
+2. 如果树的左右节点是空的（`t = {val: 3, left: null, right: null }`），那么我们不给与括号包裹。
+3. 如果树的左节点是空的（`t = {val: 3, left: null, right: { val: 4, left: null, right: null }}`），这时候我们需要表示左节点是空的，所以需要左右都给与括号包裹。
+4. 如果树的右节点是空的（`t = {val: 3, left: { val: 4, left: null, right: null }, right: null}`），那么我们设置右节点没有括号包裹即可
+5. 除了情况 1 - 4，其他的都给与双重括号包裹。
+
+Submit 提交结果：
+
+```js
+Accepted
+* 162/162 cases passed (80 ms)
+* Your runtime beats 79.27 % of javascript submissions
+* Your memory usage beats 56.25 % of javascript submissions (38.2 MB)
+```
+
+上面可以直观地看出解题过程。
+
+但是，**jsliang** 个人还是觉得复杂冗余了，所以进行精简优化：
+
+> 第二次递归优化
+
+```js
+const tree2str = (t) => {
+  if (!t) {
+    return '';
+  }
+  if (!t.left && !t.right) {
+    return t.val + tree2str(t.left) + tree2str(t.right);
+  }
+  if (!t.right) {
+    return `${t.val}(${tree2str(t.left)})${tree2str(t.right)}`;
+  }
+  return `${t.val}(${tree2str(t.left)})(${tree2str(t.right)})`;
+};
+```
+
+在这里，我们去掉了内部再包裹一个箭头函数（这太浪费啦~），精简了 `(!t.left)` 的判断，因为它跟默认的一样需要包裹左右。
+
+Submit 提交看看：
+
+```js
+Accepted
+* 162/162 cases passed (76 ms)
+* Your runtime beats 92.68 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (37.6 MB)
+```
+
+我很满意~
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+**你知道的，当一件事做得比较好或者很好的时候，你总会想着精益求精。**
+
+所以，我尝试用了下递归：
+
+```js
+const tree2str = (t) => {
+  let result = '';
+  let root = [t];
+  while (root.length) {
+    const tempRoot = root.pop();
+    if (tempRoot.name === 'left') {
+      result += `(${tempRoot.val})`;
+    } else if (tempRoot.name === 'right') {
+      result += `(${tempRoot.val})`;
+    } else {
+      result += tempRoot.val;
+    }
+    // 迭代
+    if (tempRoot.left) {
+      tempRoot.left.name = 'left';
+      root.push(tempRoot.left);
+    }
+    if (tempRoot.right) {
+      tempRoot.right.name = 'right';
+      root.unshift(tempRoot.right);
+    }
+  }
+  return result;
+};
+```
+
+结果发现：
+
+```js
+1(2)(4)(3)
+```
+
+不行啊还是太嫩了，翻遍【题解区（29）】和【评论区（82）】，发现没有 JavaScript 迭代的，【官方题解】的还是 Java 搞得，无奈收场。
+
+如果小伙伴有更好的想法，欢迎评论留言或者私聊~
 
 ---
 
