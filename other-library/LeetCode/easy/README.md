@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-28 09:35:51**
+> Recently revised in **2019-11-29 09:31:59**
 
 LeetCode 简单难度攻略
 
@@ -154,6 +154,7 @@ LeetCode 简单难度攻略
 | 599 - 两个列表的最小索引总和（minimum-index-sum-of-two-lists） | [#599 解题](./599-两个列表的最小索引总和（minimum-index-sum-of-two-lists）.md) |
 | 605 - 种花问题（can-place-flowers） | [#605 解题](./605-种花问题（can-place-flowers）.md) |
 | 606 - 根据二叉树创建字符串（construct-string-from-binary-tree） | [#606 解题](./606-根据二叉树创建字符串（construct-string-from-binary-tree）.md) |
+| 617 - 合并二叉树（merge-two-binary-trees） | [#617 解题](./617-合并二叉树（merge-two-binary-trees）.md) |
 
 ---
 
