@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-29 08:37:58**  
-> Recently revised in **2019-11-29 08:38:01**
+> Recently revised in **2019-11-29 09:31:23**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -85,13 +84,70 @@ var mergeTrees = function(t1, t2) {
 > index.js
 
 ```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @name 合并二叉树
+ * @param {TreeNode} t1
+ * @param {TreeNode} t2
+ * @return {TreeNode}
+ */
+const mergeTrees = (t1, t2) => {
+  if (!t1) {
+    return t2;
+  }
+  if (!t2) {
+    return t1;
+  }
+  t1.val += t2.val;
+  t1.left = mergeTrees(t1.left, t2.left);
+  t1.right = mergeTrees(t1.right, t2.right);
+  return t1;
+};
 
+const t1 = {
+  val: 1,
+  left: {
+    val: 3,
+    left: { val: 5, left: null, right: null },
+    right: null,
+  },
+  right: { val: 2, left: null, right: null },
+};
+const t2 = {
+  val: 2,
+  left: {
+    val: 1,
+    left: null,
+    right: { val: 4, left: null, right: null },
+  },
+  right: {
+    val: 3,
+    left: null,
+    right: { val: 7, left: null, right: null },
+  },
+};
+
+console.log(mergeTrees(t1, t2));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+{ val: 3,
+  left:
+   { val: 4,
+     left: { val: 5, left: null, right: null },
+     right: { val: 4, left: null, right: null } },
+  right:
+   { val: 5,
+     left: null,
+     right: { val: 7, left: null, right: null } } }
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -99,22 +155,55 @@ var mergeTrees = function(t1, t2) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 183/183 cases passed (104 ms)
+* Your runtime beats 85.68 % of javascript submissions
+* Your memory usage beats 71.28 % of javascript submissions (40.1 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**没有树的万能公式解决不了的，如果有，那就再想想**。
 
-[分析]
+拿到题目，开始破解：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const mergeTrees = (t1, t2) => {
+  if (!t1) {
+    return t2;
+  }
+  if (!t2) {
+    return t1;
+  }
+  t1.val += t2.val;
+  t1.left = mergeTrees(t1.left, t2.left);
+  t1.right = mergeTrees(t1.right, t2.right);
+  return t1;
+};
+```
 
-> [返回目录](#chapter-one)
+破解思路：
 
-……
+1. 同时递归两棵树
+2. 如果第一棵树的节点为 `null`，那么就返回第二棵树（即使它也有可能为 `null`）。
+3. 如果第二棵树的节点为 `null`，那么就返回第一棵树（即使它也有可能为 `null`）。
+4. 如果两棵树的节点都有值，那么将它们相加起来。
+5. 设置我们递归的主角为 `t1`，我们将其 `left` 和 `right` 投入递归大军。
+
+Submit 提交：
+
+```js
+Accepted
+* 183/183 cases passed (104 ms)
+* Your runtime beats 85.68 % of javascript submissions
+* Your memory usage beats 71.28 % of javascript submissions (40.1 MB)
+```
+
+这样，我们就完成了这道题的破解~
+
+如果小伙伴有更好的思路或者想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
