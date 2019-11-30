@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-11-30 08:38:23**  
-> Recently revised in **2019-11-30 08:39:21**
+> Recently revised in **2019-11-30 09:23:56**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -71,13 +71,27 @@ var maximumProduct = function(nums) {
 > index.js
 
 ```js
+/**
+ * @name 三个数的最大乘积
+ * @param {number[]} nums
+ * @return {number}
+ */
+const maximumProduct = (nums) => {
+  nums.sort((a, b) => b - a);
+  return Math.max(nums[0] * nums[1] * nums[2], nums[0] * nums[nums.length - 1] * nums[nums.length - 2]);
+};
 
+console.log(maximumProduct([1, 2, 3]));
+console.log(maximumProduct([1, 2, 3, 4]));
+console.log(maximumProduct([-4, -3, -2, -1, 60]));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+6
+24
+720
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -85,22 +99,109 @@ var maximumProduct = function(nums) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 83/83 cases passed (124 ms)
+* Your runtime beats 67.23 % of javascript submissions
+* Your memory usage beats 48 % of javascript submissions (38.1 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**看完题目，思路非常清晰明了**：
 
-[分析]
+1. 排序。从大到小排序或者从小到大排序都可以。假设这里从大到小排序。
+2. 计算。两个负数的乘积是正的，所以有两种可能：其一是由前三个数字相乘，得到最大乘积；其二是由前面最大的数相乘于末尾两个数字，得到最大乘积。
+3. 举例：`[-4, -3, -2, -1, 60]` 和 `[-3, -4, -1, -2]`。
+
+那么，开始解题：
+
+```js
+const maximumProduct = (nums) => {
+  nums.sort((a, b) => b - a);
+  return Math.max(nums[0] * nums[1] * nums[2], nums[0] * nums[nums.length - 1] * nums[nums.length - 2]);
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 83/83 cases passed (124 ms)
+* Your runtime beats 67.23 % of javascript submissions
+* Your memory usage beats 48 % of javascript submissions (38.1 MB)
+```
+
+刚巧及格，成功破题~
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+既然这道题变成了找数字，那么我们有没有更优秀的方法，通过一次遍历就可以找到指定的 5 个数字呢？
+
+答案是有的：
+
+```js
+const maximumProduct = (nums) => {
+  let min1 = Number.MAX_SAFE_INTEGER, // 倒数第一个最小数字
+      min2 = Number.MAX_SAFE_INTEGER, // 倒数第二个最小数字
+      max1 = Number.MIN_SAFE_INTEGER, // 第一个最大数字
+      max2 = Number.MIN_SAFE_INTEGER, // 第二个最大数字
+      max3 = Number.MIN_SAFE_INTEGER; // 第三个最大数字
+  for (let i = 0; i < nums.length; i++) {
+    // 判断前三个最大数字
+    if (nums[i] > max1) {
+      max3 = max2;
+      max2 = max1;
+      max1 = nums[i];
+    } else if (nums[i] > max2) {
+      max3 = max2;
+      max2 = nums[i];
+    } else if (nums[i] > max3) {
+      max3 = nums[i];
+    }
+    // 判断末两个最小数字
+    if (nums[i] < min1) {
+      min2 = min1;
+      min1 = nums[i];
+    } else if (nums[i] < min2) {
+      min2 = nums[i];
+    }
+  }
+  return Math.max(max1 * max2 * max3, max1 * min2 * min1);
+};
+```
+
+小伙伴们小时候经历过 “抢” 弟弟或者妹妹的东西吗？
+
+假设你家里有三个小孩，大娃二娃三娃（`max1`、`max2`、`max3`），每次拿东西，都由大娃优先挑选（因为二娃三娃打不过他啊！）
+
+于是：每次大娃拿到好东西，首先给自己，然后自己的（上一轮最大/最好的东西）丢给二娃，二娃的丢给三娃。
+
+编程思路也是这样：
+
+```js
+max3 = max2;
+max2 = max1;
+max1 = nums[i];
+```
+
+最终，我们通过一次 `for` 遍历，让所有的娃都拿到了自己的东西。
+
+Submit 提交结果：
+
+```js
+Accepted
+* 83/83 cases passed (80 ms)
+* Your runtime beats 95.48 % of javascript submissions
+* Your memory usage beats 94 % of javascript submissions (37.4 MB)
+```
+
+可喜可贺，接近满分~
+
+如果你有更好的思路或者想法，欢迎留言评论或者私聊~
 
 ---
 
