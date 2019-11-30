@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-29 09:31:59**
+> Recently revised in **2019-11-30 09:24:29**
 
 LeetCode 简单难度攻略
 
@@ -155,6 +155,7 @@ LeetCode 简单难度攻略
 | 605 - 种花问题（can-place-flowers） | [#605 解题](./605-种花问题（can-place-flowers）.md) |
 | 606 - 根据二叉树创建字符串（construct-string-from-binary-tree） | [#606 解题](./606-根据二叉树创建字符串（construct-string-from-binary-tree）.md) |
 | 617 - 合并二叉树（merge-two-binary-trees） | [#617 解题](./617-合并二叉树（merge-two-binary-trees）.md) |
+| 628 - 三个数的最大乘积（maximum-product-of-three-numbers） | [#628 解题](./628-三个数的最大乘积（maximum-product-of-three-numbers）.md) |
 
 ---
 
