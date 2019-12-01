@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-11-30 09:35:12**
+> Recently revised in **2019-12-1 19:39:08**
 
 LeetCode 简单难度攻略
 
@@ -156,6 +156,7 @@ LeetCode 简单难度攻略
 | 39 | 606 - 根据二叉树创建字符串（construct-string-from-binary-tree） | [#606 解题](./606-根据二叉树创建字符串（construct-string-from-binary-tree）.md) |
 | 40 | 617 - 合并二叉树（merge-two-binary-trees） | [#617 解题](./617-合并二叉树（merge-two-binary-trees）.md) |
 | 41 | 628 - 三个数的最大乘积（maximum-product-of-three-numbers） | [#628 解题](./628-三个数的最大乘积（maximum-product-of-three-numbers）.md) |
+| 42 | 633 - 平方数之和（sum-of-square-numbers） | [#633 解题](./633-平方数之和（sum-of-square-numbers）.md) |
 
 ---
 
