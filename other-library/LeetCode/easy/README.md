@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-1 19:39:08**
+> Recently revised in **2019-12-02 09:43:29**
 
 LeetCode 简单难度攻略
 
@@ -157,6 +157,7 @@ LeetCode 简单难度攻略
 | 40 | 617 - 合并二叉树（merge-two-binary-trees） | [#617 解题](./617-合并二叉树（merge-two-binary-trees）.md) |
 | 41 | 628 - 三个数的最大乘积（maximum-product-of-three-numbers） | [#628 解题](./628-三个数的最大乘积（maximum-product-of-three-numbers）.md) |
 | 42 | 633 - 平方数之和（sum-of-square-numbers） | [#633 解题](./633-平方数之和（sum-of-square-numbers）.md) |
+| 43 | 637 - 二叉树的层平均值（average-of-levels-in-binary-tree） | [#637 解题](./637-二叉树的层平均值（average-of-levels-in-binary-tree）.md) |
 
 ---
 
