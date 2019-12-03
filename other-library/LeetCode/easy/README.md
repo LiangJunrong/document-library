@@ -2,9 +2,11 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-03 09:19:19**
+> Recently revised in **2019-12-03 09:21:55**
 
 LeetCode 简单难度攻略
+
+**纯粹喜欢，所以坚持，人生不仅有业务代码的 `if...else...` 或者面向面试题的工作，还有刷题的喜悦。**
 
 ## 0-100 道
 
