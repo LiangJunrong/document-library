@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-04 10:46:22**  
-> Recently revised in **2019-12-04 10:46:25**
+> Recently revised in **2019-12-04 12:33:41**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -73,13 +73,32 @@ var findErrorNums = function(nums) {
 > index.js
 
 ```js
+/**
+ * @name 错误的集合
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+const findErrorNums = (nums) => {
+  const result = [ , ];
+  for (let i = 1; i < nums.length + 1; i++) {
+    if (nums.indexOf(i) !== nums.lastIndexOf(i)) {
+      result[0] = i;
+    }
+    if (nums.findIndex(item => item === i) === -1) {
+      result[1] = i;
+    }
+  }
+  return result;
+};
 
+// console.log(findErrorNums([1, 2, 2, 4])); // [2, 3]
+console.log(findErrorNums([3, 2, 3, 4, 6, 5])); // [3, 1]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[3, 1]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -87,22 +106,99 @@ var findErrorNums = function(nums) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 49/49 cases passed (2120 ms)
+* Your runtime beats 5.66 % of javascript submissions
+* Your memory usage beats 44 % of javascript submissions (38 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**拿到题意，开始思考**：
 
-[分析]
+1. 我需要获取到数组中缺少的数字
+2. 我需要获取到数组中重复的数字
+
+于是就有了代码：
+
+> 第一次攻略
+
+```js
+const findErrorNums = (nums) => {
+  const result = [ , ];
+  for (let i = 1; i < nums.length + 1; i++) {
+    if (nums.indexOf(i) !== nums.lastIndexOf(i)) {
+      result[0] = i;
+    }
+    if (nums.findIndex(item => item === i) === -1) {
+      result[1] = i;
+    }
+  }
+  return result;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 49/49 cases passed (2120 ms)
+* Your runtime beats 5.66 % of javascript submissions
+* Your memory usage beats 44 % of javascript submissions (38 MB)
+```
+
+虽然很粗略，但是并不妨碍我破题了。
+
+在这个解法中用了双重遍历，`for` + `indexOf/lastIndexOf/findIndex`。
+
+所以损耗的性能比较高。
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+> 题解区
+
+```js
+/**
+ * @name 错误的集合
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+const findErrorNums = (nums) => {
+  const s = [...new Set(nums)].reduce((prev, next) => prev + next);
+  const n = Math.max(...nums);
+  const d = (n * (n + 1)) / 2 - s;
+
+  return [
+    nums.reduce((prev, next) => prev + next) - s,
+    d === 0 ? n + 1 : d
+  ];
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 49/49 cases passed (88 ms)
+* Your runtime beats 64.15 % of javascript submissions
+* Your memory usage beats 8 % of javascript submissions (42.2 MB)
+```
+
+> 来源自：https://leetcode-cn.com/problems/set-mismatch/solution/jian-dan-de-jie-jue-si-lu-by-undefined-91/
+
+* 计算重复的数据
+
+这个比较简单，就是原数组之和减去去重数组之和，这个差就是去重时去掉的那个重复元素。
+
+* 计算丢失的数据
+
+1. 如果数据完全正确，他们的和应该是 1+2+...+n 计算公式 (n * (n + 1)) / 2，n 是数组中最大的一项。
+2. 如果 去重数组之和 等于 1+2+...+n，说明去重之后的数据格式是完全正确的，那么被丢失的数据就是 n + 1。
+3. 否则被丢失的数据就是 1+2+...+n减去去重数组之和的值，也就说在 (1, n) 之间。
 
 ---
 
