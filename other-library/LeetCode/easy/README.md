@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-04 12:34:21**
+> Recently revised in **2019-12-05 09:48:42**
 
 LeetCode 简单难度攻略
 
@@ -162,6 +162,7 @@ LeetCode 简单难度攻略
 | 43 | 637 - 二叉树的层平均值（average-of-levels-in-binary-tree） | [#637 解题](./637-二叉树的层平均值（average-of-levels-in-binary-tree）.md) |
 | 44 | 643 - 子数组最大平均数I（maximum-average-subarray-i） | [#643 解题](./643-子数组最大平均数I（maximum-average-subarray-i）.md) |
 | 45 | 645 - 错误的集合（set-mismatch） | [#645 解题](./645-错误的集合（set-mismatch）.md) |
+| 46 | 653 - 两数之和IV（two-sum-iv-input-is-a-bst） | [#653 解题](./653-两数之和IV（two-sum-iv-input-is-a-bst）.md) |
 
 ---
 
