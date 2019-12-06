@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-06 08:39:44**  
-> Recently revised in **2019-12-06 08:39:47**
+> Recently revised in **2019-12-06 09:07:41**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -76,10 +76,10 @@
 
 ```js
 /**
- * @param {number[][]} grid
- * @return {number}
+ * @param {string} moves
+ * @return {boolean}
  */
-var islandPerimeter = function(grid) {
+var judgeCircle = function(moves) {
     
 };
 ```
@@ -91,13 +91,41 @@ var islandPerimeter = function(grid) {
 > index.js
 
 ```js
+/**
+ * @name 机器人能否返回圆点
+ * @param {string} moves
+ * @return {boolean}
+ */
+const judgeCircle = (moves) => {
+  const position = [0, 0];
+  for (let i = 0; i < moves.length; i++) {
+    switch (moves[i]) {
+      case 'U':
+        position[1] += 1;
+        break;
+      case 'R':
+        position[0] += 1;
+        break;
+      case 'D':
+        position[1] -= 1;
+        break;
+      case 'L':
+        position[0] -= 1;
+        break;
+    }
+  }
+  return position[0] === 0 && position[1] === 0;
+};
 
+console.log(judgeCircle('UD')); // true
+console.log(judgeCircle('LL')); // false
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -105,22 +133,142 @@ var islandPerimeter = function(grid) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 63/63 cases passed (68 ms)
+* Your runtime beats 94.94 % of javascript submissions
+* Your memory usage beats 64.91 % of javascript submissions (36.5 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**送分题！**
 
-[分析]
+建立坐标 `[0, 0]`：
+
+```
+      |
+      |
+----[0, 0]---
+      |
+      |
+```
+
+剩下的就简单了，就是走过 `moves` 步后，回到 `[0, 0`]。
+
+> 第一次提交
+
+```js
+const judgeCircle = (moves) => {
+  const position = [0, 0];
+  for (let i = 0; i < moves.length; i++) {
+    switch (moves[i]) {
+      case 'U':
+        position[1] += 1;
+        break;
+      case 'R':
+        position[0] += 1;
+        break;
+      case 'D':
+        position[1] -= 1;
+        break;
+      case 'L':
+        position[0] -= 1;
+        break;
+    }
+  }
+  return position[0] === 0 && position[1] === 0;
+};
+```
+
+分析一下：
+
+1. 原点为 `[0, 0]`。
+2. 向上移动为 `[0, 1]`，即 `position[1] += 1`；
+3. 向右移动为 `[1, 0]`，即 `position[0] += 1`；
+4. 向下移动为 `[0, -1]`，即 `position[1] -= 1`；
+5. 向左移动为 `[-1, 0]`，即 `position[0] -= 1`；
+6. 遍历步骤，产生上面代码，最后判断两个坐标点是否都为 0 即可。
+
+Submit 提交：
+
+```js
+Accepted
+* 63/63 cases passed (68 ms)
+* Your runtime beats 94.94 % of javascript submissions
+* Your memory usage beats 64.91 % of javascript submissions (36.5 MB)
+```
+
+搞定，收工~
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+顺带看看【题解区】和【评论区】的奇技淫巧：
+
+> 【题解区】1
+
+```js
+const judgeCircle = (moves) => {
+  // 判断左右移动的次数和上下移动的次数是否相等（即 L.count === R.count && U.count === D.count）
+  return moves.split('L').length === moves.split('R').length && moves.split('U').length === moves.split('D').length
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 63/63 cases passed (84 ms)
+* Your runtime beats 45.89 % of javascript submissions
+* Your memory usage beats 21.93 % of javascript submissions (39.7 MB)
+```
+
+* 优点：一行代码
+* 缺点：进行了 4 次分割，即上面我写的代码的 4 倍工作。
+
+> 【题解区】2
+
+```js
+const judgeCircle = (moves) => {
+  var o = 0;
+  var v = 0;
+  for (var i = 0; i < moves.length; i++) {
+    switch (moves[i]) {
+      case 'L':
+        o--;
+        break;
+      case 'R':
+        o++;
+        break;
+      case 'U':
+        v++;
+        break;
+      case 'D':
+        v--;
+        break;
+    }
+  }
+  return !o && !v;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 63/63 cases passed (76 ms)
+* Your runtime beats 74.37 % of javascript submissions
+* Your memory usage beats 93.86 % of javascript submissions (35.5 MB)
+```
+
+跟 **jsliang** 代码差不多，区别在于使用 数组 还是 数字 来存储数据。
+
+以上，就是本题的所有内容啦~
+
+如果小伙伴有更好的思路或者想法，欢迎留言评论或者私聊~
 
 ---
 
