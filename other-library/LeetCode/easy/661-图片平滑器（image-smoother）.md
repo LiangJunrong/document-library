@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-07 08:47:40**  
-> Recently revised in **2019-12-07 08:47:43**
+> Recently revised in **2019-12-07 09:42:53**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -85,13 +84,88 @@ var imageSmoother = function(M) {
 > index.js
 
 ```js
+/**
+ * @name 图片平滑器
+ * @param {number[][]} M
+ * @return {number[][]}
+ */
+const imageSmoother = (M) => {
+  const newM = [];
+  for(let i = 0; i < M.length; i++) {
+    console.log(`---${M[i]}---`);
+    newM[i] = [];
+    for (let j = 0; j < M[i].length; j++) {
+      let result = 0;
+      let count = 0;
+      // 左上角
+      if (M[i - 1] && M[i - 1][j + 1] !== undefined) {
+        result += M[i - 1][j + 1];
+        count += 1;
+      }
+      // 上方
+      if (M[i] && M[i][j + 1] !== undefined) {
+        result += M[i][j + 1];
+        count += 1;
+      }
+      // 右上角
+      if (M[i + 1] && M[i + 1][j + 1] !== undefined) {
+        result += M[i + 1][j + 1];
+        count += 1;
+      }
+      // 左边
+      if (M[i - 1] && M[i - 1][j] !== undefined) {
+        result += M[i - 1][j];
+        count += 1;
+      }
+      // 正中间
+      if (M[i] && M[i][j] !== undefined) {
+        result += M[i][j];
+        count += 1;
+      }
+      // 右边
+      if (M[i + 1] && M[i + 1][j] !== undefined) {
+        result += M[i + 1][j];
+        count += 1;
+      }
+      // 左下角
+      if (M[i - 1] && M[i - 1][j - 1] !== undefined) {
+        result += M[i - 1][j - 1];
+        count += 1;
+      }
+      // 下边
+      if (M[i] && M[i][j - 1] !== undefined) {
+        result += M[i][j - 1];
+        count += 1;
+      }
+      // 右下角
+      if (M[i + 1] && M[i + 1][j - 1] !== undefined) {
+        result += M[i + 1][j + 1];
+        count += 1;
+      }
+      newM[i].push(Math.floor(result / count));
+    }
+  }
+  return newM;
+};
 
+const M = [
+  [1, 1, 1],
+  [1, 0, 1],
+  [1, 1, 1],
+];
+// [0, 0, 0],
+// [0, 0, 0],
+// [0, 0, 0],
+
+console.log(imageSmoother(M));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[0, 0, 0],
+[0, 0, 0],
+[0, 0, 0],
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -99,22 +173,94 @@ var imageSmoother = function(M) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 202/202 cases passed (224 ms)
+* Your runtime beats 12.9 % of javascript submissions
+* Your memory usage beats 6.45 % of javascript submissions (44.3 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**题倒不难，写起来有点犯晕**。
 
-[分析]
+拿到题目，直接开刷：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const imageSmoother = (M) => {
+  const newM = [];
+  for(let i = 0; i < M.length; i++) {
+    newM[i] = [];
+    for (let j = 0; j < M[i].length; j++) {
+      let result = 0;
+      let count = 0;
+      // 左上角
+      if (M[i - 1] && M[i - 1][j + 1] !== undefined) {
+        result += M[i - 1][j + 1];
+        count += 1;
+      }
+      // 上方
+      if (M[i] && M[i][j + 1] !== undefined) {
+        result += M[i][j + 1];
+        count += 1;
+      }
+      // 右上角
+      if (M[i + 1] && M[i + 1][j + 1] !== undefined) {
+        result += M[i + 1][j + 1];
+        count += 1;
+      }
+      // 左边
+      if (M[i - 1] && M[i - 1][j] !== undefined) {
+        result += M[i - 1][j];
+        count += 1;
+      }
+      // 正中间
+      if (M[i] && M[i][j] !== undefined) {
+        result += M[i][j];
+        count += 1;
+      }
+      // 右边
+      if (M[i + 1] && M[i + 1][j] !== undefined) {
+        result += M[i + 1][j];
+        count += 1;
+      }
+      // 左下角
+      if (M[i - 1] && M[i - 1][j - 1] !== undefined) {
+        result += M[i - 1][j - 1];
+        count += 1;
+      }
+      // 下边
+      if (M[i] && M[i][j - 1] !== undefined) {
+        result += M[i][j - 1];
+        count += 1;
+      }
+      // 右下角
+      if (M[i + 1] && M[i + 1][j - 1] !== undefined) {
+        result += M[i + 1][j + 1];
+        count += 1;
+      }
+      newM[i].push(Math.floor(result / count));
+    }
+  }
+  return newM;
+};
+```
 
-> [返回目录](#chapter-one)
+Submit 提交惨不忍睹：
 
-……
+```js
+Accepted
+* 202/202 cases passed (224 ms)
+* Your runtime beats 12.9 % of javascript submissions
+* Your memory usage beats 6.45 % of javascript submissions (44.3 MB)
+```
+
+代码就不分析了，会看 `if...else...` 的都懂，就是判断每个方位，然后判断每次需要除于的值 `count` 而已。
+
+写完犯晕呼，让我冷静冷静~
+
+如果小伙伴有更好的思路或者方法，欢迎评论留言或者私聊~
 
 ---
 
