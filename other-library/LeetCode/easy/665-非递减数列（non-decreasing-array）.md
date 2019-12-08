@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-8 10:21:54**  
-> Recently revised in **2019-12-8 10:21:57**
+> Recently revised in **2019-12-8 12:02:14**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -74,13 +73,38 @@ var checkPossibility = function(nums) {
 > index.js
 
 ```js
+/**
+ * @name 非递减数列
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+const checkPossibility = (nums) => {
+  let count = 0;
+  for (let i = 0; i < nums.length; i++) {
+    const prev = nums[i - 1];
+    const now = nums[i];
+    const next = nums[i + 1];
+    const nextNext = nums[i + 2];
+    if (now > next) {
+      count ++;
+      if (count > 1) {
+        return false;
+      }
+      if (i > 0 && prev > next && i + 2 < nums.length && now > nextNext) {
+        return false;
+      }
+    }
+  }
+  return true;
+};
 
+console.log(checkPossibility([1, 5, 4, 6, 7, 10, 10, 8, 9]));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -88,22 +112,105 @@ var checkPossibility = function(nums) {
 > [返回目录](#chapter-one)
 
 ```js
+执行结果：通过
 
+执行用时：64 ms，在所有 JavaScript 提交中击败了 98.56% 的用户
+
+内存消耗：37.1 MB，在所有 JavaScript 提交中击败了 27.59% 的用户
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**一顿操作猛如虎，只怕最终渣成土**。
 
-[分析]
+> 失败题解，仅供嘲讽
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const checkPossibility = (nums) => {
+  let count = 0;
+  for (let i = 0; i < nums.length; i++) {
+    // [4, 2, 1] - 递减无解
+    if (nums[i] > nums[i + 1] && nums[i + 1] > nums[i + 2]) {
+      return false;
+    }
+    // [2, 3, 3, 2, 4] - 有解
+    // [4, 2, 3] - 有解
+    // [-1, 4, 2, 3] - 有解
+    // [3, 4, 2, 3] - 无解
+    // [1, 3, 2, 5, 4] - 无解
+    // [1, 5, 4, 6, 7, 10, 10, 8, 9] - 无解
+    // [3, 2, 3, 2, 4] - 无解
+    if (nums[i] > nums[i - 1] && nums[i] > nums[i + 1] && nums[i + 1] > nums[i - 1]) {
+      nums[i] = nums[i - 1];
+      count ++;
+    }
+    if (nums[i] >= nums[i - 1] && nums[i] > nums[i + 1] && nums[i + 1] < nums[i - 1]) {
+      nums[i] = nums[i - 1];
+      count ++;
+    }
+    if (nums[i] < nums[i - 1] && nums[i] < nums[i - 1] && nums[i + 1] >= nums[i - 1]) {
+      nums[i] = nums[i - 1];
+      count ++;
+    }
+    if (count > 1) {
+      return false;
+    }
+  }
+  return true;
+};
+```
 
-> [返回目录](#chapter-one)
+是的，你没看错，那些注释就是我曾经的失败的例子，然后经过 long long 的解题，还是失败了……
 
-……
+难受啊！
+
+仔细思考了一下，3 个数始终有误判，咱还不能判断 4 个数吗？恶由胆边生：
+
+```js
+const checkPossibility = (nums) => {
+  let count = 0;
+  for (let i = 0; i < nums.length; i++) {
+    const prev = nums[i - 1];
+    const now = nums[i];
+    const next = nums[i + 1];
+    const nextNext = nums[i + 2];
+    if (now > next) {
+      count ++;
+      if (count > 1) {
+        return false;
+      }
+      if (i > 0 && i + 2 < nums.length && prev > next && now > nextNext) {
+        return false;
+      }
+    }
+  }
+  return true;
+};
+```
+
+思路如下：
+
+1. 通过 `count` 计数。
+2. 遍历 `nums`。
+3. 通过 `prev`、`now`、`next`、`nextNext` 记录一组数字。
+4. 判断当前值 `now` 是否比下一个值 `next` 大，是的话就将计数器 `count ++`，计数器大于一次就返回 `false`。
+5. 判断当前数组是否足够 `4` 长度，够的话就将前一个和下一个比较 `prev > next`，当前一个和下下一个比较 `now > nextNext`。如果这两个比较都是 `true` 的话，说明这个数列没救了。举例：`3, 4, 2, 3`。
+
+Submit 提交；
+
+```js
+执行结果：通过
+
+执行用时：64 ms，在所有 JavaScript 提交中击败了 98.56% 的用户
+
+内存消耗：37.1 MB，在所有 JavaScript 提交中击败了 27.59% 的用户
+```
+
+OK，因为这次 VS Code 的插件还坏了，所以每次搞起来不太顺手，题目做得也就，好歹最终搞定了。
+
+如果小伙伴们有更好的思路或者想法，欢迎评论留言或者私聊~
 
 ---
 
