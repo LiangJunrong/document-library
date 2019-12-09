@@ -1,4 +1,4 @@
-LeetCode 文章模板 2
+671 - 二叉树中第二小的节点（second-minimum-node-in-a-binary-tree）
 ===
 
 > Create by **jsliang** on **2019-12-10 07:52:21**  
