@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-10 07:52:21**  
-> Recently revised in **2019-12-10 07:52:24**
+> Recently revised in **2019-12-10 08:43:40**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -94,13 +93,49 @@ var findSecondMinimumValue = function(root) {
 > index.js
 
 ```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @name 二叉树中第二小的节点
+ * @param {TreeNode} root
+ * @return {number}
+ */
+const findSecondMinimumValue = (root) => {
+  const result = [];
+  const ergodic = (root) => {
+    if (!root) {
+      return;
+    }
+    result.push(root.val);
+    ergodic(root.left);
+    ergodic(root.right);
+  }
+  ergodic(root);
+  return [...new Set(result)][1] || -1;
+};
 
+const root = {
+  val: 2,
+  left: { val: 2, left: null, right: null },
+  right: {
+    val: 5,
+    left: { val: 5, left: null, right: null },
+    right: { val: 7, left: null, right: null },
+  },
+};
+
+console.log(findSecondMinimumValue(root));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+5
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -108,22 +143,123 @@ var findSecondMinimumValue = function(root) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 35/35 cases passed (56 ms)
+* Your runtime beats 95 % of javascript submissions
+* Your memory usage beats 25 % of javascript submissions (33.8 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**肯定有取巧，但咱先暴力破解~**
 
-[分析]
+> ① 暴力破解
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const findSecondMinimumValue = (root) => {
+  const result = [];
+  const ergodic = (root) => {
+    if (!root) {
+      return;
+    }
+    result.push(root.val);
+    ergodic(root.left);
+    ergodic(root.right);
+  }
+  ergodic(root);
+  return [...new Set(result.sort((a, b) => a - b))][1] || -1;
+};
+```
 
-> [返回目录](#chapter-one)
+思路相当简单呢：
 
-……
+1. 通过 `ergodic` 遍历获取所有节点。
+2. 通过 `result.sort((a, b) => a - b)` 进行从小到大排序。
+3. 通过 `[...new Set(result)]` 来进行去重。
+4. 通过 `result[1] || -1` 来判断是否有结果，有就输出结果，没有就输出 `-1`。
+
+Submit 提交：
+
+```js
+Accepted
+* 35/35 cases passed (56 ms)
+* Your runtime beats 95 % of javascript submissions
+* Your memory usage beats 25 % of javascript submissions (33.8 MB)
+```
+
+enm...感觉效率好像蛮好的~
+
+> ② 递归优化
+
+```js
+const findSecondMinimumValue = (root) => {
+  const firstMinimun = root.val;
+  let secondMinimun;
+  const ergodic = (root) => {
+    if (!root) {
+      return;
+    }
+    if (root.val > firstMinimun && !secondMinimun) {
+      secondMinimun = root.val;
+      return;
+    }
+    if (root.val < secondMinimun && secondMinimun && root.val !== firstMinimun) {
+      secondMinimun = root.val;
+      return;
+    }
+    ergodic(root.left);
+    ergodic(root.right);
+  }
+  ergodic(root);
+  return secondMinimun || -1;
+};
+```
+
+尝试按照题目的思路破解，结果可能是我没想好，感觉没那么好：
+
+```js
+Accepted
+* 35/35 cases passed (52 ms)
+* Your runtime beats 97.5 % of javascript submissions
+* Your memory usage beats 6.25 % of javascript submissions (34.2 MB)
+```
+
+这一点如果你有思路，欢迎评论留言~
+
+再尝试一下迭代，结束本次题目解析：
+
+> 迭代解法
+
+```js
+const findSecondMinimumValue = (root) => {
+  const newRoot = [root];
+  const result = [];
+  while (newRoot.length) {
+    const tempRoot = newRoot.pop();
+    result.push(tempRoot.val)
+    if (tempRoot.left) {
+      newRoot.push(tempRoot.left);
+    }
+    if (tempRoot.right) {
+      newRoot.push(tempRoot.right);
+    }
+  }
+  return [...new Set(result.sort((a, b) => a - b))][1] || -1;;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 35/35 cases passed (64 ms)
+* Your runtime beats 81.25 % of javascript submissions
+* Your memory usage beats 12.5 % of javascript submissions (34 MB)
+```
+
+那么，更多的等你来秀啦~
 
 ---
 
