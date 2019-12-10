@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-09 08:20:09**
+> Recently revised in **2019-12-10 08:44:22**
 
 LeetCode 简单难度攻略
 
@@ -167,6 +167,7 @@ LeetCode 简单难度攻略
 | 48 | 661 - 图片平滑器（image-smoother） | [#661 解题](./661-图片平滑器（image-smoother）.md) |
 | 49 | 665 - 非递减数列（non-decreasing-array） | [#665 解题](./665-非递减数列（non-decreasing-array）.md) |
 | 50 | 669 - 修剪二叉搜索树（trim-a-binary-search-tree） | [#669 解题](./669-修剪二叉搜索树（trim-a-binary-search-tree）.md) |
+| 51 | 671 - 二叉树中第二小的节点（second-minimum-node-in-a-binary-tree） | [#671 解题](./671-二叉树中第二小的节点（second-minimum-node-in-a-binary-tree）.md) |
 
 ---
 
