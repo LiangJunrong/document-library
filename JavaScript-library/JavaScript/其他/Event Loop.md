@@ -2,9 +2,11 @@ Event Loop
 ===
 
 > Create by **jsliang** on **2019-12-09 11:34:15**  
-> Recently revised in **2019-12-10 17:53:14**
+> Recently revised in **2019-12-10 19:58:48**
 
-## <a name="chapter-one" id="chapter-one">一 目录</a>
+**关注 jsliang 的文档库，了解更多技术、理财、健身文档：https://github.com/LiangJunrong/document-library**
+
+## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
 
@@ -12,14 +14,21 @@ Event Loop
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Event Loop](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 浏览器 Event Loop](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 Node.js Event Loop](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 参考文献](#chapter-seven) |
 
-## <a name="chapter-two" id="chapter-two">二 前言</a>
+## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
+Hello 小伙伴们早上好、中午好、下午好、晚上好、凌晨好~
+
 在日常工作中，你有没有碰到过这种疑惑：
 
-> 疑惑一：为什么这份代码它不按照我的意思走？为啥不是输出 `1 2 3`？
+* 疑惑一：为什么这份代码它不按照我的意思走？为啥不是输出 `1 2 3`？
 
 ```js
 for (var i = 0; i < 3; i++) {
@@ -27,10 +36,13 @@ for (var i = 0; i < 3; i++) {
     console.log(i);
   }, 1000);
 }
-// console: 3 3 3
+// console:
+// 3
+// 3
+// 3
 ```
 
-> 疑惑二：为什么这份代码它也不按照我的意思走？为啥不是输出 `梁峻荣`？
+* 疑惑二：为什么这份代码它也不按照我的意思走？为啥不是输出 `梁峻荣`？
 
 ```js
 let name;
@@ -53,14 +65,16 @@ if (name) {
 
 * **本篇文章从 Event Loop 起因说起，通过探讨 浏览器环境 Event Loop 和 Node.js 环境 Event Loop，从而解惑工作中产生的困扰，扩展你面试知识点。**
 
-OK，这么一说，咱也好对文章进行划分了：
+这么一说，咱也好对文章进行划分了：
 
 * **第二章 前言**：开篇点题。
 * **第三章 Event Loop**：解释 Event Loop 产生原因和代码演示。
 * **第四章 浏览器 Event Loop**：解惑工作困扰和扩展必备面试知识点。
 * **第五章 Node.js Event Loop**：进一步探索浏览器和 Node.js 中 Event Loop 的不同。
 
-## <a name="chapter-three" id="chapter-three">三 Event Loop</a>
+OK，Let's go!
+
+## <a name="chapter-three" id="chapter-three"></a>三 Event Loop
 
 > [返回目录](#chapter-one)
 
@@ -72,13 +86,27 @@ OK，这么一说，咱也好对文章进行划分了：
 
 单线程意味着，所有任务都需要排队，前一个任务结束，才会执行后一个任务。
 
-而这种 **主线程从 “任务队列” 中读取执行事件，这个过程是不断循环的** 的机制，就被称为 **事件循环（Event Loop）**。
+假设 **jsliang** 和 JavaScript 一样一次只能做一件事，那么大概就是如下图所示。
 
-**然后**，如果前一个任务耗时很长，那么后一个任务就不得不一直等着，我们肯定要对这种情况做一些处理。
+![图](../../../public-repertory/img/js-other-EventLoop-1.png)
+
+而这种 **主线程从 “任务队列” 中读取执行事件，不断循环重复的过程**，就被称为 **事件循环（Event Loop）**。
+
+**然后**，如果前一个任务耗时很长，后一个任务就不得不一直等着，那么我们肯定要对这种情况做一些特殊处理，毕竟我们并不是完全希望它如此执行。
 
 所以为了协调事件（event），用户交互（user interaction），脚本（script），渲染（rendering），网络（networking）等，用户代理（user agent）必须使用事件循环（event loops）。
 
-这样，在了解 **浏览器 Event Loop** 和 **Node.js Event Loop** 的情况下，我们就可以了解它的执行过程，通过自身的了解，来处理一些较为棘手的问题。
+这样，在了解 **浏览器 Event Loop** 和 **Node.js Event Loop** 的情况下，我们就可以了解它的执行过程。
+
+通过自身的了解，来处理一些较为棘手的问题。
+
+为了加深小伙伴们的印象，可以看下图：
+
+![图](../../../public-repertory/img/js-other-EventLoop-2.png)
+
+日常强制被加上了 “被豆豆妈打”，当然，这个被打的顺序也不一定是在后面，可能打多两次后，“睡觉” 完之后就是 “被豆豆妈打” 了。
+
+通过这个解释，小伙伴们应该知道为啥有 **浏览器 Event Loop** 和 **Node.js Event Loop** 了。
 
 等等，你刚才说到了 **浏览器 Event Loop** 和 **Node.js Event Loop**，为什么都是关于 JavaScript 的，在这两部分都不一样呢？
 
@@ -91,7 +119,95 @@ OK，这么一说，咱也好对文章进行划分了：
 
 > libuv 是一个多平台支持库，主要用于异步 I/O。它最初是为 Node.js 开发的，现在 Luvit、Julia、pyuv 和其他的框架也使用它。[Github - libuv 仓库](https://github.com/libuv/libuv)
 
-所以，咱们得将这两个区分开来，它们是不一样的东东哈~
+恍然大悟，的确是不一样的！
+
+所以，咱们得将这两个 Event Loop 区分开来，它们是不一样的东东哈~
+
+**最后**，咱们解疑开头的两个问题，为什么会这样子，有没办法解决？
+
+* 疑惑一：为什么这份代码它不按照我的意思走？为啥不是输出 `1 2 3`？
+
+```js
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 1000);
+}
+// console:
+// 3
+// 3
+// 3
+```
+
+这道题是面试常备题，它是个很有意思的问题，为此，**jsliang** 特意录制了一个 GIF，希望能帮小伙伴进一步探索这个机制：
+
+![图](../../../public-repertory/img/js-other-EventLoop-3.gif)
+
+> 软件是 VS Code，调试方式是 Node.js
+
+请仔细观看左侧 `i` 的变化和下边调试控制台的输出。
+
+1. 在执行 `for` 遍历的时候，它先执行了和 `setTimeout` 同级的 `console`，然后往下执行，到 `setTimeout` 的时候，跳过了（放到某个位置）`setTimeout`，依次打印了 `0, 1, 2`。
+2. 步骤 1 跳过的三次 `setTimeout` 开始执行，但是这时候的 `i` 的值，经过前面的 `i++` 后，变成了 `3`（`for` 中止循环后，`i` 已经是 `3` 了）。所以，再依次打印了 `3 3 3`。
+
+就是说，先走了正常的 `for`，然后将 `setTimeout` 依次放到了异次元，最后再将异次元中的的 `setTimeout` 放出，依次将数字给输出了。
+
+这个执行机制，就是 Event Loop 的影响，恍然大悟有木有~
+
+这个问题的精妙之处在于，它不仅可以问你关于 Event Loop 的部分，还可以考察你对于 ES6 的 `let` 和 ES5 的 `var` 的区分，因为它有一个解决方式就是使用了 ES6 的 `let`：
+
+```js
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 1000);
+}
+// console：
+// 0
+// 1
+// 2
+```
+
+是的，将 `var i` 改成了 `let i` 后，输出的结果依次是 `0 1 2` 了。
+
+为什么呢？简单回复就是：
+
+**`let` 在 `for` 中形成了独特的作用域块，当前的 `i` 只在本轮循环中有效，然后 `setTimeout` 会找到本轮最接近的 `i`，从而作出了正确的输出。**
+
+当然，你可能还是不太了解，亦或者面试官进一步问你 `var let const` 的区分了，你要怎么更好回答？
+
+看看阮一峰大佬的 ES6 文档吧：http://es6.ruanyifeng.com/#docs/let
+
+这里就不哆嗦了，有空我再整理到我的文档库中，欢迎持续关注 jsliang 的文档库：https://github.com/LiangJunrong/document-library。
+
+* 疑惑二：为什么这份代码它也不按照我的意思走？为啥不是输出 `梁峻荣`？
+
+```js
+let name;
+
+setTimeout(() => {
+  name = 'jsliang';
+  console.log(name);
+}, 1000);
+
+if (name) {
+  name = '梁峻荣';
+  console.log(name);
+}
+// console: 'jsliang'
+```
+
+当你了解产生疑惑一的原因后，疑惑二也就不破而接了。
+
+我们希望的是 JavaScript 按照我们需要的顺序写，结果它并没有，就是因为受到了 Event Loop 的影响。
+
+JavaScript 在碰到 `setTimeout` 的时候，会将它封印进异次元，只有等所有正常的语句（`if`、`for`……）执行完毕后，才会将它从异次元解封，输出最终结果。
+
+嗨，这就有意思了，浏览器的异次元和 Node.js 的异次元都是怎样的呢？我们一起往下看。
+
+## <a name="chapter-four" id="chapter-four"></a>四 浏览器 Event Loop
+
+> [返回目录](#chapter-one)
 
 ```js
 for (var i = 0; i < 3; i++) {
@@ -127,7 +243,21 @@ Promise.resolve().then(function () {
 console.log('done');
 ```
 
-## 参考文献
+## <a name="chapter-five" id="chapter-five"></a>五 Node.js Event Loop
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-six" id="chapter-six"></a>六 总结
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-seven" id="chapter-seven"></a>七 参考文献
+
+> [返回目录](#chapter-one)
+
+感谢以下大佬们的文章，让我受益颇多。
+
+并在他们创作的基础上，基于自己的想法，进行了整合。
 
 1. [《Tasks, microtasks, queues and schedules》 - Jake](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
 2. [《彻底搞懂浏览器 Event-loop》 - 刘小夕](https://juejin.im/post/5c947bca5188257de704121d)
