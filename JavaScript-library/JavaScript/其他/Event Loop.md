@@ -2,7 +2,7 @@ Event Loop
 ===
 
 > Create by **jsliang** on **2019-12-09 11:34:15**  
-> Recently revised in **2019-12-10 19:58:48**
+> Recently revised in **2019-12-11 10:22:18**
 
 **关注 jsliang 的文档库，了解更多技术、理财、健身文档：https://github.com/LiangJunrong/document-library**
 
@@ -42,21 +42,21 @@ for (var i = 0; i < 3; i++) {
 // 3
 ```
 
-* 疑惑二：为什么这份代码它也不按照我的意思走？为啥不是输出 `梁峻荣`？
+* 疑惑二：为什么这份代码它也不按照我的意思走？为啥不是输出 `jsliang`？
 
 ```js
 let name;
 
 setTimeout(() => {
-  name = 'jsliang';
+  name = '梁峻荣';
   console.log(name);
 }, 1000);
 
 if (name) {
-  name = '梁峻荣';
+  name = 'jsliang';
   console.log(name);
 }
-// console: 'jsliang'
+// console: '梁峻荣'
 ```
 
 孩子没娘，说来话长。
@@ -67,7 +67,6 @@ if (name) {
 
 这么一说，咱也好对文章进行划分了：
 
-* **第二章 前言**：开篇点题。
 * **第三章 Event Loop**：解释 Event Loop 产生原因和代码演示。
 * **第四章 浏览器 Event Loop**：解惑工作困扰和扩展必备面试知识点。
 * **第五章 Node.js Event Loop**：进一步探索浏览器和 Node.js 中 Event Loop 的不同。
@@ -92,7 +91,7 @@ OK，Let's go!
 
 而这种 **主线程从 “任务队列” 中读取执行事件，不断循环重复的过程**，就被称为 **事件循环（Event Loop）**。
 
-**然后**，如果前一个任务耗时很长，后一个任务就不得不一直等着，那么我们肯定要对这种情况做一些特殊处理，毕竟我们并不是完全希望它如此执行。
+**然后**，如果前一个任务耗时很长，后一个任务就不得不一直等着，那么我们肯定要对这种情况做一些特殊处理，毕竟很多时候我们并不是完全希望它如此执行。
 
 所以为了协调事件（event），用户交互（user interaction），脚本（script），渲染（rendering），网络（networking）等，用户代理（user agent）必须使用事件循环（event loops）。
 
@@ -104,22 +103,26 @@ OK，Let's go!
 
 ![图](../../../public-repertory/img/js-other-EventLoop-2.png)
 
-日常强制被加上了 “被豆豆妈打”，当然，这个被打的顺序也不一定是在后面，可能打多两次后，“睡觉” 完之后就是 “被豆豆妈打” 了。
+**jsliang** 日常中，强制被加上了 “被豆豆妈打”（废话，豆豆那么可爱，你怎么可以打豆豆）。
+
+当然，这个被打的顺序也不一定是在后面，可能打多两次后，“睡觉” 完之后就是 “被豆豆妈打” 了。
 
 通过这个解释，小伙伴们应该知道为啥有 **浏览器 Event Loop** 和 **Node.js Event Loop** 了。
 
 等等，你刚才说到了 **浏览器 Event Loop** 和 **Node.js Event Loop**，为什么都是关于 JavaScript 的，在这两部分都不一样呢？
 
-* 简单来说：**你的页面放到了浏览器去展示，你的数据放到了后台处理（将 Node 看成 PHP、Java 等后端语言），这两者能没有区别么？！**
+* 简单来说：**你的页面放到了浏览器去展示，你的数据放到了后台处理（将 Node.js 看成 PHP、Java 等后端语言），这两者能没有区别么？！**
 
-说得仔细点：
+你说了跟没说一样，为什么会这样你没有解释啊！
+
+好的，说得再仔细点：
 
 * **Node.js**：Node.js 的 Event Loop 是基于 libuv。libuv 已经对 Event Loop 作出了实现。
 * **浏览器**：浏览器的 Event Loop 是基于 [HTML5 规范](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops)的。而 HTML5 规范中只是定义了浏览器中的 Event Loop 的模型，具体实现留给了浏览器厂商。
 
 > libuv 是一个多平台支持库，主要用于异步 I/O。它最初是为 Node.js 开发的，现在 Luvit、Julia、pyuv 和其他的框架也使用它。[Github - libuv 仓库](https://github.com/libuv/libuv)
 
-恍然大悟，的确是不一样的！
+恍然大悟，的确是不一样的啊！
 
 所以，咱们得将这两个 Event Loop 区分开来，它们是不一样的东东哈~
 
@@ -139,22 +142,46 @@ for (var i = 0; i < 3; i++) {
 // 3
 ```
 
-这道题是面试常备题，它是个很有意思的问题，为此，**jsliang** 特意录制了一个 GIF，希望能帮小伙伴进一步探索这个机制：
+这道题是面试常备题，它是个很有意思的问题，不仅可以让面试官跟你闲聊到 Event Loop，也可以闲聊下 `var let const`。
+
+为此，**jsliang** 特意录制了一个 GIF，希望能帮助小伙伴进一步探索这个机制：
 
 ![图](../../../public-repertory/img/js-other-EventLoop-3.gif)
 
 > 软件是 VS Code，调试方式是 Node.js
 
-请仔细观看左侧 `i` 的变化和下边调试控制台的输出。
+请仔细观看 GIF 图：
 
 1. 在执行 `for` 遍历的时候，它先执行了和 `setTimeout` 同级的 `console`，然后往下执行，到 `setTimeout` 的时候，跳过了（放到某个位置）`setTimeout`，依次打印了 `0, 1, 2`。
 2. 步骤 1 跳过的三次 `setTimeout` 开始执行，但是这时候的 `i` 的值，经过前面的 `i++` 后，变成了 `3`（`for` 中止循环后，`i` 已经是 `3` 了）。所以，再依次打印了 `3 3 3`。
 
-就是说，先走了正常的 `for`，然后将 `setTimeout` 依次放到了异次元，最后再将异次元中的的 `setTimeout` 放出，依次将数字给输出了。
+就是说，先走了正常的 `for`，然后碰到 `setTimeout` 时，将 `setTimeout` 依次放到了异次元，最后走完 `for` 后，再将异次元中的的 `setTimeout` 放出，依次将数字给输出了。
 
 这个执行机制，就是 Event Loop 的影响，恍然大悟有木有~
 
-这个问题的精妙之处在于，它不仅可以问你关于 Event Loop 的部分，还可以考察你对于 ES6 的 `let` 和 ES5 的 `var` 的区分，因为它有一个解决方式就是使用了 ES6 的 `let`：
+这个问题的精妙之处在于，它不仅可以问你关于 Event Loop 的部分，还可以考察你对于 ES6 的 `let` 和 ES5 的 `var` 的区分，因为它有一个解决方式就是使用了 ES6 的 `let`。
+
+> 解决这个问题之前，不妨思考下下面的输出：
+
+```js
+for (var i = 0; i < 3; i++) {
+
+}
+for (let j = 0; j < 3; j++) {
+
+}
+console.log(i);
+console.log(j);
+```
+
+如果小伙伴对 ES6 有些许了解，应该不难猜出：
+
+```
+3
+ReferenceError: j is not defined
+```
+
+是不是有些想法，那么咱们再看下下面的解决方法，再进行总结：
 
 ```js
 for (let i = 0; i < 3; i++) {
@@ -174,11 +201,13 @@ for (let i = 0; i < 3; i++) {
 
 **`let` 在 `for` 中形成了独特的作用域块，当前的 `i` 只在本轮循环中有效，然后 `setTimeout` 会找到本轮最接近的 `i`，从而作出了正确的输出。**
 
-当然，你可能还是不太了解，亦或者面试官进一步问你 `var let const` 的区分了，你要怎么更好回答？
+而我们通过 `var` 进行的定义，它会污染全局变量，所以在 `for` 外层，还可以看到 `i` 的值。
+
+当然，讲到这里，你可能还是不太清楚更细节的区分，亦或者面试官进一步问你 `var let const` 的区分了，你要怎么更好回答？
 
 看看阮一峰大佬的 ES6 文档吧：http://es6.ruanyifeng.com/#docs/let
 
-这里就不哆嗦了，有空我再整理到我的文档库中，欢迎持续关注 jsliang 的文档库：https://github.com/LiangJunrong/document-library。
+这里就不哆嗦了，有空我再将这个整理到我的文档库中，欢迎持续关注 jsliang 的文档库：https://github.com/LiangJunrong/document-library。
 
 * 疑惑二：为什么这份代码它也不按照我的意思走？为啥不是输出 `梁峻荣`？
 
@@ -197,13 +226,13 @@ if (name) {
 // console: 'jsliang'
 ```
 
-当你了解产生疑惑一的原因后，疑惑二也就不破而接了。
+当你了解产生疑惑一的原因后，疑惑二也就不破而解了。
 
 我们希望的是 JavaScript 按照我们需要的顺序写，结果它并没有，就是因为受到了 Event Loop 的影响。
 
 JavaScript 在碰到 `setTimeout` 的时候，会将它封印进异次元，只有等所有正常的语句（`if`、`for`……）执行完毕后，才会将它从异次元解封，输出最终结果。
 
-嗨，这就有意思了，浏览器的异次元和 Node.js 的异次元都是怎样的呢？我们一起往下看。
+咦，这就有意思了，浏览器的异次元和 Node.js 的异次元都是怎样的呢？我们一起往下看。
 
 ## <a name="chapter-four" id="chapter-four"></a>四 浏览器 Event Loop
 
