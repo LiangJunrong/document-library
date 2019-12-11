@@ -222,6 +222,8 @@ Accepted
 
 改天咱们到算法模块专门讲解，持续关注公众号或者点击公众号原文关注我的仓库咯~
 
+https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/algorithms-and-data-structures/%E7%AE%97%E6%B3%95-%E6%A8%A1%E5%BC%8F-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.md
+
 那么，今天到此结束，明儿见！
 
 ---
