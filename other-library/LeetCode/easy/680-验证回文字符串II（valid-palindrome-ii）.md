@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-12 08:45:00**  
-> Recently revised in **2019-12-12 08:45:03**
+> Recently revised in **2019-12-12 10:43:58**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -88,15 +87,172 @@ var validPalindrome = function(s) {
 
 > [返回目录](#chapter-one)
 
-[图]
+**酒精误事，没事少喝酒**。
 
-[分析]
+折腾了近一个钟，愣是没啥想法，着急：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+> 【失败】暴力破解
 
-> [返回目录](#chapter-one)
+```js
+/**
+ * @name 判断左右字符串相等
+ */
+const judgeDifference = (arr) => {
+  let leftStr = '',
+      rightStr = '';
+  for (let i = 0; i < arr.length; i++) {
+    if (i < arr.length / 2) {
+      leftStr += arr[i];
+    }
+    if (i > arr.length / 2 - 1) {
+      rightStr = arr[i] + rightStr;
+    }
+  }
+  return leftStr === rightStr;
+};
 
-……
+/**
+ * @name 验证回文字符串II
+ * @param {string} s
+ * @return {boolean}
+ */
+const validPalindrome = (s) => {
+  if (judgeDifference(s)) {
+    return true;
+  }
+  for (let i = 0; i < s.length; i++) {
+    if (judgeDifference(s.slice(0, i) + s.slice(i + 1))) {
+      return true;
+    }
+  }
+  return false;
+};
+```
+
+Submit 提交发现：
+
+```js
+Time Limit Exceeded
+* 382/460 cases passed (N/A)
+```
+
+---
+
+当字符串足够大，例如题目说的 50000 长度的时候，就超时了，所以需要进行优化~
+
+> 【失败】暴力破解优化
+
+```js
+const validPalindrome = (s) => {
+  if (s === s.split('').reverse().join('')) {
+    return true;
+  }
+  for (let i = 0; i < s.length; i++) {
+    const tempArr = s.slice(0, i) + s.slice(i + 1);
+    if (tempArr === tempArr.split('').reverse().join('')) {
+      return true;
+    }
+  }
+  return false;
+};
+```
+
+Submit 提交：
+
+```js
+Time Limit Exceeded
+* 377/460 cases passed (N/A)
+```
+
+---
+
+事实证明暴力破解不了，咱们取巧吧：
+
+> 双指针
+
+```js
+/**
+ * @name 判断回文
+ * @param {Array} s 字符串
+ * @param {Number} left 左边位置
+ * @param {Number} right 右边位置
+ */
+const isPalindrome = (s, left, right) => {
+  while (left < right) {
+    if (s[left++] != s[right--]) {
+      return false;
+    }
+  }
+  return true;
+}
+/**
+ * @name 验证回文字符串II
+ * @param {string} s
+ * @return {boolean}
+ */
+const validPalindrome = (s) => {
+  const length = s.length;
+  if (length < 2) {
+    return true;
+  }
+  for (let i = 0; i < length; i++) {
+    const reversePosition = length - i - 1;
+    if (s[i] != s[reversePosition]) {
+      return isPalindrome(s, i + 1, reversePosition) || isPalindrome(s, i, reversePosition - 1);
+    }
+  }
+  return true;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 460/460 cases passed (92 ms)
+* Your runtime beats 92.36 % of javascript submissions
+* Your memory usage beats 30.44 % of javascript submissions (43 MB)
+```
+
+题解：
+
+1. 判断 `s` 的长度，不满 `2` 就返回 `true`。
+2. 遍历 `s`，设置两个指针，一个从头到尾 `i`，一个从尾到头 `reversePosition = length - i - 1`。
+3. 如果头和尾的字母不一致了，那么我们就判断 `i + 1` 和 `reversePosition` 之后是否为回文串，或者 `i` 和 `reversePosition - 1` 之后是否为回文串。
+4. 从条件 3 开始，进行判断，如果再次出现不一致的情况，说明出现了两次不一致了，此时不能通过删除一个字母搞定，返回 `false`。
+5. 除了上述条件外，其他都返回 `true`。
+
+---
+
+当然，【题解区】大佬的智慧是强大的，来看看递归：
+
+> 递归
+
+```js
+const validPalindrome = (s, count = 0) => {
+  for (let i = 0, j = s.length - 1; i < j; i++, j--) {
+    if (s[i] === s[j]) {
+      continue;
+    }
+    if (count > 0) {
+      return false;
+    }
+    return validPalindrome(s.slice(i, j), count + 1) || validPalindrome(s.slice(i + 1, j + 1), count + 1);
+  }
+  return true;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 460/460 cases passed (132 ms)
+* Your runtime beats 29.17 % of javascript submissions
+* Your memory usage beats 73.91 % of javascript submissions (42.5 MB)
+```
+
+如果小伙伴们有更好的思路或者见解，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
