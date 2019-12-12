@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-12 08:45:00**  
-> Recently revised in **2019-12-12 10:43:58**
+> Recently revised in **2019-12-12 11:14:11**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -66,13 +66,46 @@ var validPalindrome = function(s) {
 > index.js
 
 ```js
+/**
+ * @name 判断回文
+ * @param {Array} s 字符串
+ * @param {Number} left 左边位置
+ * @param {Number} right 右边位置
+ */
+const isPalindrome = (s, left, right) => {
+  while (left < right) {
+    if (s[left++] != s[right--]) {
+      return false;
+    }
+  }
+  return true;
+}
+/**
+ * @name 验证回文字符串II
+ * @param {string} s
+ * @return {boolean}
+ */
+const validPalindrome = (s) => {
+  const length = s.length;
+  if (length < 2) {
+    return true;
+  }
+  for (let i = 0; i < length; i++) {
+    const reversePosition = length - i - 1;
+    if (s[i] != s[reversePosition]) {
+      return isPalindrome(s, i + 1, reversePosition) || isPalindrome(s, i, reversePosition - 1);
+    }
+  }
+  return true;
+};
 
+console.log(validPalindrome('abccbba'));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -80,7 +113,10 @@ var validPalindrome = function(s) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 460/460 cases passed (92 ms)
+* Your runtime beats 92.36 % of javascript submissions
+* Your memory usage beats 30.44 % of javascript submissions (43 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
