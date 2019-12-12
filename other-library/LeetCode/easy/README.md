@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-11 08:41:58**
+> Recently revised in **2019-12-12 10:44:29**
 
 LeetCode 简单难度攻略
 
@@ -169,6 +169,7 @@ LeetCode 简单难度攻略
 | 50 | 669 - 修剪二叉搜索树（trim-a-binary-search-tree） | [#669 解题](./669-修剪二叉搜索树（trim-a-binary-search-tree）.md) |
 | 51 | 671 - 二叉树中第二小的节点（second-minimum-node-in-a-binary-tree） | [#671 解题](./671-二叉树中第二小的节点（second-minimum-node-in-a-binary-tree）.md) |
 | 52 | 674 - 最长连续递增数列（longest-continuous-increasing-subsequence） | [#674 解题](./674-最长连续递增数列（longest-continuous-increasing-subsequence）.md) |
+| 53 | 680 - 验证回文字符串II（valid-palindrome-ii） | [#680 解题](./680-验证回文字符串II（valid-palindrome-ii）.md) |
 
 ---
 
