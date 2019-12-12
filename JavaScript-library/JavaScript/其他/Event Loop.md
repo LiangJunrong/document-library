@@ -2,7 +2,7 @@ Event Loop
 ===
 
 > Create by **jsliang** on **2019-12-09 11:34:15**  
-> Recently revised in **2019-12-11 10:22:18**
+> Recently revised in **2019-12-12 19:49:39**
 
 **关注 jsliang 的文档库，了解更多技术、理财、健身文档：https://github.com/LiangJunrong/document-library**
 
@@ -207,7 +207,7 @@ for (let i = 0; i < 3; i++) {
 
 看看阮一峰大佬的 ES6 文档吧：http://es6.ruanyifeng.com/#docs/let
 
-这里就不哆嗦了，有空我再将这个整理到我的文档库中，欢迎持续关注 jsliang 的文档库：https://github.com/LiangJunrong/document-library。
+这里就不哆嗦了，有空我再将 ES6 这块内容整理到我的文档库中，欢迎持续关注 jsliang 的文档库：https://github.com/LiangJunrong/document-library。
 
 * 疑惑二：为什么这份代码它也不按照我的意思走？为啥不是输出 `梁峻荣`？
 
@@ -237,6 +237,22 @@ JavaScript 在碰到 `setTimeout` 的时候，会将它封印进异次元，只�
 ## <a name="chapter-four" id="chapter-four"></a>四 浏览器 Event Loop
 
 > [返回目录](#chapter-one)
+
+在讲解浏览器的 Event Loop 前，我们需要先了解一下 JavaScript 的运行机制：
+
+1. 所有同步任务都在主线程上执行，形成一个 **“执行栈”**（execution context stack）。
+2. 主线程之外，存在一个 **“任务队列”**（task queue），在走主流程的时候，如果碰到异步任务，那么就在 **“任务队列”** 中放置这个异步任务。
+3. 一旦 **“执行栈”** 中所有同步任务执行完毕，系统就会读取 **“任务队列”**，看看里面存在哪些事件。那些对应的异步任务，结束等待状态，进入执行栈，开始执行。
+4. 主线程不断重复上面三个步骤。
+
+而 JavaScript 的异步任务，还细分两种任务：
+
+* **宏任务（Macrotask）**：`script`（整体代码）、`setTimeout`、`setInterval`、`XMLHttpRequest.prototype.onload`、`I/O`、UI 渲染
+* **微任务（Microtask）**：`Promise`、`MutationObserver`
+
+这么讲是不太容易理解的，咱们上图：
+
+
 
 ```js
 for (var i = 0; i < 3; i++) {
@@ -276,9 +292,21 @@ console.log('done');
 
 > [返回目录](#chapter-one)
 
+
+
 ## <a name="chapter-six" id="chapter-six"></a>六 总结
 
 > [返回目录](#chapter-one)
+
+如果你看到这里，你已经近乎懵逼，那么，给你一个建议：
+
+* **不管 Event Loop 在浏览器亦或者 Node.js 表现机制，最好的操作还是在对应环境中进行尝试。**
+
+你不能完全保证你的记忆力是 OK 的，所以你只需要知道有这个问题，然后在工作中实践解决即可。
+
+enm...所以你看完了一篇水文，唯一的作用是让你面试的时候，能愉快地玩耍一些简单题目~
+
+哈哈，Good luck.
 
 ## <a name="chapter-seven" id="chapter-seven"></a>七 参考文献
 
@@ -301,6 +329,7 @@ console.log('done');
 11. [《浏览器与 Node 的事件循环(Event Loop)有何区别?》 - 浪里行舟](https://juejin.im/post/5c337ae06fb9a049bc4cd218)
 12. [《浏览器和 Node 不同的事件循环（Event Loop）》 - toBeTheLight](https://juejin.im/post/5aa5dcabf265da239c7afe1e)
 13. [《let 和 const 命令》 - 阮一峰](http://es6.ruanyifeng.com/#docs/let)
+14. [《Node.js Event Loop》 - Node.js 官网](https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/)
 
 ---
 
