@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-13 08:57:56**  
-> Recently revised in **2019-12-13 08:58:35**
+> Recently revised in **2019-12-13 09:33:50**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -76,13 +75,76 @@ var addTwoNumbers = function(l1, l2) {
 > index.js
 
 ```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @name 两数之和
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+const addTwoNumbers = (l1, l2, carry = 0) => {
+  // 将两个链表同位相加，还要加上次同位相加的进位
+  let val = l1.val + l2.val + carry;
+  if (val >= 10) {
+    // 大于 10， 进一位
+    val = val % 10;
+    carry = 1;
+  } else {
+    // 小于 10 不用进位
+    carry = 0;
+  }
 
+  // 只要有下一位或进位，next 是下一位和进位的和，否则 next 就是 null
+  const nullList = {
+    val: 0,
+    next: null,
+  }
+  if (l1.next || l2.next || carry) {
+    return {
+      val,
+      next: addTwoNumbers(l1.next || nullList, l2.next || nullList, carry),
+    }
+  }
+  return {
+    val,
+    next: null,
+  }
+};
+
+const l1 = {
+  val: 3,
+  next: {
+    val: 4,
+    next: {
+      val: 2,
+      next: null
+    },
+  },
+};
+const l2 = {
+  val: 4,
+  next: {
+    val: 6,
+    next: {
+      val: 5,
+      next: null
+    },
+  },
+};
+console.log(addTwoNumbers(l1, l2));
+// { val: 7, next: { val: 0, next: { val: 8, next: null } } }
 ```
 
 `node index.js` 返回：
 
 ```js
-
+{ val: 7, next: { val: 0, next: { val: 8, next: null } } }
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -90,22 +152,70 @@ var addTwoNumbers = function(l1, l2) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 1563/1563 cases passed (124 ms)
+* Your runtime beats 91.63 % of javascript submissions
+* Your memory usage beats 73.06 % of javascript submissions (38.3 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**树亦或者链，能用递归用递归。**
 
-[分析]
+在 **jsliang** 看来递归是比较好用的一种算法模式了，能帮助我解决很多关于树或者链表的问题：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+> 递归破解
 
-> [返回目录](#chapter-one)
+```js
+const addTwoNumbers = (l1, l2, carry = 0) => {
+  // 将两个链表同位相加，还要加上次同位相加的进位
+  let val = l1.val + l2.val + carry;
+  if (val >= 10) {
+    // 大于 10， 进一位
+    val = val % 10;
+    carry = 1;
+  } else {
+    // 小于 10 不用进位
+    carry = 0;
+  }
 
-……
+  // 只要有下一位或进位，next 是下一位和进位的和，否则 next 就是 null
+  const nullList = {
+    val: 0,
+    next: null,
+  }
+  if (l1.next || l2.next || carry) {
+    return {
+      val,
+      next: addTwoNumbers(l1.next || nullList, l2.next || nullList, carry),
+    }
+  }
+  return {
+    val,
+    next: null,
+  }
+};
+```
+
+解题思路：
+
+1. 进行进位判断，因为链表的值都是个位数，所以只需要判断是否需要进 1 即可。
+2. 定义空链表 `nullList`，因为有时候 `l1.next` 或者 `l2.next` 已经空了，所以需要给个 0 定义。
+3. 进行递归判断，只要存在 `l1.next` 或者 `l2.next` 或者 `carry` 这三个，我们都进行递归。
+4. 否则，如果步骤 3 不成立，我们就告诉递归，我们到了尽头了，你可以结束递归了。
+
+这样，我们就成功破解了这道题，Submit 提交如下：
+
+```js
+Accepted
+* 1563/1563 cases passed (124 ms)
+* Your runtime beats 91.63 % of javascript submissions
+* Your memory usage beats 73.06 % of javascript submissions (38.3 MB)
+```
+
+当然，你肯定有其他思路或者想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
