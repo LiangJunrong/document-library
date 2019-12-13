@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-13 07:59:55**  
-> Recently revised in **2019-12-13 07:59:58**
+> Recently revised in **2019-12-13 08:55:37**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -93,13 +93,51 @@ var calPoints = function(ops) {
 > index.js
 
 ```js
+/**
+ * @name 棒球比赛
+ * @param {string[]} ops
+ * @return {number}
+ */
+const calPoints = (ops) => {
+  let result = 0;
+  for (let i = 0; i < ops.length; i++) {
+    // 正常得分
+    if (Number.isInteger(Number(ops[i])) && ops[i + 1] !== 'C') {
+      result += Number(ops[i]);
+      ops[i] = Number(ops[i]);
+    } else if (ops[i] === 'C') { // 'C' - 删除得分
+      result -= Number(ops[i - 1]);
+      ops.splice(i - 1, 2);
+      i -= 2;
+    } else if (ops[i + 1] === 'C') { // 'C' - 删除得分
+      ops.splice(i, 2);
+      i--;
+    } else if (ops[i] === 'D' && ops[i - 1]) { // 'D' - 前一轮有效得分的两倍
+      result += Number(ops[i - 1] * 2);
+      ops[i] = Number(ops[i - 1] * 2);
+    } else if (ops[i] === '+') { // '+' - 前两轮有效得分的和
+      result += Number(ops[i - 2] + ops[i - 1]);
+      ops[i] = Number(ops[i - 2] + ops[i - 1]);
+    }
+  }
+  return result;
+};
 
+console.log(calPoints(['5', '2', 'C', 'D', '+'])); // 30
+console.log(calPoints(['5', '-2', '4', 'C', 'D', '9', '+', '+'])); // 27
+console.log(calPoints(['4', 'D', 'D', 'C', 'D'])); // 28
+console.log(calPoints(['-60','D','-36','30','13','C','C','-33','53','79'])); // -117
+console.log(calPoints(['10','20','30','40','C','C','C'])); // -117
 ```
 
 `node index.js` 返回：
 
 ```js
-
+30
+27
+28
+-117
+10
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -107,22 +145,72 @@ var calPoints = function(ops) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 39/39 cases passed (84 ms)
+* Your runtime beats 25.94 % of javascript submissions
+* Your memory usage beats 39.24 % of javascript submissions (35.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**鬼知道我经历了什么，就是 if...if...if 跑完了题目。**
 
-[分析]
+> 暴力破解
+
+```js
+const calPoints = (ops) => {
+  let result = 0;
+  for (let i = 0; i < ops.length; i++) {
+    // 正常得分
+    if (Number.isInteger(Number(ops[i])) && ops[i + 1] !== 'C') {
+      result += Number(ops[i]);
+      ops[i] = Number(ops[i]);
+    } else if (ops[i] === 'C') { // 'C' - 删除得分
+      result -= Number(ops[i - 1]);
+      ops.splice(i - 1, 2);
+      i -= 2;
+    } else if (ops[i + 1] === 'C') { // 'C' - 删除得分
+      ops.splice(i, 2);
+      i--;
+    } else if (ops[i] === 'D' && ops[i - 1]) { // 'D' - 前一轮有效得分的两倍
+      result += Number(ops[i - 1] * 2);
+      ops[i] = Number(ops[i - 1] * 2);
+    } else if (ops[i] === '+') { // '+' - 前两轮有效得分的和
+      result += Number(ops[i - 2] + ops[i - 1]);
+      ops[i] = Number(ops[i - 2] + ops[i - 1]);
+    }
+  }
+  return result;
+};
+```
+
+是的，你没看错，就是一对的 `if...else if...` 判断，其他正常得分啊、'D'、'+' 啊还好，有一种情况：
+
+* `['10', '10', '10', 'C', 'C']`
+
+这种，会让你猝不及防，因为删除后面的一个 `'C'` 后，下一轮到的还是 `'C'`，于是不得不加上判断：
+
+```js
+else if (ops[i] === 'C') { // 'C' - 删除得分
+  result -= Number(ops[i - 1]);
+  ops.splice(i - 1, 2);
+  i -= 2;
+} 
+```
+
+就是防止删除 `'C'` 后，本轮还是 `'C'`。
+
+详细的我就不说了，按照正常的题目规则走即可。
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+这道题肯定还有更有意思的解法。
+
+但是我被恶心到了，然后今天有两道题解，所以如果你对这道题有想法，欢迎评论留言或者私聊~
 
 ---
 
