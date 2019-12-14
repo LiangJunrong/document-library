@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-14 17:26:58**  
-> Recently revised in **2019-12-14 17:27:01**
+> Recently revised in **2019-12-14 18:05:10**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -71,13 +71,30 @@ var repeatedStringMatch = function(A, B) {
 > index.js
 
 ```js
+/**
+ * @name 重复叠加字符串匹配
+ * @param {string} A
+ * @param {string} B
+ * @return {number}
+ */
+const repeatedStringMatch = (A, B) => {
+  const mutiple = Math.ceil(B.length / A.length);
+  if (A.repeat(mutiple).includes(B)) {
+    return mutiple;
+  }
+  if (A.repeat(mutiple + 1).includes(B)) {
+    return mutiple + 1;
+  }
+  return -1;
+};
 
+console.log(repeatedStringMatch('abcd', 'cdabcdab'));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+3
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -85,22 +102,140 @@ var repeatedStringMatch = function(A, B) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 55/55 cases passed (48 ms)
+* Your runtime beats 100 % of javascript submissions
+* Your memory usage beats 83.33 % of javascript submissions (33.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，看完题目，我觉得可能有一种思路陷阱：
 
-[分析]
+* 拿到 A 和 B；
+* 判断需要叠加 `n` 次 A 之后，能超过 B 的长度；
+* 将 A 进行 `repeat()` 到 `n` 次后，去匹对 B；
+* 结果还有种可能，就是 `n` 次不够，但是 `n + 1` 次却是够的。
+
+事实也是如此，题目的示例：
+
+* A = "abcd"，B = "cdabcdab"
+
+就已证明 A 需要叠加 3 次变成 `abcdabcdabcd` 才能将 B 变成其子串。（实际 A 叠加 2 次后就跟 B 一样长了）
+
+话不多说，咱们直接解题，看看能否成功：
+
+> 暴力破解
+
+```js
+const repeatedStringMatch = (A, B) => {
+  const mutiple = Math.ceil(B.length / A.length);
+  if (A.repeat(mutiple).includes(B)) {
+    return mutiple;
+  }
+  if (A.repeat(mutiple + 1).includes(B)) {
+    return mutiple + 1;
+  }
+  return -1;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 55/55 cases passed (48 ms)
+* Your runtime beats 100 % of javascript submissions
+* Your memory usage beats 83.33 % of javascript submissions (33.7 MB)
+```
+
+瞎猫碰上死耗子！
+
+这么看来一般有两种可能：
+
+* A = 'abcd', B = 'cdabcdab'
+* A = 'a', B = 'aa'
+
+其他的我提交这份暴力破解方法的时候没碰到，所以猜测一般是这两个了。
+
+既然如此，优化成一行代码吧：
+
+> 一行代码版本 1
+
+```js
+const repeatedStringMatch = (A, B) => {
+  return A.repeat(Math.ceil(B.length / A.length)).includes(B)
+    ? Math.ceil(B.length / A.length)
+    : A.repeat(Math.ceil(B.length / A.length) + 1).includes(B)
+      ? Math.ceil(B.length / A.length) + 1
+      : -1;
+};
+```
+
+Submit 提交效果咱们就不发了，一般一行代码的效率，你懂的~
+
+> 噢，这里我还不是一行，我强行分了几行，好看一点，如果你工作中想坑队友，可以将这些换行都干掉，然后你同事就会很愉快地把你干掉。
+
+> 一行代码版本 2
+
+```js
+const repeatedStringMatch = (A, B) => A.repeat(Math.ceil(B.length / A.length)).includes(B) ? Math.ceil(B.length / A.length)  : A.repeat(Math.ceil(B.length / A.length) + 1).includes(B) ? Math.ceil(B.length / A.length) + 1  : -1;
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+enm...好像是不是解题太快了，现在时间是：
+
+* 2019-12-14 17:51:31
+
+开始的时间是：
+
+* 2019-12-14 17:27:01
+
+咱们，再去【题解区】和【评论区】看看吧，说不定有所收获。
+
+> 可以理解为这菜鸡 liang 想不出其他法子了。
+
+下面看看别人的代码，就不做过多评论的，总感觉我写的简单好多：
+
+> 评论区代码 1
+
+```js
+var repeatedStringMatch = function(A, B) {
+  let num = Math.ceil(B.length / A.length) + 1;
+  let temp = A;
+  for (let i = 0; i < num; i++) {
+    if (A.indexOf(B) != -1) {
+      return i + 1;
+    }
+    A += temp;
+  }
+  return -1;
+};
+```
+
+> 评论区代码 2
+
+```js
+var repeatedStringMatch = function(A, B) {
+  let max = "";
+  while (max.length < B.length + A.length) {
+    max += A;
+  }
+  for (let i = 0; i < A.length; i++) {
+    if (max.substring(i, i + B.length) == B) {
+      return Math.floor((i + B.length - 1) / A.length) + 1;
+    }
+  }
+  return -1;
+};
+```
+
+如果你有更好的想法或者思路，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
