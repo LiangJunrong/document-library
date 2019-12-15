@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-15 11:16:04**  
-> Recently revised in **2019-12-15 11:17:34**
+> Recently revised in **2019-12-15 12:27:26**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -89,13 +89,77 @@ var longestUnivaluePath = function(root) {
 > index.js
 
 ```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @name 最长同值路径
+ * @param {TreeNode} root
+ * @return {number}
+ */
+const longestUnivaluePath = (root) => {
+  let answer = 0;
+  const ergodic = (root) => {
+    if (!root) {
+      return 0;
+    }
+    const left = ergodic(root.left);
+    const right = ergodic(root.right);
+    let leftTimer = 0, rightTimer = 0;
+    if (root.left && root.left.val === root.val) {
+      leftTimer += left + 1;
+    }
+    if (root.right && root.right.val === root.val) {
+      rightTimer += right + 1;
+    }
+    answer = Math.max(answer, leftTimer + rightTimer);
+    return Math.max(leftTimer, rightTimer);
+  };
+  ergodic(root);
+  return answer;
+};
 
+// const root = {
+//   val: 5,
+//   left: {
+//     val: 4,
+//     left: { val: 1, left: null, right: null },
+//     right: { val: 1, left: null, right: null },
+//   },
+//   right: {
+//     val: 5,
+//     left: null,
+//     right: { val: 5, left: null, right: null },
+//   },
+// };
+// 2
+
+const root = {
+  val: 1,
+  left: {
+    val: 4,
+    left: { val: 4, left: null, right: null },
+    right: { val: 4, left: null, right: null },
+  },
+  right: {
+    val: 5,
+    left: null,
+    right: { val: 5, left: null, right: null },
+  },
+};
+// 2
+
+console.log(longestUnivaluePath(root));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+2
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -103,22 +167,152 @@ var longestUnivaluePath = function(root) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 71/71 cases passed (204 ms)
+* Your runtime beats 74.73 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (51.6 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，看完题目，发现好像题目没有讲到：
 
-[分析]
+* **怎样的路径才是最长路径？**
+
+盲目猜测是同一个值，例如 5，在示例 1 中有 3 个 5 连起来，中间两条线，所以输出 2：
+
+```
+示例 1:
+输入:
+          5
+         / \
+        4   5
+       / \   \
+      1   1   5
+输出:
+2
+```
+
+然后在示例 2 中，3 个 4 连起来，中间也是两条线，所以输出 2：
+
+```
+示例 2:
+输入:
+          1
+         / \
+        4   5
+       / \   \
+      4   4   5
+输出:
+2
+```
+
+题目贴的标签是【树】和【递归】，所以咱们使用【递归】尝试下：
+
+> 递归解题
+
+```js
+const longestUnivaluePath = (root) => {
+  let answer = 0;
+  const ergodic = (root) => {
+    if (!root) {
+      return 0;
+    }
+    const left = ergodic(root.left);
+    const right = ergodic(root.right);
+    let leftTimer = 0, rightTimer = 0;
+    if (root.left && root.left.val === root.val) {
+      leftTimer += left + 1;
+    }
+    if (root.right && root.right.val === root.val) {
+      rightTimer += right + 1;
+    }
+    answer = Math.max(answer, leftTimer + rightTimer);
+    return Math.max(leftTimer, rightTimer);
+  };
+  ergodic(root);
+  return answer;
+};
+```
+
+**好吧，上面答案并不是我写的。**
+
+这点很重要，承认自己不足才能获取更大的进步。
+
+在写这道题的时候，我最终步骤是想到了从下往上走的思路，但是我实现不出来，因为正常递归来说：
+
+* 从上往下想容易，从下往上走难。
+
+所以我去看了下怎么从下往上走，解题思路为：
+
+1. 定义 `ergodic` 遍历树。
+2. 定义 `left` 获取左侧树的最长路径，定义 `right` 获取右侧数的最长路径。
+3. 如果有左侧树，并且左侧树的值和当前节点的值相等，那么设置 `leftTimer += left + 1`；如果有右侧数，并且右侧数的值和当前节点的值相等，那么设置 `rightTimer += right + 1`。
+4. 此时判断外部变量 `answer` 和 `leftTimer + rightTimer` 的最大值，如果有最新值，则替换掉 `answer`。
+5. `ergodic` 返回 `leftTimer` 和 `rightTimer` 的最大值（符合题目最长同值路径）。
+
+这样，就解决了这道题。
+
+Submit 提交：
+
+```js
+Accepted
+* 71/71 cases passed (204 ms)
+* Your runtime beats 74.73 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (51.6 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+但是，因为题解来源于官方题解：
+
+* 官方题解：https://leetcode-cn.com/problems/longest-univalue-path/solution/zui-chang-tong-zhi-lu-jing-by-leetcode/
+
+而在题解过程中，`ergodic` 还是出现了一些变量，每次递归都需要初始化，所以我想官方题解应该没有利用好递归的优点，对此进行了一些优化：
+
+```js
+const longestUnivaluePath = (root) => {
+  let answer = 0;
+  const ergodic = (root, val) => {
+    if (!root) {
+      return 0;
+    }
+    const left = ergodic(root.left, root.val);
+    const right = ergodic(root.right, root.val);
+    answer = Math.max(answer, left + right);
+    if (root.val === val) {
+      return Math.max(left, right) + 1;
+    } else {
+      return 0;
+    }
+  };
+  ergodic(root);
+  return answer;
+};
+```
+
+曾记得做过的这些树题目中，还是有许多题目需要从下往上走的，所以记住这个套路，那么很多时候都能解决问题。
+
+在这个套路中，我们需要知道的是：
+
+1. 如果没值，则返回 0，如果有值，则返回最大值。
+2. `Math.max(left, right)` 会做进一步的递归，如果持续相等，那么 `max` 最大值会一直累加 1。
+3. 我们需要一个外部变量 `answer`，因为一棵树中可能出现不止一次的最大值，当然，我们也可以返回一个数组，记录 `[val, answer]`，也是可以的。
+
+Submit 提交：
+
+```js
+Accepted
+* 71/71 cases passed (208 ms)
+* Your runtime beats 65.93 % of javascript submissions
+* Your memory usage beats 58.33 % of javascript submissions (52.1 MB)
+```
+
+如果你有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
