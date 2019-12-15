@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-14 18:05:47**
+> Recently revised in **2019-12-15 12:28:07**
 
 LeetCode 简单难度攻略
 
@@ -172,6 +172,7 @@ LeetCode 简单难度攻略
 | 53 | 680 - 验证回文字符串II（valid-palindrome-ii） | [#680 解题](./680-验证回文字符串II（valid-palindrome-ii）.md) |
 | 54 | 682 - 棒球比赛（baseball-game） | [#682 解题](./682-棒球比赛（baseball-game）.md) |
 | 55 | 686 - 重复叠加字符串匹配（repeated-string-match） | [#686 解题](./686-重复叠加字符串匹配（repeated-string-match）.md) |
+| 56 | 687 - 最长同值路径（longest-univalue-path） | [#687 解题](./687-最长同值路径（longest-univalue-path）.md) |
 
 ---
 
