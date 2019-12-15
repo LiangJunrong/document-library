@@ -2,9 +2,9 @@ Event Loop
 ===
 
 > Create by **jsliang** on **2019-12-09 11:34:15**  
-> Recently revised in **2019-12-15 21:05:09**
+> Recently revised in **2019-12-15 21:12:21**
 
-**关注 jsliang 的文档库 —— 一个穷尽一生更新的仓库，查看更多技术、理财、健身文章：https://github.com/LiangJunrong/document-library**
+**欢迎关注 jsliang 的文档库 —— 一个穷尽一生更新的仓库，查看更多技术、理财、健身文章：https://github.com/LiangJunrong/document-library**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -318,7 +318,7 @@ console.log('done');
 
 OK，开始走流程：
 
-> **如果你觉得文字不好理解，请往下翻，有 GIF 图示例！！！**
+> **如果你觉得文字不好理解，请往下翻，有 GIF 图演示！！！**
 
 1. 首先碰到的是 `script`（整体代码），先看【位置 1】，属于宏任务 `setTimeout` 下的，所以做个标记，待会回来执行。
 2. 接着碰到【位置 2】，这是 `script`（整体代码）下的无阻碍代码，直接执行即可。
