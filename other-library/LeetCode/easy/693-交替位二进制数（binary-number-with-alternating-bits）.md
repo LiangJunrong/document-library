@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-16 08:40:58**  
-> Recently revised in **2019-12-16 08:46:57**
+> Recently revised in **2019-12-16 09:07:45**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -81,13 +80,34 @@ var hasAlternatingBits = function(n) {
 > index.js
 
 ```js
+/**
+ * @name 交替位二进制数
+ * @param {number} n
+ * @return {boolean}
+ */
+const hasAlternatingBits = (n) => {
+  const newNumber = n.toString(2);
+  for (let i = 0; i < newNumber.length - 1; i++) {
+    if (newNumber[i] === newNumber[i + 1]) {
+      return false;
+    }
+  }
+  return true;
+};
 
+console.log(hasAlternatingBits(5)); // true
+console.log(hasAlternatingBits(7)); // false
+console.log(hasAlternatingBits(11)); // false
+console.log(hasAlternatingBits(10)); // true
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
+false
+true
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -95,22 +115,105 @@ var hasAlternatingBits = function(n) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 204/204 cases passed (76 ms)
+* Your runtime beats 23.81 % of javascript submissions
+* Your memory usage beats 45 % of javascript submissions (33.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**幸福来得太突然，解题来得太简单**。
 
-[分析]
+上手直接代码：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+> 使用 JavaScript 附带方法
 
-> [返回目录](#chapter-one)
+```js
+const hasAlternatingBits = (n) => {
+  const newNumber = n.toString(2);
+  for (let i = 0; i < newNumber.length - 1; i++) {
+    if (newNumber[i] === newNumber[i + 1]) {
+      return false;
+    }
+  }
+  return true;
+};
+```
 
-……
+还没细细品味告诉我已经完毕了：
+
+1. 通过 `toString(2)` 直接转二进制。
+2. 遍历 `newNumber`，比较当前数字和下一个数字是否一致。
+
+```js
+Accepted
+* 204/204 cases passed (76 ms)
+* Your runtime beats 23.81 % of javascript submissions
+* Your memory usage beats 45 % of javascript submissions (33.7 MB)
+```
+
+这时候，应该会有小伙伴吐槽：
+
+* 用 JavaScript 附带的二进制转换算什么，有本事自己写啊~
+
+明确的回复是：能用工具的人工作效率明显会比不用工具的人快。
+
+但是总不能一棒子打死嘛，那就表演下真正的技术吧：
+
+> 手写一个原生方法
+
+```js
+/**
+ * @name 转二进制
+ * @param {Number} number 需要转换的数字
+ */
+const binaryConversion = (number) => {
+  let result = '';
+  while (number > 0) {
+    result += number % 2;
+    number = Math.floor(number / 2);
+  }
+  return result;
+};
+
+/**
+ * @name 交替位二进制数
+ * @param {number} n
+ * @return {boolean}
+ */
+const hasAlternatingBits = (n) => {
+  const newNumber = binaryConversion(n);
+  for (let i = 0; i < newNumber.length - 1; i++) {
+    if (newNumber[i] === newNumber[i + 1]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+console.log(hasAlternatingBits(5)); // true
+console.log(hasAlternatingBits(7)); // false
+console.log(hasAlternatingBits(11)); // false
+console.log(hasAlternatingBits(10)); // true
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 204/204 cases passed (52 ms)
+* Your runtime beats 99.21 % of javascript submissions
+* Your memory usage beats 15 % of javascript submissions (34.2 MB)
+```
+
+搞定~
+
+收工！
+
+如果你有更好的思路或者观点，欢迎评论留言或者私聊~
 
 ---
 
