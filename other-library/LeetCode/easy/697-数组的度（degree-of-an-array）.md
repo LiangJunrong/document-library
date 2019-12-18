@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-18 09:05:11**  
-> Recently revised in **2019-12-18 09:05:14**
+> Recently revised in **2019-12-18 10:34:40**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -83,13 +82,46 @@ var findShortestSubArray = function(nums) {
 > index.js
 
 ```js
+/**
+ * @name 数组的度
+ * @param {number[]} nums
+ * @return {number}
+ */
+const findShortestSubArray = (nums) => {
+  const map = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (map.get(nums[i]) !== undefined) {
+      map.set(nums[i], map.get(nums[i]) + 1);
+    } else {
+      map.set(nums[i], 1);
+    }
+  }
+  let maxNumber = Number.MIN_SAFE_INTEGER;
+  let maxNumberList = [];
+  for (let [key, value] of map) {
+    if (value > maxNumber) {
+      maxNumber = value;
+      maxNumberList = [key];
+    } else if (value === maxNumber) {
+      maxNumberList.push(key);
+    }
+  }
+  let result = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < maxNumberList.length; i++) {
+    result = Math.min(result, nums.lastIndexOf(maxNumberList[i]) - nums.indexOf(maxNumberList[i]) + 1);
+  }
+  return result;
+};
 
+console.log(findShortestSubArray([1, 2, 2, 3, 1])); // 2
+console.log(findShortestSubArray([1, 2, 2, 3, 1, 4, 2])); // 6
 ```
 
 `node index.js` 返回：
 
 ```js
-
+2
+6
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -97,22 +129,115 @@ var findShortestSubArray = function(nums) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 89/89 cases passed (136 ms)
+* Your runtime beats 44.68 % of javascript submissions
+* Your memory usage beats 72.73 % of javascript submissions (39.5 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**忍不住想翻答案，最终敌不过自己的好强心**。
 
-[分析]
+第一次题解如下所示：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+> 哈希表
 
-> [返回目录](#chapter-one)
+```js
+const findShortestSubArray = (nums) => {
+  const map = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (map.get(nums[i]) !== undefined) {
+      map.set(nums[i], map.get(nums[i]) + 1);
+    } else {
+      map.set(nums[i], 1);
+    }
+  }
+  let maxNumber = Number.MIN_SAFE_INTEGER;
+  let maxNumberList = [];
+  for (let [key, value] of map) {
+    if (value > maxNumber) {
+      maxNumber = value;
+      maxNumberList = [key];
+    } else if (value === maxNumber) {
+      maxNumberList.push(key);
+    }
+  }
+  let result = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < maxNumberList.length; i++) {
+    result = Math.min(result, nums.lastIndexOf(maxNumberList[i]) - nums.indexOf(maxNumberList[i]) + 1);
+  }
+  return result;
+};
+```
 
-……
+题解思路为：
+
+1. 设置 `map` 存储哈希。
+2. 第一个 `for` 遍历，将所有的值及其出现的次数，统计到 `map` 中。
+3. 设置最大值 `maxNumber` 及最大值都有哪些值 `maxNumberList`。
+4. 第二个 `for` 遍历，将 `maxNumber` 和 `maxNumberList` 填充上。
+5. 设置结果为 `result`。
+6. 第三个 `for` 遍历，将 `maxNumberList` 过一遍，在 `nums` 中查找 `maxNumberList` 中每个元素的 `indexOf` 和 `lastIndexOf`，通过 `lastIndexOf - indexOf + 1` 的计算，可以得到最短路线。
+7. 返回结果为 `result`。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 89/89 cases passed (136 ms)
+* Your runtime beats 44.68 % of javascript submissions
+* Your memory usage beats 72.73 % of javascript submissions (39.5 MB)
+```
+
+刚才讲解思路的时候，突然想起，我好像可以将两个 `for` 结合成一个，方法如下：
+
+> 哈希表优化
+
+```js
+const findShortestSubArray = (nums) => {
+  let newNums = [...new Set(nums)];
+  let timeMax = Number.MIN_SAFE_INTEGER;
+  let result = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < newNums.length; i++) {
+    const length = nums.filter(item => item === newNums[i]).length;
+    if (length > timeMax) {
+      result = nums.lastIndexOf(newNums[i]) - nums.indexOf(newNums[i]) + 1;
+      timeMax = length;
+    } else if (length === timeMax) {
+      result = Math.min(result, nums.lastIndexOf(newNums[i]) - nums.indexOf(newNums[i]) + 1);
+      timeMax = length;
+    }
+  }
+  return result;
+};
+```
+
+思路如下：
+
+1. 设置 `newNums` 来简化我们需要遍历的 `nums` 长度。
+2. 设置 `timeMax` 记录出现次数最多的值。
+3. 设置 `result` 记录需要返回的长度。
+4. 遍历 `newNums`，查找每一个元素在原 `nums` 中出现的次数。
+5. 判断这个长度是大于 `timeMax` 还是等于 `timeMax`。
+6. 如果 `length > timeMax`，那么我们重新设置 `result = lastIndexOf - indexOf + 1`；
+7. 如果 `length = timeMax`，那么我们取原 `result` 和目前 `lastIndexOf - indexOf + 1` 中的最小值。
+8. 返回结果。
+
+Submit 提交：
+
+```js
+Accepted
+* 89/89 cases passed (468 ms)
+* Your runtime beats 5.67 % of javascript submissions
+* Your memory usage beats 36.36 % of javascript submissions (42.2 MB)
+```
+
+代码是 **精简** 了，但是因为它使用了双重循环嵌套，所以比起第一次来还更加不如。
+
+如果你有更好的思路或者看法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
