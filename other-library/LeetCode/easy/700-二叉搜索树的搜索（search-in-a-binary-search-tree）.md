@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-19 08:44:54**  
-> Recently revised in **2019-12-19 08:46:43**
+> Recently revised in **2019-12-19 09:06:07**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -85,13 +84,46 @@ var searchBST = function(root, val) {
 > index.js
 
 ```js
+/**
+ * @name 二叉搜索树中的搜索
+ * @param {TreeNode} root
+ * @param {number} val
+ * @return {TreeNode}
+ */
+const searchBST = (root, val) => {
+  if (!root) {
+    return null;
+  }
+  if (root.val > val) {
+    return searchBST(root.left, val);
+  } else if (root.val < val) {
+    return searchBST(root.right, val);
+  } else {
+    return root;
+  }
+};
 
+const root = {
+  val: 4,
+  left: {
+    val: 2,
+    left: { val: 1, left: null, right: null },
+    right: { val: 3, left: null, right: null },
+  },
+  right: { val: 7, left: null, right: null },
+};
+console.log(searchBST(root, 2));
+// { val: 2,
+//   left: { val: 1, left: null, right: null },
+//   right: { val: 3, left: null, right: null } }
 ```
 
 `node index.js` 返回：
 
 ```js
-
+{ val: 2,
+  left: { val: 1, left: null, right: null },
+  right: { val: 3, left: null, right: null } }
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -99,22 +131,87 @@ var searchBST = function(root, val) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 36/36 cases passed (92 ms)
+* Your runtime beats 79.06 % of javascript submissions
+* Your memory usage beats 21.43 % of javascript submissions (42.1 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**做吐了的树，习惯了的数组字符串**。
 
-[分析]
+> 递归
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const searchBST = (root, val) => {
+  if (!root) {
+    return null;
+  }
+  if (root.val > val) {
+    return searchBST(root.left, val);
+  } else if (root.val < val) {
+    return searchBST(root.right, val);
+  } else {
+    return root;
+  }
+};
+```
 
-> [返回目录](#chapter-one)
+充分利用二叉搜索树的特点，如果：
 
-……
+1. 如果树当前节点大于给定的节点值，那么我们需要往左边递归；
+2. 如果树当前节点小于给定的节点值，那么我们需要往右边递归；
+3. 如果已经遍历完毕，到最后节点了，那么返回空节点 `null`；
+4. 排除 1-3 情况，返回 `root` 即为结果。
+
+enm...感觉说了跟没说一样，纯粹利用搜索二叉树的特点而已。
+
+Submit 提交：
+
+```js
+Accepted
+* 36/36 cases passed (92 ms)
+* Your runtime beats 79.06 % of javascript submissions
+* Your memory usage beats 21.43 % of javascript submissions (42.1 MB)
+```
+
+吃饱了换个口味，尝试迭代：
+
+> 迭代
+
+```js
+const searchBST = (root, val) => {
+  const newRoot = [root];
+  while (newRoot.length) {
+    const tempRoot = newRoot.pop();
+    if (!tempRoot) {
+      return null;
+    } else if (tempRoot.val === val) {
+      return tempRoot;
+    } else if (tempRoot.val > val) {
+      newRoot.push(tempRoot.left);
+    } else if (tempRoot.val < val) {
+      newRoot.push(tempRoot.right);
+    }
+  }
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 36/36 cases passed (76 ms)
+* Your runtime beats 100 % of javascript submissions
+* Your memory usage beats 11.9 % of javascript submissions (42.3 MB)
+```
+
+决定了，以后要是我搞算法和数据结构的树内容的时候，这道题就是二叉搜索树的典型入门题！
+
+如果小伙伴有更好的思路或者想法，欢迎评论留言或者私聊~
 
 ---
 
