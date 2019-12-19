@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-18 10:35:25**
+> Recently revised in **2019-12-19 09:06:43**
 
 LeetCode 简单难度攻略
 
@@ -176,6 +176,7 @@ LeetCode 简单难度攻略
 | 57 | 693 - 交替位二进制数（binary-number-with-alternating-bits） | [#693 解题](./693-交替位二进制数（binary-number-with-alternating-bits）.md) |
 | 58 | 696 - 计数二进制子串（count-binary-substrings） | [#696 解题](./696-计数二进制子串（count-binary-substrings）.md) |
 | 59 | 697 - 数组的度（degree-of-an-array） | [#697 解题](./697-数组的度（degree-of-an-array）.md) |
+| 60 | 700 - 二叉搜索树的搜索（search-in-a-binary-search-tree） | [#700 解题](./700-二叉搜索树的搜索（search-in-a-binary-search-tree）.md) |
 
 ---
 
