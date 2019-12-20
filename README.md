@@ -18,7 +18,6 @@ jsliang 的文档库
 ![个人微信](./public-repertory/img/z-small-wechat.jpeg)
 
 * **微信群**：（已满 100 人，需要先加 **jsliang** 微信，再拉你入群）
-* **QQ 群**：`798961601`
 
 ## 二 前言
 
