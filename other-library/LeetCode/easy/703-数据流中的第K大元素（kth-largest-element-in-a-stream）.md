@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-20 08:41:41**  
-> Recently revised in **2019-12-20 08:41:44**
+> Recently revised in **2019-12-20 09:00:16**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -14,8 +14,8 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路一](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 解题思路二](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -90,13 +90,64 @@ KthLargest.prototype.add = function(val) {
 > index.js
 
 ```js
-
-```
-
-`node index.js` 返回：
-
-```js
-
+var KthLargest = function (k, nums) {
+  this.data = nums
+  this.k = k
+  let len = this.data.length
+  let parent = Math.floor((len - 2) / 2)
+  this.shiftDown = function (k) {
+    while (k * 2 + 1 < this.data.length) {
+      let j = k * 2 + 1
+      if (k * 2 + 2 < this.data.length && this.data[j] > this.data[j + 1]) {
+        j += 1
+      }
+      if (this.data[k] > this.data[j]) {
+        let m = this.data[k]
+        this.data[k] = this.data[j]
+        this.data[j] = m
+        k = j
+      } else {
+        break
+      }
+    }
+  }
+  this.shiftUp = function (k) {
+    while (k > 0) {
+      let parent = Math.floor((k - 1) / 2)
+      if (this.data[parent] > this.data[k]) {
+        let m = this.data[k]
+        this.data[k] = this.data[parent]
+        this.data[parent] = m
+        k = parent
+      } else {
+        break
+      }
+    }
+  }
+  this.extracMin = function () {
+    this.data[0] = this.data[this.data.length - 1]
+    this.data.pop()
+    this.shiftDown(0)
+  }
+  for (parent; parent >= 0; parent--) {
+    this.shiftDown(parent)
+  }
+  while (this.data.length > k) {
+    this.extracMin()
+  }
+};
+KthLargest.prototype.add = function (val) {
+  if (this.data.length < this.k) {
+    this.data.push(val)
+    this.shiftUp(this.data.length - 1)
+  } else {
+    if (val > this.data[0]) {
+      this.data[0] = val
+      this.shiftDown(0)
+    }
+  }
+  return this.data[0]
+};
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -104,22 +155,223 @@ KthLargest.prototype.add = function(val) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 10/10 cases passed (132 ms)
+* Your runtime beats 98.61 % of javascript submissions
+* Your memory usage beats 20.59 % of javascript submissions (45 MB)
 ```
 
-## <a name="chapter-five" id="chapter-five"></a>五 解题思路
+## <a name="chapter-five" id="chapter-five"></a>五 解题思路一
 
 > [返回目录](#chapter-one)
 
-[图]
+**我的确是个菜鸡，但我想，总能有机会挑战一下 JavaScript 精髓**。
 
-[分析]
+**以下代码均非本人实现**，但我想，总有一天（或许就是明天），就可以尝试挑战这些了。
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+对设计思想还是不那么熟悉：
+
+> JavaScript 最小堆实现
+
+```js
+var KthLargest = function (k, nums) {
+  this.data = nums
+  this.k = k
+  let len = this.data.length
+  let parent = Math.floor((len - 2) / 2)
+  this.shiftDown = function (k) {
+    while (k * 2 + 1 < this.data.length) {
+      let j = k * 2 + 1
+      if (k * 2 + 2 < this.data.length && this.data[j] > this.data[j + 1]) {
+        j += 1
+      }
+      if (this.data[k] > this.data[j]) {
+        let m = this.data[k]
+        this.data[k] = this.data[j]
+        this.data[j] = m
+        k = j
+      } else {
+        break
+      }
+    }
+  }
+  this.shiftUp = function (k) {
+    while (k > 0) {
+      let parent = Math.floor((k - 1) / 2)
+      if (this.data[parent] > this.data[k]) {
+        let m = this.data[k]
+        this.data[k] = this.data[parent]
+        this.data[parent] = m
+        k = parent
+      } else {
+        break
+      }
+    }
+  }
+  this.extracMin = function () {
+    this.data[0] = this.data[this.data.length - 1]
+    this.data.pop()
+    this.shiftDown(0)
+  }
+  for (parent; parent >= 0; parent--) {
+    this.shiftDown(parent)
+  }
+  while (this.data.length > k) {
+    this.extracMin()
+  }
+};
+KthLargest.prototype.add = function (val) {
+  if (this.data.length < this.k) {
+    this.data.push(val)
+    this.shiftUp(this.data.length - 1)
+  } else {
+    if (val > this.data[0]) {
+      this.data[0] = val
+      this.shiftDown(0)
+    }
+  }
+  return this.data[0]
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 10/10 cases passed (132 ms)
+* Your runtime beats 98.61 % of javascript submissions
+* Your memory usage beats 20.59 % of javascript submissions (45 MB)
+```
+
+## <a name="chapter-six" id="chapter-six"></a>六 解题思路二
 
 > [返回目录](#chapter-one)
 
-……
+令人眼前发亮的操作：
+
+> JS 基于二叉堆的优先队列
+
+https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/solution/js-ji-yu-er-cha-dui-de-you-xian-dui-lie-by-kevinca/
+
+```js
+class PriorityQueue {
+  constructor(data = [], compare = (a, b) => a - b) {
+    this.data = data;
+    this.length = this.data.length;
+    this.compare = compare;
+
+    if (this.length > 0) {
+      for (let i = (this.length >> 1) - 1; i >= 0; i--) this._down(i);
+    }
+  }
+
+  push(item) {
+    this.data.push(item);
+    this.length++;
+    this._up(this.length - 1);
+  }
+
+  pop() {
+    if (this.length === 0) return undefined;
+
+    const top = this.data[0];
+    const bottom = this.data.pop();
+    this.length--;
+
+    if (this.length > 0) {
+      this.data[0] = bottom;
+      this._down(0);
+    }
+
+    return top;
+  }
+
+  peek() {
+    return this.data[0];
+  }
+
+  _up(pos) {
+    const {
+      data,
+      compare
+    } = this;
+    const item = data[pos];
+
+    while (pos > 0) {
+      const parent = (pos - 1) >> 1;
+      const current = data[parent];
+      if (compare(item, current) >= 0) break;
+      data[pos] = current;
+      pos = parent;
+    }
+
+    data[pos] = item;
+  }
+
+  _down(pos) {
+    const {
+      data,
+      compare
+    } = this;
+    const halfLength = this.length >> 1;
+    const item = data[pos];
+
+    while (pos < halfLength) {
+      let left = (pos << 1) + 1;
+      let best = data[left];
+      const right = left + 1;
+
+      if (right < this.length && compare(data[right], best) < 0) {
+        left = right;
+        best = data[right];
+      }
+      if (compare(best, item) >= 0) break;
+
+      data[pos] = best;
+      pos = left;
+    }
+
+    data[pos] = item;
+  }
+}
+
+/**
+ * @param {number} k
+ * @param {number[]} nums
+ */
+var KthLargest = function (k, nums) {
+  this.k = k
+
+  this.q = new PriorityQueue([])
+
+  for (let i = 0; i < nums.length; i++) {
+    this.add(nums[i])
+  }
+};
+
+/**
+ * @param {number} val
+ * @return {number}
+ */
+KthLargest.prototype.add = function (val) {
+  if (this.q.length < this.k) {
+    this.q.push(val)
+  } else if (this.q.peek() < val) {
+    this.q.pop()
+    this.q.push(val)
+  }
+  return this.q.peek()
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 10/10 cases passed (228 ms)
+* Your runtime beats 64.58 % of javascript submissions
+* Your memory usage beats 5.88 % of javascript submissions (45.6 MB)
+```
 
 ---
 
