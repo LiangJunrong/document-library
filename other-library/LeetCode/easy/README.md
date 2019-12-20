@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-20 09:00:49**
+> Recently revised in **2019-12-20 09:44:01**
 
 LeetCode 简单难度攻略
 
@@ -178,6 +178,7 @@ LeetCode 简单难度攻略
 | 59 | 697 - 数组的度（degree-of-an-array） | [#697 解题](./697-数组的度（degree-of-an-array）.md) |
 | 60 | 700 - 二叉搜索树的搜索（search-in-a-binary-search-tree） | [#700 解题](./700-二叉搜索树的搜索（search-in-a-binary-search-tree）.md) |
 | 61 | 703 - 数据流中的第K大元素（kth-largest-element-in-a-stream） | [#703 解题](./703-数据流中的第K大元素（kth-largest-element-in-a-stream）.md) |
+| 62 | 704 - 二分查找（binary-search） | [#704 解题](./704-二分查找（binary-search）.md) |
 
 ---
 
