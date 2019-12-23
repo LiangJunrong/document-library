@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-22 12:38:57**
+> Recently revised in **2019-12-23 09:47:56**
 
 LeetCode 简单难度攻略
 
@@ -180,6 +180,7 @@ LeetCode 简单难度攻略
 | 61 | 703 - 数据流中的第K大元素（kth-largest-element-in-a-stream） | [#703 解题](./703-数据流中的第K大元素（kth-largest-element-in-a-stream）.md) |
 | 62 | 704 - 二分查找（binary-search） | [#704 解题](./704-二分查找（binary-search）.md) |
 | 63 | 709 - 转换成小写字母（to-lower-case） | [#709 解题](./709-转换成小写字母（to-lower-case）.md) |
+| 64 | 717 - 1比特和2比特字符（1-bit-and-2-bit-characters） | [#717 解题](./717-1比特和2比特字符（1-bit-and-2-bit-characters）.md) |
 
 ---
 
