@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-23 09:00:00**  
-> Recently revised in **2019-12-23 09:00:04**
+> Recently revised in **2019-12-23 09:47:24**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -81,13 +80,33 @@ var isOneBitCharacter = function(bits) {
 > index.js
 
 ```js
+/**
+ * @name 1比特与2比特字符
+ * @param {number[]} bits
+ * @return {boolean}
+ */
+const isOneBitCharacter = (bits) => {
+  for (let i = 0; i < bits.length; i++) {
+    if (bits[i] === 0 && i === bits.length - 1) {
+      return true;;
+    } if (bits[i] === 1 && (bits[i + 1] === 0 || bits[i + 1] === 1)) {
+      i++;
+    }
+  }
+  return false;
+};
 
+console.log(isOneBitCharacter([1, 0, 0])); // true
+console.log(isOneBitCharacter([1, 1, 1, 0])); // false
+console.log(isOneBitCharacter([0, 1, 0])); // false
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -95,22 +114,140 @@ var isOneBitCharacter = function(bits) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 93/93 cases passed (76 ms)
+* Your runtime beats 38.08 % of javascript submissions
+* Your memory usage beats 45.61 % of javascript submissions (34.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，仔细揣摩题意，得出以下信息：
 
-[分析]
+1. 设立一个栈为 `stack`。
+2. 如果当前元素和栈顶的元素相加为 1（`10`）或者相加为 2（`11`），那么我们就移除栈顶元素。
+3. 如果不是条件 2，那么就将元素添加到栈中。
+4. 遍历传入的数组，直到遍历完毕。
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+代码如下：
 
-> [返回目录](#chapter-one)
+> 错误代码一
 
-……
+```js
+const isOneBitCharacter = (bits) => {
+  const stack = [];
+  for (let i = 0; i < bits.length; i++) {
+    if (
+      stack[stack.length - 1] + bits[i] === 1
+      || stack[stack.length - 1] + bits[i] === 2
+    ) {
+      stack.pop();
+    } else {
+      stack.push(bits[i]);
+    }
+  }
+  return stack.length === 1 && stack[0] === 0;
+};
+```
+
+**然后**，很可惜，这是失败的：
+
+```js
+Wrong Answer
+37/93 cases passed (N/A)
+
+Testcase
+[0,0]
+
+Answer
+false
+
+Expected Answer
+true
+```
+
+那么，就是我忽略了另外一种元素：`0`，所以应该是三种情况：
+
+* 0
+* 10
+* 11
+
+就是说如果最后栈剩下的全都是 0，那也是可以原谅的：
+
+> 错误代码二
+
+```js
+const isOneBitCharacter = (bits) => {
+  const stack = [];
+  for (let i = 0; i < bits.length; i++) {
+    if (
+      stack[stack.length - 1] + bits[i] === 1
+      || stack[stack.length - 1] + bits[i] === 2
+    ) {
+      stack.pop();
+    } else {
+      stack.push(bits[i]);
+    }
+  }
+  return stack.includes(0) && !stack.includes(1);
+};
+```
+
+Submit 提交：
+
+```js
+Wrong Answer
+64/93 cases passed (N/A)
+
+Testcase
+[0,1,0]
+
+Answer
+true
+
+Expected Answer
+false
+```
+
+年轻人你成功吸引了我的注意力，果然这种理念题，还是要碰壁很多次。
+
+**最后**，经过十几次的失败尝试，总结出来了：
+
+> 暴力破解
+
+```js
+const isOneBitCharacter = (bits) => {
+  for (let i = 0; i < bits.length; i++) {
+    if (bits[i] === 0 && i === bits.length - 1) {
+      return true;;
+    } if (bits[i] === 1 && (bits[i + 1] === 0 || bits[i + 1] === 1)) {
+      i++;
+    }
+  }
+  return false;
+};
+```
+
+思路如下：
+
+1. `for` 直接遍历 `bits`。
+2. 碰到当前元素为 0，并且当前元素是最后一个，那么返回 `true`。
+3. 最重要的是，如果当前元素是 1，并且下一个元素是 0 或者 1，那么直接 `i++`，表明我们跳过一组 10 或者 11 的判断。
+
+Submit 提交：
+
+```js
+Accepted
+* 93/93 cases passed (76 ms)
+* Your runtime beats 38.08 % of javascript submissions
+* Your memory usage beats 45.61 % of javascript submissions (34.2 MB)
+```
+
+这样，我们就完成了这道题的破解~
+
+如果小伙伴们有更好的思路或者想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
