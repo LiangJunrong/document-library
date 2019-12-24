@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-23 09:47:56**
+> Recently revised in **2019-12-24 12:31:19**
 
 LeetCode 简单难度攻略
 
@@ -181,6 +181,7 @@ LeetCode 简单难度攻略
 | 62 | 704 - 二分查找（binary-search） | [#704 解题](./704-二分查找（binary-search）.md) |
 | 63 | 709 - 转换成小写字母（to-lower-case） | [#709 解题](./709-转换成小写字母（to-lower-case）.md) |
 | 64 | 717 - 1比特和2比特字符（1-bit-and-2-bit-characters） | [#717 解题](./717-1比特和2比特字符（1-bit-and-2-bit-characters）.md) |
+| 65 | 720 - 词典里最长的单词（longest-word-in-dictionary） | [#720 解题](./720-词典里最长的单词（longest-word-in-dictionary）.md) |
 
 ---
 
