@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-25 08:57:09**  
-> Recently revised in **2019-12-25 08:58:17**
+> Recently revised in **2019-12-25 10:37:02**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -109,9 +109,54 @@ var pivotIndex = function(nums) {
 
 > [返回目录](#chapter-one)
 
-[图]
+**填坑实录**：
 
-[分析]
+1. 由于题目内容在 `[-1000, 1000]` 之间，所以有个问题就是 正+正、正+负、负+负 之间求和比较的操作。
+2. 由于题目内容比较坑爹，所以碰到 `[-1, -1, -1, 0, 1, 1]` 的时候，需要返回 0。
+
+但是：
+
+```js
+const pivotIndex = (nums) => {
+  const map = [];
+  for (let i = 0, sum = 0; i < nums.length; i++) {
+    sum += nums[i];
+    map.push({
+      index: i,
+      sum,
+    })
+  }
+  const result = [];
+  for (let j = nums.length - 1, sum = 0; j >= 0; j--) {
+    if (j === 0 && sum === 0) {
+      return 0;
+    }
+    sum += nums[j];
+    for (let k = 0; k < map.length; k++) {
+      if (map[k].sum === sum && k + 1 === j - 1) {
+        result.unshift(k + 1);
+      }
+    }
+  }
+  return result[0] || -1;
+};
+```
+
+最接近的还是失败：
+
+```js
+Wrong Answer
+683/741 cases passed (N/A)
+
+Testcase
+[-1,-1,0,1,1,0]
+
+Answer
+-1
+
+Expected Answer
+5
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
