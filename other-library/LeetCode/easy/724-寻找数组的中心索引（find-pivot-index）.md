@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-25 08:57:09**  
-> Recently revised in **2019-12-25 10:37:02**
+> Recently revised in **2019-12-25 19:30:11**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -88,13 +88,58 @@ var pivotIndex = function(nums) {
 > index.js
 
 ```js
+/**
+ * 数组求和
+ * @param {*} nums 
+ */
+const getSum = (nums) => {
+  if (nums.length) {
+    return nums.reduce((prev, next) => prev + next);
+  }
+  return 0;
+}
 
+/**
+ * @name 寻找数组的中心索引
+ * @param {number[]} nums
+ * @return {number}
+ */
+const pivotIndex = (nums) => {
+  let leftSum = 0;
+  let rightSum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    leftSum = getSum(nums.slice(0, i));
+    rightSum = getSum(nums.slice(i + 1));
+    if (leftSum === rightSum) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+console.log(pivotIndex([1, 7, 3, 6, 5, 6])); // 3
+console.log(pivotIndex([1, 2, 3])); // -1
+console.log(pivotIndex([-1, -1, -1, -1, -1, 0])); // 2
+console.log(pivotIndex([-1, -1, -1, -1, 0, -1])); // 2
+console.log(pivotIndex([-1, -1, -1, -1, 0, 1])); // 1
+console.log(pivotIndex([-1, -1, 0, -1, -1, -1])); // 3
+console.log(pivotIndex([-1, -1, 1, 1, 0, 0])); // 4
+console.log(pivotIndex([-1, -1, -1, 0, 1, 1])); // 0
+console.log(pivotIndex([-1, -1, 0, 1, 1, 0])); // 5
 ```
 
 `node index.js` 返回：
 
 ```js
-
+3
+-1
+2
+2
+1
+3
+4
+0
+5
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -102,7 +147,10 @@ var pivotIndex = function(nums) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 741/741 cases passed (1112 ms)
+* Your runtime beats 15.27 % of javascript submissions
+* Your memory usage beats 10.11 % of javascript submissions (42.4 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
@@ -115,6 +163,8 @@ var pivotIndex = function(nums) {
 2. 由于题目内容比较坑爹，所以碰到 `[-1, -1, -1, 0, 1, 1]` 的时候，需要返回 0。
 
 但是：
+
+> 失败代码
 
 ```js
 const pivotIndex = (nums) => {
@@ -158,11 +208,101 @@ Expected Answer
 5
 ```
 
+最后，经历了以下调试后，换了思路：
+
+```js
+console.log(pivotIndex([1, 7, 3, 6, 5, 6])); // 3
+console.log(pivotIndex([1, 2, 3])); // -1
+console.log(pivotIndex([-1, -1, -1, -1, -1, 0])); // 2
+console.log(pivotIndex([-1, -1, -1, -1, 0, -1])); // 2
+console.log(pivotIndex([-1, -1, -1, -1, 0, 1])); // 1
+console.log(pivotIndex([-1, -1, 0, -1, -1, -1])); // 3
+console.log(pivotIndex([-1, -1, 1, 1, 0, 0])); // 4
+console.log(pivotIndex([-1, -1, -1, 0, 1, 1])); // 0
+console.log(pivotIndex([-1, -1, 0, 1, 1, 0])); // 5
+```
+
+> 成功代码
+
+```js
+/**
+ * 数组求和
+ * @param {*} nums 
+ */
+const getSum = (nums) => {
+  if (nums.length) {
+    return nums.reduce((prev, next) => prev + next);
+  }
+  return 0;
+}
+
+/**
+ * @name 寻找数组的中心索引
+ * @param {number[]} nums
+ * @return {number}
+ */
+const pivotIndex = (nums) => {
+  let leftSum = 0;
+  let rightSum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    leftSum = getSum(nums.slice(0, i));
+    rightSum = getSum(nums.slice(i + 1));
+    if (leftSum === rightSum) {
+      return i;
+    }
+  }
+  return -1;
+};
+```
+
+终于 Submit 通过了：
+
+```js
+Accepted
+* 741/741 cases passed (1112 ms)
+* Your runtime beats 15.27 % of javascript submissions
+* Your memory usage beats 10.11 % of javascript submissions (42.4 MB)
+```
+
+喜极而泣！
+
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+看完官方答案，我感觉我给兜了圈子：
+
+> 官方题解
+
+```js
+const pivotIndex = (nums) => {
+  let sum = 0;
+  let leftSum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i];
+  }
+  for (let i = 0; i < nums.length; i++) {
+    if (leftSum === sum - leftSum - nums[i]) {
+      return i;
+    }
+    leftSum += nums[i];
+  }
+  return -1;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 741/741 cases passed (92 ms)
+* Your runtime beats 65.9 % of javascript submissions
+* Your memory usage beats 17.98 % of javascript submissions (38.1 MB)
+```
+
+好吧，极度无语中……太菜了！
+
+如果小伙伴有更好的思路或者想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
