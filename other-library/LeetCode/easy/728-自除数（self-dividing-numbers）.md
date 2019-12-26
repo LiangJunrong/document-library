@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-26 08:48:09**  
-> Recently revised in **2019-12-26 08:48:12**
+> Recently revised in **2019-12-26 09:04:16**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -75,13 +75,35 @@ var selfDividingNumbers = function(left, right) {
 > index.js
 
 ```js
+/**
+ * @name 自除数
+ * @param {number} left
+ * @param {number} right
+ * @return {number[]}
+ */
+const selfDividingNumbers = (left, right) => {
+  const result = [];
+  for (let item = left; item <= right; item++) {
+    const temp = String(item);
+    for (let j = 0; j < temp.length; j++) {
+      if (temp % temp[j] !== 0) {
+        break;
+      }
+      if (temp % temp[j] === 0 && j === temp.length - 1) {
+        result.push(Number(temp));
+      }
+    }
+  }
+  return result;
+};
 
+console.log(selfDividingNumbers(1, 22));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22 ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -89,22 +111,83 @@ var selfDividingNumbers = function(left, right) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 31/31 cases passed (72 ms)
+* Your runtime beats 78.82 % of javascript submissions
+* Your memory usage beats 57.63 % of javascript submissions (36.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+数学题，要简单很简单，要难很难：
 
-[分析]
+* **开始时间**：2019-12-26 08:48:12
+* **结束时间**：2019-12-26 08:54:51
+
+7 分钟搞定：
+
+> 暴力破解
+
+```js
+/**
+ * @name 自除数
+ * @param {number} left
+ * @param {number} right
+ * @return {number[]}
+ */
+const selfDividingNumbers = (left, right) => {
+  const result = [];
+  for (let item = left; item <= right; item++) {
+    const temp = String(item);
+    for (let j = 0; j < temp.length; j++) {
+      if (temp % temp[j] !== 0) {
+        break;
+      }
+      if (temp % temp[j] === 0 && j === temp.length - 1) {
+        result.push(Number(temp));
+      }
+    }
+  }
+  return result;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 31/31 cases passed (72 ms)
+* Your runtime beats 78.82 % of javascript submissions
+* Your memory usage beats 57.63 % of javascript submissions (36.2 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+看到【题解区】有个 JavaScript 解法：
+
+* https://leetcode-cn.com/problems/self-dividing-numbers/solution/mei-shi-yao-yao-zhuan-wan-liao-by-shetia/
+
+做了下简化，如下所示：
+
+> 【题解区】解法一
+
+```js
+const selfDividingNumbers = (left, right) => {
+  const result = [];
+  for (let item = left; item <= right; item++) {
+    String(item).split('').every(t => item % t === 0) && result.push(item);
+  }
+  return result;
+};
+```
+
+当然，这道题的简单难度无法想象，破解率 70%，所以小伙伴们随便折腾了。
+
+如果小伙伴有更好的想法或者思路，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
