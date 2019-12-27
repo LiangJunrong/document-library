@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-27 08:39:39**  
-> Recently revised in **2019-12-27 08:41:34**
+> Recently revised in **2019-12-27 09:42:33**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -94,13 +94,64 @@ var floodFill = function(image, sr, sc, newColor) {
 > index.js
 
 ```js
+/**
+ * @name 图像渲染
+ * @param {number[][]} image
+ * @param {number} sr
+ * @param {number} sc
+ * @param {number} newColor
+ * @return {number[][]}
+ */
+const floodFill = (image, sr, sc, newColor) => {
+  const oldColor = image[sr][sc]; // 旧颜色
+  const drawList = [[sr, sc]]; // 剩余可描点
+  const mapRoute = new Map(); // 哈希表 - 记录走过的路径
+  while (drawList.length) {
+    const tempP = drawList.pop(); // 当前可描点 - tempPosition
+    const p1 = tempP[0]; // 当前可描点 - 横坐标 - position1
+    const p2 = tempP[1]; // 当前可描点 - 纵坐标 - position2
+    if (mapRoute.get(`${p1}${p2}`) === undefined) { // 走过的路不要重复
+      image[p1][p2] = newColor;
+      if (p1 - 1 >= 0 && image[p1 - 1][p2] === oldColor) {
+        drawList.push([p1 - 1, p2]);
+      }
+      if (p2 - 1 >= 0 && image[p1][p2 - 1] === oldColor) {
+        drawList.push([p1, p2 - 1]);
+      }
+      if (p1 + 1 < image.length && image[p1 + 1][p2] === oldColor) {
+        drawList.push([p1 + 1, p2]);
+      }
+      if (p2 + 1 < image[0].length && image[p1][p2 + 1] === oldColor) {
+        drawList.push([p1, p2 + 1]);
+      }
+    }
+    mapRoute.set(`${p1}${p2}`, true);
+  }
+  return image;
+};
 
+console.log(
+  floodFill(
+    [
+      [1, 1, 1],
+      [1, 1, 0],
+      [1, 0, 1]
+    ],
+    1,
+    1,
+    2,
+  )
+);
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[
+  [ 2, 2, 2 ],
+  [ 2, 2, 0 ],
+  [ 2, 0, 1 ],
+]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -108,22 +159,90 @@ var floodFill = function(image, sr, sc, newColor) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 277/277 cases passed (80 ms)
+* Your runtime beats 96.92 % of javascript submissions
+* Your memory usage beats 60 % of javascript submissions (36.6 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+孩子没娘，说来话长。
 
-[分析]
+咋看这道题还是挺绕的，不过不要太 care 啦，**jsliang** 为你一一道来：
+
+> jsliang 破解
+
+```js
+const floodFill = (image, sr, sc, newColor) => {
+
+  const oldColor = image[sr][sc]; // 旧颜色
+  const drawList = [[sr, sc]]; // 剩余可描点
+  const mapRoute = new Map(); // 哈希表 - 记录走过的路径
+
+  while (drawList.length) {
+    const tempP = drawList.pop(); // 当前可描点 - tempPosition
+    const p1 = tempP[0]; // 当前可描点 - 横坐标 - position1
+    const p2 = tempP[1]; // 当前可描点 - 纵坐标 - position2
+    if (mapRoute.get(`${p1}${p2}`) === undefined) { // 走过的路不要重复
+      image[p1][p2] = newColor;
+      if (p1 - 1 >= 0 && image[p1 - 1][p2] === oldColor) {
+        drawList.push([p1 - 1, p2]);
+      }
+      if (p2 - 1 >= 0 && image[p1][p2 - 1] === oldColor) {
+        drawList.push([p1, p2 - 1]);
+      }
+      if (p1 + 1 < image.length && image[p1 + 1][p2] === oldColor) {
+        drawList.push([p1 + 1, p2]);
+      }
+      if (p2 + 1 < image[0].length && image[p1][p2 + 1] === oldColor) {
+        drawList.push([p1, p2 + 1]);
+      }
+    }
+    mapRoute.set(`${p1}${p2}`, true);
+  }
+  return image;
+};
+```
+
+**首先**，我们先明确一些变量：
+
+1. `oldColor`：题目表明所有相邻的旧颜色都要换成新颜色，所以我们肯定要知道旧颜色是多少的。
+2. `drawList`：**关键列表**，我们将当前可描的点，都加入到 `drawList` 中，将它所有可描的点都遍历一遍，我们就走完了所有点。
+3. `mapRoute`：走过的点，`[1, 1]` 的上边是 `[0, 1]`，`[0, 1]` 的下边是 `[1, 1]`……如果我们不做限制，它们可以不断重复，这就会造成死循环啦！所以我们用 `mapRoute` 记录走过的点。
+
+OK，定义完毕，开始遍历 `drawList`，在遍历之前，先介绍它内部的一些变量：
+
+1. `tempP`：我们通过 `tempPosition` 来表明当前需要走的点。
+2. `p1`：我们 `tempP` 的横坐标。
+3. `p2`：我们 `tempP` 的纵坐标。
+
+**然后**，我们开始描点：
+
+1. 如果这个点曾经出现在 `mapRoute`，那么我们就不遍历它了！
+2. 如果这个点没有出现在 `mapRoute`，那么设置 `image[p1][p2] = newColor`，即这个点被我们占领了，打上了 `newColor` 的标志。
+3. 判断上下左右四个坐标，以及坐标的值是不是和 `oldColor` 相同，如果相同，则添加到 `drawList` 可描列表上去。
+
+**最后**，通过 `drawList` 的不断判断，我们将所有可描的点都走了一遍。
+
+Submit 提交：
+
+```js
+Accepted
+* 277/277 cases passed (80 ms)
+* Your runtime beats 96.92 % of javascript submissions
+* Your memory usage beats 60 % of javascript submissions (36.6 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+在这道题中，我们使用了迭代的方式，那么小伙伴能不能使用递归来进行解决呢？
+
+如果你有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
