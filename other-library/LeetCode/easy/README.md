@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-26 09:04:48**
+> Recently revised in **2019-12-27 09:43:02**
 
 LeetCode 简单难度攻略
 
@@ -184,6 +184,7 @@ LeetCode 简单难度攻略
 | 65 | 720 - 词典里最长的单词（longest-word-in-dictionary） | [#720 解题](./720-词典里最长的单词（longest-word-in-dictionary）.md) |
 | 66 | 724 - 寻找数组的中心索引（find-pivot-index） | [#724 解题](./724-寻找数组的中心索引（find-pivot-index）.md) |
 | 67 | 728 - 自除数（self-dividing-numbers） | [#728 解题](./728-自除数（self-dividing-numbers）.md) |
+| 68 | 733 - 图像渲染（flood-fill） | [#733 解题](./733-图像渲染（flood-fill）.md) |
 
 ---
 
