@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-28 09:09:45**  
-> Recently revised in **2019-12-28 09:10:54**
+> Recently revised in **2019-12-28 09:48:32**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -101,13 +101,40 @@ var nextGreatestLetter = function(letters, target) {
 > index.js
 
 ```js
+/**
+ * @name 寻找比目标字母大的最小字母
+ * @param {character[]} letters
+ * @param {character} target
+ * @return {character}
+ */
+const nextGreatestLetter = (letters, target) => {
+  // 处于数组中的情况
+  for (let i = 0; i < letters.length; i++) {
+    if (letters[i] <= target && letters[i + 1] > target) {
+      return letters[i + 1];
+    }
+  }
+  // 比最小还小：输出 index = 0
+  if (letters[0] > target) {
+    return letters[0];
+  }
+  // 和最小一样：输出 index = 1
+  if (letters[0] === target) {
+    return letters[1];
+  }
+  // 和最大一样或者更大：输出 index = 0
+  if (letters[letters.length - 1] <= target) {
+    return letters[0];
+  }
+};
 
+console.log(nextGreatestLetter(['c', 'f', 'j'], 'a')); // 'c'
 ```
 
 `node index.js` 返回：
 
 ```js
-
+'c'
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -115,22 +142,119 @@ var nextGreatestLetter = function(letters, target) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 165/165 cases passed (72 ms)
+* Your runtime beats 82.5 % of javascript submissions
+* Your memory usage beats 5.88 % of javascript submissions (37.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，看到题目，先捋捋思绪：
 
-[分析]
+* `['a', 'b', 'c']`
+
+1. 如果目标字母 `b` 比 `a` 大，比 `c` 小，那么输出 `c`；
+2. 如果目标字母 `c` 等于 `c`，靠在数组最右边，那么输出最左边的字母 `a`。
+
+**然后**，开始撸码：
+
+```js
+const nextGreatestLetter = (letters, target) => {
+  // 处于数组中的情况
+  for (let i = 0; i < letters.length; i++) {
+    if (letters[i] <= target && letters[i + 1] > target) {
+      return letters[i + 1];
+    }
+  }
+  // 比最小还小：输出 index = 0
+  if (letters[0] > target) {
+    return letters[0];
+  }
+  // 和最小一样：输出 index = 1
+  if (letters[0] === target) {
+    return letters[1];
+  }
+  // 和最大一样或者更大：输出 index = 0
+  if (letters[letters.length - 1] <= target) {
+    return letters[0];
+  }
+};
+```
+
+好像没啥难度：
+
+```js
+Accepted
+* 165/165 cases passed (72 ms)
+* Your runtime beats 82.5 % of javascript submissions
+* Your memory usage beats 5.88 % of javascript submissions (37.7 MB)
+```
+
+**最后**，想起好像还有二分查找方法，咱们就试试吧~
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+官方题解，有时候非常精妙~
+
+> 解法一：二分查找
+
+```js
+const nextGreatestLetter = (letters, target) => {
+  let left = 0;
+  let right = letters.length;
+  while (left < right) {
+    const middle = Math.floor((left + right) / 2);
+    if (letters[middle] <= target) {
+      left = middle + 1;
+    } else {
+      right = middle;
+    }
+  }
+  return letters[left % letters.length];
+};
+```
+
+它运用了二分查找，并且将模运算（%）巧妙应用到了这道题中。
+
+Submit 提交：
+
+```js
+Accepted
+* 165/165 cases passed (60 ms)
+* Your runtime beats 99.38 % of javascript submissions
+* Your memory usage beats 32.35 % of javascript submissions (36.9 MB)
+```
+
+> 解法二：线性扫描
+
+```js
+const nextGreatestLetter = (letters, target) => {
+  for (let i = 0; i < letters.length; i++) {
+    if (letters[i] > target) {
+      return letters[i];
+    }
+  }
+  return letters[0];
+};
+```
+
+看到这里的时候，感觉智商被按在地上摩擦，看人家的破解和看我的破解，真心智商压制~
+
+Submit 提交：
+
+```js
+Accepted
+* 165/165 cases passed (76 ms)
+* Your runtime beats 64.38 % of javascript submissions
+* Your memory usage beats 8.82 % of javascript submissions (37.4 MB)
+```
+
+如果小伙伴有更好的思路想法，欢迎评论吐槽或者私聊 **jsliang**~
 
 ---
 
