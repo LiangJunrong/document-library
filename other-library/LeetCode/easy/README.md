@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-27 09:43:02**
+> Recently revised in **2019-12-28 09:49:11**
 
 LeetCode 简单难度攻略
 
@@ -185,6 +185,7 @@ LeetCode 简单难度攻略
 | 66 | 724 - 寻找数组的中心索引（find-pivot-index） | [#724 解题](./724-寻找数组的中心索引（find-pivot-index）.md) |
 | 67 | 728 - 自除数（self-dividing-numbers） | [#728 解题](./728-自除数（self-dividing-numbers）.md) |
 | 68 | 733 - 图像渲染（flood-fill） | [#733 解题](./733-图像渲染（flood-fill）.md) |
+| 69 | 744 - 寻找比目标字母大的最小字母（find-smallest-letter-greater-than-target） | [#744 解题](./744-寻找比目标字母大的最小字母（find-smallest-letter-greater-than-target）.md) |
 
 ---
 
