@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2019-12-24 09:11:54**
+> Recently revised in **2019-12-29 19:07:47**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -104,11 +104,11 @@
 
 ## 五 参赛记录和漏卡记录
 
-> 2019-12-21 —— 2019-12-28
+> 2019-12-29 —— 2020-01-04
 
 1. jsliang
 2. teachat8 - 7 天
-3. chenxiaoyao - 7 天
+3. *chenxiaoyao - 7 天*
 4. 豆包君 - 7 天
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
