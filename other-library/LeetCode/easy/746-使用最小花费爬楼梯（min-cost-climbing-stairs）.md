@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-12-30 08:37:35**  
-> Recently revised in **2019-12-30 08:38:58**
+> Recently revised in **2019-12-30 09:50:28**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,14 +15,13 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
 * **难度**：简单
-* **涉及知识**：爬楼梯
+* **涉及知识**：数组、动态规划
 * **题目地址**：https://leetcode-cn.com/problems/min-cost-climbing-stairs/
 * **题目内容**：
 
@@ -83,13 +82,31 @@ var islandPerimeter = function(grid) {
 > index.js
 
 ```js
+/**
+ * @name 使用最小花费爬楼梯
+ * @param {number[]} cost
+ * @return {number}
+ */
+const minCostClimbingStairs = (cost) => {
+  let result1 = 0,
+      result2 = 0;
+  for (let i = cost.length - 1; i >= 0; i--) {
+    const temp = cost[i] + Math.min(result1, result2);
+    result2 = result1;
+    result1 = temp;
+  }
+  return Math.min(result1, result2);
+};
 
+console.log(minCostClimbingStairs([10, 15, 20])); // 15
+console.log(minCostClimbingStairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1])); // 6
 ```
 
 `node index.js` 返回：
 
 ```js
-
+15
+6
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -97,22 +114,73 @@ var islandPerimeter = function(grid) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 276/276 cases passed (72 ms)
+* Your runtime beats 66.09 % of javascript submissions
+* Your memory usage beats 47.83 % of javascript submissions (35.4 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+因为这道题标明是动态规划，又因为我这方面知识欠缺，所以就去搜索了下动态规划的玩法。
 
-[分析]
+然后呢，值得注意的是，如果你网上翻到的文章，只讲下面这几块内容，就不用往下翻了，浪费时间：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+1. 斐波那契数列
+2. 最长公共子序列
 
-> [返回目录](#chapter-one)
+在这里推荐几篇文章：
 
-……
+1. [动态规划难？读完这篇还不理解那就不要请我吃鸡了 -  zy445566](https://cnodejs.org/topic/5c1b091176c4964062a1ba44)
+2. [JavaScript 版动态规划算法题：打家劫舍 - 刘一奇](https://www.liuyiqi.cn/2017/03/10/house-robber/)
+
+当然，看完我还是不懂我这道题怎么解，先暴力试试：
+
+> 暴力破解
+
+```js
+// 愣是没想出来
+```
+
+一想到还有动态规划这么巧妙的方法，就忍不住去想怎么解。
+
+一开始的思路是顺序遍历，取前三者中最小一个 `i + 1` 或者最小两个 `i + (i + 2)`，但是想想我还要定位每次加到哪了，就嫌麻烦。
+
+看了下官方题解，豁然开朗：
+
+```js
+const minCostClimbingStairs = (cost) => {
+  let result1 = 0,
+      result2 = 0;
+  for (let i = cost.length - 1; i >= 0; i--) {
+    const temp = cost[i] + Math.min(result1, result2);
+    result2 = result1;
+    result1 = temp;
+  }
+  return Math.min(result1, result2);
+};
+```
+
+看代码，其实想法很简单，就是想不出来：
+
+1. 最少的应该是 `cost[i] + min(f[f + 1], f[f + 2])`。即当前项和前两项中最小的相加。
+2. 因为顺序遍历来说不方便，所以需要倒序遍历。
+3. 通过 `result1 = f[f + 1]`，`result2 = f[f + 2]`，我们倒序相加。
+
+最终输出结果：
+
+```js
+Accepted
+* 276/276 cases passed (72 ms)
+* Your runtime beats 66.09 % of javascript submissions
+* Your memory usage beats 47.83 % of javascript submissions (35.4 MB)
+```
+
+真真想不到系列，看来【动态规划】还需要多练习一下，了解了解玄学~
+
+如果小伙伴有更好的想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
