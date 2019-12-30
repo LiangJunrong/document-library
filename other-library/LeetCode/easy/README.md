@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2019-12-28 09:49:11**
+> Recently revised in **2019-12-30 09:51:10**
 
 LeetCode 简单难度攻略
 
@@ -186,6 +186,7 @@ LeetCode 简单难度攻略
 | 67 | 728 - 自除数（self-dividing-numbers） | [#728 解题](./728-自除数（self-dividing-numbers）.md) |
 | 68 | 733 - 图像渲染（flood-fill） | [#733 解题](./733-图像渲染（flood-fill）.md) |
 | 69 | 744 - 寻找比目标字母大的最小字母（find-smallest-letter-greater-than-target） | [#744 解题](./744-寻找比目标字母大的最小字母（find-smallest-letter-greater-than-target）.md) |
+| 70 | 746 - 使用最小花费爬楼梯（min-cost-climbing-stairs） | [#746 解题](./746-使用最小花费爬楼梯（min-cost-climbing-stairs）.md) |
 
 ---
 
