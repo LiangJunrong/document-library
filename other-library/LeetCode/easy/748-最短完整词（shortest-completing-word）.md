@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-1-1 17:45:07**  
-> Recently revised in **2020-1-1 17:54:46**
+> Recently revised in **2020-1-1 18:49:38**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -97,13 +96,53 @@ var shortestCompletingWord = function(licensePlate, words) {
 > index.js
 
 ```js
+/**
+ * @name 最短完整词
+ * @param {string} licensePlate
+ * @param {string[]} words
+ * @return {string}
+ */
+const shortestCompletingWord = (licensePlate, words) => {
+  licensePlate = licensePlate.toLowerCase().split('').filter(item => item.charCodeAt() >= 97 && item.charCodeAt() <= 122);
+  const map = new Map();
+  for (let i = 0; i < licensePlate.length; i++) {
+    if (map.has(licensePlate[i])) {
+      map.set(licensePlate[i], map.get(licensePlate[i]) + 1);
+    } else {
+      map.set(licensePlate[i], 1);
+    }
+  }
+  let flag;
+  const result = [];
+  let minLength = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < words.length; i++) {
+    flag = false;
+    for (let [key, value] of map) {
+      const filter = words[i].split('').filter(item => item === key);
+      if (filter.length < value) {
+        flag = true;
+        continue;
+      }
+    }
+    if (!flag) {
+      result.push(words[i]);
+      if (words[i].length < minLength) {
+        minLength = words[i].length;
+      }
+    };
+  }
+  return result.find(item => item.length === minLength);
+};
 
+// console.log(shortestCompletingWord('1s3 PSt', ['step', 'steps', 'stripe', 'stepple'])); // steps
+// console.log(shortestCompletingWord('1s3 456', ['looks', 'pest', 'stew', 'show'])); // pest
+console.log(shortestCompletingWord('GrC8950', ['measure','other','every','base','according','level','meeting','none','marriage','rest'])); // according
 ```
 
 `node index.js` 返回：
 
 ```js
-
+according
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -111,22 +150,66 @@ var shortestCompletingWord = function(licensePlate, words) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 102/102 cases passed (88 ms)
+* Your runtime beats 66.67 % of javascript submissions
+* Your memory usage beats 5.55 % of javascript submissions (42.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+糟糕的体验，写完整道题懵逼了：
 
-[分析]
+```js
+Accepted
+* 102/102 cases passed (88 ms)
+* Your runtime beats 66.67 % of javascript submissions
+* Your memory usage beats 5.55 % of javascript submissions (42.7 MB)
+```
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+内心真是 5.55……
 
-> [返回目录](#chapter-one)
+我给的答案真的不是一般的复杂，贴出来我也不知道从哪讲起，你品，你细细地品：
 
-……
+```js
+const shortestCompletingWord = (licensePlate, words) => {
+  licensePlate = licensePlate.toLowerCase().split('').filter(item => item.charCodeAt() >= 97 && item.charCodeAt() <= 122);
+  const map = new Map();
+  for (let i = 0; i < licensePlate.length; i++) {
+    if (map.has(licensePlate[i])) {
+      map.set(licensePlate[i], map.get(licensePlate[i]) + 1);
+    } else {
+      map.set(licensePlate[i], 1);
+    }
+  }
+  let flag;
+  const result = [];
+  let minLength = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < words.length; i++) {
+    flag = false;
+    for (let [key, value] of map) {
+      const filter = words[i].split('').filter(item => item === key);
+      if (filter.length < value) {
+        flag = true;
+        continue;
+      }
+    }
+    if (!flag) {
+      result.push(words[i]);
+      if (words[i].length < minLength) {
+        minLength = words[i].length;
+      }
+    };
+  }
+  return result.find(item => item.length === minLength);
+};
+```
+
+尽在无言对眼中……
+
+如果你有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
