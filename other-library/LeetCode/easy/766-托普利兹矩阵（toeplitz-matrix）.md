@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-03 08:56:17**  
-> Recently revised in **2020-01-03 08:57:43**
+> Recently revised in **2020-01-03 10:38:06**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -102,13 +101,80 @@ var isToeplitzMatrix = function(matrix) {
 > index.js
 
 ```js
+/**
+ * @name 判断斜线
+ * @param {number} x x 坐标
+ * @param {number} y y 坐标
+ * @param {number[][]} matrix 矩阵
+ * @param {number} init 需要比对的数值
+ */
+const judge = (x, y, matrix, init) => {
+  if (
+    matrix[x] &&
+    matrix[x][y] &&
+    matrix[x][y] !== init
+  ) {
+    return false;
+  } else if (
+    matrix[x] &&
+    matrix[x][y] &&
+    matrix[x][y] === init
+  ) {
+    return judge(x + 1, y + 1, matrix, init);
+  } else {
+    return true;
+  }
+}
 
+/**
+ * @name 托普利茨矩阵
+ * @param {number[][]} matrix 矩阵
+ * @return {boolean} true/false
+ */
+const isToeplitzMatrix = (matrix) => {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[0].length; j++) {
+      if (matrix[i][j] === 0) {
+        matrix[i][j] = 100;
+      }
+    }
+  }
+  // 计算第一横排
+  for (let i = 0; i < matrix.length; i++) {
+    if (!judge(i, 0, matrix, matrix[i][0])) {
+      return false;
+    }
+  }
+  // 计算第一横排 - 排除 [0, 0] 坐标
+  for (let i = 1; i < matrix[0].length; i++) {
+    if (!judge(0, i, matrix, matrix[0][i])) {
+      return false;
+    }
+  }
+  return true;
+};
+
+console.log(isToeplitzMatrix([
+  [1, 2, 3, 4],
+  [5, 1, 2, 3],
+  [9, 5, 1, 2],
+])); // true
+console.log(isToeplitzMatrix([
+  [1, 2],
+  [2, 2],
+])); // fasle
+console.log(isToeplitzMatrix([
+  [0, 33, 98],
+  [34, 22, 33],
+])); // false
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -116,22 +182,93 @@ var isToeplitzMatrix = function(matrix) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 482/482 cases passed (72 ms)
+* Your runtime beats 87.62 % of javascript submissions
+* Your memory usage beats 19.23 % of javascript submissions (36.5 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，观察题目，了解实情：
 
-[分析]
+1. 斜角线必须一致
+2. 对应的要知道的开头是第一横排和第一竖排
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+![图](../../../public-repertory/img/other-algorithm-766-1.png)
 
-> [返回目录](#chapter-one)
+> 没找到合适的画图软件，网上找了个
 
-……
+如上图。
+
+**然后**，通过这些位置，定点斜线即可：
+
+> 暴力破解
+
+```js
+/**
+ * @name 判断斜线
+ * @param {number} x x 坐标
+ * @param {number} y y 坐标
+ * @param {number[][]} matrix 矩阵
+ * @param {number} init 需要比对的数值
+ */
+const judge = (x, y, matrix, init) => {
+  if (
+    matrix[x] &&
+    matrix[x][y] &&
+    matrix[x][y] !== init
+  ) {
+    return false;
+  } else if (
+    matrix[x] &&
+    matrix[x][y] &&
+    matrix[x][y] === init
+  ) {
+    return judge(x + 1, y + 1, matrix, init);
+  } else {
+    return true;
+  }
+}
+
+/**
+ * @name 托普利茨矩阵
+ * @param {number[][]} matrix 矩阵
+ * @return {boolean} true/false
+ */
+const isToeplitzMatrix = (matrix) => {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[0].length; j++) {
+      if (matrix[i][j] === 0) {
+        matrix[i][j] = 100;
+      }
+    }
+  }
+  // 计算第一横排
+  for (let i = 0; i < matrix.length; i++) {
+    if (!judge(i, 0, matrix, matrix[i][0])) {
+      return false;
+    }
+  }
+  // 计算第一横排 - 排除 [0, 0] 坐标
+  for (let i = 1; i < matrix[0].length; i++) {
+    if (!judge(0, i, matrix, matrix[0][i])) {
+      return false;
+    }
+  }
+  return true;
+};
+```
+
+因为会出现元素为 0 的情况，所以为了避免 0 的堵塞，我直接将数组中的 0 给改成了 100。
+
+因此，如果你对这道题有优化想法，可以从这个方面入手。
+
+> 因为要开工了，所以今天优化不了
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊~
 
 ---
 
