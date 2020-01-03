@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-02 09:24:33**
+> Recently revised in **2020-01-03 10:38:43**
 
 LeetCode 简单难度攻略
 
@@ -189,6 +189,7 @@ LeetCode 简单难度攻略
 | 70 | 746 - 使用最小花费爬楼梯（min-cost-climbing-stairs） | [#746 解题](./746-使用最小花费爬楼梯（min-cost-climbing-stairs）.md) |
 | 71 | 747 - 至少是其他数字两倍的最大数（largest-number-at-least-twice-of-others） | [#747 解题](./747-至少是其他数字两倍的最大数（largest-number-at-least-twice-of-others）.md) |
 | 72 | 762 - 二进制表示中质数个计算置位（prime-number-of-set-bits-in-binary-representation） | [#762 解题](./762-二进制表示中质数个计算置位（prime-number-of-set-bits-in-binary-representation）.md) |
+| 73 | 766 - 托普利兹矩阵（toeplitz-matrix） | [#766 解题](./766-托普利兹矩阵（toeplitz-matrix）.md) |
 
 ---
 
