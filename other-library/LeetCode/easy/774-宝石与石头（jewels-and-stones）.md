@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-04 08:38:32**  
-> Recently revised in **2020-01-04 08:39:38**
+> Recently revised in **2020-01-04 08:59:47**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -80,13 +79,35 @@ var numJewelsInStones = function(J, S) {
 > index.js
 
 ```js
+/**
+ * @name 宝石与石头
+ * @param {string} J
+ * @param {string} S
+ * @return {number}
+ */
+const numJewelsInStones = (J, S) => {
+  const map = new Map();
+  for (let i = 0; i < J.length; i++) {
+    map.set(J[i], true);
+  }
+  let result = 0;
+  for (let i = 0; i < S.length; i++) {
+    if (map.get(S[i])) {
+      result += 1;
+    }
+  }
+  return result;
+};
 
+console.log(numJewelsInStones('aA', 'aAAbbbb')); // 3
+console.log(numJewelsInStones('z', 'ZZ')); // 0
 ```
 
 `node index.js` 返回：
 
 ```js
-
+3
+0
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -94,22 +115,100 @@ var numJewelsInStones = function(J, S) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 254/254 cases passed (68 ms)
+* Your runtime beats 70.91 % of javascript submissions
+* Your memory usage beats 31.24 % of javascript submissions (34.4 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+太过简单，都懒得思考了，直接撸代码：
 
-[分析]
+> 哈希表
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const numJewelsInStones = (J, S) => {
+  const map = new Map();
+  for (let i = 0; i < J.length; i++) {
+    map.set(J[i], true);
+  }
+  let result = 0;
+  for (let i = 0; i < S.length; i++) {
+    if (map.get(S[i])) {
+      result += 1;
+    }
+  }
+  return result;
+};
+```
 
-> [返回目录](#chapter-one)
+定义一个哈希表，记录 `J` 的所有内容。
 
-……
+然后遍历 `S` 的所有内容，如果其中的元素是哈希表中出现的，那么就将结果 `result + 1`。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 254/254 cases passed (68 ms)
+* Your runtime beats 70.91 % of javascript submissions
+* Your memory usage beats 31.24 % of javascript submissions (34.4 MB)
+```
+
+值得思考，自秤是比较精炼的了，居然效率那么低下？
+
+换一种题解：
+
+> 暴力破解
+
+```js
+const numJewelsInStones = (J, S) => {
+  let result = 0;
+  for (let i = 0; i < S.length; i++) {
+    if (J.includes(S[i])) {
+      result += 1;
+    }
+  }
+  return result;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 254/254 cases passed (72 ms)
+* Your runtime beats 50.38 % of javascript submissions
+* Your memory usage beats 76.38 % of javascript submissions (33.7 MB)
+```
+
+enm...还是不如人意？
+
+所以大佬做了啥，居然给刷得那么厉害。
+
+> 一行求解
+
+```js
+const numJewelsInStones = (J, S) => S.split('').filter(i => J.includes(i)).length;
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 254/254 cases passed (64 ms)
+* Your runtime beats 85.15 % of javascript submissions
+* Your memory usage beats 37.81 % of javascript submissions (34.3 MB)
+```
+
+越发在意，存储（memory）的占用都那么少，时间（runtime）也不是很好……
+
+在【题解区】和【评论区】找了很久，发觉不是事儿，指不定大佬做完，也没有 show 一下解析。
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
