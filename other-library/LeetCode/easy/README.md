@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-03 10:38:43**
+> Recently revised in **2020-01-04 09:00:22**
 
 LeetCode 简单难度攻略
 
@@ -190,6 +190,7 @@ LeetCode 简单难度攻略
 | 71 | 747 - 至少是其他数字两倍的最大数（largest-number-at-least-twice-of-others） | [#747 解题](./747-至少是其他数字两倍的最大数（largest-number-at-least-twice-of-others）.md) |
 | 72 | 762 - 二进制表示中质数个计算置位（prime-number-of-set-bits-in-binary-representation） | [#762 解题](./762-二进制表示中质数个计算置位（prime-number-of-set-bits-in-binary-representation）.md) |
 | 73 | 766 - 托普利兹矩阵（toeplitz-matrix） | [#766 解题](./766-托普利兹矩阵（toeplitz-matrix）.md) |
+| 74 | 774 - 宝石与石头（jewels-and-stones） | [#774 解题](./774-宝石与石头（jewels-and-stones）.md) |
 
 ---
 
