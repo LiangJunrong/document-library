@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-04 09:00:22**
+> Recently revised in **2020-1-4 19:25:20**
 
 LeetCode 简单难度攻略
 
@@ -191,6 +191,7 @@ LeetCode 简单难度攻略
 | 72 | 762 - 二进制表示中质数个计算置位（prime-number-of-set-bits-in-binary-representation） | [#762 解题](./762-二进制表示中质数个计算置位（prime-number-of-set-bits-in-binary-representation）.md) |
 | 73 | 766 - 托普利兹矩阵（toeplitz-matrix） | [#766 解题](./766-托普利兹矩阵（toeplitz-matrix）.md) |
 | 74 | 774 - 宝石与石头（jewels-and-stones） | [#774 解题](./774-宝石与石头（jewels-and-stones）.md) |
+| 75 | 783 - 二叉搜索树节点最小距离（minimum-distance-between-bst-nodes） | [#783 解题](./783-二叉搜索树节点最小距离（minimum-distance-between-bst-nodes）.md) |
 
 ---
 
