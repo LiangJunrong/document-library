@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-05 10:06:56**
+> Recently revised in **2020-01-05 11:45:18**
 
 LeetCode 简单难度攻略
 
@@ -195,6 +195,7 @@ LeetCode 简单难度攻略
 | 76 | 【interesting】784 - 字母大小写全排列（letter-case-permutation） | [#784 解题](./784-字母大小写全排列（letter-case-permutation）.md) |
 | 77 | 788 - 旋转数字（rotated-digits） | [#788 解题](./788-旋转数字（rotated-digits）.md) |
 | 78 | 796 - 旋转字符串（rotate-string） | [#796 解题](./796-旋转字符串（rotate-string）.md) |
+| 79 | 804 - 唯一摩尔斯密码词（unique-morse-code-words） | [#804 解题](./804-唯一摩尔斯密码词（unique-morse-code-words）.md) |
 
 ---
 
