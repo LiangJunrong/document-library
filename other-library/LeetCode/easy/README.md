@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-05 09:28:05**
+> Recently revised in **2020-01-05 10:06:56**
 
 LeetCode 简单难度攻略
 
@@ -194,6 +194,7 @@ LeetCode 简单难度攻略
 | 75 | 783 - 二叉搜索树节点最小距离（minimum-distance-between-bst-nodes） | [#783 解题](./783-二叉搜索树节点最小距离（minimum-distance-between-bst-nodes）.md) |
 | 76 | 【interesting】784 - 字母大小写全排列（letter-case-permutation） | [#784 解题](./784-字母大小写全排列（letter-case-permutation）.md) |
 | 77 | 788 - 旋转数字（rotated-digits） | [#788 解题](./788-旋转数字（rotated-digits）.md) |
+| 78 | 796 - 旋转字符串（rotate-string） | [#796 解题](./796-旋转字符串（rotate-string）.md) |
 
 ---
 
