@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-05 11:45:18**
+> Recently revised in **2020-01-05 17:16:10**
 
 LeetCode 简单难度攻略
 
@@ -196,6 +196,7 @@ LeetCode 简单难度攻略
 | 77 | 788 - 旋转数字（rotated-digits） | [#788 解题](./788-旋转数字（rotated-digits）.md) |
 | 78 | 796 - 旋转字符串（rotate-string） | [#796 解题](./796-旋转字符串（rotate-string）.md) |
 | 79 | 804 - 唯一摩尔斯密码词（unique-morse-code-words） | [#804 解题](./804-唯一摩尔斯密码词（unique-morse-code-words）.md) |
+| 80 | 806 - 写字符串需要的行数（number-of-lines-to-write-string） | [#806 解题](./806-写字符串需要的行数（number-of-lines-to-write-string）.md) |
 
 ---
 
