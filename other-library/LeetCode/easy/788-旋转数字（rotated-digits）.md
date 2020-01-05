@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-05 08:40:01**  
-> Recently revised in **2020-01-05 08:41:25**
+> Recently revised in **2020-01-05 09:27:21**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -80,13 +79,32 @@ var rotatedDigits = function(N) {
 > index.js
 
 ```js
+/**
+ * @name 旋转数字
+ * @param {number} N
+ * @return {number}
+ */
+const rotatedDigits = (N) => {
+  let result = 0;
+  for (let i = 1; i <= N; i++) {
+    const arrNum = String(i);
+    if (arrNum.includes('3') || arrNum.includes('4') || arrNum.includes('7')) {
+      continue;
+    }
+    if (arrNum.includes('2') || arrNum.includes('5') || arrNum.includes('6') || arrNum.includes('9')) {
+      result++;
+    }
+  }
+  return result;
+};
 
+console.log(rotatedDigits(857)); // 247
 ```
 
 `node index.js` 返回：
 
 ```js
-
+247
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -94,22 +112,110 @@ var rotatedDigits = function(N) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 50/50 cases passed (76 ms)
+* Your runtime beats 69.39 % of javascript submissions
+* Your memory usage beats 68.42 % of javascript submissions (35.4 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，理解定义：
 
-[分析]
+* 好数
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+1. 每个数字旋转 180°；
+2. 得到的数字是有效的；
+3. 和原数字不同。
 
-> [返回目录](#chapter-one)
+> 暴力破解
 
-……
+```js
+const rotatedDigits = (N) => {
+  const result = [];
+  for (let i = 1; i <= N; i++) {
+    const arrNum = i.toString().split('');
+    let flag = false;
+    for (let j = 0; j < arrNum.length; j++) {
+      switch (arrNum[j]) {
+        case '2':
+          arrNum[j] = '5'; break;
+        case '5':
+          arrNum[j] = '2'; break;
+        case '6':
+          arrNum[j] = '9'; break;
+        case '9':
+          arrNum[j] = '6'; break;
+        case '3': case '4': case '7':
+          flag = true; break;
+        default: break;
+      }
+      if (flag) {
+        break;
+      }
+    }
+    if (Number(arrNum.join('')) !== i && !flag) {
+      result.push(i);
+    }
+  }
+  return result.length;
+};
+```
+
+思路如下：
+
+1. 遍历 [1, N] 区间的所有数字；
+2. 将该数字转换成数组（方便替换数字）；
+3. 判断 2、5、9、6，则进行翻转；
+4. 判断 3、4、7，则进行不信任；
+5. 判断翻转后的数组通过 `Number(arr.join(''))` 后的数字和原数字是否相同，并且 `flag` 这个标志不能为 `true`，则这个数字可以旋转。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 50/50 cases passed (120 ms)
+* Your runtime beats 11.22 % of javascript submissions
+* Your memory usage beats 26.32 % of javascript submissions (37.7 MB)
+```
+
+**然后**，再仔细找找规律：
+
+> 规律破解
+
+```js
+const rotatedDigits = (N) => {
+  let result = 0;
+  for (let i = 1; i <= N; i++) {
+    const arrNum = String(i);
+    if (arrNum.includes('3') || arrNum.includes('4') || arrNum.includes('7')) {
+      continue;
+    }
+    if (arrNum.includes('2') || arrNum.includes('5') || arrNum.includes('6') || arrNum.includes('9')) {
+      result++;
+    }
+  }
+  return result;
+};
+```
+
+众所周知，`String` 和 `Array` 都有一个 `includes` 方法，通过分类判断：
+
+* 如果这个数字包含 3、4、7，那么它不能旋转；
+* 如果这个数字包含 2、5、6、9，那么它可以旋转。
+
+比暴力更便捷：
+
+```js
+Accepted
+* 50/50 cases passed (76 ms)
+* Your runtime beats 69.39 % of javascript submissions
+* Your memory usage beats 68.42 % of javascript submissions (35.4 MB)
+```
+
+**最后**，如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
