@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-05 16:53:55**  
-> Recently revised in **2020-01-05 16:55:53**
+> Recently revised in **2020-01-05 17:15:39**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -100,13 +99,45 @@ var numberOfLines = function(widths, S) {
 > index.js
 
 ```js
+/**
+ * @name 写字符串需要的行数
+ * @param {number[]} widths
+ * @param {string} S
+ * @return {number[]}
+ */
+const numberOfLines = (widths, S) => {
+  const row = [];
+  let rowMark = 0;
+  for (let i = 0; i < S.length; i++) {
+    const tempMark = widths[S[i].charCodeAt() - 97];
+    if (rowMark + tempMark > 100) {
+      row.push(rowMark);
+      rowMark = tempMark;
+    } else {
+      rowMark += tempMark;
+    }
+  }
+  row.push(rowMark);
+  return [row.length, row[row.length - 1]];
+};
 
+console.log(
+  numberOfLines(
+    [10, 10, 10, 10, 10,
+     10, 10, 10, 10, 10,
+     10, 10, 10, 10, 10,
+     10, 10, 10, 10, 10,
+     10, 10, 10, 10, 10, 10
+    ],
+    'abcdefghijklmnopqrstuvwxyz',
+  ),
+);
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[3, 60]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -114,22 +145,75 @@ var numberOfLines = function(widths, S) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 26/26 cases passed (60 ms)
+* Your runtime beats 93.48 % of javascript submissions
+* Your memory usage beats 46.15 % of javascript submissions (34.9 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**谨且记住：如果题目描述地很复杂，说不定它很简单；如果题目描述的很简单，说不定它很难。**
 
-[分析]
+给点精神，仔细读题：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+1. 有一个 26 个长度的数组 `widths`，代表这 26 个字母所占的位置。如果你想更清晰点的话，你可以看成一个人，写的 26 个字母可能会占的位置大小（有些人写字大，有的人写字小）。
+2. 有一个 [1, 1000] 长度的字符串 `S`，我们要做的就是将它占用的行数，以及它最后一行的数字 `show` 出来。
+3. 值得注意的是：如果当前行到了 90，但是下一个字母占用的位置是 11，那么应该换行重新输入。
 
-> [返回目录](#chapter-one)
+```js
+const numberOfLines = (widths, S) => {
+  const row = [];
+  let rowMark = 0;
+  for (let i = 0; i < S.length; i++) {
+    const tempMark = widths[S[i].charCodeAt() - 97];
+    if (rowMark + tempMark > 100) {
+      row.push(rowMark);
+      rowMark = tempMark;
+    } else {
+      rowMark += tempMark;
+    }
+  }
+  row.push(rowMark);
+  return [row.length, row[row.length - 1]];
+};
+```
 
-……
+看到这里，我们假设一个条件，应该是怎样的：
+
+```js
+console.log(
+  numberOfLines(
+    [10, 10, 10, 10, 10,
+     10, 10, 10, 10, 10,
+     10, 10, 10, 10, 10,
+     10, 10, 10, 10, 10,
+     10, 10, 10, 10, 10, 10
+    ],
+    'abcdefghijklmnopqrstuvwxyz',
+  ),
+);
+row = [100, 100, 60]
+```
+
+仔细看：
+
+1. `S` 是从 `a-z` 的 26 个字母；
+2. 它们对应的 `widths` 占用的位置都是 10，意味着每行恰好填充上 100；
+3. 所以 `row` 最后应该是 `[100, 100, 60]`。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 26/26 cases passed (60 ms)
+* Your runtime beats 93.48 % of javascript submissions
+* Your memory usage beats 46.15 % of javascript submissions (34.9 MB)
+```
+
+如果你没看懂，或者你有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
