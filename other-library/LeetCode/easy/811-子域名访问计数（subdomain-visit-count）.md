@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-1-5 19:22:25**  
-> Recently revised in **2020-1-5 19:24:46**
+> Recently revised in **2020-1-5 19:53:20**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -114,13 +113,70 @@ var subdomainVisits = function(cpdomains) {
 > index.js
 
 ```js
+/**
+ * @name 子域名访问计数
+ * @param {string[]} cpdomains
+ * @return {string[]}
+ */
+const subdomainVisits = cpdomains => {
+  const map = new Map();
+  for (let i = 0; i < cpdomains.length; i++) {
+    const time = Number(cpdomains[i].split(' ')[0]); // 获取次数
+    const domainName = cpdomains[i].split(' ')[1].split('.'); // 获取域名的分解，例如 ['discuss', 'leetcode', 'com']
 
+    let tempStr = '';
+    while (domainName.length) {
+      // 设置 tempStr
+      if (tempStr === '') {
+        tempStr += domainName.pop();
+      } else {
+        tempStr = domainName.pop() + '.' + tempStr;
+      }
+      // 判断是添加还是累加
+      if (map.get(tempStr)) {
+        map.set(tempStr, map.get(tempStr) + time);
+      } else {
+        map.set(tempStr, time);
+      }
+    }
+  }
+  const result = [];
+  for (let [key, value] of map) {
+    result.push(value + ' ' + key);
+  }
+  return result;
+};
+
+console.log(subdomainVisits(['9001 discuss.leetcode.com']));
+// [ '9001 com', '9001 leetcode.com', '9001 discuss.leetcode.com' ]
+console.log(
+  subdomainVisits([
+    '900 google.mail.com',
+    '50 yahoo.com',
+    '1 intel.mail.com',
+    '5 wiki.org'
+  ])
+);
+// [ '951 com',
+//   '901 mail.com',
+//   '900 google.mail.com',
+//   '50 yahoo.com',
+//   '1 intel.mail.com',
+//   '5 org',
+//   '5 wiki.org' ]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ '9001 com', '9001 leetcode.com', '9001 discuss.leetcode.com' ]
+[ '951 com',
+  '901 mail.com',
+  '900 google.mail.com',
+  '50 yahoo.com',
+  '1 intel.mail.com',
+  '5 org',
+  '5 wiki.org' ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -128,22 +184,131 @@ var subdomainVisits = function(cpdomains) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 52/52 cases passed (80 ms)
+* Your runtime beats 98.85 % of javascript submissions
+* Your memory usage beats 13.16 % of javascript submissions (39.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，咱们先对一个进行拆分：
 
-[分析]
+```js
+const subdomainVisits = (cpdomains) => {
+  const map = new Map();
+  for (let i = 0; i < cpdomains.length; i++) {
+    const tempArr = cpdomains[i].split(' ');
+    const time = tempArr[0];
+    const domainName = tempArr[1].split('.');
+    // 获取根域名 - 初始化
+    let tempStr = domainName.pop();
+    map.set(tempStr, time);
+    // 获取其他域名
+    while (domainName.length) {
+      tempStr = domainName.pop() + '.' + tempStr;
+      map.set(tempStr, time);
+    }
+  }
+  return map;
+};
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+console.log(subdomainVisits(['9001 discuss.leetcode.co m']));
+```
 
-> [返回目录](#chapter-one)
+打印出来的是：
 
-……
+```js
+Map {
+  'com' => '9001',
+  'leetcode.com' => '9001',
+  'discuss.leetcode.com' => '9001' }
+```
+
+**然后**，我们再进行多数组的拆分：
+
+```js
+const subdomainVisits = cpdomains => {
+  const map = new Map();
+  for (let i = 0; i < cpdomains.length; i++) {
+    const tempArr = cpdomains[i].split(' ');
+    const time = Number(tempArr[0]);
+    const domainName = tempArr[1].split('.');
+
+    let tempStr = '';
+    while (domainName.length) {
+      if (tempStr === '') {
+        tempStr += domainName.pop();
+        if (map.get(tempStr)) {
+          map.set(tempStr, map.get(tempStr) + time);
+        } else {
+          map.set(tempStr, time);
+        }
+      } else {
+        tempStr = domainName.pop() + '.' + tempStr;
+        if (map.get(tempStr)) {
+          map.set(tempStr, map.get(tempStr) + time);
+        } else {
+          map.set(tempStr, time);
+        }
+      }
+    }
+  }
+  const result = [];
+  for (let [key, value] of map) {
+    result.push(value + ' ' + key);
+  }
+  return result;
+};
+```
+
+Submit 提交如下：
+
+```js
+Accepted
+* 52/52 cases passed (88 ms)
+* Your runtime beats 86.21 % of javascript submissions
+* Your memory usage beats 7.89 % of javascript submissions (39.5 MB)
+```
+
+这样子肯定不好理解，稍微整理一下：
+
+```js
+const subdomainVisits = cpdomains => {
+  const map = new Map();
+  for (let i = 0; i < cpdomains.length; i++) {
+    const time = Number(cpdomains[i].split(' ')[0]); // 获取次数
+    const domainName = cpdomains[i].split(' ')[1].split('.'); // 获取域名的分解，例如 ['discuss', 'leetcode', 'com']
+
+    let tempStr = '';
+    while (domainName.length) {
+      // 设置 tempStr
+      if (tempStr === '') {
+        tempStr += domainName.pop();
+      } else {
+        tempStr = domainName.pop() + '.' + tempStr;
+      }
+      // 判断是添加还是累加
+      if (map.get(tempStr)) {
+        map.set(tempStr, map.get(tempStr) + time);
+      } else {
+        map.set(tempStr, time);
+      }
+    }
+  }
+  const result = [];
+  for (let [key, value] of map) {
+    result.push(value + ' ' + key);
+  }
+  return result;
+};
+```
+
+OK，搞定收工~
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
