@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-05 11:18:08**  
-> Recently revised in **2020-01-05 11:21:01**
+> Recently revised in **2020-01-05 11:44:35**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -98,13 +98,39 @@ var uniqueMorseRepresentations = function(words) {
 > index.js
 
 ```js
+/**
+ * @name 转换单词为摩尔斯密码
+ * @param {*} word 
+ */
+const transform = (word) => {
+  let str = '';
+  const map = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..']
+  for (let i = 0; i < word.length; i++) {
+    str += map[word[i].charCodeAt() - 97];
+  }
+  return str;
+};
 
+/**
+ * @name 唯一摩尔斯密码词
+ * @param {string[]} words
+ * @return {number}
+ */
+const uniqueMorseRepresentations = (words) => {
+  const result = [];
+  for (let i = 0; i < words.length; i++) {
+    result.push(transform(words[i]));
+  }
+  return [...new Set(result)].length;
+};
+
+console.log(uniqueMorseRepresentations(['gin', 'zen', 'gig', 'msg']));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+2
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -112,22 +138,85 @@ var uniqueMorseRepresentations = function(words) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 83/83 cases passed (76 ms)
+* Your runtime beats 42.39 % of javascript submissions
+* Your memory usage beats 20.64 % of javascript submissions (35.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+小意思啦，直接解题：
 
-[分析]
+> 暴力破解
+
+```js
+const transform = (word) => {
+  let str = '';
+  const map = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..']
+  for (let i = 0; i < word.length; i++) {
+    str += map[word[i].charCodeAt() - 97];
+  }
+  return str;
+};
+
+const uniqueMorseRepresentations = (words) => {
+  const result = [];
+  for (let i = 0; i < words.length; i++) {
+    result.push(transform(words[i]));
+  }
+  return [...new Set(result)].length;
+};
+```
+
+为了代码看起来简洁，所以抽取了一个方法 `transform`，主要功能是将单词转换成摩尔斯密码词。
+
+最后通过 `Set` 去重得到 `length` 长度即可。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 83/83 cases passed (76 ms)
+* Your runtime beats 42.39 % of javascript submissions
+* Your memory usage beats 20.64 % of javascript submissions (35.7 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+当然，还有其他法子：
+
+> 优化：哈希表
+
+```js
+const uniqueMorseRepresentations = (words) => {
+  const map = new Map();
+  const hash = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..'];
+  for (let i = 0; i < words.length; i++) {
+    let tempStr = '';
+    for (let j = 0; j < words[i].length; j++) {
+      tempStr += hash[words[i][j].charCodeAt() - 97];
+    }
+    map.set(tempStr, tempStr);
+  }
+  return map.size;
+};
+```
+
+当然，很奇怪的是，它的效率跟前面都是半桶水啦：
+
+```js
+Accepted
+* 83/83 cases passed (76 ms)
+* Your runtime beats 42.39 % of javascript submissions
+* Your memory usage beats 17.99 % of javascript submissions (35.8 MB)
+```
+
+如果你有更好的思路或者想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
