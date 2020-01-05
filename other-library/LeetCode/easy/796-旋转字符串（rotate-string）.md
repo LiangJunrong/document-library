@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-05 09:50:38**  
-> Recently revised in **2020-01-05 09:51:21**
+> Recently revised in **2020-01-05 10:06:22**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -71,13 +70,23 @@ var rotateString = function(A, B) {
 > index.js
 
 ```js
+/**
+ * @name 旋转字符串
+ * @param {string} A
+ * @param {string} B
+ * @return {boolean}
+ */
+const rotateString = (A, B) => A.length === B.length && (B + B).includes(A);
 
+console.log(rotateString('abcde', 'cdeab')); // true
+console.log(rotateString('abcde', 'abced')); // false
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -85,22 +94,47 @@ var rotateString = function(A, B) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 45/45 cases passed (64 ms)
+* Your runtime beats 56.73 % of javascript submissions
+* Your memory usage beats 21.28 % of javascript submissions (34.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**智商真的能被提升么？**
 
-[分析]
+> 一行代码
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const rotateString = (A, B) => A.length === B.length && (B + B).includes(A);
+```
 
-> [返回目录](#chapter-one)
+一行破解，enm...毫无挑战。
 
-……
+思路：
+
+1. A 的长度必须和 B 的一样，不管是 A 长还是 B 长，都是否定的结果；
+2. 如果 A 旋转得到 B，那么必定会有一件事：两个 B 衔接起来之后，肯定包含了 A。就好比 `'12345'` 和 `'34512'`，当它变换成 `'3451234512'`，你会发现一个规律，两个 B 衔接起来后真的能包含 A。
+
+Submit 提交：
+
+```js
+Accepted
+* 45/45 cases passed (64 ms)
+* Your runtime beats 56.73 % of javascript submissions
+* Your memory usage beats 21.28 % of javascript submissions (34.2 MB)
+```
+
+当然，如果你有想法，看到 56.73% 和 21.28% 就知道，肯定有大佬又搞了其他操作，将我这破解方法降低了。
+
+欢迎评论留言或者私聊 **jsliang**~
+
+> 内心：好像这期有点水……
+
+> 内心：还真是！
 
 ---
 
