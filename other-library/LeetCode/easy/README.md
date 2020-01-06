@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-1-5 19:53:56**
+> Recently revised in **2020-01-06 09:36:47**
 
 LeetCode 简单难度攻略
 
@@ -198,6 +198,7 @@ LeetCode 简单难度攻略
 | 79 | 804 - 唯一摩尔斯密码词（unique-morse-code-words） | [#804 解题](./804-唯一摩尔斯密码词（unique-morse-code-words）.md) |
 | 80 | 806 - 写字符串需要的行数（number-of-lines-to-write-string） | [#806 解题](./806-写字符串需要的行数（number-of-lines-to-write-string）.md) |
 | 81 | 811 - 子域名访问计数（subdomain-visit-count） | [#811 解题](./811-子域名访问计数（subdomain-visit-count）.md) |
+| 82 | 812 - 最大三角形面积（largest-triangle-area） | [#812 解题](./812-最大三角形面积（largest-triangle-area）.md) |
 
 ---
 
