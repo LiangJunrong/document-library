@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2020-01-02 08:51:34**
+> Recently revised in **2020-01-06 09:47:59**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -99,12 +99,12 @@
 | --- | --- | --- |
 | 1. jsliang | [LiangJunrong](https://github.com/LiangJunrong/document-library/tree/master/other-library/Monologue/logs) | 技术提升 |
 | 2. teachat8 | [teachat8](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2020-01.md) | 能写 Vue 组件 |
-| 3. chenxiaoyao | [chenxiaoyao6228](https://github.com/chenxiaoyao6228/daily-learing-log) |  |
 | 3. 豆包君 | [豆包君](https://github.com/danygitgit/Cheer-for-yourself) | 年后跳槽 |
+| 4. chenxiaoyao | [chenxiaoyao6228](https://github.com/chenxiaoyao6228/daily-learing-log) | 【暂时不参赛】 |
 
 ## 五 参赛记录和漏卡记录
 
-> 2019-12-29 —— 2020-01-04
+> 2020.01.04 —— 2020.01.11
 
 1. jsliang
 2. teachat8 - 7 天
