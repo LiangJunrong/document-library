@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-06 09:36:47**
+> Recently revised in **2020-01-07 09:22:37**
 
 LeetCode 简单难度攻略
 
@@ -199,6 +199,7 @@ LeetCode 简单难度攻略
 | 80 | 806 - 写字符串需要的行数（number-of-lines-to-write-string） | [#806 解题](./806-写字符串需要的行数（number-of-lines-to-write-string）.md) |
 | 81 | 811 - 子域名访问计数（subdomain-visit-count） | [#811 解题](./811-子域名访问计数（subdomain-visit-count）.md) |
 | 82 | 812 - 最大三角形面积（largest-triangle-area） | [#812 解题](./812-最大三角形面积（largest-triangle-area）.md) |
+| 83 | 819 - 最常见的单词（most-common-word） | [#819 解题](./819-最常见的单词（most-common-word）.md) |
 
 ---
 
