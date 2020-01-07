@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-07 08:31:23**  
-> Recently revised in **2020-01-07 08:34:20**
+> Recently revised in **2020-01-07 09:22:05**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -99,13 +99,64 @@ var mostCommonWord = function(paragraph, banned) {
 > index.js
 
 ```js
+/**
+ * @name 最常见的单词
+ * @param {string} paragraph
+ * @param {string[]} banned
+ * @return {string}
+ */
+const mostCommonWord = (paragraph, banned)  =>{
+  // 通过正则转换字符串为数组
+  const strToArr = paragraph.match(/[a-zA-Z]+/g);
+  if (strToArr.length === 1) {
+    return strToArr[0].toLowerCase();
+  }
 
+  // 定义哈希表
+  const map = new Map();
+
+  // 定义最大次数和对应的字符串
+  let max = Number.MIN_SAFE_INTEGER;
+  let result = '';
+
+  // 遍历数组
+  for (let i = 0; i < strToArr.length; i++) {
+    // 转换小写字母
+    strToArr[i] = strToArr[i].toLowerCase();
+
+    // 统计次数和是否禁用
+    const time = map.get(strToArr[i]) || 0;
+    const index = banned.findIndex(item => item === strToArr[i]);
+
+    // 累积出现次数
+    if (time) {
+      map.set(strToArr[i], time + 1);
+    } else {
+      map.set(strToArr[i], 1);
+    }
+
+    // 判断是否需要替换
+    if (time + 1 > max && index === -1) {
+      max = time + 1;
+      result = strToArr[i];
+    }
+  }
+
+  // 返回结果
+  return result;
+};
+
+console.log(mostCommonWord('Bob hit a ball, the hit BALL flew far after it was hit.', ['hit'])); // ball
+console.log(mostCommonWord('a.', []));
+console.log(mostCommonWord('Bob. hIt, baLl', ['bob', 'hit']));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+ball
+a
+ball
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -113,22 +164,146 @@ var mostCommonWord = function(paragraph, banned) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 47/47 cases passed (68 ms)
+* Your runtime beats 86.51 % of javascript submissions
+* Your memory usage beats 33.33 % of javascript submissions (36.8 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，先上代码：
 
-[分析]
+```js
+const mostCommonWord = (paragraph, banned)  =>{
+ // 1. 通过正则转换字符串为数组
+ const strToArr = paragraph.match(/[a-zA-Z]+/g);
+
+ // 2. 定义哈希表
+ const map = new Map();
+
+ // 3. 定义最大次数和对应的字符串
+ let max = Number.MIN_SAFE_INTEGER;
+ let result = '';
+
+ // 4. 遍历数组
+ for (let i = 0; i < strToArr.length; i++) {
+   // 5. 转换当前值为小写字母
+   strToArr[i] = strToArr[i].toLowerCase();
+
+   // 6. 统计当前值次数和是否禁用
+   const time = map.get(strToArr[i]) || 0;
+   const index = banned.findIndex(item => item === strToArr[i]);
+
+   // 7. 累积当前值出现次数
+   if (time) {
+     map.set(strToArr[i], time + 1);
+   } else {
+     map.set(strToArr[i], 1);
+   }
+
+   // 8. 判断最大次数和对应字符串是否需要替换
+   if (time + 1 > max && index === -1) {
+     max = time + 1;
+     result = strToArr[i];
+   }
+ }
+
+ // 9. 返回结果
+ return result;
+};
+```
+
+内容甚是简单，为了便于阅读，就加上了 9 条注释，小伙伴可以直接阅读。
+
+Submit 提交：
+
+```js
+Accepted
+* 47/47 cases passed (68 ms)
+* Your runtime beats 86.51 % of javascript submissions
+* Your memory usage beats 33.33 % of javascript submissions (36.8 MB)
+```
+
+当然，这过程是复杂了：
+
+1. 用了正则 `match`；
+2. 用了双重循环 `for + findIndex`。
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+当然，针对自身不足，希望能找到不错的方法~
+
+> 简化暴力
+
+```js
+const mostCommonWord = (paragraph, banned) => {
+  const wordList = paragraph.toLowerCase().match(/\w+/g);
+  const result = {};
+  for (let i = 0; i < wordList.length; i++) {
+    if (!banned.includes(wordList[i]) && result[wordList[i]]) {
+      result[wordList[i]] += 1;
+    } else if (!banned.includes(wordList[i]) && !result[wordList[i]]) {
+      result[wordList[i]] = 1;
+    }
+  }
+  let count = 0;
+  let maxItem = '';
+  for (const key in result) {
+    if (result[key] > count) {
+      count = result[key];
+      maxItem = key;
+    }
+  }
+  return maxItem;
+}
+```
+
+看起来清爽一点，不过效率同样不高：
+
+```js
+Accepted
+* 47/47 cases passed (84 ms)
+* Your runtime beats 15.08 % of javascript submissions
+* Your memory usage beats 80 % of javascript submissions (35.5 MB)
+```
+
+还有空间节省到了极致的：
+
+> 空间节省
+
+```js
+var mostCommonWord = function (paragraph, banned) {
+  let arr = paragraph.toLowerCase().match(/\w+/g);
+  let map = new Map();
+  for (let i = 0; i < arr.length; i++) {
+    if (!banned.includes(arr[i])) {
+      let count = map.get(arr[i]) === undefined ? 0 : map.get(arr[i]);
+      map.set(arr[i], ++count);
+    }
+  }
+  let key = Array.from(map);
+  key.sort(function (a, b) {
+    return b[1] - a[1];
+  })
+  return key[0][0];
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 47/47 cases passed (80 ms)
+* Your runtime beats 26.19 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (34.8 MB)
+```
+
+如果小伙伴有效率更好的方法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
