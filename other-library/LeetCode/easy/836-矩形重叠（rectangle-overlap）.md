@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-08 19:22:41**  
-> Recently revised in **2020-01-08 19:23:30**
+> Recently revised in **2020-1-8 22:45:20**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -98,9 +98,94 @@ var isRectangleOverlap = function(rec1, rec2) {
 
 > [返回目录](#chapter-one)
 
-[图]
+拿到题目，一看坐标轴，脑海要二维画图 —— 瞎猜吧：
 
-[分析]
+> 错误题解
+
+```js
+/**
+ * @name 矩形重叠
+ * @param {number[]} rec1
+ * @param {number[]} rec2
+ * @return {boolean}
+ */
+const isRectangleOverlap = (rec1, rec2) => {
+  // 不能构成矩形，纵坐标相等
+  if (rec1[1] === rec1[3] || rec2[1] === rec2[3]) {
+    return false;
+  }
+  // x1, y1 === 左下角
+  // x3, y1 === 右下角
+  // x3, y3 === 右上角
+  // x1, y3 === 左上角
+  const fullRec1 = [rec1[0], rec1[1], rec1[2], rec1[1], rec1[2], rec1[3], rec1[0], rec1[3]].sort((a, b) => a - b);
+  const fullRec2 = [rec2[0], rec2[1], rec2[2], rec2[1], rec2[2], rec2[3], rec2[0], rec2[3]].sort((a, b) => a - b);
+  const fullRec1Min = fullRec1[0],
+        fullRec1Max = fullRec1[fullRec1.length - 1],
+        fullRec2Min = fullRec2[0],
+        fullRec2Max = fullRec2[fullRec2.length - 1];
+  let count = 0;
+  console.log('------');
+  console.log(fullRec1);
+  console.log(fullRec2);
+  if (fullRec1Max < fullRec2Max) {
+    for (let i = 0; i < fullRec2.length; i++) {
+      if (fullRec2[i] >= fullRec1Min && fullRec2[i] < fullRec1Max) {
+        count ++;
+      }
+    }
+  } else {
+    for (let i = 0; i < fullRec1.length; i++) {
+      if (fullRec1[i] >= fullRec2Min && fullRec1[i] < fullRec2Max) {
+        count ++;
+      }
+    }
+  }
+  return count >= 4;
+};
+
+console.log(isRectangleOverlap([0, 0, 2, 2], [1, 1, 3, 3])); // true
+// rec1: [[0, 0], [2, 0], [2, 2], [0, 2]]
+// rec2: [[1, 1], [3, 1], [3, 3], [1, 3]]
+
+console.log(isRectangleOverlap([0, 0, 1, 1], [1, 0, 2, 1])); // false
+// rec1: [[0, 0], [1, 0], [1, 1], [0, 1]]
+// rec2: [[1, 0], [2, 0], [2, 1], [1, 2]]
+
+console.log(isRectangleOverlap([8, 20, 12, 20], [14, 2, 19, 11])); // false
+// rec1: [[8, 20], [12, 20]] —— 不能构成矩形！
+
+console.log(isRectangleOverlap([5, 15, 8, 18], [0, 3, 7, 9])); // false
+// rec1: [[5, 15], [8, 15], [8, 18], [5, 18]]
+// rec2: [[0, 3], [7, 3], [7, 9], [0, 9]]
+```
+
+想着确认两个矩形的 4 个点，然后求证其中一个矩形在另一个矩形的点有 4 个以上，即为重叠，结果惨败滑铁卢：
+
+```js
+Wrong Answer
+32/43 cases passed (N/A)
+
+Testcase
+[5,15,8,18]
+[0,3,7,9]
+
+Answer
+true
+
+Expected Answer
+false
+```
+
+看了下它的点：
+
+```js
+console.log(isRectangleOverlap([5, 15, 8, 18], [0, 3, 7, 9])); // false
+// rec1: [[5, 15], [8, 15], [8, 18], [5, 18]]
+// rec2: [[0, 3], [7, 3], [7, 9], [0, 9]]
+```
+
+它是刚好有 4 个的，但是却是不符合了，所以这方法也得舍弃掉~
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
