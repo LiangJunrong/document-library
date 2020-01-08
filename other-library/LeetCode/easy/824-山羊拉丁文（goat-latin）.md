@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-08 08:43:55**  
-> Recently revised in **2020-01-08 08:45:14**
+> Recently revised in **2020-01-08 09:06:00**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -95,13 +94,34 @@ var toGoatLatin = function(S) {
 > index.js
 
 ```js
+/**
+ * @name 山羊拉丁文
+ * @param {string} S
+ * @return {string}
+ */
+const toGoatLatin = (S) => {
+  S = S.split(' ');
+  for (let i = 0; i < S.length; i++) {
+    switch (S[i][0]) {
+      case 'a': case 'e': case 'i': case 'o': case 'u':
+      case 'A': case 'E': case 'I': case 'O': case 'U':
+        S[i] += 'ma' + new Array(i + 2).join('a');
+        break;
+      default:
+        S[i] = S[i].slice(1) + S[i][0] + 'ma' + new Array(i + 2).join('a');
+    }
+  }
+  return S.join(' ');
+};
 
+console.log(toGoatLatin('I speak Goat Latin'));
+// Imaa peaksmaaa oatGmaaaa atinLmaaaaa
 ```
 
 `node index.js` 返回：
 
 ```js
-
+Imaa peaksmaaa oatGmaaaa atinLmaaaaa
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -109,22 +129,55 @@ var toGoatLatin = function(S) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 99/99 cases passed (68 ms)
+* Your runtime beats 61.45 % of javascript submissions
+* Your memory usage beats 17.39 % of javascript submissions (35.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+之前说过，越长的题目，反而越发清晰怎么计算：
 
-[分析]
+```js
+const toGoatLatin = (S) => {
+  S = S.split(' ');
+  for (let i = 0; i < S.length; i++) {
+    switch (S[i][0]) {
+      case 'a': case 'e': case 'i': case 'o': case 'u':
+      case 'A': case 'E': case 'I': case 'O': case 'U':
+        S[i] += 'ma' + new Array(i + 2).join('a');
+        break;
+      default:
+        S[i] = S[i].slice(1) + S[i][0] + 'ma' + new Array(i + 2).join('a');
+    }
+  }
+  return S.join(' ');
+};
+```
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+在这题中，我们牢记 3 个准则：
 
-> [返回目录](#chapter-one)
+1. 开头字母为元音字母 `a/e/i/o/u` 或者 `A/E/I/O/U` 的单词后面添加 `ma`；
+2. 除元音字母外开头的单词，先将开头字母移动到后面，再添加 `ma`；
+3. 从 `index = 0` 的字母添加一个 `a` 开始，往后不停增长 `a` 的长度到 `S.length`；
 
-……
+这样，我们就有了这个题解。
+
+Submit 提交：
+
+```js
+Accepted
+* 99/99 cases passed (68 ms)
+* Your runtime beats 61.45 % of javascript submissions
+* Your memory usage beats 17.39 % of javascript submissions (35.2 MB)
+```
+
+enm...这么说这样子还是挺无聊的，也没有在【题解区】和【评论区】找到比较有意思的题解~
+
+如果你有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
