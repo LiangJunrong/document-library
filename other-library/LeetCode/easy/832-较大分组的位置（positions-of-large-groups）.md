@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-08 17:05:08**  
-> Recently revised in **2020-01-08 17:12:22**
+> Recently revised in **2020-01-08 18:34:28**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -83,13 +83,48 @@ var largeGroupPositions = function(S) {
 > index.js
 
 ```js
+/**
+ * @name 较大分组的位置
+ * @param {string} S
+ * @return {number[][]}
+ */
+const largeGroupPositions = (S) => {
+  const result = [];
+  let flagPosition = 0;
+  let flagString = S[0];
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] !== flagString) {
+      if (i - flagPosition >= 3) {
+        result.push([flagPosition, i - 1]);
+      }
+      flagPosition = i;
+      flagString = S[i];
+    } else if (
+      S[i] === flagString
+      && i === S.length - 1
+      && i - flagPosition >= 2
+    ) {
+      result.push([flagPosition, i]);
+    }
+  }
+  return result;
+};
 
+console.log(largeGroupPositions('abbxxxxzyy')); // [ [ 3, 6 ] ]
+console.log(largeGroupPositions('abcdddeeeeaabbbcd')); // [ [ 3, 5 ], [ 6, 9 ], [ 12, 14 ] ]
+console.log(largeGroupPositions('aaa')); // [ [0, 2] ]
+console.log(largeGroupPositions('aba')); // []
+console.log(largeGroupPositions('babaaaabbb')); // [ [ 3, 6 ], [ 7, 8 ] ]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ [ 3, 6 ] ]
+[ [ 3, 5 ], [ 6, 9 ], [ 12, 14 ] ]
+[ [ 0, 2 ] ]
+[]
+[ [ 3, 6 ], [ 7, 9 ] ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -97,22 +132,92 @@ var largeGroupPositions = function(S) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 202/202 cases passed (80 ms)
+* Your runtime beats 86.51 % of javascript submissions
+* Your memory usage beats 25.72 % of javascript submissions (36.9 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+愣是想着一次遍历，永久解决问题！
 
-[分析]
+> 线性扫描
+
+```js
+const largeGroupPositions = (S) => {
+  const result = [];
+  let flagPosition = 0;
+  let flagString = S[0];
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] !== flagString) {
+      if (i - flagPosition >= 3) {
+        result.push([flagPosition, i - 1]);
+      }
+      flagPosition = i;
+      flagString = S[i];
+    } else if (
+      S[i] === flagString
+      && i === S.length - 1
+      && i - flagPosition >= 2
+    ) {
+      result.push([flagPosition, i]);
+    }
+  }
+  return result;
+};
+```
+
+思路如下：
+
+1. 设置 `result` 获取地址。
+2. 设置 `flagPosition` 存放 `flag` 变更的位置；设置 `flagString` 存放 `flag` 变更后的字符串。
+3. 通过 `for` 遍历 `S`，进行判断：④ 如果当前字母和 `flagString` 不相等；⑤ 如果当前字母和 `flagString` 相等。
+4. 如果当前字母和 `flagString` 不相等，那么就判断当前 `i` 减去 `flagPosition` 的结果是不是大于等于 3，如果是，则添加一个记录。同时，如果不相等，那么就变更 `flag` 的信息。
+5. 如果当前字母和 `flagString` 相等，那么就判断它是不是在末尾，用来防止 `aaa`、`abbbccc` 等情况。
+
+这样，就完成了这道题的破解~
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+看了下官方题解，发现还有双指针解法：
+
+> 双指针
+
+```js
+const largeGroupPositions = (S) => {
+  const result = [];
+  let flag = 0;
+  for (let i = 0; i < S.length; i++) {
+    if (i === S.length - 1 || S[i] !== S[i + 1]) {
+      if (i - flag + 1 >= 3) {
+        result.push([flag, i]);
+      }
+      flag = i + 1;
+    }
+  }
+  return result;
+};
+```
+
+设置 `flag` 为前一个指标，然后判断 `S[i]` 和 `S[i + 1]` 的值是否一致，不一致的话，那么我们就启用双指标进行判断。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 202/202 cases passed (80 ms)
+* Your runtime beats 86.51 % of javascript submissions
+* Your memory usage beats 14.29 % of javascript submissions (37.2 MB)
+```
+
+不得不承认这思路比我的好那么点~
+
+如果小伙伴们有更好的思路方法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
