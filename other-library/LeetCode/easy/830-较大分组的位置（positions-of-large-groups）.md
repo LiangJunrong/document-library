@@ -1,4 +1,4 @@
-832 - 较大分组的位置（positions-of-large-groups）
+830 - 较大分组的位置（positions-of-large-groups）
 ===
 
 > Create by **jsliang** on **2020-01-08 17:05:08**  
