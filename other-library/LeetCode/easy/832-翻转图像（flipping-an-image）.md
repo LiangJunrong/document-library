@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-08 18:38:10**  
-> Recently revised in **2020-01-08 18:59:18**
+> Recently revised in **2020-01-08 19:18:14**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -84,13 +84,28 @@ var flipAndInvertImage = function(A) {
 > index.js
 
 ```js
+/**
+ * @name 翻转图像
+ * @param {number[][]} A
+ * @return {number[][]}
+ */
+const flipAndInvertImage = (A) => {
+  for (let i = 0; i < A.length; i++) {
+    A[i] = A[i].reverse().map(item => item === 1 ? 0 : 1);
+  }
+  return A;
+};
 
+console.log(flipAndInvertImage(
+  [ [1, 1, 0], [1, 0, 1], [0, 0, 0] ]
+));
+// [ [ 1, 0, 0 ], [ 0, 1, 0 ], [ 1, 1, 1 ] ]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ [ 1, 0, 0 ], [ 0, 1, 0 ], [ 1, 1, 1 ] ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -98,22 +113,100 @@ var flipAndInvertImage = function(A) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 82/82 cases passed (76 ms)
+* Your runtime beats 75.42 % of javascript submissions
+* Your memory usage beats 42.51 % of javascript submissions (35.1 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+放开心态，将这道题当成小白题：
 
-[分析]
+* 翻转图片步骤：将 `A` 中每一项数组进行数组反转，然后将每一项进行替换（1 => 0; 0 => 1）。
+
+咦，突然好像无话可说了：
+
+> 超暴力破解
+
+```js
+const flipAndInvertImage = (A) => {
+  for (let i = 0; i < A.length; i++) {
+    A[i] = A[i].reverse().map(item => item === 1 ? 0 : 1);
+  }
+  return A;
+};
+```
+
+怎样，是不是很简单，我们通过 `reverse()` 将数组反转了，然后我们通过 `map` 遍历其中每一项，将 1 转换成 0，将 0 转换成 1，就完成了最终翻转！
+
+Submit 提交：
+
+```js
+Accepted
+* 82/82 cases passed (76 ms)
+* Your runtime beats 75.42 % of javascript submissions
+* Your memory usage beats 42.51 % of javascript submissions (35.1 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+仔细想了想，用自己方式遍历会不会好点：
+
+> 暴力破解
+
+```js
+const flipAndInvertImage = (A) => {
+  for (let i = 0; i < A.length; i++) {
+    const tempArr = [];
+    for (let j = A[i].length - 1; j >= 0; j--) {
+      if (A[i][j] === 0) {
+        tempArr.push(1);
+      } else {
+        tempArr.push(0);
+      }
+    }
+    A[i] = tempArr;
+  }
+  return A;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 82/82 cases passed (76 ms)
+* Your runtime beats 75.42 % of javascript submissions
+* Your memory usage beats 5.26 % of javascript submissions (36.1 MB)
+```
+
+好吧，运行效率一样，空间用得更多了~
+
+然后瞅了下【题解区】和【评论区】，看到一个有意思的破解：
+
+> 一行求解
+
+```js
+const flipAndInvertImage = (A) => {
+  return A.map(a => a.map(i => i ^ 1).reverse());
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 82/82 cases passed (72 ms)
+* Your runtime beats 88.27 % of javascript submissions
+* Your memory usage beats 19.03 % of javascript submissions (35.5 MB)
+```
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
