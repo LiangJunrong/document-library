@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-09 17:57:23**
+> Recently revised in **2020-01-09 19:32:08**
 
 LeetCode 简单难度攻略
 
@@ -208,6 +208,7 @@ LeetCode 简单难度攻略
 | 89 | 840 - 矩阵中的幻方（magic-squares-in-grid） | [#840 解题](./840-矩阵中的幻方（magic-squares-in-grid）.md) |
 | 90 | 844 - 比较含退格的字符串（backspace-string-compare） | [#844 解题](./844-比较含退格的字符串（backspace-string-compare）.md) |
 | 91 | 849 - 到最近的人的最大距离（maximize-distance-to-closest-person） | [#849 解题](./849-到最近的人的最大距离（maximize-distance-to-closest-person）.md) |
+| 92 | 852 - 山脉数组的峰顶索引（peak-index-in-a-mountain-array） | [#852 解题](./852-山脉数组的峰顶索引（peak-index-in-a-mountain-array）.md) |
 
 ---
 
