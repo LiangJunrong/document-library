@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-09 18:55:13**  
-> Recently revised in **2020-01-09 19:31:37**
+> Recently revised in **2020-01-09 19:55:38**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -173,7 +173,8 @@ Accepted
 那么，就是看下为何 `findIndex` 和 `indexOf` 差别那么大了：
 
 * [Difference Between indexOf and findIndex function of array - Stack Overflow](https://stackoverflow.com/questions/41443029/difference-between-indexof-and-findindex-function-of-array)
-* []()
+* [findIndex - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
+* [indexOf - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)
 
 在这些文章中提到：
 
