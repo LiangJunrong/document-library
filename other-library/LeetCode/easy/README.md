@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-1-8 22:55:40**
+> Recently revised in **2020-01-09 09:29:15**
 
 LeetCode 简单难度攻略
 
@@ -205,6 +205,7 @@ LeetCode 简单难度攻略
 | 86 | 830 - 较大分组的位置（positions-of-large-groups） | [#830 解题](./830-较大分组的位置（positions-of-large-groups）.md) |
 | 87 | 832 - 翻转图像（flipping-an-image） | [#832 解题](./832-翻转图像（flipping-an-image）.md) |
 | 88 | 836 - 矩形重叠（rectangle-overlap） | [#836 解题](./836-矩形重叠（rectangle-overlap）.md) |
+| 89 | 840 - 矩阵中的幻方（magic-squares-in-grid） | [#840 解题](./840-矩阵中的幻方（magic-squares-in-grid）.md) |
 
 ---
 
