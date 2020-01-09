@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-09 17:13:42**  
-> Recently revised in **2020-01-09 17:15:03**
+> Recently revised in **2020-01-09 17:56:47**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -90,13 +90,38 @@ var maxDistToClosest = function(seats) {
 > index.js
 
 ```js
+/**
+ * @name 到最近的人的最大距离
+ * @param {number[]} seats
+ * @return {number}
+ */
+const maxDistToClosest = (seats) => {
+  let max = 0;
+  let flag = 0;
+  for (let i = 0; i < seats.length; i++) {
+    if (seats[i] === 1) {
+      max = Math.max(max, i - 1 - flag);
+      flag = i;
+    }
+  }
+  let firstDist = seats.indexOf(1);
+  let endDist = seats.length - 1 - seats.lastIndexOf(1);
+  if (max % 2 === 0) {
+    return Math.max(firstDist, max / 2, endDist);
+  } else {
+    return Math.max(firstDist, (max + 1) / 2, endDist);
+  }
+};
 
+console.log(maxDistToClosest([1, 0, 0, 0, 1, 0, 1])); // 2
+console.log(maxDistToClosest([1, 0, 0, 0])); // 3
 ```
 
 `node index.js` 返回：
 
 ```js
-
+2
+3
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -104,22 +129,99 @@ var maxDistToClosest = function(seats) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 79/79 cases passed (76 ms)
+* Your runtime beats 71.55 % of javascript submissions
+* Your memory usage beats 59.09 % of javascript submissions (36.3 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+拿到题目，捋捋思路：
 
-[分析]
+1. 将数组分成三部分，头部尾部和中间；
+2. 头部长度求解是：`seats.indexOf(1)`；
+3. 尾部长度求解是：`seats.length - 1 - seats.lastIndexOf(1)`；
+4. 中间长度求解稍微复杂点，就是遍历的过程中，发现 1 的数字，那么就两个 1 之间的长度求解出来：`max = Math.max(max, i - 1 - flag)`。
+
+通过这样的求解，判断中间的长度是奇数还是偶数，因为我们需要判断中间的距离是：`max / 2` 还是 `(max - 1) / 2`。
+
+最后判断 `Math.max(firstDist, 中间长度, endDist)` 即可~
+
+> 暴力破解
+
+```js
+const maxDistToClosest = (seats) => {
+  let max = 0;
+  let flag = 0;
+  for (let i = 0; i < seats.length; i++) {
+    if (seats[i] === 1) {
+      max = Math.max(max, i - 1 - flag);
+      flag = i;
+    }
+  }
+  let firstDist = seats.indexOf(1);
+  let endDist = seats.length - 1 - seats.lastIndexOf(1);
+  if (max % 2 === 0) {
+    return Math.max(firstDist, max / 2, endDist);
+  } else {
+    return Math.max(firstDist, (max + 1) / 2, endDist);
+  }
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 79/79 cases passed (76 ms)
+* Your runtime beats 71.55 % of javascript submissions
+* Your memory usage beats 59.09 % of javascript submissions (36.3 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+然后，回头想了一个垃圾解法：
+
+> 暴力破解（不可取）
+
+```js
+const maxDistToClosest = (seats) => {
+  const newSeats = seats.join('').split('1');
+  let maxLength = 0;
+  for (let i = 1; i < newSeats.length - 1; i++) {
+    if (newSeats[i].length > maxLength) {
+      maxLength = newSeats[i].length;
+    }
+  }
+  if (maxLength % 2 === 0) {
+    return Math.max(newSeats[0].length, maxLength / 2, newSeats[newSeats.length - 1].length);
+  } else {
+    return Math.max(newSeats[0].length, (maxLength + 1) / 2, newSeats[newSeats.length - 1].length);
+  }
+};
+```
+
+做法就是将座位换成字符串，再根据 1 拆分成数组。
+
+这时候，我们就可以获取到各个 0 字符串的长度。
+
+拿到当中最长长度和开头以及末尾 0 的长度比较，返回最长长度~
+
+Submit 提交：
+
+```js
+Accepted
+* 79/79 cases passed (88 ms)
+* Your runtime beats 17.24 % of javascript submissions
+* Your memory usage beats 18.18 % of javascript submissions (38.2 MB)
+```
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
