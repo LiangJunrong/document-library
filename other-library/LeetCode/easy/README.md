@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-09 09:29:15**
+> Recently revised in **2020-01-09 17:08:17**
 
 LeetCode 简单难度攻略
 
@@ -206,6 +206,7 @@ LeetCode 简单难度攻略
 | 87 | 832 - 翻转图像（flipping-an-image） | [#832 解题](./832-翻转图像（flipping-an-image）.md) |
 | 88 | 836 - 矩形重叠（rectangle-overlap） | [#836 解题](./836-矩形重叠（rectangle-overlap）.md) |
 | 89 | 840 - 矩阵中的幻方（magic-squares-in-grid） | [#840 解题](./840-矩阵中的幻方（magic-squares-in-grid）.md) |
+| 90 | 844 - 比较含退格的字符串（backspace-string-compare） | [#844 解题](./844-比较含退格的字符串（backspace-string-compare）.md) |
 
 ---
 
