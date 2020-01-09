@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-09 16:35:22**  
-> Recently revised in **2020-01-09 16:35:24**
+> Recently revised in **2020-01-09 17:07:40**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -91,13 +91,45 @@ var backspaceCompare = function(S, T) {
 > index.js
 
 ```js
+/**
+ * @name 比较含退格的字符串
+ * @param {string} S
+ * @param {string} T
+ * @return {boolean}
+ */
+const backspaceCompare = (S, T) => {
+  const newS = [];
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] !== '#') {
+      newS.push(S[i]);
+    } else {
+      newS.pop();
+    }
+  }
+  const newT = [];
+  for (let i = 0; i < T.length; i++) {
+    if (T[i] !== '#') {
+      newT.push(T[i]);
+    } else {
+      newT.pop();
+    }
+  }
+  return newS.join('') === newT.join('');
+};
 
+console.log(backspaceCompare('ab#c', 'ab#c')); // true
+console.log(backspaceCompare('ab##', 'c#d#')); // true
+console.log(backspaceCompare('a##c', '#a#c')); // true
+console.log(backspaceCompare('a#c', 'b')); // false
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+true
+true
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -105,22 +137,156 @@ var backspaceCompare = function(S, T) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 104/104 cases passed (64 ms)
+* Your runtime beats 86.06 % of javascript submissions
+* Your memory usage beats 5.88 % of javascript submissions (36 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+enm...有点简单？
 
-[分析]
+> 暴力破解-数组
+
+```js
+const backspaceCompare = (S, T) => {
+  const newS = [];
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] !== '#') {
+      newS.push(S[i]);
+    } else {
+      newS.pop();
+    }
+  }
+  const newT = [];
+  for (let i = 0; i < T.length; i++) {
+    if (T[i] !== '#') {
+      newT.push(T[i]);
+    } else {
+      newT.pop();
+    }
+  }
+  return newS.join('') === newT.join('');
+};
+```
+
+思路如下：
+
+1. 输入原字符串 `S` 和 `T`，比较修改后的字符串 `newS` 和 `newT` 是否相同；
+2. 设置 `newS = []`，为什么使用数组？因为可以偷懒！遍历 `S` 判断是 `#` 则推出数组末尾的元素，如果不是则往数组添加该元素。
+3. 设置 `newT = []`，原理同 `newS`。
+4. 比较 `newS` 和 `newT` 转换成字符串后是否相同。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 104/104 cases passed (64 ms)
+* Your runtime beats 86.06 % of javascript submissions
+* Your memory usage beats 5.88 % of javascript submissions (36 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+然后，有的小伙伴就纠结啊，听说数组会占用比较多空间和时间啥的，这里我尝试给你看吧：
+
+> 暴力破解-字符串
+
+```js
+const backspaceCompare = (S, T) => {
+  let newS = '';
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] !== '#') {
+      newS += S[i];
+    } else {
+      newS = newS.substr(0, newS.length - 1);
+    }
+  }
+  let newT = '';
+  for (let i = 0; i < T.length; i++) {
+    if (T[i] !== '#') {
+      newT += T[i];
+    } else {
+      newT = newT.substr(0, newT.length - 1);
+    }
+  }
+  return newS === newT;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 104/104 cases passed (68 ms)
+* Your runtime beats 73.71 % of javascript submissions
+* Your memory usage beats 5.88 % of javascript submissions (36.6 MB)
+```
+
+甚至还比数组的暴力破解差~
+
+看完官方题解，本来不打算 “贴代码” 了，但是想想，说不定有小伙伴喜欢：
+
+> 双指针
+
+```js
+const backspaceCompare = (S, T) => {
+  let i = S.length - 1,
+      j = T.length - 1,
+      skipS = 0,
+      skipT = 0;
+
+  while (i >= 0 || j >= 0) {
+    while (i >= 0) {
+      if (S[i] === '#') {
+        skipS ++;
+        i --;
+      } else if (skipS > 0) {
+        skipS --;
+        i --;
+      } else {
+        break;
+      }
+    }
+    while (j >= 0) {
+      if (T[j] === '#') {
+        skipT ++;
+        j --;
+      } else if (skipT > 0) {
+        skipT --;
+        j --;
+      } else {
+        break;
+      }
+    }
+    if (i >= 0 && j >= 0 && S[i] !== T[j]) {
+      return false;
+    }
+    if ((i >= 0) != (j >= 0)) {
+      return false;
+    }
+    i --;
+    j --;
+  }
+  return true;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 104/104 cases passed (72 ms)
+* Your runtime beats 54.58 % of javascript submissions
+* Your memory usage beats 77.94 % of javascript submissions (34.6 MB)
+```
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
