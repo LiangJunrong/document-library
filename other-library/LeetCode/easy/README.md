@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-10 09:45:12**
+> Recently revised in **2020-1-10 19:32:10**
 
 LeetCode 简单难度攻略
 
@@ -210,6 +210,7 @@ LeetCode 简单难度攻略
 | 91 | 849 - 到最近的人的最大距离（maximize-distance-to-closest-person） | [#849 解题](./849-到最近的人的最大距离（maximize-distance-to-closest-person）.md) |
 | 92 | 852 - 山脉数组的峰顶索引（peak-index-in-a-mountain-array） | [#852 解题](./852-山脉数组的峰顶索引（peak-index-in-a-mountain-array）.md) |
 | 93 | 859 - 亲密字符串（buddy-strings） | [#859 解题](./859-亲密字符串（buddy-strings）.md) |
+| 94 | 860 - 柠檬水找零（lemonade-change） | [#860 解题](./860-柠檬水找零（lemonade-change）.md) |
 
 ---
 
