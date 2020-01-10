@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-1-10 19:32:10**
+> Recently revised in **2020-1-10 20:26:05**
 
 LeetCode 简单难度攻略
 
@@ -211,6 +211,7 @@ LeetCode 简单难度攻略
 | 92 | 852 - 山脉数组的峰顶索引（peak-index-in-a-mountain-array） | [#852 解题](./852-山脉数组的峰顶索引（peak-index-in-a-mountain-array）.md) |
 | 93 | 859 - 亲密字符串（buddy-strings） | [#859 解题](./859-亲密字符串（buddy-strings）.md) |
 | 94 | 860 - 柠檬水找零（lemonade-change） | [#860 解题](./860-柠檬水找零（lemonade-change）.md) |
+| 95 | 867 - 转置矩阵（transpose-matrix） | [#867 解题](./867-转置矩阵（transpose-matrix）.md) |
 
 ---
 
