@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-10 09:02:28**  
-> Recently revised in **2020-01-10 09:03:25**
+> Recently revised in **2020-01-10 09:44:41**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -91,13 +91,52 @@ var buddyStrings = function(A, B) {
 > index.js
 
 ```js
+/**
+ * @name 亲密字符串
+ * @param {string} A
+ * @param {string} B
+ * @return {boolean}
+ */
+const buddyStrings = (A, B) => {
+  // A 和 B 长度相等
+  if (A.length !== B.length) {
+    return false;
+  }
+  // A 和 B 不匹配的地方不能超过 3 处
+  const misMatch = [];
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] !== B[i]) {
+      misMatch.push(i);
+      if (misMatch.length > 2) {
+        return false;
+      }
+    }
+  }
+  if (misMatch.length === 0) {
+    // 如果 A 和 B 相等，去重判断
+    return [...new Set(A)].length < A.length;
+  } else if (misMatch.length === 2) {
+    // 如果 misMatch 长度为 2，判断 A[0] = B[1] && A[1] = B[0]
+    return A[misMatch[0]] === B[misMatch[1]] && A[misMatch[1]] === B[misMatch[0]];
+  }
+  return false;
+};
 
+console.log(buddyStrings('ab', 'ba')); // true
+console.log(buddyStrings('ab', 'ab')); // false
+console.log(buddyStrings('aa', 'aa')); // true
+console.log(buddyStrings('aaaaaaabc', 'aaaaaaacb')); // true
+console.log(buddyStrings('', 'aa')); // false
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
+true
+true
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -105,22 +144,153 @@ var buddyStrings = function(A, B) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 23/23 cases passed (72 ms)
+* Your runtime beats 78.38 % of javascript submissions
+* Your memory usage beats 11.43 % of javascript submissions (36.6 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+分析题目意思：
 
-[分析]
+1. 交换 A 中 2 个字母后，A = B；
+2. 【必须】`A = 'ab'`、`B = 'ab'`，返回 `false`。
+3. A 和 B 可以全部字母相等且两者由单个元素构成。例如：`A = 'aa'`、`B = 'aa'`，返回 `true`。
+4. A 和 B 可以有两个位置不同，这样调转这两个位置的顺序后有可能相同。例如：`A = 'aaaaaaabc'`、`B = 'aaaaaaacb'`，返回 `true`。
+
+然后，然后就得出了：
+
+> 面向用例编程（不可取）
+
+```js
+const buddyStrings = (A, B) => {
+  if (A.length !== B.length || !A.length || !B.length) {
+    return false;
+  }
+  const map = new Map();
+  let flag1 = false;
+  for (let i = 0; i < A.length; i++) {
+    if (map.get(A[i])) {
+      flag1 = true;
+      map.set(A[i], map.get(A[i]) + 1);
+    } else {
+      map.set(A[i], 1);
+    }
+  }
+  if (A === B && flag1) {
+    return true;
+  } else if (A === B && !flag1) {
+    return false;
+  }
+  const newA = A.split('');
+  const newB = B.split('');
+  let flag2 = -1;
+  for (let i = 0; i < newA.length; i++) {
+    if (newA[i] !== newB[i] && flag2 === -1) {
+      flag2 = i;
+    } else if (newA[i] !== newB[i] && flag2 !== -1) {
+      const temp = newA[flag2];
+      newA[flag2] = newA[i];
+      newA[i] = temp;
+      break;
+    }
+  }
+  return newA.join('') === newB.join('');
+};
+```
+
+针对条件进行了多重筛选，不管你懵不懵逼，反正写完我都不想去整理（跟我写业务代码，写烂了的时候一样~）
+
+Submit 提交如下：
+
+```js
+Accepted
+* 23/23 cases passed (80 ms)
+* Your runtime beats 39.19 % of javascript submissions
+* Your memory usage beats 11.43 % of javascript submissions (36.6 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+然后，去【题解区】和【评论区】逛逛，发现一个思路非常清晰的解法：
+
+* ☆≡═ 亲密字符串：https://leetcode-cn.com/problems/buddy-strings/solution/-qin-mi-zi-fu-chuan-by-hareyukai/
+
+下面是原说法：
+
+1. 统计字符串 A，B 中字符不匹配的下标。
+2. 不匹配的下标个数不等于 0 或 2 时，不能由 A 得到 B。
+3. 不匹配的下标个数等于 0 时，A 与 B 中字符完全相同，还需要 A 中有重复字符。
+4. 不匹配的下标个数等于 2 时，判断交换两对字符后是否匹配。
+
+```C++
+class Solution {
+public:
+  bool buddyStrings(const string & a, const string & b) {
+    if (a.size() != b.size()) return false;
+    vector < int > index_of_mismatch;
+    for (int i = 0; i < a.size(); i++)
+      if (a[i] != b[i]) {
+        index_of_mismatch.push_back(i);
+        if (2 < index_of_mismatch.size()) return false;
+      }
+    if (index_of_mismatch.size() == 0) {
+      return set < char > (a.begin(), a.end()).size() < a.size();
+    } else if (index_of_mismatch.size() == 2) {
+      return a[index_of_mismatch[0]] == b[index_of_mismatch[1]] &&
+        a[index_of_mismatch[1]] == b[index_of_mismatch[0]];
+    }
+    return false;
+  }
+};
+```
+
+这是原 C++ 题解，稍微整理了下：
+
+```js
+const buddyStrings = (A, B) => {
+  // A 和 B 长度相等
+  if (A.length !== B.length) {
+    return false;
+  }
+  // A 和 B 不匹配的地方不能超过 3 处
+  const misMatch = [];
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] !== B[i]) {
+      misMatch.push(i);
+      if (misMatch.length > 2) {
+        return false;
+      }
+    }
+  }
+  if (misMatch.length === 0) {
+    // 如果 A 和 B 相等，去重判断
+    return [...new Set(A)].length < A.length;
+  } else if (misMatch.length === 2) {
+    // 如果 misMatch 长度为 2，判断 A[0] = B[1] && A[1] = B[0]
+    return A[misMatch[0]] === B[misMatch[1]] && A[misMatch[1]] === B[misMatch[0]];
+  }
+  return false;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 23/23 cases passed (80 ms)
+* Your runtime beats 39.19 % of javascript submissions
+* Your memory usage beats 11.43 % of javascript submissions (36.6 MB)
+```
+
+还是挺不错的，膜拜大佬~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
