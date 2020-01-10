@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-09 19:32:08**
+> Recently revised in **2020-01-10 09:45:12**
 
 LeetCode 简单难度攻略
 
@@ -209,6 +209,7 @@ LeetCode 简单难度攻略
 | 90 | 844 - 比较含退格的字符串（backspace-string-compare） | [#844 解题](./844-比较含退格的字符串（backspace-string-compare）.md) |
 | 91 | 849 - 到最近的人的最大距离（maximize-distance-to-closest-person） | [#849 解题](./849-到最近的人的最大距离（maximize-distance-to-closest-person）.md) |
 | 92 | 852 - 山脉数组的峰顶索引（peak-index-in-a-mountain-array） | [#852 解题](./852-山脉数组的峰顶索引（peak-index-in-a-mountain-array）.md) |
+| 93 | 859 - 亲密字符串（buddy-strings） | [#859 解题](./859-亲密字符串（buddy-strings）.md) |
 
 ---
 
