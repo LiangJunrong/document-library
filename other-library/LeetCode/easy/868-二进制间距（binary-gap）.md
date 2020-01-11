@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-11 08:59:09**  
-> Recently revised in **2020-01-11 09:00:14**
+> Recently revised in **2020-01-11 09:31:58**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -95,13 +95,45 @@ var binaryGap = function(N) {
 > index.js
 
 ```js
+/**
+ * @name 十进制转二进制
+ * @param {number} N 需要转换的数字
+ * @return {string} 返回二进制字符串
+ */
+const decimalToBinary = (N) => {
+  let result = '';
+  while (N > 0) {
+    result = N % 2 + result;
+    N = Math.floor(N / 2);
+  }
+  return result;
+}
 
+/**
+ * @name 二进制间距
+ * @param {number} N
+ * @return {number}
+ */
+const binaryGap = (N) => {
+  const binary = decimalToBinary(N);
+  let result = 0;
+  let flag = binary[0] === '1' ? 0 : -1;
+  for (let i = 0; i < binary.length; i++) {
+    if (binary[i] === '1' && flag !== -1) {
+      result = Math.max(result, i - flag);
+      flag = i;
+    }
+  }
+  return result;
+};
+
+console.log(binaryGap(22));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+2
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -109,22 +141,120 @@ var binaryGap = function(N) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 260/260 cases passed (72 ms)
+* Your runtime beats 40 % of javascript submissions
+* Your memory usage beats 8.7 % of javascript submissions (34 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+在开始讲解这道题之前，应该按惯例「贴」一下十进制转二进制的方法，虽然之前讲过好多次了：
 
-[分析]
+> 十进制转二进制
+
+```js
+/**
+ * @name 十进制转二进制
+ * @param {number} N 需要转换的数字
+ * @return {string} 返回二进制字符串
+ */
+const decimalToBinary = (N) => {
+  let result = '';
+  while (N > 0) {
+    result = N % 2 + result;
+    N = Math.floor(N / 2);
+  }
+  return result;
+}
+console.log(decimalToBinary(6)); // 110
+```
+
+感觉记住 6 的二进制是不错的，毕竟 6 翻了就 110 了~
+
+那么，如何求二进制间距呢？
+
+> 暴力破解
+
+```js
+const decimalToBinary = (N) => {
+  let result = '';
+  while (N > 0) {
+    result = N % 2 + result;
+    N = Math.floor(N / 2);
+  }
+  return result;
+}
+
+const binaryGap = (N) => {
+  const binary = decimalToBinary(N);
+  let result = 0;
+  let flag = binary[0] === '1' ? 0 : -1;
+  for (let i = 0; i < binary.length; i++) {
+    if (binary[i] === '1' && flag !== -1) {
+      result = Math.max(result, i - flag);
+      flag = i;
+    }
+  }
+  return result;
+};
+```
+
+步骤：
+
+1. 通过 `binary` 获取二进制。
+2. 设置 `result` 为 0；
+3. 设置 `flag` 初始化为 0 或者 -1，表明第一个 `number` 是不是 1.
+4. 通过 `for` 遍历 `binary`，判断当前值（`binary[i]`）是不是 1，并且 `flag` 不是 -1.
+5. 通过不断更新 `result`，得到最终结果。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 260/260 cases passed (72 ms)
+* Your runtime beats 40 % of javascript submissions
+* Your memory usage beats 8.7 % of javascript submissions (34 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+看了下官方题解，感觉不喜欢（不会写）：
+
+> 一次遍历
+
+```js
+const binaryGap = (N) => {
+  let last = -1,
+      result = 0;
+  for (let i = 0; i < 32; i++) {
+    if (((N >> i) & 1) > 0) {
+      if (last >= 0) {
+        result = Math.max(result, i - last);
+      }
+      last = i;
+    }
+  }
+  return result;
+};
+```
+
+里面使用了 `>>` 和 `&`，enm...我是不想理解的了，目前真接触不到这个~
+
+Submit 提交：
+
+```js
+Accepted
+* 260/260 cases passed (60 ms)
+* Your runtime beats 88.7 % of javascript submissions
+* Your memory usage beats 8.7 % of javascript submissions (35 MB)
+```
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
