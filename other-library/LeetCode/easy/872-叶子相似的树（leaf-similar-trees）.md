@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-11 10:08:21**  
-> Recently revised in **2020-01-11 10:11:09**
+> Recently revised in **2020-01-11 10:35:53**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -86,13 +86,83 @@ var leafSimilar = function(root1, root2) {
 > index.js
 
 ```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @name 叶子相似的树
+ * @param {TreeNode} root1
+ * @param {TreeNode} root2
+ * @return {boolean}
+ */
+const leafSimilar = (root1, root2) => {
+  const ergodic = (root, result = []) => {
+    if (!root) {
+      return;
+    }
+    if (!root.left && !root.right) {
+      result.push(root.val);
+    }
+    ergodic(root.left, result);
+    ergodic(root.right, result);
+    return result;
+  }
+  const result1 = ergodic(root1);
+  const result2 = ergodic(root2);
+  return result1.join('') === result2.join('');
+};
 
+const root1 = {
+  val: 3,
+  left: {
+    val: 5,
+    left: { val: 6, left: null, right: null },
+    right: {
+      val: 2,
+      left: { val: 7, left: null, right: null },
+      right: { val: 4, left: null, right: null },
+    },
+  },
+  right: {
+    val: 1,
+    left: { val: 9, left: null, right: null },
+    right: { val: 8, left: null, right: null },
+  },
+}
+
+const root2 = {
+  val: 3,
+  left: {
+    val: 5,
+    left: { val: 6, left: null, right: null },
+    right: {
+      val: 2,
+      left: { val: 7, left: null, right: null },
+      right: { val: 4, left: null, right: null },
+    },
+  },
+  right: {
+    val: 1,
+    left: { val: 9, left: null, right: null },
+    right: {
+      val: 10,
+      left: null,
+      right: { val: 8, left: null, right: null },
+    },
+  },
+}
+
+console.log(leafSimilar(root1, root2));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -100,22 +170,97 @@ var leafSimilar = function(root1, root2) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 36/36 cases passed (84 ms)
+* Your runtime beats 13.75 % of javascript submissions
+* Your memory usage beats 53.57 % of javascript submissions (34.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，这道题的题目描述异常不清晰，也不容易理解。
 
-[分析]
+假设两棵树如下所示：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+// root1
+     3
+    / \
+   5   1
+ / |   | \
+6  2   9  8
+  / \
+ 7   4
 
-> [返回目录](#chapter-one)
+// root2
+     3
+    / \
+   5   1
+ / |   | \
+6  2   9  10
+  / \       \
+ 7   4       8
+```
 
-……
+这样，它们的 叶值序列 都是：[6, 7 , 4, 9, 8]，是否它们就相似了？咱们代码证明一下~
+
+**然后**，在这之前，相信这么久没看到树的题目，小伙伴应该忘记树的万能公式了，咱们过过：
+
+> 树的万能公式
+
+```js
+const root = {
+  val: 2,
+  left: { val: 1, left: null, right: null },
+  right: { val: 3, left: null, right: null },
+}
+const ergodic = (root) => {
+  if (!root) {
+    return '!#';
+  }
+  return '!' + root.val + ergodic(root.left) + ergodic(root.right);
+}
+console.log(ergodic(root));
+// !2!1!#!#!3!#!#
+```
+
+OK，那么如何获取两棵树的根节点也就顺势而生了：
+
+> 递归
+
+```js
+const leafSimilar = (root1, root2) => {
+  const ergodic = (root, result = []) => {
+    if (!root) {
+      return;
+    }
+    if (!root.left && !root.right) {
+      result.push(root.val);
+    }
+    ergodic(root.left, result);
+    ergodic(root.right, result);
+    return result;
+  }
+  const result1 = ergodic(root1);
+  const result2 = ergodic(root2);
+  return result1.join('') === result2.join('');
+};
+```
+
+**最后**，Submit 提交：
+
+```js
+Accepted
+* 36/36 cases passed (84 ms)
+* Your runtime beats 13.75 % of javascript submissions
+* Your memory usage beats 53.57 % of javascript submissions (34.7 MB)
+```
+
+成功破解！
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
