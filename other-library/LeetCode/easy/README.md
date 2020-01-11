@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-11 10:36:25**
+> Recently revised in **2020-01-11 14:01:40**
 
 LeetCode 简单难度攻略
 
@@ -214,6 +214,7 @@ LeetCode 简单难度攻略
 | 95 | 867 - 转置矩阵（transpose-matrix） | [#867 解题](./867-转置矩阵（transpose-matrix）.md) |
 | 96 | 868 - 二进制间距（binary-gap） | [#868 解题](./868-二进制间距（binary-gap）.md) |
 | 97 | 872 - 叶子相似的树（leaf-similar-trees） | [#872 解题](./872-叶子相似的树（leaf-similar-trees）.md) |
+| 98 | 874 - 模拟行走机器人（walking-robot-simulation） | [#874 解题](./874-模拟行走机器人（walking-robot-simulation）.md) |
 
 ---
 
