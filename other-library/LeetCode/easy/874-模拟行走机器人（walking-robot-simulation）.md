@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-11 10:43:26**  
-> Recently revised in **2020-01-11 10:44:22**
+> Recently revised in **2020-01-11 14:01:10**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -91,13 +90,88 @@ var robotSim = function(commands, obstacles) {
 > index.js
 
 ```js
+/**
+ * @name 模拟行走机器人
+ * @description 指令：
+ * -2：向左转 90°
+ * -1：向右转 90°
+ * 1 <= x <= 9：向前移动 x 个单位
+ * @param {number[]} commands
+ * @param {number[][]} obstacles
+ * @return {number}
+ */
+const robotSim = (commands, obstacles) => {
+  var dx = [0, 1, 0, -1];
+  var dy = [1, 0, -1, 0];
+  var di = 0;
+  var endX = 0;
+  var endY = 0;
+  var result = 0;
+  var hashObstacle = {};
+  for (var r = 0; r < obstacles.length; r++) {
+    hashObstacle[obstacles[r][0] + '-' + obstacles[r][1]] = true;
+  }
+  for (var s = 0; s < commands.length; s++) {
+    if (commands[s] == -2) {
+      di = (di + 3) % 4;
+    } else if (commands[s] == -1) {
+      di = (di + 1) % 4;
+    } else {
+      // 每次走一步
+      for (var z = 1; z <= commands[s]; z++) {
+        var nextX = endX + dx[di];
+        var nextY = endY + dy[di];
+        // 判断下一步是否为障碍物
+        if (hashObstacle[nextX + '-' + nextY]) {
+          break;
+        }
+        endX = nextX;
+        endY = nextY;
+        result = Math.max(result, endX * endX + endY * endY);
+      }
+    }
+  }
+  return result;
+};
 
+// console.log(robotSim([4, -1, 3], [])); // 25
+// console.log(robotSim([4, -1, 4, -2, 4], [[2, 4]])); // 65
+// console.log(robotSim(
+//   [-2, 8, 3, 7, -1],
+//   [
+//     [-4, -1],
+//     [1, -1],
+//     [1, 4],
+//     [5, 0],
+//     [4, 5],
+//     [-2, -1],
+//     [2, -5],
+//     [5, 1],
+//     [-3, -1],
+//     [5, -3]
+//   ]
+// )); // 324
+console.log(robotSim(
+  [-2, -1, 8, 9, 6],
+  [
+    [-1, 3],
+    [0, 1],
+    [-1, 5],
+    [-2, -4],
+    [5, 4],
+    [-2, -3],
+    [5, -1],
+    [1, -1],
+    [5, 5],
+    [5, 2]
+  ]
+)); // 0
 ```
 
 `node index.js` 返回：
 
 ```js
-
+0
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -105,22 +179,186 @@ var robotSim = function(commands, obstacles) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 47/47 cases passed (220 ms)
+* Your runtime beats 44.64 % of javascript submissions
+* Your memory usage beats 36.36 % of javascript submissions (56.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+崩溃题目：
 
-[分析]
+> 错误解法
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+/**
+ * @name 模拟行走机器人
+ * @description 指令：
+ * -2：向左转 90°
+ * -1：向右转 90°
+ * 1 <= x <= 9：向前移动 x 个单位
+ * @param {number[]} commands
+ * @param {number[][]} obstacles
+ * @return {number}
+ */
+const robotSim = (commands, obstacles) => {
+  // 机器人当前位置
+  let position = [0, 0];
+  // 机器人面朝：east - 东；west - 西；south - 南；north - 北
+  let flag = 'north';
+  for (let i = 0; i < commands.length; i++) {
+    if (flag === 'north') {
+      if (commands[i] === -2) {
+        flag = 'west';
+      } else if (commands[i] === -1) {
+        flag = 'east';
+      } else {
+        let min = 30001;
+        // 碰撞检测
+        for (let j = 0; j < obstacles.length; j++) {
+          if (obstacles[j][0] === position[0] && obstacles[j][1] > position[1] && position[1] + commands[i] >= obstacles[j][1]) {
+            min = Math.min(min, obstacles[j][1]);
+          }
+        }
+        if (min !== 30001) {
+          position[1] = min - 1;
+        } else {
+          position[1] += commands[i];
+        }
+      }
+    } else if (flag === 'east') {
+      if (commands[i] === -2) {
+        flag = 'north';
+      } else if (commands[i] === -1) {
+        flag = 'south';
+      } else {
+        let min = 30001;
+        // 碰撞检测
+        for (let j = 0; j < obstacles.length; j++) {
+          if (obstacles[j][1] === position[1] && obstacles[j][0] > position[0] && position[0] + commands[i] >= obstacles[j][0]) {
+            min = Math.min(min, obstacles[j][0]);
+          }
+        }
+        if (min !== 30001) {
+          position[0] = min - 1;
+        } else {
+          position[0] += commands[i];
+        }
+      }
+    } else if (flag === 'south') {
+      if (commands[i] === -2) {
+        flag = 'east';
+      } else if (commands[i] === -1) {
+        flag = 'west';
+      } else {
+        let max = -30001;
+        // 碰撞检测
+        for (let j = 0; j < obstacles.length; j++) {
+          if (obstacles[j][0] === position[0] && obstacles[j][1] < position[1] && position[1] - commands[i] <= obstacles[j][1]) {
+            max = Math.max(max, obstacles[j][1]);
+          }
+        }
+        if (max !== -30001) {
+          position[1] = max + 1;
+        } else {
+          position[1] -= commands[i];
+        }
+      }
+    } else if (flag === 'west') {
+      if (commands[i] === -2) {
+        flag = 'south';
+      } else if (commands[i] === -1) {
+        flag = 'north';
+      } else {
+        let max = -30001;
+        // 碰撞检测
+        for (let j = 0; j < obstacles.length; j++) {
+          if (obstacles[j][1] === position[1] && obstacles[j][0] < position[0] && position[0] - commands[i] <= obstacles[j][0]) {
+            max = Math.max(max, obstacles[j][0]);
+          }
+        }
+        if (max !== -30001) {
+          position[0] = max + 1;
+        } else {
+          position[0] -= commands[i];
+        }
+      }
+    }
+  }
+  return Math.pow(Math.abs(position[0]), 2) + Math.pow(Math.abs(position[1]), 2);
+};
+```
 
-> [返回目录](#chapter-one)
+测了几条，然后在：
 
-……
+```js
+[1,2,-2,5,-1,-2,-1,...省略 n 个,-2,-1,1,4,7]
+[[-57,-58],[-72,91],[-55,35],...省略 n 个,[24,-10]]
+```
+
+Submit 提交：
+
+```js
+Answer
+1138
+
+Expected Answer
+5140
+```
+
+enm...望天长叹，看答案：
+
+```js
+const robotSim = (commands, obstacles) => {
+  var dx = [0, 1, 0, -1];
+  var dy = [1, 0, -1, 0];
+  var di = 0;
+  var endX = 0;
+  var endY = 0;
+  var result = 0;
+  var hashObstacle = {};
+  for (var r = 0; r < obstacles.length; r++) {
+    hashObstacle[obstacles[r][0] + '-' + obstacles[r][1]] = true;
+  }
+  for (var s = 0; s < commands.length; s++) {
+    if (commands[s] == -2) {
+      di = (di + 3) % 4;
+    } else if (commands[s] == -1) {
+      di = (di + 1) % 4;
+    } else {
+      // 每次走一步
+      for (var z = 1; z <= commands[s]; z++) {
+        var nextX = endX + dx[di];
+        var nextY = endY + dy[di];
+        // 判断下一步是否为障碍物
+        if (hashObstacle[nextX + '-' + nextY]) {
+          break;
+        }
+        endX = nextX;
+        endY = nextY;
+        result = Math.max(result, endX * endX + endY * endY);
+      }
+    }
+  }
+  return result;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 47/47 cases passed (220 ms)
+* Your runtime beats 44.64 % of javascript submissions
+* Your memory usage beats 36.36 % of javascript submissions (56.7 MB)
+```
+
+无奈中……
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
