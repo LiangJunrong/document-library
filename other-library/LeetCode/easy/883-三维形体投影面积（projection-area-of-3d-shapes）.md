@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-13 19:19:00**  
-> Recently revised in **2020-01-13 19:22:42**
+> Recently revised in **2020-01-13 19:55:58**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -97,13 +97,56 @@ var projectionArea = function(grid) {
 > index.js
 
 ```js
+/**
+ * @name 三维形体投影面积
+ * @param {number[][]} grid
+ * @return {number}
+ */
+const projectionArea = (grid) => {
+  // 计算正视
+  let faceUpTo = 0;
+  for (let i = 0; i < grid.length; i++) {
+    let max = Number.MIN_SAFE_INTEGER;
+    for (let j = 0; j < grid[0].length; j++) {
+      max = Math.max(max, grid[i][j]);
+    }
+    faceUpTo += max;
+  }
+  // 计算侧视
+  let sideLooking = 0;
+  const map = [[], [], []];
+  for (let i = 0; i < grid.length; i++) {
+    let max = Number.MIN_SAFE_INTEGER;
+    for (let j = 0; j < grid[0].length; j++) {
+      max = Math.max(max, grid[j][i]);
+    }
+    sideLooking += max;
+  }
+  // 计算俯视
+  let overlook = 0;
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid.length; j++) {
+      if (grid[i][j] > 0) {
+        overlook += 1;
+      }
+    }
+  }
+  return faceUpTo + sideLooking + overlook;
+};
 
+// console.log(projectionArea([[2]])); // 2 + 2 + 1 = 5
+// console.log(projectionArea([[1, 2], [3, 4]])); // 4 + 6 + 7 = 17
+// console.log(projectionArea([[1, 0], [0, 2]])); // 2 + 3 + 3 = 8
+// console.log(projectionArea([[1, 1, 0], [1, 0, 1], [1, 1, 1]])); // 8 + 3 + 3 = 14
+// console.log(projectionArea([[2, 2, 2], [2, 1, 2], [2, 2, 2]])); // 9 + 6 + 6 = 21
+
+console.log(projectionArea([[2, 2, 2], [1, 1, 1], [0, 1, 1]])); // 8 + 6 + 4 = 18
 ```
 
 `node index.js` 返回：
 
 ```js
-
+18
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -111,16 +154,57 @@ var projectionArea = function(grid) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 90/90 cases passed (64 ms)
+* Your runtime beats 90.48 % of javascript submissions
+* Your memory usage beats 11.11 % of javascript submissions (35.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**jsliang** 高中立体几何满分~
 
-[分析]
+> 暴力破解
+
+```js
+const projectionArea = (grid) => {
+  // 计算正视
+  let faceUpTo = 0;
+  for (let i = 0; i < grid.length; i++) {
+    let max = Number.MIN_SAFE_INTEGER;
+    for (let j = 0; j < grid[0].length; j++) {
+      max = Math.max(max, grid[i][j]);
+    }
+    faceUpTo += max;
+  }
+  // 计算侧视
+  let sideLooking = 0;
+  const map = [[], [], []];
+  for (let i = 0; i < grid.length; i++) {
+    let max = Number.MIN_SAFE_INTEGER;
+    for (let j = 0; j < grid[0].length; j++) {
+      max = Math.max(max, grid[j][i]);
+    }
+    sideLooking += max;
+  }
+  // 计算俯视
+  let overlook = 0;
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid.length; j++) {
+      if (grid[i][j] > 0) {
+        overlook += 1;
+      }
+    }
+  }
+  return faceUpTo + sideLooking + overlook;
+};
+```
+
+还记得高中数学老师讲过：
+
+* **如果你不会的，那你就用工具刀将你的橡皮擦切开来。**（橡皮擦卒）
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
