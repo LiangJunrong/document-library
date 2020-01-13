@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-13 08:46:51**  
-> Recently revised in **2020-01-13 08:47:56**
+> Recently revised in **2020-01-13 09:23:31**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -91,13 +91,47 @@ var middleNode = function(head) {
 > index.js
 
 ```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @name 链表的中间结点
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+const middleNode = (head) => {
+  const A = [head];
+  while (A[A.length - 1].next) {
+    A.push(A[A.length - 1].next);
+  }
+  return A[Math.floor(A.length / 2)];
+};
 
+const head = {
+  val: 1,
+  next: {
+    val: 2,
+    next: {
+      val: 3,
+      next: {
+        val: 4,
+        next: { val: 5, next: null },
+      },
+    },
+  },
+};
+
+console.log(middleNode(head));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+{ val: 3, next: { val: 4, next: { val: 5, next: null } } }
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -105,22 +139,110 @@ var middleNode = function(head) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 15/15 cases passed (72 ms)
+* Your runtime beats 14.79 % of javascript submissions
+* Your memory usage beats 57.14 % of javascript submissions (33.6 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，看到树或者链表，我们总能想起两样东西：
 
-[分析]
+* 递归
+* 迭代
+
+在破解树的题目中，**jsliang** 用得最多的是递归，应该容易遍历输出。
+
+**然后**，在这个链表上，感觉需要使用下迭代：
+
+> 迭代
+
+```js
+const middleNode = (head) => {
+  const A = [head];
+  while (A[A.length - 1].next) {
+    A.push(A[A.length - 1].next);
+  }
+  return A[Math.floor(A.length / 2)];
+};
+```
+
+这时候我们应该有个想法：
+
+* 如何将链表的每个节点暴露出来
+
+我们构建了一个数组，让 `head` 放到数组的末尾，通过不断地将链表的 `next` 添加到数组末尾（直至 `next` 为 `null`），我们可以搞出下面的数据：
+
+> console.log
+
+```js
+[
+  { val: 1, next: { val: 2, next: [Object] } },
+  { val: 2, next: { val: 3, next: [Object] } },
+  { val: 3, next: { val: 4, next: [Object] } },
+  { val: 4, next: { val: 5, next: null } },
+  { val: 5, next: null },
+]
+```
+
+看得清清楚楚，我们取到了整个链表的所有节点。
+
+这时候，如何获取 **中间结点**，相信小伙伴们的一清二楚了：
+
+* 如果是基数，获取中间点。例如长度为 5，则获取 `Math.floor(5 / 2) = 2` 即可。
+* 如果是偶数，获取中间靠右的点。例如长度为 6，则获取 `Math.floor(6 / 2) = 3` 即可。
+
+> 注意：编程数组中下标从 0 开始~
+
+**最后**，咱们看看 Submit 提交：
+
+```js
+Accepted
+* 15/15 cases passed (64 ms)
+* Your runtime beats 53.55 % of javascript submissions
+* Your memory usage beats 6.35 % of javascript submissions (34.3 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+如果你也查看了官方题解，那么你会看到 **jsliang** 的解法和它的第一解法一样，这里咱不多累述，咱们看看第二种解法：
+
+> 快慢指针
+
+```js
+const middleNode = (head) => {
+  slow = fast = head;
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return slow;
+};
+```
+
+这是我觉得非常秀并且也是挺容易理解的一种解法：
+
+1. 设置快指针和慢指针对应的都是 `head`。
+2. 设置快指针的跑动为一次 2 跳，设置慢指针的跑动为一次 1 跳。
+3. 当快指针跑完全程的时候，慢指针恰巧跑到一半。
+
+非常巧妙~
+
+Submit 提交：
+
+```js
+Accepted
+* 15/15 cases passed (68 ms)
+* Your runtime beats 32.84 % of javascript submissions
+* Your memory usage beats 84.13 % of javascript submissions (33.5 MB)
+```
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
