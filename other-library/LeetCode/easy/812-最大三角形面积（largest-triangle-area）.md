@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-06 08:36:10**  
-> Recently revised in **2020-01-06 09:36:18**
+> Recently revised in **2020-01-13 09:50:14**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -142,7 +142,7 @@ Accepted
 
 那么，现在了解了，根据 3 个点求三角形面积公式的是：
 
-* `S = (x1y2 + x2y3 + x3y1 - x1y3 - x2y1 - x3y2) / 2`
+* `S = |(x2 - x1)(y3 - y1)-(x3 - x1)(y2 - y1)| / 2`
 
 这……是初中数学还是高中数学来着，忘了忘了，难受。
 
