@@ -1,4 +1,4 @@
-876 - 链表的中间节点（middle-of-the-linked-list）
+876 - 链表的中间结点（middle-of-the-linked-list）
 ===
 
 > Create by **jsliang** on **2020-01-13 08:46:51**  
