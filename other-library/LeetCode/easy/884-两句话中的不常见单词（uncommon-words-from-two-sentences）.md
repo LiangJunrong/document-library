@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-14 15:13:54**  
-> Recently revised in **2020-01-14 15:14:54**
+> Recently revised in **2020-01-14 15:45:11**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -85,13 +84,35 @@ var uncommonFromSentences = function(A, B) {
 > index.js
 
 ```js
+/**
+ * @name 两句话中的不常见单词
+ * @param {string} A
+ * @param {string} B
+ * @return {string[]}
+ */
+const uncommonFromSentences = (A, B) => {
+  const newArray = (`${A} ${B}`).split(' ');
+  const result = [];
+  for (let i = 0; i < newArray.length; i++) {
+    if (
+      newArray.indexOf(newArray[i]) === newArray.lastIndexOf(newArray[i])
+      && !result.includes(newArray[i])
+    ) {
+      result.push(newArray[i]);
+    }
+  }
+  return result;
+};
 
+console.log(uncommonFromSentences('this apple is sweet', 'this apple is sour')); // [ 'sweet', 'sour' ]
+console.log(uncommonFromSentences('apple apple', 'banana')); // [ 'banana' ]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ 'sweet', 'sour' ]
+[ 'banana' ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -99,22 +120,111 @@ var uncommonFromSentences = function(A, B) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 53/53 cases passed (60 ms)
+* Your runtime beats 90.18 % of javascript submissions
+* Your memory usage beats 19.51 % of javascript submissions (34.9 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+题意导读：
 
-[分析]
+* 如果一个单词在其中一个句子中只出现一次，在另一个句子中却没有出现，那么这个单词就是不常见的。
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+根据这句话，我是不是可以这样理解：
 
-> [返回目录](#chapter-one)
+* 只要这个单词出现的次数小于 2 次，那么这个单词就是不常见的。
 
-……
+那么，我们进行验证：
+
+> 哈希表
+
+```js
+const uncommonFromSentences = (A, B) => {
+  const newA = A.split(' ');
+  const newB = B.split(' ');
+  const map = new Map();
+  for (let i = 0; i < newA.length; i++) {
+    if (map.get(newA[i])) {
+      map.set(newA[i], map.get(newA[i]) + 1);
+    } else {
+      map.set(newA[i], 1);
+    }
+  }
+  for (let i = 0; i < newB.length; i++) {
+    if (map.get(newB[i])) {
+      map.set(newB[i], map.get(newB[i]) + 1);
+    } else {
+      map.set(newB[i], 1);
+    }
+  }
+  const result = [];
+  for (let [key, value] of map) {
+    if (value < 2) {
+      result.push(key);
+    }
+  }
+  return result;
+};
+```
+
+思路：
+
+1. 将 A、B 转换为数组。
+2. 设置 `map` 来获取所有哈希表。
+3. 遍历 `newA`，取到 A 中的所有单词及其次数。
+4. 遍历 `newB`，取都 B 中的所有单词及其次数。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 53/53 cases passed (80 ms)
+* Your runtime beats 13.39 % of javascript submissions
+* Your memory usage beats 26.83 % of javascript submissions (34.5 MB)
+```
+
+看到这战绩，小伙伴们应该知道我想做啥了：
+
+> 哈希表优化
+
+```js
+const uncommonFromSentences = (A, B) => {
+  const newArray = (`${A} ${B}`).split(' ');
+  const result = [];
+  for (let i = 0; i < newArray.length; i++) {
+    if (
+      newArray.indexOf(newArray[i]) === newArray.lastIndexOf(newArray[i])
+      && !result.includes(newArray[i])
+    ) {
+      result.push(newArray[i]);
+    }
+  }
+  return result;
+};
+```
+
+主要思路：
+
+1. 将 A 和 B 拼接起来，省得进行二次 `for` 遍历。
+2. 设置 `result` 接受结果值。
+3. 通过 `for` 遍历新数组，然后判断它的首个索引值和末尾索引值是否相等，并且 `result` 不包含这个元素，就往 `result` 中添加该元素。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 53/53 cases passed (60 ms)
+* Your runtime beats 90.18 % of javascript submissions
+* Your memory usage beats 19.51 % of javascript submissions (34.9 MB)
+```
+
+这样，我们就完成了这道题的破解及其优化。
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
