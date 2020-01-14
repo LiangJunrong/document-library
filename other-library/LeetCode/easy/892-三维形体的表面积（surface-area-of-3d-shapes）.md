@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-14 19:26:36**  
-> Recently revised in **2020-01-14 19:27:28**
+> Recently revised in **2020-01-14 19:52:16**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -114,6 +114,44 @@ var surfaceArea = function(grid) {
 [图]
 
 [分析]
+
+代码：
+
+```js
+/**
+ * @name 三维形体的表面积
+ * @param {number[][]} grid
+ * @return {number}
+ */
+const surfaceArea = (grid) => {
+  let result = 0;
+  for (let i = 0; i < grid.length; i++) {
+    let nowArea;
+    for (let j = 0; j < grid[i].length; j++) {
+      nowArea = grid[i][j] * 4 + 2;
+      if (grid[i - 1] && grid[i - 1][j]) {
+        nowArea -= grid[i - 1][j];
+      }
+      if (grid[i + 1] && grid[i + 1][j]) {
+        nowArea -= grid[i + 1][j];
+      }
+      if (grid[i][j - 1]) {
+        nowArea -= grid[i][j - 1];
+      }
+      if (grid[i][j + 1]) {
+        nowArea -= grid[i][j + 1];
+      }
+    }
+    result += nowArea;
+  }
+  return result;
+};
+
+console.log(surfaceArea([[2]])); // 10
+console.log(surfaceArea([[1, 2], [3, 4]])); // 34
+console.log(surfaceArea([[1, 0], [0, 2]])); // 16
+console.log(surfaceArea([[1, 1, 1], [1, 0, 1], [1, 1, 1]])); // 32
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
