@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-14 09:02:00**
+> Recently revised in **2020-01-14 09:55:59**
 
 LeetCode 简单难度攻略
 
@@ -217,6 +217,22 @@ LeetCode 简单难度攻略
 | 98 | 874 - 模拟行走机器人（walking-robot-simulation） | [#874 解题](./874-模拟行走机器人（walking-robot-simulation）.md) |
 | 99 | 876 - 链表的中间结点（middle-of-the-linked-list） | [#876 解题](./876-链表的中间结点（middle-of-the-linked-list）.md) |
 | 100 | 883 - 三维形体投影面积（projection-area-of-3d-shapes） | [#883 解题](./883-三维形体投影面积（projection-area-of-3d-shapes）.md) |
+
+* **时间**：2020-01-14 09:55:25
+
+* **感言**：
+
+恭喜自己 GitHub 仓库已破 200 道 LeetCode 简单题题解~
+
+虽然没有其他公众号的文章一样受欢迎（枯燥），虽然不曾连续发掘金、SF 等平台（太多发了没有观赏性），但是从中真的得到了许许多多的快乐，忘掉了工作的枯燥和生活的苦闷，2020，加油！
+
+> GitHub 仓库地址：https://github.com/LiangJunrong/document-library/blob/master/other-library/LeetCode/easy/README.md
+
+## 201-300 道
+
+| 顺序 | 题目 | 解题攻略 |
+| --- | --- | --- |
+| 1 | 459 - 重复的字符串（repeated-substring-pattern） | [#459 解题](./459-重复的字符串（repeated-substring-pattern）.md) |
 
 ---
 
