@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-13 19:19:00**  
-> Recently revised in **2020-01-13 19:55:58**
+> Recently revised in **2020-01-14 09:01:24**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -103,42 +103,21 @@ var projectionArea = function(grid) {
  * @return {number}
  */
 const projectionArea = (grid) => {
-  // 计算正视
-  let faceUpTo = 0;
+  let result = 0;
   for (let i = 0; i < grid.length; i++) {
-    let max = Number.MIN_SAFE_INTEGER;
+    let verticalMax = 0;
+    let rowMax = 0;
     for (let j = 0; j < grid[0].length; j++) {
-      max = Math.max(max, grid[i][j]);
-    }
-    faceUpTo += max;
-  }
-  // 计算侧视
-  let sideLooking = 0;
-  const map = [[], [], []];
-  for (let i = 0; i < grid.length; i++) {
-    let max = Number.MIN_SAFE_INTEGER;
-    for (let j = 0; j < grid[0].length; j++) {
-      max = Math.max(max, grid[j][i]);
-    }
-    sideLooking += max;
-  }
-  // 计算俯视
-  let overlook = 0;
-  for (let i = 0; i < grid.length; i++) {
-    for (let j = 0; j < grid.length; j++) {
+      verticalMax = Math.max(verticalMax, grid[j][i]);
+      rowMax = Math.max(rowMax, grid[i][j]);
       if (grid[i][j] > 0) {
-        overlook += 1;
+        result += 1;
       }
     }
+    result += verticalMax + rowMax;
   }
-  return faceUpTo + sideLooking + overlook;
+  return result;
 };
-
-// console.log(projectionArea([[2]])); // 2 + 2 + 1 = 5
-// console.log(projectionArea([[1, 2], [3, 4]])); // 4 + 6 + 7 = 17
-// console.log(projectionArea([[1, 0], [0, 2]])); // 2 + 3 + 3 = 8
-// console.log(projectionArea([[1, 1, 0], [1, 0, 1], [1, 1, 1]])); // 8 + 3 + 3 = 14
-// console.log(projectionArea([[2, 2, 2], [2, 1, 2], [2, 2, 2]])); // 9 + 6 + 6 = 21
 
 console.log(projectionArea([[2, 2, 2], [1, 1, 1], [0, 1, 1]])); // 8 + 6 + 4 = 18
 ```
@@ -164,22 +143,13 @@ Accepted
 
 > [返回目录](#chapter-one)
 
-**jsliang** 高中立体几何满分~
+**首先**，看到这道题的时候，内心是有点抗拒的，毕竟《三维形体投影面积》，听起来就很高端，但是仔细想想，**jsliang** 高中立体几何满分~不怂，就是做：
 
 > 暴力破解
 
 ```js
 const projectionArea = (grid) => {
   // 计算正视
-  let faceUpTo = 0;
-  for (let i = 0; i < grid.length; i++) {
-    let max = Number.MIN_SAFE_INTEGER;
-    for (let j = 0; j < grid[0].length; j++) {
-      max = Math.max(max, grid[i][j]);
-    }
-    faceUpTo += max;
-  }
-  // 计算侧视
   let sideLooking = 0;
   const map = [[], [], []];
   for (let i = 0; i < grid.length; i++) {
@@ -188,6 +158,15 @@ const projectionArea = (grid) => {
       max = Math.max(max, grid[j][i]);
     }
     sideLooking += max;
+  }
+  // 计算侧视
+  let faceUpTo = 0;
+  for (let i = 0; i < grid.length; i++) {
+    let max = Number.MIN_SAFE_INTEGER;
+    for (let j = 0; j < grid[0].length; j++) {
+      max = Math.max(max, grid[i][j]);
+    }
+    faceUpTo += max;
   }
   // 计算俯视
   let overlook = 0;
@@ -206,11 +185,90 @@ const projectionArea = (grid) => {
 
 * **如果你不会的，那你就用工具刀将你的橡皮擦切开来。**（橡皮擦卒）
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+这道题也很简单：
 
-> [返回目录](#chapter-one)
+* 俯视：可以看到所有的数字，如果数字大于 1，表明这里有 1 个面积。
+* 正视：计算竖排对应最高个数相加。
+* 测试：计算横排对应最高个数相加。
 
-……
+看到这里还是懵圈，所以我们先进行一个假设：
+
+这组数据为：
+
+```js
+[
+  [ 0, 1, 2 ],
+  [ 3, 4, 5 ],
+  [ 6, 7, 8 ]
+]
+```
+
+进行切图：
+
+| 名称 | 纵1 | 纵2 | 纵3 |
+| --- | --- | --- | --- |
+| 横1 | 6 | 7 | 8 |
+| 横2 | 3 | 4 | 5 |
+| 横3 | 0 | 1 | 2 |
+
+OK，看到这里就很简单了：
+
+* 俯视：8 个
+
+数字代表着它的个数，如果它是 0 个，表明这个位置是空缺的，所以俯视应该是有 8 个投影面积。
+
+* 正视：21 个
+
+正视即计算纵排最高个数相加。
+
+1. 第一纵排为 `[0, 3, 6]`，那么最大是 6。
+2. 第二纵排为 `[1, 4, 7]`，那么最大是 7。
+3. 第三纵排为 `[2, 5, 8]`，那么最大是 8。
+
+总计就是 6 + 7 + 8 = 21 个。
+
+* 侧视：15 个
+
+侧视即计算横排最高个数相加。
+
+1. 第一横排为 `[0, 1, 2]`，那么最大是 2。
+2. 第二横排为 `[3, 4, 5]`，那么最大是 5。
+3. 第三横排为 `[6, 7, 8]`，那么最大是 8。
+
+总计就是 2 + 5 + 8 = 15 个。
+
+这样，我们最终结果就是 8 + 21 + 15 = 44 个。
+
+如果小伙伴还没想清楚，可以再读几遍，或者买块橡皮进行切片，或者拿几个正立方体块进行搭建模型观察。
+
+这也是 **jsliang** 高中数学立体几何所得经验，额外的分享~
+
+如果上面所讲你已经懂了，那么 **jsliang** 就继续优化自己代码了~
+
+> 暴力优化
+
+```js
+const projectionArea = (grid) => {
+  let result = 0;
+  for (let i = 0; i < grid.length; i++) {
+    let verticalMax = 0;
+    let rowMax = 0;
+    for (let j = 0; j < grid[0].length; j++) {
+      verticalMax = Math.max(verticalMax, grid[j][i]);
+      rowMax = Math.max(rowMax, grid[i][j]);
+      if (grid[i][j] > 0) {
+        result += 1;
+      }
+    }
+    result += verticalMax + rowMax;
+  }
+  return result;
+};
+```
+
+就这样，我们就优化了自己的代码啦~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
