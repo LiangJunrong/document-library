@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-14 15:45:44**
+> Recently revised in **2020-01-14 19:24:28**
 
 LeetCode 简单难度攻略
 
@@ -233,6 +233,7 @@ LeetCode 简单难度攻略
 | 顺序 | 题目 | 解题攻略 |
 | --- | --- | --- |
 | 1 | 884 - 两句话中的不常见单词（uncommon-words-from-two-sentences） | [#884 解题](./884-两句话中的不常见单词（uncommon-words-from-two-sentences）.md) |
+| 2 | 888 - 公平的糖果交换（fair-candy-swap） | [#888 解题](./888-公平的糖果交换（fair-candy-swap）.md) |
 
 ---
 
