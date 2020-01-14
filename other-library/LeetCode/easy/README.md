@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-14 09:55:59**
+> Recently revised in **2020-01-14 15:45:44**
 
 LeetCode 简单难度攻略
 
@@ -232,7 +232,7 @@ LeetCode 简单难度攻略
 
 | 顺序 | 题目 | 解题攻略 |
 | --- | --- | --- |
-| 1 | 459 - 重复的字符串（repeated-substring-pattern） | [#459 解题](./459-重复的字符串（repeated-substring-pattern）.md) |
+| 1 | 884 - 两句话中的不常见单词（uncommon-words-from-two-sentences） | [#884 解题](./884-两句话中的不常见单词（uncommon-words-from-two-sentences）.md) |
 
 ---
 
