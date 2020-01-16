@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-16 09:04:41**  
-> Recently revised in **2020-01-16 09:05:32**
+> Recently revised in **2020-01-16 09:48:40**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -97,13 +97,22 @@ var numSpecialEquivGroups = function(A) {
 > index.js
 
 ```js
+/**
+ * @name 特殊等价字符串组
+ * @param {string[]} A
+ * @return {number}
+ */
+const numSpecialEquivGroups = (A) => {
+  return [...new Set(A.map((item) => item.split('').filter((t, i) => i % 2 === 1).sort().join('') + item.split('').filter((t, i) => i % 2 === 0).sort().join('')))].length;
+};
 
+console.log(numSpecialEquivGroups(['abc', 'acb', 'bac', 'bca', 'cab', 'cba']));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+3
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -111,22 +120,143 @@ var numSpecialEquivGroups = function(A) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 36/36 cases passed (76 ms)
+* Your runtime beats 97.3 % of javascript submissions
+* Your memory usage beats 26.67 % of javascript submissions (37.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，不管有的没的，先猜测如果暴力破解这道题，那么损耗一定不低，甚至有可能超时！
 
-[分析]
+分析题意：
+
+1. 有一个数组 A，它由 `n` 个相同长度的小写字母组成；
+2. 数组 A 的长度在 `[1, 1000]` 之间；
+3. 数组 A 中字符的长度在 `[1, 20]` 之间。
+
+假设有数组：
+
+* `['abc', 'acb', 'bac', 'bca', 'cab', 'cba']`
+
+那么，如何判断是否有【特殊等价】字符呢？
+
+有的，根据题意：
+
+```
+如果经过任意次数的移动，
+S == T，
+那么两个字符串 S 和 T 是特殊等价的。
+
+一次移动包括选择两个索引 i 和 j，
+且 i ％ 2 == j ％ 2，
+交换 S[j] 和 S [i]。
+```
+
+这道题的意思是，在单个字符中：
+
+1. 奇数索引只能和奇数索引交换；
+2. 偶数索引只能和偶数索引交换。
+
+例如：`acb`，那么只能 `a` 和 `b` 交换为 `bca`。（因为 `a` 索引为 0 ，`b` 索引为 2，两者 % 2 都为 0）。
+
+> 题目中的表达即奇偶不能互换。
+
+依次，我们可以顺势做出暴力破解：
+
+> 暴力破解
+
+```js
+// ...好吧我做不出来
+```
+
+怀疑人生，这真的是【简单】难度？
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+看了下题解，有个 JavaScript 的解题还不错：
+
+* 题目, 我该拿什么拯救你?：https://leetcode-cn.com/problems/groups-of-special-equivalent-strings/solution/ti-mu-wo-gai-na-shi-yao-zheng-jiu-ni-by-shetia/
+
+
+其实:
+
+1. 有个数组, 元素是字符串；
+2. 字符串中的字符两两交换，交换的字符索引满足 i ％ 2 == j ％ 2，就是说 奇跟奇, 偶跟偶 交换；
+3. 不管交换多少次, 只要 字符串交换后 有和 另一个字符串交换 后 相同, 就为等价的；
+4. 把这些等价的字符串归为 一个数组中；
+5. 求 有多少个这样的数组；
+
+既然 奇跟奇, 偶跟偶 交换, 我们何不 把字符串的字符索引为 奇 和 偶 的分离开来, 各放到一个数组中
+
+然后 奇 偶 数组排序下, 再拼接起来, 如果它们是 特殊等价 的话, 这样的处理下来, 得到的就会是 完全相等的字符串
+
+```
+//如: 
+A = ["abcd","cdab","adcb","cbad"]
+
+// 奇偶分离
+A = [
+      [['a','c'],['b','d']],
+      [['c','a'],['d','b']],
+      [['a','c'],['d','b']],
+      [['c','a'],['b','d']]
+    ]
+
+// 排序
+A = [
+      [['a','c'],['b','d']],
+      [['a','c'],['b','d']],
+      [['a','c'],['b','d']],
+      [['a','c'],['b','d']]
+    ]
+
+// 拼接
+A = ['abcd','abcd','abcd','abcd']
+
+// 去重
+A = ['abcd']
+
+// 返回长度即可
+```
+
+所以有了题解：
+
+```js
+var numSpecialEquivGroups = function(A) {
+ let list = A.map(item => {
+   let arr = item.split('')
+   let odd = arr.filter((t,i) => i%2===1).sort().join('')
+   let event = arr.filter((t,i) => i%2===0).sort().join('')
+   return event+odd
+ })
+ return [...new Set(list)].length
+};
+```
+
+当然，尽信代码不如无码，所以 **jsliang** 进行了强压缩：
+
+```js
+const numSpecialEquivGroups = (A) => [...new Set(A.map((item) => item.split('').filter((t, i) => i % 2 === 1).sort().join('') + item.split('').filter((t, i) => i % 2 === 0).sort().join('')))].length;
+```
+
+Submit 提交为：
+
+```js
+Accepted
+* 36/36 cases passed (76 ms)
+* Your runtime beats 97.3 % of javascript submissions
+* Your memory usage beats 26.67 % of javascript submissions (37.7 MB)
+```
+
+以上~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
