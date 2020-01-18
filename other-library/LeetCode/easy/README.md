@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-16 09:49:15**
+> Recently revised in **2020-1-18 11:09:57**
 
 LeetCode 简单难度攻略
 
@@ -236,6 +236,7 @@ LeetCode 简单难度攻略
 | 2 | 888 - 公平的糖果交换（fair-candy-swap） | [#888 解题](./888-公平的糖果交换（fair-candy-swap）.md) |
 | 3 | 892 - 三维形体的表面积（surface-area-of-3d-shapes） | [#892 解题](./892-三维形体的表面积（surface-area-of-3d-shapes）.md) |
 | 4 | 893 - 特殊等价字符串组（groups-of-special-equivalent-strings） | [#893 解题](./893-特殊等价字符串组（groups-of-special-equivalent-strings）.md) |
+| 5 | 896 - 单调数列（monotonic-array） | [#896 解题](./896-单调数列（monotonic-array）.md) |
 
 ---
 
