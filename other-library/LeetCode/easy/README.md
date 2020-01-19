@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-1-18 11:09:57**
+> Recently revised in **2020-01-19 09:34:34**
 
 LeetCode 简单难度攻略
 
@@ -237,6 +237,7 @@ LeetCode 简单难度攻略
 | 3 | 892 - 三维形体的表面积（surface-area-of-3d-shapes） | [#892 解题](./892-三维形体的表面积（surface-area-of-3d-shapes）.md) |
 | 4 | 893 - 特殊等价字符串组（groups-of-special-equivalent-strings） | [#893 解题](./893-特殊等价字符串组（groups-of-special-equivalent-strings）.md) |
 | 5 | 896 - 单调数列（monotonic-array） | [#896 解题](./896-单调数列（monotonic-array）.md) |
+| 6 | 897 - 递增顺序查找树（increasing-order-search-tree） | [#897 解题](./897-递增顺序查找树（increasing-order-search-tree）.md) |
 
 ---
 
