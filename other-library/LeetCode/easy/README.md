@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-19 09:34:34**
+> Recently revised in **2020-01-20 18:54:35**
 
 LeetCode 简单难度攻略
 
@@ -238,6 +238,7 @@ LeetCode 简单难度攻略
 | 4 | 893 - 特殊等价字符串组（groups-of-special-equivalent-strings） | [#893 解题](./893-特殊等价字符串组（groups-of-special-equivalent-strings）.md) |
 | 5 | 896 - 单调数列（monotonic-array） | [#896 解题](./896-单调数列（monotonic-array）.md) |
 | 6 | 897 - 递增顺序查找树（increasing-order-search-tree） | [#897 解题](./897-递增顺序查找树（increasing-order-search-tree）.md) |
+| 7 | 905 - 按奇偶排序数组（sort-array-by-parity） | [#905 解题](./905-按奇偶排序数组（sort-array-by-parity）.md) |
 
 ---
 
