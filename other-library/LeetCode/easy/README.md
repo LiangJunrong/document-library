@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-20 18:54:35**
+> Recently revised in **2020-01-21 12:09:31**
 
 LeetCode 简单难度攻略
 
@@ -239,6 +239,7 @@ LeetCode 简单难度攻略
 | 5 | 896 - 单调数列（monotonic-array） | [#896 解题](./896-单调数列（monotonic-array）.md) |
 | 6 | 897 - 递增顺序查找树（increasing-order-search-tree） | [#897 解题](./897-递增顺序查找树（increasing-order-search-tree）.md) |
 | 7 | 905 - 按奇偶排序数组（sort-array-by-parity） | [#905 解题](./905-按奇偶排序数组（sort-array-by-parity）.md) |
+| 8 | 908 - 最小差值I（smallest-range-i） | [#908 解题](./908-最小差值I（smallest-range-i）.md) |
 
 ---
 
