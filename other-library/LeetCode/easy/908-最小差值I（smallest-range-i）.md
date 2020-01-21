@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-21 11:42:52**  
-> Recently revised in **2020-01-21 11:42:54**
+> Recently revised in **2020-01-21 12:08:54**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -91,13 +90,31 @@ var smallestRangeI = function(A, K) {
 > index.js
 
 ```js
+/**
+ * @name 最小差值I
+ * @param {number[]} A
+ * @param {number} K
+ * @return {number}
+ */
+const smallestRangeI = (A, K) => {
+  let leftMax = Number.MIN_SAFE_INTEGER, // 左区间最大值
+      rightMax = Number.MAX_SAFE_INTEGER; // 右区间最小值
+  for (let i = 0; i < A.length; i++) {
+    leftMax = Math.max(leftMax, A[i] - K);
+    rightMax = Math.min(rightMax, A[i] + K);
+  }
+  return rightMax > leftMax ? 0 : leftMax - rightMax;
+};
 
+console.log(smallestRangeI([0, 10], 2)); // 6
+console.log(smallestRangeI([1, 3, 6], 3)); // 0
 ```
 
 `node index.js` 返回：
 
 ```js
-
+6
+0
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -105,22 +122,90 @@ var smallestRangeI = function(A, K) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 68/68 cases passed (60 ms)
+* Your runtime beats 93.33 % of javascript submissions
+* Your memory usage beats 46.15 % of javascript submissions (36.1 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+乍看之下，一脸懵逼，这题有点不好理解？
 
-[分析]
+仔细看了 5 遍，然后想了下，举个例子：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+> 例子 1
 
-> [返回目录](#chapter-one)
+1、A = [0,10], K = 2
 
-……
+这时候：
+
+> 下面的 [ ] 表示数学的闭区间
+
+* A[0] = [-2, 2]
+* A[1] = [8, 12]
+
+这时候最短距离应该是 `[2, 8]` 的最短。
+
+再举个例子：
+
+> 例子 2
+
+2、A = [1,3,6], K = 3
+
+这时候：
+
+> 下面的 [ ] 表示数学的闭区间
+
+* A[0] = [-2, 4]
+* A[1] = [0, 6]
+* A[2] = [3, 9]
+
+从中取相差比较小的值，即 [3, 3, 3] 或者 [4, 4, 4]。
+
+从而我们得出结论：
+
+* 取【左区间最大值 - 右区间最小值的差值】！前提是左区间比右区间大。
+
+以上为个人猜测，如果下面错了，当我没说~
+
+> 暴力破解
+
+```js
+const smallestRangeI = (A, K) => {
+  let leftMax = Number.MIN_SAFE_INTEGER, // 左区间最大值
+      rightMax = Number.MAX_SAFE_INTEGER; // 右区间最小值
+  for (let i = 0; i < A.length; i++) {
+    leftMax = Math.max(leftMax, A[i] - K);
+    rightMax = Math.min(rightMax, A[i] + K);
+  }
+  return rightMax > leftMax ? 0 : leftMax - rightMax;
+};
+```
+
+Submit 提交试试：
+
+```js
+Accepted
+* 68/68 cases passed (60 ms)
+* Your runtime beats 93.33 % of javascript submissions
+* Your memory usage beats 46.15 % of javascript submissions (36.1 MB)
+```
+
+这个真的一次 Submit 成功，惊喜。
+
+思路如下：
+
+1. 设置 `leftMax` 为左区间最大值，所以初始化应该是 JavaScript 最小值（用来获取最大值）。
+2. 设置 `rightMax` 为右区间最小值，所以初始化应该是 JavaScript 最大值（用来获取最小值）。
+3. 遍历数组 `A`，`leftMax` 和 `A[i] - K` 来比较；`rightMax` 和 `A[i] + k` 来比较。
+4. 如果最后结果是右区间最小值比左区间最大值还大，那么返回 0；否则返回左区间最大值 - 右区间最小值。
+
+这样，我们就完成了这道题的破解~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
