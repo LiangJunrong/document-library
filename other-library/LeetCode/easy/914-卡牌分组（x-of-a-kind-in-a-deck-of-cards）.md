@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-22 19:39:07**  
-> Recently revised in **2020-01-22 19:39:54**
+> Recently revised in **2020-01-22 20:47:00**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -101,13 +100,48 @@ var hasGroupsSizeX = function(deck) {
 > index.js
 
 ```js
+/**
+ * @name 求最大公约数
+ */
+const gcd = (x, y) => x == 0 ? y : gcd(y % x, x);
 
+/**
+ * @name 卡牌分组
+ * @param {number[]} deck
+ * @return {boolean}
+ */
+const hasGroupsSizeX = (deck) => {
+  let obj = {};
+  for (let i of deck) {
+    obj[i] = !obj[i] ? 1 : ++obj[i];
+  }
+
+  let arr = Object.values(obj);
+  let res = arr[0];
+  return arr.every(i => (res = gcd(res, i)) > 1);
+}
+
+console.log(hasGroupsSizeX([1, 2, 3, 4, 4, 3, 2, 1])); // true
+console.log(hasGroupsSizeX([1, 1, 1, 2, 2, 2, 3, 3])); // false
+console.log(hasGroupsSizeX([1])); // false
+console.log(hasGroupsSizeX([1, 1])); // true
+console.log(hasGroupsSizeX([1, 1, 2, 2, 2, 2])); // true
+console.log(hasGroupsSizeX([0, 0, 0, 1, 1, 1, 2, 2, 2])); // true
+console.log(hasGroupsSizeX([1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3])); // true
+console.log(hasGroupsSizeX([1, 1])); // true
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
+false
+true
+true
+true
+true
+true
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -115,22 +149,154 @@ var hasGroupsSizeX = function(deck) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 69/69 cases passed (80 ms)
+* Your runtime beats 49.41 % of javascript submissions
+* Your memory usage beats 46.85 % of javascript submissions (36.6 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+答案咱先不谈，关键点在于求最大公约数：
 
-[分析]
+> 求最大公约
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+/**
+ * 求两数最大公约数
+ * @param {*} deck 
+ */
+const gcd = (a, b) => a == 0 ? b : gcd(b % a, a);
+```
 
-> [返回目录](#chapter-one)
+然后暴力求解：
 
-……
+> 失败的暴力
+
+```js
+/**
+ * 求两数最大公约数
+ * @param {*} deck 
+ */
+const gcd = (u, v) => {
+  while (v != 0) {
+    temp = u % v;
+    u = v;
+    v = temp;
+  }
+  return u;
+}
+
+/**
+ * @name 卡牌分组
+ * @param {number[]} deck
+ * @return {boolean}
+ */
+const hasGroupsSizeX = (deck) => {
+  const filterDeck = [];
+  const map = new Map();
+  for (let i = 0; i < deck.length; i++) {
+    if (!map.has(deck[i])) {
+      filterDeck.push(deck.filter(item => item === deck[i]).length);
+      map.set(deck[i], 1);
+    }
+  }
+  if (filterDeck[0] < 2) {
+    return false;
+  }
+  if (filterDeck[0] >= 2 && filterDeck.length === 1) {
+    return true;
+  }
+  let min = 10001;
+  for (let i = 0; i < filterDeck.length; i++) {
+    min = Math.min(min, filterDeck[i]);
+  }
+  for (let i = 0; i < filterDeck.length; i++) {
+    if (filterDeck[i] % min !== 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
+// console.log(hasGroupsSizeX([1, 2, 3, 4, 4, 3, 2, 1])); // true
+// console.log(hasGroupsSizeX([1, 1, 1, 2, 2, 2, 3, 3])); // false
+// console.log(hasGroupsSizeX([1])); // false
+// console.log(hasGroupsSizeX([1, 1])); // true
+// console.log(hasGroupsSizeX([1, 1, 2, 2, 2, 2])); // true
+// console.log(hasGroupsSizeX([0, 0, 0, 1, 1, 1, 2, 2, 2])); // true
+// console.log(hasGroupsSizeX([1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3])); // true
+// console.log(hasGroupsSizeX([1, 1])); // true
+```
+
+`console.log` 打印的就是我失败的记录~
+
+惨淡，可能我思路错了。
+
+> 题解方法【一】
+
+```js
+var hasGroupsSizeX = function (deck) {
+  function gcd(x, y) {
+    return x == 0 ? y : gcd(y % x, x);
+  }
+
+  let obj = {};
+  for (let i of deck) {
+    obj[i] = !obj[i] ? 1 : ++obj[i];
+  }
+
+  let arr = Object.values(obj);
+  let res = arr[0];
+  return arr.every(i => (res = gcd(res, i)) > 1);
+}
+```
+
+> 题解方法【二】
+
+```js
+var hasGroupsSizeX = function (deck) {
+  //  最大公约数
+  let gcd = function (u, v) {
+    while (v != 0) {
+      temp = u % v;
+      u = v;
+      v = temp;
+    }
+    return u;
+  }
+  let minv;
+  let count = {};
+  for (let i = 0; i < deck.length; i++) {
+    if (!count[deck[i]]) {
+      count[deck[i]] = 0
+    }
+    count[deck[i]]++;
+  }
+  for (let key in count) {
+    let v = count[key]
+    if (minv == undefined) {
+      minv = v;
+      continue;
+    }
+    if (minv % v == 0 || v % minv == 0) {
+      minv = Math.min(minv, v);
+    } else {
+      minv = gcd(v > minv ? v : minv, v > minv ? minv : v);
+      if (minv == 1) {
+        return false;
+      }
+    }
+  }
+  return minv >= 2;
+};
+```
+
+失败的人暂且不多 bb~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
