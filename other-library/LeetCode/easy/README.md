@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-22 20:47:38**
+> Recently revised in **2020-01-23 21:20:57**
 
 LeetCode 简单难度攻略
 
@@ -241,6 +241,7 @@ LeetCode 简单难度攻略
 | 7 | 905 - 按奇偶排序数组（sort-array-by-parity） | [#905 解题](./905-按奇偶排序数组（sort-array-by-parity）.md) |
 | 8 | 908 - 最小差值I（smallest-range-i） | [#908 解题](./908-最小差值I（smallest-range-i）.md) |
 | 9 | 914 - 卡牌分组（x-of-a-kind-in-a-deck-of-cards） | [#914 解题](./914-卡牌分组（x-of-a-kind-in-a-deck-of-cards）.md) |
+| 10 | 917 - 仅仅反转字母（reverse-only-letters） | [#917 解题](./917-仅仅反转字母（reverse-only-letters）.md) |
 
 ---
 
