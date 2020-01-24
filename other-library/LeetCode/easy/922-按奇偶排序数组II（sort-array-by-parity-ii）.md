@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-24 18:53:29**  
-> Recently revised in **2020-01-24 18:55:34**
+> Recently revised in **2020-01-24 19:26:30**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -81,13 +81,39 @@ var sortArrayByParityII = function(A) {
 > index.js
 
 ```js
+/**
+ * @name 按奇偶排序数组
+ * @param {number[]} A
+ * @return {number[]}
+ */
+const sortArrayByParityII = (A) => {
+  const jishu = [],
+        oushu = [];
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] % 2 === 0) {
+      oushu.push(A[i]);
+    } else {
+      jishu.push(A[i]);
+    }
+  }
+  const result = [];
+  for (let i = 0; i < A.length; i++) {
+    if (i % 2 === 0) {
+      result.push(oushu.pop());
+    } else {
+      result.push(jishu.pop());
+    }
+  }
+  return result;
+};
 
+console.log(sortArrayByParityII([4, 2, 5, 7]));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ 2, 7, 4, 5 ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -95,23 +121,102 @@ var sortArrayByParityII = function(A) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 61/61 cases passed (124 ms)
+* Your runtime beats 44.81 % of javascript submissions
+* Your memory usage beats 17.01 % of javascript submissions (41.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+如果你做过 905，那么这道题应该也不是问题，先上白痴操作：
 
-[分析]
+> 暴力破解 1
+
+```js
+const sortArrayByParityII = (A) => {
+  const jishu = [],
+        oushu = [];
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] % 2 === 0) {
+      oushu.push(A[i]);
+    } else {
+      jishu.push(A[i]);
+    }
+  }
+  const result = [];
+  for (let i = 0; i < A.length; i++) {
+    if (i % 2 === 0) {
+      result.push(oushu.pop());
+    } else {
+      result.push(jishu.pop());
+    }
+  }
+  return result;
+};
+```
+
+这种解法思路简单：
+
+1. 设置 `jishu` 获取奇数对应的数组，设置 `oushu` 获取偶数对应的数组。（偷懒我就不翻译成英文了好吧）
+2. 遍历一次 `A` 数组，将奇偶进行归类。
+3. 再遍历一次 `A` 数组，按奇偶位置将值放到 `result` 中。
+4. 返回最终结果 `result`。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 61/61 cases passed (124 ms)
+* Your runtime beats 44.81 % of javascript submissions
+* Your memory usage beats 17.01 % of javascript submissions (41.7 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+当然，仔细思考还有其他法子的：
 
+> 暴力破解 2
+
+```js
+const sortArrayByParityII = (A) => {
+  const result = new Array(A.length).fill('');
+  let oushu = 0, jishu = 1;
+  while (A.length > 0) {
+    const temp = A.pop();
+    if (temp % 2 === 0) {
+      result[oushu] = temp;
+      oushu += 2;
+    } else {
+      result[jishu] = temp;
+      jishu += 2;
+    }
+  }
+  return result;
+};
+```
+
+1. 新建一个空数组，用 `''` 初始化每一项；
+2. 遍历 `A` 的长度，不停 `pop` 它每一项元素；
+3. 将偶数的放到偶数位，将奇数的放到奇数位。
+
+搞定，收工~
+
+Submit 提交：
+
+```js
+Accepted
+* 61/61 cases passed (116 ms)
+* Your runtime beats 71.21 % of javascript submissions
+* Your memory usage beats 65.42 % of javascript submissions (39.2 MB)
+```
+
+当然，以上是 **jsliang** 个人拙劣见解，如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
+ 
 ---
 
 **不折腾的前端，和咸鱼有什么区别！**
