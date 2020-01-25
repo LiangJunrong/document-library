@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-25 20:26:49**  
-> Recently revised in **2020-01-25 20:27:49**
+> Recently revised in **2020-01-25 21:06:56**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -98,13 +98,40 @@ var isLongPressedName = function(name, typed) {
 > index.js
 
 ```js
+/**
+ * @name 长按键入
+ * @param {string} name
+ * @param {string} typed
+ * @return {boolean}
+ */
+const isLongPressedName = (name, typed) => {
+  let time = 0,
+      position = 0;
+  for (let i = 0; i < name.length; i++) {
+    for (let j = position; j < typed.length; j++) {
+      if (name[i] === typed[j]) {
+        position = j + 1;
+        time ++;
+        break;
+      }
+    }
+  }
+  return time === name.length;
+};
 
+console.log(isLongPressedName('alex', 'aaleex')); // true
+console.log(isLongPressedName('saeed', 'ssaaedd')); // false
+console.log(isLongPressedName('leelee', 'lleeelee')); // true
+console.log(isLongPressedName('laiden', 'laiden')); // true
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
+true
+true
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -112,22 +139,114 @@ var isLongPressedName = function(name, typed) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 71/71 cases passed (80 ms)
+* Your runtime beats 17.69 % of javascript submissions
+* Your memory usage beats 55.17 % of javascript submissions (34.4 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+看完题目，分析题意：
 
-[分析]
+* `name` 是 `typed` 的子集
+* 这两者顺序一致（猜测）
+
+是的，求出这两个即可~
+
+> 双指针
+
+```js
+const isLongPressedName = (name, typed) => {
+  let time = 0,
+      position = 0;
+  for (let i = 0; i < name.length; i++) {
+    for (let j = position; j < typed.length; j++) {
+      if (name[i] === typed[j]) {
+        position = j + 1;
+        time ++;
+        break;
+      }
+    }
+  }
+  return time === name.length;
+};
+```
+
+解法如下：
+
+1. 设置 `time` 记录匹对的次数；
+2. 设置 `position` 记录当前 `j + 1` 的位置；
+3. 双重 `for` 遍历 `name` 和 `typed`，查找两者相同的位置，如果有，则设置 `position = j + 1`，并且 `time ++`，同时中止第二层 `for` 循环；
+4. 最后判断 `time` 的次数是否和 `name` 的长度一致即可。
+
+Submit 提交为：
+
+```js
+Accepted
+* 71/71 cases passed (80 ms)
+* Your runtime beats 17.69 % of javascript submissions
+* Your memory usage beats 55.17 % of javascript submissions (34.4 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+接下来轻松一下，看看大佬题解，准备下瓜子：
+
+> 【题解一】
+
+```js
+const isLongPressedName = (name, typed) => {
+  let i = 0,
+    j = 0,
+    len = typed.length,
+    n = name.length;
+
+  while (i < n) {
+    let cur = name[i],
+      count = 1,
+      k = i + 1;
+
+    while (k < n && name[k] == cur) {
+      k++;
+      count++; // 记录当前字符的连续个数
+    }
+    i = k;
+
+    let p = 0;
+    while (j < len) {
+      if (typed[j] == cur) {
+        j++;
+        p++;
+        if (j == len && i < n) return false; // 如果 typed 遍历结束时候，name 还没结束，则返回 false
+      } else {
+        if (p < count) {
+          return false; // 如果 typed 中该字符的个数小于 name 中出现的个数，返回 false
+        }
+        break;
+      }
+    }
+  }
+  return true;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 71/71 cases passed (60 ms)
+* Your runtime beats 94.62 % of javascript submissions
+* Your memory usage beats 54.31 % of javascript submissions (34.5 MB)
+```
+
+看到题解那么长，还觉得有点不削？然后看提交，还真香~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
