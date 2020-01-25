@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-24 19:26:59**
+> Recently revised in **2020-01-25 21:07:37**
 
 LeetCode 简单难度攻略
 
@@ -243,6 +243,7 @@ LeetCode 简单难度攻略
 | 9 | 914 - 卡牌分组（x-of-a-kind-in-a-deck-of-cards） | [#914 解题](./914-卡牌分组（x-of-a-kind-in-a-deck-of-cards）.md) |
 | 10 | 917 - 仅仅反转字母（reverse-only-letters） | [#917 解题](./917-仅仅反转字母（reverse-only-letters）.md) |
 | 11 | 922 - 按奇偶排序数组II（sort-array-by-parity-ii） | [#922 解题](./922-按奇偶排序数组II（sort-array-by-parity-ii）.md) |
+| 12 | 925 - 长按键入（long-pressed-name） | [#925 解题](./925-长按键入（long-pressed-name）.md) |
 
 ---
 
