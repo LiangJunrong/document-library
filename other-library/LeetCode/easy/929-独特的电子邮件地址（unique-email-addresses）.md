@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-26 18:52:53**  
-> Recently revised in **2020-01-26 18:54:44**
+> Recently revised in **2020-01-26 19:24:24**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -107,13 +107,46 @@ var numUniqueEmails = function(emails) {
 > index.js
 
 ```js
+/**
+ * @name 独特的电子邮件地址
+ * @param {string[]} emails
+ * @return {number}
+ */
+const numUniqueEmails = (emails) => {
+  const map = new Map();
+  for (let i = 0; i < emails.length; i++) {
+    const left = emails[i].split('@')[0].split('.').join('').split('+')[0],
+          right = emails[i].split('@')[1];
+    if (!map.has(`${left}@${right}`)) {
+      map.set(`${left}@${right}`, 1);
+    }
+  }
+  return map.size;
+};
 
+console.log(numUniqueEmails(
+  [
+    'test.email+alex@leetcode.com',
+    'test.e.mail+bob.cathy@leetcode.com',
+    'testemail+david@lee.tcode.com',
+  ]
+));
+// 2
+
+console.log(numUniqueEmails(
+  [
+    'test.email+alex@leetcode.com',
+    'test.email.leet+alex@code.com',
+  ]
+));
+// 2
 ```
 
 `node index.js` 返回：
 
 ```js
-
+2
+2
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -121,22 +154,116 @@ var numUniqueEmails = function(emails) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 184/184 cases passed (104 ms)
+* Your runtime beats 43.09 % of javascript submissions
+* Your memory usage beats 18.48 % of javascript submissions (43.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+想要在别人的地盘混好，首先要熟悉别人的规则：
 
-[分析]
+1. 有邮件地址诸如 `jsliang@liangjunrong.com`
+2. `@` 符号是关键的分割符号；
+3. `@` 符号前面的 `.` 符号会被忽略；
+4. `@` 符号前面如果有 `+` 符号，则 `+` 符号到 `@` 符号之间的字符串会被过滤掉；
+5. 拿到给定的邮件地址列表，计算出一共有多少实际上是不同的地址~
+
+解读完毕，立马出来答案：
+
+> 暴力破解
+
+```js
+const numUniqueEmails = (emails) => {
+  const map = new Map();
+  for (let i = 0; i < emails.length; i++) {
+    const left = emails[i].split('@')[0].split('.').join('').split('+')[0],
+          right = emails[i].split('@')[1];
+    if (!map.has(`${left}@${right}`)) {
+      map.set(`${left}@${right}`, 1);
+    }
+  }
+  return map.size;
+};
+```
+
+1. 假设有邮件 `hello.jsliang+liangjunrong@heyuan.com`；
+2. 首先：`emails[i].split('@')` 获取的是左右两部分，即：`hello.jsliang+liangjunrong` 和 `heyuan.com`；
+3. 然后：`emails[i].split('@')[0].split('.').join('')` 将 `.` 符号去掉。
+4. 最后：`emails[i].split('@')[0].split('.').join('').split('+')[0]` 获取的是 `+` 符号前面的字符串。
+
+这样，就完成了这道题的破解，Submit 提交如下：
+
+```js
+Accepted
+* 184/184 cases passed (104 ms)
+* Your runtime beats 43.09 % of javascript submissions
+* Your memory usage beats 18.48 % of javascript submissions (43.7 MB)
+```
+
+如果非要简化，就变成：
+
+> 暴力破解【简化版】
+
+```js
+const numUniqueEmails = (emails) => {
+  const map = new Map();
+  for (let i = 0; i < emails.length; i++) {
+    map.set(`${emails[i].split('@')[0].split('.').join('').split('+')[0]}@${emails[i].split('@')[1]}`, 1);
+  }
+  return map.size;
+};
+```
+
+有的小伙伴说 **jsliang** 特喜欢用 `Map`，有没有不需要用 `Map` 的？
+
+> 暴力破解【Set 去重】
+
+```js
+const numUniqueEmails = (emails) => {
+  const result = [];
+  for (let i = 0; i < emails.length; i++) {
+    result.push(`${emails[i].split('@')[0].split('.').join('').split('+')[0]}@${emails[i].split('@')[1]}`);
+  }
+  return [...new Set(result)].length;
+};
+```
+
+当然，仅仅如此肯定满足不了你的求知欲的话，那么咱们看看大佬的法子~
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+俗话说，不会写正则的程序员，跟咸鱼没什么区别（是的，**jsliang** 就是条咸鱼）~
+
+> 正则表达式
+
+```js
+const numUniqueEmails = (emails) => {
+  return [...new Set(emails.map(item => {
+    let list = item.split('@')
+    list[0] = list[0].replace(/\./g, '').split('+')[0]
+    return list.join('@')
+  }))].length;
+};
+```
+
+羡慕，我就不解读了，反正我第一时间不会想到用正则去搞，哈哈~
+
+Submit 提交如下：
+
+```js
+Accepted
+* 184/184 cases passed (92 ms)
+* Your runtime beats 74.8 % of javascript submissions
+* Your memory usage beats 64.13 % of javascript submissions (41.5 MB)
+```
+
+当然，如果小伙伴有更巧妙的方法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
