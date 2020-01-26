@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-25 21:07:37**
+> Recently revised in **2020-01-26 19:27:24**
 
 LeetCode 简单难度攻略
 
@@ -244,6 +244,7 @@ LeetCode 简单难度攻略
 | 10 | 917 - 仅仅反转字母（reverse-only-letters） | [#917 解题](./917-仅仅反转字母（reverse-only-letters）.md) |
 | 11 | 922 - 按奇偶排序数组II（sort-array-by-parity-ii） | [#922 解题](./922-按奇偶排序数组II（sort-array-by-parity-ii）.md) |
 | 12 | 925 - 长按键入（long-pressed-name） | [#925 解题](./925-长按键入（long-pressed-name）.md) |
+| 13 | 929 - 独特的电子邮件地址（unique-email-addresses） | [#929 解题](./929-独特的电子邮件地址（unique-email-addresses）.md) |
 
 ---
 
