@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-27 10:52:42**  
-> Recently revised in **2020-01-27 10:52:46**
+> Recently revised in **2020-01-27 10:59:44**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -92,13 +91,26 @@ RecentCounter.prototype.ping = function(t) {
 > index.js
 
 ```js
+var RecentCounter = function() {
+  this.val = [];
+};
 
-```
-
-`node index.js` 返回：
-
-```js
-
+/** 
+ * Your RecentCounter object will be instantiated and called as such:
+ * var obj = new RecentCounter()
+ * var param_1 = obj.ping(t)
+ */
+/** 
+ * @param {number} t
+ * @return {number}
+ */
+RecentCounter.prototype.ping = function(t) {
+  this.val.push(t);
+  while (this.val[0] < t - 3000){
+    this.val.shift();
+  }
+  return this.val.length;
+};
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -106,22 +118,59 @@ RecentCounter.prototype.ping = function(t) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 68/68 cases passed (408 ms)
+* Your runtime beats 35.29 % of javascript submissions
+* Your memory usage beats 95.96 % of javascript submissions (56.1 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+设计模式 0 分渣渣路过：
 
-[分析]
+> 不知名求解
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+var RecentCounter = function() {
+  this.val = [];
+};
 
-> [返回目录](#chapter-one)
+/** 
+ * Your RecentCounter object will be instantiated and called as such:
+ * var obj = new RecentCounter()
+ * var param_1 = obj.ping(t)
+ */
+/** 
+ * @param {number} t
+ * @return {number}
+ */
+RecentCounter.prototype.ping = function(t) {
+  this.val.push(t);
+  while (this.val[0] < t - 3000){
+    this.val.shift();
+  }
+  return this.val.length;
+};
+```
 
-……
+Submit 提交如下：
+
+```js
+Accepted
+* 68/68 cases passed (408 ms)
+* Your runtime beats 35.29 % of javascript submissions
+* Your memory usage beats 95.96 % of javascript submissions (56.1 MB)
+```
+
+1. 我没看懂题意
+2. 感觉对设计模式不是很熟
+3. 科比去世了（2020-01-27）
+
+乱糟糟的，原谅我这一次水了~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
