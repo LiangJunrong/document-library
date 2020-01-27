@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-27 16:17:25**
+> Recently revised in **2020-01-27 17:01:24**
 
 LeetCode 简单难度攻略
 
@@ -248,6 +248,7 @@ LeetCode 简单难度攻略
 | 14 | 933 - 最近的请求次数（number-of-recent-calls） | [#933 解题](./933-最近的请求次数（number-of-recent-calls）.md) |
 | 15 | 937 - 重新排列日志文件（reorder-data-in-log-files） | [#937 解题](./937-重新排列日志文件（reorder-data-in-log-files）.md) |
 | 16 | 938 - 二叉搜索树的范围和（range-sum-of-bst） | [#938 解题](./938-二叉搜索树的范围和（range-sum-of-bst）.md) |
+| 17 |941 - 有效的山脉数组（valid-mountain-array） | [#941 解题](./941-有效的山脉数组（valid-mountain-array）.md) |
 
 ---
 
