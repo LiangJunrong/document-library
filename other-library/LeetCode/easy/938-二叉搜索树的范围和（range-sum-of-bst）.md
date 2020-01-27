@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-27 15:39:53**  
-> Recently revised in **2020-01-27 15:40:44**
+> Recently revised in **2020-01-27 16:16:47**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -87,13 +87,59 @@ var rangeSumBST = function(root, L, R) {
 > index.js
 
 ```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @name 二叉搜索树的范围和
+ * @param {TreeNode} root
+ * @param {number} L
+ * @param {number} R
+ * @return {number}
+ */
+const rangeSumBST = (root, L, R) => {
+  const newRoot = [root];
+  let result = 0;
+  while (newRoot.length) {
+    const tempRoot = newRoot.pop();
+    if (tempRoot.val >= L && tempRoot.val <= R) {
+      result += tempRoot.val;
+    }
+    if (tempRoot.left) {
+      newRoot.push(tempRoot.left);
+    }
+    if (tempRoot.right) {
+      newRoot.push(tempRoot.right);
+    }
+  }
+  return result;
+};
 
+const root = {
+  val: 10,
+  left: {
+    val: 5,
+    left: { val: 3, left: null, right: null },
+    right: { val: 7, left: null, right: null },
+  },
+  right: {
+    val: 15,
+    left: null,
+    right: { val: 18, left: null, right: null },
+  },
+};
+
+console.log(rangeSumBST(root, 7, 15)); // 32
 ```
 
 `node index.js` 返回：
 
 ```js
-
+32
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -101,22 +147,130 @@ var rangeSumBST = function(root, L, R) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 42/42 cases passed (192 ms)
+* Your runtime beats 73.77 % of javascript submissions
+* Your memory usage beats 52.47 % of javascript submissions (67.3 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+仔细看了下题目，发现毫无乐趣：
 
-[分析]
+> 递归
+
+```js
+const rangeSumBST = (root, L, R) => {
+  let result = 0;
+  const ergodic = (root) => {
+    if (!root) {
+      return;
+    }
+    if (root.val >= L && root.val <= R) {
+      result += root.val;
+    }
+    ergodic(root.left);
+    ergodic(root.right);
+  };
+  ergodic(root);
+  return result;
+};
+```
+
+题目解析：
+
+* 将所有在闭区间 `[L, R]` 中的值获取即可。
+
+所以就有了上面的题解，Submit 提交如下：
+
+```js
+Accepted
+* 42/42 cases passed (228 ms)
+* Your runtime beats 13.27 % of javascript submissions
+* Your memory usage beats 27 % of javascript submissions (70.5 MB)
+```
+
+再稍微动动脑子，咱们试试迭代：
+
+> 迭代
+
+```js
+const rangeSumBST = (root, L, R) => {
+  const newRoot = [root];
+  let result = 0;
+  while (newRoot.length) {
+    const tempRoot = newRoot.pop();
+    if (tempRoot.val >= L && tempRoot.val <= R) {
+      result += tempRoot.val;
+    }
+    if (tempRoot.left) {
+      newRoot.push(tempRoot.left);
+    }
+    if (tempRoot.right) {
+      newRoot.push(tempRoot.right);
+    }
+  }
+  return result;
+};
+```
+
+Submit 提交如下：
+
+```js
+Accepted
+* 42/42 cases passed (192 ms)
+* Your runtime beats 73.77 % of javascript submissions
+* Your memory usage beats 52.47 % of javascript submissions (67.3 MB)
+```
+
+搞定，收工~
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+当然，闲来无事，咱们再翻翻官网，另一种递归思路：
+
+* 对树进行深度优先搜索，对于当前节点 `node`，如果 `node.val` 小于等于 `L`，那么只需要继续搜索它的右子树；如果 `node.val` 大于等于 `R`，那么只需要继续搜索它的左子树；如果 `node.val` 在区间 `(L, R)` 中，则需要搜索它的所有子树。
+
+> 深度优先搜索【递归】
+
+```js
+const rangeSumBST = (root, L, R) => {
+  let ans = 0;
+  const ergodic = (root) => {
+    if (!root) {
+      return;
+    }
+    if (L <= root.val && root.val <= R) {
+      ans += root.val;
+    }
+    if (L < root.val) {
+      ergodic(root.left);
+    }
+    if (root.val < R) {
+      ergodic(root.right);
+    }
+  };
+  ergodic(root);
+  return ans;
+};
+```
+
+相比于 **jsliang** 的递归，减少了一些不必要的开支~
+
+Submit 提交如下：
+
+```js
+Accepted
+* 42/42 cases passed (192 ms)
+* Your runtime beats 73.77 % of javascript submissions
+* Your memory usage beats 75.29 % of javascript submissions (67 MB)
+```
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
