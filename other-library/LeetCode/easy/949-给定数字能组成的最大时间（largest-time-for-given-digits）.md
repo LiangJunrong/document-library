@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-27 20:20:11**  
-> Recently revised in **2020-01-27 20:20:53**
+> Recently revised in **2020-01-27 21:40:16**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -81,13 +80,44 @@ var largestTimeFromDigits = function(A) {
 > index.js
 
 ```js
+/**
+ * @name 给定数字能组成的最大时间
+ * @param {number[]} A
+ * @return {string}
+ */
+const largestTimeFromDigits = (A) => {
+  let maxNumber = -1;
+  let result = '';
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      const hour = String(A[i]) + String(A[j]);
+      if (j !== i && A[i] <= 2 && Number(hour) < 24) {
+        for (let k = 0; k < 4; k++) {
+          const minute = String(A[k]) + String(A[6 - i - j - k]);
+          if (k !== i && k !== j && Number(minute) < 60) {
+            if (Number(hour + minute) > maxNumber) {
+              maxNumber = Number(hour + minute);
+              result = hour + ':' + minute;
+            }
+          }
+        }
+      }
+    }
+  }
+  return result;
+};
 
+console.log(largestTimeFromDigits([1, 2, 3, 4])); // '23:41'
+console.log(largestTimeFromDigits([5, 5, 5, 5])); // ''
+console.log(largestTimeFromDigits([0, 0, 0, 0])); // '00:00'
 ```
 
 `node index.js` 返回：
 
 ```js
-
+'23:41'
+''
+'00:00'
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -95,22 +125,117 @@ var largestTimeFromDigits = function(A) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 172/172 cases passed (80 ms)
+* Your runtime beats 38.78 % of javascript submissions
+* Your memory usage beats 23.53 % of javascript submissions (36.3 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**jsliang** 出品，必定暴力破解：
 
-[分析]
+> 暴力破解【未简化】
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const largestTimeFromDigits = (A) => {
+  let maxNumber = 0;
+  let result = '';
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      const judge1 = j !== i;
+      const judge2 = A[i] <= 2;
+      const judge3 = Number(String(A[i]) + String(A[j])) <= 23;
+      if (judge1 && judge2 && judge3) {
+        const surplus = [];
+        for (let k = 0; k < 4; k++) {
+          if (k !== i && k !== j) {
+            surplus.push(k);
+          }
+        }
+        if (Number(String(A[surplus[0]]) + String(A[surplus[1]])) < 60) {
+          if (Number(String(A[i]) + String(A[j] +  String(A[surplus[0]])) + String(A[surplus[1]])) >= maxNumber) {
+            maxNumber = Number(String(A[i]) + String(A[j] +  String(A[surplus[0]])) + String(A[surplus[1]]));
+            result = String(A[i]) + String(A[j] + ':' + String(A[surplus[0]])) + String(A[surplus[1]]);
+          }
+        }
+        if (Number(String(A[surplus[1]]) + String(A[surplus[0]])) < 60) {
+          if (Number(String(A[i]) + String(A[j] +  String(A[surplus[1]])) + String(A[surplus[0]])) >= maxNumber) {
+            maxNumber = Number(String(A[i]) + String(A[j] +  String(A[surplus[1]])) + String(A[surplus[0]]));
+            result = String(A[i]) + String(A[j] + ':' + String(A[surplus[1]])) + String(A[surplus[0]]);
+          }
+        }
+      }
+    }
+  }
+  return result;
+};
+```
 
-> [返回目录](#chapter-one)
+思路如下：
 
-……
+1. 通过先取前两个数字，这两个数字组成的新数字小于等于 `23`。
+2. 再取剩余的两个数字，这两个数字组成的新数字小于等于 `59`。
+
+好的我说完了废话，咱们先看看 Submit 提交：
+
+```js
+Accepted
+* 172/172 cases passed (80 ms)
+* Your runtime beats 38.78 % of javascript submissions
+* Your memory usage beats 23.53 % of javascript submissions (36.3 MB)
+```
+
+OK，我想说就这么结束可以么，哈哈~
+
+> 暴力破解【简化】
+
+```js
+const largestTimeFromDigits = (A) => {
+  let maxNumber = -1;
+  let result = '';
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      const hour = String(A[i]) + String(A[j]);
+      if (j !== i && A[i] <= 2 && Number(hour) < 24) {
+        for (let k = 0; k < 4; k++) {
+          const minute = String(A[k]) + String(A[6 - i - j - k]);
+          if (k !== i && k !== j && Number(minute) < 60) {
+            if (Number(hour + minute) > maxNumber) {
+              maxNumber = Number(hour + minute);
+              result = hour + ':' + minute;
+            }
+          }
+        }
+      }
+    }
+  }
+  return result;
+};
+```
+
+这里的简化思路和前面类似，都是取 `hour < 24`，`minute < 60` 这两个条件，然后优化了下判断：
+
+1. 设置 `i, j, k, 6-i-j-k` 这四个指针；
+2. 判断它们不相同，并且都在 `0, 1, 2, 3` 这四个位置上；
+3. 取 `i, j` 设置为 `hour`，唯有小于 24 的才进行下一步；
+4. 取 `k, 6-i-j-k` 设置为 `minute`，唯有小于 60 的才进行下一步；
+5. 判断这个值是否比 `maxNumber` 大，如果是，则替换最终结果 `result`。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 172/172 cases passed (76 ms)
+* Your runtime beats 46.94 % of javascript submissions
+* Your memory usage beats 32.35 % of javascript submissions (35.5 MB)
+```
+
+顺带翻了下【题解区】和【评论区】，目前就上面那份简化版的是最简洁的了。
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsiang**~
 
 ---
 
