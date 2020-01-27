@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-27 18:14:19**
+> Recently revised in **2020-01-27 20:14:43**
 
 LeetCode 简单难度攻略
 
@@ -249,7 +249,8 @@ LeetCode 简单难度攻略
 | 15 | 937 - 重新排列日志文件（reorder-data-in-log-files） | [#937 解题](./937-重新排列日志文件（reorder-data-in-log-files）.md) |
 | 16 | 938 - 二叉搜索树的范围和（range-sum-of-bst） | [#938 解题](./938-二叉搜索树的范围和（range-sum-of-bst）.md) |
 | 17 |941 - 有效的山脉数组（valid-mountain-array） | [#941 解题](./941-有效的山脉数组（valid-mountain-array）.md) |
-| 18 |942 - 增减字符串匹配（di-string-match）） | [#942 解题](./942-增减字符串匹配（di-string-match）.md) |
+| 18 | 942 - 增减字符串匹配（di-string-match） | [#942 解题](./942-增减字符串匹配（di-string-match）.md) |
+| 19 | 944 - 删列造序（delete-columns-to-make-sorted） | [#944 解题](./944-删列造序（delete-columns-to-make-sorted）.md) |
 
 ---
 
