@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-27 19:31:53**  
-> Recently revised in **2020-01-27 19:31:56**
+> Recently revised in **2020-01-27 20:13:58**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -110,13 +110,35 @@ var minDeletionSize = function(A) {
 > index.js
 
 ```js
+/**
+ * @name 删列造序
+ * @param {string[]} A
+ * @return {number}
+ */
+const minDeletionSize = (A) => {
+  let result = 0;
+  for (let i = 0; i < A[0].length; i++) {
+    for (let j = 0; j < A.length - 1; j++) {
+      if (A[j][i] > A[j + 1][i]) {
+        result ++;
+        break;
+      }
+    }
+  }
+  return result;
+};
 
+console.log(minDeletionSize(['cba', 'daf', 'ghi'])); // 1
+console.log(minDeletionSize(['a', 'b'])); // 0
+console.log(minDeletionSize(['zyx', 'wvu', 'tsr'])); // 3
 ```
 
 `node index.js` 返回：
 
 ```js
-
+1
+0
+3
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -124,22 +146,122 @@ var minDeletionSize = function(A) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 84/84 cases passed (1368 ms)
+* Your runtime beats 5.51 % of javascript submissions
+* Your memory usage beats 5.45 % of javascript submissions (68.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+明白题意：
 
-[分析]
+1. 你需要知道啥叫删除列（看题目）
+2. 你需要选出一组要删掉的列 D，对 A 执行删除操作，使 A 中剩余的每一列都是 非降序 排列的（即升序），然后请你返回 `D.length` 的最小可能值。
+
+> 暴力破解
+
+```js
+const minDeletionSize = (A) => {
+  // 1. 重置新数组
+  const resetArray = Array.from(Array(A[0].length), () => '');
+  // 2. 按列重排数组
+  for (let i = 0; i < A[0].length; i++) {
+    for (let j = 0; j < A.length; j++) {
+      resetArray[i] += A[j][i];
+    }
+  }
+  // 3. 判断是否存在不为顺序的字符串
+  let result = 0;
+  for (let i = 0; i < resetArray.length; i++) {
+    if (resetArray[i] !== resetArray[i].split('').sort((a, b) => a.localeCompare(b)).join('')) {
+      result += 1;
+    }
+  }
+  // 4. 返回结果
+  return result;
+};
+```
+
+Submit 提交如下：
+
+```js
+Accepted
+* 84/84 cases passed (1368 ms)
+* Your runtime beats 5.51 % of javascript submissions
+* Your memory usage beats 5.45 % of javascript submissions (68.2 MB)
+```
+
+当然，如果你嫌弃上面看起来冗余，**jsliang** 为你压缩一下：
+
+> 暴力破解【简化版】
+
+```js
+const minDeletionSize = (A) => {
+  let result = 0;
+  for (let i = 0; i < A[0].length; i++) {
+    let tempArr = '';
+    for (let j = 0; j < A.length; j++) {
+      tempArr += A[j][i];
+    }
+    if (tempArr !== tempArr.split('').sort((a, b) => a.localeCompare(b)).join('')) {
+      result += 1;
+    }
+  }
+  return result;
+};
+```
+
+Submit 提交如下：
+
+```js
+Accepted
+* 84/84 cases passed (1692 ms)
+* Your runtime beats 5.51 % of javascript submissions
+* Your memory usage beats 10.91 % of javascript submissions (40.8 MB)
+```
+
+进入思考，效率还是那么低下，是我有什么没有考虑到么？
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+带着疑惑，咱们翻开【题解区】和【评论区】：
+
+> 贪心算法
+
+```js
+const minDeletionSize = (A) => {
+  let result = 0;
+  for (let i = 0; i < A[0].length; i++) {
+    for (let j = 0; j < A.length - 1; j++) {
+      if (A[j][i] > A[j + 1][i]) {
+        result ++;
+        break;
+      }
+    }
+  }
+  return result;
+};
+```
+
+精妙，直接在遍历的时候进行比对，如果下一个元素比当前元素小，那么说明它不是升序排列的~
+
+Submit 提交：
+
+```js
+Accepted
+* 84/84 cases passed (80 ms)
+* Your runtime beats 90.55 % of javascript submissions
+* Your memory usage beats 67.27 % of javascript submissions (39.4 MB)
+```
+
+近乎完美~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
