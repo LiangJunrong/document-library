@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-27 16:19:05**  
-> Recently revised in **2020-01-27 16:19:08**
+> Recently revised in **2020-01-27 17:00:48**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -86,13 +86,43 @@ var validMountainArray = function(A) {
 > index.js
 
 ```js
+/**
+ * @name 有效的山脉数组
+ * @param {number[]} A
+ * @return {boolean}
+ */
+const validMountainArray = (A) => {
+  // 1. 长度小于 3 判定为 false
+  if (A.length < 3) {
+    return false;
+  }
+  // 2. 通过 flag 判断山脉
+  let flag = 0;
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] < A[i + 1] && A[i + 1] > A[i + 2]) {
+      flag ++;
+    }
+    if (A[i] > A[i + 1] && A[i + 1] < A[i + 2]) {
+      return false;
+    }
+    if (A[i] === A[i + 1]) {
+      return false;
+    }
+  }
+  return flag === 1;
+};
 
+console.log(validMountainArray([0, 3, 2, 1])); // true
+console.log(validMountainArray([3, 5, 5])); // false
+console.log(validMountainArray([1, 7, 9, 5, 4, 1, 2])); // false
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -100,22 +130,63 @@ var validMountainArray = function(A) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 51/51 cases passed (128 ms)
+* Your runtime beats 6.96 % of javascript submissions
+* Your memory usage beats 5.05 % of javascript submissions (39.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+初看很简单，仔细做完头皮发麻：
 
-[分析]
+> 暴力破解
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const validMountainArray = (A) => {
+  // 1. 长度小于 3 判定为 false
+  if (A.length < 3) {
+    return false;
+  }
+  // 2. 通过 flag 判断山脉
+  let flag = 0;
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] < A[i + 1] && A[i + 1] > A[i + 2]) {
+      flag ++;
+    }
+    if (A[i] > A[i + 1] && A[i + 1] < A[i + 2]) {
+      return false;
+    }
+    if (A[i] === A[i + 1]) {
+      return false;
+    }
+  }
+  return flag === 1;
+};
+```
 
-> [返回目录](#chapter-one)
+> 以上为细化版，前面还有一版写得较为复杂
 
-……
+题解思路如下：
+
+1. 如果长度小于 3，直接判断为 `false`；
+2. 设置 `flag`，判断是否有山脉出现，山脉出现的次数为多少；
+3. 通过 `for` 循环山脉，如果是 `i < i + 1 > i + 2`，那么就是山脉，`flag ++`；如果是 `i > i + 1 < i + 2`，那么就是山谷，这时候需要直接返回 `false`，因为这种情况已经不是山脉了；如果是 `i === i + 1`，说明出现了两个一样的数，直接返回 `false` 即可。
+
+这样，通过 `flag` 我们直接掌控全局。
+
+Submit 提交如下：
+
+```js
+Accepted
+* 51/51 cases passed (76 ms)
+* Your runtime beats 50.43 % of javascript submissions
+* Your memory usage beats 28.28 % of javascript submissions (37.3 MB)
+```
+
+如果小伙伴有更好的思路想法，欢迎评论吐槽或者私聊 **jsliang**~
 
 ---
 
