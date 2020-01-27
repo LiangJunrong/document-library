@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-27 11:00:29**
+> Recently revised in **2020-01-27 12:39:15**
 
 LeetCode 简单难度攻略
 
@@ -246,6 +246,7 @@ LeetCode 简单难度攻略
 | 12 | 925 - 长按键入（long-pressed-name） | [#925 解题](./925-长按键入（long-pressed-name）.md) |
 | 13 | 929 - 独特的电子邮件地址（unique-email-addresses） | [#929 解题](./929-独特的电子邮件地址（unique-email-addresses）.md) |
 | 14 | 933 - 最近的请求次数（number-of-recent-calls） | [#933 解题](./933-最近的请求次数（number-of-recent-calls）.md) |
+| 15 | 937 - 重新排列日志文件（reorder-data-in-log-files） | [#937 解题](./937-重新排列日志文件（reorder-data-in-log-files）.md) |
 
 ---
 
