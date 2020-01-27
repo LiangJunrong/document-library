@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-27 17:34:12**  
-> Recently revised in **2020-01-27 17:34:15**
+> Recently revised in **2020-01-27 18:13:43**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -86,13 +85,35 @@ var diStringMatch = function(S) {
 > index.js
 
 ```js
+/**
+ * @name 增减字符串匹配
+ * @param {string} S
+ * @return {number[]}
+ */
+const diStringMatch = (S) => {
+  const nums = Array.from(Array(S.length + 1), (value, index) => index);
+  const result = [];
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] === 'I') {
+      result.push(nums.shift());
+    } else {
+      result.push(nums.pop());
+    }
+  }
+  return [...result, ...nums];
+};
 
+console.log(diStringMatch('IDID')); // [ 0, 4, 1, 3, 2 ]
+console.log(diStringMatch('III')); // [ 0, 1, 2, 3 ]
+console.log(diStringMatch('DDI')); // [ 3, 2, 0, 1 ]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ 0, 4, 1, 3, 2 ]
+[ 0, 1, 2, 3 ]
+[ 3, 2, 0, 1 ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -100,22 +121,84 @@ var diStringMatch = function(S) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 95/95 cases passed (112 ms)
+* Your runtime beats 17.39 % of javascript submissions
+* Your memory usage beats 11.02 % of javascript submissions (39.8 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+……这道题，有点意思：
 
-[分析]
+> 暴力破解
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const diStringMatch = (S) => {
+  const nums = Array.from(Array(S.length + 1), (value, index) => index);
+  const result = [];
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] === 'I') {
+      result.push(nums.shift());
+    } else {
+      result.push(nums.pop());
+    }
+  }
+  return [...result, ...nums];
+};
+```
 
-> [返回目录](#chapter-one)
+方法很简单：
 
-……
+1. 生成一个数组 `nums`，里面是从 `[0, S.length + 1]` 范围的数字。
+2. 设置 `result` 获取最终值。
+3. 通过 `for` 遍历数组。如果当前数组元素是 `I`，那么就将 `nums` 的队列头通过 `shift` 操作推出来；如果当前元素不是 `I`，即 `D`（题目只包含 `I` 和 `D` 两种操作），那么将其 `pop` 出来给 `result`。
+
+依次，最终返回 `[...result, ...nums]` 即可，因为不管如何，`nums` 还会剩余 1 个长度。
+
+Submit 提交：
+
+```js
+Accepted
+* 95/95 cases passed (112 ms)
+* Your runtime beats 17.39 % of javascript submissions
+* Your memory usage beats 11.02 % of javascript submissions (39.8 MB)
+```
+
+仔细想想小脑袋瓜就这种解法了，但是最后还是想讲讲生成 0 到 n 数字组成的数组的三种方式：
+
+> ... 扩展
+
+```js
+const arr1 = [...Array(3)].map((value, index) => index);
+console.log(arr1);
+// [0, 1, 2]
+```
+
+> Array.from
+
+```js
+const arr2 = Array.from(Array(3), (value, index) => index);
+console.log(arr2);
+// [0, 1, 2]
+```
+
+> 愚蠢法子
+
+```js
+const arr3 = [];
+for (let i = 0; i < 3; i++) {
+  arr3.push(i);
+}
+console.log(arr3);
+// [0, 1, 2]
+```
+
+以后小伙伴可以多尝试各种技巧~
+
+如果小伙伴对于这道题有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
