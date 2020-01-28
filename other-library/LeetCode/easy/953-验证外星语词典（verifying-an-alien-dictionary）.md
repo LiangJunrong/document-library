@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-28 09:57:24**  
-> Recently revised in **2020-01-28 09:59:21**
+> Recently revised in **2020-01-28 10:55:24**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -111,13 +110,42 @@ var isAlienSorted = function(words, order) {
 > index.js
 
 ```js
+/**
+ * @name 验证外星语词典
+ * @param {string[]} words
+ * @param {string} order
+ * @return {boolean}
+ */
+const isAlienSorted = (words, order) => {
+  order = ' ' + order; // 我们将空字符串定义为空白字符，权重为 0
+  for (let i = 0; i < words.length - 1; i++) {
+    const length = Math.max(words[i].length, words[i + 1].length);
+    for (let j = 0; j < length; j++) {
+      const prevIndex = order.indexOf(words[i][j] || ' ');
+      const nextIndex = order.indexOf(words[i + 1][j] || ' ');
+      if (prevIndex > nextIndex) {
+        return false;
+      } else if (prevIndex < nextIndex) {
+        break;
+      } else {
+        continue;
+      }
+    }
+  }
+  return true;
+};
 
+console.log(isAlienSorted(['hello', 'leetcode'], 'hlabcdefgijkmnopqrstuvwxyz')); // true
+console.log(isAlienSorted(['word', 'world', 'row'], 'worldabcefghijkmnpqstuvxyz')); // false
+console.log(isAlienSorted(['apple', 'app'], 'abcdefghijklmnopqrstuvwxyz')); // false
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -125,22 +153,76 @@ var isAlienSorted = function(words, order) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 115/115 cases passed (72 ms)
+* Your runtime beats 51.85 % of javascript submissions
+* Your memory usage beats 80 % of javascript submissions (34 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+很高兴我开始研究外星语了，啥时候让我接触下外星人~
 
-[分析]
+> LeetCode 强大的题目内容
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+那么，咱们按惯例，还是先转译下题目。
 
-> [返回目录](#chapter-one)
+> LeetCode 题目都要转译，它是不是外星XXX……
 
-……
+分析如下：
+
+1. 已知有一串字符 `words`：`['word', 'world', 'row']`。
+2. 然后有一个字母顺序表 `order`：`worldabcefghijkmnpqstuvxyz`。
+3. 这些单词 `words` 需要按照 `order` 的顺序进行排序，例如 `words` 中有单词 `['word', 'world', 'row']`，那么先比较第一个字母，即 `w, w, r`，这时候 `r` 在 `w` 后面无异议；接着比较第二个字母，即 `o, o`（此时第三个单词 `row` 已经排除了）……
+4. 以此类推，直至所有单词比较完毕，无意义则返回 `true`，否则返回 `false`。
+
+那么直接上代码：
+
+> 暴力破解
+
+```js
+const isAlienSorted = (words, order) => {
+  order = ' ' + order; // 我们将空字符串定义为空白字符，权重为 0
+  for (let i = 0; i < words.length - 1; i++) {
+    const length = Math.max(words[i].length, words[i + 1].length);
+    for (let j = 0; j < length; j++) {
+      const prevIndex = order.indexOf(words[i][j] || ' ');
+      const nextIndex = order.indexOf(words[i + 1][j] || ' ');
+      if (prevIndex > nextIndex) {
+        return false;
+      } else if (prevIndex < nextIndex) {
+        break;
+      } else {
+        continue;
+      }
+    }
+  }
+  return true;
+};
+```
+
+思路就如 **jsliang** 所分析的那样：
+
+1. 首先重定义 `order`，因为根据案例 3 所说，需要对字符串进行补充，例如 `app` 和 `apple` 比较的时候，应该是 `app  ` 和 `apple` 比较（注意 `app` 后面加了 2 个空格）。
+2. 然后通过 `for` 遍历 `words`，因为我们使用双指针，所有应该设置条件是 `i < words.length - 1`。
+3. 接着我们通过 `Math.max` 获取两者的最大长度，避免 `app` 和 `apple` 比较失败的情况。
+4. 再来就是遍历 `words[i]` 和 `words[i + 1]` 这两者，我们以 `order` 为哈希表，进行索引的查找。
+5. 最后就是比较每个单词的索引，如果前者大于后者（`prevIndex > nextIndex`），那么说明这个是不符合规定的；如果前者小于后者，那么这个单词是 OK 的，我们应该中止这次循环，直接进入到 `words[i + 1]` 和 `words[i + 2]` 的比较；如果这两个单词是相同的，那么就进入下一个字符的比较~
+
+这样，我们就完成了外星语词典的验证，Submit 提交为：
+
+```js
+Accepted
+* 115/115 cases passed (72 ms)
+* Your runtime beats 51.85 % of javascript submissions
+* Your memory usage beats 80 % of javascript submissions (34 MB)
+```
+
+好了，我知道外星语用法了，赶紧告诉我去哪里找外星人~
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
