@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-28 11:06:31**  
-> Recently revised in **2020-01-28 11:07:12**
+> Recently revised in **2020-01-28 11:22:36**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -83,13 +82,26 @@ var repeatedNTimes = function(A) {
 > index.js
 
 ```js
+/**
+ * @name 重复N次的元素
+ * @param {number[]} A
+ * @return {number}
+ */
+const repeatedNTimes = (A) => {
+  for (let i = 0; i < A.length; i++) {
+    if (A.indexOf(A[i]) !== A.lastIndexOf(A[i])) {
+      return A[i];
+    }
+  }
+};
 
+console.log(repeatedNTimes([2, 1, 2, 5, 3, 2])); // 2
 ```
 
 `node index.js` 返回：
 
 ```js
-
+2
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -97,22 +109,94 @@ var repeatedNTimes = function(A) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 102/102 cases passed (72 ms)
+* Your runtime beats 82.72 % of javascript submissions
+* Your memory usage beats 56.5 % of javascript submissions (36.8 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+经过前面题目的摧残，看到这道题我有点怀疑自己眼光，是不是看错了，结果还真是这样：
 
-[分析]
+> 【解法一】indexOf & lastIndexOf
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const repeatedNTimes = (A) => {
+  for (let i = 0; i < A.length; i++) {
+    if (A.indexOf(A[i]) !== A.lastIndexOf(A[i])) {
+      return A[i];
+    }
+  }
+};
+```
 
-> [返回目录](#chapter-one)
+enm...Submit 提交：
 
-……
+```js
+Accepted
+* 102/102 cases passed (72 ms)
+* Your runtime beats 82.72 % of javascript submissions
+* Your memory usage beats 56.5 % of javascript submissions (36.8 MB)
+```
+
+这样子的话，我可以变着法子虐他啊！
+
+先用 `Map`：
+
+> 【解法二】Map
+
+```js
+const repeatedNTimes = (A) => {
+  const map = new Map();
+  for (let i = 0; i < A.length; i++) {
+    if (map.get(A[i])) {
+      return A[i];
+    }
+    map.set(A[i], 'jsliang');
+  }
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 102/102 cases passed (72 ms)
+* Your runtime beats 82.72 % of javascript submissions
+* Your memory usage beats 69.5 % of javascript submissions (36.3 MB)
+```
+
+再用 `Array`：
+
+> 【解法三】Array
+
+```js
+const repeatedNTimes = (A) => {
+  const arr = [];
+  for (let i = 0; i < A.length; i++) {
+    if (arr[A[i]] !== undefined) {
+      return A[i];
+    }
+    arr[A[i]] = A[i];
+  }
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 102/102 cases passed (72 ms)
+* Your runtime beats 82.72 % of javascript submissions
+* Your memory usage beats 96.5 % of javascript submissions (36.1 MB)
+```
+
+最后我就不再探索啦，太过简单了，不想瞅瞅其他大佬的答案了~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
