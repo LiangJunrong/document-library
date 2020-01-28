@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-28 19:02:16**  
-> Recently revised in **2020-01-28 19:05:21**
+> Recently revised in **2020-01-28 19:36:33**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -118,13 +117,89 @@ var isCousins = function(root, x, y) {
 > index.js
 
 ```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @name 二叉树的堂兄弟节点
+ * @param {TreeNode} root
+ * @param {number} x
+ * @param {number} y
+ * @return {boolean}
+ */
+const isCousins = (root, x, y) => {
+  // 1. 自定义 xRoot 和 yRoot
+  const xRoot = {
+    val: x,
+    deep: undefined,
+    father: undefined,
+  };
+  const yRoot = {
+    val: y,
+    deep: undefined,
+    father: undefined,
+  };
+  // 2. 递归 root
+  const ergodic = (root, k) => {
+    // 2.1 如果这个是空节点（null），直接中止
+    if (!root) {
+      return;
+    }
+    // 2.2 深度 k++
+    k++;
+    // 2.3 如果下一层次的左子树或者右子树等于 x
+    if (
+      (root.left && root.left.val === x)
+      || (root.right && root.right.val === x)
+    ) {
+      xRoot.deep = k + 1;
+      xRoot.father = root.val;
+    }
+    // 2.4 如果下一层次的左子树或者右子树等于 y
+    if (
+      (root.left && root.left.val === y)
+      || (root.right && root.right.val === y)
+    ) {
+      yRoot.deep = k + 1;
+      yRoot.father = root.val;
+    }
+    // 2.5 如果 xRoot 和 yRoot 都没有出现，那么就一直遍历
+    if (!(xRoot.deep && yRoot.deep)) {
+      ergodic(root.left, k);
+      ergodic(root.right, k);
+    }
+    return;
+  };
+  ergodic(root, -1);
+  // 3. 判断最后的 xRoot 和 yRoot 的深度 deep 和父节点 father 即可
+  return xRoot.deep === yRoot.deep && xRoot.father !== yRoot.father;
+};
 
+const root = {
+  val: 1,
+  left: {
+    val: 2,
+    left: { val: 3, left: null, right: null },
+    right: { val: 4, left: null, right: null },
+  },
+  right: {
+    val: 5,
+    left: null,
+    right: { val: 6, left: null, right: null },
+  },
+};
+
+console.log(isCousins(root, 4, 6)); // true
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -132,22 +207,153 @@ var isCousins = function(root, x, y) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 103/103 cases passed (68 ms)
+* Your runtime beats 71.93 % of javascript submissions
+* Your memory usage beats 47.73 % of javascript submissions (34.9 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+警觉要素：
 
-[分析]
+1. 处于相同的深度 `k`。
+2. 两者的父节点不同。
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+示例：
 
-> [返回目录](#chapter-one)
+```
+    1
+   / \
+  2   5
+ / \   \
+3   4   6
+```
 
-……
+在这棵树中：
+
+* 【否】2 和 6 不是堂兄弟节点
+* 【否】3 和 4 不是堂兄弟节点
+* 【是】3 和 6 是堂兄弟节点
+* 【是】4 和 6 是堂兄弟节点
+
+这样大家就对堂兄弟节点清晰了，下面开始解题：
+
+> 【第一步】获取深度
+
+```js
+const isCousins = (root, x, y) => {
+  const ergodic = (root, k) => {
+    if (!root) {
+      return;
+    }
+    k++;
+    console.log(k);
+    ergodic(root.left, k);
+    ergodic(root.right, k);
+  };
+  ergodic(root, -1);
+};
+
+const root = {
+  val: 1,
+  left: {
+    val: 2,
+    left: { val: 3, left: null, right: null },
+    right: { val: 4, left: null, right: null },
+  },
+  right: {
+    val: 5,
+    left: null,
+    right: { val: 5, left: null, right: null },
+  },
+};
+
+console.log(isCousins(root, 4, 6));
+```
+
+对应的树就是上面说的：
+
+```
+    1
+   / \
+  2   5
+ / \   \
+3   4   6
+```
+
+通过递归函数 `ergodic`，我们可以看到输出：
+
+```js
+0
+1
+2
+2
+1
+2
+```
+
+这样，我们先获取到了树的层次。
+
+接着完善 **一下下**，我们就破解了这道题：
+
+> 【第二步】递归破解
+
+```js
+const isCousins = (root, x, y) => {
+  // 1. 自定义 xRoot 和 yRoot
+  const xRoot = {
+    val: x,
+    deep: undefined,
+    father: undefined,
+  };
+  const yRoot = {
+    val: y,
+    deep: undefined,
+    father: undefined,
+  };
+  // 2. 递归 root
+  const ergodic = (root, k) => {
+    // 2.1 如果这个是空节点（null），直接中止
+    if (!root) {
+      return;
+    }
+    // 2.2 深度 k++
+    k++;
+    // 2.3 如果下一层次的左子树或者右子树等于 x
+    if (
+      (root.left && root.left.val === x)
+      || (root.right && root.right.val === x)
+    ) {
+      xRoot.deep = k + 1;
+      xRoot.father = root.val;
+    }
+    // 2.4 如果下一层次的左子树或者右子树等于 y
+    if (
+      (root.left && root.left.val === y)
+      || (root.right && root.right.val === y)
+    ) {
+      yRoot.deep = k + 1;
+      yRoot.father = root.val;
+    }
+    // 2.5 如果 xRoot 和 yRoot 都没有出现，那么就一直遍历
+    if (!(xRoot.deep && yRoot.deep)) {
+      ergodic(root.left, k);
+      ergodic(root.right, k);
+    }
+    return;
+  };
+  ergodic(root, -1);
+  // 3. 判断最后的 xRoot 和 yRoot 的深度 deep 和父节点 father 即可
+  return xRoot.deep === yRoot.deep && xRoot.father !== yRoot.father;
+};
+```
+
+这样，我们就从 0 到 1 的解析了这道题。
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
