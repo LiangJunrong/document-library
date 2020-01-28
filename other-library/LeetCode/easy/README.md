@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-28 17:10:19**
+> Recently revised in **2020-01-28 18:12:16**
 
 LeetCode 简单难度攻略
 
@@ -259,6 +259,7 @@ LeetCode 简单难度攻略
 | 25 | 976 - 三角形的最大周长（largest-perimeter-triangle） | [#976 解题](./976-三角形的最大周长（largest-perimeter-triangle）.md) |
 | 26 | 977 - 有序数组的平方（squares-of-a-sorted-array） | [#977 解题](./977-有序数组的平方（squares-of-a-sorted-array）.md) |
 | 27 | 985 - 查询后的偶数和（sum-of-even-numbers-after-queries） | [#985 解题](./985-查询后的偶数和（sum-of-even-numbers-after-queries）.md) |
+| 28 | 989 - 数组形式的整数加法（add-to-array-form-of-integer）） | [#989 解题](./989-数组形式的整数加法（add-to-array-form-of-integer）.md) |
 
 ---
 
