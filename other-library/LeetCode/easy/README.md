@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-28 19:37:02**
+> Recently revised in **2020-01-28 22:51:56**
 
 LeetCode 简单难度攻略
 
@@ -106,7 +106,7 @@ LeetCode 简单难度攻略
 | 92 | 434 - 字符串中的单词数（number-of-segments-in-a-string） | [#434 解题](./434-字符串中的单词数（number-of-segments-in-a-string）.md) |
 | 93 | 437 - 路径总和III（path-sum-iii） | [#437 解题](./437-路径总和III（path-sum-iii）.md) |
 | 94 | 438 - 找到字符串中所有字母异位词（find-all-anagrams-in-a-string） | [#438 解题](./438-找到字符串中所有字母异位词（find-all-anagrams-in-a-string）.md) |
-| 95 | 441 - 排列硬币（arranging-coins） | [#441 解题](./441-排列硬币（arranging-coins））.md) |
+| 95 | 441 - 排列硬币（arranging-coins） | [#441 解题](./441-排列硬币（arranging-coins）.md) |
 | 96 | 443 - 压缩字符串（string-compression） | [#443 解题](./443-压缩字符串（string-compression）.md) |
 | 97 | 447 - 回旋镖的数量（number-of-boomerangs） | [#447 解题](./447-回旋镖的数量（number-of-boomerangs）.md) |
 | 98 | 448 - 找出所有数组中消失的数字（find-all-numbers-disappeared-in-an-array） | [#448 解题](./448-找出所有数组中消失的数字（find-all-numbers-disappeared-in-an-array）.md) |
@@ -259,8 +259,9 @@ LeetCode 简单难度攻略
 | 25 | 976 - 三角形的最大周长（largest-perimeter-triangle） | [#976 解题](./976-三角形的最大周长（largest-perimeter-triangle）.md) |
 | 26 | 977 - 有序数组的平方（squares-of-a-sorted-array） | [#977 解题](./977-有序数组的平方（squares-of-a-sorted-array）.md) |
 | 27 | 985 - 查询后的偶数和（sum-of-even-numbers-after-queries） | [#985 解题](./985-查询后的偶数和（sum-of-even-numbers-after-queries）.md) |
-| 28 | 989 - 数组形式的整数加法（add-to-array-form-of-integer）） | [#989 解题](./989-数组形式的整数加法（add-to-array-form-of-integer）.md) |
-| 29 | 993 - 二叉树的堂兄弟节点（cousins-in-binary-tree）） | [#993 解题](./993-二叉树的堂兄弟节点（cousins-in-binary-tree）.md) |
+| 28 | 989 - 数组形式的整数加法（add-to-array-form-of-integer） | [#989 解题](./989-数组形式的整数加法（add-to-array-form-of-integer）.md) |
+| 29 | 993 - 二叉树的堂兄弟节点（cousins-in-binary-tree） | [#993 解题](./993-二叉树的堂兄弟节点（cousins-in-binary-tree）.md) |
+| 30 | 994 - 腐烂的橘子（rotting-oranges） | [#994 解题](./994 - 腐烂的橘子（rotting-oranges）.md) |
 
 ---
 
