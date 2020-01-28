@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-28 11:44:03**
+> Recently revised in **2020-01-28 13:39:28**
 
 LeetCode 简单难度攻略
 
@@ -255,6 +255,7 @@ LeetCode 简单难度攻略
 | 21 | 953 - 验证外星语词典（verifying-an-alien-dictionary） | [#953 解题](./953-验证外星语词典（verifying-an-alien-dictionary）.md) |
 | 22 | 961 - 重复N次的元素（n-repeated-element-in-size-2n-array） | [#961 解题](./961-重复N次的元素（n-repeated-element-in-size-2n-array）.md) |
 | 23 | 965 - 单值二叉树（univalued-binary-tree） | [#965 解题](./965-单值二叉树（univalued-binary-tree）.md) |
+| 24 | 970 - 强整数（powerful-integers） | [#970 解题](./970-强整数（powerful-integers）.md) |
 
 ---
 
