@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-27 21:40:48**
+> Recently revised in **2020-01-28 10:56:00**
 
 LeetCode 简单难度攻略
 
@@ -252,6 +252,7 @@ LeetCode 简单难度攻略
 | 18 | 942 - 增减字符串匹配（di-string-match） | [#942 解题](./942-增减字符串匹配（di-string-match）.md) |
 | 19 | 944 - 删列造序（delete-columns-to-make-sorted） | [#944 解题](./944-删列造序（delete-columns-to-make-sorted）.md) |
 | 20 | 949 - 给定数字能组成的最大时间（largest-time-for-given-digits） | [#949 解题](./949-给定数字能组成的最大时间（largest-time-for-given-digits）.md) |
+| 21 | 953 - 验证外星语词典（verifying-an-alien-dictionary） | [#953 解题](./953-验证外星语词典（verifying-an-alien-dictionary）.md) |
 
 ---
 
