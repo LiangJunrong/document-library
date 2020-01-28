@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-28 11:23:13**
+> Recently revised in **2020-01-28 11:44:03**
 
 LeetCode 简单难度攻略
 
@@ -254,6 +254,7 @@ LeetCode 简单难度攻略
 | 20 | 949 - 给定数字能组成的最大时间（largest-time-for-given-digits） | [#949 解题](./949-给定数字能组成的最大时间（largest-time-for-given-digits）.md) |
 | 21 | 953 - 验证外星语词典（verifying-an-alien-dictionary） | [#953 解题](./953-验证外星语词典（verifying-an-alien-dictionary）.md) |
 | 22 | 961 - 重复N次的元素（n-repeated-element-in-size-2n-array） | [#961 解题](./961-重复N次的元素（n-repeated-element-in-size-2n-array）.md) |
+| 23 | 965 - 单值二叉树（univalued-binary-tree） | [#965 解题](./965-单值二叉树（univalued-binary-tree）.md) |
 
 ---
 
