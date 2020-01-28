@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-28 17:17:17**  
-> Recently revised in **2020-01-28 17:18:13**
+> Recently revised in **2020-01-28 18:11:40**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -96,13 +96,50 @@ var addToArrayForm = function(A, K) {
 > index.js
 
 ```js
+/**
+ * @name 数组形式的整数加法
+ * @param {number[]} A
+ * @param {number} K
+ * @return {number[]}
+ */
+const addToArrayForm = (A, K) => {
+  // 1. 转换 A 和 K 为整数型数组
+  let newA = A;
+  let newB = String(K).split('').map(item => Number(item));
+  // 2. 根据最长长度对 A 或者 K 进行补位
+  const maxLength = Math.max(newA.length, newB.length);
+  if (newA.length !== maxLength) {
+    newA = [...Array.from(Array(maxLength - newA.length), (value => 0)), ...newA];
+  } else {
+    newB = [...Array.from(Array(maxLength - newB.length), (value => 0)), ...newB];
+  }
+  // 3. 获取结果，result 为结果集，patch 为补丁，即满 10 进位
+  const result = [];
+  let patch = 0;
+  for (let i = maxLength - 1; i >= 0; i--) {
+    // 4. 判断是否加上补丁需要进位不
+    const tempResult = newA[i] + newB[i];
+    if (tempResult + patch >= 10) {
+      result.unshift((tempResult + patch) % 10);
+      patch = 1;
+    } else {
+      result.unshift(tempResult + patch);
+      patch = 0;
+    }
+  }
+  // 5. 最后如果是 A = [9, 9, 9], K = 1 这种情况，需要添加前置 1
+  return patch === 1 ? [...[1], ...result] : result;
+};
 
+console.log(addToArrayForm([1, 2, 0, 0], 34)); // [1, 2, 3, 4]
+console.log(addToArrayForm([9, 9, 9, 9, 9, 9, 9, 9, 9, 9], 1)); // [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ 1, 2, 3, 4 ]
+[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -110,22 +147,130 @@ var addToArrayForm = function(A, K) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 156/156 cases passed (256 ms)
+* Your runtime beats 15.35 % of javascript submissions
+* Your memory usage beats 20.24 % of javascript submissions (42.5 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+拿到题目，直接上手，单行求解，近乎完美：
 
-[分析]
+> 暴力破解【报错】
+
+```js
+const addToArrayForm = (A, K) => {
+  return String(Number(A.join('')) + K).split('').map(i => Number(i));
+};
+```
+
+为啥是近乎呢？
+
+```js
+Wrong Answer
+94/156 cases passed (N/A)
+
+Testcase
+[1,2,6,3,0,7,1,7,1,9,7,5,6,6,4,4,0,0,6,3]
+516
+
+Answer
+[1,2,6,3,0,7,1,7,1,9,7,5,6,6,4,4,0,0,0,0]
+
+Expected Answer
+[1,2,6,3,0,7,1,7,1,9,7,5,6,6,4,4,0,5,7,9]
+```
+
+因为它是 20 位数字，超过 JavaScript 精准度了~
+
+再仔细看它的长度 `1 <= A.length <= 10000`，懂了吧，要先搞好加法啦~
+
+> 暴力破解【完善】
+
+```js
+const addToArrayForm = (A, K) => {
+  // 1. 转换 A 和 K 为整数型数组
+  let newA = A;
+  let newB = String(K).split('').map(item => Number(item));
+  // 2. 根据最长长度对 A 或者 K 进行补位
+  const maxLength = Math.max(newA.length, newB.length);
+  if (newA.length !== maxLength) {
+    newA = [...Array.from(Array(maxLength - newA.length), (value => 0)), ...newA];
+  } else {
+    newB = [...Array.from(Array(maxLength - newB.length), (value => 0)), ...newB];
+  }
+  // 3. 获取结果，result 为结果集，patch 为补丁，即满 10 进位
+  const result = [];
+  let patch = 0;
+  for (let i = maxLength - 1; i >= 0; i--) {
+    // 4. 判断是否加上补丁需要进位不
+    const tempResult = newA[i] + newB[i];
+    if (tempResult + patch >= 10) {
+      result.unshift((tempResult + patch) % 10);
+      patch = 1;
+    } else {
+      result.unshift(tempResult + patch);
+      patch = 0;
+    }
+  }
+  // 5. 最后如果是 A = [9, 9, 9], K = 1 这种情况，需要添加前置 1
+  return patch === 1 ? [...[1], ...result] : result;
+};
+```
+
+所以这道题的重点考察不是数组的操作，而是对于超过 JavaScript 限制的整数加减的一种破解~
+
+根据你使用的方法的不同，你会得到不同的 Submit 结果，就好比 **jsliang** 这里就是下等方法：
+
+```js
+Accepted
+* 156/156 cases passed (256 ms)
+* Your runtime beats 15.35 % of javascript submissions
+* Your memory usage beats 20.24 % of javascript submissions (42.5 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+方丈我想学上乘功法~
+
+好咧：
+
+> 官方题解
+
+```js
+const addToArrayForm = (A, K) => {
+  const ans = [];
+  let cur = K;
+  let i = A.length;
+  while (--i >= 0 || cur > 0) {
+    if (i >= 0) {
+      cur += A[i];
+    }
+    ans.push(cur % 10);
+    cur = Math.floor(cur / 10);
+  }
+  ans.reverse();
+  return ans;
+};
+```
+
+是不是感觉很神奇，这也行~
+
+Submit 提交：
+
+```js
+Accepted
+* 156/156 cases passed (124 ms)
+* Your runtime beats 96.05 % of javascript submissions
+* Your memory usage beats 66.26 % of javascript submissions (40.4 MB)
+```
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
