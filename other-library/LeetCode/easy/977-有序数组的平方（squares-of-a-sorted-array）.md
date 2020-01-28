@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-28 16:12:04**  
-> Recently revised in **2020-01-28 16:12:07**
+> Recently revised in **2020-01-28 16:21:35**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -77,13 +76,20 @@ var sortedSquares = function(A) {
 > index.js
 
 ```js
+/**
+ * @name 有序数组的平方
+ * @param {number[]} A
+ * @return {number[]}
+ */
+const sortedSquares = (A) => A.map(i => i * i).sort((a, b) => a - b);
 
+console.log(sortedSquares([-4, -1, 0, 3, 10]));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ 0, 1, 9, 16, 100 ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -91,22 +97,53 @@ var sortedSquares = function(A) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 132/132 cases passed (160 ms)
+* Your runtime beats 69.25 % of javascript submissions
+* Your memory usage beats 8.57 % of javascript submissions (44.3 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+太过简单了，我就不逼逼了，上代码：
 
-[分析]
+> 暴力破解【一】
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const sortedSquares = (A) => A.map(i => i * i).sort((a, b) => a - b);
+```
 
-> [返回目录](#chapter-one)
+Submit 提交：
 
-……
+```js
+Accepted
+* 132/132 cases passed (160 ms)
+* Your runtime beats 69.25 % of javascript submissions
+* Your memory usage beats 8.57 % of javascript submissions (44.3 MB)
+```
+
+> 暴力破解【二】
+
+```js
+const sortedSquares = (A) => Array.from(A.map(i => Math.abs(i)).sort((a, b) => a - b), (value) => value * value);
+```
+
+多次一举用了 `Array.from`，贪玩了一下。
+
+Submit 提交：
+
+```js
+Accepted
+* 132/132 cases passed (248 ms)
+* Your runtime beats 6.86 % of javascript submissions
+* Your memory usage beats 17.96 % of javascript submissions (44 MB)
+```
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
+
+> 这题真的提不起兴趣~
 
 ---
 
