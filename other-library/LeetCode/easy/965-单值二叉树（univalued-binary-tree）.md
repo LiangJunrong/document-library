@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-28 11:25:15**  
-> Recently revised in **2020-01-28 11:27:33**
+> Recently revised in **2020-01-28 11:43:29**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -95,13 +95,52 @@ var isUnivalTree = function(root) {
 > index.js
 
 ```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @name 单值二叉树
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isUnivalTree = function(root) {
+  const val = root.val;
+  let result = true;
+  const ergodic = (root) => {
+    if (!root) {
+      return;
+    }
+    if (root.val !== val) {
+      result = false;
+    }
+    ergodic(root.left);
+    ergodic(root.right);
+  }
+  ergodic(root);
+  return result;
+};
 
+const root = {
+  val: 2,
+  left: {
+    val: 2,
+    left: { val: 5, left: null, right: null },
+    right: { val: 2, left: null, right: null },
+  },
+  right: { val: 2, left: null, right: null },
+};
+
+console.log(isUnivalTree(root));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -109,22 +148,118 @@ var isUnivalTree = function(root) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 72/72 cases passed (68 ms)
+* Your runtime beats 47.73 % of javascript submissions
+* Your memory usage beats 55.56 % of javascript submissions (33.9 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+题目不难，惯例递归和迭代上一遍：
 
-[分析]
+> 递归
+
+```js
+var isUnivalTree = function(root) {
+  const val = root.val;
+  let result = true;
+  const ergodic = (root) => {
+    if (!root) {
+      return;
+    }
+    if (root.val !== val) {
+      result = false;
+    }
+    ergodic(root.left);
+    ergodic(root.right);
+  }
+  ergodic(root);
+  return result;
+};
+```
+
+递归的思路就是将整棵树都进行遍历，判断当中每一个 `val` 是否和根节点的 `val` 相等即可。
+
+Submit 提交：
+
+```js
+Accepted
+* 72/72 cases passed (68 ms)
+* Your runtime beats 47.73 % of javascript submissions
+* Your memory usage beats 55.56 % of javascript submissions (33.9 MB)
+```
+
+迭代的思路就更简单了：
+
+> 迭代
+
+```js
+const isUnivalTree = (root) => {
+  const newRoot = [root];
+  const val = root.val;
+  while (newRoot.length) {
+    const tempRoot = newRoot.pop();
+    if (tempRoot.val !== val) {
+      return false;
+    }
+    if (tempRoot.left) {
+      newRoot.push(tempRoot.left);
+    }
+    if (tempRoot.right) {
+      newRoot.push(tempRoot.right);
+    }
+  }
+  return true;
+};
+```
+
+Submit 提交如下：
+
+```js
+Accepted
+* 72/72 cases passed (64 ms)
+* Your runtime beats 71.97 % of javascript submissions
+* Your memory usage beats 36.36 % of javascript submissions (34 MB)
+```
+
+感觉处理起树的题目，除非变异，否则都是手到擒来，唯手熟而已~
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+当然，大佬的代码还是要看看的：
+
+> 两行代码
+
+```js
+var isUnivalTree = function(root, val) {
+  val === undefined && (val = root.val)
+  return !root.left && !root.right ? root.val === val : root.val === val && (root.left ? isUnivalTree(root.left, val) : true) && (root.right ? isUnivalTree(root.right, val) : true)
+};
+```
+
+Submit 提交如下：
+
+```js
+Accepted
+* 72/72 cases passed (64 ms)
+* Your runtime beats 71.97 % of javascript submissions
+* Your memory usage beats 30.3 % of javascript submissions (34 MB)
+```
+
+当然，算上 `function` 那行都是 3 行了，大佬骗我，顺手给你优化成 1 行：
+
+```js
+const isUnivalTree = (root, val = root.val) => !root.left && !root.right ? root.val === val : root.val === val && (root.left ? isUnivalTree(root.left, val) : true) && (root.right ? isUnivalTree(root.right, val) : true);
+```
+
+谁也想不到这道题怎么搞的，哈哈~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
