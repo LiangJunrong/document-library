@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-29 11:32:54**  
-> Recently revised in **2020-01-29 11:40:10**
+> Recently revised in **2020-01-29 12:31:46**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -154,13 +153,112 @@ var numRookCaptures = function(board) {
 > index.js
 
 ```js
+/**
+ * @name 车的可用捕获量
+ * @param {character[][]} board
+ * @return {number}
+ */
+const numRookCaptures = (board) => {
+  // 1. 找到车的位置
+  let RPoint = [];
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[i].length; j++) {
+      if (board[i][j] === 'R') {
+        RPoint = [i, j];
+      }
+    }
+  }
+  // 2. 统计次数
+  let time = 0;
+  // 2.1 往上走
+  for (let j = RPoint[1]; j >= 0; j--) {
+    if (board[RPoint[0]][j] === 'B') {
+      break;
+    }
+    if (board[RPoint[0]][j] === 'p') {
+      time ++;
+      break;
+    }
+  }
+  // 2.2 往下走
+  for (let j = RPoint[1]; j < 8; j++) {
+    if (board[RPoint[0]][j] === 'B') {
+      break;
+    }
+    if (board[RPoint[0]][j] === 'p') {
+      time ++;
+      break;
+    }
+  }
+  // 2.3 往左走
+  for (let i = RPoint[0]; i >= 0; i--) {
+    if (board[i][RPoint[1]] === 'B') {
+      break;
+    }
+    if (board[i][RPoint[1]] === 'p') {
+      time ++;
+      break;
+    }
+  }
+  // 2.4 往右走
+  for (let i = RPoint[0]; i < 8; i++) {
+    if (board[i][RPoint[1]] === 'B') {
+      break;
+    }
+    if (board[i][RPoint[1]] === 'p') {
+      time ++;
+      break;
+    }
+  }
+  return time;
+};
 
+console.log(numRookCaptures(
+  [
+    [".",".",".",".",".",".",".","."],
+    [".",".",".","p",".",".",".","."],
+    [".",".",".","R",".",".",".","p"],
+    [".",".",".",".",".",".",".","."],
+    [".",".",".",".",".",".",".","."],
+    [".",".",".","p",".",".",".","."],
+    [".",".",".",".",".",".",".","."],
+    [".",".",".",".",".",".",".","."],
+  ]
+)); // 3
+
+console.log(numRookCaptures(
+  [
+    [".",".",".",".",".",".",".","."],
+    [".","p","p","p","p","p",".","."],
+    [".","p","p","B","p","p",".","."],
+    [".","p","B","R","B","p",".","."],
+    [".","p","p","B","p","p",".","."],
+    [".","p","p","p","p","p",".","."],
+    [".",".",".",".",".",".",".","."],
+    [".",".",".",".",".",".",".","."],
+  ]
+)); // 0
+
+console.log(numRookCaptures(
+  [
+    [".",".",".",".",".",".",".","."],
+    [".",".",".","p",".",".",".","."],
+    [".",".",".","p",".",".",".","."],
+    ["p","p",".","R",".","p","B","."],
+    [".",".",".",".",".",".",".","."],
+    [".",".",".","B",".",".",".","."],
+    [".",".",".","p",".",".",".","."],
+    [".",".",".",".",".",".",".","."],
+  ]
+)); // 3
 ```
 
 `node index.js` 返回：
 
 ```js
-
+3
+0
+3
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -168,22 +266,111 @@ var numRookCaptures = function(board) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 22/22 cases passed (88 ms)
+* Your runtime beats 11.43 % of javascript submissions
+* Your memory usage beats 72.34 % of javascript submissions (33.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+贵圈真乱，我要捋捋：
 
-[分析]
+* 车 - R
+* 空白 - .
+* 象 - B
+* 小兵 - p
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+> 大写表示自家人，小写表示敌方
 
-> [返回目录](#chapter-one)
+然后，没下过国际象棋，所以稍微理解了下：
 
-……
+* 车能捕获所有在同一横排或者同一纵排的所有兵
+
+> 不知道是不是除了兵外还可以捕获皇后之类的
+
+简单来说，神挡杀神，佛挡杀佛，狠起来连队友也杀……enm...这道题不行。
+
+【关键点 1】车可以捕获所有同一横排或者统一纵排的兵，但是碰到自己队友拦路，就行不通了。
+
+就好比曹操败走华容道，关羽挡住了，你总不能把关羽先干掉再杀向曹操吧~
+
+【关键点 2】还有就是，一次只能捕获一个：
+
+```
+兵1 兵2 车 兵3 兵4
+```
+
+就好比这样，只能捕获 兵2 和 兵3。
+
+废话那么多，开始破解：
+
+> 暴力破解
+
+```js
+const numRookCaptures = (board) => {
+  // 1. 找到车的位置
+  let RPoint = [];
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[i].length; j++) {
+      if (board[i][j] === 'R') {
+        RPoint = [i, j];
+      }
+    }
+  }
+  // 2. 统计次数
+  let time = 0;
+  // 2.1 往上走
+  for (let j = RPoint[1]; j >= 0; j--) {
+    if (board[RPoint[0]][j] === 'B') {
+      break;
+    }
+    if (board[RPoint[0]][j] === 'p') {
+      time ++;
+      break;
+    }
+  }
+  // 2.2 往下走
+  for (let j = RPoint[1]; j < 8; j++) {
+    if (board[RPoint[0]][j] === 'B') {
+      break;
+    }
+    if (board[RPoint[0]][j] === 'p') {
+      time ++;
+      break;
+    }
+  }
+  // 2.3 往左走
+  for (let i = RPoint[0]; i >= 0; i--) {
+    if (board[i][RPoint[1]] === 'B') {
+      break;
+    }
+    if (board[i][RPoint[1]] === 'p') {
+      time ++;
+      break;
+    }
+  }
+  // 2.4 往右走
+  for (let i = RPoint[0]; i < 8; i++) {
+    if (board[i][RPoint[1]] === 'B') {
+      break;
+    }
+    if (board[i][RPoint[1]] === 'p') {
+      time ++;
+      break;
+    }
+  }
+  return time;
+};
+```
+
+这应该是比较暴力的一种方法了，我不管你什么规则，只要在我暴力破解涉及的范围内，我都可以搞出来~
+
+篇幅限制，这里就不翻看题解区和评论区了。
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
