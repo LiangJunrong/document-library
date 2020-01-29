@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-29 23:19:20**
+> Recently revised in **2020-01-30 00:00:30**
 
 LeetCode 简单难度攻略
 
@@ -271,6 +271,7 @@ LeetCode 简单难度攻略
 | 37 | 1013 - 将数组分成和相等的三个部分（partition-array-into-three-parts-with-equal-sum） | [#1013 解题](./1013-将数组分成和相等的三个部分（partition-array-into-three-parts-with-equal-sum）.md) |
 | 38 | 1018 - 可被5整除的2进制前缀（binary-prefix-divisible-by-5） | [#1018 解题](./1018-可被5整除的2进制前缀（binary-prefix-divisible-by-5）.md) |
 | 39 | 1021 - 删除最外层的括号（remove-outermost-parentheses） | [#1021 解题](./1021-删除最外层的括号（remove-outermost-parentheses）.md) |
+| 40 | 1022 - 从根到叶的二进制数之和（sum-of-root-to-leaf-binary-numbers） | [#1022 解题](./1022-从根到叶的二进制数之和（sum-of-root-to-leaf-binary-numbers）.md) |
 
 ---
 
