@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-29 20:54:27**  
-> Recently revised in **2020-01-29 20:56:25**
+> Recently revised in **2020-01-29 22:01:03**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -96,13 +96,28 @@ var prefixesDivBy5 = function(A) {
 > index.js
 
 ```js
+/**
+ * @name 可被5整除的二进制前缀
+ * @param {number[]} A
+ * @return {boolean[]}
+ */
+const prefixesDivBy5 = (A) => {
+  let total = 0;
+  const answer = [];
+  for (let i = 0; i < A.length; i++) {
+    total = (total * 2 + A[i]) % 10;
+    answer.push(total === 0 || total === 5);
+  }
+  return answer;
+};
 
+console.log(prefixesDivBy5([0, 1, 1])); // [true, false, false]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ true, false, false ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -110,22 +125,109 @@ var prefixesDivBy5 = function(A) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 24/24 cases passed (76 ms)
+* Your runtime beats 95.95 % of javascript submissions
+* Your memory usage beats 89.83 % of javascript submissions (38 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+“好像没那么复杂”：
 
-[分析]
+> 暴力破解【超时】
+
+```js
+const prefixesDivBy5 = (A) => {
+  let binary = '';
+  const result = [];
+  for (let i = 0; i < A.length; i++) {
+    binary += A[i];
+    if (parseInt(binary, 2) % 5 === 0) {
+      result.push(true);
+    } else {
+      result.push(false);
+    }
+  }
+  return result;
+};
+```
+
+通过字符串累计每个字节，然后判断是否能 % 5 即可。
+
+然后就出问题了：
+
+```
+Wrong Answer
+* 9/24 cases passed (N/A)
+
+Testcase
+* [1,0,1,0,0,0,0,0,0,0,0, ...省略..., 0,0,1,1,0,0,1,1,1]
+
+Answer
+* [false,false,true, ...省略..., ,false,false]
+
+Expected Answer
+* [false,false,true,true, ...省略...,false,false]
+```
+
+初步判断应该是这个二进制过长，然后转换过程出了问题，导致不能正常转换~
+
+这有点类似于大数（bigNumber）的加减会有问题一样。
+
+无解，十进制转二进制我懂，二进制转十进制不太清楚啊！
+
+> 这个弊端应该是所有编程语言都会出现，即涉及到大数运算时，精度缺失问题
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+事实证明，授之于鱼不如授之以渔。
+
+> 【题解区】
+
+```js
+const prefixesDivBy5 = (A) => {
+  let total = 0;
+  const answer = [];
+  for (let i = 0; i < A.length; i++) {
+    total = (total * 2 + A[i]) % 10;
+    answer.push(total === 0 || total === 5);
+  }
+  return answer;
+};
+```
+
+我们并不需要进行完全转换，只需要判断这个数的末尾是否为 0 或者 5 即可。
+
+> 能被 5 整除的数，末尾为 0 或者 5。
+
+所以，二进制转换十进制如何操作？
+
+**jsliang** 开了篇文章讲解：
+
+1. 正整数转二进制
+2. 负整数转二进制
+3. 小数转二进制
+4. ……
+
+地址如下：
+
+* https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%85%B6%E4%BB%96/%E5%8D%81%E8%BF%9B%E5%88%B6%E5%92%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2.md
+
+Submit 提交：
+
+```js
+Accepted
+* 24/24 cases passed (76 ms)
+* Your runtime beats 95.95 % of javascript submissions
+* Your memory usage beats 89.83 % of javascript submissions (38 MB)
+```
+
+这样，我们就完成这道题的讲解，如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
