@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-29 18:15:57**  
-> Recently revised in **2020-01-29 18:16:59**
+> Recently revised in **2020-01-29 18:58:55**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -85,13 +85,30 @@ var numPairsDivisibleBy60 = function(time) {
 > index.js
 
 ```js
+/**
+ * @name 总持续时间可被60整除的歌曲
+ * @param {number[]} time
+ * @return {number}
+ */
+const numPairsDivisibleBy60 = (time) => {
+  let result = 0;
+  for (let i = 0; i < time.length; i++) {
+    for (let j = i + 1; j < time.length; j++) {
+      if ((time[i] + time[j]) % 60 === 0) {
+        result++;
+      }
+    }
+  }
+  return result;
+};
 
+console.log(numPairsDivisibleBy60([30, 20, 150, 100, 40])); // 3
 ```
 
 `node index.js` 返回：
 
 ```js
-
+3
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -99,22 +116,76 @@ var numPairsDivisibleBy60 = function(time) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 34/34 cases passed (7168 ms)
+* Your runtime beats 11.84 % of javascript submissions
+* Your memory usage beats 77.62 % of javascript submissions (37.5 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+先理解题目的规则：
 
-[分析]
+1. 有数组 `time = [30, 20, 150, 100, 40]`；
+2. 取 `time` 中任意两个数字，有 `(time[i] + time[j]) % 60 === 0`；
+3. 返回符合条件 2 的次数。
+
+> 暴力破解
+
+```js
+const numPairsDivisibleBy60 = (time) => {
+  let result = 0;
+  for (let i = 0; i < time.length; i++) {
+    for (let j = i + 1; j < time.length; j++) {
+      if ((time[i] + time[j]) % 60 === 0) {
+        result++;
+      }
+    }
+  }
+  return result;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 34/34 cases passed (7168 ms)
+* Your runtime beats 11.84 % of javascript submissions
+* Your memory usage beats 77.62 % of javascript submissions (37.5 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+思来想去找不到其他法子，看看大佬怎么操作：
+
+> 【题解区】
+
+```js
+const numPairsDivisibleBy60 = (time) => {
+  let c = new Array(60).fill(0);
+  return time.reduce((prev, curr) => {
+    prev += c[(60 - curr % 60) % 60];
+    c[curr % 60] += 1;
+    return prev;
+  }, 0);
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 34/34 cases passed (72 ms)
+* Your runtime beats 89.35 % of javascript submissions
+* Your memory usage beats 77.62 % of javascript submissions (37.5 MB)
+```
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
