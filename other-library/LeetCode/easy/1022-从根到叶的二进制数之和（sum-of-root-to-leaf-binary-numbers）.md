@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-29 23:32:01**  
-> Recently revised in **2020-01-29 23:35:13**
+> Recently revised in **2020-01-29 23:59:09**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -95,13 +95,56 @@ var sumRootToLeaf = function(root) {
 > index.js
 
 ```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @name 从根到叶的二进制数之和
+ * @param {TreeNode} root
+ * @return {number}
+ */
+const sumRootToLeaf = (root) => {
+  let result = 0;
+  const ergodic = (root, temp) => {
+    if (!root) {
+      return;
+    }
+    temp += root.val;
+    if (!root.left && !root.right) {
+      result += parseInt(temp, 2);
+    }
+    ergodic(root.left, temp);
+    ergodic(root.right, temp);
+  };
+  ergodic(root, '');
+  return result;
+};
 
+const root = {
+  val: 1,
+  left: {
+    val: 0,
+    left: { val: 0, left: null, right: null },
+    right: { val: 1, left: null, right: null },
+  },
+  right: {
+    val: 1,
+    left: { val: 0, left: null, right: null },
+    right: { val: 1, left: null, right: null },
+  },
+};
+
+console.log(sumRootToLeaf(root)); // 22
 ```
 
 `node index.js` 返回：
 
 ```js
-
+22
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -109,22 +152,82 @@ var sumRootToLeaf = function(root) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 63/63 cases passed (76 ms)
+* Your runtime beats 55.38 % of javascript submissions
+* Your memory usage beats 21.05 % of javascript submissions (36.1 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+记得前面就讲过【树】和【二进制和十进制相互转换】这两个点，但是总有小伙伴可能遗漏，所以咱们回顾下：
 
-[分析]
+> 树的万能公式
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const ergodic = (root) => {
+  if (!root) {
+    return;
+  }
+  ergodic(root.left);
+  ergodic(root.right);
+};
+ergodic(root);
+```
 
-> [返回目录](#chapter-one)
+那么，如何获取每条树的分支呢？
 
-……
+如果你喜欢折腾，那么可以发现：
+
+> 获取每条树的分支
+
+```js
+const ergodic = (root, temp) => {
+  if (!root) {
+    return;
+  }
+  temp += root.val;
+  if (!root.left && !root.right) {
+    console.log(temp);
+  }
+  ergodic(root.left, temp);
+  ergodic(root.right, temp);
+};
+ergodic(root, '');
+```
+
+我们往递归函数中添加 `temp` 参数，该参数默认为 `''`，这样，当我们每次碰到节点的时候，我们就往当中添加节点。
+
+直到我们碰到这个节点没有 `left` 和 `right` 节点为止，我们就判断它到了这棵树的叶子节点。
+
+再来，我们知道 JavaScript 有个原生方法 `parseInt(num, 2)`，可以将 10 进制转换成 2 进制，所以我们不妨：
+
+> 递归破解
+
+```js
+const sumRootToLeaf = (root) => {
+  let result = 0;
+  const ergodic = (root, temp) => {
+    if (!root) {
+      return;
+    }
+    temp += root.val;
+    if (!root.left && !root.right) {
+      result += parseInt(temp, 2);
+    }
+    ergodic(root.left, temp);
+    ergodic(root.right, temp);
+  };
+  ergodic(root, '');
+  return result;
+};
+```
+
+OK，不是什么大难事，搞定完事~
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
