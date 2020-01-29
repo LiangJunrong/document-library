@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-29 11:18:41**
+> Recently revised in **2020-01-29 12:33:03**
 
 LeetCode 简单难度攻略
 
@@ -263,6 +263,7 @@ LeetCode 简单难度攻略
 | 29 | 993 - 二叉树的堂兄弟节点（cousins-in-binary-tree） | [#993 解题](./993-二叉树的堂兄弟节点（cousins-in-binary-tree）.md) |
 | 30 | 994 - 腐烂的橘子（rotting-oranges） | [#994 解题](./994-腐烂的橘子（rotting-oranges）.md) |
 | 31 | 997 - 找到小镇的法官（find-the-town-judge） | [#997 解题](./997-找到小镇的法官（find-the-town-judge）.md) |
+| 32 | 999 - 车的可用捕货量（available-captures-for-rook） | [#999 解题](./999-车的可用捕货量（available-captures-for-rook）.md) |
 
 ---
 
