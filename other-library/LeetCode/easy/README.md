@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-29 20:47:47**
+> Recently revised in **2020-01-29 21:58:26**
 
 LeetCode 简单难度攻略
 
@@ -269,6 +269,7 @@ LeetCode 简单难度攻略
 | 35 | 1009 - 十进制整数的反码（complement-of-base-10-integer） | [#1009 解题](./1009-十进制整数的反码（complement-of-base-10-integer）.md) |
 | 36 | 1010 - 总持续时间可以被60整除的歌曲（pairs-of-songs-with-total-durations-divisible-by-60） | [#1010 解题](./1010-总持续时间可以被60整除的歌曲（pairs-of-songs-with-total-durations-divisible-by-60）.md) |
 | 37 | 1013 - 将数组分成和相等的三个部分（partition-array-into-three-parts-with-equal-sum） | [#1013 解题](./1013-将数组分成和相等的三个部分（partition-array-into-three-parts-with-equal-sum）.md) |
+| 38 | 1018 - 可被5整除的2进制前缀（binary-prefix-divisible-by-5） | [#1018 解题](./1018-可被5整除的2进制前缀（binary-prefix-divisible-by-5）.md) |
 
 ---
 
