@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-28 22:51:56**
+> Recently revised in **2020-01-29 11:18:41**
 
 LeetCode 简单难度攻略
 
@@ -261,7 +261,8 @@ LeetCode 简单难度攻略
 | 27 | 985 - 查询后的偶数和（sum-of-even-numbers-after-queries） | [#985 解题](./985-查询后的偶数和（sum-of-even-numbers-after-queries）.md) |
 | 28 | 989 - 数组形式的整数加法（add-to-array-form-of-integer） | [#989 解题](./989-数组形式的整数加法（add-to-array-form-of-integer）.md) |
 | 29 | 993 - 二叉树的堂兄弟节点（cousins-in-binary-tree） | [#993 解题](./993-二叉树的堂兄弟节点（cousins-in-binary-tree）.md) |
-| 30 | 994 - 腐烂的橘子（rotting-oranges） | [#994 解题](./994 - 腐烂的橘子（rotting-oranges）.md) |
+| 30 | 994 - 腐烂的橘子（rotting-oranges） | [#994 解题](./994-腐烂的橘子（rotting-oranges）.md) |
+| 31 | 997 - 找到小镇的法官（find-the-town-judge） | [#997 解题](./997-找到小镇的法官（find-the-town-judge）.md) |
 
 ---
 
