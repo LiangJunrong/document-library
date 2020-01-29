@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-29 18:05:11**
+> Recently revised in **2020-01-29 18:59:36**
 
 LeetCode 简单难度攻略
 
@@ -267,6 +267,7 @@ LeetCode 简单难度攻略
 | 33 | 1002 - 查找常用字符（find-common-characters） | [#1002 解题](./1002-查找常用字符（find-common-characters）.md) |
 | 34 | 1005 - K次取反后最大化的数组和（maximize-sum-of-array-after-k-negations） | [#1005 解题](./1005-K次取反后最大化的数组和（maximize-sum-of-array-after-k-negations）.md) |
 | 35 | 1009 - 十进制整数的反码（complement-of-base-10-integer） | [#1009 解题](./1009-十进制整数的反码（complement-of-base-10-integer）.md) |
+| 36 | 1010 - 总持续时间可以被60整除的歌曲（pairs-of-songs-with-total-durations-divisible-by-60） | [#1010 解题](./1010-总持续时间可以被60整除的歌曲（pairs-of-songs-with-total-durations-divisible-by-60）.md) |
 
 ---
 
