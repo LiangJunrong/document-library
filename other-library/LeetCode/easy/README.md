@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-29 12:33:03**
+> Recently revised in **2020-01-29 16:22:49**
 
 LeetCode 简单难度攻略
 
@@ -264,6 +264,7 @@ LeetCode 简单难度攻略
 | 30 | 994 - 腐烂的橘子（rotting-oranges） | [#994 解题](./994-腐烂的橘子（rotting-oranges）.md) |
 | 31 | 997 - 找到小镇的法官（find-the-town-judge） | [#997 解题](./997-找到小镇的法官（find-the-town-judge）.md) |
 | 32 | 999 - 车的可用捕货量（available-captures-for-rook） | [#999 解题](./999-车的可用捕货量（available-captures-for-rook）.md) |
+| 33 | 1002 - 查找常用字符（find-common-characters） | [#1002 解题](./1002-查找常用字符（find-common-characters）.md) |
 
 ---
 
