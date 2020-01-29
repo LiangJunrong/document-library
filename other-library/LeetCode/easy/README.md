@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-29 16:22:49**
+> Recently revised in **2020-01-29 17:28:47**
 
 LeetCode 简单难度攻略
 
@@ -265,6 +265,7 @@ LeetCode 简单难度攻略
 | 31 | 997 - 找到小镇的法官（find-the-town-judge） | [#997 解题](./997-找到小镇的法官（find-the-town-judge）.md) |
 | 32 | 999 - 车的可用捕货量（available-captures-for-rook） | [#999 解题](./999-车的可用捕货量（available-captures-for-rook）.md) |
 | 33 | 1002 - 查找常用字符（find-common-characters） | [#1002 解题](./1002-查找常用字符（find-common-characters）.md) |
+| 34 | 1005 - K次取反后最大化的数组和（maximize-sum-of-array-after-k-negations） | [#1005 解题](./1005-K次取反后最大化的数组和（maximize-sum-of-array-after-k-negations）.md) |
 
 ---
 
