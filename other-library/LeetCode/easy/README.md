@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-30 22:18:38**
+> Recently revised in **2020-01-30 22:45:43**
 
 LeetCode 简单难度攻略
 
@@ -280,6 +280,7 @@ LeetCode 简单难度攻略
 | 46 | 1042 - 不邻接植花（flower-planting-with-no-adjacent） | [#1042 解题](./1042-不邻接植花（flower-planting-with-no-adjacent）.md) |
 | 47 | 1046 - 最后一块石头的重量（last-stone-weight） | [#1046 解题](./1046-最后一块石头的重量（last-stone-weight）.md) |
 | 48 | 1047 - 删除字符串中的所有相邻重复项（remove-all-adjacent-duplicates-in-string） | [#1047 解题](./1047-删除字符串中的所有相邻重复项（remove-all-adjacent-duplicates-in-string）.md) |
+| 49 | 1051 - 高度检查器（height-checker） | [#1051 解题](./1051-高度检查器（height-checker）.md) |
 
 ---
 
