@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-30 10:28:15**  
-> Recently revised in **2020-01-30 10:29:05**
+> Recently revised in **2020-01-30 11:22:55**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -87,13 +86,24 @@ var divisorGame = function(N) {
 > index.js
 
 ```js
+/**
+ * @name 除数博弈
+ * @param {number} N
+ * @return {boolean}
+ */
+const divisorGame = (N) => {
+  return N % 2 === 0;
+};
 
+console.log(divisorGame(2)); // true
+console.log(divisorGame(3)); // false
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -101,22 +111,61 @@ var divisorGame = function(N) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 40/40 cases passed (64 ms)
+* Your runtime beats 62.69 % of javascript submissions
+* Your memory usage beats 83.73 % of javascript submissions (33.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+我感觉这是一道找规律题啊，先摸清敌情：
 
-[分析]
+```
+【√】2 -> 1
+【X】3
+【√】4 -> 1
+【X】5
+【√】6 -> 1
+【X】7
+【√】8 -> 1
+【x】9
+【√】10 -> 1
+【X】11
+【X】12 -> 1
+【X】13
+【√】14 -> 1
+【X】15
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+不行：3 5 7 9 11 13 15
+```
 
-> [返回目录](#chapter-one)
+enm...判断奇偶数？这么简单？！
 
-……
+> 暴力破解
+
+```js
+const divisorGame = (N) => {
+  return N % 2 === 0;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 40/40 cases passed (64 ms)
+* Your runtime beats 62.69 % of javascript submissions
+* Your memory usage beats 83.73 % of javascript submissions (33.7 MB)
+```
+
+enm......
+
+真没啥花里胡哨的~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
