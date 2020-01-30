@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-30 16:55:09**
+> Recently revised in **2020-01-30 20:53:20**
 
 LeetCode 简单难度攻略
 
@@ -277,6 +277,7 @@ LeetCode 简单难度攻略
 | 43 | 1030 - 距离顺序排列矩阵单元格（matrix-cells-in-distance-order） | [#1030 解题](./1030-距离顺序排列矩阵单元格（matrix-cells-in-distance-order）.md) |
 | 44 | 1033 - 移动石子直到连续（moving-stones-until-consecutive） | [#1033 解题](./1033-移动石子直到连续（moving-stones-until-consecutive）.md) |
 | 45 | 1037 - 有效的回旋镖（valid-boomerang） | [#1037 解题](./1037-有效的回旋镖（valid-boomerang）.md) |
+| 46 | 1042 - 不邻接植花（flower-planting-with-no-adjacent） | [#1042 解题](./1042-不邻接植花（flower-planting-with-no-adjacent）.md) |
 
 ---
 
