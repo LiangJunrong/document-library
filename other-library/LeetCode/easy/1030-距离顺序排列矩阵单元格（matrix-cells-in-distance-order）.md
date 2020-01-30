@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-30 13:59:04**  
-> Recently revised in **2020-01-30 13:59:58**
+> Recently revised in **2020-01-30 14:23:44**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -101,13 +100,34 @@ var allCellsDistOrder = function(R, C, r0, c0) {
 > index.js
 
 ```js
+/**
+ * @name 距离顺序排列矩阵单元格
+ * @param {number} R
+ * @param {number} C
+ * @param {number} r0
+ * @param {number} c0
+ * @return {number[][]}
+ */
+const allCellsDistOrder = (R, C, r0, c0) => {
+  const result = [];
+  for (let i = 0; i < R; i++) {
+    for (let j = 0; j < C; j++) {
+      result.push([i, j]);
+    }
+  }
+  result.sort((a, b) => (Math.abs(a[0] - r0) + Math.abs(a[1] - c0)) - (Math.abs(b[0] - r0) + Math.abs(b[1] - c0)))
+  return result;
+};
 
+console.log(allCellsDistOrder(1, 2, 0, 0)); // [[0, 0], [0, 1]]
+console.log(allCellsDistOrder(2, 2, 0, 1)); // [[0, 1], [0, 0], [1, 1], [1, 0]]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ [ 0, 0 ], [ 0, 1 ] ]
+[ [ 0, 1 ], [ 0, 0 ], [ 1, 1 ], [ 1, 0 ] ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -115,22 +135,50 @@ var allCellsDistOrder = function(R, C, r0, c0) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 66/66 cases passed (188 ms)
+* Your runtime beats 75.9 % of javascript submissions
+* Your memory usage beats 41.27 % of javascript submissions (49.6 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+敌人越是强大，你就越要坚强，战胜恐惧的方法就是面对恐惧，加油，奥利给~
 
-[分析]
+咳咳，这道题其实没那么难：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+> 暴力破解
 
-> [返回目录](#chapter-one)
+```js
+const allCellsDistOrder = (R, C, r0, c0) => {
+  const result = [];
+  for (let i = 0; i < R; i++) {
+    for (let j = 0; j < C; j++) {
+      result.push([i, j]);
+    }
+  }
+  result.sort((a, b) => (Math.abs(a[0] - r0) + Math.abs(a[1] - c0)) - (Math.abs(b[0] - r0) + Math.abs(b[1] - c0)))
+  return result;
+};
+```
 
-……
+思路嘛：
+
+1. 先做成矩阵 `result`，双重 `for` 循环来个小菜鸡应该都会写。
+2. 将 `result` 重新排序，按照题目给出的公式：`|r1 - r2| + |c1 - c2|`，老老实实排序就行了。
+
+Submit 提交：
+
+```js
+Accepted
+* 66/66 cases passed (188 ms)
+* Your runtime beats 75.9 % of javascript submissions
+* Your memory usage beats 41.27 % of javascript submissions (49.6 MB)
+```
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
