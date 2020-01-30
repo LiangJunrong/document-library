@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-30 11:23:35**
+> Recently revised in **2020-01-30 13:21:15**
 
 LeetCode 简单难度攻略
 
@@ -273,6 +273,7 @@ LeetCode 简单难度攻略
 | 39 | 1021 - 删除最外层的括号（remove-outermost-parentheses） | [#1021 解题](./1021-删除最外层的括号（remove-outermost-parentheses）.md) |
 | 40 | 1022 - 从根到叶的二进制数之和（sum-of-root-to-leaf-binary-numbers） | [#1022 解题](./1022-从根到叶的二进制数之和（sum-of-root-to-leaf-binary-numbers）.md) |
 | 41 | 1025 - 除数博弈（divisor-game） | [#1025 解题](./1025-除数博弈（divisor-game）.md) |
+| 42 | 1029 - 两地调度（two-city-scheduling） | [#1029 解题](./1029-两地调度（two-city-scheduling）.md) |
 
 ---
 
