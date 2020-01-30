@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-30 00:00:30**
+> Recently revised in **2020-01-30 11:23:35**
 
 LeetCode 简单难度攻略
 
@@ -272,6 +272,7 @@ LeetCode 简单难度攻略
 | 38 | 1018 - 可被5整除的2进制前缀（binary-prefix-divisible-by-5） | [#1018 解题](./1018-可被5整除的2进制前缀（binary-prefix-divisible-by-5）.md) |
 | 39 | 1021 - 删除最外层的括号（remove-outermost-parentheses） | [#1021 解题](./1021-删除最外层的括号（remove-outermost-parentheses）.md) |
 | 40 | 1022 - 从根到叶的二进制数之和（sum-of-root-to-leaf-binary-numbers） | [#1022 解题](./1022-从根到叶的二进制数之和（sum-of-root-to-leaf-binary-numbers）.md) |
+| 41 | 1025 - 除数博弈（divisor-game） | [#1025 解题](./1025-除数博弈（divisor-game）.md) |
 
 ---
 
