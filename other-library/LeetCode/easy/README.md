@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-30 13:21:15**
+> Recently revised in **2020-01-30 14:24:17**
 
 LeetCode 简单难度攻略
 
@@ -274,6 +274,7 @@ LeetCode 简单难度攻略
 | 40 | 1022 - 从根到叶的二进制数之和（sum-of-root-to-leaf-binary-numbers） | [#1022 解题](./1022-从根到叶的二进制数之和（sum-of-root-to-leaf-binary-numbers）.md) |
 | 41 | 1025 - 除数博弈（divisor-game） | [#1025 解题](./1025-除数博弈（divisor-game）.md) |
 | 42 | 1029 - 两地调度（two-city-scheduling） | [#1029 解题](./1029-两地调度（two-city-scheduling）.md) |
+| 43 | 1030 - 距离顺序排列矩阵单元格（matrix-cells-in-distance-order） | [#1030 解题](./1030-距离顺序排列矩阵单元格（matrix-cells-in-distance-order）.md) |
 
 ---
 
