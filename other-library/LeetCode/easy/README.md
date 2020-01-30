@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-30 15:09:02**
+> Recently revised in **2020-01-30 16:55:09**
 
 LeetCode 简单难度攻略
 
@@ -276,6 +276,7 @@ LeetCode 简单难度攻略
 | 42 | 1029 - 两地调度（two-city-scheduling） | [#1029 解题](./1029-两地调度（two-city-scheduling）.md) |
 | 43 | 1030 - 距离顺序排列矩阵单元格（matrix-cells-in-distance-order） | [#1030 解题](./1030-距离顺序排列矩阵单元格（matrix-cells-in-distance-order）.md) |
 | 44 | 1033 - 移动石子直到连续（moving-stones-until-consecutive） | [#1033 解题](./1033-移动石子直到连续（moving-stones-until-consecutive）.md) |
+| 45 | 1037 - 有效的回旋镖（valid-boomerang） | [#1037 解题](./1037-有效的回旋镖（valid-boomerang）.md) |
 
 ---
 
