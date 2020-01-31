@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-31 20:33:26**
+> Recently revised in **2020-01-31 21:25:14**
 
 LeetCode 简单难度攻略
 
@@ -294,7 +294,8 @@ LeetCode 简单难度攻略
 | 60 | 1170 - 比较字符串最小字母出现频次（compare-strings-by-frequency-of-the-smallest-character） | [#1170 解题](./1170-比较字符串最小字母出现频次（compare-strings-by-frequency-of-the-smallest-character）.md) |
 | 61 | 1175 - 质数排列（prime-arrangements） | [#1175 解题](./1175-质数排列（prime-arrangements）.md) |
 | 62 | 1184 - 公交站间的距离（distance-between-bus-stops） | [#1184 解题](./1184-公交站间的距离（distance-between-bus-stops）.md) |
-| 63 | 1185 - 一周中的第几天（day-of-the-week）） | [#1185 解题](./1185-一周中的第几天（day-of-the-week）.md) |
+| 63 | 1185 - 一周中的第几天（day-of-the-week） | [#1185 解题](./1185-一周中的第几天（day-of-the-week）.md) |
+| 64 | 1189 - 气球的最大数量（maximum-number-of-balloons） | [#1189 解题](./1189-气球的最大数量（maximum-number-of-balloons）.md) |
 
 ---
 
