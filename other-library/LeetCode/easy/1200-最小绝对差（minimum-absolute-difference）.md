@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-31 21:27:03**  
-> Recently revised in **2020-01-31 21:27:40**
+> Recently revised in **2020-01-31 21:39:36**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -81,13 +80,34 @@ var minimumAbsDifference = function(arr) {
 > index.js
 
 ```js
+/**
+ * @name 最小绝对差
+ * @param {number[]} arr
+ * @return {number[][]}
+ */
+const minimumAbsDifference = (arr) => {
+  arr.sort((a, b) => a - b);
+  let result = [];
+  let min = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < arr.length - 1; i++) {
+    const dValue = arr[i + 1] - arr[i];
+    if (dValue < min) {
+      result = [[arr[i], arr[i + 1]]];
+      min = dValue;
+    } else if (dValue === min) {
+      result.push([arr[i], arr[i + 1]]);
+    }
+  }
+  return result;
+};
 
+console.log(minimumAbsDifference([4, 2, 1, 3])); // [ [ 1, 2 ], [ 2, 3 ], [ 3, 4 ] ]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ [ 1, 2 ], [ 2, 3 ], [ 3, 4 ] ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -95,22 +115,64 @@ var minimumAbsDifference = function(arr) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 36/36 cases passed (204 ms)
+* Your runtime beats 76.19 % of javascript submissions
+* Your memory usage beats 74.03 % of javascript submissions (43.8 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，我们需要思考一个问题：
 
-[分析]
+* 怎样的数字会产生最小绝对差
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+OK，相信你也想到了：
 
-> [返回目录](#chapter-one)
+* 顺序（逆序）排序数组下相邻的两个数字可能产生最小绝对差
 
-……
+那么，我们顺势就知道了大半部分答案：
+
+> 暴力破解
+
+```js
+const minimumAbsDifference = (arr) => {
+  arr.sort((a, b) => a - b);
+  let result = [];
+  let min = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < arr.length - 1; i++) {
+    const dValue = arr[i + 1] - arr[i];
+    if (dValue < min) {
+      result = [[arr[i], arr[i + 1]]];
+      min = dValue;
+    } else if (dValue === min) {
+      result.push([arr[i], arr[i + 1]]);
+    }
+  }
+  return result;
+};
+```
+
+步骤如下：
+
+1. 将数组 `arr` 进行从小到大排序。
+2. 判断目前的 `arr[i + 1] - arr[i]` 的值是多少。如果它比最小值还小，那么 `result` 和 `min` 都需要重置；如果它等于最小值，那么最小值数组添加一个二维数组；如果它大于最小值，不用理会。
+3. 最后返回 `result` 即可。
+
+Submit 提交：
+
+```js
+Accepted
+* 36/36 cases passed (204 ms)
+* Your runtime beats 76.19 % of javascript submissions
+* Your memory usage beats 74.03 % of javascript submissions (43.8 MB)
+```
+
+> 似乎这才是【简单】难度该有的节奏~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
