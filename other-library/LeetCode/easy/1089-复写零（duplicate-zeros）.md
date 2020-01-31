@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-31 12:00:11**  
-> Recently revised in **2020-01-31 12:00:54**
+> Recently revised in **2020-01-31 12:13:13**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -81,13 +81,28 @@ var duplicateZeros = function(arr) {
 > index.js
 
 ```js
+/**
+ * @name 复写零
+ * @param {number[]} arr
+ * @return {void} Do not return anything, modify arr in-place instead.
+ */
+const duplicateZeros = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      arr.splice(i + 1, 0, 0);
+      arr.pop();
+      i++;
+    }
+  }
+};
 
+console.log(duplicateZeros([1, 0, 2, 3, 0, 4, 5, 0])); // [ 1, 0, 0, 2, 3, 0, 0, 4 ]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ 1, 0, 0, 2, 3, 0, 0, 4 ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -95,22 +110,64 @@ var duplicateZeros = function(arr) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 30/30 cases passed (84 ms)
+* Your runtime beats 75.36 % of javascript submissions
+* Your memory usage beats 31.82 % of javascript submissions (35.6 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+题意很简单：
 
-[分析]
+* 给定一个数组：[0, 1, 2]，然后将数组中存在的所有 0 复制一个，最后变成 `[0, 0, 1]`。
+
+注意：数组长度不变，需要原地修改数组。
+
+那没什么好说的，直接上代码：
+
+> 暴力破解
+
+```js
+const duplicateZeros = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      arr.splice(i + 1, 0, 0);
+      arr.pop();
+      i++;
+    }
+  }
+};
+```
+
+如果这个数为 0，那么往它后面删除 0 个元素，插入 1 个 0。
+
+> 注意：`splice(index, deleteItem, addItem)`
+
+接着将数组末尾元素推出，保持数组长度不变。
+
+最后就是 `i++`，毕竟下一个元素是我们添加的~
+
+Submit 提交：
+
+```js
+Accepted
+* 30/30 cases passed (84 ms)
+* Your runtime beats 75.36 % of javascript submissions
+* Your memory usage beats 31.82 % of javascript submissions (35.6 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+【题解区】和【评论区】有双指针、快慢指针等方法~
+
+这里就不一一吐槽啦，毕竟有兴趣的小伙伴可以直接探索。
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
