@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-31 18:37:15**  
-> Recently revised in **2020-01-31 18:38:05**
+> Recently revised in **2020-01-31 18:55:35**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -12,10 +12,7 @@
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题](#chapter-three) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -61,61 +58,97 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 ```
 
-## <a name="chapter-three" id="chapter-three"></a>三 解题及测试
+## <a name="chapter-three" id="chapter-three"></a>三 解题
 
 > [返回目录](#chapter-one)
 
-小伙伴可以先自己在本地尝试解题，再回来看看 **jsliang** 的解题思路。
+技不如人，甘拜下风~
 
-* **LeetCode 给定函数体**：
+> 【题解一】
+
+思路：
+
+```
+1. 素数的全排列方式总数对于 10**9+7 的余数 a
+2. 非素数的全排列方式总数对于 10**9+7 的余数 b
+若直接计算 (a*b)%(10**9+7) 时由于数位溢出，导致计算结果不准确，此不准确结果为：682289019
+
+因此最终的 a*b 乘法应该将其中的一个数拆为两部分，分别相乘并取余：
+
+let MOD = 10**9+7;
+function multi(a, b){
+  //将 b 拆成 2 部分
+  let t = Math.floor(b/100000),
+      t2 = b % 100000;
+  let sum = 0;
+  for(let i = 0; i < t; i++){
+    sum = (sum + 100000 * a) % MOD;
+  }
+  sum = (sum + t2 * a) % MOD;
+  return sum;
+}
+
+作者：wanyan
+链接：https://leetcode-cn.com/problems/prime-arrangements/solution/jsde-xiong-di-jie-mei-men-guo-lai-dian-ge-zan-jiu-/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
 
 ```js
-/**
- * @param {number} n
- * @return {number}
- */
-var numPrimeArrangements = function(n) {
-    
+var numPrimeArrangements = function (n) {
+  let MOD = 10 ** 9 + 7;
+
+  function A(n, m) {
+    return (m === 0 ? 1 : A(n, m - 1) * (n - m + 1)) % MOD;
+  }
+
+  function su(a) {
+    if (a < 2) return false;
+    if (a === 2) return true;
+    for (let i = 2; i < a; i++) {
+      if (a % i === 0) return false;
+    }
+    return true;
+  }
+
+  function multi(a, b) {
+    // 将 b 拆成 2 部分
+    let t = Math.floor(b / 100000),
+      t2 = b % 100000
+    let sum = 0
+    for (let i = 0; i < t; i++) {
+      sum = (sum + 100000 * a) % MOD
+    }
+    sum = (sum + t2 * a) % MOD
+    return sum
+  }
+
+  let numSu = 0;
+  for (let i = 1; i <= n; i++) {
+    if (su(i)) {
+      numSu++;
+    }
+  }
+
+  let a = A(numSu, numSu);
+  let b = A(n - numSu, n - numSu);
+
+  return multi(a,b);
 };
 ```
 
-根据上面的已知函数，尝试破解本题吧~
-
-确定了自己的答案再看下面代码哈~
-
-> index.js
+Submit 提交：
 
 ```js
-
+Accepted
+* 100/100 cases passed (76 ms)
+* Your runtime beats 17.65 % of javascript submissions
+* Your memory usage beats 47.06 % of javascript submissions (34.9 MB)
 ```
 
-`node index.js` 返回：
+看得我头晕眼花~
 
-```js
-
-```
-
-## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
-
-> [返回目录](#chapter-one)
-
-```js
-
-```
-
-## <a name="chapter-five" id="chapter-five"></a>五 解题思路
-
-> [返回目录](#chapter-one)
-
-[图]
-
-[分析]
-
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
-
-> [返回目录](#chapter-one)
-
-……
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
