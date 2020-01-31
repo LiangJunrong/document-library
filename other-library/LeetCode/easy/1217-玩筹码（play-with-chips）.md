@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-31 22:02:45**  
-> Recently revised in **2020-01-31 22:03:40**
+> Recently revised in **2020-01-31 22:25:23**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -111,15 +110,67 @@ var minCostToMoveChips = function(chips) {
 
 > [返回目录](#chapter-one)
 
-[图]
+是不是没赌过博就看不懂题目，好歹我看过赌圣赌神的电影啊~
 
-[分析]
+在示例 2 中：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```
+输入：chips = [2,2,2,3,3]
+输出：2
+解释：
+第四和第五个筹码移动到位置二的代价都是 1，
+所以最小总代价为 2。
+```
 
-> [返回目录](#chapter-one)
+规则：
 
-……
+* 将第 i 个筹码向左或者右移动 2 个单位，代价为 0。
+* 将第 i 个筹码向左或者右移动 1 个单位，代价为 1。
+
+第 4 个移动到位置 2 代价是 0，第 5 个移动到位置 2 的代价是 1？
+
+懵圈 ing...
+
+寻思这看下【题解区】吧：
+
+* https://leetcode-cn.com/problems/play-with-chips/solution/zhe-ke-neng-shi-yi-ge-yue-du-li-jie-ti-0ms-by-litt/
+
+```
+奇数移动到奇数、偶数移动到偶数是无消耗的，
+意思就是算奇数和偶数的个数而已。
+```
+
+enm...我……
+
+> 脑经急转弯
+
+```js
+const minCostToMoveChips = (chips) => {
+  let odd = 0,
+      even = 0;
+  for (let i = 0; i < chips.length; i++) {
+    if (chips[i] % 2 === 0) {
+      even++;
+    } else {
+      odd++;
+    }
+  }
+  return Math.min(even, odd);
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 50/50 cases passed (92 ms)
+* Your runtime beats 5.98 % of javascript submissions
+* Your memory usage beats 35.46 % of javascript submissions (33.8 MB)
+```
+
+我，**jsliang**，认输~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
