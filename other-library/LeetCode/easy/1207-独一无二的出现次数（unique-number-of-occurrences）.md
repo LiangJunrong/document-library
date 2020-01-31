@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-31 21:41:54**  
-> Recently revised in **2020-01-31 21:41:57**
+> Recently revised in **2020-01-31 22:00:31**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -89,13 +89,42 @@ var uniqueOccurrences = function(arr) {
 > index.js
 
 ```js
+/**
+ * @name 独一无二的出现次数
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+const uniqueOccurrences = (arr) => {
+  const listMap = new Map();
+  for (let i = 0; i < arr.length; i++) {
+    if (listMap.has(arr[i])) {
+      listMap.set(arr[i], listMap.get(arr[i]) + 1);
+    } else {
+      listMap.set(arr[i], 1);
+    }
+  }
+  const timeMap = new Map();
+  for (const [key, value] of listMap) {
+    if (timeMap.has(value)) {
+      return false;
+    } else {
+      timeMap.set(value, 1);
+    }
+  }
+  return true;
+};
 
+console.log(uniqueOccurrences([1, 2, 2, 1, 1, 3])); // true
+console.log(uniqueOccurrences([1, 2])); // false
+console.log(uniqueOccurrences([-3, 0, 1, -3, 1, 1, 1, -3, 10, 0])); // true
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
+false
+true
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -103,22 +132,95 @@ var uniqueOccurrences = function(arr) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 63/63 cases passed (60 ms)
+* Your runtime beats 91.03 % of javascript submissions
+* Your memory usage beats 97 % of javascript submissions (33.7 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+对于这道题，**jsliang** 的思路是设置两个哈希表：
 
-[分析]
+1. 哈希表 `listMap` 统计列表数字出现的次数；
+2. 哈希表 `timeMap` 记录都有哪些数字。
+
+OK，咱实现试试：
+
+> 哈希表
+
+```js
+const uniqueOccurrences = (arr) => {
+  // 1. listMap 获取每个数字出现的次数
+  const listMap = new Map();
+  for (let i = 0; i < arr.length; i++) {
+    if (listMap.has(arr[i])) {
+      listMap.set(arr[i], listMap.get(arr[i]) + 1);
+    } else {
+      listMap.set(arr[i], 1);
+    }
+  }
+  // 2. timeMap 判断数字是否重复
+  const timeMap = new Map();
+  for (const [key, value] of listMap) {
+    if (timeMap.has(value)) {
+      return false;
+    } else {
+      timeMap.set(value, 1);
+    }
+  }
+  return true;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 63/63 cases passed (60 ms)
+* Your runtime beats 91.03 % of javascript submissions
+* Your memory usage beats 97 % of javascript submissions (33.7 MB)
+```
+
+想来也是简简单单~
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+在题解区看到使用 `Set` 的大佬，感觉也是极好的：
+
+```js
+const uniqueOccurrences = (arr) => {
+  const keyArr = [];
+  const countArr = [];
+  keyArr = Array.from(new Set(arr));
+  for (let i = 0; i < keyArr.length; i++) {
+    countArr.push(0);
+  }
+  for (let i = 0; i < arr.length; i++) {
+    countArr[keyArr.indexOf(arr[i])]++;
+  }
+  if (Array.from(new Set(countArr)).length == countArr.length) {
+    return true;
+  } else {
+    return false;
+  }
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 63/63 cases passed (52 ms)
+* Your runtime beats 98.94 % of javascript submissions
+* Your memory usage beats 90.39 % of javascript submissions (33.9 MB)
+```
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
