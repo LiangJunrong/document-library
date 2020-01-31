@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-31 19:38:14**  
-> Recently revised in **2020-01-31 19:39:14**
+> Recently revised in **2020-01-31 20:32:54**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -93,13 +93,31 @@ var dayOfTheWeek = function(day, month, year) {
 > index.js
 
 ```js
+/**
+ * @name 一周中的第几天
+ * @param {number} day
+ * @param {number} month
+ * @param {number} year
+ * @return {string}
+ */
+const dayOfTheWeek = (day, month, year) => {
+  if (month === 1 || month === 2) {
+    month += 12;
+    year -= 1;
+  }
+  const result = (day + 1 + 2 * month + Math.floor(3 * (month + 1) / 5) + year + Math.floor(year / 4) - Math.floor(year / 100) + Math.floor(year / 400)) % 7;
+  return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][result];
+};
 
+console.log(dayOfTheWeek(31, 1, 2020)); // 'Firday'
+console.log(dayOfTheWeek(18, 7, 1999)); // 'Sunday'
 ```
 
 `node index.js` 返回：
 
 ```js
-
+'Firday'
+'Sunday'
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -107,22 +125,75 @@ var dayOfTheWeek = function(day, month, year) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 39/39 cases passed (64 ms)
+* Your runtime beats 59.11 % of javascript submissions
+* Your memory usage beats 76.88 % of javascript submissions (33.8 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+众所周知，**jsliang** 在题目《1154-一年中的第几天》放了水，直接讲解了别人的答案。
 
-[分析]
+没想到天道有轮回，一下子又要求《一周中的第几天》了，咱们试试吧：
+
+> 暴力破解
+
+```js
+const dayOfTheWeek = (day, month, year) => {
+  if (month === 1 || month === 2) {
+    month += 12;
+    year -= 1;
+  }
+  const result = (day + 1 + 2 * month + Math.floor(3 * (month + 1) / 5) + year + Math.floor(year / 4) - Math.floor(year / 100) + Math.floor(year / 400)) % 7;
+  return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][result];
+};
+```
+
+罪过罪过，网上找到公式直接套用~
+
+Submit 提交：
+
+```js
+Accepted
+* 39/39 cases passed (64 ms)
+* Your runtime beats 59.11 % of javascript submissions
+* Your memory usage beats 76.88 % of javascript submissions (33.8 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+在【题解区】和【评论区】，除了套公式的，还有套 JavaScript 原生 API 的：
+
+> 使用 API
+
+```js
+const dayOfTheWeek = (day, month, year) => {
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  let x = `${year}/${month}/${day}`;
+  let date = new Date(Date.parse(x));
+  return days[date.getDay()];
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 39/39 cases passed (52 ms)
+* Your runtime beats 95.57 % of javascript submissions
+* Your memory usage beats 35.63 % of javascript submissions (34.1 MB)
+```
+
+搞定，收工。
+
+那么这道题就写到这里啦~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
