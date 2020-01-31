@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-31 13:20:23**
+> Recently revised in **2020-01-31 13:45:38**
 
 LeetCode 简单难度攻略
 
@@ -286,6 +286,7 @@ LeetCode 简单难度攻略
 | 52 | 1089 - 复写零（duplicate-zeros） | [#1089 解题](./1089-复写零（duplicate-zeros）.md) |
 | 53 | 1103 - 分糖果（distribute-candies-to-people） | [#1103 解题](./1103-分糖果（distribute-candies-to-people）.md) |
 | 54 | 1108 - IP地址无效化（defanging-an-ip-address） | [#1108 解题](./1108-IP地址无效化（defanging-an-ip-address）.md) |
+| 55 | 1122 - 数组的相对排序（relative-sort-array） | [#1122 解题](./1122-数组的相对排序（relative-sort-array）.md) |
 
 ---
 
