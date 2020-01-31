@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-31 15:18:40**
+> Recently revised in **2020-01-31 17:18:56**
 
 LeetCode 简单难度攻略
 
@@ -290,6 +290,7 @@ LeetCode 简单难度攻略
 | 56 | 1128 - 等价多米诺骨牌对的数量（number-of-equivalent-domino-pairs） | [#1128 解题](./1128-等价多米诺骨牌对的数量（number-of-equivalent-domino-pairs）.md) |
 | 57 | 1137 - 第N个泰波那契数（n-th-tribonacci-number） | [#1137 解题](./1137-第N个泰波那契数（n-th-tribonacci-number）.md) |
 | 58 | 1154 - 一年中的第几天（day-of-the-year） | [#1154 解题](./1154-一年中的第几天（day-of-the-year）.md) |
+| 59 | 1160 - 拼写单词（find-words-that-can-be-formed-by-characters） | [#1160 解题](./1160-拼写单词（find-words-that-can-be-formed-by-characters）.md) |
 
 ---
 
