@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-31 17:20:57**  
-> Recently revised in **2020-01-31 17:20:59**
+> Recently revised in **2020-01-31 18:19:19**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -118,15 +117,133 @@ var numSmallerByFrequency = function(queries, words) {
 
 > [返回目录](#chapter-one)
 
-[图]
+不用看题目了，我来给你讲这道题什么规矩吧：
 
-[分析]
+1. 有字符串数组 `queries = ['bbc', cc']`，以及另一个字符串数组：`words = ['a', 'aa', 'aaa', 'aaaa']`。
+2. 统计两个字符串数组中最小字母出现的次数，即：`queriesNum = [2, 2], wordsNum = [1, 2, 3, 4]`。
+3. 拿 `queriesNum` 去一一比对 `wordsNum` 中比它大的数字，返回对应的次数：`result = [2, 2]`。
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+> 注释：在 `queriesNum[0] = 2` 中，`wordsNum` 存在两个数字 3、4 比它大，所以有一次。在 `queriesNum[0] = 2` 中，`wordsNum` 存在两个数字 3、4 比它大，所以有 2 次。
 
-> [返回目录](#chapter-one)
+OK，如果你看懂了这段话，那么答案呼之欲出了：
 
-……
+> 暴力破解【超时】
+
+```js
+const numSmallerByFrequency = (queries, words) => {
+  const result = Array.from(Array(queries.length), () => 0);
+  // 1. 遍历 queries 列表
+  for (let i = 0; i < queries.length; i++) {
+    // 2. 设置最小字母及其出现次数
+    let queryMin = queries[i][0],
+        queryMinTime = 0;
+    for (let j = 0; j < queries[i].length; j++) {
+      const queryCompare = queries[i][j].localeCompare(queryMin);
+      if (queryCompare < 0) {
+        queryMin = queries[i][j];
+        queryMinTime = 1;
+      } else if (queryCompare === 0) {
+        queryMinTime ++;
+      }
+    }
+    // 3. 将本次 query 逐个和 words[j] 对比
+    for (let j = 0; j < words.length; j++) {
+      let wordMin = words[j][0],
+          wordMinTime = 0;
+      for (let k = 0; k < words[j].length; k++) {
+        const wordCompare = words[j][k].localeCompare(wordMin);
+        if (wordCompare < 0) {
+          wordMin = words[j][k];
+          wordMinTime = 1;
+        } else if (wordCompare === 0) {
+          wordMinTime ++;
+        }
+      }
+      if (queryMinTime < wordMinTime) {
+        result[i]++;
+      }
+    }
+  }
+  return result;
+};
+```
+
+很好，这很 LeetCode，直接超时：
+
+```js
+Time Limit Exceeded
+* 36/37 cases passed (N/A)
+```
+
+那么肯定要优化优化啦：
+
+> 暴力破解【优化】
+
+```js
+/**
+ * @name 获取次数列表
+ * @param {string[]} strs 
+ */
+const getTimeList = (strs) => {
+  const result = [];
+  for (let i = 0; i < strs.length; i++) {
+    // 2. 设置最小字母及其出现次数
+    let minLetter = strs[i][0],
+        minLetterTime = 0;
+    for (let j = 0; j < strs[i].length; j++) {
+      const compare = strs[i][j].localeCompare(minLetter);
+      if (compare < 0) {
+        minLetter = strs[i][j];
+        minLetterTime = 1;
+      } else if (compare === 0) {
+        minLetterTime ++;
+      }
+    }
+    result.push(minLetterTime);
+  }
+  return result;
+};
+
+/**
+ * @name 比较字符串最小字母出现频次
+ * @param {string[]} queries
+ * @param {string[]} words
+ * @return {number[]}
+ */
+const numSmallerByFrequency = (queries, words) => {
+  const result = Array.from(Array(queries.length), () => 0);
+
+  // 统计 queries
+  const queriesNum = getTimeList(queries);
+  // 统计 words
+  const wordsNum = getTimeList(words);
+
+  for (let i = 0; i < queriesNum.length; i++) {
+    let time = 0;
+    for (let j = 0; j < wordsNum.length; j++) {
+      if (queriesNum[i] < wordsNum[j]) {
+        time ++;
+      }
+    }
+    result[i] = time;
+  }
+
+  return result;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 37/37 cases passed (136 ms)
+* Your runtime beats 55.81 % of javascript submissions
+* Your memory usage beats 77.78 % of javascript submissions (38.7 MB)
+```
+
+搞定，收工~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
