@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-31 12:37:17**  
-> Recently revised in **2020-01-31 12:37:55**
+> Recently revised in **2020-01-31 13:19:51**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -77,13 +76,22 @@ var defangIPaddr = function(address) {
 > index.js
 
 ```js
+/**
+ * @name IP地址无效化
+ * @param {string} address
+ * @return {string}
+ */
+const defangIPaddr = (address) => {
+  return address.split('').map(item => item === '.' ? `[.]` : item).join('');
+};
 
+console.log(defangIPaddr('1.1.1.1')); // 1[.]1[.]1[.]1
 ```
 
 `node index.js` 返回：
 
 ```js
-
+1[.]1[.]1[.]1
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -91,22 +99,80 @@ var defangIPaddr = function(address) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 62/62 cases passed (60 ms)
+* Your runtime beats 81.63 % of javascript submissions
+* Your memory usage beats 30.27 % of javascript submissions (33.8 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+首先，需要知道的是，JavaScript 毕竟非常灵活：
 
-[分析]
+> 【Plan A】一行求解
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const defangIPaddr = (address) => address.split('').map(item => item === '.' ? `[.]` : item).join('');
+```
 
-> [返回目录](#chapter-one)
+Submit 提交：
 
-……
+```js
+Accepted
+* 62/62 cases passed (60 ms)
+* Your runtime beats 81.63 % of javascript submissions
+* Your memory usage beats 30.27 % of javascript submissions (33.8 MB)
+```
+
+> 【Plan B】两行求解
+
+```js
+const defangIPaddr = (address) => {
+  return address.split('').reduce((prev, next) => {
+    return next === '.' ? prev + '[.]' : prev + next;
+  });
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 62/62 cases passed (92 ms)
+* Your runtime beats 6.69 % of javascript submissions
+* Your memory usage beats 29.4 % of javascript submissions (33.8 MB)
+```
+
+> 【Plan C】正常求解
+
+```js
+const defangIPaddr = (address) => {
+  let result = '';
+  for (let i = 0; i < address.length; i++) {
+    if (address[i] === '.') {
+      result += '[.]';
+    } else {
+      result += address[i];
+    }
+  }
+  return result;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 62/62 cases passed (60 ms)
+* Your runtime beats 81.63 % of javascript submissions
+* Your memory usage beats 41.31 % of javascript submissions (33.8 MB)
+```
+
+小伙伴喜欢哪款随意拿去，更多的 **jsliang** 就不多逼逼了。
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
