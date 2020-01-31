@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-31 20:35:31**  
-> Recently revised in **2020-01-31 20:35:34**
+> Recently revised in **2020-01-31 21:24:36**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -84,13 +83,48 @@ var maxNumberOfBalloons = function(text) {
 > index.js
 
 ```js
+/**
+ * @name 气球的最大数量
+ * @param {string} text
+ * @return {number}
+ */
+const maxNumberOfBalloons = (text) => {
+  const bolloons = [0, 0, 0, 0, 0]; // ['b', 'a', 'l', 'o', 'n']
+  for (let i = 0; i < text.length; i++) {
+    switch (text[i]) {
+      case 'b':
+        bolloons[0] += 1;
+        break;
+      case 'a':
+        bolloons[1] += 1;
+        break;
+      case 'l':
+        bolloons[2] += 1;
+        break;
+      case 'o':
+        bolloons[3] += 1;
+        break;
+      case 'n':
+        bolloons[4] += 1;
+        break;
+    }
+  }
+  return Math.min(bolloons[0], bolloons[1], Math.floor(bolloons[2] / 2), Math.floor(bolloons[3] / 2), bolloons[4]);
+};
 
+console.log(maxNumberOfBalloons('nlaebolko')); // 1
+console.log(maxNumberOfBalloons('loonbalxballpoon')); // 2
+console.log(maxNumberOfBalloons('leetcode')); // 0
+console.log(maxNumberOfBalloons('bolon')); // 0
 ```
 
 `node index.js` 返回：
 
 ```js
-
+1
+2
+0
+0
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -98,22 +132,66 @@ var maxNumberOfBalloons = function(text) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 23/23 cases passed (56 ms)
+* Your runtime beats 97.92 % of javascript submissions
+* Your memory usage beats 83.85 % of javascript submissions (34.8 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+我寻思着吧，这又是一道求父子集合的问题，就是稍微变动了下。
 
-[分析]
+> 暴力破解
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const maxNumberOfBalloons = (text) => {
+  const bolloons = [0, 0, 0, 0, 0]; // ['b', 'a', 'l', 'o', 'n']
+  for (let i = 0; i < text.length; i++) {
+    switch (text[i]) {
+      case 'b':
+        bolloons[0] += 1;
+        break;
+      case 'a':
+        bolloons[1] += 1;
+        break;
+      case 'l':
+        bolloons[2] += 1;
+        break;
+      case 'o':
+        bolloons[3] += 1;
+        break;
+      case 'n':
+        bolloons[4] += 1;
+        break;
+    }
+  }
+  return Math.min(bolloons[0], bolloons[1], Math.floor(bolloons[2] / 2), Math.floor(bolloons[3] / 2), bolloons[4]);
+};
+```
 
-> [返回目录](#chapter-one)
+思考了下感觉上面代码是比较完美的了：
 
-……
+1. 设置 `bolloons` 为 `['b', 'a', 'l', 'o', 'n']` 对应的次数。
+2. 通过 `for` 将这些统计的次数给收集起来。
+3. 然后找到这个数组中最小的次数即可~。
+
+Submit 提交：
+
+```js
+Accepted
+* 23/23 cases passed (56 ms)
+* Your runtime beats 97.92 % of javascript submissions
+* Your memory usage beats 83.85 % of javascript submissions (34.8 MB)
+```
+
+很好，挺优秀的这题解。
+
+> 自己夸自己
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
