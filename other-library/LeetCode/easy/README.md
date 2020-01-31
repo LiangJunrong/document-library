@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-31 11:57:58**
+> Recently revised in **2020-01-31 12:13:48**
 
 LeetCode 简单难度攻略
 
@@ -283,6 +283,7 @@ LeetCode 简单难度攻略
 | 49 | 1051 - 高度检查器（height-checker） | [#1051 解题](./1051-高度检查器（height-checker）.md) |
 | 50 | 1071 - 字符串的最大公因子（greatest-common-divisor-of-strings） | [#1071 解题](./1071-字符串的最大公因子（greatest-common-divisor-of-strings）.md) |
 | 51 | 1078 - Bigram分词（occurrences-after-bigram） | [#1078 解题](./1078-Bigram分词（occurrences-after-bigram）.md) |
+| 52 | 1089 - 复写零（duplicate-zeros） | [#1089 解题](./1089-复写零（duplicate-zeros）.md) |
 
 ---
 
