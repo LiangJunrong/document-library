@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-01-31 22:25:55**
+> Recently revised in **2020-01-31 22:54:14**
 
 LeetCode 简单难度攻略
 
@@ -299,6 +299,7 @@ LeetCode 简单难度攻略
 | 65 | 1200 - 最小绝对差（minimum-absolute-difference） | [#1200 解题](./1200-最小绝对差（minimum-absolute-difference）.md) |
 | 66 | 1207 - 独一无二的出现次数（unique-number-of-occurrences） | [#1207 解题](./1207-独一无二的出现次数（unique-number-of-occurrences）.md) |
 | 67 | 1217 - 玩筹码（play-with-chips） | [#1217 解题](./1217-玩筹码（play-with-chips）.md) |
+| 68 | 1221 - 分割平衡字符串（split-a-string-in-balanced-strings） | [#1221 解题](./1221-分割平衡字符串（split-a-string-in-balanced-strings）.md) |
 
 ---
 
