@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-31 22:28:37**  
-> Recently revised in **2020-01-31 22:29:25**
+> Recently revised in **2020-01-31 22:53:43**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -90,13 +90,39 @@ var balancedStringSplit = function(s) {
 > index.js
 
 ```js
+/**
+ * @name 分割平衡字符串
+ * @param {string} s
+ * @return {number}
+ */
+const balancedStringSplit = (s) => {
+  let time = 0;
+  let RLength = 0;
+  let LLength = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === 'R') {
+      RLength++;
+    } else {
+      LLength++;
+    }
+    if (RLength && LLength && RLength === LLength) {
+      time++;
+    }
+  }
+  return time;
+};
 
+console.log(balancedStringSplit('RLRRLLRLRL')); // 4
+console.log(balancedStringSplit('RLLLLRRRLR')); // 3
+console.log(balancedStringSplit('LLLLRRRR')); // 1
 ```
 
 `node index.js` 返回：
 
 ```js
-
+4
+3
+1
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -104,22 +130,98 @@ var balancedStringSplit = function(s) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 40/40 cases passed (72 ms)
+* Your runtime beats 33.98 % of javascript submissions
+* Your memory usage beats 68.28 % of javascript submissions (34.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+看到这道题觉得很为难，是不是 LeetCode 又耍我了。
 
-[分析]
+但是仔细想想，应该不是中等难度的题。
+
+于是试了下：
+
+> 暴力破解
+
+```js
+const balancedStringSplit = (s) => {
+  let time = 0;
+  let RLength = 0;
+  let LLength = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === 'R') {
+      RLength++;
+    } else {
+      LLength++;
+    }
+    if (RLength && LLength && RLength === LLength) {
+      time++;
+    }
+  }
+  return time;
+};
+```
+
+因为它是一个【平衡字符串】，所以它出现 `R` 和出现 `L` 的次数是一样的。
+
+所以咱们通过比对 `RLength` 和 `LLength`，就可以知道是否能切割了。
+
+又因为它不需要切割后的字符串，所以咱们统计次数 `time` 就行了。
+
+Submit 提交：
+
+```js
+Accepted
+* 40/40 cases passed (72 ms)
+* Your runtime beats 33.98 % of javascript submissions
+* Your memory usage beats 68.28 % of javascript submissions (34.2 MB)
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
 
 > [返回目录](#chapter-one)
 
-……
+哎！不对，为啥我感觉写得挺简洁的了，效率还是那么低下？
+
+> 【题解区】
+
+```js
+const balancedStringSplit = (s) => {
+  let count = 0,
+      sign = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === 'L') {
+      sign++;
+    } else {
+      sign--;
+    }
+    if (sign === 0) {
+      count++;
+    }
+  }
+  return count;
+};
+```
+
+这个大佬通过控制 `sign` 是否为 0 来判断是否平衡，比我的代码少了 1 个变量。
+
+Submit 提交为：
+
+```js
+Accepted
+* 40/40 cases passed (64 ms)
+* Your runtime beats 75.4 % of javascript submissions
+* Your memory usage beats 74.28 % of javascript submissions (34.1 MB)
+```
+
+enm...难道跟我的判断还有关系？
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
