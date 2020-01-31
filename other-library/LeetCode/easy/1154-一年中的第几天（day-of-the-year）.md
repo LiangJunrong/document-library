@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-01-31 15:04:03**  
-> Recently revised in **2020-01-31 15:04:58**
+> Recently revised in **2020-01-31 15:18:00**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -90,13 +89,34 @@ var dayOfYear = function(date) {
 > index.js
 
 ```js
+/**
+ * @name 一年中的第几天
+ * @param {string} date
+ * @return {number}
+ */
+const dayOfYear = (date) => {
+  const year = date.substr(0, 4);
+  const mouth = date.substr(5, 2);
+  const day = date.substr(8, 2);
+  let sum = 0;
+  const days = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+  if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+    days[1] = 29;
+  }
+  for (var i = 0; i < mouth - 1; i++) {
+    sum = sum + days[i];
+  }
+  sum = sum + day * 1;
+  return sum;
+};
 
+console.log(dayOfYear('2019-01-09')); // 9
 ```
 
 `node index.js` 返回：
 
 ```js
-
+9
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -104,22 +124,57 @@ var dayOfYear = function(date) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 246/246 cases passed (64 ms)
+* Your runtime beats 76.92 % of javascript submissions
+* Your memory usage beats 59.14 % of javascript submissions (33.8 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+不好意思数学不好，让小伙伴们失望了：
 
-[分析]
+> 【题解区】暴力破解
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const dayOfYear = (date) => {
+  const year = date.substr(0, 4);
+  const mouth = date.substr(5, 2);
+  const day = date.substr(8, 2);
+  let sum = 0;
+  const days = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+  if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+    days[1] = 29;
+  }
+  for (var i = 0; i < mouth - 1; i++) {
+    sum = sum + days[i];
+  }
+  sum = sum + day * 1;
+  return sum;
+};
+```
 
-> [返回目录](#chapter-one)
+主要思路是：
 
-……
+1. 获取年份（`year`），月份（`month`），日期（`day`），这些是题目的参数 `date` 给到的。
+2. 设置 `days` 数组统计正常的 12 个月：[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]。
+3. 判断是否为闰年。闰年的规则是（能被 400 整除）或者（能被 4 整除但是不能被 100 整除）。
+4. 然后计算即可。
+
+Submit 提交：
+
+```js
+Accepted
+* 246/246 cases passed (64 ms)
+* Your runtime beats 76.92 % of javascript submissions
+* Your memory usage beats 59.14 % of javascript submissions (33.8 MB)
+```
+
+好吧是我偷懒了~
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
