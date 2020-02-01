@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-02-01 11:34:49**  
-> Recently revised in **2020-02-01 11:34:51**
+> Recently revised in **2020-02-01 13:16:38**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -95,13 +94,46 @@ var oddCells = function(n, m, indices) {
 > index.js
 
 ```js
+/**
+ * @name 奇数值单元格的数目
+ * @param {number} n
+ * @param {number} m
+ * @param {number[][]} indices
+ * @return {number}
+ */
+const oddCells = (n, m, indices) => {
+  // 1. 初始化矩阵
+  const matrix = Array.from(Array(n), () => Array.from(Array(m), () => 0));
+  // 2. 渲染矩阵
+  for (let i = 0; i < indices.length; i++) {
+    const pointX = indices[i][0];
+    const pointY = indices[i][1];
+    for (let j = 0; j < m; j++) {
+      matrix[pointX][j] += 1;
+    }
+    for (let k = 0; k < n; k++) {
+      matrix[k][pointY] += 1;
+    }
+  }
+  // 3. 统计奇数
+  let result = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] % 2 === 1) {
+        result++;
+      }
+    }
+  }
+  return result;
+};
 
+console.log(oddCells(2, 3, [[0, 1], [1, 1]]));
 ```
 
 `node index.js` 返回：
 
 ```js
-
+6
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -109,22 +141,64 @@ var oddCells = function(n, m, indices) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 44/44 cases passed (72 ms)
+* Your runtime beats 64.18 % of javascript submissions
+* Your memory usage beats 26.19 % of javascript submissions (36.3 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+拿到题目，分析题意：
 
-[分析]
+1. 有个 `n * m` 的矩阵，里面的数一开始都是 0。
+2. 有个数组 `indices`，其中对于每项 `i` 来说，`x = indices[i][0]` 代表我们要将第 `x` 行的数字都 + 1；`y = indices[i][1]` 代表我们要将第 `y` 列的数字都 + 1。
+3. 统计 `n * m` 的矩阵中，渲染的数字为奇数的个数。
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+> 暴力破解
 
-> [返回目录](#chapter-one)
+```js
+const oddCells = (n, m, indices) => {
+  // 1. 初始化矩阵
+  const matrix = Array.from(Array(n), () => Array.from(Array(m), () => 0));
+  // 2. 渲染矩阵
+  for (let i = 0; i < indices.length; i++) {
+    const pointX = indices[i][0];
+    const pointY = indices[i][1];
+    for (let j = 0; j < m; j++) {
+      matrix[pointX][j] += 1;
+    }
+    for (let k = 0; k < n; k++) {
+      matrix[k][pointY] += 1;
+    }
+  }
+  // 3. 统计奇数
+  let result = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] % 2 === 1) {
+        result++;
+      }
+    }
+  }
+  return result;
+};
+```
 
-……
+Submit 提交：
+
+```js
+Accepted
+* 44/44 cases passed (72 ms)
+* Your runtime beats 64.18 % of javascript submissions
+* Your memory usage beats 26.19 % of javascript submissions (36.3 MB)
+```
+
+当然，肯定还有啥奇技淫巧，这里小伙伴们有兴趣的可以探索尝试下。
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
