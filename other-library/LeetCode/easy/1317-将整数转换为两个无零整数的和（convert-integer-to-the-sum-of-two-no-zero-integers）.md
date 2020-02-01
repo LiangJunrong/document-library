@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-02-01 20:37:25**  
-> Recently revised in **2020-02-01 20:38:11**
+> Recently revised in **2020-02-01 20:51:20**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -98,13 +98,33 @@ var getNoZeroIntegers = function(n) {
 > index.js
 
 ```js
+/**
+ * @name 将整数转换为两个无零整数的和
+ * @param {number} n
+ * @return {number[]}
+ */
+const getNoZeroIntegers = (n) => {
+  let time = 1;
+  while (
+    String(time).includes('0')
+    || String(n - time).includes('0')
+  ) {
+    time++;
+  }
+  return [time, n - time];
+};
 
+console.log(getNoZeroIntegers(2)); // [1, 1]
+console.log(getNoZeroIntegers(11)); // [2, 9]
+console.log(getNoZeroIntegers(1010)); // [11, 999]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[ 1, 1 ]
+[ 2, 9 ]
+[ 11, 999 ]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -112,22 +132,85 @@ var getNoZeroIntegers = function(n) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 206/206 cases passed (72 ms)
+* Your runtime beats 46.31 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (34.1 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+首先，解读题意：
 
-[分析]
+1. 给出一个整数 `n`。
+2. 需要输出一个数组 `[A, B]`。
+3. 其中 `A` 和 `B` 都是正整数（非 0 和负整数）
+4. 存在 `A + B = n`。
+5. 返回其中一个结果即可。
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+从上面来看，这道题也是非常宽松的，我们是不是输入 `[1, n - 1]` 即可？
 
-> [返回目录](#chapter-one)
+> 暴力破解【错误】
 
-……
+```js
+const getNoZeroIntegers = (n) => {
+  return [1, n - 1];
+};
+```
+
+Submit 提交：
+
+```js
+Wrong Answer
+* 148/206 cases passed (N/A)
+
+Testcase
+* 11
+
+Answer
+* [1,10]
+
+Expected Answer
+* [2,9]
+```
+
+事实证明我们忽略了个条件：
+
+* 返回的结果的正整数，不能包含 0。例如 `10`、`100`。
+
+OK，修改下：
+
+> 暴力破解
+
+```js
+const getNoZeroIntegers = (n) => {
+  let time = 1;
+  while (
+    String(time).includes('0')
+    || String(n - time).includes('0')
+  ) {
+    time++;
+  }
+  return [time, n - time];
+};
+```
+
+如果 `time` 包含 0 或者 `n - time` 包含 0，那么我们就不停 + 1，直到两者都不包含为止。
+
+Submit 提交：
+
+```js
+Accepted
+* 206/206 cases passed (72 ms)
+* Your runtime beats 46.31 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (34.1 MB)
+```
+
+这样，我们就完成了这道题。
+
+当然，如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
