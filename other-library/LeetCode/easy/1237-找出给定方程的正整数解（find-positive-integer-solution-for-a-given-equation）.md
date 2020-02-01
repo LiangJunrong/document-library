@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-02-01 11:18:10**  
-> Recently revised in **2020-02-01 11:19:46**
+> Recently revised in **2020-02-01 11:32:34**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -114,13 +113,34 @@ var findSolution = function(customfunction, z) {
 > index.js
 
 ```js
-
-```
-
-`node index.js` 返回：
-
-```js
-
+/**
+ * This is the CustomFunction's API interface.
+ * You should not implement it, or speculate about its implementation
+    function CustomFunction() {
+      @param {integer, integer} x, y
+      @return {integer}
+      this.f = function(x, y) {
+        ...
+      };
+    };
+ */
+/**
+ * @name 找出给定方程的正整数解
+ * @param {CustomFunction} customfunction
+ * @param {integer} z
+ * @return {integer[][]}
+ */
+const findSolution = (customfunction, z) => {
+  const result = [];
+  for (let i = 1; i <= z; i++) {
+    for (let j = 1; j <= z; j++) {
+      if (customfunction.f(i, j) === z) {
+        result.push([i, j]);
+      }
+    }
+  }
+  return result;
+};
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -128,22 +148,42 @@ var findSolution = function(customfunction, z) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 45/45 cases passed (64 ms)
+* Your runtime beats 91.77 % of javascript submissions
+* Your memory usage beats 60.15 % of javascript submissions (34.6 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+由于题目包含了一个隐藏方法：`customfunction.f(x, y)`，所以如果测试那就需要提交测试了。
 
-[分析]
+然后分析下题目：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+1. 给定一个函数 `customfunction.f(x, y)`，给定一个期望值 `z` 为期望结果。
+2. 计算符合 `[1, z]` 范围内，输出结果 `customfunction.f(x, y) === z` 的情况。
 
-> [返回目录](#chapter-one)
+那么直接求解：
 
-……
+```js
+const findSolution = (customfunction, z) => {
+  const result = [];
+  for (let i = 1; i <= z; i++) {
+    for (let j = 1; j <= z; j++) {
+      if (customfunction.f(i, j) === z) {
+        result.push([i, j]);
+      }
+    }
+  }
+  return result;
+};
+```
+
+简单来说，对这道题不太感冒，毕竟题目还是比较难以理解的（虽然答案很简单）。
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
