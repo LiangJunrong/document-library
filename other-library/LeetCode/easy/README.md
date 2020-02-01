@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-02-01 11:10:43**
+> Recently revised in **2020-02-01 11:33:15**
 
 LeetCode 简单难度攻略
 
@@ -301,6 +301,7 @@ LeetCode 简单难度攻略
 | 67 | 1217 - 玩筹码（play-with-chips） | [#1217 解题](./1217-玩筹码（play-with-chips）.md) |
 | 68 | 1221 - 分割平衡字符串（split-a-string-in-balanced-strings） | [#1221 解题](./1221-分割平衡字符串（split-a-string-in-balanced-strings）.md) |
 | 69 | 1232 - 缀点成线（check-if-it-is-a-straight-line） | [#1232 解题](./1232-缀点成线（check-if-it-is-a-straight-line）.md) |
+| 70 | 1237 - 找出给定方程的正整数解（find-positive-integer-solution-for-a-given-equation） | [#1237 解题](./1237-找出给定方程的正整数解（find-positive-integer-solution-for-a-given-equation）.md) |
 
 ---
 
