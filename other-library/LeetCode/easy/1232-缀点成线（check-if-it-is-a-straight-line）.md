@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-02-01 10:49:36**  
-> Recently revised in **2020-02-01 10:49:39**
+> Recently revised in **2020-02-01 11:08:57**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -88,13 +87,37 @@ var checkStraightLine = function(coordinates) {
 > index.js
 
 ```js
+/**
+ * @name 缀点成线
+ * @param {number[][]} coordinates
+ * @return {boolean}
+ */
+const checkStraightLine = (coordinates) => {
+  let count = 0;
+  let k = (coordinates[1][1] - coordinates[0][1]) / (coordinates[1][0] - coordinates[0][0]);
+  coordinates.forEach((item) => {
+    let k2 = (item[1] - coordinates[0][1]) / (item[0] - coordinates[0][0]);
+    if (k2 === k || isNaN(k2)) {
+      count++;
+    }
+  });
+  return (count === coordinates.length);
+};
 
+console.log(checkStraightLine([
+  [1, 2],
+  [2, 3],
+  [3, 4],
+  [4, 5],
+  [5, 6],
+  [6, 7]
+])); // true
 ```
 
 `node index.js` 返回：
 
 ```js
-
+true
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -102,22 +125,50 @@ var checkStraightLine = function(coordinates) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 66/66 cases passed (64 ms)
+* Your runtime beats 80.2 % of javascript submissions
+* Your memory usage beats 52.05 % of javascript submissions (34.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+一般数学题，基本上就是套公式，就好比这道题，就是要求这几个点是否在同一条直线上。
 
-[分析]
+然后找到公式就是一顿操作，最后输出结果。
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+但是想想我找公式还不如认认真真和大佬学：
 
-> [返回目录](#chapter-one)
+> 求斜率
 
-……
+```js
+const checkStraightLine = (coordinates) => {
+  let count = 0;
+  let k = (coordinates[1][1] - coordinates[0][1]) / (coordinates[1][0] - coordinates[0][0]);
+  coordinates.forEach((item) => {
+    let k2 = (item[1] - coordinates[0][1]) / (item[0] - coordinates[0][0]);
+    if (k2 === k || isNaN(k2)) {
+      count++;
+    }
+  });
+  return (count === coordinates.length);
+};
+```
+
+Submit 提交为：
+
+```js
+Accepted
+* 66/66 cases passed (64 ms)
+* Your runtime beats 80.2 % of javascript submissions
+* Your memory usage beats 52.05 % of javascript submissions (34.2 MB)
+```
+
+enm...感觉，又水了一道题，好不嗨皮。
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
