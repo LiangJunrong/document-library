@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-02-01 17:58:22**  
-> Recently revised in **2020-02-01 17:58:24**
+> Recently revised in **2020-02-01 18:08:48**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -74,13 +73,38 @@ var findSpecialInteger = function(arr) {
 > index.js
 
 ```js
+/**
+ * @name 有序数组中出现次数超过25%的元素
+ * @param {number[]} arr
+ * @return {number}
+ */
+const findSpecialInteger = (arr) => {
+  let maxNumber = arr[0],
+      maxTime = 1,
+      nowNumber = arr[0],
+      nowTime = 1;
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] === nowNumber) {
+      nowTime++;
+      if (nowTime > maxTime) {
+        maxTime = nowTime;
+        maxNumber = nowNumber;
+      }
+    } else {
+      nowNumber = arr[i];
+      nowTime = 1;
+    }
+  }
+  return maxNumber;
+};
 
+console.log(findSpecialInteger([1, 2, 2, 6, 6, 6, 6, 7, 10])); // 6
 ```
 
 `node index.js` 返回：
 
 ```js
-
+6
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -88,22 +112,72 @@ var findSpecialInteger = function(arr) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 18/18 cases passed (68 ms)
+* Your runtime beats 81.25 % of javascript submissions
+* Your memory usage beats 84.04 % of javascript submissions (35.3 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+**首先**，看完题目，难免怀疑下，会不会有多个元素超过 25%。
 
-[分析]
+然后题目意思是：
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```
+给你一个非递减的 有序 整数数组，
+已知这个数组中恰好有一个整数，
+它的出现次数超过数组元素总数的 25%。
+```
 
-> [返回目录](#chapter-one)
+OK，那就假定：
 
-……
+1. 只有一个
+2. 递增整数数组
+3. 超过 25%
+
+那么，开始解题：
+
+> 暴力破解
+
+```js
+const findSpecialInteger = (arr) => {
+  let maxNumber = arr[0],
+      maxTime = 1,
+      nowNumber = arr[0],
+      nowTime = 1;
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] === nowNumber) {
+      nowTime++;
+      if (nowTime > maxTime) {
+        maxTime = nowTime;
+        maxNumber = nowNumber;
+      }
+    } else {
+      nowNumber = arr[i];
+      nowTime = 1;
+    }
+  }
+  return maxNumber;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 18/18 cases passed (68 ms)
+* Your runtime beats 81.25 % of javascript submissions
+* Your memory usage beats 84.04 % of javascript submissions (35.3 MB)
+```
+
+enm...这和前一道题《1281 - 整数的各位积和之差》一样，感觉都是入门级别的。
+
+所以这里就不多 bb 啦~
+
+如果小伙伴们有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
