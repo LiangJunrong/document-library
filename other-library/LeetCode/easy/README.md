@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-02-01 20:20:40**
+> Recently revised in **2020-02-01 20:35:48**
 
 LeetCode 简单难度攻略
 
@@ -313,6 +313,7 @@ LeetCode 简单难度攻略
 | 79 | 1299 - 将每个元素替换为右侧最大元素（replace-elements-with-greatest-element-on-right-side） | [#1299 解题](./1299-将每个元素替换为右侧最大元素（replace-elements-with-greatest-element-on-right-side）.md) |
 | 80 | 1304 - 和为零的唯一整数（find-n-unique-integers-sum-up-to-zero） | [#1304 解题](./1304-和为零的唯一整数（find-n-unique-integers-sum-up-to-zero）.md) |
 | 81 | 1309 - 解码字母到整数映射（decrypt-string-from-alphabet-to-integer-mapping） | [#1309 解题](./1309-解码字母到整数映射（decrypt-string-from-alphabet-to-integer-mapping）.md) |
+| 82 | 1313 - 解压缩编码列表（decompress-run-length-encoded-list） | [#1313 解题](./1313-解压缩编码列表（decompress-run-length-encoded-list）.md) |
 
 ---
 
