@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-02-01 20:00:04**  
-> Recently revised in **2020-02-01 20:01:13**
+> Recently revised in **2020-02-01 20:20:07**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -98,13 +97,36 @@ var freqAlphabets = function(s) {
 > index.js
 
 ```js
+/**
+ * @name 解码字母到整数映射
+ * @param {string} s
+ * @return {string}
+ */
+const freqAlphabets = (s) => {
+  const map = ['', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  let result = '';
+  for (let i = 0; i < s.length; i++) {
+    const now = Number(s[i]);
+    if (
+      (now === 1 || now === 2)
+      && s[i + 2] === '#'
+    ) {
+      result += map[Number(s[i] + s[i + 1])];
+      i += 2;
+    } else {
+      result += map[now];
+    }
+  }
+  return result;
+};
 
+console.log(freqAlphabets('10#11#12')); // 'jkab'
 ```
 
 `node index.js` 返回：
 
 ```js
-
+'jkab'
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -112,22 +134,72 @@ var freqAlphabets = function(s) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 40/40 cases passed (68 ms)
+* Your runtime beats 51.27 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (33.8 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+首先，这道题的尴尬地方应该是，碰到 1 和 2 的时候，你需要注意是：
 
-[分析]
+* 1
+* 2
+* 1x#
+* 2x#
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+> `x` 为 1-9 的任意数
 
-> [返回目录](#chapter-one)
+所以我们可以编写代码为：
 
-……
+> 哈希表
+
+```js
+const freqAlphabets = (s) => {
+  const map = ['', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  let result = '';
+  for (let i = 0; i < s.length; i++) {
+    const now = Number(s[i]);
+    if (
+      (now === 1 || now === 2)
+      && s[i + 2] === '#'
+    ) {
+      result += map[Number(s[i] + s[i + 1])];
+      i += 2;
+    } else {
+      result += map[now];
+    }
+  }
+  return result;
+};
+```
+
+> 注意，因为 1 映射的是 `a`，所以 `map` 第 0 位是 `''`，第 1 位才是 `'a'`。
+
+破解思路：
+
+1. 设置 `map` 为哈希表。
+2. 设置 `result` 获取结果。
+3. 判断 `Number(s[i])` 是否为 1 或者 2，并且 `s[i + 2]` 为 `'#'` 号，我们就将其合计起来，同时 `i += 2`，结合上面的 `i++`，跳动 3 次，忽略接下来的 2 个元素。
+4. 如果不符合条件 3，那么直接添加上去即可。
+
+Submit 提交：
+
+```js
+Accepted
+* 40/40 cases passed (68 ms)
+* Your runtime beats 51.27 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (33.8 MB)
+```
+
+搞定收工~
+
+还收获了次 100% 空间打败，可喜可贺。
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
