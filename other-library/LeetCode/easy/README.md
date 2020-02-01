@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-02-01 17:16:36**
+> Recently revised in **2020-02-01 17:57:02**
 
 LeetCode 简单难度攻略
 
@@ -306,6 +306,7 @@ LeetCode 简单难度攻略
 | 72 | 1260 - 二维网格迁移（shift-2d-grid） | [#1260 解题](./1260-二维网格迁移（shift-2d-grid）.md) |
 | 73 | 1266 - 访问所有点的最小时间（minimum-time-visiting-all-points） | [#1266 解题](./1266-访问所有点的最小时间（minimum-time-visiting-all-points）.md) |
 | 74 | 1275 - 找出井字棋的获胜者（find-winner-on-a-tic-tac-toe-game） | [#1275 解题](./1275-找出井字棋的获胜者（find-winner-on-a-tic-tac-toe-game）.md) |
+| 75 | 1281 - 整数的各位积和之差（subtract-the-product-and-sum-of-digits-of-an-integer） | [#1281 解题](./1281-整数的各位积和之差（subtract-the-product-and-sum-of-digits-of-an-integer）.md) |
 
 ---
 
