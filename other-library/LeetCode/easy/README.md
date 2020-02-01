@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-02-01 18:52:49**
+> Recently revised in **2020-02-01 19:03:08**
 
 LeetCode 简单难度攻略
 
@@ -309,6 +309,7 @@ LeetCode 简单难度攻略
 | 75 | 1281 - 整数的各位积和之差（subtract-the-product-and-sum-of-digits-of-an-integer） | [#1281 解题](./1281-整数的各位积和之差（subtract-the-product-and-sum-of-digits-of-an-integer）.md) |
 | 76 | 1287 - 有序数组中出现次数超过25%的元素（element-appearing-more-than-25-in-sorted-array） | [#1287 解题](./1287-有序数组中出现次数超过25%的元素（element-appearing-more-than-25-in-sorted-array）.md) |
 | 77 | 1290 - 二进制链表转整数（convert-binary-number-in-a-linked-list-to-integer） | [#1290 解题](./1290-二进制链表转整数（convert-binary-number-in-a-linked-list-to-integer）.md) |
+| 78 | 1295 - 统计位数为偶数的数字（find-numbers-with-even-number-of-digits） | [#1295 解题](./1295-统计位数为偶数的数字（find-numbers-with-even-number-of-digits）.md) |
 
 ---
 
