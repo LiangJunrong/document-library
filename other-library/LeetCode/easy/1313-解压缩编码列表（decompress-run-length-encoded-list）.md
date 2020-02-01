@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-02-01 20:22:55**  
-> Recently revised in **2020-02-01 20:22:58**
+> Recently revised in **2020-02-01 20:35:13**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -81,13 +80,28 @@ var decompressRLElist = function(nums) {
 > index.js
 
 ```js
+/**
+ * @name 解压缩编码列表
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+const decompressRLElist = (nums) => {
+  const result = [];
+  for (let i = 1; i < nums.length; i++) {
+    if (i % 2 === 1) {
+      result.push(...Array.from(Array(nums[i - 1]), () => nums[i]));
+    }
+  }
+  return result;
+};
 
+console.log(decompressRLElist([1, 2, 3, 4])); // [2, 4, 4, 4]
 ```
 
 `node index.js` 返回：
 
 ```js
-
+[2, 4, 4, 4]
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -95,22 +109,51 @@ var decompressRLElist = function(nums) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 52/52 cases passed (148 ms)
+* Your runtime beats 5.08 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (37.1 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+首先，我们分析下题目：
 
-[分析]
+* 第 奇数位 为需要生成的次数
+* 第 偶数位 为对应需要生产的数字
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+那么就有：
 
-> [返回目录](#chapter-one)
+> 暴力破解
 
-……
+```js
+const decompressRLElist = (nums) => {
+  const result = [];
+  for (let i = 1; i < nums.length; i++) {
+    if (i % 2 === 1) {
+      result.push(...Array.from(Array(nums[i - 1]), () => nums[i]));
+    }
+  }
+  return result;
+};
+```
+
+我们只判断奇数位，然后通过 `Array.from(i+1, () => i)` 的形式，生成 `n` 个 `nums[i]`。
+
+Submit 提交：
+
+```js
+Accepted
+* 52/52 cases passed (148 ms)
+* Your runtime beats 5.08 % of javascript submissions
+* Your memory usage beats 100 % of javascript submissions (37.1 MB)
+```
+
+再次收获一次空间 100% 打败的记录。
+
+如果小伙伴有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
