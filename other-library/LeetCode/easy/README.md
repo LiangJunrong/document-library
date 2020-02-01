@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-02-01 19:43:12**
+> Recently revised in **2020-02-01 19:57:31**
 
 LeetCode 简单难度攻略
 
@@ -311,6 +311,7 @@ LeetCode 简单难度攻略
 | 77 | 1290 - 二进制链表转整数（convert-binary-number-in-a-linked-list-to-integer） | [#1290 解题](./1290-二进制链表转整数（convert-binary-number-in-a-linked-list-to-integer）.md) |
 | 78 | 1295 - 统计位数为偶数的数字（find-numbers-with-even-number-of-digits） | [#1295 解题](./1295-统计位数为偶数的数字（find-numbers-with-even-number-of-digits）.md) |
 | 79 | 1299 - 将每个元素替换为右侧最大元素（replace-elements-with-greatest-element-on-right-side） | [#1299 解题](./1299-将每个元素替换为右侧最大元素（replace-elements-with-greatest-element-on-right-side）.md) |
+| 80 | 1304 - 和为零的唯一整数（find-n-unique-integers-sum-up-to-zero） | [#1304 解题](./1304-和为零的唯一整数（find-n-unique-integers-sum-up-to-zero）.md) |
 
 ---
 
