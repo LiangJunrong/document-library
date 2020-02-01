@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-02-01 18:55:24**  
-> Recently revised in **2020-02-01 18:55:28**
+> Recently revised in **2020-02-01 19:02:38**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -84,13 +83,28 @@ var findNumbers = function(nums) {
 > index.js
 
 ```js
+/**
+ * @name 统计位数为偶数的数字
+ * @param {number[]} nums
+ * @return {number}
+ */
+const findNumbers = (nums) => {
+  let time = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (String(nums[i]).length % 2 === 0) {
+      time++;
+    }
+  }
+  return time;
+};
 
+console.log(findNumbers([12, 345, 2, 6, 7896])); // 2
 ```
 
 `node index.js` 返回：
 
 ```js
-
+2
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -98,22 +112,61 @@ var findNumbers = function(nums) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 102/102 cases passed (68 ms)
+* Your runtime beats 67.89 % of javascript submissions
+* Your memory usage beats 87.97 % of javascript submissions (35.2 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+如果要秀的话，那就是一行求解：
 
-[分析]
+> 一行求解
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const findNumbers = (nums) => nums.reduce((prev, next) => prev + (String(next).length % 2 === 0 ? 1 : 0), 0);
+```
 
-> [返回目录](#chapter-one)
+Submit 提交：
 
-……
+```js
+Accepted
+* 102/102 cases passed (76 ms)
+* Your runtime beats 22.77 % of javascript submissions
+* Your memory usage beats 85.34 % of javascript submissions (35.2 MB)
+```
+
+如果小伙伴想看清楚的话，那就转成多行：
+
+> 暴力破解
+
+```js
+const findNumbers = (nums) => {
+  let time = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (String(nums[i]).length % 2 === 0) {
+      time++;
+    }
+  }
+  return time;
+};
+```
+
+Submit 提交：
+
+```js
+Accepted
+* 102/102 cases passed (68 ms)
+* Your runtime beats 67.89 % of javascript submissions
+* Your memory usage beats 87.97 % of javascript submissions (35.2 MB)
+```
+
+当然，也许还有其他法子，但是我觉得杀鸡焉用牛刀，两种就够用了~
+
+如果小伙伴还有更好的思路想法，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
