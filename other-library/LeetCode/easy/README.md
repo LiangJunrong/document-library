@@ -2,7 +2,7 @@ LeetCode - 简单模式
 ===
 
 > Create by **jsliang** on **2019-05-20 18:59:51**  
-> Recently revised in **2020-02-01 13:19:12**
+> Recently revised in **2020-02-01 14:29:57**
 
 LeetCode 简单难度攻略
 
@@ -303,6 +303,7 @@ LeetCode 简单难度攻略
 | 69 | 1232 - 缀点成线（check-if-it-is-a-straight-line） | [#1232 解题](./1232-缀点成线（check-if-it-is-a-straight-line）.md) |
 | 70 | 1237 - 找出给定方程的正整数解（find-positive-integer-solution-for-a-given-equation） | [#1237 解题](./1237-找出给定方程的正整数解（find-positive-integer-solution-for-a-given-equation）.md) |
 | 71 | 1252 - 奇数值单元格的数目（cells-with-odd-values-in-a-matrix） | [#1252 解题](./1252-奇数值单元格的数目（cells-with-odd-values-in-a-matrix）.md) |
+| 72 | 1260 - 二维网格迁移（shift-2d-grid） | [#1260 解题](./1260-二维网格迁移（shift-2d-grid）.md) |
 
 ---
 
