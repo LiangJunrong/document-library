@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-02-01 17:19:30**  
-> Recently revised in **2020-02-01 17:20:08**
+> Recently revised in **2020-02-01 17:56:31**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -15,7 +15,6 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 解题及测试](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 LeetCode Submit](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解题思路](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 进一步思考](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -82,13 +81,29 @@ var subtractProductAndSum = function(n) {
 > index.js
 
 ```js
+/**
+ * @name 整数的各位积和之差
+ * @param {number} n
+ * @return {number}
+ */
+const subtractProductAndSum = (n) => {
+  n = String(n);
+  let product = Number(n[0]);
+  let sum = Number(n[0]);
+  for (let i = 1; i < n.length; i++) {
+    product *= Number(n[i]);
+    sum += Number(n[i]);
+  }
+  return product - sum;
+};
 
+console.log(subtractProductAndSum(234)); // 15
 ```
 
 `node index.js` 返回：
 
 ```js
-
+15
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 LeetCode Submit
@@ -96,22 +111,45 @@ var subtractProductAndSum = function(n) {
 > [返回目录](#chapter-one)
 
 ```js
-
+Accepted
+* 123/123 cases passed (60 ms)
+* Your runtime beats 88.13 % of javascript submissions
+* Your memory usage beats 62.2 % of javascript submissions (33.8 MB)
 ```
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解题思路
 
 > [返回目录](#chapter-one)
 
-[图]
+这道题，感觉没点含量啊，连【简单】都不能算了，只能说是【入门】了：
 
-[分析]
+> 暴力破解
 
-## <a name="chapter-six" id="chapter-six"></a>六 进一步思考
+```js
+const subtractProductAndSum = (n) => {
+  n = String(n);
+  let product = Number(n[0]);
+  let sum = Number(n[0]);
+  for (let i = 1; i < n.length; i++) {
+    product *= Number(n[i]);
+    sum += Number(n[i]);
+  }
+  return product - sum;
+};
+```
 
-> [返回目录](#chapter-one)
+Submit 提交：
 
-……
+```js
+Accepted
+* 123/123 cases passed (60 ms)
+* Your runtime beats 88.13 % of javascript submissions
+* Your memory usage beats 62.2 % of javascript submissions (33.8 MB)
+```
+
+好吧，不知道说啥好了，这道题 over 了。
+
+如果小伙伴有更好的思路想法……enm...真会有么，欢迎评论留言或者私聊 **jsliang**~
 
 ---
 
