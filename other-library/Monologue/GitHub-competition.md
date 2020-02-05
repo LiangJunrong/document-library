@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2020-01-06 09:47:59**
+> Recently revised in **2020-2-5 10:14:49**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -101,15 +101,14 @@
 | 2. teachat8 | [teachat8](https://github.com/teachat8/document-library/blob/master/other-library/RecordDailyGrowth/2020-01.md) | 能写 Vue 组件 |
 | 3. 豆包君 | [豆包君](https://github.com/danygitgit/Cheer-for-yourself) | 年后跳槽 |
 | 4. chenxiaoyao | [chenxiaoyao6228](https://github.com/chenxiaoyao6228/daily-learing-log) | 【暂时不参赛】 |
+| 5. cqweifeng | [cqweifeng](https://github.com/cqweifeng) | 2020.2.5-2020.2.22完成前端设计模式共26集视频的观看 |
 
 ## 五 参赛记录和漏卡记录
 
 > 2020.01.04 —— 2020.01.11
 
 1. jsliang
-2. teachat8 - 7 天
-3. *chenxiaoyao - 7 天*
-4. 豆包君 - 7 天
+2. cqweifeng - 4 天
 
 > [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
 > **jsliang** 的文档库</a> 由 [梁峻荣](https://github.com/LiangJunrong/document-library) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。  
