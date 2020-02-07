@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2018-12-17 08:16:35**  
-> Recently revised in **2020-2-5 10:14:49**
+> Recently revised in **2020-2-7 21:44:06**
 
 **不折腾的前端，和咸鱼有什么区别！**
 
@@ -102,6 +102,7 @@
 | 3. 豆包君 | [豆包君](https://github.com/danygitgit/Cheer-for-yourself) | 年后跳槽 |
 | 4. chenxiaoyao | [chenxiaoyao6228](https://github.com/chenxiaoyao6228/daily-learing-log) | 【暂时不参赛】 |
 | 5. cqweifeng | [cqweifeng](https://github.com/cqweifeng) | 2020.2.5-2020.2.22完成前端设计模式共26集视频的观看 |
+| 5. Murphy | [Murphy](https://github.com/klmhly/day-log) | 2020.11-2020.12 面试进大厂 |
 
 ## 五 参赛记录和漏卡记录
 
