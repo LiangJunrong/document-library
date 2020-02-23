@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-2-20 20:23:30**  
-> Recently revised in **2020-2-21 16:06:03**
+> Recently revised in **2020-2-23 17:25:07**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -76,8 +76,8 @@
 4. 直播系统（即时通讯）
 5. 算法与数据结构
 6. 设计模式
-7. 使用 React + Koa 做一个个人时间投资计划
-8. 完成前端基本效果：Tab、轮播等的实现
+7. 使用 React + Koa 做一个个人时间投资计划（PC 端用 React，手机端用 微信小程序）
+8. 完成前端基本效果：Tab、轮播等的实现，实现一套 UI 库
 9. 手写 Promise
 10. ……
 
@@ -133,5 +133,11 @@ enm...看到这题目表示很尴尬有木有，造表单能有啥贡献？
 自 3 月开始实施，至 2020 年 3 月终止。
 
 阿里、腾讯、虎牙、YY、CVTE、酷狗、BIGO、荔枝 FM、今日头条
+
+1. 先把 Vue、React、Webpack 源码都过了下
+2. 写脚手架（Node.js）
+3. Electron 跨平台开发
+4. 音视频处理
+5. 计算机网络（HTTP、HTTPS、跨域）（极客时间）
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
