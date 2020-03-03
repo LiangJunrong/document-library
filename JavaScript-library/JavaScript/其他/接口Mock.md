@@ -8,6 +8,8 @@
 
 1. faker.js：https://mp.weixin.qq.com/s/RKL8V-GkZ4drX6RjSVHN0g
 
+https://www.baidu.com/s?ie=UTF-8&wd=%E5%89%8D%E7%AB%AF%20mock
+
 ---
 
 > **jsliang** 广告推送：  
