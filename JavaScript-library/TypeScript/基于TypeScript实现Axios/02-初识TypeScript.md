@@ -2,16 +2,68 @@
 ===
 
 > Create by **jsliang** on **2020-3-3 07:49:30**  
-> Recently revised in **2020-3-3 08:27:38**
+> Recently revised in **2020-03-05 14:53:34**
 
-## 一 安装 TypeScript
+## <a name="chapter-one" id="chapter-one"></a>一 目录
+
+**不折腾的前端，和咸鱼有什么区别**
+
+| 目录 |
+| --- | 
+| [一 目录](#chapter-one) | 
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 课程概述](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 课程知识点介绍](#chapter-four) |
+
+## <a name="chapter-two" id="chapter-two"></a>二 前言
+
+> [返回目录](#chapter-one)
+
+TypeScript 作为 JavaScript 语言的超集，它为 JavaScript 添加了可选择的类型标注，大大增强了代码的可读性和可维护性。
+
+同时，它提供最新和不断发展的 JavaScript 特性，能让我们建立更健壮的组件。
+
+## <a name="chapter-three" id="chapter-three"></a>三 TypeScript 的特点
+
+> [返回目录](#chapter-one)
+
+TypeScript 主要有 3 大特点：
+
+* 始于 JavaScript，归于 JavaScript
+
+TypeScript 可以编译出纯净、简洁的 JavaScript 代码，并且可以运行在任何浏览器上、Node.js 环境中以及任何支持 ECMAScript 3（或者更高版本）的 JavaScript 引擎中。
+
+* 强大的工具构建大型应用
+
+类型允许 JavaScript 开发者在开发 JavaScript 应用程序时使用高效的开发工具和常用操作。比如静态检查和代码重构。
+
+类型是可选的，类型推断让一些类型的注释使你的代码的静态验证有很大的不同。
+
+类型让你定义软件组件之间的接口和洞察现有 JavaScript 库的行为。
+
+* 先进的 JavaScript
+
+TypeScript 提供最新的不断发展的 JavaScript 特性，包括那些来自 2015 年的 ECMAScript（ES6）和未来的提案中的特性，比如异步功能和 Decorators，以帮助建立健壮的组件。
+
+这些特性在高可信应用程序开发时事可用的，但是会被编译成简洁的 ECMAScript3（或更高版本）的 JavaScript。
+
+总结：TypeScript 在社区的流行度度越来越高，它非常适用于一些大型项目，也非常适用于一些基础库，极大地帮助我们提升了开发效率和体验。
+
+## <a name="chapter-four" id="chapter-four"></a>四 安装 TypeScript
+
+> [返回目录](#chapter-one)
 
 1. 安装 Node.js
 2. 安装 TypeScript：`npm i typescript -g`
 3. 查看版本：`tsc -V`（Version 3.8.3）
 
-## 二 正文
+## <a name="chapter-five" id="chapter-five"></a>五 快速入门
 
+> [返回目录](#chapter-one)
+
+在这部分，我们会通过下面 4 点来进行快速了解：
+
+* 编译代码
 * 类型注解
 * 接口
 * 类
