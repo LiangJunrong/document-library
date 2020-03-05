@@ -2,11 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-2-20 20:23:30**  
-<<<<<<< HEAD
-> Recently revised in **2020-2-23 17:36:53**
-=======
 > Recently revised in **2020-02-24 17:50:43**
->>>>>>> d0fb36cfde1712901349b7b5e9dd4fe5f92fd961
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -83,11 +79,7 @@
 7. 使用 React + Koa 做一个个人时间投资计划（PC 端用 React，手机端用 微信小程序）
 8. 完成前端基本效果：Tab、轮播等的实现，实现一套 UI 库
 9. 手写 Promise
-<<<<<<< HEAD
-10. 了解敏捷开发
-=======
 10. 尝试将自己的文档库打包成 HTML，不用已有的 Gitbook、VuePress 等。
->>>>>>> d0fb36cfde1712901349b7b5e9dd4fe5f92fd961
 11. ……
 
 看得让人 to bo excited 有木有，尝试一些在别人眼里 “渣”，但是让自己有所提升，感到兴奋的事情，我觉得是非常有必要的。
