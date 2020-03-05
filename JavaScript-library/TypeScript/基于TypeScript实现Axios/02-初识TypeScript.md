@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-3-3 07:49:30**  
-> Recently revised in **2020-03-05 15:42:10**
+> Recently revised in **2020-03-05 16:30:33**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -12,8 +12,15 @@
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 课程概述](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 课程知识点介绍](#chapter-four) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 TypeScript 的特点](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 安装 TypeScript](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 快速入门](#chapter-five) |
+| &emsp;[5.1 编译代码](#chapter-five-one) |
+| &emsp;[5.2 报错提示](#chapter-five-two) |
+| &emsp;[5.3 类型注解](#chapter-five-three) |
+| &emsp;[5.4 接口](#chapter-five-four) |
+| &emsp;[5.5 类](#chapter-five-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -69,7 +76,7 @@ TypeScript 提供最新的不断发展的 JavaScript 特性，包括那些来自
 * 接口
 * 类
 
-## <a name="chapter-five-one" id="chapter-five-one"></a>5.1 编译代码
+### <a name="chapter-five-one" id="chapter-five-one"></a>5.1 编译代码
 
 > [返回目录](#chapter-one)
 
@@ -139,7 +146,7 @@ console.log(getName(str, user));
 
 可以看出 ES6 的箭头函数语法变成了 ES5 的函数方法，当然，不止如此，下面我们会逐步探索了解。
 
-## <a name="chapter-five-two" id="chapter-five-two"></a>5.2 报错提示
+### <a name="chapter-five-two" id="chapter-five-two"></a>5.2 报错提示
 
 > [返回目录](#chapter-one)
 
@@ -182,7 +189,7 @@ console.log(sayHello([1, 2, 3]));
 
 当然，我们还是希望自己能重视控制台的报错提示，去修复它，从而减少我们开发过程中出现的问题。
 
-## <a name="chapter-five-three" id="chapter-five-three"></a>5.3 类型注解
+### <a name="chapter-five-three" id="chapter-five-three"></a>5.3 类型注解
 
 > [返回目录](#chapter-one)
 
@@ -200,7 +207,7 @@ TypeScript 中的类型注解是一种轻量级的为函数或者变量添加约
 
 在 `person: string` 中的意思就是，我们希望 `person` 传入的类型值为字符串，而不是 `[1, 2, 3]` 这种 `number[]` 或者其他内容。
 
-## <a name="chapter-five-four" id="chapter-five-four"></a>5.4 定义接口
+### <a name="chapter-five-four" id="chapter-five-four"></a>5.4 接口
 
 > [返回目录](#chapter-one)
 
@@ -244,61 +251,97 @@ node index.js
 Hello LiangJunrong
 ```
 
-* 定义类
+看到这里，我们应该略有感想：
 
-> 编译前
+* 类型注解和接口，就是一个 `function()` 定义的时候进行设置，一个将这些限制提取出来，放到 `interface` 中。
+
+> 两者区分
+
+```ts
+function sayHi(name: string, age: number) {
+  return `人物：${name} ${age} 岁`;
+}
+console.log(sayHi('梁峻荣', 25));
+
+interface User {
+  name: string;
+  age: number;
+}
+function sayHello(user: User) {
+  return `人物：${user.name} ${user.age} 岁`;
+}
+console.log(sayHello({ name: 'jsliang', age: 25 }));
+```
+
+### <a name="chapter-five-five" id="chapter-five-five"></a>5.5 类
+
+> [返回目录](#chapter-one)
+
+最后，我们了解下 TypeScript 中一个重要的点：类。
+
+类不难理解，所谓物以类聚人以群分，而我们的类就是区分不同的功能实现。
+
+下面举例 `User` 类：
+
+> ts-axios/index.ts
 
 ```ts
 class User {
-  fullName: string
-  firstName: string
-  lastName: string
-  
+  firstName: string;
+  lastName: string;
 
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName,
-    this.lastName = lastName,
-    this.fullName = firstName + '' + lastName
+  constructor (firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 }
 
-interface Person {
-  firstName: string
-  lastName: string
-}
+const user = new User('Liang', 'Junrong');
 
-function gretter(person: Person) {
-  return 'Hello ' + person.firstName + person.lastName;
-}
-
-let user = new User('Liang', 'Junrong');
-
-console.log(gretter(user));
+console.log(user.firstName); // Liang
+console.log(user.lastName); // Junrong
 ```
 
-> 编译后
+通过 `shell` 命令编译后：
+
+```shell
+tsc index.ts
+node index.js
+```
+
+查看 `index.js`：
+
+> ts-axios/index.ts
 
 ```js
 var User = /** @class */ (function () {
     function User(firstName, lastName) {
-        this.firstName = firstName,
-            this.lastName = lastName,
-            this.fullName = firstName + '' + lastName;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
     return User;
 }());
-function gretter(person) {
-    return 'Hello ' + person.firstName + person.lastName;
-}
 var user = new User('Liang', 'Junrong');
-console.log(gretter(user));
+console.log(user.firstName);
+console.log(user.lastName);
 
 ```
 
-> 打印
+查看 `Console`：
 
 ```
-Hello LiangJunrong
+Liang
+Junrong
 ```
+
+可以看出 `Class` 本质上还是 JavaScript 函数的实现，它只是 TypeScript 中的一个语法糖。
+
+## <a name="chapter-six" id="chapter-six"></a>六 总结
+
+> [返回目录](#chapter-one)
+
+到此，我们就快速了解了 TypeScript 的一些基础内容。
+
+
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
