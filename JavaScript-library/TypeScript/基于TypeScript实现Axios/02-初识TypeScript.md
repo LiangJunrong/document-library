@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-3-3 07:49:30**  
-> Recently revised in **2020-03-05 14:53:34**
+> Recently revised in **2020-03-05 15:42:10**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -64,69 +64,157 @@ TypeScript 提供最新的不断发展的 JavaScript 特性，包括那些来自
 在这部分，我们会通过下面 4 点来进行快速了解：
 
 * 编译代码
+* 报错提示
 * 类型注解
 * 接口
 * 类
 
+## <a name="chapter-five-one" id="chapter-five-one"></a>5.1 编译代码
+
+> [返回目录](#chapter-one)
+
+新建文件夹 `ts-axios`，在里面建立一个 `index.ts`：
+
+> ts-axios/index.ts
+
 ```ts
-function gretter(person: string) {
+function sayHello(person) {
   return 'Hello ' + person;
 }
 
-let user = 'jsliang';
+const user = 'jsliang';
 
-console.log(gretter(user));
+console.log(sayHello(user));
 ```
 
-* 编译文件：`tsc greeter.ts`
+然后对该文件进行编译：
 
-* 报错提示：
+```shell
+tsc index.ts
+```
+
+这时候文件夹 `ts-axios` 下会添加一个文件：
+
+* `ts-axios/index.js`
+
+打开看到：
+
+```js
+function sayHello(person) {
+    return 'Hello ' + person;
+}
+var user = 'jsliang';
+console.log(sayHello(user));
+
+```
+
+看不出有啥变化？那试试 ES6 语法：
+
+> ts-axios/index.ts
 
 ```ts
-// 参数类型错误
-function gretter(person: string) {
+const getName = (s, n) => {
+	return s.split(' ').findIndex(item => item === n);
+}
+
+const str = 'I\' m jsliang';
+const user = 'jsliang';
+
+console.log(getName(str, user));
+```
+
+通过 `tsc index.ts` 编译文件后，生成 `index.js` 文件如下：
+
+> ts-axios/index.js
+
+```js
+var getName = function (s, n) {
+    return s.split(' ').findIndex(function (item) { return item === n; });
+};
+var str = 'I\' m jsliang';
+var user = 'jsliang';
+console.log(getName(str, user));
+
+```
+
+可以看出 ES6 的箭头函数语法变成了 ES5 的函数方法，当然，不止如此，下面我们会逐步探索了解。
+
+## <a name="chapter-five-two" id="chapter-five-two"></a>5.2 报错提示
+
+> [返回目录](#chapter-one)
+
+在进一步了解 TypeScript 特性之前，我们有必要了解下 TypeScript 的报错机制：
+
+> ts-axios/index.ts
+
+```ts
+function sayHello(person: string) {
   return 'Hello ' + person;
 }
 
-let user = [0, 1, 2];
-
-console.log(gretter(user));
-
-// greeter.ts:7:21 - error TS2345: Argument of type 'number[]' is not assignable to parameter of type 'string'.
-
-// 7 console.log(gretter(user));
-
-// Found 1 error.
+console.log(sayHello([1, 2, 3]));
 ```
 
-虽然编译报错了，但是 TypeScript 会如实打包。
+通过 `tsc index.ts` 编译后发现控制台提示：
+
+```shell
+index.ts:5:22 - error TS2345: Argument of type 'number[]' is not assignable to parameter of type 'string'.
+
+5 console.log(sayHello([1, 2, 3]));
+                       ~~~~~~~~~
+
+Found 1 error.
+```
+
+可以看出我们期望的是 `string` 字符串类型，但是我们传递了 `number[]` 数字数组类型，所以 TypeScript 给我们进行了报错提醒。
+
+当然，虽然编译报错了，但是 TypeScript 会如实打包。
+
+> ts-axios/index.jw
+
+```js
+function sayHello(person) {
+    return 'Hello ' + person;
+}
+console.log(sayHello([1, 2, 3]));
+
+```
+
+当然，我们还是希望自己能重视控制台的报错提示，去修复它，从而减少我们开发过程中出现的问题。
+
+## <a name="chapter-five-three" id="chapter-five-three"></a>5.3 类型注解
+
+> [返回目录](#chapter-one)
+
+在上面报错提示的学习中，我们看到了一句话：
 
 ```ts
-// 参数个数不对
-function gretter(person: string) {
+function sayHello(person: string) {
   return 'Hello ' + person;
 }
-
-let user = 'jsliang';
-
-console.log(gretter(user, 1));
-
-// greeter.ts:7:27 - error TS2554: Expected 1 arguments, but got 2.
-
-// 7 console.log(gretter(user, 1));
-
-// Found 1 error.
 ```
 
-* 定义接口
+那么这个：`person: string`，相信小伙伴们在看上面代码的时候已经了解了，它就是类型注解。
+
+TypeScript 中的类型注解是一种轻量级的为函数或者变量添加约束的方式。
+
+在 `person: string` 中的意思就是，我们希望 `person` 传入的类型值为字符串，而不是 `[1, 2, 3]` 这种 `number[]` 或者其他内容。
+
+## <a name="chapter-five-four" id="chapter-five-four"></a>5.4 定义接口
+
+> [返回目录](#chapter-one)
+
+接下来我们进行接口的定义，先看代码：
+
+> ts-axios/index.ts
 
 ```ts
 interface Person {
-  firstName: string
-  lastName: string
+  firstName: string;
+  lastName: string;
 }
 
-function gretter(person: Person) {
+function sayHi(person: Person) {
   return 'Hello ' + person.firstName + person.lastName;
 }
 
@@ -135,11 +223,25 @@ let user = {
   lastName: 'Junrong',
 };
 
-console.log(gretter(user));
+console.log(sayHi(user));
 
-// 1. cmd：tsc greeter.ts
-// 2. cmd：node greeter.js
+// 1. cmd：tsc index.ts
+// 2. cmd：node index.js
 // 3. console：Hello LiangJunrong
+```
+
+此时执行 2 个 `shell` 命令：
+
+```shell
+tsc index.ts
+
+node index.js
+```
+
+打印：
+
+```
+Hello LiangJunrong
 ```
 
 * 定义类
