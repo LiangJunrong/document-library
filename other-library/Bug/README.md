@@ -1,4 +1,4 @@
-JavaScript Bug
+Bug 清单
 ===
 
 > Create by **jsliang** on **2020-03-16 15:21:19**  
