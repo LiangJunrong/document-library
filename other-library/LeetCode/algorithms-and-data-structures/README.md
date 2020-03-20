@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-13 09:00:29**  
-> Recently revised in **2019-12-11 15:33:31**
+> Recently revised in **2020-3-20 09:04:01**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -85,6 +85,8 @@ Hello 小伙伴们上午好、中午好、下午好、晚上好，我是 **jslia
 * 数据结构：减少业务性能的浪费，明明可以用字符串 `'a'` 来便捷表示，你非要起个数组 `['a']`，然后用 `arr[0]` 来表示，那……也是可以的。
 
 很好，讲到这里，我们应该清楚，这系列文章可以给你带来什么：打打算法怪，怼怼数据结构 Boss，提升自身脑力，解决逻辑问题，让代码世界畅通无阻。（讲真一些培训课是不是这么吹的，好奇）
+
+![图](../../../public-repertory/img/other-algorithms-and-data-structures-readme.png)
 
 下面是推荐学习顺序表：
 
