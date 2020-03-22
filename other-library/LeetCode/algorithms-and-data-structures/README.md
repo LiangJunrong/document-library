@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-13 09:00:29**  
-> Recently revised in **2020-3-22 18:15:48**
+> Recently revised in **2020-3-22 18:16:27**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -126,7 +126,7 @@ Hello 小伙伴们上午好、中午好、下午好、晚上好，我是 **jslia
 * 【重】[原创算法文章 - labuladong](https://labuladong.gitbook.io/algo/)
 * [『多图警告』手撕排序算法 - 前端进阶必备 - 陈大鱼头](https://segmentfault.com/a/1190000019832018)
 
-## 补充；2020-3-22 18:11:18
+## 补充：2020-3-22 18:11:18
 
 说实话，我有点后悔写这个系列了。简单难度来说，你随便百度就有一堆资料，困难难度来说，对于一个工作经验 3 年不到的前端来写，是挺耗费时间的。
 
