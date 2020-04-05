@@ -2,7 +2,25 @@ swap 交换
 ===
 
 > create by **jsliang** on **2020-4-5 17:27:33**  
-> Recently revised in **2020-4-5 17:33:47**
+> Recently revised in **2020-4-5 17:44:08**
+
+## <a name="chapter-one" id="chapter-one">一 目录</a>
+
+**不折腾的前端，和咸鱼有什么区别**
+
+| 目录 |
+| --- | 
+| [一 目录](#chapter-one) | 
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 皈依佛门法](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 原生法](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 ES6 大法](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 加减大法](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 总结](#chapter-seven) |
+
+## <a name="chapter-two" id="chapter-two">二 前言</a>
+
+> [返回目录](#chapter-one)
 
 * 什么是 swap 交换？
 
@@ -14,6 +32,33 @@ let a = 1, b = 3;
 ```
 
 那么，这时候你会怎么操作呢？
+
+## <a name="chapter-three" id="chapter-three">三 皈依佛门法</a>
+
+> [返回目录](#chapter-one)
+
+看完别吓到，不希望你理解：
+
+> swap 皈依佛门法
+
+```js
+let a = 1, b = 3;
+
+a = a ^ b;
+b = b ^ a;
+a = a ^ b;
+
+console.log(a); // 3
+console.log(b); // 1
+```
+
+当然，仅仅是交换数字可以成功。
+
+## <a name="chapter-four" id="chapter-four">四 原生法</a>
+
+> [返回目录](#chapter-one)
+
+中规中矩，利用小三走向人生巅峰：
 
 > swap 原生
 
@@ -28,7 +73,13 @@ console.log(a); // 3
 console.log(b); // 1
 ```
 
-原生 JavaScript 通过介入中间变量即可实现它们的交换。
+支持所有数据类型的交换。
+
+## <a name="chapter-five" id="chapter-five">五 ES6 大法</a>
+
+> [返回目录](#chapter-one)
+
+高科技，够你吹吹水：
 
 > swap ES6
 
@@ -41,7 +92,30 @@ console.log(a); // 3
 console.log(b); // 1
 ```
 
-也可以通过 ES6 的解构赋值进行交换。
+支持所有数据类型的交换。
+
+## <a name="chapter-six" id="chapter-six">六 加减大法</a>
+
+> [返回目录](#chapter-one)
+
+讲真我大学学编程的时候差点死在这个方法中：
+
+```js
+let a = 1, b = 3;
+
+a = a + b;
+b = a - b;
+a = a - b;
+
+console.log(a); // 3
+console.log(b); // 1
+```
+
+当然，仅仅是交换数字可以成功。
+
+## <a name="chapter-seven" id="chapter-seven">七 总结</a>
+
+> [返回目录](#chapter-one)
 
 这些都是小内容，简单了解下还是可以的~
 
