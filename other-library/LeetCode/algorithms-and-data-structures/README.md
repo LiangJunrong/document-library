@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2019-06-13 09:00:29**  
-> Recently revised in **2020-3-22 18:16:27**
+> Recently revised in **2020-4-5 17:08:52**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -16,6 +16,7 @@
 | &emsp;[3.1 算法](#chapter-three-one) |
 | &emsp;[3.2 数据结构](#chapter-three-two) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 系列探索目录](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 题外话](#chapter-five) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -126,7 +127,11 @@ Hello 小伙伴们上午好、中午好、下午好、晚上好，我是 **jslia
 * 【重】[原创算法文章 - labuladong](https://labuladong.gitbook.io/algo/)
 * [『多图警告』手撕排序算法 - 前端进阶必备 - 陈大鱼头](https://segmentfault.com/a/1190000019832018)
 
-## 补充：2020-3-22 18:11:18
+## <a name="chapter-five" id="chapter-five">五 题外话</a>
+
+> [返回目录](#chapter-one)
+
+* 补充：2020-3-22 18:11:18
 
 说实话，我有点后悔写这个系列了。简单难度来说，你随便百度就有一堆资料，困难难度来说，对于一个工作经验 3 年不到的前端来写，是挺耗费时间的。
 
