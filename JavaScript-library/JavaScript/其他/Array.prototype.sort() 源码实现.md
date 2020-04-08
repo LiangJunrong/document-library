@@ -2,7 +2,7 @@ Array.prototype.sort() 源码实现
 ===
 
 > Create by **jsliang** on **2020-4-8 21:53:07**  
-> Recently revised in **2020-4-8 21:55:39**
+> Recently revised in **2020-4-8 23:05:19**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -12,6 +12,7 @@ Array.prototype.sort() 源码实现
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 参考文献](#chapter-ten) |
 
 ## <a name="chapter-two" id="chapter-two">二 前言</a>
 
@@ -143,6 +144,40 @@ array.insert([2, 3, 1, 4]).insert(6).insert(5);
 | 原生排序 |  |
 | 冒泡排序 |  |
 | 选择排序 |  |
+
+> test\mjsunit\array-sort.js
+
+```js
+function TestSortDoesNotDependOnArrayPrototypePush() {
+  // InsertionSort is used for arrays which length <= 22
+  var arr = [];
+  for (var i = 0; i < 22; i++) arr[i] = {};
+  Array.prototype.push = function() {
+    fail('Should not call push');
+  };
+  arr.sort();
+
+  // Quicksort is used for arrays which length > 22
+  // Arrays which length > 1000 guarantee GetThirdIndex is executed
+  arr = [];
+  for (var i = 0; i < 2000; ++i) arr[i] = {};
+  arr.sort();
+}
+```
+
+## <a name="chapter-ten" id="chapter-ten">十 参考文献</a>
+
+> [返回目录](#chapter-one)
+
+* [【网站】作者《文章名》]()
+* [【网站】作者《文章名》]()
+* [【网站】作者《文章名》]()
+* [【网站】作者《文章名》]()
+* [【网站】作者《文章名》]()
+* [【网站】作者《文章名》]()
+* [【网站】作者《文章名》]()
+* [【网站】作者《文章名》]()
+* [【网站】作者《文章名》]()
 
 ---
 
