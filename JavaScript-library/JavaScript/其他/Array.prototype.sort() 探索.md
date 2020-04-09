@@ -1,8 +1,8 @@
-Array.prototype.sort() 源码实现
+Array.prototype.sort() 探索
 ===
 
 > Create by **jsliang** on **2020-4-8 21:53:07**  
-> Recently revised in **2020-4-9 08:57:19**
+> Recently revised in **2020-4-9 08:57:32**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
