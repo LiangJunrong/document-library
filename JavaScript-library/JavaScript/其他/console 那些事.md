@@ -2,7 +2,7 @@ console 那些事
 ===
 
 > create by **jsliang** on **2020-4-10 08:47:24**  
-> Recently revised in **2020-04-10 19:53:22**
+> Recently revised in **2020-04-10 19:57:33**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -12,10 +12,10 @@ console 那些事
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 皈依佛门法](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 原生法](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 ES6 大法](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 加减大法](#chapter-six) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 实现代码](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 console.log](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 console.time](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 window.performance.now](#chapter-six) |
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 总结](#chapter-seven) |
 | <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 参考文献](#chapter-eight) |
 
