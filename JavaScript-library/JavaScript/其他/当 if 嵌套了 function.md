@@ -1,0 +1,47 @@
+当 if 嵌套了 function
+===
+
+> create by **jsliang** on **2020-4-11 00:01:52**  
+> Recently revised in **2020-4-11 00:08:15**
+
+## <a name="chapter-one" id="chapter-one">一 目录</a>
+
+**不折腾的前端，和咸鱼有什么区别**
+
+| 目录 |
+| --- | 
+| [一 目录](#chapter-one) | 
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 实现代码](#chapter-three) |
+
+## <a name="chapter-two" id="chapter-two">二 前言</a>
+
+> [返回目录](#chapter-one)
+
+今天一位朋友咨询我一个问题：
+
+![图](../../../public-repertory/img/js-other-if-function-1.jpg)
+
+
+
+## <a name="chapter-two" id="chapter-two">二 参考文献</a>
+
+> [返回目录](#chapter-one)
+
+* [【Stack Overflow】confused about function declaration in { }](https://stackoverflow.com/questions/58619924/confused-about-function-declaration-in/58620404#58620404)
+* [【汤姆大叔的博客】《深入理解JavaScript系列（2）：揭秘命名函数表达式》](https://www.cnblogs.com/TomXu/archive/2011/12/29/2290308.html)
+* [【Segmentfault】Nero_Zzz《JS中在if else 中定义 function 的问题》](https://segmentfault.com/q/1010000000731247/a-1020000000732024)
+
+---
+
+**不折腾的前端，和咸鱼有什么区别！**
+
+![图](../../../public-repertory/img/z-index-small.png)
+
+**jsliang** 会每天更新一道 LeetCode 题解，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构。
+
+**浪子神剑** 会每天更新面试题，以面试题为驱动来带动大家学习，坚持每天学习与思考，每天进步一点！
+
+扫描上方二维码，关注 **jsliang** 的公众号（左）和 **浪子神剑** 的公众号（右），让我们一起折腾！
+
+> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
