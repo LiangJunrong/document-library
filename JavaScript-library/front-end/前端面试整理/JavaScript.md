@@ -2,7 +2,7 @@ JavaScript 初稿
 ===
 
 > Create by **jsliang** on **2020-04-11 13:42:03**  
-> Recently revised in **2020-04-11 13:50:26**
+> Recently revised in **2020-04-11 13:54:37**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -23,7 +23,33 @@ JavaScript 初稿
 
 > [返回目录](#chapter-one)
 
-### 变量污染
+### 变量污染：编写块
+
+问 1：在以下代码中，会输出什么？
+
+```js
+for (var i = 0; i < 3; i++) {}
+console.log(i);
+```
+
+答：输出 3。
+
+问 2：请在不使用 `let` 的情形下，解决 `i` 的变量污染
+
+答：立即执行函数形成块作用域：
+
+```js
+(function() {
+  for (var i = 0; i < 3; i++) {}
+})()
+try {
+  console.log(i);
+} catch (error) {
+  console.log('i 不存在');
+}
+```
+
+### 变量污染：优化解决
 
 请说出下面代码打印内容，并进行优化
 
