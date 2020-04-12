@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-4-12 20:54:38**  
-> Recently revised in **2020-4-12 20:54:41**
+> Recently revised in **2020-4-12 21:06:44**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,7 +17,93 @@
 
 > [返回目录](#chapter-one)
 
+## let
 
+## var
+
+## const
+
+* 常量不能重新赋值
+* 不能重复声明
+* 块级作用域
+* `const` 不会被预解析
+* 定义对象（和其他语言差别）
+* 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const
+
+## let 和 var 差异
+
+* `let` 允许声明一个在作用域限制在块级的变量、语句或者表达式
+   * 块级作用域
+* `var` 声明的变量只能是全局或者整个函数快的
+* `let` 不能重复声明
+* `let` 不会被预解析（hoisting）
+* 临时死区（temporal dead zone）
+* 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let
+
+## 解构赋值
+
+* 对象的解构赋值
+* 数组的解构赋值
+* 字符串的解构赋值
+* 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
+## 展开运算符
+
+* 对象展开
+* 数组展开
+* 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+## Set 对象
+
+* `Set` 对象的数据结构
+* `Set` 相关属性与方法
+  * `size` 属性
+  * `clear()`、`delete()`、`get()`、`has()`、`add()`
+* 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set
+
+## Map 对象
+
+* `Map` 对象的数据结构
+* `Map` 相关属性与方法
+* `size` 属性
+* `clear()`、`delete()`、`get()`、`has()`、`set()`
+* 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map
+
+## 函数新增拓展
+
+* 箭头函数
+  * 箭头函数的各种写法
+  * 箭头函数的 `this` 问题
+  * 箭头函数的不定参问题
+  * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+* `rest` 参数设置
+* 参数默认值设置
+
+## 新增数组扩展
+
+* `Array.from()`、`Array.of()`
+* `find()`、`findIndex()`、`includes()`
+* `flat()`、`flatMap()`
+* 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+## 新增字符串扩展
+
+* `includes()`、`startsWith()`、`endsWith()`
+* `repeat()`
+* 模板字符串
+* 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String
+
+## 新增对象扩展
+
+* 属性简洁表示法
+* 属性名表达式
+* 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+## babel 使用
+
+* Babel 是一个 JavaScript 编译器
+* 手册地址：https://www.babeljs.cn/
+* Babel 基本是否方法
 
 ---
 
