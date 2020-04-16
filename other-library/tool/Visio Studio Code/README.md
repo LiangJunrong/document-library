@@ -2,7 +2,7 @@ Visio Studio Code
 ===
 
 > Create by **jsliang** on **2020-4-16 09:01:30**  
-> Recently revised in **2020-4-16 09:02:08**
+> Recently revised in **2020-4-16 09:03:00**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,6 +17,7 @@ Visio Studio Code
 
 > [返回目录](#chapter-one)
 
+* [【百度】VS code 插件开发](https://www.baidu.com/s?ie=UTF-8&wd=VS%20code%20%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91)
 * [【博客园】小茗同学《VSCode插件开发全攻略（一）概览》](https://www.cnblogs.com/liuxianan/p/vscode-plugin-overview.html)
 
 ---
