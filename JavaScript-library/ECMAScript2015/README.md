@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-4-12 20:54:38**  
-> Recently revised in **2020-4-12 21:06:44**
+> Recently revised in **2020-4-20 15:27:35**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -16,6 +16,10 @@
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
+
+历史：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Language_Resources
+
+2015年6月	ECMAScript 2015 (6th Edition)，最新发布的规范文档。
 
 ## let
 
@@ -40,6 +44,44 @@
 * 临时死区（temporal dead zone）
 * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let
 
+比较：
+
+* `var`：
+
+1. `var` 可以重复声明
+2. 作用域：全局作用域 和 函数作用域
+3. 会进行预解析
+
+* `let`：
+
+1. 统一作用域下不能重复声明
+2. 作用域：全局作用域 和 块级作用域 `{}`
+3. 不进行预解析
+
+* `const`：
+
+1. `let` 有的它也有
+2. 初始化必须赋值
+3. 赋值后不能改动类型
+
+## 块级作用域
+
+> ES5
+
+```js
+(function() {
+
+})()
+```
+
+> ES6
+
+```js
+{
+
+}
+```
+
 ## 解构赋值
 
 * 对象的解构赋值
@@ -47,11 +89,65 @@
 * 字符串的解构赋值
 * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
+```js
+// 对象的解构赋值
+const obj = {
+  a: 1,
+  b: 2,
+};
+const {objA, objB, objC} = obj;
+console.log(objA, objB, objC); // 1 2 undefined
+
+// 数组的解构赋值
+let a = 0, b = 1;
+// 数组：swap
+const c = a;
+a = b;
+b = c;
+console.log(a, b); // 1 0
+// 数组：结构赋值
+const [d, e] = [b, a];
+console.log(d, e); // 0 1
+
+// 字符串的解构赋值
+const str = 'abc';
+const [str1, str2] = str;
+console.log(str1, str2); // a b
+
+// 数字的解构赋值
+const [a1,b1] = 123;
+// 报错：VM208:1 Uncaught TypeError: 123 is not iterable
+// MDN：为了统一集合类型，ES6 标准引入了新的 iterable 类型，Array、Map 和 Set 都属于 iterable 类型。
+```
+
 ## 展开运算符
 
 * 对象展开
 * 数组展开
 * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+```js
+// 数组展开
+const arr1 = [1, 2, 3];
+const arr2 = ['a', 'b', ...arr1, 'c'];
+console.log(arr2); // ['a', 'b', 1, 2, 3, 'c']
+
+const [a, b, ...c] = arr;
+console.log(a, b, c); // 'a', 'b', [1, 2, 3, 'c']
+
+
+// 对象展开
+const obj1 = {
+  a: 1,
+  b: 2,
+};
+const obj2 = {
+  ...obj1,
+  c: 3,
+  d: 4,
+};
+console.log(obj2); // { a: 1, b: 2, c: 3, d: 4 }
+```
 
 ## Set 对象
 
@@ -60,6 +156,8 @@
   * `size` 属性
   * `clear()`、`delete()`、`get()`、`has()`、`add()`
 * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set
+
+构造函数：用来构建某一类型的对象 - 对象的实例化
 
 ## Map 对象
 
@@ -79,12 +177,149 @@
 * `rest` 参数设置
 * 参数默认值设置
 
+```js
+// 普通函数
+function fn1() {
+  return ;
+};
+
+// 箭头函数
+const fn2 = () => {
+  return ;
+};
+
+const getSum = num => num *2;
+console.log(getSum(10)); // 20
+
+// 不定参 - rest 参数
+const fn3 = (a, b, ...arg) => {
+  console.log(a, b, arg);
+};
+fn3(1, 2, 3, 4); // 1 2 [3, 4]
+
+// this 指向问题
+document.onclick = function() {
+  console.log(this); // #document
+};
+document.onclick = () => {
+  console.log(this); // Window
+}
+// 箭头函数本身没有 this，调用箭头函数的 this 时，指向是其声明时所在的作用域的 this。
+```
+
+> this 题目
+
+```js
+let fn;
+let fn2 = function() {
+  console.log(this);
+  fn = () => {
+    console.log(this);
+  };
+};
+fn2(); // Window
+fn(); // Window
+
+fn2 = fn2.bind(document.body);
+fn2(); // body
+fn(); // body
+```
+
+> 参数默认值
+
+```js
+const fn = (a = 10, b = 2) => {
+  console.log(a * b); // 20
+};
+fn();
+```
+
 ## 新增数组扩展
 
 * `Array.from()`、`Array.of()`
 * `find()`、`findIndex()`、`includes()`
 * `flat()`、`flatMap()`
+* `fill()`
 * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+将类数组转成数组：
+
+> Array.from()
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+
+    <script>
+      let liItems = document.querySelectorAll("ul li");
+      let arr1 = [];
+      const li1 = Array.from(
+        liItems,
+        function (item, index) {
+          console.log(item, index, this);
+          return index;
+        },
+        arr1
+      );
+      /*
+        * <li>1</li> 0 []
+        * <li>2</li> 1 []
+        * <li>3</li> 2 []
+        * <li>4</li> 3 []
+      */
+      console.log(li1); // [0, 1, 2, 3]
+
+      const arr2 = [...liItems];
+      console.log(arr2); // [li, li, li, li]
+    </script>
+  </body>
+</html>
+```
+
+> Array.of()
+
+```js
+console.log(Array.of(1, 2, 3, 4, 'A')); // [1, 2, 3, 4, "A"]
+```
+
+> Array.isArray()
+
+```js
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+
+    <script>
+      let liItems = document.querySelectorAll("ul li");
+      console.log(Array.isArray(liItems)); // false
+      console.log(Array.isArray([1, 2, 3, 4])); // true
+    </script>
+  </body>
+</html>
+```
 
 ## 新增字符串扩展
 
@@ -99,11 +334,166 @@
 * 属性名表达式
 * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object
 
+> 简洁表示法
+
+```js
+const a = 0, b = 1;
+let obj1 = {
+  a: a,
+  b: b,
+};
+console.log(obj1); // {a: 0, b: 1}
+let obj2 = {
+  a,
+  b,
+};
+console.log(obj2); // {a: 0, b: 1}
+```
+
+> 属性名表达式
+
+```js
+const name = '小明';
+const obj = {
+  c() {
+    console.log('a');
+  },
+  [name]: 18,
+};
+console.log(obj); // {c: ƒ, 小明: 18}
+```
+
+> Object.assign()
+
+```js
+const obj1 = {
+  a: 1,
+  b: 2,
+};
+const obj2 = {
+  c: 3,
+  d: 4,
+};
+console.log(Object.assign({}, obj1, obj2)); // {a: 1, b: 2, c: 3, d: 4}
+```
+
+> Object.is
+
+```js
+// 大致和三目运算符一致，但是有区别
+console.log(+0 === -0);           // true
+console.log(Object.is(+0, -0));   // false
+console.log(NaN === NaN);         // false
+console.log(Object.is(NaN, NaN)); // true
+```
+
 ## babel 使用
 
 * Babel 是一个 JavaScript 编译器
 * 手册地址：https://www.babeljs.cn/
 * Babel 基本是否方法
+
+> https://unpkg.com/@babel/standalone/babel.min.js
+
+```js
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>babel</title>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>
+      "use strict";
+
+      function ownKeys(object, enumerableOnly) {
+        var keys = Object.keys(object);
+        if (Object.getOwnPropertySymbols) {
+          var symbols = Object.getOwnPropertySymbols(object);
+          if (enumerableOnly)
+            symbols = symbols.filter(function (sym) {
+              return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+            });
+          keys.push.apply(keys, symbols);
+        }
+        return keys;
+      }
+
+      function _objectSpread(target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i] != null ? arguments[i] : {};
+          if (i % 2) {
+            ownKeys(Object(source), true).forEach(function (key) {
+              _defineProperty(target, key, source[key]);
+            });
+          } else if (Object.getOwnPropertyDescriptors) {
+            Object.defineProperties(
+              target,
+              Object.getOwnPropertyDescriptors(source)
+            );
+          } else {
+            ownKeys(Object(source)).forEach(function (key) {
+              Object.defineProperty(
+                target,
+                key,
+                Object.getOwnPropertyDescriptor(source, key)
+              );
+            });
+          }
+        }
+        return target;
+      }
+
+      function _defineProperty(obj, key, value) {
+        if (key in obj) {
+          Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          });
+        } else {
+          obj[key] = value;
+        }
+        return obj;
+      }
+
+      var obj1 = {
+        b: 2,
+        c: 3,
+      };
+
+      var obj2 = _objectSpread(
+        {
+          a: 1,
+        },
+        obj1,
+        {
+          d: 4,
+        }
+      );
+
+      console.log(obj2); // {a: 1, b: 2, c: 3, d: 4}
+      //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIklubGluZSBCYWJlbCBzY3JpcHQiXSwibmFtZXMiOlsib2JqMSIsImIiLCJjIiwib2JqMiIsImEiLCJkIiwiY29uc29sZSIsImxvZyJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFDSSxJQUFNQSxJQUFJLEdBQUc7QUFDWEMsRUFBQUEsQ0FBQyxFQUFFLENBRFE7QUFFWEMsRUFBQUEsQ0FBQyxFQUFFO0FBRlEsQ0FBYjs7QUFJQSxJQUFNQyxJQUFJO0FBQ1JDLEVBQUFBLENBQUMsRUFBRTtBQURLLEdBRUxKLElBRks7QUFHUkssRUFBQUEsQ0FBQyxFQUFFO0FBSEssRUFBVjs7QUFLQUMsT0FBTyxDQUFDQyxHQUFSLENBQVlKLElBQVosRSxDQUFtQiIsInNvdXJjZXNDb250ZW50IjpbIlxuICAgIGNvbnN0IG9iajEgPSB7XG4gICAgICBiOiAyLFxuICAgICAgYzogMyxcbiAgICB9O1xuICAgIGNvbnN0IG9iajIgPSB7XG4gICAgICBhOiAxLFxuICAgICAgLi4ub2JqMSxcbiAgICAgIGQ6IDQsXG4gICAgfTtcbiAgICBjb25zb2xlLmxvZyhvYmoyKTsgLy8ge2E6IDEsIGI6IDIsIGM6IDMsIGQ6IDR9XG4gICJdfQ==
+    </script>
+  </head>
+  <body>
+    <script type="text/babel">
+      const obj1 = {
+        b: 2,
+        c: 3,
+      };
+      const obj2 = {
+        a: 1,
+        ...obj1,
+        d: 4,
+      };
+      console.log(obj2); // {a: 1, b: 2, c: 3, d: 4}
+    </script>
+  </body>
+</html>
+
+```
 
 ---
 
