@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-4-12 20:54:38**  
-> Recently revised in **2020-4-20 15:27:35**
+> Recently revised in **2020-4-20 22:41:35**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -493,6 +493,269 @@ console.log(Object.is(NaN, NaN)); // true
   </body>
 </html>
 
+```
+
+## ES6 高阶 - 异步专题
+
+### 同步和异步
+  
+* 同步和异步是一种消息通知机制
+* 同步阻塞: A调用B，B处理获得结果，才返回给A。A在这个过程中，一直等待B的处理结果，没有拿到结果之前，需要A（调用者）一直等待和确认调用结果是否返回，拿到结果,然后继续往下执行。
+  * 做一件事，没有拿到结果之前，就一直在这等着，一直等到有结果了,再去做下边的事
+* 异步非阻塞: A调用B，无需等待B的结果，B通过状态，通知等来通知A或回调函数来处理。
+  * 做一件事，不用等待事情的结果，然后就去忙别的了，有了结果，再通过状态来告诉我，或者通过回调函数来处理。
+
+### 回调运动框架 方块的运动 
+
+### `Promise`
+
+`Promise` 的三种状态：
+
+* `pedding`
+* `resolved`
+* `reject`
+
+```js
+const p1 = new Promise((resolve, reject) => {});
+console.log(p1); // Promise {<pending>}
+
+const p2 = new Promise((resolve, reject) => {
+  resolve('解决了！');
+});
+console.log(p2); // Promise {<resolved>: "解决了！"}
+
+const p3 = new Promise((resolve, reject) => {
+  reject('失败了！');
+});
+console.log(p3); // Promise {<rejected>: "失败了！"}
+// 报错：Uncaught (in promise) 失败了！
+```
+
+> resolve & reject
+
+```js
+const p1 = Promise.resolve('成功');
+console.log(p1); // Promise {<resolved>: "成功"}
+
+const p2 = Promise.reject('失败');
+console.log(p2); // Promise {<rejected>: "失败"}
+```
+
+* `then`：`Promise` 对象会有 `then` 方法，它传递两个参数：`onresolve` 和 `onreject`。
+
+```js
+const p1 = new Promise((resolve, reject) => {
+  resolve({ name: 'jsiang', age: '25' });
+}).then((res) => {
+  console.log('调用成功：', res);
+}, (error) => {
+  console.log('调用失败：', error);
+});
+// 调用成功： {name: "jsiang", age: "25"}
+
+const p2 = new Promise((resolve, reject) => {
+  reject({ code: '999', message: '接口报错' });
+}).then((res) => {
+  console.log('调用成功：', res);
+}, (error) => {
+  console.log('调用失败：', error);
+})
+// 调用失败： {code: "999", message: "接口报错"}
+```
+
+* `then` 有三种返还值
+
+```js
+const p = new Promise((resolve, reject) => {
+  resolve('调用成功1');
+});
+
+// 1. then 里面没有返回 -> 默认返回一个 Promise
+const res1 = p.then((res) => {
+
+});
+console.log(res1);
+/*
+__proto__: Promise
+[[PromiseStatus]]: "resolved"
+[[PromiseValue]]: undefined
+*/
+
+// 2. then 里面有返回 -> 将它的值塞到 Promise 中
+const res2 = p.then((res) => {
+  return 'Hello jsliang';
+});
+console.log(res2);
+/*
+__proto__: Promise
+[[PromiseStatus]]: "resolved"
+[[PromiseValue]]: "Hello jsliang"
+*/
+
+// 3. then 里面返回一个新的 Promise
+const res3 = p.then((res) => {
+  return new Promise((resolve, reject) => {
+    resolve('调用成功2');
+  })
+});
+console.log(res3);
+/*
+__proto__: Promise
+[[PromiseStatus]]: "resolved"
+[[PromiseValue]]: "调用成功2"
+*/
+```
+
+* `catch`：将所有异常丢到一块地方
+
+```js
+const p = new Promise((resolve, reject) => {
+  reject('调用失败');
+}).then((res) => {
+  console.log(res);
+}).catch((err) => {
+  console.log('catch 异常：', err);
+})
+// catch 异常： 调用失败
+```
+
+> `Promise` 方法改造加载图片
+
+```js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const getImage = () => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = 'https://jsliang.com';
+        img.onload = () => {
+          document.querySelector('body').appendChild(img);
+          resolve('图片加载完毕');
+        };
+        img.onerror = () => {
+          reject('图片加载失败');
+        }
+      });
+    };
+    getImage().then((res) => {
+      console.log(res);
+    }).catch((error) => {
+      console.log(error); // 图片加载失败
+    });
+  </script>
+</body>
+</html>
+```
+
+* `all`：所有内容成功则成功
+
+```js
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log();
+    resolve('p1 执行完毕');
+  }, 1000);
+});
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('p2 执行完毕');
+    // reject('p2 执行完毕');
+  }, 3000);
+});
+const p3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('p3 执行完毕');
+  }, 2000);
+});
+Promise.all([p1, p2, p3]).then(res => {
+  console.log(res); // ["p1 执行完毕", "p2 执行完毕", "p3 执行完毕"]
+}).catch(err => {
+  console.log(err);
+});
+```
+
+* `rece`：执行最快的结果
+
+```js
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('p1 执行完毕');
+  }, 1000);
+});
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('p2 执行完毕');
+    // reject('p2 执行完毕');
+  }, 3000);
+});
+const p3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('p3 执行完毕');
+  }, 2000);
+});
+Promise.race([p1, p2, p3]).then(res => {
+  console.log(res); // p1 执行完毕
+}).catch(err => {
+  console.log(err);
+});
+```
+
+### async 和 await
+
+`async` 和 `await` 是一起出现的，基于 `Promise`。
+
+`await` 后面一定要 `Promise` 对象。
+
+```js
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log('p1 执行完毕');
+    resolve({ code: '0', name: 'jsliang', age: 25 });
+  }, 1000);
+});
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log('p2 执行完毕');
+    resolve({ code: '999', error: '后端接口报错' });
+    // reject('未知错误');
+  }, 3000);
+});
+const p3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log('p3 执行完毕');
+    resolve({ code: '0', like: 'play' });
+  }, 2000);
+});
+async function fn() {
+  try {
+    const res1 = await p1;
+    const res2 = await p3;
+    const res3 = await p2;
+    if (res1.code === '0' && res2.code === '0' && res3.code === '0') {
+      console.log(res1);
+      console.log(res2);
+      console.log(res3);
+    } else {
+      console.log(`报错：${res1.error || res2.error || res3.error}`);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+fn();
+/*
+p1 执行完毕
+p3 执行完毕
+p2 执行完毕
+报错：后端接口报错
+*/
 ```
 
 ---
