@@ -2,7 +2,7 @@ Object.defineProperty 和 Proxy
 ===
 
 > Create by **jsliang** on **2020-04-24 11:19:51**  
-> Recently revised in **2020-04-24 11:38:57**
+> Recently revised in **2020-04-24 14:45:05**
 
 **欢迎关注 jsliang 的文档库 —— 一个穷尽一生更新的仓库，查看更多技术、理财、健身文章：https://github.com/LiangJunrong/document-library**
 
@@ -17,6 +17,7 @@ Object.defineProperty 和 Proxy
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 实战](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 参考文献](#chapter-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 个人整理](#chapter-five) |
+| &emsp;[5.1 区别](#chapter-five-one) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结](#chapter-six) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -144,10 +145,50 @@ class Watcher {
 下面章节的献丑，均来自大佬们的文献供我参考：
 
 * [【平台】作者《文章名》](地址)
+* [【掘金】晨曦时梦见兮《Vue3 的响应式和以前有什么区别，Proxy 无敌？》]([地址](https://juejin.im/post/5e92d863f265da47e57fe065))
 
 ## <a name="chapter-five" id="chapter-five"></a>五 个人整理
 
 > [返回目录](#chapter-one)
+
+### <a name="chapter-five-one" id="chapter-five-one"></a>5.1 区别
+
+> [返回目录](#chapter-one)
+
+`Proxy` 和 `Object.defineProperty` 的使用方法看似很相似，其实 `Proxy` 是在 「更高维度」 上去拦截属性的修改的，怎么理解呢？
+
+Vue2 中，对于给定的 `data`，如 `{ count: 1 }`，是需要根据具体的 `key` 也就是 `count`，去对「修改 data.count 」 和 「读取 data.count」进行拦截，也就是
+
+```js
+Object.defineProperty(data, 'count', {
+  get() {},
+  set() {},
+})
+```
+
+复制代码必须预先知道要拦截的 `key` 是什么，这也就是为什么 Vue2 里对于对象上的新增属性无能为力。
+
+而 Vue3 所使用的 `Proxy`，则是这样拦截的：
+
+```js
+new Proxy(data, {
+  get(key) { },
+  set(key, value) { },
+})
+```
+
+复制代码可以看到，根本不需要关心具体的 `key`，它去拦截的是 「修改 data 上的任意 key」 和 「读取 data 上的任意 key」。
+
+所以，不管是已有的 `key`  还是新增的 `key`，都逃不过它的魔爪。
+
+但是 `Proxy` 更加强大的地方还在于 `Proxy` 除了 `get` 和 `set`，还可以拦截更多的操作符。
+
+```
+* 作者：晨曦时梦见兮
+* 链接：https://juejin.im/post/5e92d863f265da47e57fe065
+* 来源：掘金
+* 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
 
 ## <a name="chapter-six" id="chapter-six"></a>六 总结
 
