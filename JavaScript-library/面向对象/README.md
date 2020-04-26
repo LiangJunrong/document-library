@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-4-26 15:45:42**  
-> Recently revised in **2020-4-26 17:29:06**
+> Recently revised in **2020-4-26 20:04:49**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -278,6 +278,78 @@ console.log(Person.num); // 1
 const lisi = new Person('李四', 20, '喜欢玩');
 Person.num++;
 console.log(Person.num); // 2
+```
+
+* 构造函数性能
+
+```js
+function Person(name, age, hobby) {
+  this.name = name;
+  this.age = age;
+  this.hobby = function() {
+    cosnole.log(hobby);
+  };
+};
+const zhangsan = new Person('张三', 20, '喜欢玩');
+const lisi = new Person('李四', 20, '喜欢玩');
+console.log(zhangsan.hobby === lisi.hobby); // false
+```
+
+当我们有 100，甚至上千个人，就会开辟 1000 个地址，造成地址损耗。
+
+JavaScript 提供了公共空间存放这些应该存放到相同地址的地方。
+
+## 原型
+
+```js
+function Person(name, age, hobby) {
+  this.name = name;
+  this.age = age;
+};
+Person.prototype.hobby = function(hobby) {
+  cosnole.log(hobby);
+};
+const zhangsan = new Person('张三', 20, '喜欢玩');
+const lisi = new Person('李四', 20, '喜欢玩');
+console.log(zhangsan.hobby === lisi.hobby); // true
+```
+
+这就是为啥需要 `prototype` 的原因。
+
+```js
+function Person(name, age, hobby) {
+  this.name = name;
+  this.age = age;
+};
+Person.prototype.hobby = function(hobby) {
+  cosnole.log(hobby);
+};
+const zhangsan = new Person('张三', 20, '喜欢玩');
+console.log(zhangsan);
+/*
+{
+  age: 20
+  name: "张三"
+  __proto__:
+    hobby: ƒ ()
+    constructor: ƒ Person(name, age, hobby)
+    __proto__: Object
+}
+*/
+console.log(zhangsan.__proto__ === Person.prototype); // true
+console.log(Person.prototype.constructor === Person); // true
+console.log(zhangsan.constructor === Person); // true
+```
+
+实例化的对象的 `__proto__` 和原构造函数的 `prototype` 一致：`zhangsan.__proto__ === Person.prototype`。
+
+原型的固有属性：`Person.prototype.constructor === Person`、`zhangsan.constructor === Person`。
+
+可以通过 `constructor` 来判断类型
+
+```js
+let str = new String('abc');
+console.log(str.constructor === String);
 ```
 
 ---
