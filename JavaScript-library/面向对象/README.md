@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-4-26 15:45:42**  
-> Recently revised in **2020-4-26 16:00:58**
+> Recently revised in **2020-4-26 16:34:55**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -63,6 +63,72 @@ eat('jsliang', '煲仔饭', '午饭');
 很好，这就是面向过程 -> 面向对象。
 
 在工作中，就是当我们一件事，有很多份代码都使用到的时候，就将其抽取出来（封装）。
+
+为什么要用 **面向对象** 呢，从上面我们可以看出了：为了程序员偷懒。
+
+但是面试的时候你不能这么说啊，这样子你就忽悠不了几句话了，所以来个正经点回答：
+
+* 面向过程
+
+1. 优点：简单明了
+2. 缺点：系统较大的时候使用不便，CV 工作量大
+
+* 面向对象
+
+* 优点：方便复用、可迭代性强
+* 缺点：单个使用不够方便
+
+### 字面量和构造函数
+
+* 对象创建
+
+```js
+
+// 1. 字面量方式
+const obj1 = {
+  name: '张三',
+  age: 20,
+  hobby: function() {
+    console.log('喜欢玩');
+  },
+};
+console.log(obj1);
+
+// 2. 构造函数
+const obj2 = new Object();
+obj2.name = '张三';
+obj2.age = 20;
+obj2.hobby = function() {
+  console.log('喜欢玩');
+};
+console.log(obj2);
+
+// 3. Object.create()
+const obj3 = Object.create({
+  name: '张三',
+  age: 20,
+  hobby() {
+    console.log('喜欢玩');
+  },
+});
+console.log(obj3);
+```
+
+* 对象调用
+
+```js
+const obj = {
+  name: '张三',
+  age: 20,
+  hobby: function() {
+    console.log('喜欢玩');
+  },
+};
+console.log(obj.name);
+console.log(obj['name']);
+const str = 'name';
+console.log(obj[str]);
+```
 
 ---
 
