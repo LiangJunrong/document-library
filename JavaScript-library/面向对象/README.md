@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-4-26 15:45:42**  
-> Recently revised in **2020-4-26 17:15:33**
+> Recently revised in **2020-4-26 17:29:06**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -229,6 +229,55 @@ function Person(name, age, hobby) {
 };
 const person = new Person('张三', 20, '喜欢玩');
 console.log(person); // Person {name: "张三", age: 20, hobby: ƒ}
+```
+
+## 构造函数
+
+* 构造函数需要通过 `new` 来调用 `this` 指向实例化对象
+* 约定俗成构造函数首字母大写
+* 静态属性及方法
+  * 静态方法里的 `this`
+  * 扩展功能
+
+```js
+function Person(name, age, hobby) {
+  this.num = 0;
+  this.name = name;
+  this.age = age;
+  this.hobby = function() {
+    cosnole.log(hobby);
+  };
+};
+
+const zhangsan = new Person('张三', 20, '喜欢玩');
+zhangsan.num++;
+console.log(zhangsan.num); // 1
+
+const lisi = new Person('李四', 20, '喜欢玩');
+lisi.num++;
+console.log(zhangsan.lisi); // 1
+```
+
+每次 `new` 都生成了一个新的对象，那么有没有属于类本身的静态属性和方法呢？
+
+```js
+function Person(name, age, hobby) {
+  this.name = name;
+  this.age = age;
+  this.hobby = function() {
+    cosnole.log(hobby);
+  };
+};
+// 静态成员
+Person.num = 0;
+
+const zhangsan = new Person('张三', 20, '喜欢玩');
+Person.num++;
+console.log(Person.num); // 1
+
+const lisi = new Person('李四', 20, '喜欢玩');
+Person.num++;
+console.log(Person.num); // 2
 ```
 
 ---
