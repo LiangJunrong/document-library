@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-4-26 15:45:42**  
-> Recently revised in **2020-4-26 20:41:37**
+> Recently revised in **2020-4-26 21:14:31**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -436,6 +436,217 @@ const son = new Son(
   }
 );
 console.log(son); // Son { name: '儿子', age: 20, money: '100000' }
+```
+
+## 原型的继承
+
+```js
+function Dad(name, age) {
+  this.name = name;
+  this.age = age;
+  this.money = '100000';
+}
+Dad.prototye.play = function() {
+  console.log('play');
+};
+function Son(son, father) {
+  Dad.call(this, father.name, father.age);
+  this.name = son.name;
+  this.age = son.age;
+}
+const son = new Son(
+  {
+    name: '儿子',
+    age: 20,
+  },
+  {
+    name: '爸爸',
+    age: 99,
+  }
+);
+console.log(son); // Son { name: '儿子', age: 20, money: '100000' }
+// son.play; // 报错
+```
+
+可以看到，上面的继承中，我们并没有继承原型的方法。
+
+但是，如果你使用：
+
+```js
+Son.prototype === Dad.prototype;
+```
+
+那就会导致两者地址相同，即改变一者会触发另一个的改变。
+
+## 传值和传址
+
+众所周知，JavaScript 中有传值和传址一说法。
+
+在这里先简单讲一下 **jsliang** 对传值和传址的理解：
+
+* `String`、`Number` 等是单身汉。假设张三它兜里有钱为 `1`，李四说 “俺也一样”，然后 `李四 = 张三`；接着张三的钱被偷了，这时候李四这二货就回 “俺不一样”。
+
+```js
+let zhangsanMoney = 1;
+let lisiMoney = zhangsanMoney;
+
+zhangsanMoney = 0; // 被偷了
+console.log(lisiMoney === zhangsanMoney); // false
+```
+
+* `Array`、`Object` 为家庭。假设张三和李四是一家，金库为 `[1]`，这时候张三挣了 2 块钱，家里金库变成了：`[1, 2]`，李四这二货就会无耻地来一句 “俺也一样”，因为你家就是我家，我家也是 `[1, 2]` 了。
+
+```js
+// 一家人的地址相同
+let zhangsanMoney = [1];
+let lisiMoney = zhangsanMoney;
+zhangsanMoney.push(2);
+
+console.log(zhangsanMoney); // [1, 2]
+console.log(lisiMoney); // [1, 2]
+```
+
+这时候，如果张三受不了李四，要出去打工，那就要更换地址（更换家）。
+
+如果张三拿到第三桶金，那么张三的金库就为：`[1, 2, 3]`，而李四还是：`[1, 2]`
+
+```js
+// 一家人的地址相同
+let zhangsanMoney = [1];
+lisiMoney = zhangsanMoney;
+zhangsanMoney.push(2);
+
+// 更换地址
+zhangsanMoney = [1, 2, 3];
+
+console.log(zhangsanMoney); // [1, 2, 3]
+console.log(lisiMoney); // [1, 2]
+```
+
+当然，不排除李四跟着张三跑到同一个地方打工，然后……（感觉 **jsliang** 可以据此写一部小说了，哈哈）
+
+## 深拷贝
+
+看另一篇文章
+
+```js
+function deepClone(obj) {
+  const newObj = Array.isArray(obj) ? [] : {};
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (typeof obj[key] === 'object') {
+        newObj[key] = deepClone(obj[key]);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+  return newObj;
+}
+const obj1 = {
+  name: 'jsliang',
+  houses: [1, 2, 3, 4],
+  like: {
+    play: 'game',
+    eat: 'food',
+  },
+  do: function() {
+    console.log(123);
+  },
+};
+const obj2 = deepClone(obj1);
+console.log(obj2);
+/*
+{
+  name: 'jsliang',
+  houses: [ 1, 2, 3, 4 ],
+  like: { play: 'game', eat: 'food' },
+  do: [Function: do],
+}
+*/
+```
+
+## 组合继承
+
+* 通过深拷贝进行继承
+
+```js
+function deepClone(obj) {
+  const newObj = Array.isArray(obj) ? [] : {};
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (typeof obj[key] === 'object') {
+        newObj[key] = deepClone(obj[key]);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+  return newObj;
+}
+
+function Dad(name, age) {
+  this.name = name;
+  this.age = age;
+  this.money = '100000';
+}
+Dad.prototype.play = function() {
+  console.log('play1');
+};
+
+function Son(name, age) {
+  Dad.call(this);
+  this.name = name;
+  this.age = age;
+}
+Son.prototype = deepClone(Dad.prototype);
+Son.prototype.play = function() {
+  console.log('play2');
+}
+
+const father = new Dad('父亲', 99);
+const son = new Son('儿子', 20);
+console.log(father); // { name: '父亲', age: 99, money: '100000' }
+console.log(son); // { name: '儿子', age: 20, money: '100000' }
+father.play(); // play1
+son.play(); // play2
+```
+
+* 组合继承
+
+```js
+// 更新代码
+function Link() {}
+
+function Dad(name, age) {
+  this.name = name;
+  this.age = age;
+  this.money = '100000';
+}
+Dad.prototype.play = function() {
+  console.log('play1');
+};
+
+function Son(name, age) {
+  Dad.call(this);
+  this.name = name;
+  this.age = age;
+}
+// 更新代码
+Link.prototype = Dad.prototype;
+Son.prototype = new Link();
+Son.prototype.constructor = Son;
+// 更新代码结束
+Son.prototype.play = function() {
+  console.log('play2');
+}
+
+const father = new Dad('父亲', 99);
+const son = new Son('儿子', 20);
+console.log(father); // { name: '父亲', age: 99, money: '100000' }
+console.log(son); // { name: '儿子', age: 20, money: '100000' }
+father.play(); // play1
+son.play(); // play2
 ```
 
 ---
