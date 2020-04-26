@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-4-26 15:45:42**  
-> Recently revised in **2020-4-26 16:34:55**
+> Recently revised in **2020-4-26 17:15:33**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,7 +17,7 @@
 
 > [返回目录](#chapter-one)
 
-### 面向对象编程思想
+## 面向对象编程思想
 
 * 面向过程：注重解决问题的步骤，分析问题需要的每一步，实现函数依次调用；
 * 面向对象：是一种程序设计思想。将数据和处理数据的程序封装到对象中。
@@ -78,7 +78,7 @@ eat('jsliang', '煲仔饭', '午饭');
 * 优点：方便复用、可迭代性强
 * 缺点：单个使用不够方便
 
-### 字面量和构造函数
+## 字面量和构造函数
 
 * 对象创建
 
@@ -128,6 +128,107 @@ console.log(obj.name);
 console.log(obj['name']);
 const str = 'name';
 console.log(obj[str]);
+```
+
+## 工厂模式
+
+```js
+/**
+ * @name 01-工厂模式
+ * @description 2020-4-26 16:53:40
+ */
+
+// const zhangsan = {
+//   name: '张三',
+//   age: 20,
+//   hobby() {
+//     console.log('喜欢玩');
+//   },
+// };
+// const lisi = {
+//   name: '李四',
+//   age: 22,
+//   hobby() {
+//     console.log('没有爱好');
+//   },
+// };
+// ……王五、赵六……
+// 都是同一个模子复制出来的玩意，使用工厂模式
+
+// 工厂模式
+function Person(name, age, hobby) {
+  const obj = {}; // 添加原料
+  obj.name = name;
+  obj.age = age;
+  obj.hobby = function() {
+    console.log(hobby);
+  };
+  return obj; // 出厂
+};
+
+const person1 = new Person('张三', 20, '喜欢玩');
+const person2 = new Person('李四', 21, '没有爱好');
+console.log(person1);
+console.log(person2);
+```
+
+## 类的概念
+
+```js
+// ES5 类
+function Person1() {
+  // ...
+}
+const people1 = new People('123');
+
+// ES6 类
+Class Person2() {
+  // ...
+}
+const person2 = new Person('123');
+```
+
+## new 运算符
+
+1. 执行函数
+2. 自动创建一个空对象
+3. 把空对象和 `this` 绑定
+4. 如果没有返还，隐式返回 `this`
+
+```js
+function Test() {
+  // let obj = {}; ——> this
+
+  // ...做一些内容
+
+  // return this
+}
+new Test();
+```
+
+通过这个看工厂模式：
+
+```js
+// function Person(name, age, hobby) {
+//   const obj = {};
+//   obj.name = name;
+//   obj.age = age;
+//   obj.hobby = function() {
+//     console.log(hobby);
+//   };
+//   return obj;
+// };
+
+// 改造
+function Person(name, age, hobby) {
+  this.name = name;
+  this.age = age;
+  this.hobby = function() {
+    cosnole.log(hobby);
+  };
+};
+const person = new Person('张三', 20, '喜欢玩');
+console.log(person); // Person {name: "张三", age: 20, hobby: ƒ}
 ```
 
 ---
