@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-4-26 15:45:42**  
-> Recently revised in **2020-4-26 20:04:49**
+> Recently revised in **2020-4-26 20:41:37**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -350,6 +350,92 @@ console.log(zhangsan.constructor === Person); // true
 ```js
 let str = new String('abc');
 console.log(str.constructor === String);
+```
+
+## 原型链
+
+对象之间的继承关系，在 JavaScript 中是通过 `prototype` 对象指向父类对象，直到指向 `Object` 对象为止，这样就形成了一个原型指向的链条，称之为原型链。
+
+1. 当访问一个对象的属性和方法时，会先在对象自身上查找属性或方法是否存在，如果存在就使用对象自身的属性和方法。如果不存在就去对象的构造函数中的原型对象中查找。依次类推，直到找到为止。如果在顶层对象中还找不到，则返回 `undefined`。
+2. 原型链最顶层为 `Object` 构造函数的 `prototype` 原型对象，给 `Object.prototype` 添加属性或者方法可以被除 `null` 和 `prototype` 之外的所有数据类型对象使用。
+
+```js
+// 构造函数
+function Foo(name) {
+  this.name = name; // 1. 现在构造函数中找
+}
+// Foo.prototype.name = 'jsliang'; // 2. 在原型对象中找
+// Object.prototype.name = 'jsliang'; // 4. 通过原型链查找
+const newFoo = new Foo('jsliang');
+console.log(newFoo.name);
+```
+
+如果没有，则沿着原型链查找；如果有，那就返回最近的。
+
+## call、apply、bind
+
+改变函数内部的 `this` 指向。
+
+* `call(obj, arg1, arg2...)`
+  * 参数 1：需要改变的 `this` 指向到 `obj`
+  * 参数 2：方法的参数
+  * 参数 3：方法的参数
+* `apply(obj, [arg1, arg2...])`
+  * 参数 1：需要改变的 `this` 指向到 `obj`
+  * 参数 2：方法的参数都放到数组中
+* `bind(obj)(arg1, arg2...)`
+  * 返回的是一个函数，需要执行一遍，即 `bind()()`
+
+> call
+
+```js
+function foo(name, age) {
+  console.log(this);
+  console.log(name);
+  console.log(age);
+}
+const obj = {
+  name: '张三',
+};
+// foo.call(obj, '张三', 20);
+// foo.apply(obj, ['张三', 20]);
+foo.bind(obj)('张三', 20); // 返回一个函数，需要执行一遍
+/*
+{
+  name: "张三"
+  __proto__: Object
+}
+'张三'
+20
+*/
+```
+
+### 继承
+
+儿子 -> 父亲 -> 爷爷
+
+```js
+function Dad(name, age) {
+  this.name = name;
+  this.age = age;
+  this.money = '100000';
+}
+function Son(son, father) {
+  Dad.call(this, father.name, father.age);
+  this.name = son.name;
+  this.age = son.age;
+}
+const son = new Son(
+  {
+    name: '儿子',
+    age: 20,
+  },
+  {
+    name: '爸爸',
+    age: 99,
+  }
+);
+console.log(son); // Son { name: '儿子', age: 20, money: '100000' }
 ```
 
 ---
