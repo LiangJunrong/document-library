@@ -1,8 +1,8 @@
-记录 ES6 的知识点
+ES6 小册
 ===
 
 > Create by **jsliang** on **2020-4-12 20:54:38**  
-> Recently revised in **2020-4-21 09:01:55**
+> Recently revised in **2020-04-27 14:30:22**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -12,20 +12,41 @@
 | --- | 
 | [一 目录](#chapter-one) | 
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 let & var & const](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 块级作用域](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 解构赋值](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 展开运算符](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 Set](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 Map](#chapter-eight) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 新增函数拓展](#chapter-night) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 新增数组拓展](#chapter-ten) |
+| <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 新增字符串拓展](#chapter-eleven) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 新增对象拓展](#chapter-twelve) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 babel](#chapter-thirteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 ES6 高级 - 异步专题](#chapter-fourteen) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 ES6 高级 - MVVM](#chapter-fifteen) |
+| <a name="chapter-chapter-sixteen" id="chapter-chapter-sixteen"></a>[十六 总结](#chapter-sixteen) |
+| <a name="chapter-chapter-seventeen" id="chapter-chapter-seventeen"></a>[十七 参考文献](#chapter-seventeen) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
-历史：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Language_Resources
+ECMAScript 2015，简称 ES6。
 
-2015年6月	ECMAScript 2015 (6th Edition)，最新发布的规范文档。
+ECMAScript 是形成 JavaScript 语言基础的脚本语言。
 
-## let
+它的历史版本为：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Language_Resources
 
-## var
+在 2015 年 6 月，ECMAScript 2015（6th Edition）通过批准，是最新发布的规范文档。
 
-## const
+## <a name="chapter-three" id="chapter-three"></a>三 let & var & const
+
+> [返回目录](#chapter-one)
+
+1. let
+2. var
+3. const
 
 * 常量不能重新赋值
 * 不能重复声明
@@ -34,7 +55,7 @@
 * 定义对象（和其他语言差别）
 * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const
 
-## let 和 var 差异
+4. let 和 var 差异
 
 * `let` 允许声明一个在作用域限制在块级的变量、语句或者表达式
    * 块级作用域
@@ -64,7 +85,9 @@
 2. 初始化必须赋值
 3. 赋值后不能改动类型
 
-## 块级作用域
+## <a name="chapter-four" id="chapter-four"></a>四 块级作用域
+
+> [返回目录](#chapter-one)
 
 > ES5
 
@@ -82,7 +105,10 @@
 }
 ```
 
-## 解构赋值
+## <a name="chapter-five" id="chapter-five"></a>五 解构赋值
+
+> [返回目录](#chapter-one)
+
 
 * 对象的解构赋值
 * 数组的解构赋值
@@ -120,7 +146,9 @@ const [a1,b1] = 123;
 // MDN：为了统一集合类型，ES6 标准引入了新的 iterable 类型，Array、Map 和 Set 都属于 iterable 类型。
 ```
 
-## 展开运算符
+## <a name="chapter-six" id="chapter-six"></a>六 展开运算符
+
+> [返回目录](#chapter-one)
 
 * 对象展开
 * 数组展开
@@ -149,7 +177,10 @@ const obj2 = {
 console.log(obj2); // { a: 1, b: 2, c: 3, d: 4 }
 ```
 
-## Set 对象
+## <a name="chapter-seven" id="chapter-seven"></a>七 Set
+
+> [返回目录](#chapter-one)
+
 
 * `Set` 对象的数据结构
 * `Set` 相关属性与方法
@@ -159,7 +190,9 @@ console.log(obj2); // { a: 1, b: 2, c: 3, d: 4 }
 
 构造函数：用来构建某一类型的对象 - 对象的实例化
 
-## Map 对象
+## <a name="chapter-eight" id="chapter-eight"></a>八 Map
+
+> [返回目录](#chapter-one)
 
 * `Map` 对象的数据结构
 * `Map` 相关属性与方法
@@ -167,7 +200,10 @@ console.log(obj2); // { a: 1, b: 2, c: 3, d: 4 }
 * `clear()`、`delete()`、`get()`、`has()`、`set()`
 * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map
 
-## 函数新增拓展
+## <a name="chapter-night" id="chapter-night"></a>九 新增函数拓展
+
+> [返回目录](#chapter-one)
+
 
 * 箭头函数
   * 箭头函数的各种写法
@@ -234,7 +270,9 @@ const fn = (a = 10, b = 2) => {
 fn();
 ```
 
-## 新增数组扩展
+## <a name="chapter-ten" id="chapter-ten"></a>十 新增数组拓展
+> [返回目录](#chapter-one)
+
 
 * `Array.from()`、`Array.of()`
 * `find()`、`findIndex()`、`includes()`
@@ -321,14 +359,18 @@ console.log(Array.of(1, 2, 3, 4, 'A')); // [1, 2, 3, 4, "A"]
 </html>
 ```
 
-## 新增字符串扩展
+## <a name="chapter-eleven" id="chapter-eleven"></a>十一 新增字符串拓展
+
+> [返回目录](#chapter-one)
 
 * `includes()`、`startsWith()`、`endsWith()`
 * `repeat()`
 * 模板字符串
 * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String
 
-## 新增对象扩展
+## <a name="chapter-twelve" id="chapter-twelve"></a>十二 新增对象拓展
+
+> [返回目录](#chapter-one)
 
 * 属性简洁表示法
 * 属性名表达式
@@ -387,7 +429,9 @@ console.log(NaN === NaN);         // false
 console.log(Object.is(NaN, NaN)); // true
 ```
 
-## babel 使用
+## <a name="chapter-thirteen" id="chapter-thirteen"></a>十三 babel
+
+> [返回目录](#chapter-one)
 
 * Babel 是一个 JavaScript 编译器
 * 手册地址：https://www.babeljs.cn/
@@ -495,7 +539,10 @@ console.log(Object.is(NaN, NaN)); // true
 
 ```
 
-## ES6 高阶 - 异步专题
+## <a name="chapter-fourteen" id="chapter-fourteen"></a>十四 ES6 高级 - 异步专题
+
+> [返回目录](#chapter-one)
+
 
 ### 同步和异步
   
@@ -758,7 +805,9 @@ p2 执行完毕
 */
 ```
 
-## 简版 MVVM
+## <a name="chapter-fifteen" id="chapter-fifteen"></a>十五 ES6 高级 - MVVM
+
+> [返回目录](#chapter-one)
 
 * 原生 JavaScript 实现 Vue 中的 `{{ message }}` 需要考虑的内容：
 
@@ -773,6 +822,14 @@ p2 执行完毕
 2. 在课程中，用的是递归实现，那么它必定有所局限，谈谈局限在哪，怎么解决？（微信小程序之前有个规则：不能渲染超过 5 层的）
 3. 观察者模式和发布订阅模式的区别？发布订阅模式比观察者模式解耦性更强。
 4. `defineProperty` 和 `Proxy` 区别。
+
+## <a name="chapter-sixteen" id="chapter-sixteen"></a>十六 总结
+
+> [返回目录](#chapter-one)
+
+## <a name="chapter-seventeen" id="chapter-seventeen"></a>十七 参考文献
+
+> [返回目录](#chapter-one)
 
 ---
 
