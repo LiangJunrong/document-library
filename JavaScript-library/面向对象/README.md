@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-4-26 15:45:42**  
-> Recently revised in **2020-4-26 21:14:31**
+> Recently revised in **2020-4-27 08:21:33**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -16,6 +16,8 @@
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
+
+面向对象（OOP）是一种思维方式
 
 ## 面向对象编程思想
 
@@ -647,6 +649,214 @@ console.log(father); // { name: '父亲', age: 99, money: '100000' }
 console.log(son); // { name: '儿子', age: 20, money: '100000' }
 father.play(); // play1
 son.play(); // play2
+```
+
+## ES5 -> ES6
+
+```js
+// ES5：构造函数 -> 模拟类的概念
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+Person.prototype.hobby = function() {
+  console.log('爱好');
+}
+
+// ES6：类
+class Person {
+  // 静态属性
+  static weight = 170;
+  // 私有属性
+  #myname = 'jsliang';
+  // 构造器属性
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  hobby() {
+    console.log('爱好');
+  }
+}
+console.log(typeof Person); // function
+const zhangsan = new Person('张三', 20);
+zhangsan.hobby(); // '爱好'
+
+// 静态属性调用
+console.log(Person.weight); // 170
+
+// 私有属性只能内部调用
+console.log(zhangsan.#myname); // Uncaught SyntaxError: Undefined private field undefined: must be declared in an enclosing class
+```
+
+## ES6 继承
+
+```js
+class Father {
+  constructor(age) {
+    this.name = '张三';
+    this.age = age;
+  }
+  hobby() {
+    console.log('喜欢高尔夫');
+  }
+}
+
+class Son extends Father {
+  constructor(age) {
+    // 通过 extends + super 继承
+    super(age); // 可以传递参数到父类
+    this.height = '178cm';
+  }
+  hobby() {
+    console.log('喜欢篮球');
+    super.hobby(); // 也可以继承方法
+  }
+}
+const xiaozhang = new Son(50);
+console.log(xiaozhang.name); // 张三
+console.log(xiaozhang.age); // 50
+xiaozhang.hobby();
+// '喜欢篮球'
+// 就近原则，加入了 super.hobby() 之后，还会继承父类方法
+// '喜欢高尔夫'
+```
+
+## ES6 module
+
+* AMD：require.js
+* CMD：sea.js
+* ES6 模块化：导入、导出
+
+```js
+// 两种导出机制
+
+// 导出多个 ——> 通过展开导入
+export ... ——> import { ... } from '';
+
+// 导出一个 ——> 自定义变量引入
+export default ... ——> import a from '';
+````
+
+> index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>module 导入导出</title>
+</head>
+<body>
+  
+</body>
+<script type="module">
+  // 默认不支持 module，需要开启 type="module"
+  import Person, { a as c, b } from './module.js';
+
+  const person = new Person('张三', 26);
+  console.log(person); // Person {#myname: "jsliang", name: "张三", age: 26}
+
+  // 可以通过 a as c 的形式，来解决命名冲突
+  console.log(c); // 10
+  console.log(b); // 20
+</script>
+</html>
+```
+
+> module.js
+
+```js
+// ES6：类
+class Person {
+  // 静态属性
+  static weight = 170;
+  // 私有属性
+  #myname = 'jsliang';
+  // 构造器属性
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  hobby() {
+    console.log('爱好');
+  }
+}
+
+export default Person;
+
+export const a = 10;
+export const b = 20;
+```
+
+## ES6 module 按需导入
+
+> index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>module 按需导入</title>
+</head>
+<body>
+  <button class="btn">点我加载</button>
+</body>
+<script type="module">
+  const btn = document.querySelector('.btn');
+  btn.onclick = () => {
+    import('./module.js').then((res) => {
+      console.log(res); // Module {Symbol(Symbol.toStringTag): "Module"}
+      /*
+        a: (...)
+        b: (...)
+        default: (...)
+        Symbol(Symbol.toStringTag): "Module"
+        get a: ƒ ()
+        set a: ƒ ()
+        get b: ƒ ()
+        set b: ƒ ()
+        get default: ƒ ()
+        set default: ƒ ()
+      */
+    });
+  };
+
+  // 同步加载
+  // btn.onclick = async function() {
+  //   const res = await import('./module.js');
+  //   console.log(res);
+  // };
+</script>
+</html>
+```
+
+> index.js
+
+```js
+// ES6：类
+class Person {
+  // 静态属性
+  static weight = 170;
+  // 私有属性
+  #myname = 'jsliang';
+  // 构造器属性
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  hobby() {
+    console.log('爱好');
+  }
+}
+
+export default Person;
+
+export const a = 10;
+export const b = 20;
 ```
 
 ---
