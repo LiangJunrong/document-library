@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-4-26 15:45:42**  
-> Recently revised in **2020-4-27 08:21:33**
+> Recently revised in **2020-04-27 16:31:57**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -81,6 +81,8 @@ eat('jsliang', '煲仔饭', '午饭');
 * 缺点：单个使用不够方便
 
 ## 字面量和构造函数
+
+构造函数：用来构建某一类型的对象 - 对象的实例化
 
 * 对象创建
 
