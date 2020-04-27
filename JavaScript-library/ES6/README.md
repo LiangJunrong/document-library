@@ -2,7 +2,7 @@ ES6 小册
 ===
 
 > Create by **jsliang** on **2020-4-12 20:54:38**  
-> Recently revised in **2020-04-27 14:30:22**
+> Recently revised in **2020-04-27 16:27:52**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -22,7 +22,7 @@ ES6 小册
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 新增数组拓展](#chapter-ten) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 新增字符串拓展](#chapter-eleven) |
 | <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 新增对象拓展](#chapter-twelve) |
-| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 babel](#chapter-thirteen) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 Babel](#chapter-thirteen) |
 | <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 ES6 高级 - 异步专题](#chapter-fourteen) |
 | <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 ES6 高级 - MVVM](#chapter-fifteen) |
 | <a name="chapter-chapter-sixteen" id="chapter-chapter-sixteen"></a>[十六 总结](#chapter-sixteen) |
@@ -44,28 +44,38 @@ ECMAScript 是形成 JavaScript 语言基础的脚本语言。
 
 > [返回目录](#chapter-one)
 
-1. let
-2. var
-3. const
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 let
 
-* 常量不能重新赋值
+> [返回目录](#chapter-one)
+
+* 不能重复声明
+* 块级作用域
+* `let` 不会被预解析
+* 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let
+
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 const
+
+> [返回目录](#chapter-one)
+
+* 常量不能重新赋值；数组、对象的值可被修改
 * 不能重复声明
 * 块级作用域
 * `const` 不会被预解析
-* 定义对象（和其他语言差别）
 * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const
 
-4. let 和 var 差异
+### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 let 和 var 比较
 
-* `let` 允许声明一个在作用域限制在块级的变量、语句或者表达式
-   * 块级作用域
-* `var` 声明的变量只能是全局或者整个函数快的
+> [返回目录](#chapter-one)
+
+* `var` 声明的变量只能是全局或者整个函数块的
+* `let` 允许声明一个在作用域限制在块级的变量、语句或者表达式（块级作用域）
 * `let` 不能重复声明
+* `let` 存在临时死区（temporal dead zone）
 * `let` 不会被预解析（hoisting）
-* 临时死区（temporal dead zone）
-* 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let
 
-比较：
+### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 let、var 和 const 比较
+
+> [返回目录](#chapter-one)
 
 * `var`：
 
@@ -89,6 +99,22 @@ ECMAScript 是形成 JavaScript 语言基础的脚本语言。
 
 > [返回目录](#chapter-one)
 
+块语句用于组合零个或者多个语句，这个块由一对大括号 `{}` 界定。
+
+而通过 `var` 声明的变量或者非严格模式下（non-strict mode）创建的函数声明没有块级作用域。
+
+即：
+
+```js
+var x = 1;
+{
+  var x = 2;
+}
+console.log(x); // 2
+```
+
+所以，如果我们希望能形成块级作用域，可以：
+
 > ES5
 
 ```js
@@ -101,14 +127,17 @@ ECMAScript 是形成 JavaScript 语言基础的脚本语言。
 
 ```js
 {
-
+  var x = 1; // 或者 const x = 1;
 }
 ```
+
+* 参考文献：[【MDN】《block》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/block)
 
 ## <a name="chapter-five" id="chapter-five"></a>五 解构赋值
 
 > [返回目录](#chapter-one)
 
+解构赋值语法是一种 Javascript 表达式。通过解构赋值，可以将属性/值从对象/数组中取出，赋值给其他变量。
 
 * 对象的解构赋值
 * 数组的解构赋值
@@ -141,7 +170,7 @@ const [str1, str2] = str;
 console.log(str1, str2); // a b
 
 // 数字的解构赋值
-const [a1,b1] = 123;
+const [a1, b1] = 123;
 // 报错：VM208:1 Uncaught TypeError: 123 is not iterable
 // MDN：为了统一集合类型，ES6 标准引入了新的 iterable 类型，Array、Map 和 Set 都属于 iterable 类型。
 ```
@@ -149,6 +178,8 @@ const [a1,b1] = 123;
 ## <a name="chapter-six" id="chapter-six"></a>六 展开运算符
 
 > [返回目录](#chapter-one)
+
+展开语法（Spread syntax），可以在函数调用/数组构造时, 将数组表达式或者 `string` 在语法层面展开；还可以在构造字面量对象时, 将对象表达式按 `key-value` 的方式展开。
 
 * 对象展开
 * 数组展开
@@ -181,6 +212,7 @@ console.log(obj2); // { a: 1, b: 2, c: 3, d: 4 }
 
 > [返回目录](#chapter-one)
 
+`Set` 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。
 
 * `Set` 对象的数据结构
 * `Set` 相关属性与方法
@@ -188,11 +220,11 @@ console.log(obj2); // { a: 1, b: 2, c: 3, d: 4 }
   * `clear()`、`delete()`、`get()`、`has()`、`add()`
 * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set
 
-构造函数：用来构建某一类型的对象 - 对象的实例化
-
 ## <a name="chapter-eight" id="chapter-eight"></a>八 Map
 
 > [返回目录](#chapter-one)
+
+`Map` 对象保存键值对，并且能够记住键的原始插入顺序。任何值(对象或者原始值) 都可以作为一个键或一个值。
 
 * `Map` 对象的数据结构
 * `Map` 相关属性与方法
@@ -204,14 +236,21 @@ console.log(obj2); // { a: 1, b: 2, c: 3, d: 4 }
 
 > [返回目录](#chapter-one)
 
+箭头函数表达式的语法比函数表达式更简洁，并且没有自己的 `this`、`arguments`、`super` 或 `new.target`。
+
+箭头函数表达式更适用于那些本来需要匿名函数的地方，并且它不能用作构造函数。
+
+剩余参数语法（...arg）允许我们将一个不定数量的参数表示为一个数组。
 
 * 箭头函数
   * 箭头函数的各种写法
   * 箭头函数的 `this` 问题
   * 箭头函数的不定参问题
   * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions
-* `rest` 参数设置
+* `rest` 参数（剩余参数）设置：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Rest_parameters
 * 参数默认值设置
+
+> 代码 1：普通函数、箭头函数 以及 不定参
 
 ```js
 // 普通函数
@@ -232,7 +271,11 @@ const fn3 = (a, b, ...arg) => {
   console.log(a, b, arg);
 };
 fn3(1, 2, 3, 4); // 1 2 [3, 4]
+```
 
+> 代码 2：this 指向问题
+
+```js
 // this 指向问题
 document.onclick = function() {
   console.log(this); // #document
@@ -243,7 +286,7 @@ document.onclick = () => {
 // 箭头函数本身没有 this，调用箭头函数的 this 时，指向是其声明时所在的作用域的 this。
 ```
 
-> this 题目
+> 代码 3：this 题目
 
 ```js
 let fn;
@@ -261,7 +304,7 @@ fn2(); // body
 fn(); // body
 ```
 
-> 参数默认值
+> 代码 4：参数默认值
 
 ```js
 const fn = (a = 10, b = 2) => {
@@ -273,6 +316,7 @@ fn();
 ## <a name="chapter-ten" id="chapter-ten"></a>十 新增数组拓展
 > [返回目录](#chapter-one)
 
+ES6 新增了一些数组拓展：
 
 * `Array.from()`、`Array.of()`
 * `find()`、`findIndex()`、`includes()`
@@ -282,7 +326,7 @@ fn();
 
 将类数组转成数组：
 
-> Array.from()
+> 代码 1：Array.from()
 
 ```html
 <!DOCTYPE html>
@@ -326,13 +370,13 @@ fn();
 </html>
 ```
 
-> Array.of()
+> 代码 2：Array.of()
 
 ```js
 console.log(Array.of(1, 2, 3, 4, 'A')); // [1, 2, 3, 4, "A"]
 ```
 
-> Array.isArray()
+> 代码 3：Array.isArray()
 
 ```js
 <!DOCTYPE html>
@@ -359,9 +403,13 @@ console.log(Array.of(1, 2, 3, 4, 'A')); // [1, 2, 3, 4, "A"]
 </html>
 ```
 
+其他的不一一例举，可自行查看 MDN 文档。
+
 ## <a name="chapter-eleven" id="chapter-eleven"></a>十一 新增字符串拓展
 
 > [返回目录](#chapter-one)
+
+ES6 新增了一些字符串扩展：
 
 * `includes()`、`startsWith()`、`endsWith()`
 * `repeat()`
@@ -372,11 +420,15 @@ console.log(Array.of(1, 2, 3, 4, 'A')); // [1, 2, 3, 4, "A"]
 
 > [返回目录](#chapter-one)
 
+ES6 新增了一些对象拓展：
+
 * 属性简洁表示法
 * 属性名表达式
+* `Object.assign()`
+* `Object.is`
 * 手册地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-> 简洁表示法
+> 代码 1：简洁表示法
 
 ```js
 const a = 0, b = 1;
@@ -392,7 +444,7 @@ let obj2 = {
 console.log(obj2); // {a: 0, b: 1}
 ```
 
-> 属性名表达式
+> 代码 2：属性名表达式
 
 ```js
 const name = '小明';
@@ -405,7 +457,7 @@ const obj = {
 console.log(obj); // {c: ƒ, 小明: 18}
 ```
 
-> Object.assign()
+> 代码 3：Object.assign() 浅拷贝
 
 ```js
 const obj1 = {
@@ -419,7 +471,7 @@ const obj2 = {
 console.log(Object.assign({}, obj1, obj2)); // {a: 1, b: 2, c: 3, d: 4}
 ```
 
-> Object.is
+> 代码 4：Object.is 判断
 
 ```js
 // 大致和三目运算符一致，但是有区别
@@ -429,17 +481,18 @@ console.log(NaN === NaN);         // false
 console.log(Object.is(NaN, NaN)); // true
 ```
 
-## <a name="chapter-thirteen" id="chapter-thirteen"></a>十三 babel
+## <a name="chapter-thirteen" id="chapter-thirteen"></a>十三 Babel
 
 > [返回目录](#chapter-one)
 
-* Babel 是一个 JavaScript 编译器
+Babel 是一个 JavaScript 编译器。
+
 * 手册地址：https://www.babeljs.cn/
-* Babel 基本是否方法
+* Babel 基本使用方法
 
 > https://unpkg.com/@babel/standalone/babel.min.js
 
-```js
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -536,25 +589,43 @@ console.log(Object.is(NaN, NaN)); // true
     </script>
   </body>
 </html>
-
 ```
 
 ## <a name="chapter-fourteen" id="chapter-fourteen"></a>十四 ES6 高级 - 异步专题
 
 > [返回目录](#chapter-one)
 
+### <a name="chapter-fourteen-one" id="chapter-fourteen-one"></a>14.1 ES6 同步和异步
 
-### 同步和异步
+> [返回目录](#chapter-one)
   
-* 同步和异步是一种消息通知机制
-* 同步阻塞: A调用B，B处理获得结果，才返回给A。A在这个过程中，一直等待B的处理结果，没有拿到结果之前，需要A（调用者）一直等待和确认调用结果是否返回，拿到结果,然后继续往下执行。
-  * 做一件事，没有拿到结果之前，就一直在这等着，一直等到有结果了,再去做下边的事
-* 异步非阻塞: A调用B，无需等待B的结果，B通过状态，通知等来通知A或回调函数来处理。
-  * 做一件事，不用等待事情的结果，然后就去忙别的了，有了结果，再通过状态来告诉我，或者通过回调函数来处理。
+同步和异步是一种消息通知机制：
 
-### 回调运动框架 方块的运动 
+* 同步阻塞:
 
-### `Promise`
+A 调用 B，B 处理获得结果，才返回给 A。
+
+A 在这个过程中，一直等待 B 的处理结果，没有拿到结果之前，需要 A（调用者）一直等待和确认调用结果是否返回，拿到结果，然后继续往下执行。
+
+做一件事，没有拿到结果之前，就一直在这等着，一直等到有结果了，再去做下边的事
+
+* 异步非阻塞:
+
+A 调用 B，无需等待 B 的结果，B 通过状态，通知等来通知 A 或回调函数来处理。
+
+做一件事，不用等待事情的结果，然后就去忙别的了，有了结果，再通过状态来告诉我，或者通过回调函数来处理。
+
+### <a name="chapter-fourteen-two" id="chapter-fourteen-two"></a>14.2 回调运动框架 
+
+> [返回目录](#chapter-one)
+
+代码在仓库第 《006-方块运动-回调（callback）》 文件夹：https://github.com/LiangJunrong/all-for-one
+
+### <a name="chapter-fourteen-three" id="chapter-fourteen-three"></a>14.3 Promise
+
+> [返回目录](#chapter-one)
+
+代码在仓库第 《007-方块运动-链式（Promise）》 文件夹：https://github.com/LiangJunrong/all-for-one 
 
 `Promise` 的三种状态：
 
@@ -653,7 +724,7 @@ __proto__: Promise
 */
 ```
 
-* `catch`：将所有异常丢到一块地方
+* `catch`：将所有异常丢到同一块地方
 
 ```js
 const p = new Promise((resolve, reject) => {
@@ -728,7 +799,7 @@ Promise.all([p1, p2, p3]).then(res => {
 });
 ```
 
-* `rece`：执行最快的结果
+* `race`：执行最快的结果
 
 ```js
 const p1 = new Promise((resolve, reject) => {
@@ -754,7 +825,11 @@ Promise.race([p1, p2, p3]).then(res => {
 });
 ```
 
-### async 和 await
+### <a name="chapter-fourteen-four" id="chapter-fourteen-four"></a>14.4 async 和 await
+
+> [返回目录](#chapter-one)
+
+代码在仓库第 《008-方块运动-等待（async...await））》 文件夹：https://github.com/LiangJunrong/all-for-one 
 
 `async` 和 `await` 是一起出现的，基于 `Promise`。
 
@@ -809,7 +884,19 @@ p2 执行完毕
 
 > [返回目录](#chapter-one)
 
-* 原生 JavaScript 实现 Vue 中的 `{{ message }}` 需要考虑的内容：
+代码实现在：https://github.com/LiangJunrong/all-for-one
+
+* 《009-双向数据绑定-模板语法》
+* 《010-双向数据绑定-模板语法（优化正则）》
+* 《011-双向数据绑定-简单实现（Object.defineProperty）》
+* 《012-双向数据绑定-发布订阅者模式》
+* 《013-双向数据绑定-改造升级（Proxy）》
+* 《014-双向数据绑定-输入框绑定（v-modal）》
+* 《015-双向数据绑定-HTML替换（v-html）》
+
+在实现的过程中，思考了下东西。
+
+原生 JavaScript 实现 Vue 中的 `{{ message }}` 需要考虑的内容：
 
 1. 先区分文本节点还是标签节点。`{{ message }}` 或者 `<span>{{ message }}</span>` 或者其他。
 2. 如果是单个文本，即文本内仅有一个 `{{ message }}`，那么我们可以正则匹配然后将其替换为传入的数据。
@@ -827,9 +914,33 @@ p2 执行完毕
 
 > [返回目录](#chapter-one)
 
+如上，即为 **jsliang** 整理的 ES6 小册，但是是不完整版的，还差：
+
+1. `iterable`
+2. `module`
+
+这些需要补充的点，后面会逐个添加进来。
+
 ## <a name="chapter-seventeen" id="chapter-seventeen"></a>十七 参考文献
 
 > [返回目录](#chapter-one)
+
+* [【MDN】《ECMAScript 历史》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Language_Resources)
+* [【MDN】《let》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let)
+* [【MDN】《const》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const)
+* [【MDN】《block》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/block)
+* [【MDN】《解构赋值》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+* [【MDN】《展开语法》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+* [【MDN】《Set》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set)
+* [【MDN】《Map》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map)
+* [【MDN】《箭头函数》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+* [【MDN】《剩余参数》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Rest_parameters)
+* [【MDN】《Array》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [【MDN】《String》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [【MDN】《Object》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [【MDN】《Babel 中文网》](https://www.babeljs.cn/)
+* [【MDN】]()
+* [【MDN】]()
 
 ---
 
