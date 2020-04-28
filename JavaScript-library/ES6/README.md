@@ -2,7 +2,7 @@ ES6 小册
 ===
 
 > Create by **jsliang** on **2020-4-12 20:54:38**  
-> Recently revised in **2020-04-27 16:27:52**
+> Recently revised in **2020-04-28 11:06:53**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -40,6 +40,10 @@ ECMAScript 是形成 JavaScript 语言基础的脚本语言。
 
 在 2015 年 6 月，ECMAScript 2015（6th Edition）通过批准，是最新发布的规范文档。
 
+这里推荐阮一峰的 ES6 入门教程：https://es6.ruanyifeng.com/
+
+里面内容非常丰富，毕竟是出版过的书籍，非常推荐。
+
 ## <a name="chapter-three" id="chapter-three"></a>三 let & var & const
 
 > [返回目录](#chapter-one)
@@ -48,6 +52,7 @@ ECMAScript 是形成 JavaScript 语言基础的脚本语言。
 
 > [返回目录](#chapter-one)
 
+* 暂时性死区：只要块级作用域内存在 `let` 命令，它所声明的变量就绑定这个区域，不再受外部的影响。在代码块内，使用 `let` 声明变量之前，该变量都是不可用的，所以叫 “暂时性死区”。
 * 不能重复声明
 * 块级作用域
 * `let` 不会被预解析
@@ -58,6 +63,7 @@ ECMAScript 是形成 JavaScript 语言基础的脚本语言。
 > [返回目录](#chapter-one)
 
 * 常量不能重新赋值；数组、对象的值可被修改
+* 暂时性死区：只要块级作用域内存在 `let` 命令，它所声明的变量就绑定这个区域，不再受外部的影响。在代码块内，使用 `let` 声明变量之前，该变量都是不可用的，所以叫 “暂时性死区”。
 * 不能重复声明
 * 块级作用域
 * `const` 不会被预解析
@@ -921,6 +927,22 @@ p2 执行完毕
 
 这些需要补充的点，后面会逐个添加进来。
 
+* `iterable`：
+
+ES6 为字符串添加了遍历器接口，使得字符串可以被 `for...of` 循环遍历
+
+* 模板字符串：
+
+```js
+let arr1 = '', arr2 = '';
+let name = 'jsliang';
+arr1 += 'Hello, my name is: ' + name;
+arr2 += `Hello, my name is ${name}`;
+```
+
+1. 模板字符串支持多行
+2. 模板字符串支持 `${}` 内存放变量，运算以及函数
+
 ## <a name="chapter-seventeen" id="chapter-seventeen"></a>十七 参考文献
 
 > [返回目录](#chapter-one)
@@ -938,9 +960,7 @@ p2 执行完毕
 * [【MDN】《Array》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [【MDN】《String》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [【MDN】《Object》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [【MDN】《Babel 中文网》](https://www.babeljs.cn/)
-* [【MDN】]()
-* [【MDN】]()
+* [【Babel 中文网】](https://www.babeljs.cn/)
 
 ---
 
