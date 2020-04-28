@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-4-26 15:45:42**  
-> Recently revised in **2020-04-27 16:31:57**
+> Recently revised in **2020-4-28 08:55:31**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -738,7 +738,7 @@ export ... ——> import { ... } from '';
 
 // 导出一个 ——> 自定义变量引入
 export default ... ——> import a from '';
-````
+```
 
 > index.html
 
@@ -859,6 +859,184 @@ export default Person;
 
 export const a = 10;
 export const b = 20;
+```
+
+## 作业
+
+* 分析对象
+* -> 英雄、技能、玩家
+* -> luban yase
+* -> 继承
+* -> 英雄基类
+* -> 游戏管理类
+
+完成王者荣耀皮肤切换
+
+## 作业优化抽取
+
+1. 英雄基类
+2. 游戏管理类
+
+## 单例模式
+
+* 作业中的 `game.js` 进行单例设置，不需要创建太多的游戏，实施单例即可。（唯一性）
+
+```js
+/**
+ * @name 02-单例模式
+ * @description 2020-4-28 08:10:03
+ */
+
+// 单例模式，即一个实例
+// 单例：1、需求；2、节约性能
+// export default class Person {
+//   // 设置静态对象
+//   static instance = null;
+//   constructor(name) {
+//     // 第二次实例化后，返回前面实例化的内容
+//     if (Person.instance) {
+//       return Person.instance;
+//     }
+//     // 第一次实例化
+//     Person.instance = this; // this ——> 实例化对象
+//     this.name = name;
+//     this.age = 20;
+//   }
+// }
+
+class Person {
+  constructor(name) {
+    this.name = name;
+    this.age = 20;
+  }
+}
+
+let instance;
+export default function(...arg) {
+  if (!instance) {
+    instance = new Person(...arg);
+  }
+  return instance;
+}
+```
+
+> index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>面向对象</title>
+</head>
+<body>
+  
+</body>
+<script type="module">
+  // 单例：一个实例
+  // const obj = {
+  //   name: 10,
+  // };
+  // 上面就是一个最简单的单例
+  import Single from './设计模式/02-单例模式.js';
+  // 开放封闭原则：对内封闭，对外开放
+  const single1 = new Single('jsliang1');
+  const single2 = new Single('jsliang2');
+  console.log(single1); // Person {name: "jsliang1", age: 20}
+  console.log(single2); // Person {name: "jsliang1", age: 20}
+  // 不管你怎么实例化，返回的都是第一次的结果
+  console.log(single1 === single2); // true
+</script>
+</html>
+```
+
+## 工厂模式
+
+> index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>面向对象</title>
+</head>
+<body>
+  
+</body>
+<script type="module">
+  import Factory from './设计模式/01-工厂模式.js';
+  const p1 = new Factory('jsliang');
+  console.log(p1); // {name: "张三", fn: ƒ}
+  console.log(p1.fn()); // '喜欢篮球'
+</script>
+</html>
+```
+
+```js
+/**
+ * @name 01-工厂模式
+ * @description 2020-4-26 16:53:40
+ */
+
+// const zhangsan = {
+//   name: '张三',
+//   age: 20,
+//   hobby() {
+//     console.log('喜欢玩');
+//   },
+// };
+// const lisi = {
+//   name: '李四',
+//   age: 22,
+//   hobby() {
+//     console.log('没有爱好');
+//   },
+// };
+// ……王五、赵六……
+// 都是同一个模子复制出来的玩意，使用工厂模式
+
+// 工厂模式 - 原版
+// function Person(name, age, hobby) {
+//   const obj = {}; // 添加原料
+//   obj.name = name;
+//   obj.age = age;
+//   obj.hobby = function() {
+//     console.log(hobby);
+//   };
+//   return obj; // 出厂
+// };
+
+// 工厂模式 - 根据 new 运算符改造
+// function Person(name, age, hobby) {
+//   this.name = name;
+//   this.age = age;
+//   this.hobby = function() {
+//     console.log(hobby);
+//   };
+// };
+function Factory() {
+  // 原料
+  const o = {};
+  // 加工原料
+  o.name = '张三';
+  o.fn = function() {
+    console.log('喜欢篮球');
+  };
+  // 出厂
+  return o;
+}
+
+export default Factory;
+
+// const person1 = new Person('张三', 20, '喜欢玩');
+// const person2 = new Person('李四', 21, '没有爱好');
+// console.log(person1);
+// console.log(person2);
+
+// module.exports = Person; // Node 导出
 ```
 
 ---
