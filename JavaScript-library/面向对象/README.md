@@ -2,9 +2,9 @@
 ===
 
 > Create by **jsliang** on **2020-4-26 15:45:42**  
-> Recently revised in **2020-4-28 09:06:17**
+> Recently revised in **2020-4-29 09:02:51**
 
-* 进度 1:10:00/2:11:48
+* 进度 0:05:12/2:06:10
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -1040,6 +1040,157 @@ export default Factory;
 
 // module.exports = Person; // Node 导出
 ```
+
+## 装饰器模式
+
+* 装饰器模式 -> 拓展 -> 横向扩展（增强）
+* 继承 -> 扩展 -> 纵向扩展（扩展新功能）
+
+对象装饰：在原本方法的基础上，扩展方法
+
+> 这不就是打补丁么……经常被骂哈哈
+
+> index.js
+
+```js
+class Hero {
+  constructor(name) {
+    this.name = name;
+  }
+  fire(name) {
+    console.log(`释放了技能${name}`);
+  }
+}
+
+export default Hero;
+```
+
+> index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>面向对象</title>
+</head>
+<body>
+  
+</body>
+<script type="module">
+  import Hero from './设计模式/03-装饰器模式.js';
+  function fireDecrator (hero) {
+    this.hero = hero;
+  }
+  fireDecrator.prototype.fire = function(fn, ...arg) {
+    // 要扩展的方法
+    fn();
+    this.hero.fire(arg[0]);
+  }
+  let hero = new Hero('亚瑟');
+  // hero.fire(); // 包装之前
+  let newFireDecrator = new fireDecrator(hero);
+  function fn() {
+    console.log('造成了 200 点伤害');
+  }
+  newFireDecrator.fire(fn, '猛虎冲击', '相位猛冲');
+  // 造成了 200 点伤害
+  // 释放了技能猛虎冲击
+</script>
+</html>
+```
+
+函数拓展：
+
+```js
+function fn() {
+  console.log('fn 的逻辑...');
+}
+
+Function.prototype.DecratorFn = function(extendsFn, ...arg) {
+  extendsFn.call(this);
+  this.call(this, ...arg);
+}
+
+// fn(); // 原逻辑
+function myAddFn() {
+  console.log('扩展的逻辑...');
+}
+fn.DecratorFn(myAddFn);
+// 扩展的逻辑...
+// fn 的逻辑...
+```
+
+## 观察者模式
+
+解耦
+
+```js
+function fn1() {
+  console.log('fn1...');
+}
+function fn2() {
+  console.log('fn2...');
+}
+fn1(); // 开发人员 1
+fn2(); // 开发人员 2：弥补开发人员 1 的问题，新增了 fn2
+```
+
+针对这样的情况，类似事件一样触发的功能就有必要了：观察者模式
+
+```js
+document.addEventListener('click', fn1);
+document.addEventListener('click', fn2);
+```
+
+这时候我们可以有代码：
+
+```js
+function fn1() {
+  console.log('fn1...');
+}
+function fn2() {
+  console.log('fn2...');
+}
+
+let handle = {};
+//  { myevent: [fn1, fn2], myevent2: [fn3, fn4] }
+// 绑定事件
+function addEvent(eventName, fn) {
+  if (typeof handle[eventName] === "undefined") {
+    handle[eventName] = [];
+  }
+  handle[eventName].push(fn);
+}
+// 触发
+function trigger(eventName) {
+  if (!eventName in handle) {
+    return;
+  }
+  handle[eventName].forEach((event) => {
+    event();
+  });
+}
+
+// 事件绑定
+addEvent('myevent', fn1);
+addEvent('myevent', fn2);
+// 触发
+trigger('myevent');
+// fn1...
+// fn2...
+```
+
+## 组件
+
+* 什么是组件？
+
+对代码进行封装。
+
+* 要封装啥组件
+
+ElementUI 的 MessageBox
 
 ---
 
