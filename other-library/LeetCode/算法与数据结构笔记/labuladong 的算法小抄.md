@@ -2,11 +2,20 @@ labuladong 的算法小抄 - 笔记
 ===
 
 > Create by **jsliang** on **2020-5-5 22:27:21**  
-> Recently revised in **2020-5-18 22:57:55**
+> Recently revised in **2020-05-20 11:02:54**
 
 * [labuladong 的算法小抄](https://labuladong.gitbook.io/algo/)
 
 ## 笔记内容
+
+1. 思维导读（刷题思路、读书、算法学习路线等）
+2. 数据结构
+3. 动态规划
+4. 回溯算法
+5. 二分查找
+6. 双指针
+7. 滑动窗口
+8. 高频面试系列
 
 ## 数据结构
 
@@ -86,11 +95,118 @@ labuladong 的算法小抄 - 笔记
 
 ## 二分查找
 
+二分查找框架
+
+```js
+const binarySearch = (nums, target) => {
+  let left = 0, right = nums.length - 1;
+
+  while (left <= right) {
+    const mid = left + (left - left) / 2;
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else if (nums[mid] > target) {
+      right = mid - 1;
+    }
+  }
+  
+  return -1;
+}
+```
+
 ## 滑动窗口
+
+```c++
+int left = 0, right = 0;
+
+while (right < s.size()) {
+    // 增大窗口
+    window.add(s[right]);
+    right++;
+
+    while (window needs shrink) {
+        // 缩小窗口
+        window.remove(s[left]);
+        left++;
+    }
+}
+```
+
+```c++
+/* 滑动窗口算法框架 */
+void slidingWindow(string s, string t) {
+    unordered_map<char, int> need, window;
+    for (char c : t) need[c]++;
+
+    int left = 0, right = 0;
+    int valid = 0; 
+    while (right < s.size()) {
+        // c 是将移入窗口的字符
+        char c = s[right];
+        // 右移窗口
+        right++;
+        // 进行窗口内数据的一系列更新
+        ...
+
+        /*** debug 输出的位置 ***/
+        printf("window: [%d, %d)\n", left, right);
+        /********************/
+
+        // 判断左侧窗口是否要收缩
+        while (window needs shrink) {
+            // d 是将移出窗口的字符
+            char d = s[left];
+            // 左移窗口
+            left++;
+            // 进行窗口内数据的一系列更新
+            ...
+        }
+    }
+}
+```
 
 ## 双指针
 
+双指针再分类两类，一类是【快慢指针】，一类是【左右指针】。
+
+前者解决主要解决链表中的问题，比如典型的判定链表中是否包含环；
+
+后者主要解决数组（或者字符串）中的问题，比如二分查找。
+
 ## BFS（广度优先搜索）
+
+```c++
+// 计算从起点 start 到终点 target 的最近距离
+int BFS(Node start, Node target) {
+    Queue<Node> q; // 核心数据结构
+    Set<Node> visited; // 避免走回头路
+
+    q.offer(start); // 将起点加入队列
+    visited.add(start);
+    int step = 0; // 记录扩散的步数
+
+    while (q not empty) {
+        int sz = q.size();
+        /* 将当前队列中的所有节点向四周扩散 */
+        for (int i = 0; i < sz; i++) {
+            Node cur = q.poll();
+            /* 划重点：这里判断是否到达终点 */
+            if (cur is target)
+                return step;
+            /* 将 cur 的相邻节点加入队列 */
+            for (Node x : cur.adj())
+                if (x not in visited) {
+                    q.offer(x);
+                    visited.add(x);
+                }
+        }
+        /* 划重点：更新步数在这里 */
+        step++;
+    }
+}
+```
 
 ---
 
