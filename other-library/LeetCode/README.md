@@ -2,7 +2,7 @@ LeetCode
 ===
 
 > Create by **jsliang** on **2019-5-16 22:12:29**  
-> Recently revised in **2019-09-18 14:27:25**
+> Recently revised in **2020-06-16 11:27:34**
 
 ## <a name="chapter-one" id="chapter-one">一 目录</a>
 
@@ -23,6 +23,8 @@ LeetCode 是个题库，里面有很编程多面试的题目，可以在线编�
 在这里，你可以使用 C、C++、Java、Python、PHP、JavaScript 共 14 种编程语言进行解题。
 
 在这里，你可以接触到许许多多算法相关的知识，并且提升自己的职业竞争能力，在面试的时候秀一秀自己的代码。
+
+> 刷题过程中有问题记得提 Issue：https://github.com/LeetCode-Feedback/LeetCode-Feedback/issues
 
 ## <a name="chapter-three" id="chapter-three">三 攻略</a>
 
