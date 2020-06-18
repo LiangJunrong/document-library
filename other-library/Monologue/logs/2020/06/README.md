@@ -2,11 +2,10 @@
 ===
 
 > Create by **jsliang** on **2020-06-01 07:14:09**  
-> Recently revised in **2020-06-18 10:34:01**  
+> Recently revised in **2020-06-18 13:50:40**  
 
 ## 待完成
 
-* [ ] [阮一峰《ES6 入门教程》](https://es6.ruanyifeng.com/)
 * [ ] [【微信公众号】《再来40道this面试题酸爽继续(1.2w字用手整理)》](https://mp.weixin.qq.com/s/k8PngT7afosSxUJSECRtJA)
 * [ ] 了解 Array、Object 源码实现机制
 * [ ] 了解 Iterator
