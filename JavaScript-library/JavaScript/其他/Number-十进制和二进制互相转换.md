@@ -1,33 +1,46 @@
-十进制和二进制互相转换
+Number - 十进制和二进制互相转换
 ===
 
 > create by **jsliang** on **2020-01-29 21:32:38**  
-> Recently revised in **2020-6-23 22:43:12**
+> Recently revised in **2020-6-24 08:48:45**
 
-## 一 前言
+## <a name="chapter-one" id="chapter-one"></a>一 目录
 
-请问：
+**不折腾的前端，和咸鱼有什么区别**
+
+| 目录 |
+| --- |
+| [一 目录](#chapter-one) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 字符串求和/求差](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 十进制转二进制](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 二进制转十进制](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 总结](#chapter-six) |
+
+## <a name="chapter-two" id="chapter-two"></a>二 前言
+
+> [返回目录](#chapter-one)
+
+在刷题的生涯中，你会碰到让你尴尬的一个问题：
 
 1. 十进制转二进制怎么转？
 2. 二进制转十进制怎么转？
 
-问倒一批人的问题，咱们看看吧~
-
-有些小伙伴可能比较熟练，因为这两个问题在 JavaScript 中都提供了工具：
+如果小伙伴对 JS 的 API 相当熟练，那么就是信手拈来：
 
 * 十进制转二进制：`num.toString(2)`
 * 二进制转十进制：`parseInt(num, 2)`
 
-所以直接对需要转换的数套用这两个即可。
+因为这两个问题在 JavaScript 中都提供了工具，所以直接对需要转换的数套用这两个即可。
 
 然而，咱们更进一步探讨下：
 
 1. 如果需要提升性能
 2. 如果需要转换大数
 
-这里的 `toString` 是 `Number.prototype.toString()`，咱们看 MDN 中关于这个 `toString()` 用法的介绍：
+为什么要这么说？咱们拿 `toString()` 来看：
 
-* https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toString
+* [MDN - toString()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
 
 ```
 阐述：toString() 方法返回指定 Number 对象的字符串表示形式。
@@ -48,46 +61,30 @@
 
 很好，看到这里我们可以清晰清楚，`Number.prototype.toString()` 对于负数是无能为力的。
 
-同时，在 LeetCode 题目【1018-可被5整除的二进制前缀】中，**jsliang** 还发现，大数（超过 JavaScript 限制）也无法被准确转换成二进制。
+同时，在 LeetCode 题目【1018-可被5整除的二进制前缀】中，**jsliang** 还发现，大数（超过 JavaScript 的 `Number.MAX_SAFE_INTEGER` 限制）也无法被准确转换成二进制。
 
-> 
-
-在那会，迫切希望知道如何将二进制转出十进制的个位数来，因为个位数为 5 或者为 0 才能被 5 整除。
+这种情况下，迫切希望知道如何将二进制转出十进制的个位数来，因为个位数为 5 或者为 0 才能被 5 整除。
 
 但是，找了老久，网上搜索 **JS 二进制转十进制**，得到的全是 `num.toString(2)` 或者 `parseInt(num, 2)`。
 
-无法，换了关键字，直接搜 **二进制转十进制**，找到一篇不错的非代码讲解：
+无法，换了关键字，直接搜 **二进制转十进制**，找到几篇不错的非代码讲解：
 
 * https://www.cnblogs.com/web-record/p/11132861.html
 * https://www.cnblogs.com/xkfz007/articles/2590472.html
 
-那么咱们开始转换成编程语言~
+那么咱们开始转换成编程语言，这样以后刷题，咱们就可以直接套用了！
 
-## 二 正整数转二进制
+## <a name="chapter-three" id="chapter-three"></a>三 字符串求和/求差
 
-```js
-const decimalToBinary = (number) => {
-  let result = '';
+> [返回目录](#chapter-one)
 
-  while (number >= 1) {
-    result = number % 2 + result;
-    number = Math.floor(number / 2);
-  }
-
-  return result;
-};
-
-console.log(decimalToBinary(10)); // 1010
-console.log(decimalToBinary(42)); // 101010
-```
-
-## 三 负整数转二进制
-
-字符串求和的可以弄成共用函数：
+**jsliang** 在编写这篇文章的过程中，发现字符串求和的可以弄成共用函数，然后直接打爆里面 2 道题：
 
 * [67. 二进制求和](https://leetcode-cn.com/problems/add-binary/)
 * [415. 字符串相加](https://leetcode-cn.com/problems/add-strings/)
 
+> 字符串求和（支持 2 进制和 10 进制）
+
 ```js
 /**
 * @name stringAddtion
@@ -124,84 +121,60 @@ const stringAddtion = (a = '', b = '', base = 10) => {
 };
 ```
 
-然后看负整数转二进制：
+同样，字符串求差有没有题目不知道，因为 **jsliang** 刷题太多，忘记是否有求差的了，但是因为下面会用到，所以这里提取出来放着：
+
+> 字符串求差（支持 2 进制和 10 进制）
 
 ```js
 /**
-* @name stringAddtion
-* @description 字符串求和
-* @param {string} a 加数一
-* @param {string} b 加数二
+* @name stringDifference
+* @description 字符串求差
+* @param {string} a 减数一
+* @param {string} b 减数二
 * @param {any} base 基数（默认十进制）
 * @return 返回计算结果
 */
-const stringAddtion = (a = '', b = '', base = 10) => {
+const stringDifference = (a = '', b = '', base = 10) => {
   // 结果
   let result = '';
-  // 进位标记
+  // 借位标记
   let carry = 0;
   // 设置 a、b 的长度，方便逆序遍历
   let aIndex = a.length - 1, bIndex = b.length - 1;
-  while (aIndex >= 0 || bIndex >= 0) { // a 或 b 还有位可以相加
-    // aIndex bIndex可能为负数值，需要转化为 0
-    sum = (+a[aIndex] || 0) + (+b[bIndex] || 0) + carry;
-    // 是否需要进位
-    carry = sum >= base ? 1 : 0;
+  while (aIndex >= 0 || bIndex >= 0) { // a 或 b 还有位可以相减
+    // 判断是否需要借位
+    let reduce = 0;
+    if ((+a[aIndex] || 0) < (+b[bIndex] || 0)) {
+      reduce = (+a[aIndex] || 0) + base - (+b[bIndex]);
+      carry = 1;
+    } else {
+      reduce = (+a[aIndex] || 0) - (+b[bIndex] || 0) - carry;
+      carry = 0;
+    }
     // 计算最终结果
-    result = sum % base + result;
+    result = reduce % base + result;
     // 移位后往更高位靠
     aIndex--;
     bIndex--;
   }
-  // 如果计算完毕后还有进位，那么前面 + 1
-  if (carry) {
-    result = '1' + result;
-  }
+
   // 返回最终结果
   return result;
 };
-
-/**
-* @name decimalToBinary
-* @description 正负整数转二进制
-* @param {any} number 需要转换的数字
-* @return 二进制字符串
-*/
-const decimalToBinary = (number) => {
-  let result = '';
-
-  // 正整数
-  if (number >= 0) {
-    while (number >= 1) {
-      result = number % 2 + result;
-      number = Math.floor(number / 2);
-    }
-  } else { // 负整数
-    // 转正
-    number = -number;
-    // 求二进制并取反
-    while (number >= 1) {
-      if (number % 2 === 1) {
-        result = '0' + result;
-      } else {
-        result = '1' + result;
-      }
-      number = Math.floor(number / 2);
-    }
-    // 加一
-    result = stringAddtion(result, '1', 2);
-  }
-
-  return result;
-};
-
-console.log(decimalToBinary(10)); // 1010
-console.log(decimalToBinary(42)); // 101010
-console.log(decimalToBinary(-10)); // 0110
-console.log(decimalToBinary(-42)); // 010110
 ```
 
-## 四 整数部分为 0 的小数转二进制
+## <a name="chapter-four" id="chapter-four"></a>四 十进制转二进制
+
+> [返回目录](#chapter-one)
+
+注意！这里的十进制转二进制包括：
+
+* 正整数 [0, n]
+* 负整数 [n, 0)
+* 小数 (0, 1)
+* 小数 (1, n)
+
+**不包括负小数** **不包括负小数** **不包括负小数** 重要的事说三遍，如果你需要，私聊我，看心情补补了~
 
 ```js
 /**
@@ -301,7 +274,7 @@ const floorGTROne = (number) => {
   let result = '';
   const integer = Math.floor(number);
   const decimal = number - integer;
-  result += integerGEQZero(integer) + floorBetweenZeroOne(decimal);
+  result += integerGEQZero(integer) + '.' + floorBetweenZeroOne(decimal).split('.')[1];
   return result;
 };
 
@@ -364,15 +337,24 @@ console.log(decimalToBinary(0.125)); // 0.001
 console.log(decimalToBinary(0.8125)); // 0.1101
 
 // 小数转二进制 (1, n)
-console.log(decimalToBinary(6.125)) // 1100.001
-console.log(decimalToBinary(173.8125)) // 101011010.1101
+console.log(decimalToBinary(6.125)) // 110.001
+console.log(decimalToBinary(173.8125)) // 10101101.1101
 ```
 
-## 五 整数部分大于 0 的小数转二进制
+## <a name="chapter-five" id="chapter-five"></a>五 二进制转十进制
 
-如上
+> [返回目录](#chapter-one)
 
-## 六 二进制转十进制正整数
+注意！这里的二进制转十进制包括：
+
+* 正整数 [0, n]
+* 负整数 [n, 0)
+* 小数 (0, 1)
+* 小数 (1, n)
+
+**不包括负小数** **不包括负小数** **不包括负小数** 重要的事说三遍，如果你需要，私聊我，看心情补补了~
+
+其实就是上面代码的计算的逆推……但是逆推也是挺累的好伐 -_-
 
 ```js
 /**
@@ -472,6 +454,9 @@ const integerLSSZero = (binary) => {
 const floorGTROne = (binary) => {
   let result = 0;
 
+  const [integer, decimal] = binary.split('.');
+  result = integerGEQZero(integer) + floorBetweenZeroOne('0.' + decimal);
+
   return result;
 };
 
@@ -483,6 +468,12 @@ const floorGTROne = (binary) => {
 */
 const floorBetweenZeroOne = (binary) => {
   let result = 0;
+
+  binary = binary.replace('.', ''); // 去掉小数点
+
+  for (let i = 0; i < binary.length; i++) {
+    result += Number(binary[i]) * Math.pow(2, -i);
+  }
 
   return result;
 };
@@ -496,45 +487,55 @@ const floorBetweenZeroOne = (binary) => {
 const binaryToDecimal = (binary) => {
   let result = 0; // 设置结果集
 
-  // 不足 8 位则补全 8 位
-  if (binary.length < 8) {
-    binary = '0'.repeat(8 - binary.length) + binary;
-  }
+  if (!binary.includes('.')) { // 不带小数点的
 
-  if (binary[0] === '0') { // 首位为 0 则是正整数
-    result = integerGEQZero(binary);
-  } else if (binary[0] === '1') { // 首位为 1 则是负整数
-    result = integerLSSZero(binary);
+    // 不足 8 位则补全 8 位
+    if (binary.length < 8) {
+      binary = '0'.repeat(8 - binary.length) + binary;
+    }
+
+    if (binary[0] === '0') { // 首位为 0 则是正整数 [0, n]
+      result = integerGEQZero(binary);
+    } else if (binary[0] === '1') { // 首位为 1 则是负整数 [n, 0)
+      result = integerLSSZero(binary);
+    }
+  } else { // 带小数点的
+
+    if (binary.split('.')[0] === '0') { // 如果整数部位只有 0 (0, 1)
+      result = floorBetweenZeroOne(binary);
+    } else { // 如果整数部位大于 0 (1, n)
+      result = floorGTROne(binary);
+    }
   }
 
   return result;
 };
 
-// 正整数转二进制 [0, n]
+// 二进制转正整数 [0, n]
 console.log(binaryToDecimal('1010')); // 10
 console.log(binaryToDecimal('101010')); // 42
 
-// 负整数转二进制 [n, 0)
-console.log(binaryToDecimal('11101011')); // -20
+// 二进制转负整数 [n, 0)
+console.log(binaryToDecimal('11101011')); // -21
 console.log(binaryToDecimal('11110110')); // -10
 console.log(binaryToDecimal('11010110')); // -42
 
-// 小数转二进制 (0, 1)
-// 0.125 <-> 0.001
-// 0.8125 <-> 0.1101
+// 二进制转小数 (0, 1)
+console.log(binaryToDecimal('0.001')); // 0.125
+console.log(binaryToDecimal('0.1101')); // 0.8125
 
-// 小数转二进制 (1, n)
-// 6.125 <-> 1100.001
-// 173.8125 <-> 101011010.1101
+// 二进制转小数 (1, n)
+console.log(binaryToDecimal('110.001')); // 6.125
+console.log(binaryToDecimal('10101101.1101')); // 173.8125
 ```
 
-## 七 二进制转十进制负整数
+## <a name="chapter-six" id="chapter-six"></a>六 总结
 
-## 八 二进制转十进制浮点数
-
-## 九 总结
+> [返回目录](#chapter-one)
 
 以上，就是本次的探索了~
+
+是的，不带任何讲解……
 
 小伙伴们可以结合《加减危机》进行食用：
 
@@ -544,14 +545,14 @@ console.log(binaryToDecimal('11010110')); // -42
 
 ---
 
-> **jsliang** 广告推送：  
-> 也许小伙伴想了解下云服务器  
-> 或者小伙伴想买一台云服务器  
-> 或者小伙伴需要续费云服务器  
-> 欢迎点击 **[云服务器推广](https://github.com/LiangJunrong/document-library/blob/master/other-library/Monologue/%E7%A8%B3%E9%A3%9F%E8%89%B0%E9%9A%BE.md)** 查看！
+**不折腾的前端，和咸鱼有什么区别！**
 
-[![图](../../../public-repertory/img/z-small-seek-ali-3.jpg)](https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=w7hismrh)
-[![图](../../../public-repertory/img/z-small-seek-tencent-2.jpg)](https://cloud.tencent.com/redirect.php?redirect=1014&cps_key=49f647c99fce1a9f0b4e1eeb1be484c9&from=console)
+![图](https://github.com/LiangJunrong/document-library/blob/master/public-repertory/img/z-index-small.png?raw=true)
+
+**jsliang** 会每天更新一道 LeetCode 题解，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构。
+
+**浪子神剑** 会每天更新面试题，以面试题为驱动来带动大家学习，坚持每天学习与思考，每天进步一点！
+
+扫描上方二维码，关注 **jsliang** 的公众号（左）和 **浪子神剑** 的公众号（右），让我们一起折腾！
 
 > <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
-> 
