@@ -2,7 +2,7 @@ Number - 十进制和二进制互相转换
 ===
 
 > create by **jsliang** on **2020-01-29 21:32:38**  
-> Recently revised in **2020-6-24 08:48:45**
+> Recently revised in **2020-6-24 08:53:03**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -539,7 +539,7 @@ console.log(binaryToDecimal('10101101.1101')); // 173.8125
 
 小伙伴们可以结合《加减危机》进行食用：
 
-* https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%85%B6%E4%BB%96/%E5%8A%A0%E5%87%8F%E5%8D%B1%E6%9C%BA.md
+* https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/%E5%85%B6%E4%BB%96/Number%20-%20%E5%8A%A0%E5%87%8F%E5%8D%B1%E6%9C%BA.md
 
 如果小伙伴们发现文章有误，欢迎指正~
 
