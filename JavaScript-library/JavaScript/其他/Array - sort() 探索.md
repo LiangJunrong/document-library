@@ -1,4 +1,4 @@
-Array.prototype.sort() 探索
+Array - sort() 探索
 ===
 
 > Create by **jsliang** on **2020-4-8 21:53:07**  
