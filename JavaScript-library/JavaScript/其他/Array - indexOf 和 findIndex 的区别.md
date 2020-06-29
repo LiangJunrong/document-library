@@ -1,4 +1,4 @@
-indexOf 和 findIndex 的区别
+Array - indexOf 和 findIndex 的区别
 ===
 
 > create by **jsliang** on **2020-01-09 19:42:06**  
