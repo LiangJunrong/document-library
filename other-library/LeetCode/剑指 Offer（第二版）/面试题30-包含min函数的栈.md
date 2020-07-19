@@ -137,19 +137,6 @@ minStack.pop();
 console.log(minStack.top()); // 返回 0.
 console.log(minStack.min()); // 返回 -2.
 */
-
-const minStack = new MinStack();
-minStack.push(2);
-minStack.push(0);
-minStack.push(3);
-minStack.push(0);
-console.log(minStack.min());
-minStack.pop();
-console.log(minStack.min());
-minStack.pop();
-console.log(minStack.min());
-minStack.pop();
-console.log(minStack.min());
 ```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 统计分析
