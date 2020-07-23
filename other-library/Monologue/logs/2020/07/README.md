@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-01 10:14:12**  
-> Recently revised in **2020-07-23 10:09:25**  
+> Recently revised in **2020-07-23 10:09:56**  
 
 ## 待完成
 
@@ -17,6 +17,7 @@
 * [ ] VS Code 插件开发：实现 `import style from './style.css'` 这种情况的时候，点击 `<div className={style.colorRed}></div>` 能打开到定义的位置 ????
 * [ ] VS Code 插件开发：实现待输入提示，在文件中输入 `src` 的时候，找到 `src` 目录下所有文件夹进行提示 ???
 * [ ] 阅读文章并对 `new` & `this` 进行梳理：[【微信公众号】《再来40道this面试题酸爽继续(1.2w字用手整理)》](https://mp.weixin.qq.com/s/k8PngT7afosSxUJSECRtJA) ????
+* [ ] 迷宫
 
 ## 汇总统计
 
