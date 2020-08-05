@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-24 17:38:49**  
-> Recently revised in **2020-07-24 17:44:04**  
+> Recently revised in **2020-08-05 14:20:34**
 
 模板：
 
@@ -33,3 +33,25 @@ const DFS = (curr, target, visited) => {
 ```
 
 当我们递归地实现 DFS 时，似乎不需要使用任何栈。但实际上，我们使用的是由系统提供的隐式栈，也称为调用栈（Call Stack）。
+
+> 递归树
+
+```js
+const recursion = (root) => {
+  // 判断是否已经到底了
+  if (!root) {
+    return;
+  }
+  // 如果存在左节点和右节点，进行遍历
+  if (root.left) {
+    recursion(root.left);
+  }
+  if (root.right) {
+    recursion(root.right);
+  }
+};
+```
+
+## 入门
+
+* 【简单】938-二叉搜索树的范围和
