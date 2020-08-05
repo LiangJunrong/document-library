@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-24 17:38:49**  
-> Recently revised in **2020-08-05 15:24:41**
+> Recently revised in **2020-08-05 16:04:32**
 
 模板：
 
@@ -52,8 +52,20 @@ const recursion = (root) => {
 };
 ```
 
+> 递归斐波那契数列
+
+```js
+const fibonacci = (n) => {
+  if (n === 1 || n === 2) {
+    return 1;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2);
+};
+```
+
 ## 入门
 
+* 【简单】1137-第 N 个泰波那契数
 * 【简单】938-二叉搜索树的范围和
 * 【简单】530-二叉搜索树的最小绝对差
 * 【简单】783-二叉搜索树节点最小距离
