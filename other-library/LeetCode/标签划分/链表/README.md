@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-10 15:53:40**  
-> Recently revised in **2020-08-10 16:01:08**
+> Recently revised in **2020-08-10 16:58:18**
 
 * [力扣刷题总结之链表 - algsCG](https://leetcode-cn.com/circle/article/YGr54o/)
 
@@ -10,6 +10,8 @@
 
 * 【简单】206-反转链表
 * 【简单】剑指 Offer 24-反转链表
+* 【简单】21-合并两个有序链表
+* 【简单】剑指 Offer 25-合并两个排序的链表
 * 【中等】24-两两交换链表中的节点
 
 ## 熟练
