@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-14 10:45:58**  
-> Recently revised in **2020-08-17 10:53:13**
+> Recently revised in **2020-08-17 11:28:47**
 
 ## 一 理论知识
 
@@ -143,3 +143,6 @@ const dict_overflow = [2];
 
 * 【简单】【入门】[705-设计哈希集合](https://leetcode-cn.com/problems/design-hashset)
 * 【简单】【入门】[217-存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/)
+* 【简单】【入门】[136-只出现一次的数字](https://leetcode-cn.com/problems/single-number/)
+* 【简单】【入门】[349-两个数组的交集](https://leetcode-cn.com/problems/intersection-of-two-arrays/)
+* 【简答】【入门】[202-快乐数](https://leetcode-cn.com/problems/happy-number/)
