@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-14 10:45:58**  
-> Recently revised in **2020-08-14 17:18:10**
+> Recently revised in **2020-08-17 10:53:13**
 
 ## 一 理论知识
 
@@ -134,3 +134,12 @@ const dict_overflow = [2];
 ## 熟练
 
 ## 精通
+
+## Map - 哈希映射
+
+* 【简单】【入门】[706-设计哈希映射](https://leetcode-cn.com/problems/design-hashmap/)
+
+## Set - 哈希集合
+
+* 【简单】【入门】[705-设计哈希集合](https://leetcode-cn.com/problems/design-hashset)
+* 【简单】【入门】[217-存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/)
