@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-14 10:45:58**  
-> Recently revised in **2020-08-17 14:10:15**
+> Recently revised in **2020-08-17 17:23:15**
 
 ## 一 理论知识
 
@@ -158,6 +158,8 @@ const dict_overflow = [2];
 
 * 【简单】【入门】[706-设计哈希映射](https://leetcode-cn.com/problems/design-hashmap/)
 * 【简单】【入门】[001-两数之和](https://leetcode-cn.com/problems/two-sum/)
+* 【简单】【入门】[205-同构字符串](https://leetcode-cn.com/problems/isomorphic-strings/)
+* 【简单】【入门】[599-两个列表的最小索引总和](https://leetcode-cn.com/problems/minimum-index-sum-of-two-lists/)
 
 ## Set - 哈希集合
 
