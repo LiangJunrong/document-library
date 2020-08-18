@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-14 10:45:58**  
-> Recently revised in **2020-08-18 16:10:55**
+> Recently revised in **2020-08-18 22:40:15**
 
 ## 一 理论知识
 
@@ -151,12 +151,18 @@ const dict_overflow = [2];
 
 ## 入门
 
+* 【简单】[771-宝石与石头](https://leetcode-cn.com/problems/jewels-and-stones/)
+* 【简单】[3-无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+* 【简单】[170-两数之和 III - 数据结构设计](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design/)
+
 ## 熟练
 
+* 【中等】[454-四数相加 II](https://leetcode-cn.com/problems/4sum-ii/)
 * 【中等】[36-有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
 * 【中等】[49-字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
 * 【中等】[249-移位字符串分组](https://leetcode-cn.com/problems/group-shifted-strings/)
 * 【中等】[652-寻找重复的子树](https://leetcode-cn.com/problems/find-duplicate-subtrees/)
+* 【中等】[347-前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/)
 
 ## 精通
 
