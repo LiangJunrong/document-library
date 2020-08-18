@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-14 10:45:58**  
-> Recently revised in **2020-08-17 17:23:15**
+> Recently revised in **2020-08-18 11:22:49**
 
 ## 一 理论知识
 
@@ -147,10 +147,10 @@ const dict_overflow = [2];
 
 ## 入门
 
-* 【简单】【Set】[705-设计哈希集合](https://leetcode-cn.com/problems/design-hashset)
-* 【简单】【Map】[706-设计哈希映射](https://leetcode-cn.com/problems/design-hashmap/)
-
 ## 熟练
+
+* 【中等】[49-字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
+* 【中等】[249-移位字符串分组](https://leetcode-cn.com/problems/group-shifted-strings/)
 
 ## 精通
 
