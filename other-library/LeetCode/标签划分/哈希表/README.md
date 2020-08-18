@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-14 10:45:58**  
-> Recently revised in **2020-08-18 11:22:49**
+> Recently revised in **2020-08-18 16:10:55**
 
 ## 一 理论知识
 
@@ -145,14 +145,22 @@ const dict_overflow = [2];
 1. 单独链接法：对于相同的散列值，我们将它们放到一个桶中，每个桶是相互独立的。
 2. 双散列法：使用两个哈希函数计算散列值，选择碰撞更少的地址。
 
+## 练习题分布
+
+![图](../../../../public-repertory/img/other-algorithms-and-data-structures-linked-hash-1.png)
+
 ## 入门
 
 ## 熟练
 
+* 【中等】[36-有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
 * 【中等】[49-字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
 * 【中等】[249-移位字符串分组](https://leetcode-cn.com/problems/group-shifted-strings/)
+* 【中等】[652-寻找重复的子树](https://leetcode-cn.com/problems/find-duplicate-subtrees/)
 
 ## 精通
+
+* 【中等】[311-稀疏矩阵的乘法](https://leetcode-cn.com/problems/sparse-matrix-multiplication/)
 
 ## Map - 哈希映射
 
