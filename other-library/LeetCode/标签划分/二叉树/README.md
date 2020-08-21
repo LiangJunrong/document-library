@@ -2,11 +2,12 @@
 ===
 
 > Create by **jsliang** on **2020-07-27 17:05:44**  
-> Recently revised in **2020-08-18 15:48:19**
+> Recently revised in **2020-08-21 10:56:55**
 
 ## 入门
 
 * 【简单】104-二叉树的最大深度
+* 【简单】[111-二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/)
 * 【简单】110-平衡二叉树
 * 【中等】94-二叉树的中序遍历
 * 【中等】[652-寻找重复的子树](https://leetcode-cn.com/problems/find-duplicate-subtrees/)
