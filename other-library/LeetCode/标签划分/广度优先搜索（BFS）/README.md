@@ -2,11 +2,12 @@
 ===
 
 > Create by **jsliang** on **2020-07-22 16:49:29**  
-> Recently revised in **2020-08-21 16:35:58**
+> Recently revised in **2020-08-21 17:17:49**
 
 ## 入门
 
 * 【简单】733-图像渲染
+* 【简单】[690-员工的重要性](https://leetcode-cn.com/problems/employee-importance/)
 * 【中等】841-钥匙和房间
 * 【中等】111-二叉树的最小深度
 * 【中等】[1254-统计封闭岛屿的数目](https://leetcode-cn.com/problems/number-of-closed-islands/)
