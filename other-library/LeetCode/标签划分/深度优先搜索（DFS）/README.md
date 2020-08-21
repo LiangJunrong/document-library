@@ -2,12 +2,13 @@
 ===
 
 > Create by **jsliang** on **2020-07-24 17:47:48**  
-> Recently revised in **2020-08-21 16:36:14**
+> Recently revised in **2020-08-21 17:17:34**
 
 ## 入门
 
 * 【简单】733-图像渲染
-* 【总等】841-钥匙和房间
+* 【简单】[690-员工的重要性](https://leetcode-cn.com/problems/employee-importance/)
+* 【中等】841-钥匙和房间
 * 【中等】200-岛屿数量
 * 【中等】494-目标和
 * 【中等】394-字符串解码
