@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-23 20:32:47**  
-> Recently revised in **2020-08-23 20:35:24**
+> Recently revised in **2020-08-23 21:07:12**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -21,10 +21,10 @@
 * **地址**：https://leetcode-cn.com/contest/weekly-contest-203/
 * **题目**：
 
-1. [圆形赛道上经过次数最多的扇区](https://leetcode-cn.com/contest/weekly-contest-203/problems/most-visited-sector-in-a-circular-track/)
-2. [你可以获得的最大硬币数目](https://leetcode-cn.com/contest/weekly-contest-203/problems/maximum-number-of-coins-you-can-get/)
-3. [查找大小为 M 的最新分组](https://leetcode-cn.com/contest/weekly-contest-203/problems/find-latest-group-of-size-m/)
-4. [石子游戏 V](https://leetcode-cn.com/contest/weekly-contest-203/problems/stone-game-v/)
+1. 【简单】[圆形赛道上经过次数最多的扇区](https://leetcode-cn.com/contest/weekly-contest-203/problems/most-visited-sector-in-a-circular-track/)
+2. 【中等】[你可以获得的最大硬币数目](https://leetcode-cn.com/contest/weekly-contest-203/problems/maximum-number-of-coins-you-can-get/)
+3. 【中等】[查找大小为 M 的最新分组](https://leetcode-cn.com/contest/weekly-contest-203/problems/find-latest-group-of-size-m/)
+4. 【中等】[石子游戏 V](https://leetcode-cn.com/contest/weekly-contest-203/problems/stone-game-v/)
 
 * **名次**：2641/5284
 
