@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-24 17:38:49**  
-> Recently revised in **2020-08-12 16:32:53**
+> Recently revised in **2020-08-25 10:39:37**
 
 ## 前提说明
 
@@ -98,6 +98,10 @@ const fibonacci = (n, map = [1, 1, 2]) => {
   return map[n];
 };
 ```
+
+## 经典
+
+* 【中等】[491-递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/)
 
 ## 入门
 
