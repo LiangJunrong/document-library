@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-22 16:49:29**  
-> Recently revised in **2020-08-24 10:18:35**
+> Recently revised in **2020-08-27 22:00:21**
 
 ## 入门
 
@@ -22,6 +22,7 @@
 
 ## 精通
 
+* 【中等】[127-单词接龙](https://leetcode-cn.com/problems/word-ladder/)
 
 ## 树
 
