@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-22 16:49:29**  
-> Recently revised in **2020-08-27 22:00:21**
+> Recently revised in **2020-08-28 14:06:45**
 
 ## 入门
 
@@ -28,4 +28,6 @@
 
 * 【简单】[104-二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
 * 【简单】[剑指 Offer 55 - I-二叉树的深度](https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/)
+* 【中等】[102-二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+* 【中等】[199-二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view)
 * 【中等】[111-二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree)
