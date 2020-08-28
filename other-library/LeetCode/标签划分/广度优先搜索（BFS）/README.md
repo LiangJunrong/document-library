@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-22 16:49:29**  
-> Recently revised in **2020-08-28 14:06:45**
+> Recently revised in **2020-08-28 15:51:31**
 
 ## 入门
 
@@ -10,6 +10,7 @@
 * 【简单】[面试题 08.10. 颜色填充](https://leetcode-cn.com/problems/color-fill-lcci/)
 * 【简单】[690-员工的重要性](https://leetcode-cn.com/problems/employee-importance/)
 * 【中等】[841-钥匙和房间](https://leetcode-cn.com/problems/keys-and-rooms)
+* 【中等】[994-腐烂的橘子](https://leetcode-cn.com/problems/rotting-oranges)
 * 【中等】[1254-统计封闭岛屿的数目](https://leetcode-cn.com/problems/number-of-closed-islands/)
 
 ## 熟练
@@ -29,5 +30,6 @@
 * 【简单】[104-二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
 * 【简单】[剑指 Offer 55 - I-二叉树的深度](https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/)
 * 【中等】[102-二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+* 【中等】[103-二叉树的锯齿形层次遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)
 * 【中等】[199-二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view)
 * 【中等】[111-二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree)
