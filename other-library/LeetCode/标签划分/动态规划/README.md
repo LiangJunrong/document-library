@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-24 14:33:51**  
-> Recently revised in **2020-08-05 09:16:08**
+> Recently revised in **2020-09-01 10:25:02**
 
 ## 简单
 
@@ -13,6 +13,7 @@
 
 ## 熟练
 
+* 【中等】[486-预测赢家](https://leetcode-cn.com/problems/predict-the-winner/)
 * 【中等】239-完全平方数
 
 ## 系列：打家劫舍
