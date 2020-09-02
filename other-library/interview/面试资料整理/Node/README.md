@@ -17,7 +17,15 @@ Node 资料整理
 
 > [返回目录](#chapter-one)
 
-
+* [ ] [一篇文章构建你的 NodeJS 知识体系](https://juejin.im/post/5c4c0ee8f265da61117aa527)
+* [ ] [真-Node多线程](https://juejin.im/post/5c63b5676fb9a049ac79a798)
+* [ ] [浏览器与Node的事件循环(Event Loop)有何区别?](https://zhuanlan.zhihu.com/p/54882306)
+* [ ] [聊聊 Node.js RPC](https://www.yuque.com/egg/nodejs/dklip5)
+* [ ] [Understanding Streams in Node.js](https://nodesource.com/blog/understanding-streams-in-nodejs)
+* [ ] [深入理解 Node.js 进程与线程](https://mp.weixin.qq.com/s/VzXnnfn4gCBMd5wea3LRIg)
+* [ ] [如何通过饿了么 Node.js 面试](https://github.com/ElemeFE/node-interview/tree/master/sections/zh-cn)
+* [ ] [字节跳动面试官：请你实现一个大文件上传和断点续传](https://juejin.im/post/5dff8a26e51d4558105420ed)
+* [ ] []()
 
 ---
 
