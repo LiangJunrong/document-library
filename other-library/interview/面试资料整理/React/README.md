@@ -17,7 +17,49 @@ React 资料整理
 
 > [返回目录](#chapter-one)
 
+复习知识点：
+
+* [ ] MVVM
+* [ ] 生命周期
+* [ ] 数据绑定
+* [ ] 状态管理
+* [ ] 组件通信
+* [ ] computed/watch 原理
+* [ ] Virtual DOM
+* [ ] diff
+* [ ] React Hook
+* [ ] React Hoc/Vue mixin
+* [ ] Vue 和 React 有什么不同
+* [ ] ...
+
+### 源码
+
 * [ ] [React 源码剖析系列 － 生命周期的管理艺术](https://zhuanlan.zhihu.com/p/20312691)
+* [ ] [Deep In React 之详谈 React 16 Diff 策略(二)](https://juejin.im/post/5d3e3231e51d4510926a7c39)
+* [ ] [React 源码剖析系列 － 不可思议的 react diff](https://zhuanlan.zhihu.com/p/20346379)
+* [ ] [浅入浅出图解 Dom Diff](https://juejin.im/post/5ad550f06fb9a028b4118d99)
+
+### React Hooks
+
+* [ ] [React Hooks 原理](https://github.com/brickspert/blog/issues/26)
+* [ ] [React hooks: not magic, just arrays](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
+* [ ] [Deep dive: How do React hooks really work?](https://www.netlify.com/blog/2019/03/11/deep-dive-how-do-react-hooks-really-work/)
+* [ ] [【React深入】从Mixin到HOC再到Hook](https://juejin.im/post/5cad39b3f265da03502b1c0a)
+* [ ] [React Hooks 详解 【近 1W 字】+ 项目实战](https://juejin.im/post/5dbbdbd5f265da4d4b5fe57d)
+* [ ] [30分钟精通React今年最劲爆的新特性——React Hooks](https://segmentfault.com/a/1190000016950339)
+* [ ] [React Hooks 详解（一）](http://huayifeng.top:2368/react-hooks/)
+
+### React Hoc
+
+* [ ] [React 高阶组件(HOC)入门指南](https://juejin.im/post/5914fb4a0ce4630069d1f3f6)
+* [ ] [深入理解 React 高阶组件](https://zhuanlan.zhihu.com/p/24776678)
+
+### Vue 和 React 的对比
+
+从思想、生态、语法、数据、通信、diff等角度自己总结一下吧。
+
+* [ ] []()
+* [ ] []()
 
 ---
 
