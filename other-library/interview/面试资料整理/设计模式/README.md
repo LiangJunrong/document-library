@@ -17,7 +17,14 @@
 
 > [返回目录](#chapter-one)
 
+* [ ] [Javascript常用的设计模式详解](https://www.cnblogs.com/tugenhua0707/p/5198407.html)
+* [ ] [JavaScript设计模式](https://juejin.im/post/59df4f74f265da430f311909)
+* [ ] [JavaScript 中常见设计模式整理](https://juejin.im/post/5afe6430518825428630bc4d)
+* [ ] [JavaScript 常见设计模式解析](https://juejin.im/post/58f4c702a0bb9f006aa80f25)
+* [ ] [深入 JavaScript 设计模式，从此有了优化代码的理论依据](https://juejin.im/post/5d58ca046fb9a06ad0056cc7)
+* [ ] [设计模式之美-前端](https://zhuanlan.zhihu.com/p/111553641)
 
+* [ ] []()
 
 ---
 
