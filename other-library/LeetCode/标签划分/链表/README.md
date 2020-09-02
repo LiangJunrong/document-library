@@ -2,8 +2,9 @@
 ===
 
 > Create by **jsliang** on **2020-08-10 15:53:40**  
-> Recently revised in **2020-08-10 16:58:18**
+> Recently revised in **2020-09-02 22:09:24**
 
+* [链表 - LeetBook](https://leetcode-cn.com/leetbook/detail/linked-list/)
 * [力扣刷题总结之链表 - algsCG](https://leetcode-cn.com/circle/article/YGr54o/)
 
 ## 入门
