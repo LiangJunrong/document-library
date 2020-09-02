@@ -17,7 +17,22 @@
 
 > [返回目录](#chapter-one)
 
+* [ ] [(1.8w字)负重前行，前端工程师如何系统练习数据结构和算法？](https://juejin.im/post/6844904061947346957)
+* [ ] [Linked Lists in JavaScript (ES6 code)](https://codeburst.io/linked-lists-in-javascript-es6-code-part-1-6dd349c3dcc3)
+* [ ] [DS with JS — Linked Lists — II](https://medium.com/dev-blogs/ds-with-js-linked-lists-ii-3b387596e27e)
+* [ ] [LeetCode List](https://zxi.mytechroad.com/blog/leetcode-list/)
+* [ ] [JS中的算法与数据结构——链表(Linked-list)](https://www.jianshu.com/p/f254ec665e57)
+* [ ] [前端笔试&面试爬坑系列---算法](https://juejin.im/post/5b72f0caf265da282809f3b5)
+* [ ] [漫画：什么是红黑树？](https://juejin.im/post/5a27c6946fb9a04509096248)
+* [ ] [前端你应该了解的数据结构与算法](https://juejin.im/post/5b331bc7f265da598451fd88)
+* [ ] [数据结构和算法在前端领域的应用（前菜）](https://juejin.im/post/5d3dc8466fb9a07efc49d0a9)
+* [ ] [数据结构与算法在前端领域的应用 - 第二篇](https://lucifer.ren/blog/2019/09/19/algorthimn-fe-2/)
+* [ ] [JavaScript 数据结构与算法之美](https://github.com/biaochenxuying/blog/issues/43)
 
+* [ ] []()
+
+1. 接雨水。给定数组 `[1, 8, 6, 2, 5, 4, 8, 3, 7]`，表示容器能容纳水的最大值。
+2. 写一个数组去重。`O(n^2)` 及 `O(n)` 时间复杂度实现
 
 ---
 
