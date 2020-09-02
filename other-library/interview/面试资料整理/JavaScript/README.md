@@ -17,6 +17,21 @@ JavaScript 资料整理
 
 > [返回目录](#chapter-one)
 
+复习知识点：
+
+* [ ] 执行上下文/作用域链/闭包
+* [ ] this/call/apply/bind
+* [ ] 原型/继承
+* [ ] Promise
+* [ ] 深浅拷贝
+* [ ] 事件机制/Event Loop
+* [ ] 函数式编程
+* [ ] service worker/web worker
+* [ ] 常用方法
+* [ ] ...
+
+### 系统
+
 * [ ] [(建议收藏)原生JS灵魂之问, 请问你能接得住几个？(上)](https://juejin.im/post/6844903974378668039)
 * [ ] [(建议精读)原生JS灵魂之问(中)，检验自己是否真的熟悉JavaScript？](https://juejin.im/post/6844903986479251464)
 * [ ] [(2.4w字)原生JS灵魂之问(下), 冲刺🚀进阶最后一公里(附个人成长经验分享)](https://juejin.im/post/6844904004007247880)
