@@ -6,8 +6,9 @@
 
 * [链表 - LeetBook](https://leetcode-cn.com/leetbook/detail/linked-list/)
 * [力扣刷题总结之链表 - algsCG](https://leetcode-cn.com/circle/article/YGr54o/)
-* [链表一 - 掘金小册](https://juejin.im/book/6844733800300150797/section/6844733800354676743)
-* [链表二 - 掘金小册](https://juejin.im/book/6844733800300150797/section/6844733800354676744)
+* [链表一 - 掘金小册](https://juejin.im/book/6844733800300150797/section/6844733800350498823)
+* [链表二 - 掘金小册](https://juejin.im/book/6844733800300150797/section/6844733800354676743)
+* [链表三 - 掘金小册](https://juejin.im/book/6844733800300150797/section/6844733800354676744)
 * [小浩算法目录汇总（20200422-第五版）](https://mp.weixin.qq.com/s/3eJNKDTZ5y5icMnfv9Is_w)
 
 ## 入门
