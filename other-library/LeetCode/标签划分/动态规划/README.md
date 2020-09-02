@@ -4,6 +4,9 @@
 > Create by **jsliang** on **2020-07-24 14:33:51**  
 > Recently revised in **2020-09-01 10:25:02**
 
+* [动态规划精讲（一） - LeetBook](https://leetcode-cn.com/leetbook/detail/dynamic-programming-1-plus/)
+* [动态规划精讲（二） - LeetBook](https://leetcode-cn.com/leetbook/detail/dynamic-programming-2-plus/)
+
 ## 简单
 
 * 【中等】061-最小路径和
