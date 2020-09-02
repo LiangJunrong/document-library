@@ -17,7 +17,17 @@ Web 安全资料整理
 
 > [返回目录](#chapter-one)
 
-
+* [ ] [前端安全系列（一）：如何防止XSS攻击？](https://tech.meituan.com/2018/09/27/fe-security.html)
+* [ ] [前端安全系列（二）：如何防止CSRF攻击？](https://tech.meituan.com/2018/10/11/fe-security-csrf.html)
+* [ ] [Security](https://almanac.httparchive.org/en/2019/security)
+* [ ] [前端也需要了解的 JSONP 安全](https://juejin.im/post/5b75b497e51d45666276251d)
+* [ ] [【面试篇】寒冬求职之你必须要懂的Web安全](https://juejin.im/post/5cd6ad7a51882568d3670a8e)
+* [ ] [谈谈对 Web 安全的理解](https://zhuanlan.zhihu.com/p/25486768?group_id=820705780520079360)
+* [ ] [程序员必须要了解的web安全](https://juejin.im/post/5b4e0c936fb9a04fcf59cb79)
+* [ ] [可信前端之路：代码保护](https://www.freebuf.com/articles/web/102269.html)
+* [ ] [前端如何给 JavaScript 加密（不是混淆）？](https://www.zhihu.com/question/47047191)
+* [ ] [常见 Web 安全攻防总结](https://zoumiaojiang.com/article/common-web-security/)
+* [ ] []()
 
 ---
 
