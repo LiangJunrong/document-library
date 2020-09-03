@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 20:53:19**  
-> Recently revised in **2020-09-01 20:53:19**
+> Recently revised in **2020-09-03 17:09:58**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -133,10 +133,6 @@
 * [ ] [GMTC 大前端时代前端监控的最佳实践](https://juejin.im/post/5b35921af265da598f1563cf)
 * [ ] [前端监控和前端埋点方案设计](https://juejin.im/post/5b62d68df265da0f9d1a1cd6)
 * [ ] [腾讯CDC团队：前端异常监控解决方案](https://mp.weixin.qq.com/s/W0i-Iu6nqkWttsGZ-RmOqw)
-
-
-
-* [ ] []()
 
 ---
 
