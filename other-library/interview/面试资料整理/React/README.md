@@ -2,7 +2,7 @@ React 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-02 15:28:53**  
-> Recently revised in **2020-09-02 15:28:53**
+> Recently revised in **2020-09-03 16:50:19**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -32,6 +32,14 @@ React 资料整理
 * [ ] Vue 和 React 有什么不同
 * [ ] ...
 
+### 系统
+
+* [ ] [2019年17道高频React面试题及详解](https://juejin.im/post/5d5f44dae51d4561df7805b4)
+* [ ] [React 16 加载性能优化指南](https://mp.weixin.qq.com/s/XSvhOF_N0VbuOKStwi0IYw)
+* [ ] [React 常用面试题目与分析](https://zhuanlan.zhihu.com/p/24856035#tipjar)
+* [ ] [关于React面试题汇总](https://juejin.im/post/6844903620664623111)
+* [ ] [常见react面试题汇总（适合中级前端）](https://segmentfault.com/a/1190000016885832)
+
 ### 源码
 
 * [ ] [React 源码剖析系列 － 生命周期的管理艺术](https://zhuanlan.zhihu.com/p/20312691)
@@ -41,6 +49,8 @@ React 资料整理
 
 ### React Hooks
 
+* [ ] [【React深入】从Mixin到HOC再到Hook](https://juejin.im/post/5cad39b3f265da03502b1c0a)
+* [ ] [useEffect 完整指南](https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/)
 * [ ] [React Hooks 原理](https://github.com/brickspert/blog/issues/26)
 * [ ] [React hooks: not magic, just arrays](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
 * [ ] [Deep dive: How do React hooks really work?](https://www.netlify.com/blog/2019/03/11/deep-dive-how-do-react-hooks-really-work/)
@@ -58,8 +68,66 @@ React 资料整理
 
 从思想、生态、语法、数据、通信、diff等角度自己总结一下吧。
 
-* [ ] []()
-* [ ] []()
+### 待整理
+
+* [ ] [React 源码解析](https://zhuanlan.zhihu.com/p/28697362)
+* [ ] [从零搭建React全家桶框架教程](https://github.com/brickspert/blog/issues/1)
+* [ ] [让虚拟DOM和DOM-diff不再成为你的绊脚石](https://juejin.im/post/6844903806132568072)
+* [ ] [《React源码解析》系列完结！](https://juejin.im/post/6844903568487497741?utm_medium=fe&utm_source=weixinqun)
+* [ ] [怎样学习React？当然是自己动手实现一个React啦](https://juejin.im/post/6844903593078685709)
+* [ ] [从setState promise化的探讨 体会React团队设计思想](https://zhuanlan.zhihu.com/p/28905707)
+* [ ] [React 应用设计之道 - curry 化妙用](https://zhuanlan.zhihu.com/p/35833143)
+* [ ] [如何评价React的新功能Time Slice 和Suspense？](https://www.zhihu.com/question/268028123)
+* [ ] [React的新引擎—React Fiber是什么](http://www.infoq.com/cn/articles/what-the-new-engine-of-react)
+* [ ] [React源码解析(三):详解事务与更新队列](https://juejin.im/post/6844903511478697998)
+* [ ] [React中的Transaction](https://oychao.github.io/2017/09/25/react/16_transaction/)
+* [ ] [React 源码剖析系列 － 玩转 React Transition](https://zhuanlan.zhihu.com/p/20419592)
+* [ ] [如何提高你的 React 应用的性能](https://juejin.im/post/6844903518826938382)
+* [ ] [将 React 应用优化到 60fps](https://zhuanlan.zhihu.com/p/24959748)
+* [ ] [如何写出更好的 React 代码？](https://juejin.im/post/6844903600989143054)
+* [ ] [React中型项目的优化实践](https://juejin.im/post/6844903619913842696)
+* [ ] [React 源码剖析系列 － 生命周期的管理艺术](https://zhuanlan.zhihu.com/p/20312691)
+* [ ] [深入React的生命周期(上)：出生阶段(Mount)](https://zhuanlan.zhihu.com/p/30757059)
+* [ ] [深入React的生命周期(下)：更新(Update)](https://zhuanlan.zhihu.com/p/30971608)
+* [ ] [你真的了解React吗（上）如何设计组件以及重要的生命周期](https://zhuanlan.zhihu.com/p/27828773)
+* [ ] [React v16.3 版本新生命周期函数浅析及升级方案](https://juejin.im/post/6844903600309665799)
+* [ ] [React ref 的前世今生](https://zhuanlan.zhihu.com/p/40462264)
+* [ ] [谈谈 react 中的 key](https://juejin.im/post/6844903561197781000)
+* [ ] [React Mixin 的前世今生](https://zhuanlan.zhihu.com/p/20361937)
+* [ ] [你真的了解React吗（中）组件间的通信以及React优化](https://zhuanlan.zhihu.com/p/27828866)
+* [ ] [深入框架本源系列 —— Virtual Dom](https://juejin.im/post/6844903615652610055)
+* [ ] [探索Virtual DOM的前世今生](https://zhuanlan.zhihu.com/p/35876032)
+* [ ] [深入框架本源系列 —— Virtual Dom](https://juejin.im/post/6844903615652610055#heading-2)
+* [ ] [React 源码剖析系列 － 不可思议的 react diff](https://zhuanlan.zhihu.com/p/20346379)
+* [ ] [浅入浅出图解domDIff](https://juejin.im/post/6844903592520843277)
+* [ ] [深度剖析：如何实现一个 Virtual DOM 算法](https://github.com/livoras/blog/issues/13)
+* [ ] [React 源码剖析系列 － 解密 setState](https://zhuanlan.zhihu.com/p/20328570)
+* [ ] [setState的秘密](https://juejin.im/post/6844903492130177037)
+* [ ] [setState 之后发生了什么 —— 浅谈 React 中的 Transaction](https://undefinedblog.com/what-happened-after-set-state/)
+* [ ] [你真的理解setState吗？](https://zhuanlan.zhihu.com/p/39512941)
+* [ ] [React 中的高阶组件及其应用场景](https://juejin.im/post/6844903782355042312)
+* [ ] [React 最佳实践](https://segmentfault.com/a/1190000018107137)
+* [ ] [完全理解React Fiber](http://www.ayqy.net/blog/dive-into-react-fiber/)
+* [ ] [React Fiber架构](https://juejin.im/entry/6844903608308236296)
+* [ ] [React Fiber 架构介绍资料汇总](https://segmentfault.com/a/1190000012834204)
+* [ ] [你不知道的Virtual DOM系列](https://segmentfault.com/a/1190000016129036)
+* [ ] [【译】通过Recompose库掌握React函数组件](https://juejin.im/entry/6844903662209204237)
+* [ ] [React-Redux源码分析](https://juejin.im/post/6844903498346135565)
+* [ ] [源码看React setState漫谈（一）](https://segmentfault.com/a/1190000011170740)
+* [ ] [源码看React setState漫谈（二）](https://segmentfault.com/a/1190000011184268)
+* [ ] [精读《用160行js代码实现一个React》](https://juejin.im/post/6844903613270065159)
+* [ ] [还在用 Redux，要不要试试 GraphQL 和 Apollo](https://juejin.im/post/6844903607523868680)
+* [ ] [React 同构实践与思考](https://zhuanlan.zhihu.com/p/20669111)
+* [ ] [React 实现 Table 的思考](https://zhuanlan.zhihu.com/p/20848369)
+* [ ] [React实践 - Component Generator](https://zhuanlan.zhihu.com/p/21386862)
+* [ ] [ReactEurope 2016 小记 - 上](https://zhuanlan.zhihu.com/p/21379350)
+* [ ] [ReactEurope 2016 小记 - 下](https://zhuanlan.zhihu.com/p/21616613)
+* [ ] [Mobx 思想的实现原理，及与 Redux 对比](https://zhuanlan.zhihu.com/p/25585910)
+* [ ] [组件库设计实战 - 复杂组件设计](https://zhuanlan.zhihu.com/p/29034015)
+* [ ] [redux middleware 详解](https://zhuanlan.zhihu.com/p/20597452)
+* [ ] [深入理解 react-router 路由系统](https://zhuanlan.zhihu.com/p/20381597)
+* [ ] [Immutable 详解及 React 中实践](https://zhuanlan.zhihu.com/p/20295971)
+* [ ] [React-Redux源码分析](https://zhuanlan.zhihu.com/p/29723405)
 
 ---
 
