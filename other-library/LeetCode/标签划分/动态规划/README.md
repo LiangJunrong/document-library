@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-24 14:33:51**  
-> Recently revised in **2020-09-03 00:13:02**
+> Recently revised in **2020-09-03 23:14:20**
 
 * [动态规划精讲（一） - LeetBook](https://leetcode-cn.com/leetbook/detail/dynamic-programming-1-plus/)
 * [动态规划精讲（二） - LeetBook](https://leetcode-cn.com/leetbook/detail/dynamic-programming-2-plus/)
@@ -354,6 +354,29 @@ const lengthOfLIS = function (nums) {
 };
 ```
 
+## 小浩算法 - 动态规划系列
+
+我们把要解决的一个大问题转换成若干个规模较小的同类型问题，当我们求解出这些小问题的答案，大问题便不攻自破。
+
+同时，在求解这些小问题的过程中，我们把需要重复计算的答案记录下来放在数组中，下次如果遇到同样的小问题需要计算，便直接查询出结果。
+
+这就是动态规划。
+
+DP 比固定形式的算法，例如 DFS、二分法、KMP 等，难度在于没有固定的步骤规定第一步第二步做什么，所以 DP 更应该被看作是一种解决问题的思想。
+
+这种思想的本质是：碰到一个规模较大的问题（可以用两三个参数表示），通过若干规模较小的问题的结果来得到（通常会寻求一些特殊的计算逻辑，如求最值等）
+
+通过 5 道题目了解动态规划：
+
+1. 70-爬楼梯
+2. 53-最大子序和
+3. 300-最长上升子序列
+4. 120-三角形最小路径和
+5. 64-最小路径和
+6. 198-打家劫舍
+
+状态的定义并不一定是最终求解的问题答案，自然也就不能想当然的到最后返回一个 `dp[i]` 就觉得完事，具体问题具体分析，把握住状态的含义才是核心。（谨记）
+
 ## 待训练
 
 * [70-爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
@@ -361,6 +384,16 @@ const lengthOfLIS = function (nums) {
 * [面试题 08.11-硬币](https://leetcode-cn.com/problems/coin-lcci/)
 * [01 背包问题]()
 * [300-最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+* [53-最大子序和](https://leetcode-cn.com/problems/maximum-subarray)
+* [120-三角形最小路径和](https://leetcode-cn.com/problems/triangle)
+* [64-最小路径和](https://leetcode-cn.com/problems/minimum-path-sum)
+* [198-打家劫舍](https://leetcode-cn.com/problems/house-robber)
+* [213-打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii)
+* [337-打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii)
+* [343-整数拆分](https://leetcode-cn.com/problems/integer-break)
+* [62-不同路径](https://leetcode-cn.com/problems/unique-paths/)
+* [63-不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii/)
+* [980-不同路径 III](https://leetcode-cn.com/problems/unique-paths-iii/)
 
 ## 简单
 
