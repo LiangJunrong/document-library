@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-02 14:48:58**  
-> Recently revised in **2020-09-02 14:48:58**
+> Recently revised in **2020-09-03 16:50:34**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -18,6 +18,11 @@
 > [返回目录](#chapter-one)
 
 * [ ] [(1.6w字)浏览器灵魂之问，请问你能接得住几个？](https://juejin.im/post/6844904021308735502)
+* [ ] [前端必须要懂的浏览器缓存机制](https://juejin.im/entry/6844903599537930253)
+* [ ] [浏览器的回流与重绘 (Reflow & Repaint)](https://juejin.im/post/6844903569087266823)
+* [ ] [深入浅出浏览器渲染原理](https://zhuanlan.zhihu.com/p/53913989)
+* [ ] [抛弃console.log()，拥抱浏览器Debugger](https://zhuanlan.zhihu.com/p/52077620)
+* [ ] [细说浏览器输入URL后发生了什么](https://juejin.im/post/5e32449d6fb9a02fe4581907)
 
 ---
 
