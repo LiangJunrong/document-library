@@ -2,7 +2,7 @@ TypeScript 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 21:05:22**  
-> Recently revised in **2020-09-03 16:49:53**
+> Recently revised in **2020-09-03 17:07:34**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -42,7 +42,6 @@ TypeScript 资料整理
 * [ ] [TypeScript泛型](https://jkchao.github.io/typescript-book-chinese/typings/generices.html)
 * [ ] [TypeScript 重构 Axios 经验分享](https://juejin.im/post/5bf7f1c0e51d455ed74f625c)
 * [ ] [手把手教写 TypeScript Transformer Plugin](https://juejin.im/post/5a0a54425188253edc7f6e79)
-* [ ] []()
 
 ---
 
