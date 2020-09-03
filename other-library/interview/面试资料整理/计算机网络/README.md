@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:06:05**  
-> Recently revised in **2020-09-03 16:50:53**
+> Recently revised in **2020-09-03 16:59:43**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -106,9 +106,6 @@
 
 * [ ] [从输入URL到页面展示，这中间发生了什么？](https://time.geekbang.org/column/article/117637)
 * [ ] [前端经典面试题: 从输入URL到页面加载发生了什么？](https://segmentfault.com/a/1190000006879700)
-
-
-* [ ] []()
 
 ---
 
