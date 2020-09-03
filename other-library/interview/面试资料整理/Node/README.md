@@ -2,7 +2,7 @@ Node 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 21:11:54**  
-> Recently revised in **2020-09-01 21:11:54**
+> Recently revised in **2020-09-03 16:49:38**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -25,7 +25,10 @@ Node 资料整理
 * [ ] [深入理解 Node.js 进程与线程](https://mp.weixin.qq.com/s/VzXnnfn4gCBMd5wea3LRIg)
 * [ ] [如何通过饿了么 Node.js 面试](https://github.com/ElemeFE/node-interview/tree/master/sections/zh-cn)
 * [ ] [字节跳动面试官：请你实现一个大文件上传和断点续传](https://juejin.im/post/5dff8a26e51d4558105420ed)
-* [ ] []()
+* [ ] [一篇文章构建你的 NodeJS 知识体系](https://juejin.im/post/6844903767926636558)
+* [ ] [200 多行代码实现 Websocket 协议](https://segmentfault.com/a/1190000016467409)
+* [ ] [浏览器与Node的事件循环(Event Loop)有何区别](https://zhuanlan.zhihu.com/p/54882306)
+* [ ] [NodeJS与模块系统](https://mp.weixin.qq.com/s/uDp0v_1hN0Uzg-EGr1yfgA)
 
 ---
 
