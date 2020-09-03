@@ -17,7 +17,8 @@ HTML 资料整理
 
 > [返回目录](#chapter-one)
 
-* [ ] [html5语义化标签](https://rainylog.com/post/ife-note-1)百度ife的h5语义化文章，讲得很好，很多不错的公司都会问语义化的问题。
+* [ ] [html5语义化标签](https://rainylog.com/post/ife-note-1)
+* [ ] [12个HTML和CSS必须知道的重点难点问题](https://juejin.im/post/6844903567707357197)
 
 ---
 
