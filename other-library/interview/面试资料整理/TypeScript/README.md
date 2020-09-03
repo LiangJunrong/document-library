@@ -2,7 +2,7 @@ TypeScript 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 21:05:22**  
-> Recently revised in **2020-09-01 21:05:22**
+> Recently revised in **2020-09-03 16:49:53**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -24,6 +24,8 @@ TypeScript 资料整理
 
 ### 杂
 
+* [ ] [TypeScript，初次见面，请多指教](https://zhuanlan.zhihu.com/p/57958328)
+* [ ] [可能是你需要的react + typescript 50条规范和经验](https://juejin.im/post/6844903849166110728)
 * [ ] [TypeScript 是什么](https://mp.weixin.qq.com/s/OypiN7HOlUBprYUjJs_Rqw)
 * [ ] [为什么要在javascript中进行静态类型检查](https://www.jianshu.com/p/bda750e2d15e)
 * [ ] [TypeScript Start: 基础类型](https://github.com/axuebin/articles/issues/36)
