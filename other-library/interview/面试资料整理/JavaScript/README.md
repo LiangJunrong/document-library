@@ -30,11 +30,25 @@ JavaScript 资料整理
 * [ ] 常用方法
 * [ ] ...
 
+### 精选
+
+* [ ] [「中高级前端面试」JavaScript手写代码无敌秘籍](https://juejin.im/post/6844903809206976520)
+* [ ] [如何写出一个惊艳面试官的深拷贝?](https://juejin.im/post/6844903929705136141)
+* [ ] [JavaScript 工具函数大全（新）](https://juejin.im/post/6844903966526930951)
+* [ ] [22 道高频 JavaScript 手写面试题及答案](https://juejin.im/post/6844903911686406158)
+
 ### 系统
 
+* [ ] [[译] 送你 43 道 JavaScript 面试题](https://juejin.im/post/6844903869378461710)
+* [ ] [20道JS原理题助你面试一臂之力！](https://juejin.im/post/6844903891591495693)
+* [ ] [总结了17年初到18年初百场前端面试的面试经验(含答案)](https://juejin.im/post/6844903636271644680)
 * [ ] [(建议收藏)原生JS灵魂之问, 请问你能接得住几个？(上)](https://juejin.im/post/6844903974378668039)
 * [ ] [(建议精读)原生JS灵魂之问(中)，检验自己是否真的熟悉JavaScript？](https://juejin.im/post/6844903986479251464)
 * [ ] [(2.4w字)原生JS灵魂之问(下), 冲刺🚀进阶最后一公里(附个人成长经验分享)](https://juejin.im/post/6844904004007247880)
+
+### 基础
+
+* [ ] [JavaScript 数据类型和数据结构](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures)
 
 ### 执行上下文/作用域链/闭包
 
@@ -47,6 +61,7 @@ JavaScript 资料整理
 * [ ] [JavaScript闭包的底层运行机制](http://blog.leapoahead.com/2015/09/15/js-closure/)
 * [ ] [我从来不理解JavaScript闭包，直到有人这样向我解释它...](https://zhuanlan.zhihu.com/p/56490498)
 * [ ] [破解前端面试（80% 应聘者不及格系列）：从闭包说起](https://juejin.im/post/58f1fa6a44d904006cf25d22#heading-0)
+* [ ] [破解前端面试（80% 应聘者不及格系列）：从闭包说起](https://juejin.im/post/6844903474212143117)
 
 ### this/call/apply/bind
 
@@ -60,6 +75,9 @@ JavaScript 资料整理
 * [ ] [回味JS基础:call apply 与 bind](https://juejin.im/post/57dc97f35bbb50005e5b39bd)
 * [ ] [面试官问：能否模拟实现JS的bind方法](https://juejin.im/post/5bec4183f265da616b1044d7)
 * [ ] [不用call和apply方法模拟实现ES5的bind方法](https://github.com/jawil/blog/issues/16)
+* [ ] [JavaScript中的this](https://juejin.im/post/59748cbb6fb9a06bb21ae36d)
+* [ ] [三元-手写代码系列](http://47.98.159.95/my_blog/js-api/001.html)
+* [ ] [this、apply、call、bind](https://juejin.im/post/6844903496253177863)
 
 ### 原型/继承
 
@@ -77,6 +95,8 @@ JavaScript 资料整理
 * [ ] [从proto和prototype来深入理解JS对象和原型链](https://github.com/creeperyang/blog/issues/9)
 * [ ] [代码复用模式](https://github.com/jayli/javascript-patterns/blob/master/chapter6.markdown)
 * [ ] [JavaScript 中的继承：ES3、ES5 和 ES6](http://tianfangye.com/2017/12/31/inheritance-in-javascript-es3-es5-and-es6/)
+* [ ] [JavaScript深入之从原型到原型链](https://github.com/mqyqingfeng/Blog/issues/2)
+* [ ] [深度解析原型中的各个难点](https://juejin.im/post/6844903575974313992)
 
 ### Promise
 
@@ -110,6 +130,8 @@ JavaScript 资料整理
 * [ ] [浏览器与Node的事件循环(Event Loop)有何区别?](https://zhuanlan.zhihu.com/p/54882306)
 * [ ] [深入理解 JavaScript Event Loop](https://zhuanlan.zhihu.com/p/34229323)
 * [ ] [The Node.js Event Loop, Timers, and process.nextTick()](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
+* [ ] [JavaScript：彻底理解同步、异步和事件循环(Event Loop)](https://segmentfault.com/a/1190000004322358)
+* [ ] [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/6844903512845860872)
 
 ### 函数式编程
 
@@ -139,6 +161,12 @@ JavaScript 资料整理
 * [ ] [A Simple Introduction to Web Workers in JavaScript](https://medium.com/young-coder/a-simple-introduction-to-web-workers-in-javascript-b3504f9d9d1c)
 * [ ] [Speedy Introduction to Web Workers](https://auth0.com/blog/speedy-introduction-to-web-workers/)
 
+### DOM
+
+* [ ] [破解前端面试（80% 应聘者不及格系列）：从 DOM 说起](https://juejin.im/post/6844903474547671047)
+* [ ] [原生JS中DOM节点相关API合集](https://microzz.com/2017/04/06/jsdom/)
+* [ ] [dom里各种尺寸区别（offsetWidth，scrollWidth，clientWidth，innerWidth....）](https://github.com/pramper/Blog/issues/10)
+
 ### 常用方法
 
 * [ ] [近一万字的ES6语法知识点补充](https://juejin.im/post/5c6234f16fb9a049a81fcca5)
@@ -148,8 +176,90 @@ JavaScript 资料整理
 * [ ] [一个合格的中级前端工程师需要掌握的 28 个 JavaScript 技巧](https://juejin.im/post/5cef46226fb9a07eaf2b7516)
 * [ ] [1.5万字概括ES6全部特性(已更新ES2020)](https://juejin.im/post/5d9bf530518825427b27639d)
 
+### 杂
 
-* [ ] []()
+* [ ] [JavaScript深入系列15篇正式完结！](https://juejin.im/post/6844903479429824526)
+* [ ] [你真的理解 事件冒泡 和 事件捕获 吗？](https://juejin.im/post/5cc941436fb9a03236394027)
+* [ ] [发布订阅模式，在工作中它的能量超乎你的想象](https://juejin.im/post/6844903616172539917)
+* [ ] [谁说前端不需要懂-Nginx反向代理与负载均衡](https://juejin.im/post/6844903619465068551)
+* [ ] [CSS世界中那些说起来很冷的知识](https://juejin.im/post/6844903635248218126)
+* [ ] [WebSocket是时候展现你优秀的一面了](https://juejin.im/post/6844903696560553991)
+* [ ] [socket.io让每个人都可以开发属于自己的即时通讯](https://juejin.im/post/6844903700905852936)
+* [ ] [WebSocket 是什么原理？为什么可以实现持久连接](https://juejin.im/entry/6844903592525037576)
+* [ ] [JavaScript 如何工作：对引擎、运行时、调用堆栈的概述](https://juejin.im/post/6844903510538993671)
+* [ ] [理解 JavaScript 中的执行上下文和执行栈](https://juejin.im/post/6844903682283143181)
+* [ ] [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/6844903512845860872)
+* [ ] [JavaScript开发者应懂的33个概念](https://zhuanlan.zhihu.com/p/48049957)
+* [ ] [前端js实现字符串/图片/excel文件下载](https://segmentfault.com/a/1190000018143902)
+* [ ] [JavaScript 复杂判断的更优雅写法](https://juejin.im/post/6844903705058213896)
+* [ ] [性感的Promise，拥抱ta然后扒光ta](https://juejin.im/post/6844903583234834445)
+* [ ] [近一万字的ES6语法知识点补充](https://juejin.im/post/6844903775329583112)
+* [ ] [深拷贝的终极探索（90%的人都不知道）](https://juejin.im/post/6844903692756336653)
+* [ ] [前端路由跳转基本原理](https://segmentfault.com/a/1190000018081475)
+* [ ] [九种跨域方式实现原理](https://juejin.im/post/6844903767226351623)
+* [ ] [发现 JavaScript 中闭包的强大威力](https://juejin.im/post/6844903769646317576)
+* [ ] [你可能不熟悉的JS总结](https://segmentfault.com/a/1190000018113011)
+* [ ] [JavaScript中高阶函数的魅力](https://juejin.im/post/6844903668651819016)
+* [ ] [小邵教你玩转JS面向对象](https://juejin.im/post/6844903668433551368)
+* [ ] [AST抽象语法树——最基础的javascript重点知识，99%的人根本不了解](https://juejin.im/entry/6844903668492435470)
+* [ ] [ES6、ES7、ES8特性一锅炖](https://juejin.im/post/6844903679976275976)
+* [ ] [如何在 JavaScript 中更好地使用数组](https://juejin.im/post/6844903671646715911)
+* [ ] [7分钟理解JS的节流、防抖及使用场景](https://juejin.im/post/6844903669389885453)
+* [ ] [ECMAScript 6 六级考试](https://zhuanlan.zhihu.com/p/29214240)
+* [ ] [javascript: Airbnb JavaScript 代码规范](https://juejin.im/repo/59dcab3651882530e289f8dd)
+* [ ] [Promise实现原理（附源码）](https://juejin.im/post/6844903665686282253)
+* [ ] [可能是最好的正则表达式的教程笔记了吧...](https://juejin.im/post/6844903648309297166)
+* [ ] [一些 JavaScript 中的代码小技巧](https://juejin.im/entry/6844903663492661262)
+* [ ] [急速JavaScript全栈教程](https://juejin.im/entry/6844903663035482125)
+* [ ] [理解异步之美 --- promise与async await （三）](https://juejin.im/post/6844903664209887246?utm_source=gold_browser_extension)
+* [ ] [ES9已经来了 Are you ready?](https://juejin.im/post/6844903652348395533)
+* [ ] [使用原生 JavaScript构建状态管理系统](https://juejin.im/post/6844903660804112391)
+* [ ] [Promise 必知必会（十道题）](https://juejin.im/post/6844903509934997511)
+* [ ] [JS正则表达式完整教程（略长）](https://juejin.im/post/6844903487155732494)
+* [ ] [防抖和节流原理分析](https://juejin.im/post/6844903662519599111?utm_medium=fe&utm_source=weixinqun)
+* [ ] [JavaScript 实用技巧和写法建议](https://juejin.im/post/6844903526796099591)
+* [ ] [编写自己的代码库（javascript常用实例的实现与封装）](https://juejin.im/post/6844903520596918280)
+* [ ] [import、require、export、module.exports 混合使用详解](https://juejin.im/post/6844903520865386510)
+* [ ] [WebSocket：5分钟从入门到精通](https://juejin.im/post/6844903544978407431)
+* [ ] [JavaScript 运行原理解析](https://juejin.im/post/6844903551009816589)
+* [ ] [简单了解JavaScript垃圾回收机制](https://juejin.im/post/6844903556265279502)
+* [ ] [一次记住js的6个正则方法](http://varnull.cn/yi-ci-ji-zhu-jsde-6ge-zheng-ze-fang-fa/)
+* [ ] [几道JS代码手写题以及一些代码实现](https://juejin.im/post/6844903575559077895)
+* [ ] [JSBridge的原理](https://juejin.im/post/6844903585268891662)
+* [ ] [面试官: 你了解前端路由吗?](https://juejin.im/post/6844903589123457031)
+* [ ] [深入剖析 JavaScriptCore](https://ming1016.github.io/2018/04/21/deeply-analyse-javascriptcore/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
+* [ ] [JavaScript闭包的底层运行机制](http://blog.leapoahead.com/2015/09/15/js-closure/)
+* [ ] [JavaScript 中的多线程 -- Web Worker](https://qiutc.me/post/the-multithread-in-javascript-web-worker.html)
+* [ ] [解锁多种JavaScript数组去重姿势](https://juejin.im/post/6844903608467587085)
+* [ ] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)
+* [ ] [前端将数据转化为弹幕效果的实现方式](https://juejin.im/post/6844903600636821518)
+* [ ] [浅谈 instanceof 和 typeof 的实现原理](https://juejin.im/post/6844903613584654344)
+* [ ] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/6844903617619558408)
+* [ ] [前端性能相关：防抖、节流](https://juejin.im/entry/6844903592898330638)
+* [ ] [7种方法实现数组去重](https://juejin.im/post/6844903602197102605)
+* [ ] [如何实现一个HTTP请求库——axios源码阅读与分析](https://juejin.im/post/6844903602280988686)
+* [ ] [面试官:既然React/Vue可以用Event Bus进行组件通信,你可以实现下吗?](https://juejin.im/post/6844903587043082247)
+* [ ] [高阶函数，你怎么那么漂亮呢！](https://juejin.im/post/6844903592822833160)
+* [ ] [面试官:请你实现一个深克隆](https://juejin.im/post/6844903584023183368)
+* [ ] [前端模块化：CommonJS,AMD,CMD,ES6](https://juejin.im/post/6844903576309858318)
+* [ ] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)
+* [ ] [Promise原理讲解 && 实现一个Promise对象](https://juejin.im/post/1)
+* [ ] [浅谈 HTTP/2 Server Push](https://zhuanlan.zhihu.com/p/26757514)
+* [ ] [开发更好用的 JavaScript 模块](https://zhuanlan.zhihu.com/p/31499310)
+* [ ] [JavaScript复杂判断的更优雅写法](https://zhuanlan.zhihu.com/p/48917912)
+* [ ] [我从来不理解JavaScript闭包，直到有人这样向我解释它](https://zhuanlan.zhihu.com/p/56490498)
+* [ ] [重新认识构造函数、原型和原型链](https://juejin.im/post/6844903779079290887)
+* [ ] [如何在 Web 关闭页面时发送 Ajax 请求](https://juejin.im/post/6844903790575878157)
+* [ ] [用 Proxy 追踪 JavaScript 类](https://juejin.im/post/6844903793885184013)
+* [ ] [「中高级前端面试」JavaScript手写代码无敌秘籍](https://juejin.im/post/6844903809206976520)
+* [ ] [JavaScript的环境模型](https://mp.weixin.qq.com/s/rOxvYS7MdnPAX7FGjpOXnw)
+* [ ] [面试官(6): 写过『通用前端组件』吗?](https://juejin.im/post/6844903847874265101)
+* [ ] [抱歉，学会 Proxy 真的可以为所欲为](https://zhuanlan.zhihu.com/p/35080324)
+* [ ] [中级前端工程师必须要掌握的 28 个 JavaScript 技巧](https://juejin.im/post/6844903856489365518)
+* [ ] [前端路由原理解析和实现](https://juejin.im/post/6844903842643968014)
+* [ ] [正则表达式不要背](https://juejin.im/post/6844903845227659271)
+* [ ] [前端必知必会--操作URL的黑科技](https://juejin.im/post/6844903865767165959)
+* [ ] [送你43道JavaScript面试题](https://juejin.im/post/6844903869378461710)
 
 ---
 
