@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:02:18**  
-> Recently revised in **2020-09-01 21:02:18**
+> Recently revised in **2020-09-03 17:09:28**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -64,10 +64,6 @@
 * [ ] [Front-End Performance Checklist](https://github.com/thedaviddias/Front-End-Performance-Checklist)
 * [ ] [图片与视频懒加载的详细指南](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/)
 * [ ] [使用 Intersection Observer 来懒加载图片](http://deanhume.com/lazy-loading-images-using-intersection-observer/)
-
-
-
-* [ ] []()
 
 ---
 
