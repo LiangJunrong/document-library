@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:07:27**  
-> Recently revised in **2020-09-01 21:07:27**
+> Recently revised in **2020-09-03 16:49:12**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -28,8 +28,8 @@
 * [ ] [数据结构和算法在前端领域的应用（前菜）](https://juejin.im/post/5d3dc8466fb9a07efc49d0a9)
 * [ ] [数据结构与算法在前端领域的应用 - 第二篇](https://lucifer.ren/blog/2019/09/19/algorthimn-fe-2/)
 * [ ] [JavaScript 数据结构与算法之美](https://github.com/biaochenxuying/blog/issues/43)
-
-* [ ] []()
+* [ ] [前端笔试&面试爬坑系列---算法](https://juejin.im/post/6844903656865677326)
+* [ ] [漫画：什么是红黑树](https://juejin.im/post/6844903519632228365)
 
 1. 接雨水。给定数组 `[1, 8, 6, 2, 5, 4, 8, 3, 7]`，表示容器能容纳水的最大值。
 2. 写一个数组去重。`O(n^2)` 及 `O(n)` 时间复杂度实现
