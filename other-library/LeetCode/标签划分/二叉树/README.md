@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-27 17:05:44**  
-> Recently revised in **2020-09-04 10:14:29**
+> Recently revised in **2020-09-04 11:12:08**
 
 ## 入门
 
@@ -16,6 +16,9 @@
 * 【中等】[103-二叉树的锯齿形层次遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)
 * 【中等】[652-寻找重复的子树](https://leetcode-cn.com/problems/find-duplicate-subtrees/)
 * 【简单】[257-二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/)
+* 【简单】[剑指 Offer 32 - I-从上到下打印二叉树](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/)
+* 【简单】[剑指 Offer 32 - II-从上到下打印二叉树](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/)
+* 【中等】[剑指 Offer 32 - III-从上到下打印二叉树](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof/)
 
 ## 熟练
 
