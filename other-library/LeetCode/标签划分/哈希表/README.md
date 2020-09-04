@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-14 10:45:58**  
-> Recently revised in **2020-08-18 22:40:15**
+> Recently revised in **2020-09-04 15:19:52**
 
 ## 一 理论知识
 
@@ -151,6 +151,7 @@ const dict_overflow = [2];
 
 ## 入门
 
+* 【简单】[575-分糖果](https://leetcode-cn.com/problems/distribute-candies/)
 * 【简单】[771-宝石与石头](https://leetcode-cn.com/problems/jewels-and-stones/)
 * 【简单】[3-无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
 * 【简单】[170-两数之和 III - 数据结构设计](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design/)
