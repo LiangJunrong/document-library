@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 17:00:05**  
-> Recently revised in **2020-09-03 17:09:16**
+> Recently revised in **2020-09-06 23:19:04**
 
 你是你人生的导师！
 
@@ -111,6 +111,10 @@
 * [ ] [React](./React/README.md)【进度： 0/78 】
 * [ ] [TypeScript](./TypeScript/README.md)【进度： 0/18 】
 * [ ] [Vue](./Vue/README.md)【进度： 0/28 】
+
+## 完成文章
+
+* [jsliang 2020 系列：简历](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E7%AE%80%E5%8E%86/2020%20%E7%AE%80%E5%8E%86.md)
 
 ## 广州某厂
 
