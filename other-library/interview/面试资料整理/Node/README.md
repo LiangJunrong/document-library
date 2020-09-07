@@ -2,7 +2,7 @@ Node 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 21:11:54**  
-> Recently revised in **2020-09-03 16:49:38**
+> Recently revised in **2020-09-07 22:25:42**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -19,7 +19,6 @@ Node 资料整理
 
 * [ ] [一篇文章构建你的 NodeJS 知识体系](https://juejin.im/post/5c4c0ee8f265da61117aa527)
 * [ ] [真-Node多线程](https://juejin.im/post/5c63b5676fb9a049ac79a798)
-* [ ] [浏览器与Node的事件循环(Event Loop)有何区别?](https://zhuanlan.zhihu.com/p/54882306)
 * [ ] [聊聊 Node.js RPC](https://www.yuque.com/egg/nodejs/dklip5)
 * [ ] [Understanding Streams in Node.js](https://nodesource.com/blog/understanding-streams-in-nodejs)
 * [ ] [深入理解 Node.js 进程与线程](https://mp.weixin.qq.com/s/VzXnnfn4gCBMd5wea3LRIg)
@@ -27,7 +26,6 @@ Node 资料整理
 * [ ] [字节跳动面试官：请你实现一个大文件上传和断点续传](https://juejin.im/post/5dff8a26e51d4558105420ed)
 * [ ] [一篇文章构建你的 NodeJS 知识体系](https://juejin.im/post/6844903767926636558)
 * [ ] [200 多行代码实现 Websocket 协议](https://segmentfault.com/a/1190000016467409)
-* [ ] [浏览器与Node的事件循环(Event Loop)有何区别](https://zhuanlan.zhihu.com/p/54882306)
 * [ ] [NodeJS与模块系统](https://mp.weixin.qq.com/s/uDp0v_1hN0Uzg-EGr1yfgA)
 
 ---
