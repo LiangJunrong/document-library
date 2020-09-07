@@ -2,7 +2,7 @@ JavaScript 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:29**  
-> Recently revised in **2020-09-07 22:26:23**
+> Recently revised in **2020-09-07 22:33:15**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -100,14 +100,7 @@ JavaScript 资料整理
 
 ### Promise
 
-* [ ] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)
-* [ ] [你好，JavaScript异步编程---- 理解JavaScript异步的美妙](https://juejin.im/post/5b56c3586fb9a04faa79a8e0)
-* [ ] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/5afe6d3bf265da0b9e654c4b)
-* [ ] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/5b16800fe51d4506ae719bae#heading-34)
-* [ ] [Promise实现原理（附源码）](https://juejin.im/post/5b83cb5ae51d4538cc3ec354)
-* [ ] [当 async/await 遇上 forEach](https://objcer.com/2017/10/12/async-await-with-forEach/)
-* [ ] [Promise 必知必会（十道题）](https://juejin.im/post/5a04066351882517c416715d)
-* [ ] [BAT前端经典面试问题：史上最最最详细的手写Promise教程](https://juejin.im/post/5b2f02cd5188252b937548ab#heading-9)
+已抽取分离
 
 ### 深浅拷贝
 
@@ -182,7 +175,6 @@ JavaScript 资料整理
 * [ ] [JavaScript开发者应懂的33个概念](https://zhuanlan.zhihu.com/p/48049957)
 * [ ] [前端js实现字符串/图片/excel文件下载](https://segmentfault.com/a/1190000018143902)
 * [ ] [JavaScript 复杂判断的更优雅写法](https://juejin.im/post/6844903705058213896)
-* [ ] [性感的Promise，拥抱ta然后扒光ta](https://juejin.im/post/6844903583234834445)
 * [ ] [近一万字的ES6语法知识点补充](https://juejin.im/post/6844903775329583112)
 * [ ] [深拷贝的终极探索（90%的人都不知道）](https://juejin.im/post/6844903692756336653)
 * [ ] [前端路由跳转基本原理](https://segmentfault.com/a/1190000018081475)
@@ -197,14 +189,11 @@ JavaScript 资料整理
 * [ ] [7分钟理解JS的节流、防抖及使用场景](https://juejin.im/post/6844903669389885453)
 * [ ] [ECMAScript 6 六级考试](https://zhuanlan.zhihu.com/p/29214240)
 * [ ] [javascript: Airbnb JavaScript 代码规范](https://juejin.im/repo/59dcab3651882530e289f8dd)
-* [ ] [Promise实现原理（附源码）](https://juejin.im/post/6844903665686282253)
 * [ ] [可能是最好的正则表达式的教程笔记了吧...](https://juejin.im/post/6844903648309297166)
 * [ ] [一些 JavaScript 中的代码小技巧](https://juejin.im/entry/6844903663492661262)
 * [ ] [急速JavaScript全栈教程](https://juejin.im/entry/6844903663035482125)
-* [ ] [理解异步之美 --- promise与async await （三）](https://juejin.im/post/6844903664209887246?utm_source=gold_browser_extension)
 * [ ] [ES9已经来了 Are you ready?](https://juejin.im/post/6844903652348395533)
 * [ ] [使用原生 JavaScript构建状态管理系统](https://juejin.im/post/6844903660804112391)
-* [ ] [Promise 必知必会（十道题）](https://juejin.im/post/6844903509934997511)
 * [ ] [JS正则表达式完整教程（略长）](https://juejin.im/post/6844903487155732494)
 * [ ] [防抖和节流原理分析](https://juejin.im/post/6844903662519599111?utm_medium=fe&utm_source=weixinqun)
 * [ ] [JavaScript 实用技巧和写法建议](https://juejin.im/post/6844903526796099591)
@@ -221,10 +210,8 @@ JavaScript 资料整理
 * [ ] [JavaScript闭包的底层运行机制](http://blog.leapoahead.com/2015/09/15/js-closure/)
 * [ ] [JavaScript 中的多线程 -- Web Worker](https://qiutc.me/post/the-multithread-in-javascript-web-worker.html)
 * [ ] [解锁多种JavaScript数组去重姿势](https://juejin.im/post/6844903608467587085)
-* [ ] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)
 * [ ] [前端将数据转化为弹幕效果的实现方式](https://juejin.im/post/6844903600636821518)
 * [ ] [浅谈 instanceof 和 typeof 的实现原理](https://juejin.im/post/6844903613584654344)
-* [ ] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/6844903617619558408)
 * [ ] [前端性能相关：防抖、节流](https://juejin.im/entry/6844903592898330638)
 * [ ] [7种方法实现数组去重](https://juejin.im/post/6844903602197102605)
 * [ ] [如何实现一个HTTP请求库——axios源码阅读与分析](https://juejin.im/post/6844903602280988686)
@@ -232,8 +219,6 @@ JavaScript 资料整理
 * [ ] [高阶函数，你怎么那么漂亮呢！](https://juejin.im/post/6844903592822833160)
 * [ ] [面试官:请你实现一个深克隆](https://juejin.im/post/6844903584023183368)
 * [ ] [前端模块化：CommonJS,AMD,CMD,ES6](https://juejin.im/post/6844903576309858318)
-* [ ] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)
-* [ ] [Promise原理讲解 && 实现一个Promise对象](https://juejin.im/post/1)
 * [ ] [浅谈 HTTP/2 Server Push](https://zhuanlan.zhihu.com/p/26757514)
 * [ ] [开发更好用的 JavaScript 模块](https://zhuanlan.zhihu.com/p/31499310)
 * [ ] [JavaScript复杂判断的更优雅写法](https://zhuanlan.zhihu.com/p/48917912)
