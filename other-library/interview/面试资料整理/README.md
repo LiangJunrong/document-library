@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 17:00:05**  
-> Recently revised in **2020-09-06 23:19:04**
+> Recently revised in **2020-09-07 22:33:34**
 
 你是你人生的导师！
 
@@ -58,7 +58,6 @@
 * [ ] [Javascript 面试中经常被问到的三个问题！](https://segmentfault.com/a/1190000018257074)
 * [ ] [破解前端面试（80% 应聘者不及格系列）：从 DOM 说起](https://juejin.im/post/6844903474547671047)
 * [ ] [面试的信心来源于过硬的基础](https://segmentfault.com/a/1190000013331105)
-* [ ] [BAT前端经典面试问题：史上最最最详细的手写Promise教程](https://juejin.im/post/6844903625769091079)
 * [ ] [破解前端面试（80% 应聘者不及格系列）：从闭包说起](https://juejin.im/post/6844903474212143117#heading-0)
 * [ ] [前端面试题整理](http://blog.poetries.top/FE-Interview-Questions/)
 * [ ] [中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)](https://juejin.im/post/6844903776512393224#heading-13)
