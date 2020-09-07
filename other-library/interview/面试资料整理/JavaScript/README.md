@@ -2,7 +2,7 @@ JavaScript 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:29**  
-> Recently revised in **2020-09-02 15:23:32**
+> Recently revised in **2020-09-07 22:26:23**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -121,17 +121,7 @@ JavaScript 资料整理
 
 ### 事件机制/Event Loop
 
-* [ ] [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
-* [ ] [How JavaScript works](https://blog.sessionstack.com/how-javascript-works-event-loop-and-the-rise-of-async-programming-5-ways-to-better-coding-with-2f077c4438b5)
-* [ ] [从event loop规范探究javaScript异步及浏览器更新渲染时机](https://github.com/aooy/blog/issues/5)
-* [ ] [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
-* [ ] [【THE LAST TIME】彻底吃透 JavaScript 执行机制](https://juejin.im/post/5d901418518825539312f587)
-* [ ] [一次弄懂Event Loop（彻底解决此类面试问题）](https://juejin.im/post/5c3d8956e51d4511dc72c200)
-* [ ] [浏览器与Node的事件循环(Event Loop)有何区别?](https://zhuanlan.zhihu.com/p/54882306)
-* [ ] [深入理解 JavaScript Event Loop](https://zhuanlan.zhihu.com/p/34229323)
-* [ ] [The Node.js Event Loop, Timers, and process.nextTick()](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
-* [ ] [JavaScript：彻底理解同步、异步和事件循环(Event Loop)](https://segmentfault.com/a/1190000004322358)
-* [ ] [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/6844903512845860872)
+已抽取分离出去
 
 ### 函数式编程
 
