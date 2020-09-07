@@ -2,7 +2,7 @@ Promise
 ===
 
 > Create by **jsliang** on **2020-09-07 22:28:53**  
-> Recently revised in **2020-09-07 22:29:00**
+> Recently revised in **2020-09-07 22:44:26**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,7 +17,19 @@ Promise
 
 > [返回目录](#chapter-one)
 
-
+* [ ] [BAT前端经典面试问题：史上最最最详细的手写Promise教程](https://juejin.im/post/6844903625769091079)
+* [ ] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)
+* [ ] [你好，JavaScript异步编程---- 理解JavaScript异步的美妙](https://juejin.im/post/5b56c3586fb9a04faa79a8e0)
+* [ ] [理解异步之美 --- promise与async await （三）](https://juejin.im/post/6844903664209887246?utm_source=gold_browser_extension)
+* [ ] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/6844903617619558408)
+* [ ] [Promise实现原理（附源码）](https://juejin.im/post/5b83cb5ae51d4538cc3ec354)
+* [ ] [Promise 必知必会（十道题）](https://juejin.im/post/6844903509934997511)
+* [ ] [面试精选之Promise](https://juejin.im/post/6844903625609707534)
+* [ ] [手写Promise 20行](https://juejin.im/post/5e6f4579f265da576429a907)
+* [ ] [剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类](https://github.com/xieranmaya/blog/issues/3)
+* [ ] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)
+* [ ] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)
+* [ ] [从setState promise化的探讨 体会React团队设计思想](https://zhuanlan.zhihu.com/p/28905707)
 
 ---
 
