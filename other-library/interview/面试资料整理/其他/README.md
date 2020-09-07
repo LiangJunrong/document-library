@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:12:23**  
-> Recently revised in **2020-09-03 17:03:54**
+> Recently revised in **2020-09-07 22:33:01**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -28,10 +28,6 @@
 
 ### 杂
 
-* [ ] [BAT前端经典面试问题：史上最最最详细的手写Promise教程](https://juejin.im/post/6844903625769091079)
-* [ ] [面试精选之Promise](https://juejin.im/post/6844903625609707534)
-* [ ] [手写Promise 20行](https://juejin.im/post/5e6f4579f265da576429a907)
-* [ ] [剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类](https://github.com/xieranmaya/blog/issues/3)
 * [ ] [预测最近面试会考 Cookie 的 SameSite 属性](https://juejin.im/post/5e718ecc6fb9a07cda098c2d)
 * [ ] [深入浅出浏览器渲染原理](https://zhuanlan.zhihu.com/p/53913989)
 * [ ] [前端开发如何独立解决跨域问题](https://segmentfault.com/a/1190000010719058)
