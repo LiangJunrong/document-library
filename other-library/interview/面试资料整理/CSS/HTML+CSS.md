@@ -2,7 +2,7 @@ HTML + CSS
 ===
 
 > Create by **jsliang** on **2020-09-07 16:14:51**  
-> Recently revised in **2020-09-07 17:06:02**
+> Recently revised in **2020-09-07 22:25:28**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,7 +17,9 @@ HTML + CSS
 
 > [返回目录](#chapter-one)
 
-* 3.1 - DIV + CSS 布局的优缺点
+1. DIV + CSS 布局的优缺点
+2. 如何解决 a 标点击后 hover 事件失效的问题？
+3. 响应式的好处
 
 ## <a name="chapter-three" id="chapter-three"></a>三 详细
 
@@ -36,6 +38,29 @@ HTML + CSS
 缺点：
 
 1. 不同浏览器对 web 标准默认值不同，所以更容易出现对浏览器的兼容性问题。
+
+### 3.2 如何解决 a 标点击后 hover 事件失效的问题？
+
+改变 `a` 标签 CSS 属性的排列顺序：
+
+> LoVe HAte 原则
+
+```
+link -> visited -> hover -> active
+```
+
+* `a:link`：简写 `a`，未访问的样式
+* `a:visited`：已经访问的样式
+* `a:hover`：鼠标移上去时的样式
+* `a:active`：鼠标按下的样式
+
+在 CSS 中，如果对于相同元素针对不同条件的定义，适宜将最一般的条件放在最上面，依次向下，保证最下面的是最特殊的条件（可以理解为样式覆盖）。
+
+这样，浏览器显示元素的时候，才会从特殊到一半、逐级向上验证条件。
+
+### 3.3 响应式的好处
+
+对某些数据的修改就能自动更新视图，让开发者不需要操作 DOM，有更多的时间去思考完成业务逻辑。
 
 ---
 
