@@ -2,7 +2,7 @@ React 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-02 15:28:53**  
-> Recently revised in **2020-09-03 16:50:19**
+> Recently revised in **2020-09-07 22:32:46**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -75,7 +75,6 @@ React 资料整理
 * [ ] [让虚拟DOM和DOM-diff不再成为你的绊脚石](https://juejin.im/post/6844903806132568072)
 * [ ] [《React源码解析》系列完结！](https://juejin.im/post/6844903568487497741?utm_medium=fe&utm_source=weixinqun)
 * [ ] [怎样学习React？当然是自己动手实现一个React啦](https://juejin.im/post/6844903593078685709)
-* [ ] [从setState promise化的探讨 体会React团队设计思想](https://zhuanlan.zhihu.com/p/28905707)
 * [ ] [React 应用设计之道 - curry 化妙用](https://zhuanlan.zhihu.com/p/35833143)
 * [ ] [如何评价React的新功能Time Slice 和Suspense？](https://www.zhihu.com/question/268028123)
 * [ ] [React的新引擎—React Fiber是什么](http://www.infoq.com/cn/articles/what-the-new-engine-of-react)
