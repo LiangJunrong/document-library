@@ -2,7 +2,7 @@ Promise
 ===
 
 > Create by **jsliang** on **2020-09-07 22:28:53**  
-> Recently revised in **2020-09-09 01:52:56**
+> Recently revised in **2020-09-09 01:53:49**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,7 +17,7 @@ Promise
 
 > [返回目录](#chapter-one)
 
-* [ ] [要就来45道Promise面试题一次爽到底](https://juejin.im/post/6844904077537574919)
+* [ ] [要就来45道Promise面试题一次爽到底](https://juejin.im/post/6844904077537574919)【阅读建议：5h+】
 * [ ] [BAT前端经典面试问题：史上最最最详细的手写Promise教程](https://juejin.im/post/6844903625769091079)
 * [ ] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)
 * [ ] [你好，JavaScript异步编程---- 理解JavaScript异步的美妙](https://juejin.im/post/5b56c3586fb9a04faa79a8e0)
