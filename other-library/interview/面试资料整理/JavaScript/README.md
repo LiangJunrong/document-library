@@ -2,7 +2,7 @@ JavaScript 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:29**  
-> Recently revised in **2020-09-08 13:58:15**
+> Recently revised in **2020-09-08 14:11:02**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -33,7 +33,6 @@ JavaScript 资料整理
 ### 精选
 
 * [ ] [「中高级前端面试」JavaScript手写代码无敌秘籍](https://juejin.im/post/6844903809206976520)
-* [ ] [如何写出一个惊艳面试官的深拷贝?](https://juejin.im/post/6844903929705136141)
 * [ ] [JavaScript 工具函数大全（新）](https://juejin.im/post/6844903966526930951)
 * [ ] [22 道高频 JavaScript 手写面试题及答案](https://juejin.im/post/6844903911686406158)
 
@@ -92,13 +91,7 @@ JavaScript 资料整理
 
 ### 深浅拷贝
 
-* [ ] [JavaScript基础心法——深浅拷贝](https://github.com/axuebin/articles/issues/20)
-* [ ] [深拷贝的终极探索（90%的人都不知道）](https://juejin.im/post/5bc1ae9be51d450e8b140b0c)
-* [ ] [JavaScript专题之深浅拷贝](https://github.com/mqyqingfeng/Blog/issues/32)
-* [ ] [javaScript中浅拷贝和深拷贝的实现](https://github.com/wengjq/Blog/issues/3)
-* [ ] [深入剖析 JavaScript 的深复制](https://jerryzou.com/posts/dive-into-deep-clone-in-javascript/)
-* [ ] [「JavaScript」带你彻底搞清楚深拷贝、浅拷贝和循环引用](https://segmentfault.com/a/1190000015042902)
-* [ ] [面试题之如何实现一个深拷贝](https://github.com/yygmind/blog/issues/29)
+已抽取分离
 
 ### 事件机制/Event Loop
 
@@ -164,7 +157,6 @@ JavaScript 资料整理
 * [ ] [前端js实现字符串/图片/excel文件下载](https://segmentfault.com/a/1190000018143902)
 * [ ] [JavaScript 复杂判断的更优雅写法](https://juejin.im/post/6844903705058213896)
 * [ ] [近一万字的ES6语法知识点补充](https://juejin.im/post/6844903775329583112)
-* [ ] [深拷贝的终极探索（90%的人都不知道）](https://juejin.im/post/6844903692756336653)
 * [ ] [前端路由跳转基本原理](https://segmentfault.com/a/1190000018081475)
 * [ ] [九种跨域方式实现原理](https://juejin.im/post/6844903767226351623)
 * [ ] [发现 JavaScript 中闭包的强大威力](https://juejin.im/post/6844903769646317576)
