@@ -1,8 +1,8 @@
-this
+this + call + bind + apply
 ===
 
 > Create by **jsliang** on **2020-09-08 13:37:27**  
-> Recently revised in **2020-09-08 13:43:58**
+> Recently revised in **2020-09-08 14:03:28**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -37,8 +37,22 @@ test4399.getColor(); // 输出什么？
 
 参考：
 
-1. [this,this,再次讨论javascript中的this,超全面](https://www.cnblogs.com/painsOnline/p/5102359.html)
-2. [JS中函数名后面的括号加与不加的区别和作用？](https://www.zhihu.com/question/31044040)
+* [ ] [三元-手写代码系列](http://47.98.159.95/my_blog/js-api/001.html)
+* [ ] [再来40道this面试题酸爽继续](https://juejin.im/post/6844904083707396109)
+* [ ] [this、apply、call、bind](https://juejin.im/post/6844903496253177863)
+* [ ] [面试官问：JS的this指向](https://juejin.im/post/5c0c87b35188252e8966c78a)
+* [ ] [面试官问：能否模拟实现JS的call和apply方法](https://juejin.im/post/5bf6c79bf265da6142738b29)
+* [ ] [面试官问：能否模拟实现JS的bind方法](https://juejin.im/post/5bec4183f265da616b1044d7)
+* [ ] [JavaScript基础心法——this](https://github.com/axuebin/articles/issues/6)
+* [ ] [JavaScript深入之从ECMAScript规范解读this](https://github.com/mqyqingfeng/Blog/issues/7)
+* [ ] [前端基础进阶（七）：全方位解读this](https://www.jianshu.com/p/d647aa6d1ae6)
+* [ ] [JavaScript深入之call和apply的模拟实现](https://juejin.im/post/5907eb99570c3500582ca23c)
+* [ ] [JavaScript基础心法—— call apply bind](https://github.com/axuebin/articles/issues/7)
+* [ ] [回味JS基础:call apply 与 bind](https://juejin.im/post/57dc97f35bbb50005e5b39bd)
+* [ ] [不用call和apply方法模拟实现ES5的bind方法](https://github.com/jawil/blog/issues/16)
+* [ ] [JavaScript中的this](https://juejin.im/post/59748cbb6fb9a06bb21ae36d)
+* [ ] [this,this,再次讨论javascript中的this,超全面](https://www.cnblogs.com/painsOnline/p/5102359.html)
+* [ ] [JS中函数名后面的括号加与不加的区别和作用？](https://www.zhihu.com/question/31044040)
 
 ---
 
