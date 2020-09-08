@@ -2,7 +2,7 @@ JavaScript 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:29**  
-> Recently revised in **2020-09-07 22:33:15**
+> Recently revised in **2020-09-08 13:58:15**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -65,19 +65,7 @@ JavaScript 资料整理
 
 ### this/call/apply/bind
 
-* [ ] [JavaScript基础心法——this](https://github.com/axuebin/articles/issues/6)
-* [ ] [JavaScript深入之从ECMAScript规范解读this](https://github.com/mqyqingfeng/Blog/issues/7)
-* [ ] [前端基础进阶（七）：全方位解读this](https://www.jianshu.com/p/d647aa6d1ae6)
-* [ ] [面试官问：JS的this指向](https://juejin.im/post/5c0c87b35188252e8966c78a)
-* [ ] [JavaScript深入之call和apply的模拟实现](https://juejin.im/post/5907eb99570c3500582ca23c)
-* [ ] [JavaScript基础心法—— call apply bind](https://github.com/axuebin/articles/issues/7)
-* [ ] [面试官问：能否模拟实现JS的call和apply方法](https://juejin.im/post/5bf6c79bf265da6142738b29)
-* [ ] [回味JS基础:call apply 与 bind](https://juejin.im/post/57dc97f35bbb50005e5b39bd)
-* [ ] [面试官问：能否模拟实现JS的bind方法](https://juejin.im/post/5bec4183f265da616b1044d7)
-* [ ] [不用call和apply方法模拟实现ES5的bind方法](https://github.com/jawil/blog/issues/16)
-* [ ] [JavaScript中的this](https://juejin.im/post/59748cbb6fb9a06bb21ae36d)
-* [ ] [三元-手写代码系列](http://47.98.159.95/my_blog/js-api/001.html)
-* [ ] [this、apply、call、bind](https://juejin.im/post/6844903496253177863)
+已抽取分离
 
 ### 原型/继承
 
