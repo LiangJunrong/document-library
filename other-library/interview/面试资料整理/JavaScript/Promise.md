@@ -2,7 +2,7 @@ Promise
 ===
 
 > Create by **jsliang** on **2020-09-07 22:28:53**  
-> Recently revised in **2020-09-09 01:53:49**
+> Recently revised in **2020-09-09 14:52:31**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -1269,6 +1269,578 @@ console.log(4);
     7. 输出 2
 */
 ```
+
+### 8.2 题目二
+
+```js
+async function async1() {
+  console.log('async');
+
+  new Promise((resolve) => {
+    console.log('promise');
+    resolve();
+  }).then((res) => {
+    console.log('promise.then');
+  })
+}
+
+async1();
+
+console.log('start');
+
+/**
+  执行顺序和分析：
+  顺序：
+    * 'async'
+    * 'promise'
+    * 'start'
+    * 'promise.then'
+  分析：
+    1. 首先，我们执行 script 这个宏任务
+    2. 碰到 async1()，执行里面代码，输出 'async'
+    3. 碰到 new Promise，执行里面代码，输出 'promise'
+    4. 将 Promise 的状态标记为 resolved
+    5. 将 .then() 丢进微任务
+    6. 输出 'start'
+    7. 执行微任务 .then()，输出 'promise.then'
+*/
+```
+
+### 8.3 题目三
+
+```js
+async function async1() {
+  console.log('async1 start');
+  setTimeout(() => {
+    console.log('timer1 start');
+  }, 0);
+  Promise.resolve().then((res) => {
+    console.log('promise1');
+  })
+  await async2();
+  setTimeout(() => {
+    console.log('timer1 end');
+  }, 0);
+  console.log('async1 end');
+}
+
+async function async2() {
+  setTimeout(() => {
+    console.log('timer2');
+  }, 0);
+  Promise.resolve().then((res) => {
+    console.log('promise2');
+  })
+  console.log('async2');
+}
+
+async1();
+
+console.log('start');
+
+/**
+  执行顺序和分析：
+  顺序：
+    * 'async1 start'
+    * 'async2'
+    * 'start'
+    * 'promise1'
+    * 'promise2'
+    * 'async1 end'
+    * 'timer1 start'
+    * 'timer2'
+    * 'timer1 end'
+  分析：
+    1. 首先，我们理顺一个事实：在 await 后面的，会等当前宏任务里面所有微任务执行完毕，方且执行
+    2. 碰到 async1()，开始执行里面内容
+    3. 输出 'async1 start'
+    4. 将 'timer1 start' 丢进宏任务队列，标记为宏 1
+    5. 将 'promise1' 丢进微任务队列，标记为微 1
+    6. 碰到 await async2()，先执行 async2，阻塞下面的代码，标记后面代码为马后炮 1
+    7. 执行 async2，碰到 'timer2'，将其丢进宏任务队列，标记为宏 2
+    8. 碰到 'promise2'，将其丢进微任务队列，标记为微 2
+    9. 输出 'async2'
+    10. async2 走完，继续往下走，输出 start
+    11. 当前有 3 个部分我们没走，分别是微 1、微 2 和马后炮 1
+    12. 【死记】，碰到不走 11 这种情况，我们需要记住先执行当前微任务，再马后炮
+    13. 执行微任务，输出 'promise1'、'promise2'
+    14. 执行马后炮，将 'timer1 end' 丢进宏任务队列，即为宏 3
+    15. 输出 'async1 end'
+    16. 依次执行宏 1、宏 2 和 宏 3，输出 'timer1 start' -> 'timer2' -> 'timer1 end'
+  灵魂提升：
+    如果 'timer1 start' -> 'timer2' -> 'timer1 end' 对应的时间分别为 500ms、1000ms、500ms，请问输出啥？
+*/
+```
+
+### 8.4 题目四
+
+```js
+async function async1() {
+  console.log('async1 start');
+  await async2();
+  console.log('async1 end');
+  setTimeout(() => {
+    console.log('timer1');
+  }, 0);
+}
+
+async function async2() {
+  setTimeout(() => {
+    console.log('timer2');
+  }, 0);
+  console.log('async2');
+}
+
+async1();
+
+setTimeout(() => {
+  console.log('timer3');
+}, 0);
+
+console.log('start');
+
+/**
+  执行顺序和分析：
+  顺序：
+    * 'async1 start'
+    * 'async2'
+    * 'start'
+    * 'async1 end'
+    * 'timer2'
+    * 'timer3'
+    * 'timer1'
+  分析：
+    思路同上一道题
+*/
+```
+
+### 8.5 题目五
+
+```js
+async function fn() {
+  return 123;
+}
+
+fn().then((res) => {
+  console.log(res);
+})
+
+/**
+  执行顺序和分析：
+  顺序：
+    * 123
+  分析：
+    正常情况下， async 中的 await 命令是一个 Promise 对象，返回该对象的结果
+    但如果不是 Promise 对象的话，就会直接返回对应的值，相当于 Promise.resolve();
+*/
+```
+
+### 8.6 题目六
+
+```js
+async function async1() {
+  console.log('async1 start');
+  await new Promise((resolve) => {
+    console.log('promise1');
+  })
+  console.log('async1 success');
+  return 'async1 end';
+}
+
+console.log('script start');
+
+async1().then((res) => {
+  console.log('res: ', res);
+})
+
+console.log('script end');
+
+/**
+  执行顺序和分析：
+  顺序：
+    * 'script start'
+    * 'async1 start'
+    * 'promise1'
+    * 'script end'
+  分析：
+    1. 特殊题
+    2. 在 await 后面的 Promise 是没有返回值的，所以 await 会一直等待
+    3. 这样子的话，async1 success 这些后面的内容都不会执行了
+  思考：
+    如果在 'promise1' 后面添加一行 resolve('123'); 结果会怎样？
+*/
+```
+
+### 8.7 题目七
+
+```js
+async function async1() {
+  console.log('async1 start');
+  await new Promise((resolve) => {
+    console.log('promise1');
+    resolve('promise resolve');
+  })
+  console.log('async1 success');
+  return 'async1 end';
+}
+
+console.log('script start');
+
+async1().then((res) => {
+  console.log('res: ', res);
+})
+
+new Promise((resolve) => {
+  console.log('promsie2');
+  setTimeout(() => {
+      console.log('timer');
+  }, 0);
+})
+
+/**
+  执行顺序和分析：
+  顺序：
+    * 'script start'
+    * 'async1 start'
+    * 'promise1'
+    * 'promsie2'
+    * 'async1 success'
+    * 'res: async1 end'
+    * 'timer'
+  分析：
+    1. 紧跟上一题的分析，Promise 必须 resolve 了，await 后面的代码才会继续执行
+    2. 先走整体 script 宏任务，输出 'script start'
+    3. 碰到 async1() 的执行，走里面去看看
+    4. 输出 'async1 start'
+    5. 碰到 await new Prmise
+    6. 输出 'promise1'
+    7. 看到 resolve，改变 Promise 状态，告知 await 有等待对象，将后面的内容丢进微任务 1
+    8. 往下执行后面的 new Promsie
+    9. 输出 'promsie2'
+    10. 将 setTimeout 丢进宏任务 1
+    11. 现在有一个微任务 1 和一个宏任务 1
+    12. 先走微任务 1
+    13. 输出 'async1 success'
+    14. 碰到 return，告知后面添加一个微任务 2
+    15. 继续执行微任务 2，输出 'res: async1 end'
+    16. 没有其他微任务了，输出宏任务队列，输出 'timer1'
+*/
+```
+
+### 8.8 题目八
+
+```js
+async function async1() {
+  console.log('async1 start');
+  await async2();
+  console.log('async1 end');
+}
+
+async function async2() {
+  console.log('async2');
+}
+
+console.log('script start');
+
+setTimeout(() => {
+  console.log('settimeout');
+}, 0);
+
+async1();
+
+new Promise((resolve) => {
+  console.log('promise1');
+  resolve();
+}).then((res) => {
+  console.log('promise2');
+})
+
+console.log('script end');
+
+/**
+  执行顺序和分析：
+  顺序：
+    * 'script start'
+    * 'async1 start'
+    * 'async2'
+    * 'promise1'
+    * 'script end'
+    * 'promise2'
+    * 'async1 end'
+    * 'settimeout'
+  分析：
+    到了这里就不需要解释了，跟上面题目类似
+*/
+```
+
+### 8.9 题目九
+
+```js
+async function async1() {
+  console.log('async1 start');
+  await async2();
+  console.log('async1 end');
+}
+
+async function async2() {
+  console.log('async2');
+}
+
+console.log('script start');
+
+setTimeout(() => {
+  console.log('settimeout');
+}, 0);
+
+async1();
+
+new Promise((resolve) => {
+  console.log('promise1');
+  resolve();
+}).then((res) => {
+  console.log('promise2');
+})
+
+console.log('script end');
+
+/**
+  执行顺序和分析：
+  顺序：
+    * 'script start'
+    * 'async1 start'
+    * 'async2'
+    * 'promise1'
+    * 'script end'
+    * 'async1 end'
+    * 'promise2'
+    * 'settimeout'
+  注意：
+    这里的输出 'async1 end' 和 'promise2'，在 Node v10.16.0 是反过来的
+  分析：
+    到了这里就不需要解释了，跟上面题目类似
+*/
+```
+
+### 8.10 题目十
+
+```js
+async function testSomething() {
+  console.log('test something');
+  return 'test something';
+}
+
+async function testAsync() {
+  console.log('test async');
+  return Promise.resolve('hello test async');
+}
+
+async function test() {
+  console.log('test start');
+
+  const v1 = await testSomething();
+  console.log('v1: ', v1);
+
+  const v2 = await testAsync();
+  console.log('v2: ', v2);
+
+  console.log(v1, v2);
+}
+
+test();
+
+const promise = new Promise((resolve) => {
+  console.log('promise start');
+  resolve('promise');
+})
+
+promise.then((val) => {
+  console.log(val);
+})
+
+console.log('test end');
+
+/**
+  执行顺序和分析：
+  顺序：
+    * 'test start'
+    * 'test something'
+    * 'promise start'
+    * 'test end'
+    * 'v1: test something'
+    * 'test async'
+    * 'promise'
+    * 'v2: hello test async'
+    * 'test something' 'hello test async'
+  注意：
+    这里的输出在 Node v10.16.0 是不同的
+  分析：
+    到了这里就不需要解释了，跟上面题目类似
+*/
+```
+
+### 8.11 题目十一
+
+开始做 `async` 处理错误的题。
+
+```js
+async function async1() {
+  await async2();
+  console.log('async1');
+  return 'async1 success';
+}
+
+async function async2() {
+  return new Promise((resolve, reject) => {
+    console.log('async2');
+    reject('error');
+  })
+}
+
+async1().then((res) => {
+  console.log('res: ', res);
+})
+
+/**
+  执行顺序和分析：
+  顺序：
+    * 'async2'
+    * Promise {<rejected>: "error"}
+  分析：
+    如果在 async 函数中抛出了错误，则终止错误结果，不会继续向下执行。throw new Error 也是如此。
+*/
+```
+
+## <a name="chapter-night" id="chapter-night"></a>九 综合题
+
+> [返回目录](#chapter-one)
+
+### 9.1 题目一
+
+```js
+const first = () => (new Promise((resolve1, reject1) => {
+  console.log(3);
+  
+  const p = new Promise((resolve2, reject2) => {
+    console.log(7);
+    
+    setTimeout(() => {
+      console.log(5);
+      resolve1(6);
+      console.log(p);
+    }, 0);
+
+    resolve2(1);
+  });
+
+  resolve1(2);
+
+  p.then((res1) => {
+    console.log('res1: ', res1);
+  });
+}));
+
+first().then((res2) => {
+  console.log('res2: ', res2);
+});
+
+console.log(4);
+
+/**
+  执行顺序：
+    * 3
+    * 7
+    * 4
+    * res: 1
+    * res: 2
+    * 5
+    * Promise{ <resolve> 1 }
+*/
+```
+
+### 9.2 题目二
+
+```js
+const async1 = async() => {
+  console.log('async1');
+  
+  setTimeout(() => {
+    console.log('timer1');
+  }, 2000);
+
+  await new Promise((resolve) => {
+    console.log('promise1');
+  })
+
+  console.log('async1 end');
+  return 'async1 success';
+};
+
+console.log('script start');
+
+async1().then((res1) => {
+  console.log('res1: ', res1);
+})
+
+console.log('script end');
+
+Promise
+.resolve(1)
+.then(2)
+.then(Promise.resolve(3))
+.catch(4)
+.then((res2) => {
+  console.log('res2: ', res2);
+})
+
+setTimeout(() => {
+  console.log('timer2');
+}, 1000);
+
+/**
+  执行顺序：
+    * 'script start'
+    * 'async1'
+    * 'promise1'
+    * 'script end'
+    * 'res2: 1'
+    * 'timer2'
+    * 'timer1'
+*/
+```
+
+### 9.3 题目三
+
+```js
+const p1 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve('resolve3');
+    console.log('timer1');
+  }, 0);
+  resolve('resolve1');
+  resolve('resolve2');
+}).then((res) => {
+  console.log(res);
+  setTimeout(() => {
+    console.log(p1);
+  }, 1000);
+}).finally((res) => {
+  console.log('finally: ', res);
+})
+
+/**
+  执行顺序：
+    * 'resolve1'
+    * 'finally: undefined'
+    * 'timer1'
+    * 'Promise { <resolved> undefined }'
+*/
+```
+
+## <a name="chapter-ten" id="chapter-ten"></a>十 大厂题
+
+> [返回目录](#chapter-one)
+
+
 
 ---
 
