@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-26 11:19:07**  
-> Recently revised in **2020-09-08 11:20:33**
+> Recently revised in **2020-09-09 10:38:44**
 
 ## 入门
 
@@ -10,6 +10,7 @@
 * 【中等】[17-电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)
 * 【中等】[60-第k个排列](https://leetcode-cn.com/problems/permutation-sequence/)
 * 【中等】[77-组合](https://leetcode-cn.com/problems/combinations/)
+* 【中等】[39-组合总和](https://leetcode-cn.com/problems/combination-sum/)
 
 ## 熟练
 
