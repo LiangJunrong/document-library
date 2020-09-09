@@ -17,7 +17,7 @@ Promise
 
 > [返回目录](#chapter-one)
 
-* [ ] [要就来45道Promise面试题一次爽到底](https://juejin.im/post/6844904077537574919)【阅读建议：5h+】
+* [ ] [要就来45道Promise面试题一次爽到底](https://juejin.im/post/6844904077537574919)【阅读建议：7h+】
 * [ ] [BAT前端经典面试问题：史上最最最详细的手写Promise教程](https://juejin.im/post/6844903625769091079)
 * [ ] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)
 * [ ] [你好，JavaScript异步编程---- 理解JavaScript异步的美妙](https://juejin.im/post/5b56c3586fb9a04faa79a8e0)
@@ -1840,7 +1840,7 @@ const p1 = new Promise((resolve) => {
 
 > [返回目录](#chapter-one)
 
-
+* [几道大厂的面试题](https://juejin.im/post/6844904077537574919#heading-50)
 
 ---
 
