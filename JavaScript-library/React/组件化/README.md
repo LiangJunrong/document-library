@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-09 16:09:24**  
-> Recently revised in **2020-09-09 16:30:09**
+> Recently revised in **2020-09-09 17:12:43**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -23,6 +23,8 @@
 2. 简化调试步骤，提升整个项目的可维护性
 3. 便于协同开发
 4. 注意点：降低耦合性
+
+组件跨层级通信 - Context
 
 ---
 
