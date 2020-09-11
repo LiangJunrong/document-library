@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-26 11:19:07**  
-> Recently revised in **2020-09-11 14:40:53**
+> Recently revised in **2020-09-11 15:29:48**
 
 ## 入门
 
@@ -18,5 +18,6 @@
 
 * 【中等】[332-重新安排行程](https://leetcode-cn.com/problems/reconstruct-itinerary/)
 * 【困难】[51-N 皇后](https://leetcode-cn.com/problems/n-queens/)
+* 【中等】[377-组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/)
 
 ## 精通
