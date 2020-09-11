@@ -2,7 +2,7 @@ Promise
 ===
 
 > Create by **jsliang** on **2020-09-07 22:28:53**  
-> Recently revised in **2020-09-09 14:52:31**
+> Recently revised in **2020-09-11 17:20:05**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,7 +17,7 @@ Promise
 
 > [返回目录](#chapter-one)
 
-* [ ] [要就来45道Promise面试题一次爽到底](https://juejin.im/post/6844904077537574919)【阅读建议：7h+】
+* [ ] [要就来45道Promise面试题一次爽到底](https://juejin.im/post/6844904077537574919)【阅读建议：8h+】
 * [ ] [BAT前端经典面试问题：史上最最最详细的手写Promise教程](https://juejin.im/post/6844903625769091079)
 * [ ] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)
 * [ ] [你好，JavaScript异步编程---- 理解JavaScript异步的美妙](https://juejin.im/post/5b56c3586fb9a04faa79a8e0)
@@ -1841,6 +1841,316 @@ const p1 = new Promise((resolve) => {
 > [返回目录](#chapter-one)
 
 * [几道大厂的面试题](https://juejin.im/post/6844904077537574919#heading-50)
+
+### 10.1 使用 Promise 实现每隔一秒输出 1、2、3
+
+```js
+const oneToThree = () => {
+  const arr = [1, 2, 3];
+  arr.reduce((prev, next) => {
+    return prev.then((res1) => {
+      return new Promise((res2) => {
+        setTimeout(() => {
+          res2(console.log(next), 1000);
+        }, 1000);
+      })
+    });
+  }, Promise.resolve())
+};
+
+console.log(oneToThree());
+```
+
+### 10.2 使用 Promise 实现红绿灯交替重复亮
+
+红灯 3 秒亮一次，黄灯 2 秒亮一次，绿灯 1 秒亮一次，用 Promise 实现 3 个灯交替重复亮。
+
+已知函数：
+
+```js
+function red() {
+  console.log('red');
+}
+function yellow() {
+  console.log('yellow');
+}
+function green() {
+  console.log('green');
+}
+```
+
+答案：
+
+```js
+function red() {
+  console.log('red');
+}
+function yellow() {
+  console.log('yellow');
+}
+function green() {
+  console.log('green');
+}
+
+const light = (timer, cb) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      cb();
+      resolve();
+    }, timer);
+  })
+}
+
+const step = () => {
+  Promise.resolve().then(() => {
+    return light(3000, red);
+  }).then(() => {
+    return light(2000, yellow);
+  }).then(() => {
+    return light(1000, green);
+  }).then(() => {
+    return step();
+  })
+};
+
+step();
+```
+
+### 10.3 实现 mergePromise 函数
+
+实现 `mergePromise` 函数，将传进去的数组按先后顺序执行，并且把返回的值先后放在数组 `data` 中。
+
+例如：
+
+```js
+const time = (timer) => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, timer)
+  })
+}
+const ajax1 = () => time(2000).then(() => {
+  console.log(1);
+  return 1
+})
+const ajax2 = () => time(1000).then(() => {
+  console.log(2);
+  return 2
+})
+const ajax3 = () => time(1000).then(() => {
+  console.log(3);
+  return 3
+})
+
+function mergePromise () {
+  // 在这里写代码
+}
+
+mergePromise([ajax1, ajax2, ajax3]).then(data => {
+  console.log("done");
+  console.log(data); // data 为 [1, 2, 3]
+});
+
+// 要求分别输出
+// 1
+// 2
+// 3
+// done
+// [1, 2, 3]
+```
+
+答案：
+
+```js
+const time = (timer) => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, timer)
+  })
+}
+const ajax1 = () => time(2000).then(() => {
+  console.log(1);
+  return 1
+})
+const ajax2 = () => time(1000).then(() => {
+  console.log(2);
+  return 2
+})
+const ajax3 = () => time(1000).then(() => {
+  console.log(3);
+  return 3
+})
+
+function mergePromise (ajaxList) {
+  const data = [];
+  let promise = Promise.resolve();
+
+  ajaxList.forEach((ajax) => {
+    promise = promise.then(() => {
+      return ajax();
+    }).then((resolve) => {
+      data.push(resolve);
+      return data;
+    })
+  })
+
+  return promise;
+}
+
+mergePromise([ajax1, ajax2, ajax3]).then(data => {
+  console.log("done");
+  console.log(data); // data 为 [1, 2, 3]
+});
+
+// 要求分别输出
+// 1
+// 2
+// 3
+// done
+// [1, 2, 3]
+```
+
+### 10.4 根据 PromiseA+ 实现一个自己的 Promise
+
+* [ ] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287#heading-7)
+* [ ] [写一个符合 Promises/A+ 规范并可配合 ES7 async/await 使用的 Promise](https://zhuanlan.zhihu.com/p/23312442)
+
+### 10.5 封装一个异步加载图片的方法
+
+```js
+function loadImg(url) {
+  // ...实现代码
+}
+```
+
+答案：
+
+```js
+function loadImg(url) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => {
+      console.log('图片加载完成');
+      resolve(image);
+    }
+    image.onerror = () => {
+      reject(new Error('加载失败' + url));
+    }
+    image.src = url;
+  })
+}
+```
+
+### 10.6 限制异步操作并发数并尽可能快地完成
+
+已知图片列表：
+
+```js
+var urls = [
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/AboutMe-painting1.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/AboutMe-painting2.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/AboutMe-painting3.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/AboutMe-painting4.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/AboutMe-painting5.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/bpmn6.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/bpmn7.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/bpmn8.png",
+];
+```
+
+已知函数：
+
+```js
+function loadImg(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = function() {
+      console.log("一张图片加载完成");
+      resolve(img);
+    };
+    img.onerror = function() {
+    	reject(new Error('Could not load image at' + url));
+    };
+    img.src = url;
+  });
+};
+
+function limitLoad(urls, handler, limit) {
+  // ...实现代码
+}
+```
+
+求同时下载的链接熟练不超过 3 个的情况下，尽可能快地完成。
+
+```js
+const urls = [
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/AboutMe-painting1.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/AboutMe-painting2.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/AboutMe-painting3.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/AboutMe-painting4.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/AboutMe-painting5.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/bpmn6.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/bpmn7.png",
+  "https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/bpmn8.png",
+];
+function loadImg(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = function() {
+      console.log("一张图片加载完成");
+      resolve(img);
+    };
+    img.onerror = function() {
+    	reject(new Error('Could not load image at' + url));
+    };
+    img.src = url;
+  });
+}
+
+function limitLoad(urls, handler, limit) {
+  let sequence = [].concat(urls); // 复制urls
+  // 这一步是为了初始化 promises 这个"容器"
+  let promises = sequence.splice(0, limit).map((url, index) => {
+    return handler(url).then(() => {
+      // 返回下标是为了知道数组中是哪一项最先完成
+      return index;
+    });
+  });
+  // 注意这里要将整个变量过程返回，这样得到的就是一个Promise，可以在外面链式调用
+  return sequence
+    .reduce((pCollect, url) => {
+      return pCollect
+        .then(() => {
+          return Promise.race(promises); // 返回已经完成的下标
+        })
+        .then((fastestIndex) => {
+          // 获取到已经完成的下标
+          // 将"容器"内已经完成的那一项替换
+          promises[fastestIndex] = handler(url).then(() => {
+            return fastestIndex; // 要继续将这个下标返回，以便下一次变量
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }, Promise.resolve()) // 初始化传入
+    .then(() => {
+      // 最后三个用.all来调用
+      return Promise.all(promises);
+    });
+}
+limitLoad(urls, loadImg, 3)
+  .then((res) => {
+    console.log("图片全部加载完毕");
+    console.log(res);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+```
 
 ---
 
