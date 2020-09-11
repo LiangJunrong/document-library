@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-24 14:33:51**  
-> Recently revised in **2020-09-03 23:14:20**
+> Recently revised in **2020-09-11 15:30:42**
 
 * [动态规划精讲（一） - LeetBook](https://leetcode-cn.com/leetbook/detail/dynamic-programming-1-plus/)
 * [动态规划精讲（二） - LeetBook](https://leetcode-cn.com/leetbook/detail/dynamic-programming-2-plus/)
@@ -406,6 +406,7 @@ DP 比固定形式的算法，例如 DFS、二分法、KMP 等，难度在于没
 
 * 【中等】[486-预测赢家](https://leetcode-cn.com/problems/predict-the-winner/)
 * 【中等】239-完全平方数
+* 【中等】[377-组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/)
 
 ## 系列：打家劫舍
 
