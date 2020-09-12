@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-27 17:05:44**  
-> Recently revised in **2020-09-06 10:25:46**
+> Recently revised in **2020-09-12 22:25:48**
 
 ## 入门
 
@@ -14,6 +14,7 @@
 * 【中等】94-二叉树的中序遍历
 * 【中等】[652-寻找重复的子树](https://leetcode-cn.com/problems/find-duplicate-subtrees/)
 * 【简单】[257-二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/)
+* 【简单】[637-二叉树的层平均值](https://leetcode-cn.com/problems/average-of-levels-in-binary-tree/)
 * 【中等】[102-二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
 * 【简单】[107-二叉树的层次遍历 II](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/)
 * 【中等】[103-二叉树的锯齿形层次遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)
