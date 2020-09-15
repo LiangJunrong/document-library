@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-14 13:42:13**  
-> Recently revised in **2020-09-14 15:46:00**
+> Recently revised in **2020-09-15 22:35:39**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -232,14 +232,289 @@ export default class State extends Component {
 
 `state` 和 `props` 都可以决定组件的外观和显示状态。通常，`props` 作为不变数据或者初始化数据传递给组件，可变状态使用 `state`
 
-### 父子组件通讯
+
+### this 指向问题
+
+在 React 中事件处理函数的 `this` 默认为 `undefined`。
+
+？为什么？
+
+解决 this 指向问题的两种方法：
+
+1. 利用箭头函数，使函数的 `this` 继承所在作用域，指向组件的实例
+2. 利用 `bind` 绑定 `this`
+
+```js
+import React, { Component } from 'react'
+
+export class App extends Component {
+  constructor(props) {
+    super(props);
+    this.clickHandler = this.clickHandler.bind(this);
+  }
+  clickHandler() {
+    console.log(this);
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={() => { console.log(this) }}>
+          点击 1
+        </button>
+        <button onClick={this.clickHandler}>
+          点击 2
+        </button>
+      </div>
+    )
+  }
+}
+
+export default App;
+```
+
+### setState()
+
+* `setState` 的参数
+  * 对象
+  * 函数：使用函数作为参数时，一定要有返回值，返回值是一个对象，对象中定义的是关于 `setTimeout`
+* `setState` 会自动帮助我们合并 `state`，所以只需要传入要修改的项即可。
+* `setState` 是异步方法，不会立马修改 `state`
+* 短时间内多次 `setState`，React 会合并操作，只重新渲染一次。
+
+```js
+  state = {
+    age: 10,
+  }
+  render() {
+    let { age } = this.state;
+    return (
+      <div>
+        <p>{ age }</p>
+        <button
+          onClick={() => {
+            // 写法 2
+            // age++;
+            // this.setState(() => {
+            //   return {
+            //     age,
+            //   };
+            // });
+            this.setState({
+              age: age + 1,
+            })
+          }}
+        >添加年龄</button>
+      </div>
+    )
+  }
+```
+
+* `setState` 渲染完毕：
+
+```js
+this.setState({
+  age: age + 1,
+}, () => {
+  console.log('组件重新渲染完毕')
+})
+```
+
+### 组件通讯
 
 在 React.js 中，数据是从上至下流动（传递）的，也就是一个父组件可以把它的 `state` / `props` 通过 `props` 传递给它的子组件，但是子组件不能修改 `props`
 
 React.js 是单项数据流，如果子组件需要修改父组件状态（数据），是通过回调函数方式来完成的。
 
-* 父级向子级通讯
-* 子级向父级通讯
+React 组件间通讯：组件之间传递信息
+
+* 父级向子级传递信息
+  * 把要传递的信息在调用子组件时，加组件的属性上。在子组件内容通过 `props` 属性进行接收
+* 子级向父级传递信息
+  * 在父级中定义相关的操作回调，然后该回调方法传递给子级，子级需要传递数据给父级时，则调用父级传入的回调方法
+* 同级之间传递信息
+  * 把信息和回调方法定义在父级中，通过父级去管理
+
+### 跨组件通讯 Context
+
+* `React.createContext(defaultValue);`
+     `{ Consumer, Provider } = createContext(defaultValue)`
+* `Context.Provider` 在父组件调用 `Provider` 传递数据
+    * `value` 要传递的数据
+* 接收数据
+    * `class.contextType = Context;`
+    * `static contextType = Context;`
+      * `this.context;`
+    * `Context.Consumer`
+
+```js
+<Consumer>
+    {(props)=>{
+        console.log(props);
+        return <div></div>
+    }}
+</Consumer>
+```
+
+**注意在使用不熟练时，最好不要在项目中使用 context，context 一般给第三方库使用**
+
+> context.js
+
+```js
+import { createContext } from 'react'
+
+const context = createContext();
+
+console.log(context);
+/*
+  $$typeof: Symbol(react.context)
+  Consumer: {$$typeof: Symbol(react.context), _context: {…}, _calculateChangedBits: null, …}
+  Provider: {$$typeof: Symbol(react.provider), _context: {…}}
+  _calculateChangedBits: null
+  _currentRenderer: null
+  _currentRenderer2: null
+  _currentValue: undefined
+  _currentValue2: undefined
+  _threadCount: 0
+  __proto__: Object
+*/
+
+const { Provider, Consumer } = context;
+
+
+export default context;
+
+export {
+  Provider, // 向下传递信息
+  Consumer, // 接收信息
+}
+
+```
+
+> Father.jsx
+
+```js
+import React, { Component } from 'react'
+import Child from './Child'
+import { Provider } from './context'
+
+export class Father extends Component {
+  state={
+    info: '要传递的内容',
+  }
+  changeInfo = (from) => {
+    this.setState({
+      info: `改变了要传递的内容 - 来自${from}`,
+    })
+  }
+  render() {
+    const { info } = this.state;
+    return (
+      <Provider
+        value={{
+          info,
+          changeInfo: this.changeInfo,
+        }}>
+        <Child />
+      </Provider>
+    )
+  }
+}
+
+export default Father
+
+```
+
+> Child.jsx
+
+```js
+import React, { Component } from 'react';
+import context, { Consumer } from './context';
+
+export class Child extends Component {
+  render() {
+    return (
+      <div>
+        <Consumer>
+          {(props) => {
+            console.log(props);
+            const { info, changeInfo } = props;
+            return (
+              <React.Fragment>
+                <h1>{info}</h1>
+                <button onClick={() => changeInfo('子级')}>点击传递给父级</button>
+              </React.Fragment>
+            );
+          }}
+        </Consumer>
+      </div>
+    );
+  };
+  // 方法二
+  // render() {
+  //   return <h1>{this.context.info}</h1>
+  // }
+}
+
+// 方法二
+// Child.contextType = context;
+
+export default Child
+
+```
+
+### 组件生命周期
+
+组件生命周期：组件从创建到卸载中间的各个过程
+
+React 16.3 之前组件的生命周期函数：
+
+* 挂载阶段
+  * `construcror`：初始化
+  * `componentWillMount`：组件即将挂载到真实 DOM
+  * `render`：生成虚拟 DOM
+  * `componentDidMount`：组件已经挂载到真实 DOM
+* 更新阶段
+  * `conponentWillReceiveProps(nextProps)`：父组件更新引起子组件更新并传入新的 `props`
+  * `shouldComponentUpdate(nextProps, nextState)`：判断组件是否需要更新，当返回值为 `true`，继续执行后续生命周期函数，然后完成组件更新；为 `false` 时后续声明周期不执行，组件不会更新
+  * `componentWillUpdate(nextProps, nextState)`：组件即将更新
+  * `render`：生成虚拟 DOM
+  * `componentDidiUpdate(prevProps, prevState)`：组件更新完毕
+  * 在 `render` 之前，新的 `props` 和 `state` 只能通过参数获取，`this.props` 和 `this.state` 中保存的还是更新之前的数据
+* 卸载阶段
+  * `componentWillUnmount`：即将从 DOM 中删除组件
+
+React 16.3 之后组件的声明周期函数：
+
+新增：
+
+1. `static getDerivedStateFromProps(props, state)`
+2. `getSnapshotBeforeUpdate`
+
+删除：
+
+1. `componentWillMount`
+2. `conponentWillReceiveProps(nextProps)`
+3. `componentDidiUpdate(prevProps, prevState)`
+
+完整：
+
+* 挂载阶段
+  * `constructor`
+  * `static getDerivedStateFromProps(props, state)`：在组件挂载和更新之后执行，把 `newProps`，加到 `state` 里面
+  * 注意 this 问题
+  * `render`
+  * `componentDidMount`：处理副作用(请求)
+* 更新阶段
+  * `static getDerivedStateFromProps(props, state)`：在组件挂载和更新之后执行，把 `newProps`，加到 `state` 里面
+  * `shouldComponentUpdate`：判断是否跟新
+  * `render`
+  * `getSnapshotBeforeUpdate`：组件更新之后，已经执行了 `render`，还没有把虚拟 DOM 生成真实 DOM 去，用来获取组件之前的 DOM 快照
+  * `componentDidUpdate()`：处理副作用(请求)
+* 卸载阶段
+  * `componentWillUnmount`：删除添加在全局的一些信息或操作
+
+强制更新：`this.forceUpdate()`
+
 
 ---
 
