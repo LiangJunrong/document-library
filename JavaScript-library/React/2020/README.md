@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-14 13:42:13**  
-> Recently revised in **2020-09-15 22:35:39**
+> Recently revised in **2020-09-16 16:50:53**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -515,6 +515,139 @@ React 16.3 之后组件的声明周期函数：
 
 强制更新：`this.forceUpdate()`
 
+
+### 受控组件和非受控组件
+
+### key 值
+
+涉及到 `diff` 算法。
+
+React 通过 `key` 的比较，新增、删除和更新节点。
+
+`key` 值不要使用索引，因为如果它更新前后都是相同的项，但是项里面的内容不同了，这样就没法监听到，从而更新不了。
+
+### PureComponent
+
+`PureComponent` 提供了一个具有浅比较的 `shouldComponentUpdate` 方法，其他和 `Component` 完全一致。
+
+### ref
+
+获取组件 DOM。
+
+* 旧版 - `string ref`
+* 新版 - `createRef()`
+
+注意：在组件挂载完成之后及更新之后使用
+
+### dangerouslySetInnerHTML
+
+危险地设置 HTML。
+
+```html
+<div dangerouslySetInnerHTML={{ _html: data }}></div>
+```
+
+### children
+
+组件标签对中间的内容会被当做一个特殊的属性 `props.children` 传入组件内容
+
+可以自定义结构的组件的常用形式
+
+* `children`
+* 传递函数
+* 传递子组件
+
+> Father.jsx
+
+```js
+import React, { Component } from 'react';
+import Child from './Child';
+
+export class App extends Component {
+  render() {
+    return (
+      <Child>
+        <p>你好</p>
+        <p>通过 Child 传递过去</p>
+      </Child>
+    )
+  }
+}
+
+export default App;
+```
+
+> Child.jsx
+
+```js
+import React, { Component } from 'react';
+
+export class Child extends Component {
+  render() {
+    const { children } = this.props;
+    return (
+      <div>
+        {children}
+      </div>
+    )
+  }
+}
+
+export default Child;
+```
+
+### 函数式组件
+
+> Pure.jsx
+
+```js
+import React from "react";
+
+function Title(props) {
+  // 默认情况下，尤其是 16.7 之前，函数式组件没有 state 和声明周期，所以也叫做纯渲染组件
+  return (
+    <div className="title">
+      <h1>jsliang</h1>
+    </div>
+  )
+}
+
+function Bar(props) {
+  return (
+    <div>
+      <p>你好，纯渲染组件</p>
+      {props.val}
+    </div>
+  )
+}
+
+export { Title, Bar };
+```
+
+> 引用
+
+```js
+import React, { Component } from 'react'
+import { Title, Bar } from './Pure'
+
+export class App extends Component {
+  state={
+    val: 'Hello World!',
+  }
+  render() {
+    const { val } = this.state;
+    return (
+      <div>
+        <Title />
+        <Bar props={{ val }} />
+      </div>
+    )
+  }
+}
+
+export default App
+
+```
 
 ---
 
