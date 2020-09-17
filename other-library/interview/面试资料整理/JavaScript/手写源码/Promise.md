@@ -2,7 +2,7 @@ Promise
 ===
 
 > Create by **jsliang** on **2020-09-17 18:14:12**  
-> Recently revised in **2020-09-17 18:14:12**
+> Recently revised in **2020-09-17 18:26:35**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -26,6 +26,10 @@ const isObject = obj => !!(obj && typeof obj === 'object')
 const isThenable = obj => (isFunction(obj) || isObject(obj)) && 'then' in obj
 const isPromise = promise => promise instanceof Promise
 
+// Promise 有 3 个状态，分别是 pending, fulfilled 和 rejected。
+// 在 pending 状态，Promise 可以切换到 fulfilled 或 rejected。
+// 在 fulfilled 状态，不能迁移到其它状态，必须有个不可变的 value。
+// 在 rejected 状态，不能迁移到其它状态，必须有个不可变的 reason。
 const PENDING = 'pending'
 const FULFILLED = 'fulfilled'
 const REJECTED = 'rejected'
@@ -57,13 +61,23 @@ function Promise(f) {
   }
 }
 
+// Promise 必须有 then 方法，接受 onFulfilled 和 onRejected 参数。
+// onFulfilled 和 onRejected 如果是函数，必须最多执行一次。
+// onFulfilled 的参数是 value，onRejected 函数的参数是 reason。
+// then 方法可以被调用很多次，每次注册一组 onFulfilled 和 onRejected 的 callback。它们如果被调用，必须按照注册顺序调用。
+// 所以需要在 function Promise 中添加 this.callbacks = []
 Promise.prototype.then = function(onFulfilled, onRejected) {
+  // then 方法必须返回 promise。
   return new Promise((resolve, reject) => {
     let callback = { onFulfilled, onRejected, resolve, reject }
 
+    // 当 state 处于 pending 状态，就储存进 callbacks 列表里。
+    // 当 state 不是 pending 状态，就扔给 handleCallback 去处理。
     if (this.state === PENDING) {
       this.callbacks.push(callback)
     } else {
+      // 至于 handleCallback 是什么。其实不重要，我们只需要知道，它一定存在。我们总得做一些处理，不是写死在 then 函数里，就是在外部的辅助函数里。
+      // 至于为啥要套个 setTimeout 呢？因为我们不是在 JS 引擎层面实现 Promise，而是使用 JS 去实现 JS Promises。在JS里无法主动控制自身 execution context stack。可以通过 setTimeout/nextTick 等 API 间接实现，此处选用了 setTimeout。
       setTimeout(() => handleCallback(callback, this.state, this.result), 0)
     }
   })
@@ -93,16 +107,20 @@ const transition = (promise, state, result) => {
   setTimeout(() => handleCallbacks(promise.callbacks, state, result), 0)
 }
 
+// 一些特殊的 value 被 resolve 时，要做特殊处理。这个特殊处理，规范也明确描述了。
 const resolvePromise = (promise, result, resolve, reject) => {
+  // 第一步，如果 result 是当前 promise 本身，就抛出 TypeError 错误。
   if (result === promise) {
     let reason = new TypeError('Can not fufill promise with itself')
     return reject(reason)
   }
 
+  // 第二步，如果 result 是另一个 promise，那么沿用它的 state 和 result 状态。
   if (isPromise(result)) {
     return result.then(resolve, reject)
   }
 
+  // 第三步，如果 result 是一个 thenable 对象。先取 then 函数，再 call then 函数，重新进入 The Promise Resolution Procedure 过程。
   if (isThenable(result)) {
     try {
       let then = result.then
@@ -114,6 +132,7 @@ const resolvePromise = (promise, result, resolve, reject) => {
     }
   }
 
+  // 若都不是，则直接 resolve result。
   resolve(result)
 }
 
