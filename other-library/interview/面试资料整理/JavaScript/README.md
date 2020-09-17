@@ -216,6 +216,7 @@ JavaScript 资料整理
 * [ ] [正则表达式不要背](https://juejin.im/post/6844903845227659271)
 * [ ] [前端必知必会--操作URL的黑科技](https://juejin.im/post/6844903865767165959)
 * [ ] [送你43道JavaScript面试题](https://juejin.im/post/6844903869378461710)
+* [ ] [一篇不是标题党的CommonJS和ES6模块规范讲解](https://juejin.im/post/6844904145443356680)
 
 ---
 
