@@ -2,7 +2,7 @@ JavaScript 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:29**  
-> Recently revised in **2020-09-08 14:11:02**
+> Recently revised in **2020-09-17 16:10:11**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -19,6 +19,7 @@ JavaScript 资料整理
 
 复习知识点：
 
+* [ ] 从输入 URL 到页面展示
 * [ ] 执行上下文/作用域链/闭包
 * [ ] this/call/apply/bind
 * [ ] 原型/继承
@@ -27,7 +28,7 @@ JavaScript 资料整理
 * [ ] 事件机制/Event Loop
 * [ ] 函数式编程
 * [ ] service worker/web worker
-* [ ] 常用方法
+* [ ] 垃圾回收机制
 * [ ] ...
 
 ### 精选
