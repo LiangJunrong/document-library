@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-07 22:28:53**  
-> Recently revised in **2020-09-17 18:31:56**
+> Recently revised in **2020-09-18 02:50:48**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -12,62 +12,175 @@
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| &emsp;[2.1 浅思](#chapter-two-one) |
+| &emsp;[2.2 参考文献](#chapter-two-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Promise 初探](#chapter-three) |
+| &emsp;[3.1 是什么](#chapter-three-one) |
+| &emsp;[3.2 为什么](#chapter-three-two) |
+| &emsp;[3.3 怎么用](#chapter-three-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Promise 基础](#chapter-four) |
+| &emsp;[4.1 new Promise](#chapter-four-one) |
+| &emsp;[4.2 Promise 状态](#chapter-four-two) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 题库：基础题](#chapter-five) |
+| &emsp;[5.1 题目一](#chapter-five-one) |
+| &emsp;[5.2 题目二](#chapter-five-two) |
+| &emsp;[5.3 题目三](#chapter-five-three) |
+| &emsp;[5.4 题目四](#chapter-five-four) |
+| &emsp;[5.5 题目五](#chapter-five-five) |
+| &emsp;[5.6 题目六](#chapter-five-six) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 题库：结合 setTimeout](#chapter-six) |
+| &emsp;[6.1 题目一](#chapter-six-one) |
+| &emsp;[6.2 题目二](#chapter-six-two) |
+| &emsp;[6.3 题目三](#chapter-six-three) |
+| &emsp;[6.4 题目四](#chapter-six-four) |
+| &emsp;[6.5 题目五](#chapter-six-five) |
+| &emsp;[6.6 题目六](#chapter-six-six) |
+| &emsp;[6.7 题目七](#chapter-six-seven) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 .then() 链式操作](#chapter-seven) |
+| &emsp;[7.1 两个参数](#chapter-seven-one) |
+| &emsp;[7.2 链式调用](#chapter-seven-two) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 .catch() 捕获问题](#chapter-eight) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 .finally() 强制执行](#chapter-night) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 题库：.then()、.catch()、.finally()](#chapter-ten) |
+| &emsp;[10.1 题目一](#chapter-ten-one) |
+| &emsp;[10.2 题目二](#chapter-ten-two) |
+| &emsp;[10.3 题目三](#chapter-ten-three) |
+| &emsp;[10.4 题目四](#chapter-ten-four) |
+| &emsp;[10.5 题目五](#chapter-ten-five) |
+| &emsp;[10.6 题目六](#chapter-ten-six) |
+| &emsp;[10.7 题目七](#chapter-ten-seven) |
+| &emsp;[10.8 题目八](#chapter-ten-eight) |
+| &emsp;[10.9 题目九](#chapter-ten-night) |
+| &emsp;[10.10 题目十](#chapter-ten-ten) |
+| &emsp;[10.11 题目十一](#chapter-ten-eleven) |
+| &emsp;[10.12 题目十二](#chapter-ten-twelve) |
+| &emsp;[10.13 题目十三](#chapter-ten-thirteen) |
+| &emsp;[10.14 题目十四](#chapter-ten-fourteen) |
+| <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 .all() 接力赛](#chapter-eleven) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 .race() 个人赛](#chapter-twelve) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 题库：.all()、.race()](#chapter-thirteen) |
+| &emsp;[10.1 题目一](#chapter-thirteen-one) |
+| &emsp;[10.2 题目二](#chapter-thirteen-two) |
+| &emsp;[10.3 题目三](#chapter-thirteen-three) |
+| &emsp;[10.4 题目四](#chapter-thirteen-four) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 Promise 源码](#chapter-fourteen) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 题库：结合 async/await](#chapter-fifteen) |
+| &emsp;[15.1 题目一](#chapter-fifteen-one) |
+| &emsp;[15.2 题目二](#chapter-fifteen-two) |
+| &emsp;[15.3 题目三](#chapter-fifteen-three) |
+| &emsp;[15.4 题目四](#chapter-fifteen-four) |
+| &emsp;[15.5 题目五](#chapter-fifteen-five) |
+| &emsp;[15.6 题目六](#chapter-fifteen-six) |
+| &emsp;[15.7 题目七](#chapter-fifteen-seven) |
+| &emsp;[15.8 题目八](#chapter-fifteen-eight) |
+| &emsp;[15.9 题目九](#chapter-fifteen-night) |
+| &emsp;[15.10 题目十](#chapter-fifteen-ten) |
+| &emsp;[15.11 题目十一](#chapter-fifteen-eleven) |
+| <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 综合题](#chapter-sixteen) |
+| &emsp;[16.1 题目一](#chapter-sixteen-one) |
+| &emsp;[16.2 题目二](#chapter-sixteen-two) |
+| &emsp;[16.3 题目三](#chapter-sixteen-three) |
+| <a name="catalog-chapter-seventeen" id="catalog-chapter-seventeen"></a>[十七 大厂题](#chapter-seventeen) |
+| &emsp;[17.1 使用 Promise 实现每隔一秒输出 1、2、3](#chapter-seventeen-one) |
+| &emsp;[17.2 使用 Promise 实现红绿灯交替重复亮](#chapter-seventeen-two) |
+| &emsp;[17.3 实现 mergePromise 函数](#chapter-seventeen-three) |
+| &emsp;[17.4 根据 PromiseA+ 实现一个自己的 Promise](#chapter-seventeen-four) |
+| &emsp;[17.5 封装一个异步加载图片的方法](#chapter-seventeen-five) |
+| &emsp;[17.6 限制异步操作并发数并尽可能快地完成](#chapter-seventeen-six) |
+| <a name="catalog-chapter-eighteen" id="catalog-chapter-eighteen"></a>[十八 总结](#chapter-eighteen) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
-【在计算机行业，盛行着一种朴素还原论的迷思。即认为越接近底层，技术含量越高。每个程序员都有读懂底层源代码的追求。
+本文会结合 `Promise` 知识点 + 训练题的形式进行讲解。
 
-这在一定程度上是正确的。不过，我们也应该看到，一旦底层和表层之间，形成了领域鸿沟。精通底层，并不能代表在表层的水平。
+前置知识点：
+
+* [JavaScript 异步](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/README.md)
+* [Event Loop](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Event%20Loop.md)
+
+如不太了解这些知识点，请先点击前往观看，避免走火入魔。
+
+本文观看建议：
+
+* 了解 `Promise` 及其内置 API。
+* 了解 `Event Loop` 机制及 `Promise` 题型破解方式。
+* 了解 `Promise` 源码实现。
+
+### <a name="chapter-two-one" id="chapter-two-one"></a>2.1 浅思
+
+> [返回目录](#chapter-one)
+
+JavaScript 里的异步方案的演进时，是用下面这种顺序：
+
+* `callback -> promise -> generator -> async/await`
+
+在计算机行业，盛行着一种朴素还原论的迷思：
+
+* 越接近底层，技术含量越高。
+* 每个程序员都有读懂底层源代码的追求。
+
+这在一定程度上是正确的。
+
+不过，我们也应该看到，一旦底层和表层之间，形成了领域鸿沟。精通底层，并不能代表在表层的水平。
 
 比如游戏的开发者，不一定是游戏中的佼佼者。这在 FPS 射击游戏或者格斗游戏里尤为明显，这些游戏里的绝大部分顶尖玩家，完全不会写代码。
 
 如果将精通 `Promise` 定义为，善于在各种异步场景中使用 `Promise` 解决问题。
 
-那么，能手写 `Promise` 实现，对精通 `Promise` 帮助不大。】
+那么，能手写 `Promise` 实现，对精通 `Promise` 帮助不大。
 
-—— 微信公众号：工业聚
+> 来源于微信公众号：工业聚
 
-【JavaScript 里的异步方案的演进时，是用下面这种顺序：
-
-* `callback -> promise -> generator -> async/await`】
-
-—— 微信公众号：工业聚
-
-不错的：
-
-* [x] [要就来 45 道 Promise 面试题一次爽到底](https://juejin.im/post/6844904077537574919)【阅读建议：8h】
-
-想知道如何手写一个 Promise：
-
-* [x] [BAT 前端经典面试问题：史上最最最详细的手写 Promise 教程](https://juejin.im/post/6844903625769091079)【阅读建议：30min】
-* [x] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)【阅读建议：30min】
-
-一般般的：
-
-* [x] [ES6 之 Promise 常见面试题](https://blog.csdn.net/weixin_37719279/article/details/80950713)【阅读建议：10min】
-* [x] [大白话讲解Promise（一）](https://www.cnblogs.com/lvdabao/p/es6-promise-1.html)【阅读建议：30min】
-
-还没看的：
-
-* [ ] [你好，JavaScript异步编程---- 理解JavaScript异步的美妙](https://juejin.im/post/5b56c3586fb9a04faa79a8e0)
-* [ ] [理解异步之美 --- promise与async await （三）](https://juejin.im/post/6844903664209887246?utm_source=gold_browser_extension)
-* [ ] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/6844903617619558408)
-* [ ] [Promise实现原理（附源码）](https://juejin.im/post/5b83cb5ae51d4538cc3ec354)
-* [ ] [Promise 必知必会（十道题）](https://juejin.im/post/6844903509934997511)
-* [ ] [面试精选之Promise](https://juejin.im/post/6844903625609707534)
-* [ ] [手写Promise 20行](https://juejin.im/post/5e6f4579f265da576429a907)
-* [ ] [剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类](https://github.com/xieranmaya/blog/issues/3)
-* [ ] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)
-* [ ] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)
-* [ ] [从setState promise化的探讨 体会React团队设计思想](https://zhuanlan.zhihu.com/p/28905707)
-
-## <a name="chapter-three" id="chapter-three"></a>三 概念
+### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 参考文献
 
 > [返回目录](#chapter-one)
 
-什么是 `Promise`，打印一下：
+请理解这是一个工作 2 年多的小前端做的整理，可能会忽略一些大佬文章的精华，从而做出不恰当的排序。
+
+以下文章排名不分先后，纯粹是个人对比，丝毫没有诋毁一丝心态，所有文章是带着膜拜心思一一阅读完毕的。
+
+**不错的**：
+
+* [x] [ES6 入门 - Promise 对象](https://es6.ruanyifeng.com/#docs/promise)【阅读建议：2h】
+* [x] [要就来 45 道 Promise 面试题一次爽到底](https://juejin.im/post/6844904077537574919)【阅读建议：8h】
+* [x] [面试精选之 Promise](https://juejin.im/post/6844903625609707534)【阅读建议：20min】
+
+**手写 Promise**：
+
+* [x] [最简实现 Promise，支持异步链式调用（20行）](https://juejin.im/post/5e6f4579f265da576429a907)【建议阅读：20min】
+* [x] [BAT 前端经典面试问题：史上最最最详细的手写 Promise 教程](https://juejin.im/post/6844903625769091079)【阅读建议：30min】
+* [x] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)【阅读建议：30min】
+* [x] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/6844903617619558408)【阅读建议：略读】
+* [x] [Promise实现原理（附源码）](https://juejin.im/post/5b83cb5ae51d4538cc3ec354)【阅读建议：略读】
+* [x] [剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类](https://github.com/xieranmaya/blog/issues/3)【建议阅读：略读】
+* [x] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)【建议阅读：略读】
+* [x] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)【建议阅读：略读】
+
+**Promises/A+ 规范**：
+
+* [x] [Promises/A+ 规范（中文版](https://segmentfault.com/a/1190000002452115)【阅读建议：无】
+* [x] [Promises/A+ 规范（英文版）](https://promisesaplus.com/)【阅读建议：无】
+* [x] [Promises/A+ 测试仓库](https://github.com/promises-aplus/promises-tests/tree/master/lib/tests)【阅读建议：无】
+
+**增加阅历的**：
+
+* [x] [ES6 之 Promise 常见面试题](https://blog.csdn.net/weixin_37719279/article/details/80950713)【阅读建议：10min】
+* [x] [Promise 必知必会（十道题）](https://juejin.im/post/6844903509934997511)【阅读建议：10min】
+* [x] [大白话讲解 Promise（一）](https://www.cnblogs.com/lvdabao/p/es6-promise-1.html)【阅读建议：30min】
+
+## <a name="chapter-three" id="chapter-three"></a>三 Promise 初探
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 是什么
+
+> [返回目录](#chapter-one)
+
+**什么是 `Promise`？**
+
+咱们直接打印一下：
 
 ```js
 console.dir(Promise);
@@ -91,14 +204,78 @@ Promise(
 */
 ```
 
-是的，这是一个构造函数。
+是的，`Promise` 是一个构造函数。
 
-这个构造函数接收一个参数，这个参数是函数，且该函数有两个参数：`resolve`、`reject`。
+就这么简单，别想其他杂七杂八的，好不好用才是关键。
 
-* `resolve`：异步操作执行成功后的回调，将 `Promise` 的状态变为 `succeed`
-* `reject`：异步操作执行失败后的回调。将 `Promise` 的状态变为 `rejected`
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 为什么
 
-更直观的作用？
+> [返回目录](#chapter-one)
+
+**为什么需要 `Promise`？**
+
+看一段代码：
+
+```js
+const action = () => {
+  setTimeout(() => {
+    ajax('http://www.xxx.com/getData', (text) => {
+      if (text === 'hello') {
+        doSomething2();
+      } else if (text === 'world') {
+        doSomething3();
+      }
+    })
+  }, 500);
+};
+action();
+
+doSomething1();
+```
+
+这种就是回调地狱式的代码：
+
+1. 执行 `action`，将 `setTimeout` 放进宏任务队列
+2. 执行 `doSomething1()`，执行里面代码
+3. 500ms 或以后，执行 `ajax`，等待完成
+4. `ajax` 完成后，判断 `text`，进而执行 `doSomething2()` 或者 `doSomething3`。
+
+这无疑看起来是挺不容易的，因为当 `doSomething` 里面的代码再丰富起来，你不仔细看，还真不知道这代码会怎么走。
+
+再看一个例子：
+
+```js
+请求1(function(请求结果1){
+  请求2(function(请求结果2){
+    请求3(function(请求结果3){
+      请求4(function(请求结果4){
+        请求5(function(请求结果5){
+          请求6(function(请求结果3){
+            ...
+          })
+        })
+      })
+    })
+  })
+})
+```
+
+有没有头皮发麻的感觉。
+
+回调地狱带来的负面作用有以下几点：
+
+* 代码臃肿。
+* 可读性差。
+* 耦合度过高，可维护性差。
+* 代码复用性差。
+* 容易滋生 bug。
+* 只能在回调里处理异常。
+
+所以，为了解决这种痛楚，这就需要一个承诺：
+
+* 把某件事交给某个人，这个人做完后，不管失败还是成功，都会给你一个回应，这样你就能安心将事情交给它了。
+
+这个人就叫 `Promise`，我们看看它直观的作用：
 
 ```js
 function getData() {
@@ -120,181 +297,178 @@ getData().then((res) => {
 });
 ```
 
-* 链式操作
+这样我们就可以安心玩耍了。
 
-话不多说看代码：
-
-```js
-const red = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      console.log('红');
-      resolve('红灯走完了');
-    }, 1000);
-  });
-}
-const green = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      console.log('绿');
-      resolve('绿灯走完了');
-    }, 1000);
-  });
-}
-
-red().then((res1) => {
-  console.log('res1：', res1);
-  return green();
-}).then((res2) => {
-  console.log('res2：', res2);
-})
-
-/*
-  1s 后输出：
-    红
-    res1： 红灯走完了
-
-  2s 后输出：
-    绿
-    res2： 绿灯走完了
-*/
-```
-
-* 如何捕获错误？（`catch()` 以及 `then()` 的第二个参数）
-
-```js
-const getRandom = new Promise((resolve, reject) => {
-  const number = Math.random() * 10; // 生成 1-10 范围的数字
-  if (number > 5) {
-    reject('数字超过 5');
-  } else {
-    resolve('数字小于 5');
-  }
-});
-
-// 捕获错误方式一：使用 catch()
-getRandom.then((res) => {
-  console.log('res：', res);
-}).catch((error) => {
-  console.log('error：', error);
-});
-
-// 捕获错误方式二：then() 有两个参数
-getRandom.then(
-  (res) => { // 等同于 then()
-    console.log('res：', res);
-  }, (error) => { // 等同于 catch()
-    console.log('error：', error);
-  },
-);
-
-/*
- 输出：
-
-  * res： 数字小于 5
-  * error： 数字超过 5
-  
-  两者中随机一个
-*/
-```
-
-* `Promise` 的状态
-
-`Promise` 的状态一经改变就不能再进行更改。
-
-1. 初始状态：`pending`
-2. 成功状态：`fulfilled`
-3. 失败状态：`rejected`
-
-* `all` 的用法
-
-Promise 的 `all` 方法提供了并行执行异步操作的能力，并且在所有异步操作执行完后才执行回调。
-
-```js
-const one = new Promise((resolve) => {
-  setTimeout(() => {
-    console.log('one');
-    resolve('one');
-  }, 1000);
-}) 
-const two = new Promise((resolve) => {
-  setTimeout(() => {
-    console.log('two');
-    resolve('two');
-  }, 3000);
-}) 
-const three = new Promise((resolve) => {
-  setTimeout(() => {
-    console.log('three');
-    resolve('three');
-  }, 2000);
-}) 
-
-/*
- 先输出：
- * one
- * three
- * two
- 
- 再输出 res：[ 'one', 'two', 'three' ]
-*/
-Promise.all([one, two, three]).then((res) => {
-  console.log(res); // [ 'one', 'two', 'three' ]
-});
-```
-
-* `race()` 方法
-
-和 `all()` 方法不同，`Promise.race()` 方法是谁先走完谁先输出。
-
-将上面的例子中，`.all()` 改为 `.race()`，则会得到不一样的结果。
-
-```js
-const one = new Promise((resolve) => {
-  setTimeout(() => {
-    console.log('one');
-    resolve('one resolve');
-  }, 1000);
-}) 
-const two = new Promise((resolve) => {
-  setTimeout(() => {
-    console.log('two');
-    resolve('two resolve');
-  }, 3000);
-}) 
-const three = new Promise((resolve) => {
-  setTimeout(() => {
-    console.log('three');
-    resolve('three resolve');
-  }, 2000);
-}) 
-
-/*
- 先输出 one
- 再输出：one resolve
- 最后依序输出：
- * three
- * two
-*/
-Promise.race([one, two, three]).then((res) => {
-  console.log(res); // 'one'
-});
-```
-
-## <a name="chapter-three" id="chapter-three"></a>三 Promise 系列
+### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 怎么用
 
 > [返回目录](#chapter-one)
 
-* `Promise` 基础
-* `Promise` 结合 `setTimeout`
-* `Promise` 中的 `then`、`catch`、`finally`
-* `Promise` 中的 `all`、`race`
-* `async`/`await` 的几道题
-* `async` 处理错误
-* 综合题
-* 几道大厂的面试题
+`Promise` 的使用，说难也不难，咱们直接上代码：
 
-Event Loop 执行顺序：
+```js
+// 1. 设置一个 promise
+const promise = new Promise((resolve, reject) => {
+  // 2. 设置一个 0-10 随机数
+  const number = Math.floor(Math.random() * 10);
+
+  // 3. 如果这个数大于 5，我们当它成功了
+  if (number > 5) {
+    resolve('大于 5'); // resolve 相当于解决的意思
+  } else { // 4. 否则就是失败的
+    reject('小于 5'); // reject 相当于处理失败的意思
+  }
+});
+
+// 5. 如果是 resolve，那就走 .then；如果是 reject，那就走 .catch
+promise.then((res) => {
+  console.log('成功：', res);
+}).catch((error) => {
+  console.log('失败：', error);
+}).finally(() => {
+  // 6. 注意 finally 就是剧终的意思，不管是好结局还是坏结局，都是结局
+  console.log('不管前面发生了啥，我都会调用');
+});
+```
+
+它的输出：
+
+> 输出 1
+
+```
+失败： 小于 5
+不管前面发生了啥，我都会调用
+```
+
+> 输出 2
+
+```
+成功： 大于 5
+不管前面发生了啥，我都会调用
+```
+
+因为我们用了随机值，所以上面 2 种输出都有可能。
+
+至于它里面的 `resolve`、`reject`、`.then()`、`.catch()`、`.finally()`，我们暂且不管，后面再扯，就问问自己前面的理解了没？
+
+如果理解了，那么恭喜你对 `Promise` 有了个简单的了解。
+
+## <a name="chapter-four" id="chapter-four"></a>四 Promise 基础
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 new Promise
+
+> [返回目录](#chapter-one)
+
+**首先**，我们先看看如何走一个 `new Promise`：
+
+```js
+const promise = new Promise((resolve, reject) => {
+  console.log(resolve); // [Function]
+  console.log(reject); // [Function]
+});
+
+console.log(promise); // Promise { <pending> }
+```
+
+**然后**，我们对这几个概念进行区分：
+
+1. `Promise` 对象是一个构造函数，用来生成 `Promise` 实例，所以 `new Promise()` 不足奇怪。
+2. `new Promise()` 传入一个函数，这个函数可以带 2 个参数：`resolve` 和 `reject`。
+3. `resolve` 的作用是将 `Promise` 对象的状态从 “未完成” 变为 “成功”（`pending -> resolved`）
+4. `reject` 的作用是将 `Promise` 对象的状态从 “未完成” 变为 “失败”（`pending -> rejected`）
+5. 在没有执行 `resolve` 和 `reject` 之前，它们还是 `pending` 的。
+
+**最后**，想必这么一说，小伙伴们对这个有一个清晰概念了。
+
+那么下面我们再看看 `Promise` 的状态。
+
+### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 Promise 状态
+
+> [返回目录](#chapter-one)
+
+**`Promise` 有 3 种状态：`pending`、`fulfilled`、`rejected`**
+
+1. 初始状态：`pending`
+2. 成功状态：`fulfilled`（实际打印会看到 `resolved`）
+3. 失败状态：`rejected`
+
+如果你在 `new Promise` 中用了 `resolve()`，那么它就会走 `.then()`；
+
+如果你用的是 `reject()`，那么它就走 `.catch()`。
+
+怎么说呢？
+
+```js
+const promise1 = new Promise((resolve, reject) => {
+  resolve('成功');
+});
+
+promise1.then((res) => {
+  console.log('res 1：', res);
+}).catch((error) => {
+  console.log('error 1：', error);
+})
+
+const promise2 = new Promise((resolve, reject) => {
+  reject('失败');
+});
+
+promise2.then((res) => {
+  console.log('res 2：', res);
+}).catch((error) => {
+  console.log('error 2：', error);
+})
+```
+
+在这段代码中，它的输出为：
+
+```
+res 1： 成功
+error 2： 失败
+```
+
+这很容易理解，因为 `promise1` 走了 `resolve` 而 `promise2` 走了 `reject`。
+
+**`Promise` 的状态一经改变就不能再进行更改。**
+
+看下面代码：
+
+```js
+const promise = new Promise((resolve, reject) => {
+  resolve('成功 1');
+  reject('失败');
+  resolve('成功 2');
+});
+
+promise.then((res) => {
+  console.log('res：', res);
+}).catch((err) => {
+  console.log('err：', err);
+});
+```
+
+输出啥？
+
+没错输出的是：`res： 成功 1`。
+
+一诺千金，你同意将你身边妹子介绍给我了，回头又说不行了，这怎么成。
+
+> 疯狂暗示
+
+同样，`Promise` 也是不允许返回的：
+
+* 你将状态改为了 `resolved`，那么就别想再改了，乖乖走 `.then()` 吧！
+
+OK，看到这里你对 `Promise` 基础有一定了解了，咱们上题吧！
+
+## <a name="chapter-five" id="chapter-five"></a>五 题库：基础题
+
+> [返回目录](#chapter-one)
+
+在这之前，强调一遍 `Event Loop`。
+
+`Event Loop` 执行顺序：
 
 1. 一开始整个脚本 `script` 作为一个宏任务执行
 2. 执行过程中，**同步代码** 直接执行，**宏任务** 进入宏任务队列，**微任务** 进入微任务队列。
@@ -303,17 +477,73 @@ Event Loop 执行顺序：
 5. 检查是否有 `Web Worker` 任务，有则执行。
 6. 执行完本轮的宏任务，回到步骤 2，依次循环，直到宏任务和微任务队列为空。
 
-**微任务**包括：`MutationObserver`、`Promise.then()/catch()`、以 `Promise` 为基础开发的其他技术，例如 `fetch API`、V8 的垃圾回收过程、`Node 独有的 process.nextTick`。
+**微任务** 包括：
 
-**宏任务**包括：`script`、`setTimeout`、`setInterval`、`setImmediate`、`I/O`、`UI rendering`。
+* `MutationObserver`
+* `Promise.then()/catch()`
+* 以 `Promise` 为基础开发的其他技术，例如 `fetch API`
+* V8 的垃圾回收过程
+* Node 独有的 `process.nextTick`
+
+**宏任务** 包括：
+
+* `script`
+* `setTimeout`
+* `setInterval`
+* `setImmediate`
+* `I/O`
+* `UI rendering`
+
+举例一段代码：
+
+```js
+const promise = new Promise((resolve, reject) => {
+  console.log('1');
+  resolve('2');
+});
+
+setTimeout(() => {
+  console.log('3');
+}, 0);
+
+promise.then((res) => {
+  console.log(res);
+});
+```
+
+输出：`1 -> 2 -> 3`。
+
+怎么理解呢？
 
 > 在所有任务开始的时候，由于宏任务包括了 `script`，所以浏览器会先执行一个宏任务，在这个过程中你看到的延迟任务（例如 `setTimeout`）将会被放到下一个宏任务中执行。
 
-## <a name="chapter-four" id="chapter-four"></a>四 Promise 基础
+1. 先走 `script`。
+2. 碰到 `promise = new Promise`，直接走里面。
+3. 打印出 1。
+4. 碰到 `resolve()`，将 `Promise` 状态改为 `resolved`，将 `Promise.then()` 丢进 `script` 这个宏任务下的微任务队列中。
+5. 此时 `script` 宏任务下的微任务队列有：`promise.then()`。
+6. 碰到 `setTimeout()`，将其丢进宏任务队列中。
+7. 此时宏任务队列有：`script`、`setTimeout`。
+8. 同步任务执行完毕。
+9. 检查当前宏任务 `script` 下的微任务，并循环出队。
+10. 输出 `2`。
+11. 宏任务 `script` 下没有任何可执行的了，走下一个宏任务 `setTimeout`。
+12. 输出 `3`。
+13. 宏任务队列走完了，代码执行完毕。
+
+简单来说：
+
+1. 先走 `script`。
+2. 碰到的宏任务 `setTimeout` 等放后面，等 `script` 走完再出队。
+3. 碰到的微任务看当前宏任务，是 `script` 就丢 `script` 里面，是 `setTimeout` 就丢 `setTimeout` 里面。
+4. 每次宏任务走完同步任务和微任务，就走下一个宏任务。
+5. 循环步骤 4。
+
+就这么简单，说多无益，刷题加深印象！
+
+### <a name="chapter-five-one" id="chapter-five-one"></a>5.1 题目一
 
 > [返回目录](#chapter-one)
-
-### 4.1 题目一
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -325,15 +555,17 @@ console.log('1', promise);
 /*
   输出顺序即分析：
   输出：
-    1. promise
-    2. 1 Promise { <pending> }
+    * promise
+    * 1 Promise { <pending> }
   分析：
-    1. 从上到下，碰到 new Promise，输出 promise
-    2. 输出 1 和 promise 当前状态
+    1. 从上到下，碰到 new Promise，输出 'promise'
+    2. 输出 '1' 和 promise 当前状态
 */
 ```
 
-### 4.2 题目二
+### <a name="chapter-five-two" id="chapter-five-two"></a>5.2 题目二
+
+> [返回目录](#chapter-one)
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -357,11 +589,13 @@ console.log(4);
     3. 输出 2
     4. 碰到 .then()，将其丢进微任务
     5. 输出 4
-    5. 回来执行步骤 4 的微任务，输出 3
+    6. 回来执行步骤 4 的微任务，输出 3
 */
 ```
 
-### 4.3 题目三
+### <a name="chapter-five-three" id="chapter-five-three"></a>5.3 题目三
+
+> [返回目录](#chapter-one)
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -386,7 +620,9 @@ console.log(4);
 */
 ```
 
-### 4.4 题目四
+### <a name="chapter-five-four" id="chapter-five-four"></a>5.4 题目四
+
+> [返回目录](#chapter-one)
 
 ```js
 const promise1 = new Promise((resolve, reject) => {
@@ -414,12 +650,14 @@ console.log('2', promise2);
     3. 碰到 promise1.then，放进微任务队列
     4. promise2 是一个新的状态为 pending 的 Promise
     5. 输出 1 和 promise1，当前 promise1 的状态为 resolve，并且存在 'resolve1'
-    5. 输出 2 和 promise2，当前 promise2 的状态为 peding
-    6. 宏任务走完，执行微任务，输出 resolve1
+    6. 输出 2 和 promise2，当前 promise2 的状态为 peding
+    7. 宏任务走完，执行微任务，输出 resolve1
 */
 ```
 
-### 4.5 题目五
+### <a name="chapter-five-five" id="chapter-five-five"></a>5.5 题目五
+
+> [返回目录](#chapter-one)
 
 ```js
 const fn = () => (new Promise((resolve, reject) => {
@@ -448,7 +686,9 @@ console.log('start');
 */
 ```
 
-### 4.6 题目六
+### <a name="chapter-five-six" id="chapter-five-six"></a>5.6 题目六
+
+> [返回目录](#chapter-one)
 
 ```js
 const fn = () => {
@@ -476,11 +716,109 @@ fn().then((res) => {
 */
 ```
 
-## <a name="chapter-five" id="chapter-five"></a>五 Promise 进阶：结合 `setTimeout`
+## <a name="chapter-six" id="chapter-six"></a>六 题库：结合 setTimeout
 
 > [返回目录](#chapter-one)
 
-### 5.1 题目一
+关于宏任务 `setTimeout`，我们就要举例一道经典题了：
+
+```js
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 0);
+}
+```
+
+这道题的输出：
+
+```
+3
+3
+3
+```
+
+从 `Event Loop` 的角度来看：
+
+1. 走同步任务，`var i` 遍历走完，`i = 3`（`var` 变量污染）。
+2. `for()` 遍历的同时，将 3 个 `setTimeout` 塞进了宏任务中。
+3. `script` 这个宏任务执行完毕。
+4. 依次执行 3 个 `setTimeout`，因为此时 `i` 为 `3`，所以会依次输出 3 个 3。
+
+当然，解决方案也很简单：
+
+* **方法一：设置立即执行函数**
+
+通过设置立即执行函数的方式，形成块作用域，解决 `i` 的污染问题。
+
+```js
+for (var i = 0; i < 3; i++) {
+  (function(i) {
+    setTimeout(() => {
+      console.log(i);
+    }, 0);
+  })(i);
+}
+```
+
+* **方法二：设置 let**
+
+`let` 会让 `for` 形成块作用域，从而防止污染，解决问题。
+
+```js
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 0);
+}
+```
+
+当然，`setTimeout` 还有一个问题：
+
+```js
+setTimeout(() => {
+  console.log(1);
+}, 0);
+
+setTimeout(() => {
+  console.log(2);
+}, 1000);
+
+setTimeout(() => {
+  console.log(3);
+}, 500);
+```
+
+这份代码输出啥？
+
+```
+1
+3
+2
+```
+
+`setTimeout` 接收 2 个参数：
+
+* `function()`：回调函数。在第二个参数指定的时间后执行。
+* `timer`：执行时间（毫秒）。在 `n` 毫秒后执行回调函数。
+
+一般来说，宏任务遵循队列的规则，按顺序入队出队，这样应该输出：`1 -> 2 -> 3`。
+
+这在 `timer` 相同的情况下的确如此。
+
+但是，在 `timer` 不同的情况下，需要按照 **优先队列** 的方式进行入队：
+
+* **谁最小，谁在前面**。
+
+所以这里输出的顺序是：`1 -> 3 -> 2`。
+
+> 你不需要理解 **优先队列** 是啥，你想着尊老爱幼，`timer` 越小越在前面即可。
+
+OK，关于 `setTimeout` 相关知识点 **jsliang** 介绍完毕，咱们看题！
+
+### <a name="chapter-six-one" id="chapter-six-one"></a>6.1 题目一
+
+> [返回目录](#chapter-one)
 
 ```js
 console.log('start');
@@ -514,7 +852,9 @@ console.log('end');
 */
 ```
 
-### 5.2 题目二
+### <a name="chapter-six-two" id="chapter-six-two"></a>6.2 题目二
+
+> [返回目录](#chapter-one)
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -561,7 +901,9 @@ console.log(4);
 */
 ```
 
-### 5.3 题目三
+### <a name="chapter-six-three" id="chapter-six-three"></a>6.3 题目三
+
+> [返回目录](#chapter-one)
 
 ```js
 setTimeout(() => {
@@ -604,7 +946,9 @@ console.log('start');
 */
 ```
 
-### 5.4 题目四
+### <a name="chapter-six-four" id="chapter-six-four"></a>6.4 题目四
+
+> [返回目录](#chapter-one)
 
 ```js
 setTimeout(() => {
@@ -646,7 +990,9 @@ console.log('start');
 */
 ```
 
-### 5.5 题目五
+### <a name="chapter-six-five" id="chapter-six-five"></a>6.5 题目五
+
+> [返回目录](#chapter-one)
 
 ```js
 Promise.resolve().then(() => {
@@ -669,7 +1015,7 @@ console.log('start');
   执行顺序和分析：
   顺序：
     * 'start'
-    * 'promist1'
+    * 'promise1'
     * 'timer1'
     * 'promise2'
     * 'timer2'
@@ -690,7 +1036,9 @@ console.log('start');
 */
 ```
 
-### 5.6 题目六
+### <a name="chapter-six-six" id="chapter-six-six"></a>6.6 题目六
+
+> [返回目录](#chapter-one)
 
 ```js
 const promise1 = new Promise((resolve, reject) => {
@@ -733,7 +1081,9 @@ setTimeout(() => {
 */
 ```
 
-### 5.7 题目七
+### <a name="chapter-six-seven" id="chapter-six-seven"></a>6.7 题目七
+
+> [返回目录](#chapter-one)
 
 ```js
 const promise1 = new Promise((resolve, reject) => {
@@ -774,22 +1124,237 @@ setTimeout(() => {
 */
 ```
 
-## <a name="chapter-six" id="chapter-six"></a>六 Promise 进阶：`then`、`catch`、`finally`
+## <a name="chapter-seven" id="chapter-seven"></a>七 .then() 链式操作
 
 > [返回目录](#chapter-one)
 
-1. `Promise` 的状态已经改变就不能再改变。（6.1）
-2. `.then()` 和 `.catch()` 都会返回一个新的 `Promise`，状态为 `pending`。（4.2）
-3. `catch()` 不管连接到哪里，都能捕获上层未捕捉过的错误。（6.2）
-4. 在 `Promise` 中，返回任意一个非 `Promise` 的值都会被包裹成 `Promise` 对象，例如 `return 2` 会被包装成 `return Promise.resolve(2)`。
-5. `Promise` 的 `.then()` 和 `.catch()` 可以被调用多次，但是如果 `Promise` 内部的状态一经改变，并且有了一个值，那么后续每次调用 `.then()` 或者 `.catch()` 的时候都会直接拿到该值。（6.5）
-6. `.then()` 或者 `.catch()` 中 `return` 一个 `error` 对象并不会抛出错误，所以不会被后续的 `.catch()` 捕获。（6.6）
-7. `.then()` 或者 `.catch()` 返回的值不能是 `Promise` 本身，否则会造成死循环。（6.7）
-8. `.then()` 或者 `.catch()` 的参数期望是函数，传入非函数则会发生值透传。（6.8）
-9. `.then()` 方法能接受 2 个参数，第 1 个是成功处理的函数，第 2 个是处理失败的函数，在某些时候你可以认为 `.catch()` 是 `.then()` 第 2 个参数的简便写法。（6.9）
-10. `.finally()` 方法也是返回一个 `Promise`，它在 `Promise` 结束的时候，无论结果为 `resolved` 还是 `rejected`，都会返回里面的回调函数。
+### <a name="chapter-seven-one" id="chapter-seven-one"></a>7.1 两个参数
 
-### 6.1 题目一
+> [返回目录](#chapter-one)
+
+在上面的题目中，我们尽情了解了 `.then()`，但是我们并没有细讲，所以这里进行一一讲解。
+
+话不多说，先看代码：
+
+```js
+const promise1 = new Promise((resolve, reject) => {
+  resolve('1');
+});
+
+promise1.then(
+  (res) => {
+    console.log('res：', res);
+  }, (err) => {
+    console.log('err：', err);
+  }
+)
+
+const promise2 = new Promise((resolve, reject) => {
+  reject('1');
+});
+
+promise2.then(
+  (res) => {
+    console.log('res：', res);
+  }, (err) => {
+    console.log('err：', err);
+  }
+)
+```
+
+它输出啥：
+
+```
+res： 1
+err： 1
+```
+
+所以，实际上 `.then()` 是接收 2 个参数的：
+
+* `resolved`：如果我们设置了 `resolved` 状态，那么我们就会走第一个参数。
+* `rejected`：如果我们设置了 `rejected` 状态，那么我们就会走第二个参数。
+
+这第 2 个参数和 `.catch()` 是差不多的。
+
+但是，为了保持代码的可观，建议第二个参数改为 `.catch()`，方便理解。
+
+### <a name="chapter-seven-two" id="chapter-seven-two"></a>7.2 链式调用
+
+> [返回目录](#chapter-one)
+
+在 `Promise.then()` 方法中，`.then()` 是可以链式调用的。
+
+```js
+Promise.resolve(1).then((res1) => {
+  console.log('res 1：', res1); // res 1： 1
+  return res1;
+}).then((res2) => {
+  console.log('res 2：', res2); // res 2： 1
+})
+```
+
+可以看到，下一个 `.then()`，可以接收上一个 `.then()` 中 `return` 出来的内容。
+
+当然，值得注意的是，如果我们没有 `return res1`，那么输出会变成：`res 2： undefined`。
+
+这样，如果我们需要做一些异步操作，那么就可以使用这种方法。
+
+话不多说，先上代码：
+
+```js
+const red = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log('红');
+      resolve('红灯走完了');
+    }, 1000);
+  });
+}
+const green = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log('绿');
+      resolve('绿灯走完了');
+    }, 1000);
+  });
+}
+
+red().then((res1) => {
+  console.log('res1：', res1);
+  return green();
+}).then((res2) => {
+  console.log('res2：', res2);
+})
+
+/*
+  1s 后输出：
+    红
+    res1： 红灯走完了
+
+  2s 后输出：
+    绿
+    res2： 绿灯走完了
+*/
+```
+
+这里边，红灯返回一个 `Promise` 对象，等 `setTimeout` 走完，状态变为 `resolved`，那么就走 `.then()`，继而 1s 后输出：`红 -> res1： 红灯走完了`。
+
+接着，我们将 `green()` 执行了，并将它的返回 `return` 给了下一个 `.then()`。
+
+所以，我们会在 2s 后输出 `绿 -> 绿灯走完了`。
+
+这就是 `.then()` 的门门道道。
+
+## <a name="chapter-eight" id="chapter-eight"></a>八 .catch() 捕获问题
+
+> [返回目录](#chapter-one)
+
+在上面我们提到过：
+
+* `reject` 的作用是将 `Promise` 对象的状态从 “未完成” 变为 “失败”（`pending -> rejected`）
+
+而 `.then()` 的第 2 个参数和 `.catch()` 是一样的作用，都是捕获失败的内容的。
+
+```js
+const getRandom = new Promise((resolve, reject) => {
+  const number = Math.random() * 10; // 生成 1-10 范围的数字
+  if (number > 5) {
+    reject('数字超过 5');
+  } else {
+    resolve('数字小于 5');
+  }
+});
+
+// 捕获错误方式一：使用 catch()
+getRandom.then((res) => {
+  console.log('res：', res);
+}).catch((error) => {
+  console.log('error：', error);
+});
+
+// 捕获错误方式二：then() 有两个参数
+getRandom.then(
+  (res) => { // 等同于 then()
+    console.log('res：', res);
+  }, (error) => { // 等同于 catch()
+    console.log('error：', error);
+  },
+);
+
+/*
+ 输出：
+
+  * res： 数字小于 5
+  * error： 数字超过 5
+  
+  两者中随机一个
+*/
+```
+
+当然，为了阅读可观，建议还是使用 `.then().catch()` 的方式，而不是通过 `.then()` 里面的第 2 个参数来表示。
+
+## <a name="chapter-night" id="chapter-night"></a>九 .finally() 强制执行
+
+> [返回目录](#chapter-one)
+
+`finally` 方法用于指定不管 `Promise` 对象最后状态如何，都会执行的操作。
+
+同时，`.finally()` 方法的回调函数是不接受任何参数的，因为它是强制执行，不需要依赖 `Promise` 的执行结果。
+
+它本质上就是 `.then()` 方法的特例。
+
+```js
+// 1. 设置一个 promise
+const promise = new Promise((resolve, reject) => {
+  // 2. 设置一个 0-10 随机数
+  const number = Math.floor(Math.random() * 10);
+
+  // 3. 如果这个数大于 5，我们当它成功了
+  if (number > 5) {
+    resolve('大于 5'); // resolve 相当于解决的意思
+  } else { // 4. 否则就是失败的
+    reject('小于 5'); // reject 相当于处理失败的意思
+  }
+});
+
+// 5. 如果是 resolve，那就走 .then；如果是 reject，那就走 .catch
+promise.then((res) => {
+  console.log('成功：', res);
+}).catch((error) => {
+  console.log('失败：', error);
+}).finally(() => {
+  // 6. 注意 finally 就是剧终的意思，不管是好结局还是坏结局，都是结局
+  console.log('不管前面发生了啥，我都会调用');
+});
+```
+
+咱们拿开头的这份代码来回顾下 `.finally()` 吧：
+
+> 输出 1
+
+```
+失败： 小于 5
+不管前面发生了啥，我都会调用
+```
+
+> 输出 2
+
+```
+成功： 大于 5
+不管前面发生了啥，我都会调用
+```
+
+因为我们用了随机值，所以上面 2 种输出都有可能。
+
+但是，不管是哪种输出，`.finally()` 是一定会走出来的。
+
+## <a name="chapter-ten" id="chapter-ten"></a>十 题库：.then()、.catch()、.finally()
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-ten-one" id="chapter-ten-one"></a>10.1 题目一
+
+> [返回目录](#chapter-one)
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -818,7 +1383,9 @@ promise.then((res) => {
 */
 ```
 
-### 6.2 题目二
+### <a name="chapter-ten-two" id="chapter-ten-two"></a>10.2 题目二
+
+> [返回目录](#chapter-one)
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -849,7 +1416,9 @@ promise.then((res) => {
 */
 ```
 
-### 6.3 题目三
+### <a name="chapter-ten-three" id="chapter-ten-three"></a>10.3 题目三
+
+> [返回目录](#chapter-one)
 
 ```js
 Promise
@@ -876,7 +1445,9 @@ Promise
 */
 ```
 
-### 6.4 题目四
+### <a name="chapter-ten-four" id="chapter-ten-four"></a>10.4 题目四
+
+> [返回目录](#chapter-one)
 
 ```js
 Promise
@@ -903,7 +1474,9 @@ Promise
 */
 ```
 
-### 6.5 题目五
+### <a name="chapter-ten-five" id="chapter-ten-five"></a>10.5 题目五
+
+> [返回目录](#chapter-one)
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -944,7 +1517,9 @@ promise.then((res) => {
 */
 ```
 
-### 6.6 题目六
+### <a name="chapter-ten-six" id="chapter-ten-six"></a>10.6 题目六
+
+> [返回目录](#chapter-one)
 
 ```js
 Promise.resolve().then(() => {
@@ -964,7 +1539,9 @@ Promise.resolve().then(() => {
 */
 ```
 
-### 6.7 题目七
+### <a name="chapter-ten-seven" id="chapter-ten-seven"></a>10.7 题目七
+
+> [返回目录](#chapter-one)
 
 ```js
 const promise = Promise.resolve().then(() => {
@@ -984,7 +1561,9 @@ promise.catch((err) => {
 */
 ```
 
-### 6.8 题目八
+### <a name="chapter-ten-eight" id="chapter-ten-eight"></a>10.8 题目八
+
+> [返回目录](#chapter-one)
 
 ```js
 Promise
@@ -1003,7 +1582,9 @@ Promise
 */
 ```
 
-### 6.9 题目九
+### <a name="chapter-ten-night" id="chapter-ten-night"></a>10.9 题目九
+
+> [返回目录](#chapter-one)
 
 ```js
 Promise
@@ -1027,7 +1608,9 @@ Promise
 
 如果本题中的 `.then()` 中的第 2 个参数去掉了，那么就会进入 `.catch()` 函数中。
 
-### 6.10 题目十
+### <a name="chapter-ten-ten" id="chapter-ten-ten"></a>10.10 题目十
+
+> [返回目录](#chapter-one)
 
 ```js
 Promise
@@ -1050,7 +1633,9 @@ Promise
 */
 ```
 
-### 6.11 题目十一
+### <a name="chapter-ten-eleven" id="chapter-ten-eleven"></a>10.11 题目十一
+
+> [返回目录](#chapter-one)
 
 1. `.finally()` 方法不管 `Promise` 对象最后的状态如何都会执行。
 2. `.finally()` 方法的回调函数不接受任何的参数，也就是说你在 `.finally()` 函数中是没法知道 `Promise` 最终的状态是 `resolved` 还是 `rejected` 的。
@@ -1085,7 +1670,9 @@ Promise
 */
 ```
 
-### 6.12 题目十二
+### <a name="chapter-ten-twelve" id="chapter-ten-twelve"></a>10.12 题目十二
+
+> [返回目录](#chapter-one)
 
 ```js
 Promise
@@ -1116,7 +1703,9 @@ Promise
 */
 ```
 
-### 6.13 题目十三
+### <a name="chapter-ten-thirteen" id="chapter-ten-thirteen"></a>10.13 题目十三
+
+> [返回目录](#chapter-one)
 
 ```js
 function promise1() {
@@ -1173,7 +1762,9 @@ promise2().then((res) => {
 */
 ```
 
-### 6.14 题目十四
+### <a name="chapter-ten-fourteen" id="chapter-ten-fourteen"></a>10.14 题目十四
+
+> [返回目录](#chapter-one)
 
 ```js
 function promise1() {
@@ -1219,7 +1810,103 @@ promise2().then((res) => {
 */
 ```
 
-## <a name="chapter-seven" id="chapter-seven"></a>七 Promise 进阶：`all`、`race`
+## <a name="chapter-eleven" id="chapter-eleven"></a>十一 .all() 接力赛
+
+> [返回目录](#chapter-one)
+
+Promise 的 `all` 方法提供了并行执行异步操作的能力，并且在所有异步操作执行完后才执行回调。
+
+假设有代码：
+
+```js
+const p = Promise.all([p1, p2, p3]);
+```
+
+`p` 的状态由 `p1`、`p2`、`p3` 决定，分成两种情况。
+
+1. 只有 `p1`、`p2`、`p3` 的状态都变成 `fulfilled`，`p` 的状态才会变成 `fulfilled`，此时 `p1`、`p2`、`p3` 的返回值组成一个数组，传递给 `p` 的回调函数。
+2. 只要 `p1`、`p2`、`p3` 之中有一个被 `rejected`，`p` 的状态就变成 `rejected`，此时第一个被 `reject` 的实例的返回值，会传递给 `p` 的回调函数。
+
+所以，结合一下 `setTimeout` 当做异步函数，我们尝试下运用 `.all()` 方法：
+
+```js
+const one = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('one');
+    resolve('one');
+  }, 1000);
+}) 
+const two = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('two');
+    resolve('two');
+  }, 3000);
+}) 
+const three = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('three');
+    resolve('three');
+  }, 2000);
+}) 
+
+/*
+ 先输出：
+ * one
+ * three
+ * two
+ 
+ 再输出 res：[ 'one', 'two', 'three' ]
+*/
+Promise.all([one, two, three]).then((res) => {
+  console.log(res); // [ 'one', 'two', 'three' ]
+});
+```
+
+这是所有状态都成功的，如果这 3 个中有 1 个是失败的呢？请自行尝试。
+
+## <a name="chapter-twelve" id="chapter-twelve"></a>十二 .race() 个人赛
+
+> [返回目录](#chapter-one)
+
+和 `all()` 方法不同，`Promise.race()` 方法是谁先走完谁先输出。
+
+就好比跑步比赛的个人 100 米赛跑一样，拿第 1 的才值得被人记住，其他的就不用过多理会了。
+
+将上面的例子中，`.all()` 改为 `.race()`，则会得到不一样的结果。
+
+```js
+const one = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('one');
+    resolve('one resolve');
+  }, 1000);
+}) 
+const two = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('two');
+    resolve('two resolve');
+  }, 3000);
+}) 
+const three = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('three');
+    resolve('three resolve');
+  }, 2000);
+}) 
+
+/*
+ 先输出 one
+ 再输出：one resolve
+ 最后依序输出：
+ * three
+ * two
+*/
+Promise.race([one, two, three]).then((res) => {
+  console.log(res); // 'one'
+});
+```
+
+## <a name="chapter-thirteen" id="chapter-thirteen"></a>十三 题库：.all()、.race()
 
 > [返回目录](#chapter-one)
 
@@ -1233,9 +1920,11 @@ promise2().then((res) => {
 1. `Promise.all().then()` 结果中的数组的顺序和 `Promise.all()` 接收到的数组的顺序一致，并不会因为 `setTimeout` 的输出而改变。
 2. `Promise.all()` 和 `Promise.then()` 碰到会抛出异常的情况，都只会抛出最先出现问题的那个，被 `.then()` 的第二个参数或者 `.catch()` 捕获，但是不会影响数组中其他的异步任务的执行。
 
-### 7.1 题目一
+### <a name="chapter-thirteen-one" id="chapter-thirteen-one"></a>13.1 题目一
 
-在这之前先理解：
+> [返回目录](#chapter-one)
+
+在这之前我们先做下 `setTimeout` 知识点的复习：
 
 ```js
 setTimeout(() => {
@@ -1314,7 +2003,9 @@ Promise.all([
 */
 ```
 
-### 7.2 题目二
+### <a name="chapter-thirteen-two" id="chapter-thirteen-two"></a>13.2 题目二
+
+> [返回目录](#chapter-one)
 
 ```js
 function runAsync (x) {
@@ -1372,7 +2063,9 @@ Promise.all([
 */
 ```
 
-### 7.3 题目三
+### <a name="chapter-thirteen-three" id="chapter-thirteen-three"></a>13.3 题目三
+
+> [返回目录](#chapter-one)
 
 ```js
 function runAsync(x) {
@@ -1422,7 +2115,9 @@ Promise.race([
 */
 ```
 
-### 7.4 题目四
+### <a name="chapter-thirteen-four" id="chapter-thirteen-four"></a>13.4 题目四
+
+> [返回目录](#chapter-one)
 
 ```js
 function runAsync (x) {
@@ -1480,11 +2175,26 @@ Promise.race([
 */
 ```
 
-## <a name="chapter-eight" id="chapter-eight"></a>八 Promise 进阶：`async`、`await`
+## <a name="chapter-fourteen" id="chapter-fourteen"></a>十四 Promise 源码
 
 > [返回目录](#chapter-one)
 
-### 8.1 题目一
+在 **jsliang** 手写源码系列中有详细分析。
+
+* [jsliang 手写源码系列：Promise](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise.md)
+
+## <a name="chapter-fifteen" id="chapter-fifteen"></a>十五 题库：结合 async/await
+
+> [返回目录](#chapter-one)
+
+总结：
+
+1. 在 `function()` 里面碰到 `await` 直接走里面内容。
+2. 如果 `function()` 里的 `await` 后面还有其他代码，将其当做 `Promise.then()` 一样，视为微任务。
+
+### <a name="chapter-fifteen-one" id="chapter-fifteen-one"></a>15.1 题目一
+
+> [返回目录](#chapter-one)
 
 ```js
 async function async1() {
@@ -1519,7 +2229,9 @@ console.log(4);
 */
 ```
 
-### 8.2 题目二
+### <a name="chapter-fifteen-two" id="chapter-fifteen-two"></a>15.2 题目二
+
+> [返回目录](#chapter-one)
 
 ```js
 async function async1() {
@@ -1555,7 +2267,9 @@ console.log('start');
 */
 ```
 
-### 8.3 题目三
+### <a name="chapter-fifteen-three" id="chapter-fifteen-three"></a>15.3 题目三
+
+> [返回目录](#chapter-one)
 
 ```js
 async function async1() {
@@ -1621,7 +2335,9 @@ console.log('start');
 */
 ```
 
-### 8.4 题目四
+### <a name="chapter-fifteen-four" id="chapter-fifteen-four"></a>15.4 题目四
+
+> [返回目录](#chapter-one)
 
 ```js
 async function async1() {
@@ -1663,7 +2379,9 @@ console.log('start');
 */
 ```
 
-### 8.5 题目五
+### <a name="chapter-fifteen-five" id="chapter-fifteen-five"></a>15.5 题目五
+
+> [返回目录](#chapter-one)
 
 ```js
 async function fn() {
@@ -1684,7 +2402,9 @@ fn().then((res) => {
 */
 ```
 
-### 8.6 题目六
+### <a name="chapter-fifteen-six" id="chapter-fifteen-six"></a>15.6 题目六
+
+> [返回目录](#chapter-one)
 
 ```js
 async function async1() {
@@ -1720,7 +2440,9 @@ console.log('script end');
 */
 ```
 
-### 8.7 题目七
+### <a name="chapter-fifteen-seven" id="chapter-fifteen-seven"></a>15.7 题目七
+
+> [返回目录](#chapter-one)
 
 ```js
 async function async1() {
@@ -1776,7 +2498,9 @@ new Promise((resolve) => {
 */
 ```
 
-### 8.8 题目八
+### <a name="chapter-fifteen-eight" id="chapter-fifteen-eight"></a>15.8 题目八
+
+> [返回目录](#chapter-one)
 
 ```js
 async function async1() {
@@ -1822,7 +2546,9 @@ console.log('script end');
 */
 ```
 
-### 8.9 题目九
+### <a name="chapter-fifteen-night" id="chapter-fifteen-night"></a>15.9 题目九
+
+> [返回目录](#chapter-one)
 
 ```js
 async function async1() {
@@ -1870,7 +2596,9 @@ console.log('script end');
 */
 ```
 
-### 8.10 题目十
+### <a name="chapter-fifteen-ten" id="chapter-fifteen-ten"></a>15.10 题目十
+
+> [返回目录](#chapter-one)
 
 ```js
 async function testSomething() {
@@ -1927,7 +2655,9 @@ console.log('test end');
 */
 ```
 
-### 8.11 题目十一
+### <a name="chapter-fifteen-eleven" id="chapter-fifteen-eleven"></a>15.11 题目十一
+
+> [返回目录](#chapter-one)
 
 开始做 `async` 处理错误的题。
 
@@ -1959,11 +2689,13 @@ async1().then((res) => {
 */
 ```
 
-## <a name="chapter-night" id="chapter-night"></a>九 综合题
+## <a name="chapter-sixteen" id="chapter-sixteen"></a>十六 综合题
 
 > [返回目录](#chapter-one)
 
-### 9.1 题目一
+### <a name="chapter-sixteen-one" id="chapter-sixteen-one"></a>16.1 题目一
+
+> [返回目录](#chapter-one)
 
 ```js
 const first = () => (new Promise((resolve1, reject1) => {
@@ -2006,7 +2738,9 @@ console.log(4);
 */
 ```
 
-### 9.2 题目二
+### <a name="chapter-sixteen-two" id="chapter-sixteen-two"></a>16.2 题目二
+
+> [返回目录](#chapter-one)
 
 ```js
 const async1 = async() => {
@@ -2057,7 +2791,9 @@ setTimeout(() => {
 */
 ```
 
-### 9.3 题目三
+### <a name="chapter-sixteen-three" id="chapter-sixteen-three"></a>16.3 题目三
+
+> [返回目录](#chapter-one)
 
 ```js
 const p1 = new Promise((resolve) => {
@@ -2085,13 +2821,13 @@ const p1 = new Promise((resolve) => {
 */
 ```
 
-## <a name="chapter-ten" id="chapter-ten"></a>十 大厂题
+## <a name="chapter-seventeen" id="chapter-seventeen"></a>十七 大厂题
 
 > [返回目录](#chapter-one)
 
-* [几道大厂的面试题](https://juejin.im/post/6844904077537574919#heading-50)
+### <a name="chapter-seventeen-one" id="chapter-seventeen-one"></a>17.1 使用 Promise 实现每隔一秒输出 1、2、3
 
-### 10.1 使用 Promise 实现每隔一秒输出 1、2、3
+> [返回目录](#chapter-one)
 
 ```js
 const oneToThree = () => {
@@ -2110,7 +2846,9 @@ const oneToThree = () => {
 console.log(oneToThree());
 ```
 
-### 10.2 使用 Promise 实现红绿灯交替重复亮
+### <a name="chapter-seventeen-two" id="chapter-seventeen-two"></a>17.2 使用 Promise 实现红绿灯交替重复亮
+
+> [返回目录](#chapter-one)
 
 红灯 3 秒亮一次，黄灯 2 秒亮一次，绿灯 1 秒亮一次，用 Promise 实现 3 个灯交替重复亮。
 
@@ -2165,7 +2903,9 @@ const step = () => {
 step();
 ```
 
-### 10.3 实现 mergePromise 函数
+### <a name="chapter-seventeen-three" id="chapter-seventeen-three"></a>17.3 实现 mergePromise 函数
+
+> [返回目录](#chapter-one)
 
 实现 `mergePromise` 函数，将传进去的数组按先后顺序执行，并且把返回的值先后放在数组 `data` 中。
 
@@ -2261,12 +3001,17 @@ mergePromise([ajax1, ajax2, ajax3]).then(data => {
 // [1, 2, 3]
 ```
 
-### 10.4 根据 PromiseA+ 实现一个自己的 Promise
+### <a name="chapter-seventeen-four" id="chapter-seventeen-four"></a>17.4 根据 PromiseA+ 实现一个自己的 Promise
 
-* [ ] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287#heading-7)
-* [ ] [写一个符合 Promises/A+ 规范并可配合 ES7 async/await 使用的 Promise](https://zhuanlan.zhihu.com/p/23312442)
+> [返回目录](#chapter-one)
 
-### 10.5 封装一个异步加载图片的方法
+在 **jsliang** 手写源码系列中有详细分析。
+
+* [jsliang 手写源码系列：Promise](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise.md)
+
+### <a name="chapter-seventeen-five" id="chapter-seventeen-five"></a>17.5 封装一个异步加载图片的方法
+
+> [返回目录](#chapter-one)
 
 ```js
 function loadImg(url) {
@@ -2292,7 +3037,9 @@ function loadImg(url) {
 }
 ```
 
-### 10.6 限制异步操作并发数并尽可能快地完成
+### <a name="chapter-seventeen-six" id="chapter-seventeen-six"></a>17.6 限制异步操作并发数并尽可能快地完成
+
+> [返回目录](#chapter-one)
 
 已知图片列表：
 
@@ -2398,8 +3145,29 @@ limitLoad(urls, loadImg, 3)
   .catch((err) => {
     console.error(err);
   });
-
 ```
+
+## <a name="chapter-eighteen" id="chapter-eighteen"></a>十八 总结
+
+> [返回目录](#chapter-one)
+
+写到这里，终于扯完了所有要扯的内容。
+
+**首先**，这篇文章的大部分题目，取自 [LinDaiDai_霖呆呆](https://juejin.im/user/360295513463912) 的文章，非常感激他的文章，我花了 8 小时以上，把这些题目结合浏览器和 `Node` 的打印敲了一遍，终于大略搞通这块相关内容。
+
+同时，无业游民期间，感激呆呆的鼓励，对求职之路坚定信心。
+
+**然后**，这篇文章大概是 `Promise` 的劝退文吧！
+
+因为根据我编写和整理后的预估，它需要一周左右的时间进行阅读和大体掌控！
+
+但是，如果你真的看完了，那么恭喜你：`Promise` 这块任督二脉你已经打通了。
+
+**最后**，如果小伙伴觉得文章不错，欢迎各种鼓励（点赞、Star……），联系方式可以看个人 Github 首页，有问题也请尽量私聊，毕竟有时候真的感觉时间不够折腾：
+
+* [jsliang 的文档库](https://github.com/LiangJunrong/document-library)
+
+那么，江湖有缘再见！
 
 ---
 
