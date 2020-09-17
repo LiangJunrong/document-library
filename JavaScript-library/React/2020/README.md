@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-14 13:42:13**  
-> Recently revised in **2020-09-16 16:50:53**
+> Recently revised in **2020-09-17 14:44:15**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -648,6 +648,493 @@ export class App extends Component {
 export default App
 
 ```
+
+
+### 函数式组件
+
+函数式组件：
+
+1. 参数是 `props`
+2. `return` 是该组件要构建的视图
+3. 在 16.7 之前，函数式组件没有 `state` 也没有生命周期，被称之为 **无状态组件** 或者 **纯渲染组件**
+
+> Pure.jsx
+
+```js
+import React from "react";
+
+function Title(props) {
+  // 默认情况下，尤其是 16.7 之前，函数式组件没有 state 和声明周期，所以也叫做纯渲染组件
+  return (
+    <div className="title">
+      <h1>jsliang</h1>
+    </div>
+  )
+}
+
+function Bar(props) {
+  return (
+    <div>
+      <p>你好，纯渲染组件</p>
+      {props.val}
+    </div>
+  )
+}
+
+export { Title, Bar };
+```
+
+> 引用
+
+```js
+import React, { Component } from 'react'
+import { Title, Bar } from './Pure'
+
+export class App extends Component {
+  state={
+    val: 'Hello World!',
+  }
+  render() {
+    const { val } = this.state;
+    return (
+      <div>
+        <Title />
+        <Bar props={{ val }} />
+      </div>
+    )
+  }
+}
+
+export default App
+
+```
+
+### hook
+
+`hook`：钩子函数，无需编写类即可使用状态和其他 React 功能
+
+* `useState`：`const [状态, 修改状态的方法] = useState(初始值);`
+  * `const [state, setState] = useState(initialState);`
+* `useEffect`：
+  * 类组件 `componentDidMount`、`componentDidUpdate`、`componentWillUnmount`
+  * 需要清除的副作用
+* `useRef`
+
+```js
+import React, { useState } from 'react'
+
+function App() {
+  let [count, setCount] = useState(0);
+  return (
+    <div>
+      <p>数值：{count}</p>
+      <button
+        onClick={() => {
+          setCount((++count));
+        }}
+      >
+        加 1
+      </button>
+    </div>
+  )
+}
+
+export default App;
+```
+
+`useState` 注意事项：
+
+1. `setState` 方法同样是异步方法
+2. 只要调用 `setState` 组件就会更新，不过无需担心渲染性能
+3. 如果 `state` 是对象类型的数据，更新时要注意把其他状态合起来，`setState` 
+
+```js
+import React, { useState } from 'react'
+
+function App() {
+  let [state, setState] = useState({
+    name: 'jsliang',
+    count: 10,
+  });
+  let { name, count } = state;
+  return (
+    <div>
+      <p>姓名：{name}</p>
+      <p>数值：{count}</p>
+      <button
+        onClick={() => {
+          setState({
+            ...state,
+            count: count + 1,
+          });
+        }}
+      >
+        加 1
+      </button>
+    </div>
+  )
+}
+
+export default App;
+```
+
+* `useEffect`：`useEffect(回调函数, [依赖])`
+  * 类组件 `componentDidMount`、`componentDidUpdate`、`componentWillUnmount`
+  * 需要清除的副作用:异步处理、数据请求、DOM 操作
+
+```js
+import React, { useState, useEffect } from 'react'
+
+function App() {
+  let [state, setState] = useState({
+    name: 'jsliang',
+    count: 10,
+  });
+  let { name, count } = state;
+
+  // 组件挂载：调用函数组件 -> 渲染完成之后 -> 副作用函数
+  // 组件更新：准备更新 -> 返还函数 -> 组件更新 -> 更新完成之后 -> 副作用函数
+  // 组件卸载：准备卸载 -> 返还函数 -> 组件卸载
+  useEffect(() => { // 副作用函数
+    console.log('数值更新完成'); // 再走这里
+    return () => { // 返还函数
+      console.log('数值准备更新'); // 先走这里
+    }
+  }, [count]);
+
+  // 当 useEffect 依赖为空时，该副作用只在组件挂载完成之后执行
+  // 该副作用的返还函数，只在组件执行
+  useEffect(() => {
+    console.log('副作用函数'); // 除了初始化会走，点击按钮不输出
+    return () => {
+      console.log('返还函数'); // 一直不会执行
+    }
+  }, [])
+
+  return (
+    <div>
+      <p>姓名：{name}</p>
+      <p>数值：{count}</p>
+      <button
+        onClick={() => {
+          setState({
+            ...state,
+            count: count + 1,
+          });
+        }}
+      >
+        加 1
+      </button>
+    </div>
+  )
+}
+
+export default App;
+```
+
+* `useRef`
+
+```js
+import React, { useState, useEffect, useRef } from 'react'
+
+function App() {
+  let [state, setState] = useState({
+    name: 'jsliang',
+    count: 10,
+  });
+  let { name, count } = state;
+
+  // 组件挂载：调用函数组件 -> 渲染完成之后 -> 副作用函数
+  // 组件更新：准备更新 -> 返还函数 -> 组件更新 -> 更新完成之后 -> 副作用函数
+  // 组件卸载：准备卸载 -> 返还函数 -> 组件卸载
+  useEffect(() => { // 副作用函数
+    console.log('数值更新完成'); // 再走这里
+    return () => { // 返还函数
+      console.log('数值准备更新'); // 先走这里
+    }
+  }, [count]);
+
+  // 当 useEffect 依赖为空时，该副作用只在组件挂载完成之后执行
+  // 该副作用的返还函数，只在组件执行
+  useEffect(() => {
+    console.log('副作用函数'); // 除了初始化会走，点击按钮不输出
+    return () => {
+      console.log('返还函数'); // 一直不会执行
+    }
+  }, []);
+
+  const btn = useRef();
+  console.log(btn); // {current: button}
+
+  return (
+    <div>
+      <p>姓名：{name}</p>
+      <p>数值：{count}</p>
+      <button
+        ref={btn}
+        onClick={() => {
+          setState({
+            ...state,
+            count: count + 1,
+          });
+          btn.current.innerHTML = '加加';
+        }}
+      >
+        加 1
+      </button>
+    </div>
+  )
+}
+
+export default App;
+```
+
+`useRef()` 除了可以获取 DOM 节点之前，也可以用来保存更新前的数据。
+
+注意组件更新是不会更新 `ref` 中保存的值的，需要我们手动更新。（DOM 绑定除外）
+
+```js
+const prevData = useRef(count);
+useEffect(() => {
+  // 如果没有更新，手动更新
+  if (prevData.current !== count) {
+    prevData.current = count;
+  }
+}, [count])
+```
+
+* `hooks` 使用规定
+
+1. 只在 React 函数中调用 Hook
+   1. React 函数组件中
+   2. 自定义 React Hook
+2. 只在最顶层使用 Hook。不能放到 `function` -> `if` 等语法里面
+
+### 自定义 Hook
+
+* 自定义 Hook 必须以 `use` 开始命名
+* 作用：复用一些逻辑
+
+> scroll.js
+
+```js
+import React from 'react';
+import useScroll from './hook';
+
+function Scroll() {
+  const scrolly = useScroll();
+  return (
+    <div>
+      <style>
+        {
+          `
+            div {
+              width: 500px;
+              height: 400px;
+              border: 2px solid #000;
+            }
+          `
+        }
+      </style>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <span
+        style={{
+          position: 'fixed',
+          left: 0,
+          top: '50%',
+          padding: 10,
+          border: '1px solid #ccc',
+          background: '#f1f1f1'
+        }}
+      >
+        当前位置：{scrolly}
+      </span>
+    </div>
+  )
+}
+
+export default Scroll;
+```
+
+> hook.js
+
+```js
+import { useEffect, useState } from 'react';
+
+function useScroll() {
+  let [scrollY, setScrollY] = useState(window.scrollY);
+
+  useEffect(() => {
+    window.onscroll = () => {
+      setScrollY(window.scrollY);
+    };
+    return () => {
+      window.onscroll = null;
+    }
+  }, [scrollY]);
+
+  return scrollY;
+}
+
+export default useScroll;
+```
+
+### 路由
+
+* 路由：根据不同的 URL 规则，呈现不同的页面
+
+当应用变得复杂的时候，就需要分块的进行处理和展示。
+
+传统模式下，我们是把整个应用分成了多个页面，然后通过 URL 进行连接。
+
+但是这种方式也有一些问题，每次切换页面都需要重新发送所有请求和渲染整个页面，不止性能上会有影响，同时也会导致整个 JavaScript 重新执行，丢失状态。
+
+### SPA
+
+Single Page Application：单页面应用，整个应用只加载一个页面（入口页面），后续在与用户的交互过程中，通过 DOM 操作在这个单页上动态生成结构和内容
+
+**优点：**
+
+* 有更好的用户体验（减少请求和渲染和页面跳转产生的等待与空白），页面切换快
+* 重前端，数据和页面内容由异步请求（AJAX）+ DOM 操作来完成，前端处理更多的业务逻辑
+
+**缺点：**
+
+* 首次进入处理慢
+* 不利于 SEO
+
+### SPA 的页面切换机制
+
+虽然 SPA 的内容都是在一个页面通过 JavaScript 动态处理的，但是还是需要根据需求在不同的情况下分内容展示。
+
+如果仅仅只是依靠 JavaScript 内部机制去判断，逻辑会变得过于复杂。
+
+通过把 JavaScript 与 URL 进行结合的方式：JavaScript 根据 URL  的变化，来处理不同的逻辑，交互过程中只需要改变 URL 即可。
+
+这样把不同 URL 与 JavaScript 对应的逻辑进行关联的方式就是路由，其本质上与后端路由的思想是一样的。
+
+### 前端路由
+
+前端路由只是改变了 URL 或 URL 中的某一部分，但一定不会直接发送请求，可以认为仅仅只是改变了浏览器地址栏上的 URL 而已。
+
+JavaScript 通过各种手段处理这种 URL 的变化，然后通过 DOM 操作动态的改变当前页面的结构
+
+* URL 的变化不会直接发送 HTTP 请求
+* 业务逻辑由前端 JavaScript 来完成
+
+目前前端路由主要的模式：
+
+* 基于 URL Hash 的路由
+* 基于 HTML5 History API 的路由：https://developer.mozilla.org/zh-CN/docs/Web/API/History_API
+
+### React Router
+
+理解了路由基本机制以后，也不需要重复造轮子，我们可以直接使用 React Router 库
+
+* https://reacttraining.com/react-router/
+
+React Router 提供了多种不同环境下的路由库
+
+* web
+* native
+
+React Router 知识点：
+
+* `BrowserRouter`：基于 `history` 的路由模式，特征和正常的 `url` 没有任何区别
+* `HashRouter`：基于 `hash` 值的路由模式，特征在 `url` 里，路径以 `#` 号开始
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { BrowserRouter } from "react-router-dom";
+
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>  ,
+  document.getElementById('root')
+);
+```
+
+* Route 组件作用，根据 `url` 来匹配视图
+  * path 要匹配的 `url` 路径
+    * 注意 `path` 默认是模糊匹配，即当前 `url` 以 `path` 开始时就会匹配成功
+    * exact 精确匹配 即 `url` 必须 和 `path` 一致时才会匹配成功
+    * strict 严格匹配 如 `path` 为：`/about`，url 为：`/about/`, 不加 `strict` 匹配成功，加了 `strict` 则匹配不成功
+    * 多规则匹配: `[path1, path2, ……]`;
+  * `component` 路径匹配成功之后要显示的视图组件
+  * `/about/details`
+
+```js
+import React, {Fragment } from 'react';
+import { Route } from 'react-router-dom';
+import IndexView from './view/index';
+import AboutView from './view/about';
+import JoinView from './view/join';
+import Nav from './component/nav';
+
+function App() {
+  return (
+    <Fragment>
+      <Nav />
+      <Route path={["/","/index"]} exact component={IndexView} />
+      <Route path="/about" exact strict component={AboutView} />
+      <Route path="/join" exact component={JoinView} />
+    </Fragment>
+  );
+}
+
+export default App;
+```
+
+* `Link` 链接组件
+* `to` 属性为要跳转的链接
+
+```js
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function Nav(){
+  return (
+    <nav>
+      <Link to="/">首页</Link>
+      <span> | </span>
+
+      {/* 在路由项目中，不要用 a 做跳转，会进行页面刷新 */}
+      <a href="/">a-首页</a>
+      <span> | </span>
+
+      <Link to="/about">关于我们</Link>
+      <span> | </span>
+
+      <Link to="/join">加入我们</Link>
+      <span> | </span>
+
+      {/* 外链的话则使用 a 标签，不要用lin */}
+      {/* <Link to="https://www.baidu.com">百度</Link> */}
+      <a href="https://www.baidu.com">百度</a>
+    </nav>
+  )
+}
+
+export default Nav;
+```
+
+* 基于 web 的 React Router 为：`react-router-dom`
+* 安装 `npm i -S react-router-dom`
+* BrowserRouter 组件（history）：基于 HTML5 History API 的路由组件
+* HashRouter 组件（hash）：基于 URL Hash 的路由组件
+* Route 组件：通过该组件来设置应用单个路由信息，Route 组件所在的区域就是就是当 `url` 与当前 Route 设置的 `path` 属性匹配的时候，后面 `component` 将要显示的区域
+* `exact` 属性表示路由使用 精确匹配模式，非 `exact` 模式下 '/' 匹配所有以 '/' 开头的路由
+* `Link` 组件用来处理 `a` 链接 类似的功能（它会在页面中生成一个 `a` 标签），但设置这里需要注意的，`react-router-dom` 拦截了实际 `a` 标签的默认动作，然后根据所有使用的路由模式（Hash 或者 HTML5）来进行处理，改变了 URL，但不会发生请求，同时根据 Route 中的设置把对应的组件显示在指定的位置
+* `to` 属性类似 `a` 标签中的 `href`
 
 ---
 
