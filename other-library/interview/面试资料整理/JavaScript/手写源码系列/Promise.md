@@ -1,4 +1,4 @@
-Promise
+手写源码系列 - Promise
 ===
 
 > Create by **jsliang** on **2020-09-17 18:14:12**  
