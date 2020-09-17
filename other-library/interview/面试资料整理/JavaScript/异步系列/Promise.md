@@ -1,8 +1,8 @@
-Promise
+异步系列 - Promise
 ===
 
 > Create by **jsliang** on **2020-09-07 22:28:53**  
-> Recently revised in **2020-09-17 16:23:27**
+> Recently revised in **2020-09-17 18:31:56**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,11 +17,40 @@ Promise
 
 > [返回目录](#chapter-one)
 
-* [x] [要就来 45 道 Promise 面试题一次爽到底](https://juejin.im/post/6844904077537574919)【阅读建议：8h+】
-* [ ] [ES6 之 Promise 常见面试题](https://blog.csdn.net/weixin_37719279/article/details/80950713)
-* [ ] [大白话讲解Promise（一）](https://www.cnblogs.com/lvdabao/p/es6-promise-1.html)
-* [ ] [BAT前端经典面试问题：史上最最最详细的手写Promise教程](https://juejin.im/post/6844903625769091079)
-* [ ] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)
+【在计算机行业，盛行着一种朴素还原论的迷思。即认为越接近底层，技术含量越高。每个程序员都有读懂底层源代码的追求。
+
+这在一定程度上是正确的。不过，我们也应该看到，一旦底层和表层之间，形成了领域鸿沟。精通底层，并不能代表在表层的水平。
+
+比如游戏的开发者，不一定是游戏中的佼佼者。这在 FPS 射击游戏或者格斗游戏里尤为明显，这些游戏里的绝大部分顶尖玩家，完全不会写代码。
+
+如果将精通 `Promise` 定义为，善于在各种异步场景中使用 `Promise` 解决问题。
+
+那么，能手写 `Promise` 实现，对精通 `Promise` 帮助不大。】
+
+—— 微信公众号：工业聚
+
+【JavaScript 里的异步方案的演进时，是用下面这种顺序：
+
+* `callback -> promise -> generator -> async/await`】
+
+—— 微信公众号：工业聚
+
+不错的：
+
+* [x] [要就来 45 道 Promise 面试题一次爽到底](https://juejin.im/post/6844904077537574919)【阅读建议：8h】
+
+想知道如何手写一个 Promise：
+
+* [x] [BAT 前端经典面试问题：史上最最最详细的手写 Promise 教程](https://juejin.im/post/6844903625769091079)【阅读建议：30min】
+* [x] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)【阅读建议：30min】
+
+一般般的：
+
+* [x] [ES6 之 Promise 常见面试题](https://blog.csdn.net/weixin_37719279/article/details/80950713)【阅读建议：10min】
+* [x] [大白话讲解Promise（一）](https://www.cnblogs.com/lvdabao/p/es6-promise-1.html)【阅读建议：30min】
+
+还没看的：
+
 * [ ] [你好，JavaScript异步编程---- 理解JavaScript异步的美妙](https://juejin.im/post/5b56c3586fb9a04faa79a8e0)
 * [ ] [理解异步之美 --- promise与async await （三）](https://juejin.im/post/6844903664209887246?utm_source=gold_browser_extension)
 * [ ] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/6844903617619558408)
@@ -33,6 +62,224 @@ Promise
 * [ ] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)
 * [ ] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)
 * [ ] [从setState promise化的探讨 体会React团队设计思想](https://zhuanlan.zhihu.com/p/28905707)
+
+## <a name="chapter-three" id="chapter-three"></a>三 概念
+
+> [返回目录](#chapter-one)
+
+什么是 `Promise`，打印一下：
+
+```js
+console.dir(Promise);
+/*
+Promise(
+  all: ƒ all()
+  arguments: (...)
+  caller: (...)
+  length: 1
+  name: "Promise"
+  prototype: Promise {constructor: ƒ, then: ƒ, catch: ƒ, finally: ƒ, Symbol(Symbol.toStringTag): "Promise"}
+  race: ƒ race()
+  reject: ƒ reject()
+  resolve: ƒ resolve()
+  Symbol(Symbol.species): (...)
+  Symbol(allSettled): ƒ (d)
+  get Symbol(Symbol.species): ƒ [Symbol.species]()
+  __proto__: ƒ ()
+  [[Scopes]]: Scopes[0]
+)
+*/
+```
+
+是的，这是一个构造函数。
+
+这个构造函数接收一个参数，这个参数是函数，且该函数有两个参数：`resolve`、`reject`。
+
+* `resolve`：异步操作执行成功后的回调，将 `Promise` 的状态变为 `succeed`
+* `reject`：异步操作执行失败后的回调。将 `Promise` 的状态变为 `rejected`
+
+更直观的作用？
+
+```js
+function getData() {
+  const p = new Promise((resolve, reject) => {
+    // Ajax 请求等
+    setTimeout(() => {
+      console.log('获取数据成功');
+      resolve('传入成功后的数据');
+    }, 1000);
+  });
+  return p;
+}
+getData().then((res) => {
+  // 获取到数据，然后进行处理
+  console.log(res);
+
+  // 如果下面还有 Ajax 请求，那么继续调用
+  // getData2()
+});
+```
+
+* 链式操作
+
+话不多说看代码：
+
+```js
+const red = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log('红');
+      resolve('红灯走完了');
+    }, 1000);
+  });
+}
+const green = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log('绿');
+      resolve('绿灯走完了');
+    }, 1000);
+  });
+}
+
+red().then((res1) => {
+  console.log('res1：', res1);
+  return green();
+}).then((res2) => {
+  console.log('res2：', res2);
+})
+
+/*
+  1s 后输出：
+    红
+    res1： 红灯走完了
+
+  2s 后输出：
+    绿
+    res2： 绿灯走完了
+*/
+```
+
+* 如何捕获错误？（`catch()` 以及 `then()` 的第二个参数）
+
+```js
+const getRandom = new Promise((resolve, reject) => {
+  const number = Math.random() * 10; // 生成 1-10 范围的数字
+  if (number > 5) {
+    reject('数字超过 5');
+  } else {
+    resolve('数字小于 5');
+  }
+});
+
+// 捕获错误方式一：使用 catch()
+getRandom.then((res) => {
+  console.log('res：', res);
+}).catch((error) => {
+  console.log('error：', error);
+});
+
+// 捕获错误方式二：then() 有两个参数
+getRandom.then(
+  (res) => { // 等同于 then()
+    console.log('res：', res);
+  }, (error) => { // 等同于 catch()
+    console.log('error：', error);
+  },
+);
+
+/*
+ 输出：
+
+  * res： 数字小于 5
+  * error： 数字超过 5
+  
+  两者中随机一个
+*/
+```
+
+* `Promise` 的状态
+
+`Promise` 的状态一经改变就不能再进行更改。
+
+1. 初始状态：`pending`
+2. 成功状态：`fulfilled`
+3. 失败状态：`rejected`
+
+* `all` 的用法
+
+Promise 的 `all` 方法提供了并行执行异步操作的能力，并且在所有异步操作执行完后才执行回调。
+
+```js
+const one = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('one');
+    resolve('one');
+  }, 1000);
+}) 
+const two = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('two');
+    resolve('two');
+  }, 3000);
+}) 
+const three = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('three');
+    resolve('three');
+  }, 2000);
+}) 
+
+/*
+ 先输出：
+ * one
+ * three
+ * two
+ 
+ 再输出 res：[ 'one', 'two', 'three' ]
+*/
+Promise.all([one, two, three]).then((res) => {
+  console.log(res); // [ 'one', 'two', 'three' ]
+});
+```
+
+* `race()` 方法
+
+和 `all()` 方法不同，`Promise.race()` 方法是谁先走完谁先输出。
+
+将上面的例子中，`.all()` 改为 `.race()`，则会得到不一样的结果。
+
+```js
+const one = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('one');
+    resolve('one resolve');
+  }, 1000);
+}) 
+const two = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('two');
+    resolve('two resolve');
+  }, 3000);
+}) 
+const three = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('three');
+    resolve('three resolve');
+  }, 2000);
+}) 
+
+/*
+ 先输出 one
+ 再输出：one resolve
+ 最后依序输出：
+ * three
+ * two
+*/
+Promise.race([one, two, three]).then((res) => {
+  console.log(res); // 'one'
+});
+```
 
 ## <a name="chapter-three" id="chapter-three"></a>三 Promise 系列
 
@@ -562,12 +809,12 @@ promise.then((res) => {
 /**
   执行顺序和分析：
   顺序：
-    * 'then: success1'
-    * 'then: undefined'
+    * 'then1: success1'
+    * 'then2: undefined'
   分析：
     1. 执行了 resolve('success1') 后，改变了状态为 resolve，不在理会 new Promise 后面的
     2. 将第 1 个 .then() 添加到微任务
-    3. 执行第 1 个 .then()，将第 2 个 .then() 推荐微任务
+    3. 执行第 1 个 .then()，将第 2 个 .then() 推进微任务
 */
 ```
 
