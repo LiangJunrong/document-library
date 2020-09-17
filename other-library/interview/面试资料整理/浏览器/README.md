@@ -1,4 +1,4 @@
-浏览器资料整理
+浏览器
 ===
 
 > Create by **jsliang** on **2020-09-02 14:48:58**  
@@ -23,6 +23,7 @@
 * [ ] [深入浅出浏览器渲染原理](https://zhuanlan.zhihu.com/p/53913989)
 * [ ] [抛弃console.log()，拥抱浏览器Debugger](https://zhuanlan.zhihu.com/p/52077620)
 * [ ] [细说浏览器输入URL后发生了什么](https://juejin.im/post/5e32449d6fb9a02fe4581907)
+* [ ] [JavaScript进阶-内存机制(表情包初探)](https://juejin.im/post/6844904033317027854)
 
 ---
 
