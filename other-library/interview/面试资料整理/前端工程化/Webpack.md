@@ -17,6 +17,9 @@ Webpack
 
 > [返回目录](#chapter-one)
 
+* [ ] [「吐血整理」再来一打Webpack面试题](https://juejin.im/post/6844904094281236487)
+* [ ] [霖呆呆的webpack之路-loader篇](https://github.com/LinDaiDai/niubility-coding-js/blob/master/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/%E9%9C%96%E5%91%86%E5%91%86%E7%9A%84webpack%E4%B9%8B%E8%B7%AF-loader%E7%AF%87.md#file-loader)
+
 ## 知识点 1：Webpack 几种 hash 的实现原理
 
 * `hash` 是跟整个项目的构建相关，只要项目里有文件更改，整个项目构建的 `hash` 值都会更改，并且全部文件都共用相同的 `hash` 值。（粒度整个项目）
