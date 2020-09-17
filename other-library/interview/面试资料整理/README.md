@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 17:00:05**  
-> Recently revised in **2020-09-17 16:11:24**
+> Recently revised in **2020-09-17 17:45:15**
 
 你是你人生的导师！
 
@@ -12,7 +12,17 @@
 
 ## 综合整理
 
-* [Github：LinDaiDai/niubility-coding-js](https://github.com/LinDaiDai/niubility-coding-js)
+* [Github：LinDaiDai/niubility-coding-js【霖呆呆】](https://github.com/LinDaiDai/niubility-coding-js)
+* [博客园：吕大豹](https://www.cnblogs.com/lvdabao/)
+  * [2013年终总结——求评点求指导](https://www.cnblogs.com/lvdabao/p/3506352.html)
+  * [平凡之路——我的2014总结](https://www.cnblogs.com/lvdabao/p/2014_summary.html)
+  * [我们的创业项目是如何夭折的](https://www.cnblogs.com/lvdabao/p/4596429.html)
+  * [起点——2015年终总结](https://www.cnblogs.com/lvdabao/p/5178852.html)
+  * [我的三年前端之路](https://www.cnblogs.com/lvdabao/p/5658389.html)
+  * [平庸、坚持、收获——2016年终总结](https://www.cnblogs.com/lvdabao/p/6228024.html)
+  * [2017年终总结——恍恍惚惚又一年](https://www.cnblogs.com/lvdabao/p/8258025.html)
+  * [2018年终总结——越过山丘](https://www.cnblogs.com/lvdabao/p/10211898.html)
+  * [2019年终总结——三十而立](https://www.cnblogs.com/lvdabao/p/12142637.html)
 
 ### 面试点 + 题解
 
