@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-26 11:19:07**  
-> Recently revised in **2020-09-15 14:29:20**
+> Recently revised in **2020-09-18 11:08:14**
 
 ## 入门
 
@@ -14,6 +14,7 @@
 * 【中等】[40-组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/)
 * 【中等】[216-组合总和 III](https://leetcode-cn.com/problems/combination-sum-iii/)
 * 【中等】[79-单词搜索](https://leetcode-cn.com/problems/word-search/)
+* 【中等】[47-全排列 II](https://leetcode-cn.com/problems/permutations-ii/)
 
 ## 熟练
 
