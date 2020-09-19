@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-17 18:14:12**  
-> Recently revised in **2020-09-18 00:07:54**
+> Recently revised in **2020-09-19 17:09:26**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -33,132 +33,211 @@ JavaScript 里的异步方案的演进时，是用下面这种顺序：
 
 > 来源于微信公众号：工业聚
 
+* [x] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)【阅读建议：30min】
 * [x] [最简实现 Promise，支持异步链式调用（20行）](https://juejin.im/post/5e6f4579f265da576429a907)【建议阅读：20min】
 * [x] [BAT 前端经典面试问题：史上最最最详细的手写 Promise 教程](https://juejin.im/post/6844903625769091079)【阅读建议：30min】
-* [x] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)【阅读建议：30min】
 * [x] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/6844903617619558408)【阅读建议：大概看了遍，没前面剖析的清晰】
 * [x] [Promise实现原理（附源码）](https://juejin.im/post/5b83cb5ae51d4538cc3ec354)【阅读建议：大概看了遍，没前面剖析的清晰】
 * [x] [剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类](https://github.com/xieranmaya/blog/issues/3)【建议阅读：写得比较细，没前面剖析的清晰】
 * [x] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)【建议阅读：写得比较细，没前面剖析的清晰】
 * [x] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)【建议阅读：写得比较细，没前面剖析的清晰】
 
+> 代码来源工业聚那篇文章
+
 ```js
-const isFunction = obj => typeof obj === 'function'
-const isObject = obj => !!(obj && typeof obj === 'object')
-const isThenable = obj => (isFunction(obj) || isObject(obj)) && 'then' in obj
-const isPromise = promise => promise instanceof Promise
+/**
+ * @name JsliangPromise
+ * @description 手写 Promise
+ */
 
-// Promise 有 3 个状态，分别是 pending, fulfilled 和 rejected。
-// 在 pending 状态，Promise 可以切换到 fulfilled 或 rejected。
-// 在 fulfilled 状态，不能迁移到其它状态，必须有个不可变的 value。
-// 在 rejected 状态，不能迁移到其它状态，必须有个不可变的 reason。
-const PENDING = 'pending'
-const FULFILLED = 'fulfilled'
-const REJECTED = 'rejected'
+// 判断是否为函数
+const isFunction = (obj) => {
+  return typeof obj === 'function';
+};
 
-function Promise(f) {
-  this.result = null
-  this.state = PENDING
-  this.callbacks = []
+// 判断是否为对象
+const isObject = (obj) => {
+  return !!(obj && typeof obj === 'object');
+};
 
-  let onFulfilled = value => transition(this, FULFILLED, value)
-  let onRejected = reason => transition(this, REJECTED, reason)
+// 判断是否为 thenable
+const isThenable = (obj) => {
+  return (
+    isFunction(obj)
+    || isObject(obj)
+  ) && 'then' in obj;
+};
 
-  let ignore = false
-  let resolve = value => {
-    if (ignore) return
-    ignore = true
-    resolvePromise(this, value, onFulfilled, onRejected)
-  }
-  let reject = reason => {
-    if (ignore) return
-    ignore = true
-    onRejected(reason)
-  }
-
-  try {
-    f(resolve, reject)
-  } catch (error) {
-    reject(error)
-  }
+// 判断是否为 Promise
+const isPromise = (promise) => {
+  return promise instanceof JsliangPromise;
 }
 
-// Promise 必须有 then 方法，接受 onFulfilled 和 onRejected 参数。
-// onFulfilled 和 onRejected 如果是函数，必须最多执行一次。
-// onFulfilled 的参数是 value，onRejected 函数的参数是 reason。
-// then 方法可以被调用很多次，每次注册一组 onFulfilled 和 onRejected 的 callback。它们如果被调用，必须按照注册顺序调用。
-// 所以需要在 function Promise 中添加 this.callbacks = []
-Promise.prototype.then = function(onFulfilled, onRejected) {
-  // then 方法必须返回 promise。
-  return new Promise((resolve, reject) => {
-    let callback = { onFulfilled, onRejected, resolve, reject }
+/**
+  1. Promise 有 3 个状态：pending、fulfilled、rejected
+    * pending：Promise 可以切换到 fulfilled 或者 rejected 状态
+    * fulfilled：不能迁移到其他状态，必须有个不可变的 value
+    * rejected：不能迁移到其他状态，必须有个不可变的 reason
+*/
+const PENDING = 'pending';
+const FULFILLED = 'fulfilled';
+const REJECTED = 'rejected';
 
-    // 当 state 处于 pending 状态，就储存进 callbacks 列表里。
-    // 当 state 不是 pending 状态，就扔给 handleCallback 去处理。
-    if (this.state === PENDING) {
-      this.callbacks.push(callback)
-    } else {
-      // 至于 handleCallback 是什么。其实不重要，我们只需要知道，它一定存在。我们总得做一些处理，不是写死在 then 函数里，就是在外部的辅助函数里。
-      // 至于为啥要套个 setTimeout 呢？因为我们不是在 JS 引擎层面实现 Promise，而是使用 JS 去实现 JS Promises。在JS里无法主动控制自身 execution context stack。可以通过 setTimeout/nextTick 等 API 间接实现，此处选用了 setTimeout。
-      setTimeout(() => handleCallback(callback, this.state, this.result), 0)
-    }
-  })
-}
-
+// 3.6 handleCallback 函数，根据 state 状态，判断是走 fulfilled 路径还是 rejected 路径
 const handleCallback = (callback, state, result) => {
-  let { onFulfilled, onRejected, resolve, reject } = callback
+  // 3.6.1 解构
+  const { onFulfilled, onRejected, resolve, reject } = callback;
+
+  // 3.6.2 判断
   try {
+    // 3.6.3 如果是成功的
     if (state === FULFILLED) {
-      isFunction(onFulfilled) ? resolve(onFulfilled(result)) : resolve(result)
+      // 3.6.4 判断 onFulfilled 是否为函数
+      if (isFunction(onFulfilled)) {
+        // 3.6.5 如果是，将它的返回值作为下一个 Promise 的 result
+        resolve(onFulfilled(result));
+      } else {
+        // 3.6.6 如果不是，直接以当前 Promise 的 result 作为下一个 Promise 的 result
+        resolve(result);
+      }
     } else if (state === REJECTED) {
-      isFunction(onRejected) ? resolve(onRejected(result)) : reject(result)
+      if (isFunction(onRejected)) {
+        resolve(onRejected(result));
+      } else {
+        reject(result);
+      }
     }
   } catch (error) {
-    reject(error)
+    // 3.6.7 如果执行过程抛错，那这个错误，作为下一个 Promise 的 rejected reason 来用
+    reject(error);
   }
-}
+};
 
 const handleCallbacks = (callbacks, state, result) => {
-  while (callbacks.length) handleCallback(callbacks.shift(), state, result)
-}
+  while (callbacks.length) {
+    handleCallback(callbacks.shift(), state, result);
+  }
+};
 
+// 2.2 状态一旦不是 pending，就不允许再次转换
+// 如果是 pending，那么就就该成对应的 state 和 result
 const transition = (promise, state, result) => {
-  if (promise.state !== PENDING) return
-  promise.state = state
-  promise.result = result
-  setTimeout(() => handleCallbacks(promise.callbacks, state, result), 0)
+  if (promise.state !== PENDING) {
+    return;
+  }
+  promise.state = state;
+  promise.result = result;
+
+  // 当状态变更时，异步清空所有 callbacks
+  setTimeout(() => {
+    handleCallbacks(promise.callbacks, state, result);
+  }, 0);
 }
 
-// 一些特殊的 value 被 resolve 时，要做特殊处理。这个特殊处理，规范也明确描述了。
+// 4. 一些特殊的 value 被 resolve 时，要做特殊处理。
+// 这个特殊处理，规范也明确描述了
 const resolvePromise = (promise, result, resolve, reject) => {
-  // 第一步，如果 result 是当前 promise 本身，就抛出 TypeError 错误。
+  // 4.1 如果 result 是当前 Promise 本身，就抛出 TypeError 错误
   if (result === promise) {
-    let reason = new TypeError('Can not fufill promise with itself')
-    return reject(reason)
+    return reject(new TypeError('Can not fulfill promise with itself'));
   }
 
-  // 第二步，如果 result 是另一个 promise，那么沿用它的 state 和 result 状态。
+  // 4.2 如果 result 是另一个 Promise，那么沿用当前的 state 和 result 状态
   if (isPromise(result)) {
-    return result.then(resolve, reject)
+    return result.then(resolve, reject);
   }
 
-  // 第三步，如果 result 是一个 thenable 对象。先取 then 函数，再 call then 函数，重新进入 The Promise Resolution Procedure 过程。
+  // 4.3 如果 result 是一个 thenable 对象。
+  // 先去 then 函数，再 call then 函数，重新进入 The Promise resolution procedure 过程
   if (isThenable(result)) {
     try {
-      let then = result.then
-      if (isFunction(then)) {
-        return new Promise(then.bind(result)).then(resolve, reject)
+      if (isFunction(result.then)) {
+        return new JsliangPromise(then.bind(result)).then(resolve, reject);
       }
     } catch (error) {
-      return reject(error)
+      return reject(error);
     }
   }
 
-  // 若都不是，则直接 resolve result。
-  resolve(result)
+  // 4.4 若都不是，直接 resolve result
+  resolve(result);
+};
+
+// 2. 设置 Promise
+const JsliangPromise = function(f) {
+  // 2.1 设置初始化状态
+  this.state = PENDING;
+  this.result = null;
+
+  // 3.1 .then() 可以被多次调用，所以需要设置数组进行记录
+  this.callbacks = [];
+
+  // 构造 onFulfilled 来切换到 fulfilled，构造 onRejected 来切换到 rejected 状态
+  const onFulfilled = value => transition(this, FULFILLED, value);
+  const onRejected = reason => transition(this, REJECTED, reason);
+
+  // 配合 ignore 来保证 resolve/reject 只有一次调用作用
+  let ignore = false;
+  
+  let resolve = (value) => {
+    if (ignore) {
+      return;
+    }
+    ignore = true;
+    resolvePromise(this, value, onFulfilled, onRejected);
+  };
+
+  let reject = (reason) => {
+    if (ignore) {
+      return;
+    }
+    ignore = true;
+    onRejected(reason);
+  }
+
+  try {
+    // 将 resolve 和 reject 作为参数传入 f 函数，方便调用
+    f(resolve, reject);
+  } catch (error) {
+    // 如果 f 函数执行报错，那么错误就作为 reject 的 reason 来用
+    reject(error);
+  }
 }
 
-module.exports = Promise
+// 3. Promise.then 方法
+JsliangPromise.prototype.then = function (onFulfilled, onRejected) {
+  // 3.2 .then() 方法返回 Promise，所以需要 return 一个出去
+  return new JsliangPromise((resolve, reject) => {
+
+    // 3.3 设置 callback
+    const callback = { onFulfilled, onRejected, resolve, reject };
+
+    // 3.4 如果 state 处于 pending 状态，就存储进 callbacks 列表里
+    if (this.state === PENDING) {
+      this.callbacks.push(callback);
+    } else {
+      // 3.5 如果不是，就扔个 handleCallback 去处理
+      // 至于为什么用 setTimeout？因为我们模拟不了微任务，那就用宏任务去解决吧
+      setTimeout(() => {
+        handleCallback(callback, this.state, this.result);
+      }, 0);
+    }
+  });
+};
+
+const promise = new JsliangPromise((resolve, reject) => {
+  setTimeout(() => {
+    console.log(1);
+    resolve(2);
+  }, 1000);
+});
+
+promise.then((res) => {
+  console.log('res 1：', res);
+  return 3;
+}).then((res) => {
+  console.log('res 2：', res);
+});
 ```
 
 ---
