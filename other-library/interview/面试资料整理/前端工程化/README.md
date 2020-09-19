@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 20:53:19**  
-> Recently revised in **2020-09-03 17:09:58**
+> Recently revised in **2020-09-19 17:29:49**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -37,7 +37,6 @@
 * [ ] [前端也需要了解的 JSONP 安全](https://juejin.im/post/6844903660678299661)
 * [ ] [网站性能优化实战——从12.67s到1.06s的故事](https://juejin.im/post/6844903655330562062)
 * [ ] [5 分钟撸一个前端性能监控工具](https://juejin.im/post/6844903662020460552)
-* [ ] [浏览器页面资源加载过程与优化](https://juejin.im/post/6844903545016156174)
 * [ ] [现代化懒加载的方式](https://juejin.im/post/6844903559599751175)
 * [ ] [用 preload 预加载页面资源](https://juejin.im/post/6844903562070196237)
 * [ ] [干货!各种常见布局实现+知名网站实例分析](https://juejin.im/post/6844903574929932301)
