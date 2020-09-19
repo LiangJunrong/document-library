@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:02:18**  
-> Recently revised in **2020-09-03 17:09:28**
+> Recently revised in **2020-09-19 17:28:55**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -52,11 +52,9 @@
 ### 其他优化
 
 * [ ] [网站性能优化实战——从12.67s到1.06s的故事](https://juejin.im/post/5b6fa8c86fb9a0099910ac91)
-* [ ] [浏览器页面资源加载过程与优化](https://juejin.im/post/5a4ed917f265da3e317df515)
 * [ ] [聊聊前端开发中的长列表](https://zhuanlan.zhihu.com/p/26022258)
 * [ ] [再谈前端虚拟列表的实现](https://zhuanlan.zhihu.com/p/34585166)
 * [ ] [浅说虚拟列表的实现原理](https://github.com/dwqs/blog/issues/70)
-* [ ] [浏览器IMG图片原生懒加载loading=”lazy”实践指南](https://www.zhangxinxu.com/wordpress/2019/09/native-img-loading-lazy/)
 * [ ] [用 preload 预加载页面资源](https://juejin.im/post/5a7fb09bf265da4e8e785c38)
 * [ ] [App内网页启动加速实践：静态资源预加载视角](https://mp.weixin.qq.com/s?__biz=MzAwNTAzMjcxNg==&mid=2651425811&idx=1&sn=f839230a11fa269021c92b510dec47bc&chksm=80dff270b7a87b66abdf73cf9df18efa3e9594c68ab4ca46ba28eb6d3e832969afad031b48fa&mpshare=1&scene=1&srcid=&sharer_sharetime=1569234865992&sharer_shareid=14157f200c2bbcdb4b651ff5559c60ab&rd2werd=1#wechat_redirect)
 * [ ] [腾讯HTTPS性能优化实践](https://mp.weixin.qq.com/s/V62VYS8KFNKxJxfzMYefrw)
