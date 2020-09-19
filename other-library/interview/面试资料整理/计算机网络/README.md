@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:06:05**  
-> Recently revised in **2020-09-03 16:59:43**
+> Recently revised in **2020-09-19 17:29:22**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -44,11 +44,8 @@
 * [ ] [HTTP 响应代码 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status)
 * [ ] [如何理解HTTP响应的状态码？](https://harttle.land/2015/08/15/http-status-code.html#header-11)
 * [ ] [你所知道的3xx状态码](https://aotu.io/notes/2016/01/28/3xx-of-http-status/index.html)
-* [ ] [关于浏览器缓存你知道多少](https://mp.weixin.qq.com/s/Wvc0lkLpgyEW_u7bbMdvpQ)
-* [ ] [浏览器缓存](https://github.com/xiangxingchen/blog/issues/9)
 * [ ] [HTTP协议头部与Keep-Alive模式详解](https://www.byvoid.com/zhs/blog/http-keep-alive-header)
 * [ ] [HTTP keep-alive 二三事](https://lotabout.me/2019/Things-about-keepalive/)
-* [ ] [设计一个无懈可击的浏览器缓存方案：关于思路，细节，ServiceWorker，以及HTTP/2](https://zhuanlan.zhihu.com/p/28113197)
 * [ ] [你应该知道的前端——缓存](https://juejin.im/post/6844903598556446733)
 * [ ] [HTTP 缓存机制一二三](https://zhuanlan.zhihu.com/p/29750583)
 * [ ] [都9102年了，还问GET和POST的区别](https://segmentfault.com/a/1190000018129846)
