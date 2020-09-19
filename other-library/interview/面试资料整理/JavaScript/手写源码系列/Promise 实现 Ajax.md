@@ -1,8 +1,8 @@
-Promise 实现 Ajax
+手写源码系列 - Promise 实现 Ajax
 ===
 
 > Create by **jsliang** on **2020-09-17 21:58:47**  
-> Recently revised in **2020-09-17 22:14:39**
+> Recently revised in **2020-09-19 17:19:51**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -19,7 +19,7 @@ Promise 实现 Ajax
 
 ```js
 // XMLHttpRequest（XHR）对象用于与服务器交互。通过 XMLHttpRequest 可以在不刷新页面的情况下请求特定 URL，获取数据。
-const getJSON = (url) => {
+const promiseAjax = (url) => {
   return new Promise((resolve, reject) => {
     const handler = () => {
       // 判断请求状态码
@@ -45,7 +45,7 @@ const getJSON = (url) => {
   });
 };
 
-getJSON('https://www.baidu.com').then((json) => {
+promiseAjax('https://www.baidu.com').then((json) => {
   console.log('成功：', json);
 }).catch((error) => {
   console.error('失败：', error);
