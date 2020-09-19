@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-02 14:48:58**  
-> Recently revised in **2020-09-19 21:11:52**
+> Recently revised in **2020-09-20 00:19:27**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,9 +17,26 @@
 
 > [返回目录](#chapter-one)
 
-* [ ] [(1.6w字)浏览器灵魂之问，请问你能接得住几个？](https://juejin.im/post/6844904021308735502)
-* [ ] [浏览器页面资源加载过程与优化](https://juejin.im/post/6844903545016156174)
-* [ ] [深入理解浏览器的缓存机制](https://www.jianshu.com/p/54cc04190252)
+### 浏览器
+
+* [ ] [(1.6w字)浏览器灵魂之问，请问你能接得住几个？](https://juejin.im/post/6844904021308735502)【阅读建议：3h+】
+* [x] [浏览器层合成与页面渲染优化](https://juejin.im/post/6844903966573068301)【阅读建议：20min】
+* [x] [浏览器页面资源加载过程与优化](https://juejin.im/post/6844903545016156174)【阅读建议：无】
+
+### 浏览器缓存
+
+* [x] [深入理解浏览器的缓存机制](https://www.jianshu.com/p/54cc04190252)【阅读建议：20min】
+
+### DNS
+
+* [x] [DNS 解析顺序](https://blog.csdn.net/Yooneep/article/details/89882123)【阅读建议：5min】
+
+### TCP
+
+* [x] [面试官，不要再问我三次握手和四次挥手](https://zhuanlan.zhihu.com/p/86426969)【阅读建议：20min】
+
+### 未读
+
 * [ ] [前端必须要懂的浏览器缓存机制](https://juejin.im/entry/6844903599537930253)
 * [ ] [浏览器的回流与重绘 (Reflow & Repaint)](https://juejin.im/post/6844903569087266823)
 * [ ] [深入浅出浏览器渲染原理](https://zhuanlan.zhihu.com/p/53913989)
@@ -43,9 +60,6 @@
 * https：443
 
 ### DNS 解析
-
-* [x] [DNS 解析顺序](https://blog.csdn.net/Yooneep/article/details/89882123)【阅读建议：5min】
-* [ ] []
 
 1. 查询 `www.baidu.com`
 2. 访问客户端 DNS 缓存：**浏览器缓存** -> **系统缓存（host）** -> **路由器缓存**
