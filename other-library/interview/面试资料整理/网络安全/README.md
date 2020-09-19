@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:10:37**  
-> Recently revised in **2020-09-03 16:49:25**
+> Recently revised in **2020-09-19 17:29:34**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -28,7 +28,6 @@
 * [ ] [前端如何给 JavaScript 加密（不是混淆）？](https://www.zhihu.com/question/47047191)
 * [ ] [常见 Web 安全攻防总结](https://zoumiaojiang.com/article/common-web-security/)
 * [ ] [寒冬求职之你必须要懂的Web安全](https://juejin.im/post/5cd6ad7a51882568d3670a8e)
-* [ ] [深入理解浏览器的缓存机制](https://www.jianshu.com/p/54cc04190252)
 
 ---
 
