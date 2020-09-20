@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-26 11:19:07**  
-> Recently revised in **2020-09-18 11:16:10**
+> Recently revised in **2020-09-20 12:46:34**
 
 ## 入门
 
@@ -16,9 +16,11 @@
 * 【中等】[79-单词搜索](https://leetcode-cn.com/problems/word-search/)
 * 【中等】[46-全排列](https://leetcode-cn.com/problems/permutations/)
 * 【中等】[47-全排列 II](https://leetcode-cn.com/problems/permutations-ii/)
+* 【中等】[78-子集](https://leetcode-cn.com/problems/subsets/)
 
 ## 熟练
 
+* 【中等】[5520-拆分字符串使唯一子字符串的数目最大](https://leetcode-cn.com/problems/split-a-string-into-the-max-number-of-unique-substrings/)
 * 【中等】[332-重新安排行程](https://leetcode-cn.com/problems/reconstruct-itinerary/)
 * 【困难】[51-N 皇后](https://leetcode-cn.com/problems/n-queens/)
 * 【中等】[377-组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/)
