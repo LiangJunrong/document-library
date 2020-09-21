@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-02 14:48:58**  
-> Recently revised in **2020-09-20 00:19:27**
+> Recently revised in **2020-09-22 00:19:00**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,87 +17,85 @@
 
 > [返回目录](#chapter-one)
 
-### 浏览器
+在整理 **浏览器** 相关题型的面试点中，产出了下面的几篇文章：
 
-* [ ] [(1.6w字)浏览器灵魂之问，请问你能接得住几个？](https://juejin.im/post/6844904021308735502)【阅读建议：3h+】
+* [从输入 URL 到页面呈现](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E4%BB%8E%E8%BE%93%E5%85%A5%20URL%20%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%91%88%E7%8E%B0.md)
+* [本地存储](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8.md)
+* [浏览器缓存](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.md)
+* [回流和重绘](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98.md)
+* [跨域](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E8%B7%A8%E5%9F%9F.md)
+* [垃圾回收](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md)
+
+当然，还延伸到了 **计算机网络** 部分，例如：
+
+* [DNS](* [计算机网络 - DNS](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/DNS.md))
+* [TCP](* [计算机网络 - DNS](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/TCP.md))
+
+后面如果还有那就持续更新吧！加油！
+
+## <a name="chapter-three" id="chapter-three"></a>三 参考文献
+
+> [返回目录](#chapter-one)
+
+参考文献共 28 篇文章，感谢前辈们的贡献。
+
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 浏览器
+
+> [返回目录](#chapter-one)
+
+* [x] [(1.6w字)浏览器灵魂之问，请问你能接得住几个？](https://juejin.im/post/6844904021308735502)【阅读建议：4h】
+* [x] [前端经典面试题: 从输入URL到页面加载发生了什么？](https://segmentfault.com/a/1190000006879700)【阅读建议：50min】
 * [x] [浏览器层合成与页面渲染优化](https://juejin.im/post/6844903966573068301)【阅读建议：20min】
 * [x] [浏览器页面资源加载过程与优化](https://juejin.im/post/6844903545016156174)【阅读建议：无】
+* [x] [深入浅出浏览器渲染原理](https://zhuanlan.zhihu.com/p/53913989)【阅读建议：30min】
+* [x] [浏览器的渲染原理简介](https://coolshell.cn/articles/9666.html)【阅读建议：10min】
+* [x] [浏览器的渲染：过程与原理](https://juejin.im/entry/6844903503609987080)【阅读建议：10min】
 
-### 浏览器缓存
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 浏览器缓存
 
-* [x] [深入理解浏览器的缓存机制](https://www.jianshu.com/p/54cc04190252)【阅读建议：20min】
+> [返回目录](#chapter-one)
 
-### DNS
+* [x] [深入理解浏览器的缓存机制](https://www.jianshu.com/p/54cc04190252)【阅读建议：1h】
+* [x] [浏览器缓存](https://github.com/xiangxingchen/blog/issues/9)【阅读建议：30min】
+* [x] [前端必须要懂的浏览器缓存机制](https://juejin.im/entry/6844903599537930253)【阅读建议：10min】
+* [x] [关于浏览器缓存你知道多少](https://mp.weixin.qq.com/s/Wvc0lkLpgyEW_u7bbMdvpQ)【阅读建议：10min】
+* [x] [设计一个无懈可击的浏览器缓存方案：关于思路，细节，ServiceWorker，以及HTTP/2](https://zhuanlan.zhihu.com/p/28113197)【阅读建议：20min】
 
-* [x] [DNS 解析顺序](https://blog.csdn.net/Yooneep/article/details/89882123)【阅读建议：5min】
+### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 浏览器垃圾回收
 
-### TCP
+> [返回目录](#chapter-one)
 
-* [x] [面试官，不要再问我三次握手和四次挥手](https://zhuanlan.zhihu.com/p/86426969)【阅读建议：20min】
+* [x] [JavaScript进阶-内存机制(表情包初探)](https://juejin.im/post/6844904033317027854)【阅读建议：20min】
 
-### 未读
+### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 回流与重绘
 
-* [ ] [前端必须要懂的浏览器缓存机制](https://juejin.im/entry/6844903599537930253)
-* [ ] [浏览器的回流与重绘 (Reflow & Repaint)](https://juejin.im/post/6844903569087266823)
-* [ ] [深入浅出浏览器渲染原理](https://zhuanlan.zhihu.com/p/53913989)
-* [ ] [抛弃console.log()，拥抱浏览器Debugger](https://zhuanlan.zhihu.com/p/52077620)
-* [ ] [细说浏览器输入URL后发生了什么](https://juejin.im/post/5e32449d6fb9a02fe4581907)
-* [ ] [JavaScript进阶-内存机制(表情包初探)](https://juejin.im/post/6844904033317027854)
-* [ ] [关于浏览器缓存你知道多少](https://mp.weixin.qq.com/s/Wvc0lkLpgyEW_u7bbMdvpQ)
-* [ ] [浏览器缓存](https://github.com/xiangxingchen/blog/issues/9)
-* [ ] [设计一个无懈可击的浏览器缓存方案：关于思路，细节，ServiceWorker，以及HTTP/2](https://zhuanlan.zhihu.com/p/28113197)
-* [ ] [浏览器页面资源加载过程与优化](https://juejin.im/post/5a4ed917f265da3e317df515)
-* [ ] [浏览器IMG图片原生懒加载loading=”lazy”实践指南](https://www.zhangxinxu.com/wordpress/2019/09/native-img-loading-lazy/)
-* [ ] [浏览器的工作原理：新式网络浏览器幕后揭秘](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
-* [ ] [浏览器同源策略与ajax跨域方法汇总](https://www.jianshu.com/p/438183ddcea8)
-* [ ] [深入浅出浏览器渲染原理](https://zhuanlan.zhihu.com/p/53913989)
-* [ ] [浏览器与Node的事件循环(Event Loop)有何区别?](https://zhuanlan.zhihu.com/p/54882306)
-* [ ] [从event loop规范探究javaScript异步及浏览器更新渲染时机](https://github.com/aooy/blog/issues/5)
+> [返回目录](#chapter-one)
 
-### 默认端口
+* [x] [浏览器的回流与重绘 (Reflow & Repaint)](https://juejin.im/post/6844903569087266823)【阅读建议：10min】
+* [x] [你真的了解回流和重绘吗](https://segmentfault.com/a/1190000017329980)【阅读建议：10min】
+* [x] [页面重绘和回流以及优化](https://www.html.cn/archives/4996)【阅读建议：5min】
+* [x] [浏览器重绘(repaint)重排(reflow)与优化[浏览器机制]](https://juejin.im/post/6844903745914929165)【阅读建议：10min】
+* [x] [回流与重绘：CSS性能让JavaScript变慢？](https://www.zhangxinxu.com/wordpress/2010/01/%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98%EF%BC%9Acss%E6%80%A7%E8%83%BD%E8%AE%A9javascript%E5%8F%98%E6%85%A2%EF%BC%9F/)【阅读建议：10min】
 
-* http：80
-* https：443
+### <a name="chapter-three-five" id="chapter-three-five"></a>3.5 跨域
 
-### DNS 解析
+> [返回目录](#chapter-one)
 
-1. 查询 `www.baidu.com`
-2. 访问客户端 DNS 缓存：**浏览器缓存** -> **系统缓存（host）** -> **路由器缓存**
-3. 访问 **ISP DNS 服务器**（ISP，互联网服务提供商，有联通电信移动等。如果你是电信网络，则进入电信的 DNS 缓存服务器，以下简称本地），如果本地服务器有，则直接返回；如果没有，让本地 DNS 服务器去咨询查找。
-4. 本地去咨询 **DNS 根服务器**，DNS 根服务器发现是 `.com 区域` 管理的，告诉本地去咨询它。
-5. 本地去咨询 **.com 顶级域服务器**，.com 域服务器告诉本地去咨询 `baidu.com 主区域` 的服务器。
-6. 本地去咨询 **baidu.com 主域名服务器**，baidu.com 域服务器查找到对应的 IP 地址，返回给本地。
-7. 本地 DNS 云服务器通知用户对方 IP 地址，同时缓存这个 IP 地址，下次就直接访问了。
+* [x] [浏览器同源策略与ajax跨域方法汇总](https://www.jianshu.com/p/438183ddcea8)【阅读建议：15min】
+* [x] [九种跨域方式实现原理（完整版）](https://juejin.im/post/5c23993de51d457b8c1f4ee1)【阅读建议：15min】
+* [x] [前端开发如何独立解决跨域问题](https://segmentfault.com/a/1190000010719058)【阅读建议：5min】
+* [x] [CORS 原理及实现](https://www.jianshu.com/p/b2bdf55e1bf5)【阅读建议：30min】
+* [x] [JSONP 原理及实现](https://www.jianshu.com/p/88bb82718517)【阅读建议：30min】
+* [x] [面试题：nginx 有配置过吗?反向代理知道吗?](https://juejin.im/post/6844904148022870023)【阅读建议：10min】
+* [x] [10 种跨域解决方案（附终极大招）](https://juejin.im/post/6844904126246027278)【阅读建议：1h】
 
-## 从输入 URL 到页面呈现
+### <a name="chapter-three-six" id="chapter-three-six"></a>3.6 其他
 
-* 网络请求
-  * 构建请求
-  * 查找强缓存
-  * DNS 解析
-  * 建立 TCP 连接
-  * 发送 HTTP 请求
-* 网络响应
+> [返回目录](#chapter-one)
 
-这时候，如果响应头中 `Content-Type` 的值是 `text/html`，那么接下来就是 **浏览器的解析和渲染** 工作。
-
-解析过程：
-
-* 构建 DOM 树
-  * 标记化
-  * 建树算法
-* 样式计算
-  * 格式化
-  * 标准化
-  * 计算规则：继承、层叠
-* 生成布局树（`Layout Tree`）
-
-渲染过程：
-
-* 建立图层树（`Layer Tree`）
-* 生成绘制列表
-* 生成图块并栅格化
-* 显示器显示内容
+* [x] [抛弃console.log()，拥抱浏览器Debugger](https://zhuanlan.zhihu.com/p/52077620)【阅读建议：10min】
+* [x] [浏览器IMG图片原生懒加载loading=”lazy”实践指南](https://www.zhangxinxu.com/wordpress/2019/09/native-img-loading-lazy/)【阅读建议：10min】
+* [x] [浏览器页面资源加载过程与优化](https://juejin.im/post/5a4ed917f265da3e317df515)【阅读建议：无】
 
 ---
 
