@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-07 22:19:48**  
-> Recently revised in **2020-09-21 19:46:22**
+> Recently revised in **2020-09-21 22:26:24**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -14,14 +14,22 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 单线程和多线程](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Event Loop](#chapter-four) |
+| &emsp;[4.1 Event Loop 执行过程](#chapter-four-one) |
+| &emsp;[4.2 Node 和 浏览器](#chapter-four-two) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 两个环境 Event Loop 对比](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 题目训练](#chapter-six) |
+| &emsp;[6.1 同步任务](#chapter-six-one) |
+| &emsp;[6.2 定时器](#chapter-six-two) |
+| &emsp;[6.3 定时器 + Promise](#chapter-six-three) |
+| &emsp;[6.4 综合](#chapter-six-four) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
 `Event Loop` 即事件循环，是指浏览器或 `Node` 的一种解决 JavaScript 单线程运行时不会阻塞的一种机制，也就是我们经常使用异步的原理。
+
+**参考文献**：
 
 * [x] [浏览器与Node的事件循环(Event Loop)有何区别?](https://zhuanlan.zhihu.com/p/54882306)【阅读建议：20min】
 * [x] [一次弄懂Event Loop（彻底解决此类面试问题）](https://juejin.im/post/5c3d8956e51d4511dc72c200)【阅读建议：20min】
@@ -53,21 +61,25 @@ JavaScript 是一个单线程的语言。
 
 当你发起一个请求时，其实就是创建了一个线程，当请求结束后，该线程可能就会被销毁。
 
-**浏览器内核** 是多线程的，在内核控制下各线程相互配合以保持同步，一个浏览器通常由以下常驻线程组成：
+* **浏览器内核是怎样的？**
 
-* GUI 渲染线程：解析 HTML、CSS 等。在 JavaScript 引擎线程运行脚本期间，GUI 渲染线程处于挂起状态，也就是被 “冻结” 了。
-* JavaScript 引擎线程：负责处理 JavaScript 脚本。
-* 定时触发器线程：`setTimeout`、`setInterval` 等。事件触发线程会将计数完毕后的事件加入到任务队列的尾部，等待 JS 引擎线程执行。
-* 事件触发线程：负责将准备好的事件交给 JS 引擎执行。
-* 异步 `http` 请求线程：负责执行异步请求之类函数的线程，例如 `Promise.then()`、`ajax` 等。
+浏览器内核是多线程的，在内核控制下各线程相互配合以保持同步，一个浏览器通常由以下常驻线程组成：
 
-* 为什么不设计成多线程？
+1. **GUI 渲染线程**：解析 HTML、CSS 等。在 JavaScript 引擎线程运行脚本期间，GUI 渲染线程处于挂起状态，也就是被 “冻结” 了。
+2. **JavaScript 引擎线程**：负责处理 JavaScript 脚本。
+3. **定时触发器线程**：`setTimeout`、`setInterval` 等。事件触发线程会将计数完毕后的事件加入到任务队列的尾部，等待 JS 引擎线程执行。
+4. **事件触发线程**：负责将准备好的事件交给 JS 引擎执行。
+5. **异步 `http` 请求线程**：负责执行异步请求之类函数的线程，例如 `Promise.then()`、`ajax` 等。
+
+* **为什么不设计成多线程？**
 
 假设有个 DOM 节点，现在有线程 A 操作它，删除了这个 DOM；然后线程 B 又操作它，修改了某部分。那么现在问题来了，咱听谁的？
 
-所以干脆设计成一个单线程，哪怕后期 HTML5 出了个 `web worker` 也是不允许操作 DOM 结构的，可以完成一些分布式的计算。
+所以干脆设计成一个单线程，安全稳妥不出事。
 
-* 为什么需要异步？
+哪怕后期 HTML5 出了个 `web worker` 也是不允许操作 DOM 结构的，可以完成一些分布式的计算。
+
+* **为什么需要异步？**
 
 这时候又有问题了，如果调用某个接口（Ajax），或者加载某张图片的时候，我们卡住了，这样页面是不是就一直不能渲染？
 
@@ -79,29 +91,27 @@ JavaScript 是一个单线程的语言。
 
 等待接口或者图片返回过来后，就通知程序我做好了，你可以继续调用了。
 
-* 为什么会有 Event Loop？
-
-前面 **jsliang** 讲到： JavaScript 一样一次只能做一件事。
-
-如果碰到一些需要等待的程序，例如 `setTimeout` 等，那就歇菜了，所以 JavaScript 为了协调事件、用户交互、脚本、渲染、网络等，就搞出来一个 **事件循环（Event Loop）**。
-
-* 什么是 Event Loop？
-
-JavaScript 从 `script` 开始读取，然后不断循环，从 “任务队列” 中读取执行事件的过程，就是 **事件循环（Event Loop）**。
-
-* Event Loop 的执行机制？
-
 ## <a name="chapter-four" id="chapter-four"></a>四 Event Loop
 
 > [返回目录](#chapter-one)
 
-JavaScript 有一个 `main thread` 主线程和 `call-stack` 调用栈（执行栈），所有的任务都会被放到调用栈等待主线程执行。
+* **为什么会有 Event Loop？**
+
+前面 **jsliang** 讲到： JavaScript 线程一次只能做一件事。
+
+如果碰到一些需要等待的程序，例如 `setTimeout` 等，那就歇菜了。
+
+所以，JavaScript 为了协调事件、用户交互、脚本、渲染、网络等，就搞出来一个 **事件循环（Event Loop）**。
+
+* **什么是 Event Loop？**
+
+JavaScript 从 `script` 开始读取，然后不断循环，从 “任务队列” 中读取执行事件的过程，就是 **事件循环（Event Loop）**。
 
 ### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 Event Loop 执行过程
 
 > [返回目录](#chapter-one)
 
-**Event Loop** 过程：
+**Event Loop** 执行过程如下：
 
 1. 一开始整个脚本 `script` 作为一个宏任务执行
 2. 执行过程中，**同步代码** 直接执行，**宏任务** 进入宏任务队列，**微任务** 进入微任务队列。
@@ -114,14 +124,6 @@ JavaScript 有一个 `main thread` 主线程和 `call-stack` 调用栈（执行�
 
 **宏任务队列可以有多个，微任务队列只有一个。**
 
-**微任务** 包括：
-
-* `MutationObserver`
-* `Promise.then()/catch()`
-* 以 `Promise` 为基础开发的其他技术，例如 `fetch API`
-* V8 的垃圾回收过程
-* Node 独有的 `process.nextTick`
-
 **宏任务** 包括：
 
 * `script`
@@ -130,6 +132,14 @@ JavaScript 有一个 `main thread` 主线程和 `call-stack` 调用栈（执行�
 * `setImmediate`
 * `I/O`
 * `UI rendering`
+
+**微任务** 包括：
+
+* `MutationObserver`
+* `Promise.then()/catch()`
+* 以 `Promise` 为基础开发的其他技术，例如 `fetch API`
+* V8 的垃圾回收过程
+* Node 独有的 `process.nextTick`
 
 ### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 Node 和 浏览器
 
@@ -143,8 +153,8 @@ JavaScript 有一个 `main thread` 主线程和 `call-stack` 调用栈（执行�
 
 再仔细一点：
 
-* **Node.js**：Node.js 的 Event Loop 是基于 libuv。libuv 已经对 Event Loop 作出了实现。
-* **浏览器**：浏览器的 Event Loop 是基于 [HTML5 规范](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops) 的。而 HTML5 规范中只是定义了浏览器中的 Event Loop 的模型，具体实现留给了浏览器厂商。
+* **Node.js**：Node.js 的 `Event Loop` 是基于 `libuv`。`libuv` 已经对 Node.js 的 `Event Loop` 作出了实现。
+* **浏览器**：浏览器的 `Event Loop` 是基于 [HTML5 规范](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops) 的。而 HTML5 规范中只是定义了浏览器中的 Event Loop 的模型，具体实现留给了浏览器厂商。
 
 > libuv 是一个多平台支持库，主要用于异步 I/O。它最初是为 Node.js 开发的，现在 Luvit、Julia、pyuv 和其他的框架也使用它。[Github - libuv 仓库](https://github.com/libuv/libuv)
 
@@ -162,7 +172,17 @@ JavaScript 有一个 `main thread` 主线程和 `call-stack` 调用栈（执行�
 
 > [返回目录](#chapter-one)
 
-### 9.1 同步任务
+在训练之前，咱们先讲下考题范围：
+
+* **同步任务**：碰到直接执行，不要管三七二十一。
+* **宏任务**：`script`、`setTimeout`
+* **微任务**：`Promise.then()`、`async/await`
+
+暂时就这么点内容，想来不会考错！
+
+### <a name="chapter-six-one" id="chapter-six-one"></a>6.1 同步任务
+
+> [返回目录](#chapter-one)
 
 ```js
 function bar() {
@@ -177,7 +197,15 @@ function foo() {
 foo();
 ```
 
-### 9.2 定时器
+这段内容输出啥？
+
+* `foo` -> `bar`
+
+详情不需要解释。
+
+### <a name="chapter-six-two" id="chapter-six-two"></a>6.2 定时器
+
+> [返回目录](#chapter-one)
 
 ```js
 console.log("1");
@@ -193,9 +221,23 @@ setTimeout(function () {
 console.log("4");
 ```
 
-### 9.3 定时器 + Promise
+* 宏任务队列：`script`、`setTimeout(2)`、`setTimeout(3)`
+* 微任务队列：无
 
-> 题 1
+所以输出：
+
+```
+1
+4
+2
+3
+```
+
+### <a name="chapter-six-three" id="chapter-six-three"></a>6.3 定时器 + Promise
+
+> [返回目录](#chapter-one)
+
+* 题目 1：请输出下面代码打印情况
 
 ```js
 console.log('script start');
@@ -213,7 +255,32 @@ Promise.resolve().then(function() {
 console.log('script end');
 ```
 
-> 题 2
+`script` 宏任务下：
+
+* 宏任务 `setTimeout`
+* 微任务 `.then(promise1)`
+
+所以先执行同步代码，先输出：`script start` -> `script end`。
+
+然后调用微任务，输出 `promise1`，将 `then(promise2)` 放入微任务。
+
+再次调用微任务，将 `promise2` 输出。
+
+最后调用宏任务 `setTimeout`，输出 `setTimeout`。
+
+因此输出顺序：
+
+```
+script start
+script end
+promise1
+promise2
+setTimeout
+```
+
+---
+
+* 题目 2：请输出下面代码打印情况
 
 ```js
 Promise.resolve().then(function promise1() {
@@ -232,52 +299,244 @@ setTimeout(function setTimeout2() {
 }, 0)
 ```
 
-### 9.4 综合
+`script` 宏任务下：
+
+* 同步任务：无
+* 微任务：`Promise.then(promise1)`
+* 宏任务：`setTimeout(setTimeout1)`、`setTimeout(setTimeout2)`
+
+所以先走同步任务，发现并没有，不理会。
+
+然后再走微任务 `Promise.then(promise1)`，输出 `promise1`。
+
+接着推出宏任务，先走 `setTimeout(setTimeout1)`：
+
+* 同步任务：`console.log('setTimeout1')`
+* 微任务：`Promise.then(promise2)`
+* 宏任务：`setTimeout(setTimeout2)`（注意这里的宏任务是整体的）
+
+所以先走同步任务，输出 `setTimeout1`。
+
+接着走微任务，输出 `promise2`。
+
+然后推出宏任务 `setTimeout(setTimeout2)`。
+
+`setTimeout(setTimeout2)` 环境下的微任务和宏任务都没有，所以走完同步任务，输出 `setTimeout2`，就结束了。
+
+因此，输出顺序：
+
+```
+promise1
+setTimeout1
+promise2
+setTimeout2
+```
+
+---
+
+* 题目 3：请输出下面代码打印情况
 
 ```js
-console.log("1");
+setTimeout(function() {
+  console.log(4);
+}, 0);
 
+const promise = new Promise((resolve) => {
+  console.log(1);
+  for (var i = 0; i < 10000; i++) {
+    i == 9999 && resolve();
+  }
+  console.log(2);
+}).then(function() {
+  console.log(5);
+});
+
+console.log(3);
+```
+
+`script` 下：
+
+* 同步任务：`console.log(1)`、`console.log(2)`、`console.log(3)`。
+* 微任务：`Promise.then()`（等到 9999 再添加进来）
+* 宏任务 `setTimeout`
+
+所以先走同步任务，注意当我们 `new Promsie()` 的时候，内部的代码会执行的，跟同步任务一样的，而 `.then()` 在 `resolve()` 的情况下才会添加到微任务。
+
+因此先输出 `1 -> 2 -> 3`。
+
+然后推出微任务 `Promise.then()`，所以输出 5。
+
+最后推出宏任务 `setTimeout`，输出 4。
+
+结果顺序为：
+
+```
+1
+2
+3
+5
+4
+```
+
+### <a name="chapter-six-four" id="chapter-six-four"></a>6.4 综合
+
+> [返回目录](#chapter-one)
+
+综合题目就不给答案解析了，请自行脑补。
+
+---
+
+* 题目 1：请输出下面代码打印情况
+
+```js
 setTimeout(function () {
-  console.log("2");
+  console.log('timeout1');
+}, 1000);
+
+console.log('start');
+
+Promise.resolve().then(function () {
+  console.log('promise1');
+  Promise.resolve().then(function () {
+    console.log('promise2');
+  });
+  setTimeout(function () {
+    Promise.resolve().then(function () {
+      console.log('promise3');
+    });
+    console.log('timeout2')
+  }, 0);
+});
+
+console.log('done');
+```
+
+结果：
+
+```
+start
+done
+promise1
+promise2
+timeout2
+promise3
+timeout1
+```
+
+---
+
+* 题目 2：请输出下面代码打印情况
+
+```js
+console.log("script start");
+
+setTimeout(function() {
+  console.log("setTimeout---0");
+}, 0);
+
+setTimeout(function() {
+  console.log("setTimeout---200");
+  setTimeout(function() {
+    console.log("inner-setTimeout---0");
+  });
+  Promise.resolve().then(function() {
+    console.log("promise5");
+  });
+}, 200);
+
+Promise.resolve()
+.then(function() {
+  console.log("promise1");
+})
+.then(function() {
+  console.log("promise2");
+});
+
+Promise.resolve().then(function() {
+  console.log("promise3");
+});
+
+console.log("script end");
+```
+
+输出：
+
+```
+script start
+script end
+promise1
+promise3
+promise2
+setTimeout---0
+setTimeout---200
+promise5
+inner-setTimeout---0
+```
+
+---
+
+* 题目 3：请输出下面代码打印情况
+
+```js
+console.log(1);
+
+setTimeout(() => {
+  console.log(2);
+
+  new Promise((resolve) => {
+    console.log(3);
+  }).then(() => {
+    console.log(4);
+  });
+}, 200);
+
+new Promise((resolve) => {
+  console.log(5);
+  resolve();
+}).then(() => {
+  console.log(6);
+});
+
+setTimeout(() => {
+  console.log(7);
+}, 0);
+
+setTimeout(() => {
+  console.log(8);
 
   new Promise(function (resolve) {
-    console.log("3");
+    console.log(9);
     resolve();
-  }).then(function () {
-    console.log("4");
+  }).then(() => {
+    console.log(10);
   });
-});
+}, 100);
 
 new Promise(function (resolve) {
-  console.log("5");
+  console.log(11);
   resolve();
-}).then(function () {
-  console.log("6");
+}).then(() => {
+  console.log(12);
 });
 
-setTimeout(function () {
-  console.log("7");
-});
+console.log(13);
+```
 
-setTimeout(function () {
-  console.log("8");
+输出：
 
-  new Promise(function (resolve) {
-    console.log("9");
-    resolve();
-  }).then(function () {
-    console.log("10");
-  });
-});
-
-new Promise(function (resolve) {
-  console.log("11");
-  resolve();
-}).then(function () {
-  console.log("12");
-});
-
-console.log("13");
+```
+1
+5
+11
+13
+6
+12
+7
+8
+9
+10
+2
+3
 ```
 
 ---
