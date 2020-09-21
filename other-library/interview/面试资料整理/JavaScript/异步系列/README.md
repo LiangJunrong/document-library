@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-17 18:32:23**  
-> Recently revised in **2020-09-21 19:42:19**
+> Recently revised in **2020-09-21 22:31:13**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -75,6 +75,8 @@
 ## <a name="chapter-four" id="chapter-four"></a>四 参考文献
 
 > [返回目录](#chapter-one)
+
+本系列有 34 篇参考文献。
 
 ### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 异步参考文献
 
