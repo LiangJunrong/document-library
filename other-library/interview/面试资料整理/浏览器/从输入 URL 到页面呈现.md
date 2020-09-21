@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-21 23:29:10**  
-> Recently revised in **2020-09-21 23:32:49**
+> Recently revised in **2020-09-22 00:11:41**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -12,14 +12,31 @@
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 整体过程](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 DNS 解析](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 TCP 连接](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 发送 HTTP 请求及响应](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 服务器响应](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 浏览器解析渲染页面](#chapter-eight) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 其他问题及优化](#chapter-night) |
+| &emsp;[9.1 渲染过程碰到 JS 文件怎么处理？](#chapter-night-one) |
+| &emsp;[9.2 为什么操作 DOM 慢](#chapter-night-two) |
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
-## 三 从输入 URL 到页面呈现整体过程
+这是一道经典面试题：
 
-步骤：
+* 从输入 URL 到页面呈现发生了什么？
+
+如果你还不懂，那么可以来看看。
+
+## <a name="chapter-three" id="chapter-three"></a>三 整体过程
+
+> [返回目录](#chapter-one)
+
+在用户输入 URL，按下回车之后，走过的步骤：
 
 1. DNS 解析
 2. TCP 连接
@@ -27,7 +44,9 @@
 4. 服务器响应
 5. 浏览器解析渲染页面
 
-## 四 DNS 解析
+## <a name="chapter-four" id="chapter-four"></a>四 DNS 解析
+
+> [返回目录](#chapter-one)
 
 DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过程。
 
@@ -48,11 +67,23 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 这个过程可以看看，详细的就不一一讲解了，不懂的去看 **jsliang** 的文章：
 
 * [浏览器 - 浏览器缓存](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.md)
-* [计算机网络 - DNS 解析](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/DNS.md)
+* [计算机网络 - DNS](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/DNS.md)
 
-## 五 TCP 连接
+## <a name="chapter-five" id="chapter-five"></a>五 TCP 连接
 
-## 六 发送 HTTP 请求及响应
+> [返回目录](#chapter-one)
+
+* 3 次握手。建立客户端和服务器之间的连接。
+* 数据传输。
+* 4 次挥手。断开客户端和服务器之间的连接。
+
+如果 3 次握手和 4 次挥手你不懂过程，详细可以看 **jsliang** 的文章：
+
+* [计算机网络 - TCP](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/TCP.md)
+
+## <a name="chapter-six" id="chapter-six"></a>六 发送 HTTP 请求及响应
+
+> [返回目录](#chapter-one)
 
 发送 `HTTP` 请求的过程就是构建 HTTP 请求报文，并通过 TCP 协议发送到服务器指定端口（`HTTP` 协议默认端口 80/8080，`HTTPS` 协议默认端口 443）。
 
@@ -66,7 +97,9 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 
 * [浏览器 - 跨域](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E8%B7%A8%E5%9F%9F.md)
 
-## 七 服务器响应
+## <a name="chapter-seven" id="chapter-seven"></a>七 服务器响应
+
+> [返回目录](#chapter-one)
 
 服务器处理请求完毕后，会返回 HTTP 报文。
 
@@ -76,7 +109,9 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 * **响应报头**：常见的响应报头字段 `Server`、`Connection` 等。
 * **响应报文**：服务器返回给浏览器的文本信息，通常 HTML、CSS、JS、图片等文件就放在这一部分。
 
-## 八 浏览器解析渲染页面
+## <a name="chapter-eight" id="chapter-eight"></a>八 浏览器解析渲染页面
+
+> [返回目录](#chapter-one)
 
 ![图](https://segmentfault.com/img/remote/1460000017329983?w=624&h=289)
 
@@ -104,15 +139,22 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 
 * [浏览器 - 回流和重绘](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98.md)
 
-## 九 优化
+## <a name="chapter-night" id="chapter-night"></a>九 其他问题及优化
 
-## 汇总
+> [返回目录](#chapter-one)
 
+在上面步骤中，其实可以发掘很多优化点：
 
+* DNS 缓存
+* 浏览器缓存
+* 减少回流和重绘
+* ……
 
-## 问题
+所以过程大于这里的结果。
 
-### 1. 渲染过程碰到 JS 文件怎么处理？
+### <a name="chapter-night-one" id="chapter-night-one"></a>9.1 渲染过程碰到 JS 文件怎么处理？
+
+> [返回目录](#chapter-one)
 
 JavaScript 的加载、解析和执行会阻塞 DOM 的构建。
 
@@ -120,7 +162,9 @@ JavaScript 的加载、解析和执行会阻塞 DOM 的构建。
 
 也就是说：首屏渲染越快，就越不应该在首屏的时候加载 JS 文件，这也就是建议将 `script` 标签放到 `body` 标签底部，或者给 `script` 标签添加 `defer/async` 属性的原因。
 
-### 2. 为什么操作 DOM 慢
+### <a name="chapter-night-two" id="chapter-night-two"></a>9.2 为什么操作 DOM 慢
+
+> [返回目录](#chapter-one)
 
 1. 涉及 JS 引擎和渲染引擎两个线程间的通信，损耗性能。
 2. 操作 DOM 可能会重复回流，加剧性能损耗。
