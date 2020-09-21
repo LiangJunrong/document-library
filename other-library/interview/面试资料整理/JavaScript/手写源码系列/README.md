@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-21 15:06:41**  
-> Recently revised in **2020-09-21 15:09:54**
+> Recently revised in **2020-09-21 17:53:15**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -22,7 +22,8 @@
 * [ ] [「中高级前端面试」JavaScript手写代码无敌秘籍](https://juejin.im/post/6844903809206976520)
 * [ ] [几道JS代码手写题以及一些代码实现](https://juejin.im/post/6844903575559077895)
 * [ ] [三元-手写代码系列](http://47.98.159.95/my_blog/js-api/001.html)
-
+* [x] [CORS 原理及实现](https://www.jianshu.com/p/b2bdf55e1bf5)【阅读建议：30min】
+* [x] [JSONP 原理及实现](https://www.jianshu.com/p/88bb82718517)【阅读建议：30min】
 
 ## 题 1：手写原生自定义事件
 
