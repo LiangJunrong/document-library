@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:06:05**  
-> Recently revised in **2020-09-19 17:29:22**
+> Recently revised in **2020-09-21 22:35:31**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -80,6 +80,7 @@
 
 ### DNS
 
+* [x] [DNS 解析顺序](https://blog.csdn.net/Yooneep/article/details/89882123)【阅读建议：5min】
 * [ ] [写给前端工程师的DNS基础知识](http://www.sunhao.win/articles/netwrok-dns.html)
 * [ ] [前端优化: DNS预解析提升页面速度](https://www.jianshu.com/p/95a0c0636d28)
 * [ ] [DNS解析](https://imweb.io/topic/55e3ba46771670e207a16bc8)
@@ -98,11 +99,6 @@
 * [ ] [漫话：如何给女朋友解释什么是CDN？](https://juejin.im/post/5d478c48e51d453c135c5a5c)
 * [ ] [关于 cdn、回源等问题一网打尽](https://juejin.im/post/5af46498f265da0b8d41f6a3)
 * [ ] [CDN是什么？使用CDN有什么优势？](https://www.zhihu.com/question/36514327?rf=37353035)
-
-### 经典题
-
-* [ ] [从输入URL到页面展示，这中间发生了什么？](https://time.geekbang.org/column/article/117637)
-* [ ] [前端经典面试题: 从输入URL到页面加载发生了什么？](https://segmentfault.com/a/1190000006879700)
 
 ---
 
