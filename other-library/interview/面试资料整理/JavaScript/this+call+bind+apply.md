@@ -2,7 +2,7 @@ this + call + bind + apply
 ===
 
 > Create by **jsliang** on **2020-09-08 13:37:27**  
-> Recently revised in **2020-09-08 14:03:28**
+> Recently revised in **2020-09-21 15:08:23**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -37,7 +37,6 @@ test4399.getColor(); // 输出什么？
 
 参考：
 
-* [ ] [三元-手写代码系列](http://47.98.159.95/my_blog/js-api/001.html)
 * [ ] [再来40道this面试题酸爽继续](https://juejin.im/post/6844904083707396109)
 * [ ] [this、apply、call、bind](https://juejin.im/post/6844903496253177863)
 * [ ] [面试官问：JS的this指向](https://juejin.im/post/5c0c87b35188252e8966c78a)
