@@ -2,7 +2,7 @@ Webpack
 ===
 
 > Create by **jsliang** on **2020-09-17 15:33:55**  
-> Recently revised in **2020-09-17 15:33:55**
+> Recently revised in **2020-09-21 13:42:55**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -16,6 +16,8 @@ Webpack
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
+
+最好自己搭建一个 然后效果是最好的 tree-shaking 热更新 webpack工作流 scope-hoisting这些原理 都经常问到
 
 * [ ] [「吐血整理」再来一打Webpack面试题](https://juejin.im/post/6844904094281236487)
 * [ ] [霖呆呆的webpack之路-loader篇](https://github.com/LinDaiDai/niubility-coding-js/blob/master/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/%E9%9C%96%E5%91%86%E5%91%86%E7%9A%84webpack%E4%B9%8B%E8%B7%AF-loader%E7%AF%87.md#file-loader)
