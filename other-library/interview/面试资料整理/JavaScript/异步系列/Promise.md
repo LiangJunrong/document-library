@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-07 22:28:53**  
-> Recently revised in **2020-09-18 02:50:48**
+> Recently revised in **2020-09-21 12:02:56**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -2833,10 +2833,11 @@ const p1 = new Promise((resolve) => {
 const oneToThree = () => {
   const arr = [1, 2, 3];
   arr.reduce((prev, next) => {
-    return prev.then((res1) => {
-      return new Promise((res2) => {
+    return prev.then(() => {
+      return new Promise((resolve) => {
         setTimeout(() => {
-          res2(console.log(next), 1000);
+          console.log(next);
+          resolve();
         }, 1000);
       })
     });
@@ -2844,6 +2845,62 @@ const oneToThree = () => {
 };
 
 console.log(oneToThree());
+```
+
+改写 forEach：
+
+```js
+/**
+ * 实现函数 forEach(arr, cb)，使 cb 逐个处理 arr 中的元素
+ * 一次处理可能是同步的，也可能是异步的
+ * 要求处理完成当前元素才能处理下一个。
+ * 提示：cb 函数执行如果是异步，会返回一个 Promise
+ */
+const liangEach = (arr, cb) => {
+  arr.reduce((prev, next) => {
+    return prev.then((res1) => {
+      return cb(next);
+    });
+  }, Promise.resolve())
+};
+
+const arr = [1, 2, 5];
+
+liangEach(arr, (n) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log(n);
+      resolve();
+    }, 1000);
+  })
+})
+```
+
+如果有 `async/await` 实现：
+
+```js
+/**
+ * 实现函数 forEach(arr, cb)，使 cb 逐个处理 arr 中的元素
+ * 一次处理可能是同步的，也可能是异步的
+ * 要求处理完成当前元素才能处理下一个。
+ * 提示：cb 函数执行如果是异步，会返回一个 Promise
+ */
+async function liangEach(arr, cb) {
+  for (let i = 0; i < arr.length; i++) {
+    await cb(arr[i]);
+  }
+};
+
+const arr = [1, 2, 5];
+
+liangEach(arr, (n) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log(n);
+      resolve();
+    }, 1000);
+  })
+});
 ```
 
 ### <a name="chapter-seventeen-two" id="chapter-seventeen-two"></a>17.2 使用 Promise 实现红绿灯交替重复亮
