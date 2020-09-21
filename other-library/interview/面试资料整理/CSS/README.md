@@ -2,7 +2,7 @@ CSS 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:57**  
-> Recently revised in **2020-09-03 16:50:05**
+> Recently revised in **2020-09-21 16:29:50**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -63,8 +63,6 @@ CSS 资料整理
 *  [ ] [移动端1px解决方案](https://juejin.im/post/5d19b729f265da1bb2774865)
 *  [ ] [Retina屏的移动设备如何实现真正1px的线？](https://jinlong.github.io/2015/05/24/css-retina-hairlines/)
 *  [ ] [CSS retina hairline, the easy way.](http://dieulot.net/css-retina-hairline)
-*  [ ] [浏览器的回流与重绘 (Reflow & Repaint)](https://juejin.im/post/5a9923e9518825558251c96a)
-*  [ ] [回流与重绘：CSS性能让JavaScript变慢？](https://www.zhangxinxu.com/wordpress/2010/01/%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98%EF%BC%9Acss%E6%80%A7%E8%83%BD%E8%AE%A9javascript%E5%8F%98%E6%85%A2%EF%BC%9F/)
 *  [ ] [CSS实现水平垂直居中的1010种方式（史上最全）](https://juejin.im/post/5b9a4477f265da0ad82bf921)
 *  [ ] [干货!各种常见布局实现](https://juejin.im/post/5aa252ac518825558001d5de)
 *  [ ] [CSS 常见布局方式](https://juejin.im/post/599970f4518825243a78b9d5)
