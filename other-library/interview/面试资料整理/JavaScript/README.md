@@ -2,7 +2,7 @@ JavaScript 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:29**  
-> Recently revised in **2020-09-21 15:08:38**
+> Recently revised in **2020-09-21 17:52:54**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -157,7 +157,6 @@ JavaScript 资料整理
 * [ ] [JavaScript 复杂判断的更优雅写法](https://juejin.im/post/6844903705058213896)
 * [ ] [近一万字的ES6语法知识点补充](https://juejin.im/post/6844903775329583112)
 * [ ] [前端路由跳转基本原理](https://segmentfault.com/a/1190000018081475)
-* [ ] [九种跨域方式实现原理](https://juejin.im/post/6844903767226351623)
 * [ ] [发现 JavaScript 中闭包的强大威力](https://juejin.im/post/6844903769646317576)
 * [ ] [你可能不熟悉的JS总结](https://segmentfault.com/a/1190000018113011)
 * [ ] [JavaScript中高阶函数的魅力](https://juejin.im/post/6844903668651819016)
