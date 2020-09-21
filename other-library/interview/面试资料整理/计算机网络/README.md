@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:06:05**  
-> Recently revised in **2020-09-21 22:39:18**
+> Recently revised in **2020-09-22 00:07:40**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -101,6 +101,7 @@
 
 ### TCP
 
+* [ ] [面试官，不要再问我三次握手和四次挥手](https://zhuanlan.zhihu.com/p/86426969)
 * [ ] [通俗大白话来理解TCP协议的三次握手和四次分手](https://github.com/jawil/blog/issues/14)
 * [ ] [就是要你懂 TCP](http://jm.taobao.org/2017/06/08/20170608/)
 * [ ] [TCP协议详解](https://juejin.im/post/5ba895a06fb9a05ce95c5dac)
