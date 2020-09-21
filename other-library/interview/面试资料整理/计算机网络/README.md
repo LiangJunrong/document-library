@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:06:05**  
-> Recently revised in **2020-09-21 22:36:24**
+> Recently revised in **2020-09-21 22:39:18**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -28,11 +28,25 @@
 
 经典问题，从输入 URL 到页面展示，发生了什么。这个问题我觉得还是很考验广度和深度的，可以好好思考一下，每个人可能回答的结果都会是不一样的。
 
-## 系统
+### 系统
 
 * [ ] [总结了17年初到18年初百场前端面试的面试经验(含答案)](https://juejin.im/post/6844903636271644680)
 * [ ] [(建议收藏)TCP协议灵魂之问，巩固你的网路底层基础](https://juejin.im/post/6844904021308735502)
 * [ ] [(建议精读)HTTP灵魂之问，巩固你的 HTTP 知识体系](https://juejin.im/post/6844904100035821575)
+
+### 网络安全
+
+* [ ] [前端安全系列（一）：如何防止XSS攻击？](https://tech.meituan.com/2018/09/27/fe-security.html)
+* [ ] [前端安全系列（二）：如何防止CSRF攻击？](https://tech.meituan.com/2018/10/11/fe-security-csrf.html)
+* [ ] [Security](https://almanac.httparchive.org/en/2019/security)
+* [ ] [前端也需要了解的 JSONP 安全](https://juejin.im/post/5b75b497e51d45666276251d)
+* [ ] [【面试篇】寒冬求职之你必须要懂的Web安全](https://juejin.im/post/5cd6ad7a51882568d3670a8e)
+* [ ] [谈谈对 Web 安全的理解](https://zhuanlan.zhihu.com/p/25486768?group_id=820705780520079360)
+* [ ] [程序员必须要了解的web安全](https://juejin.im/post/5b4e0c936fb9a04fcf59cb79)
+* [ ] [可信前端之路：代码保护](https://www.freebuf.com/articles/web/102269.html)
+* [ ] [前端如何给 JavaScript 加密（不是混淆）？](https://www.zhihu.com/question/47047191)
+* [ ] [常见 Web 安全攻防总结](https://zoumiaojiang.com/article/common-web-security/)
+* [ ] [寒冬求职之你必须要懂的Web安全](https://juejin.im/post/5cd6ad7a51882568d3670a8e)
 
 ### HTTP
 
