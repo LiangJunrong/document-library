@@ -2,7 +2,7 @@ JavaScript 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:29**  
-> Recently revised in **2020-09-17 16:10:11**
+> Recently revised in **2020-09-21 15:08:38**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -33,9 +33,7 @@ JavaScript 资料整理
 
 ### 精选
 
-* [ ] [「中高级前端面试」JavaScript手写代码无敌秘籍](https://juejin.im/post/6844903809206976520)
 * [ ] [JavaScript 工具函数大全（新）](https://juejin.im/post/6844903966526930951)
-* [ ] [22 道高频 JavaScript 手写面试题及答案](https://juejin.im/post/6844903911686406158)
 
 ### 系统
 
@@ -184,7 +182,6 @@ JavaScript 资料整理
 * [ ] [JavaScript 运行原理解析](https://juejin.im/post/6844903551009816589)
 * [ ] [简单了解JavaScript垃圾回收机制](https://juejin.im/post/6844903556265279502)
 * [ ] [一次记住js的6个正则方法](http://varnull.cn/yi-ci-ji-zhu-jsde-6ge-zheng-ze-fang-fa/)
-* [ ] [几道JS代码手写题以及一些代码实现](https://juejin.im/post/6844903575559077895)
 * [ ] [JSBridge的原理](https://juejin.im/post/6844903585268891662)
 * [ ] [面试官: 你了解前端路由吗?](https://juejin.im/post/6844903589123457031)
 * [ ] [深入剖析 JavaScriptCore](https://ming1016.github.io/2018/04/21/deeply-analyse-javascriptcore/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
@@ -207,7 +204,6 @@ JavaScript 资料整理
 * [ ] [重新认识构造函数、原型和原型链](https://juejin.im/post/6844903779079290887)
 * [ ] [如何在 Web 关闭页面时发送 Ajax 请求](https://juejin.im/post/6844903790575878157)
 * [ ] [用 Proxy 追踪 JavaScript 类](https://juejin.im/post/6844903793885184013)
-* [ ] [「中高级前端面试」JavaScript手写代码无敌秘籍](https://juejin.im/post/6844903809206976520)
 * [ ] [JavaScript的环境模型](https://mp.weixin.qq.com/s/rOxvYS7MdnPAX7FGjpOXnw)
 * [ ] [面试官(6): 写过『通用前端组件』吗?](https://juejin.im/post/6844903847874265101)
 * [ ] [抱歉，学会 Proxy 真的可以为所欲为](https://zhuanlan.zhihu.com/p/35080324)
