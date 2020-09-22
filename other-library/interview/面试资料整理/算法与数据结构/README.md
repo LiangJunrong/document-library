@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:07:27**  
-> Recently revised in **2020-09-03 16:49:12**
+> Recently revised in **2020-09-22 15:27:36**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -16,6 +16,11 @@
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
+
+* [ ] [动画详解常用排序算法（1）](https://mp.weixin.qq.com/s/XxmnKGLfstgbWjoj-eWddg)
+* [ ] [模板不重要](https://mp.weixin.qq.com/s/d5Af7YwwrtdV_OqYzcWGSw)
+* [ ] [更新！万字长文带你拿下九大排序的原理、Java 实现以及算法分析](https://mp.weixin.qq.com/s/vwzTA0UroV5nt_EWqhEspg)
+* [ ] [动态规划](https://www.bilibili.com/video/BV1a4411y7uh?from=search&seid=9796558727922243523)
 
 * [ ] [(1.8w字)负重前行，前端工程师如何系统练习数据结构和算法？](https://juejin.im/post/6844904061947346957)
 * [ ] [Linked Lists in JavaScript (ES6 code)](https://codeburst.io/linked-lists-in-javascript-es6-code-part-1-6dd349c3dcc3)
