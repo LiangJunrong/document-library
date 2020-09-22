@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-27 17:05:44**  
-> Recently revised in **2020-09-21 10:41:50**
+> Recently revised in **2020-09-22 15:20:49**
 
 ## 入门
 
@@ -29,6 +29,10 @@
 * 【简单】[101-对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/)
 * 【简单】[剑指 Offer 28-对称的二叉树](https://leetcode-cn.com/problems/dui-cheng-de-er-cha-shu-lcof/)
 * 【中等】[109-有序链表转换二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/)
+
+## 精通
+
+* 【困难】[968-监控二叉树](https://leetcode-cn.com/problems/binary-tree-cameras/)
 
 ## 二叉搜索树
 
