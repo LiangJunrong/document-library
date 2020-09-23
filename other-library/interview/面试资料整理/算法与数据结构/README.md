@@ -1,8 +1,8 @@
-算法与数据结构资料整理
+算法与数据结构
 ===
 
 > Create by **jsliang** on **2020-09-01 21:07:27**  
-> Recently revised in **2020-09-22 15:27:36**
+> Recently revised in **2020-09-23 16:46:34**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -16,6 +16,12 @@
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
+
+刷题：
+
+* [ ] [LeetBook - 字节跳动](https://leetcode-cn.com/explore/interview/card/bytedance/)
+
+学习：
 
 * [ ] [动画详解常用排序算法（1）](https://mp.weixin.qq.com/s/XxmnKGLfstgbWjoj-eWddg)
 * [ ] [模板不重要](https://mp.weixin.qq.com/s/d5Af7YwwrtdV_OqYzcWGSw)
