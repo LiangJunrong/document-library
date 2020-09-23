@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-27 17:05:44**  
-> Recently revised in **2020-09-22 15:20:49**
+> Recently revised in **2020-09-23 10:39:01**
 
 ## 入门
 
@@ -23,6 +23,7 @@
 * 【中等】[剑指 Offer 32 - III-从上到下打印二叉树](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof/)
 * 【简单】[226-翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
 * 【简单】[538-把二叉搜索树转换为累加树](https://leetcode-cn.com/problems/convert-bst-to-greater-tree/)
+* 【简单】[617-合并二叉树](https://leetcode-cn.com/problems/merge-two-binary-trees/)
 
 ## 熟练
 
