@@ -2,7 +2,7 @@ React 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-02 15:28:53**  
-> Recently revised in **2020-09-07 22:32:46**
+> Recently revised in **2020-09-23 16:46:52**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -31,6 +31,19 @@ React 资料整理
 * [ ] React Hoc/Vue mixin
 * [ ] Vue 和 React 有什么不同
 * [ ] ...
+
+问题：
+
+* react 有哪些生命周期函数，分别讲下每个生命周期函数会在哪个时候被执行。(大致分为 mount 阶段、state 引起的 render、props 引起的 render 以及 unmount 阶段分别会执行什么生命周期函数)
+* react 哪些生命周期可以 setState
+* react 中写类组件的时候，如何解决方法 this 丢失问题
+   * 在 constructor 里使用 bind
+   * 箭头函数
+* 使用 bind 和箭头函数的区别
+* react 生命周期中，在新版本有些将被废弃，也新增了一些生命周期，讲一下？
+* setState 是异步还是同步
+* VDOM 渲染原理
+* react 和 vue 的区别
 
 ### 系统
 
