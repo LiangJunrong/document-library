@@ -17,6 +17,11 @@
 3. 定标（确定自己未来 3-5 年目标）
 4. 实现（通过努力在规定时间走出第一步）
 
+```diff
+- 2019
++ 2020
+```
+
 ## 综合整理
 
 * [Github：LinDaiDai/niubility-coding-js【霖呆呆】](https://github.com/LinDaiDai/niubility-coding-js)
