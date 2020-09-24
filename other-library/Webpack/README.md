@@ -2,7 +2,7 @@ Webpack
 ===
 
 > Create by **jsliang** on **2020-04-21 16:47:19**  
-> Recently revised in **2020-09-24 16:25:07**
+> Recently revised in **2020-09-24 16:31:01**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -16,7 +16,6 @@ Webpack
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
-
 
 模块化知识：
 
@@ -49,6 +48,52 @@ Webpack 基础
       * 单个 loader 配置
       * 多个 loader 的数组类型配置
       * 多个 loader 的对象类型配置
+
+```js
+const path = require('path');
+
+// 因为 webpack 是运行在 node 环境下的，所以该文件也就是运行在 node 环境下了，那么 node 语法，模块都可以进行调用
+
+// 这个导出去都对象就是 webpack 打包需要用到都配置对象
+module.exports = {
+
+	// 模式 : `"production" | "development" | "none"`
+	mode: 'development',
+
+	// entry: './src/index.js',
+
+	// entry: [
+	//     './src/index.js',
+	//     './src/list.js'
+	// ],
+
+	entry: {
+		'index': './src/index.js',
+		// 'list': './src/list.js'
+	},
+
+
+	output: {
+		// path 必须是绝对路径
+		path: path.resolve(__dirname, "dist"),
+		filename: '[name].js'
+	},
+
+	module: {
+		// 各种 loader 加载处理规则
+		rules: [
+			// 每一种规则就是一个对象
+			{
+				// 被加载都模块规则，支持正则
+				test: /\.txt$/i,
+				// 满足上面的规则调用的对应loader
+				use: 'raw-loader'
+			}
+		]
+	}
+
+}
+```
 
 ## 模块化
 
