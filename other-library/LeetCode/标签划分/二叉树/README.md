@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-27 17:05:44**  
-> Recently revised in **2020-09-23 10:39:01**
+> Recently revised in **2020-09-24 10:49:50**
 
 ## 入门
 
@@ -24,6 +24,7 @@
 * 【简单】[226-翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
 * 【简单】[538-把二叉搜索树转换为累加树](https://leetcode-cn.com/problems/convert-bst-to-greater-tree/)
 * 【简单】[617-合并二叉树](https://leetcode-cn.com/problems/merge-two-binary-trees/)
+* 【简单】[501-二叉搜索树中的众数](https://leetcode-cn.com/problems/find-mode-in-binary-search-tree/)
 
 ## 熟练
 
