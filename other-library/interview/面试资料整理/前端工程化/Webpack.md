@@ -2,8 +2,9 @@ Webpack
 ===
 
 > Create by **jsliang** on **2020-09-17 15:33:55**  
-> Recently revised in **2020-09-23 23:14:51**
+> Recently revised in **2020-09-26 03:16:03**
 
+<!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -12,20 +13,23 @@ Webpack
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+<!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
-最好自己搭建一个 然后效果是最好的 tree-shaking 热更新 webpack工作流 scope-hoisting这些原理 都经常问到
+最好自己搭建一个 然后效果是最好的 tree-shaking 热更新 webpack 工作流 scope-hoisting 这些原理 都经常问到
 
 ### 官方文档
 
 * [ ] [Webpack 中文文档](https://webpack.docschina.org/concepts/)
 
+### 整理文档
+
 * [ ] [「吐血整理」再来一打Webpack面试题](https://juejin.im/post/6844904094281236487)
 * [ ] [霖呆呆的webpack之路-loader篇](https://github.com/LinDaiDai/niubility-coding-js/blob/master/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/%E9%9C%96%E5%91%86%E5%91%86%E7%9A%84webpack%E4%B9%8B%E8%B7%AF-loader%E7%AF%87.md#file-loader)
-
+* [ ] [《不用花钱，也能掌握Webpack面试题》](https://mp.weixin.qq.com/s/Udlv1R7-_IAcfaGcds3mew)
 * [ ] [掘金刘小夕的webpack系列](https://juejin.im/post/5e5c65fc6fb9a07cd00d8838)
 * [ ] [webpack的代码分割（路由懒加载同理）](https://juejin.im/post/5e796ec1e51d45271e2a9af9)
 * [ ] [「吐血整理」再来一打Webpack面试题](https://juejin.im/post/6844904094281236487)
@@ -71,7 +75,7 @@ Webpack
 * [ ] [懒加载 - Webpack v5.0.0-rc.0](https://webpack.docschina.org/guides/lazy-loading/)
 * [ ] []()
 
-## ast
+## AST
 
 比如 `if(false){}` 编译成 AST 代码 我们是知道这段不执行的 就删除这个语法
 
