@@ -2,7 +2,7 @@ CSS 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:57**  
-> Recently revised in **2020-09-21 16:29:50**
+> Recently revised in **2020-09-25 11:34:17**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -36,6 +36,7 @@ CSS 资料整理
 * [ ] [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 * [ ] [Flex 布局教程：实例篇](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
 * [ ] [干货!各种常见布局实现+知名网站实例分析](https://juejin.im/post/6844903574929932301)
+* [ ] [CSS 定位详解](http://www.ruanyifeng.com/blog/2019/11/css-position.html)
 
 ### 移动端
 
