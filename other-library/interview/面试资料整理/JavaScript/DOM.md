@@ -2,7 +2,7 @@ DOM
 ===
 
 > Create by **jsliang** on **2020-09-16 22:08:06**  
-> Recently revised in **2020-09-16 22:09:44**
+> Recently revised in **2020-09-28 01:15:26**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,7 +17,86 @@ DOM
 
 > [返回目录](#chapter-one)
 
-## 题 1：介绍一下虚拟 DOM
+参考文献：
+
+* [x] [MDN - DOM 概述](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction)【阅读建议：20min】
+* [x] [Javascript操作DOM常用API总结](https://www.jianshu.com/p/e8b05b9f72ad)【阅读建议：20min】
+
+## DOM 常用 API
+
+可以使用 document或 window 元素的API来操作文档本身或获取文档的子类（web页面中的各种元素）。
+
+```js
+// 获取元素
+const node = document.getElementById(id); // 或者 querySelector(".class|#id|name");
+
+// 创建元素
+const heading = document.createElement(name); // name: p、div、h1...
+heading.innerHTML = '';
+
+// 添加元素
+document.body.appendChild(heading);
+
+// 删除元素
+document.body.removeChild(node);
+```
+
+示例：
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM 操作</title>
+  <style>
+    div {
+      border: 1px solid #ccc;
+      padding: 50px;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div id="dom1">元素 1</div>
+  <div class="dom2">元素 2</div>
+  
+  <button class="btn">点我</button>
+
+  <script>
+    (function() {
+      const btn = document.querySelector('.btn');
+
+      // 注册点击事件
+      btn.onclick = function() {
+        const dom1 = document.getElementById('dom1');
+
+        // 第一种添加元素
+        const newDom1 = document.createElement('p');
+        newDom1.innerHTML = '<a href="https://github.com/LiangJunrong/document-library">jsliang 的文档库</a>';
+        dom1.appendChild(newDom1);
+
+        // 第二种添加元素
+        const newDom2 = document.createElement('ul');
+        newDom2.innerHTML = `
+          <li>aaa</li>
+          <li>bbb</li>
+        `;
+        document.body.appendChild(newDom2);
+
+        // 移除元素
+        const dom2 = document.querySelector('.dom2');
+        document.body.removeChild(dom2);
+      }
+    })()
+  </script>
+</body>
+</html>
+```
+
+## 介绍一下虚拟 DOM
 
 虚拟 DOM 本质就是用一个原生的 JavaScript 对象去描述一个 DOM 节点，是对真实 DOM 的一层抽象。
 
