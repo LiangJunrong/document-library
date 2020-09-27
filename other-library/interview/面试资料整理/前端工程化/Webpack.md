@@ -2,7 +2,7 @@ Webpack
 ===
 
 > Create by **jsliang** on **2020-09-17 15:33:55**  
-> Recently revised in **2020-09-27 12:01:15**
+> Recently revised in **2020-09-27 17:36:18**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -84,7 +84,19 @@ Webpack
 * 从 0 开始：优化
   * 缩小 `loader` 的文件范围：`loader` 的 `include` 配置，可以指定 `src` 目录，减少检查范围。
   * 优化 `resolve.modules` 配置：配置 `Webpack` 去哪些目录下寻找第三方模块，默认 `node_modules`。
-  * 
+  * 分离 CSS：`MiniCssExtractPlugin`
+  * `hash`、`chunkhash`、`contenthash` 区别
+    * `hash` 作用域 JS、CSS，图片的 `hash` 有区别，每次打包构建都会变化一次。
+    * `chunkhash` 以 `chunk` 为单位，修改了那部分就改动哪部分的 `hash`。（同时依赖的模块也会改变 `hash`）
+    * `contenthash` 只有自己内容发生改变，才发生改变（区别于 `chunkhash`。
+    * 所以 JS 适用于 `chunkhash`；CSS 适用于 `contenthash`；Image 适用于 `hash`
+  * 压缩 CSS：`optimize-css-assets-webpack-plugin` 和 `cssnano`
+  * 压缩 HTML：`html-webpack-plugin`
+  * 压缩图片：`img-webpack-loader`
+  * 分离 `Webpack` 配置：分离 `base.config`、`dev.config`、`mpa.config` 和 `pro.config` 4 个，通过 `merge` 进行 `config` 配置的合并
+* 从 0 开始：简单编写一个 `Webpack` 解析器
+* 从 0 开始：编写一个 `Webpack loader`
+* 从 0 开始：编写一个 `Webpack plugin`
 
 ---
 
