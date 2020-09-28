@@ -2,8 +2,9 @@
 ===
 
 > Create by **jsliang** on **2020-09-07 22:19:48**  
-> Recently revised in **2020-09-21 22:26:24**
+> Recently revised in **2020-09-29 00:30:39**
 
+<!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -15,13 +16,15 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 单线程和多线程](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Event Loop](#chapter-four) |
 | &emsp;[4.1 Event Loop 执行过程](#chapter-four-one) |
-| &emsp;[4.2 Node 和 浏览器](#chapter-four-two) |
+| &emsp;[4.2 requestAnimationFrane](#chapter-four-two) |
+| &emsp;[4.3 Node 和 浏览器](#chapter-four-three) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 两个环境 Event Loop 对比](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 题目训练](#chapter-six) |
 | &emsp;[6.1 同步任务](#chapter-six-one) |
 | &emsp;[6.2 定时器](#chapter-six-two) |
 | &emsp;[6.3 定时器 + Promise](#chapter-six-three) |
 | &emsp;[6.4 综合](#chapter-six-four) |
+<!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -42,6 +45,11 @@
 * [x] [从event loop规范探究javaScript异步及浏览器更新渲染时机](https://github.com/aooy/blog/issues/5)【阅读建议：20min】
 * [x] [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)【阅读建议：无】
 * [x] [The Node.js Event Loop, Timers, and process.nextTick()](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)【阅读建议：无】
+
+**requestAnimationFrame 参考文献**：
+
+* [x] [再谈谈 Promise, setTimeout, rAF, rIC](https://segmentfault.com/a/1190000019154514)【阅读建议：10min】
+* [x] [window.requestAnimationFrame](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame)【阅读建议：10min】
 
 **其他参考文献**：
 
@@ -141,7 +149,32 @@ JavaScript 从 `script` 开始读取，然后不断循环，从 “任务队列�
 * V8 的垃圾回收过程
 * Node 独有的 `process.nextTick`
 
-### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 Node 和 浏览器
+### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 requestAnimationFrane
+
+> [返回目录](#chapter-one)
+
+**概念**：`window.requestAnimationFrame()` 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。
+
+该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
+
+`requestAnimationFrane` 简称 rAF。
+
+**事故**：
+
+如果我们使用 `setTimeout` 来实现动画效果，那么我们会发现在某些低端机上出现卡顿、抖动的现象，它产生的原因是：
+
+* `setTimeout` 的执行事件并不是确定的。它属于宏任务队列，只有当主线程上的任务执行完毕后，才会调用队列中的任务判断是否开始执行。
+* 刷新频率受屏幕分辨率和屏幕尺寸影响，因此不同设备的刷新频率不同，而 `setTimeout` 只能固定一个时间间隔刷新。
+
+**缘由**：
+
+在上面 Event Loop 的过程中，我们知道执行完微任务队列会有一步操作：
+
+* 执行浏览器 `UI` 线程的渲染工作。
+
+而 `requestAnimationFrane` 就在这里边执行，就不会等宏任务队列的排队，从而导致卡顿等问题了。
+
+### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 Node 和 浏览器
 
 > [返回目录](#chapter-one)
 
