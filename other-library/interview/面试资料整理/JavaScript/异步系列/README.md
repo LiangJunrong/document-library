@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-17 18:32:23**  
-> Recently revised in **2020-09-21 22:31:13**
+> Recently revised in **2020-09-29 00:31:00**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -126,6 +126,8 @@
 * [x] [ES6 之 Promise 常见面试题](https://blog.csdn.net/weixin_37719279/article/details/80950713)【阅读建议：10min】
 * [x] [Promise 必知必会（十道题）](https://juejin.im/post/6844903509934997511)【阅读建议：10min】
 * [x] [大白话讲解 Promise（一）](https://www.cnblogs.com/lvdabao/p/es6-promise-1.html)【阅读建议：30min】
+* [x] [再谈谈 Promise, setTimeout, rAF, rIC](https://segmentfault.com/a/1190000019154514)【阅读建议：10min】
+* [x] [window.requestAnimationFrame](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame)【阅读建议：10min】
 
 ### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 async/await 参考文献
 
