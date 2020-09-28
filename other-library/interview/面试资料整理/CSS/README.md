@@ -2,7 +2,7 @@ CSS 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:57**  
-> Recently revised in **2020-09-25 11:34:17**
+> Recently revised in **2020-09-28 16:01:07**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -19,15 +19,27 @@ CSS 资料整理
 
 复习知识点：
 
-* [ ] position
-* [ ] 行内元素/块状元素
-* [ ] flex
-* [ ] 1px
-* [ ] 重绘回流
-* [ ] Sass/Less
-* [ ] 居中/常见布局
-* [ ] 层叠上下文
-* [ ] ...
+* [x] 行内元素 | 块级元素
+* [x] 块级格式化上下文（BFC）
+* [x] 回流重绘
+* [x] CSS 盒子模型（`box-sizing`）
+* [x] CSS `a` 标签 `hover` 事件失效问题及 `LoVe HAte` 原则
+* [x] CSS 垂直居中
+* [x] CSS 渐进增减和优雅降级
+* [x] CSS 定位 `position`
+* [x] CSS 单位：`px`/`em`/`rem`
+* [x] CSS 设置元素隐藏：`display: none`/`visibility: hidden`/`opacity: 0`
+* [x] 移动端：`1px` 问题及修复
+* [x] 移动端：点击按钮 `300ms` 延迟及修复
+
+## 参考文献
+
+### jsliang 整理
+
+* [x] [HTML + CSS](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/CSS/HTML%2BCSS.md)
+* [x] [盒子模型](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/CSS/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.md)
+* [x] [移动端](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/CSS/%E7%A7%BB%E5%8A%A8%E7%AB%AF.md)
+* [x] [CSS 题集](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/CSS/CSS%20%E9%A2%98%E9%9B%86.md)
 
 ### 系统
 
@@ -37,6 +49,7 @@ CSS 资料整理
 * [ ] [Flex 布局教程：实例篇](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
 * [ ] [干货!各种常见布局实现+知名网站实例分析](https://juejin.im/post/6844903574929932301)
 * [ ] [CSS 定位详解](http://www.ruanyifeng.com/blog/2019/11/css-position.html)
+* [ ] [12个HTML和CSS必须知道的重点难点问题](https://juejin.im/post/6844903567707357197)
 
 ### 移动端
 
