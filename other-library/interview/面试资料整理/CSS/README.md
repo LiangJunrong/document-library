@@ -2,7 +2,7 @@ CSS 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:57**  
-> Recently revised in **2020-09-28 16:01:07**
+> Recently revised in **2020-09-28 23:44:04**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -27,8 +27,8 @@ CSS 资料整理
 * [x] CSS 垂直居中
 * [x] CSS 渐进增减和优雅降级
 * [x] CSS 定位 `position`
-* [x] CSS 单位：`px`/`em`/`rem`
-* [x] CSS 设置元素隐藏：`display: none`/`visibility: hidden`/`opacity: 0`
+* [x] CSS 单位：`px`、`em`、`rem`、`vh`、`vw`
+* [x] CSS 设置元素隐藏：`display: none`、`visibility: hidden`、`opacity: 0`
 * [x] 移动端：`1px` 问题及修复
 * [x] 移动端：点击按钮 `300ms` 延迟及修复
 
@@ -59,6 +59,11 @@ CSS 资料整理
 
 * [ ] [个人总结（css3新特性）](https://juejin.im/post/6844903518520901639)
 * [ ] [高性能 CSS3 动画](https://github.com/AlloyTeam/Mars/blob/master/performance/high-performance-css3-animation.md)
+
+### CSS 单位
+
+* [x] [Css单位px，rem，em，vw，vh的区别](https://www.cnblogs.com/theblogs/p/10516098.html)【阅读建议：10min】
+* [x] [谈谈 rem 与 vw -- rem](https://www.jianshu.com/p/1a9b5d48afa2)【阅读建议：5min】
 
 ### 杂
 

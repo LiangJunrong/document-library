@@ -2,7 +2,7 @@ CSS 题集
 ===
 
 > Create by **jsliang** on **2020-09-16 13:58:16**  
-> Recently revised in **2020-09-28 15:57:15**
+> Recently revised in **2020-09-28 23:43:08**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -14,18 +14,48 @@ CSS 题集
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 题目](#chapter-three) |
-| &emsp;[3.1 CSS 盒模型](#chapter-three-one) |
+| &emsp;[3.1 CSS 单位：px、em、rem、vw、vh 的区别](#chapter-three-one) |
+| &emsp;[3.2 CSS 盒模型](#chapter-three-two) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
+* [x] [Css单位px，rem，em，vw，vh的区别](https://www.cnblogs.com/theblogs/p/10516098.html)【阅读建议：10min】
+* [x] [谈谈 rem 与 vw -- rem](https://www.jianshu.com/p/1a9b5d48afa2)【阅读建议：5min】
+
 ## <a name="chapter-three" id="chapter-three"></a>三 题目
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 CSS 盒模型
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 CSS 单位：px、em、rem、vw、vh 的区别
+
+> [返回目录](#chapter-one)
+
+* **px**
+
+`px` 是像素（`pixel`）的缩写，相对长度单位，是网页设计常用的基本基本单位，它是相对于显示器屏幕分辨率而言的。
+
+* **em**
+
+`em` 是相对长度单位，相对于对象内文本的字体尺寸（参考物是父元素的 `font-size`。
+
+如果当前父元素的字体元素未设置，则相对于浏览器的默认字体尺寸设置。
+
+* **rem**
+
+`rem` 是相对于 HTML 根元素的字体大小（`font-size`）来计算的长度单位。
+
+如果你没有设置 HTML 字体大小，那么以浏览器默认为主，一般为 `16px`。
+
+* **vw/vh**
+
+`vw` 和 `vh` 是相对于 `viewport` - 相对视口的宽度或者高度而定的。
+
+一般来说：`1vw = npx / 100`，即浏览器宽度为 `200px` 的时候，`1vw = 200px / 100`，即 `1vw = 2px`。
+
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 CSS 盒模型
 
 > [返回目录](#chapter-one)
 
