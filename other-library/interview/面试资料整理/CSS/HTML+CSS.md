@@ -2,8 +2,9 @@ HTML + CSS
 ===
 
 > Create by **jsliang** on **2020-09-07 16:14:51**  
-> Recently revised in **2020-09-07 22:25:28**
+> Recently revised in **2020-09-28 15:47:37**
 
+<!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -12,21 +13,52 @@ HTML + CSS
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 题目](#chapter-three) |
+| &emsp;[3.1 DIV + CSS 布局的优缺点](#chapter-three-one) |
+| &emsp;[3.2 如何解决 a 标点击后 hover 事件失效的问题？](#chapter-three-two) |
+| &emsp;[3.3 响应式的好处](#chapter-three-three) |
+| &emsp;[3.4 不定宽高 div 实现垂直居中](#chapter-three-four) |
+| &emsp;[3.5 position 属性列举](#chapter-three-five) |
+| &emsp;[3.6 脱离文档流](#chapter-three-six) |
+| &emsp;[3.7 块级格式化上下文（BFC）](#chapter-three-seven) |
+| &emsp;[3.8 盒子模型](#chapter-three-eight) |
+| &emsp;[3.9 px、em 和 rem 的区别](#chapter-three-night) |
+| &emsp;[3.10 link 和 @import 区别](#chapter-three-ten) |
+| &emsp;[3.11 渐进增减和优雅降级](#chapter-three-eleven) |
+| &emsp;[3.12 CSS 设置隐藏元素](#chapter-three-twelve) |
+<!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
+  
+**不折腾的前端，和咸鱼有什么区别**
 
-1. DIV + CSS 布局的优缺点
-2. 如何解决 a 标点击后 hover 事件失效的问题？
-3. 响应式的好处
+| 目录 |
+| --- |
+| [一 目录](#chapter-one) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 
-## <a name="chapter-three" id="chapter-three"></a>三 详细
+## <a name="chapter-three" id="chapter-three"></a>三 题目
 
 > [返回目录](#chapter-one)
+  
+参考文献：
 
-### 3.1 DIV + CSS 布局的优缺点
+* [x] [12个HTML和CSS必须知道的重点难点问题](https://juejin.im/post/6844903567707357197)【阅读建议：20min】
+* [x] [HTML脱离文档流的三种方法](https://blog.csdn.net/theLostLamb/article/details/79581984)【阅读建议：5min】
+* [x] [MDN - 块格式化上下文](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)【阅读建议：20min】
+* [x] [BFC(块级格式化上下文)](https://www.jianshu.com/p/498145565e4f)【阅读建议：5min】
+* [x] [MDN - CSS（层叠样式表）@import](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%40import)【阅读建议：5min】
 
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 DIV + CSS 布局的优缺点
+
+> [返回目录](#chapter-one)
+  
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 如何解决 a 标点击后 hover 事件失效的问题？
+
+> [返回目录](#chapter-one)
+  
 优点：
 
 1. 代码精简，且结构与样式分离，易于维护
@@ -39,8 +71,10 @@ HTML + CSS
 
 1. 不同浏览器对 web 标准默认值不同，所以更容易出现对浏览器的兼容性问题。
 
-### 3.2 如何解决 a 标点击后 hover 事件失效的问题？
+### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 响应式的好处
 
+> [返回目录](#chapter-one)
+  
 改变 `a` 标签 CSS 属性的排列顺序：
 
 > LoVe HAte 原则
@@ -58,9 +92,148 @@ link -> visited -> hover -> active
 
 这样，浏览器显示元素的时候，才会从特殊到一半、逐级向上验证条件。
 
-### 3.3 响应式的好处
+### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 不定宽高 div 实现垂直居中
 
+> [返回目录](#chapter-one)
+  
 对某些数据的修改就能自动更新视图，让开发者不需要操作 DOM，有更多的时间去思考完成业务逻辑。
+
+### <a name="chapter-three-five" id="chapter-three-five"></a>3.5 position 属性列举
+
+> [返回目录](#chapter-one)
+  
+* 方法一：**使用 Flex**
+
+```css
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+* 方法二：**使用 transform**
+
+父盒子设置：`display: relative`
+
+div 设置：
+
+```css
+div {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+```
+
+### <a name="chapter-three-six" id="chapter-three-six"></a>3.6 脱离文档流
+
+> [返回目录](#chapter-one)
+  
+```css
+div {
+  position: absolute;
+}
+```
+
+* `static`：默认位置。不需要特别声明，不常用。
+* `relative`：相对定位。相对于元素默认的位置进行定位，设置 `top/left/right/bottom` 后的元素仍占据空间。
+* `absolute`：绝对定位。如果父元素设置了 `position: absolute/relative`，那么这个设置成立。它会根据上一个设置了 `absolute/relative` 的元素进行偏移。
+* `fixed`：固定定位。相对于整个浏览器窗口进行定位，无论页面怎么滚动。
+* `sticky`：黏性定位。屏幕范围内该元素位置不受影响，超出范围后，会变成 `fixed`，根据设置的 `left/top` 等属性成固定的效果。
+
+### <a name="chapter-three-seven" id="chapter-three-seven"></a>3.7 块级格式化上下文（BFC）
+
+> [返回目录](#chapter-one)
+  
+**文档流**：将窗体自上而下分成一行一行，并在每行中按从左至右一次排放元素，成为文档流，也就普通流。
+
+**脱离文档流**：脱离文档流的元素，将不再在文档流占据空间，而是漂浮在文档流上方。
+
+* `float: left/right`：使用之后会脱离，但是其他盒子会环绕该元素的周围。
+* `position: absolute/fixed`：`absolute` 为绝对定位，脱离文档流之后还是会相对于该元素的父类（做了 `relative/absolute` 定位的父类）进行偏移。而 `fixed` 就是完全脱离文档流，相对于 HTML （整个浏览器窗口）的形式展示。
+
+### <a name="chapter-three-eight" id="chapter-three-eight"></a>3.8 盒子模型
+
+> [返回目录](#chapter-one)
+  
+**BFC 布局规则** 是指页面上一个隔离的独立容器，容器内部的子元素不会影响到外面的元素，反之外面的元素也不会影响容器里面的元素。
+
+特性：
+
+1. 在 BFC 中，盒子从顶端开始垂直地一个接一个地排列
+2. 盒子垂直方向的距离由 `margin` 决定，属于同一个 BFC 的两个相邻盒子的 `margin` 会发生重叠
+
+主要用途：
+
+1. 清除元素内部浮动。`overflow: hidden`
+2. 解决外边距合并问题。创建 2 个不同 BFC，就不会发生 `margin` 重叠
+
+产生 BFC 的方式：
+
+* 根元素 `html`
+* `float: left/right`
+* `position: absolute/fixed`
+* `display: inline-block/flex/grid`
+* `overflow: hidden`
+
+### <a name="chapter-three-night" id="chapter-three-night"></a>3.9 px、em 和 rem 的区别
+
+> [返回目录](#chapter-one)
+  
+* `box-sizing: content-box`。标准盒子，总宽度等于：`width + padding + border + margin`。
+* `box-sizing: border-box`。IE 盒子，总宽度等于：`width + margin`。IE 盒子的 `width` 包含了 `width`、`padding` 和 `border` 属性。
+
+详细看：[jsliang - 盒子模型](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/CSS/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.md)
+
+### <a name="chapter-three-ten" id="chapter-three-ten"></a>3.10 link 和 @import 区别
+
+> [返回目录](#chapter-one)
+  
+`px`：像素（Pixel）。绝对单位。像素 `px` 是相对于显示器屏幕分辨率而言的，是一个虚拟长度单位，是计算机系统的数字化图像长度单位，如果 `px` 要换算成物理长度，需要指定精度 `DPI`。
+
+`em` 是相对长度单位，相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。它会继承父级元素的字体大小，因此并不是一个固定的值。
+
+`rem` 是 `CSS3` 新增的一个相对单位（`root em`，`根 em`），使用 `rem` 为元素设定字体大小时，仍然是相对大小，但相对的只是 HTML 根元素。
+
+### <a name="chapter-three-eleven" id="chapter-three-eleven"></a>3.11 渐进增减和优雅降级
+
+> [返回目录](#chapter-one)
+  
+CSS 引入方式有：
+
+* 内联：`style` 属性（`style="color: red"`）
+* 内嵌：`style` 标签（`<style></style>`）
+* 外链：`link` 标签（`<link href="index.css">`
+* 导入：`@import`（`@import url('index.css')` 或者 `@import 'index.css'`）
+
+`link` 和 `@import` 区别：
+
+* `link` 是 `XHTML` 标签，除了加载 `CSS` 外，还可以定义 `RSS` 等其他事务；`@import` 属于 `CSS` 范畴，只能加载 `CSS`。
+* `link` 引用 `CSS` 时，在页面载入时同时加载；`@import` 需要页面网页完全载入以后加载。
+* `link` 是 `XHTML` 标签，无兼容问题；`@import` 是在 `CSS2.1` 提出的，低版本的浏览器不支持。
+* `link` 支持使用 `Javascript` 控制 `DOM` 去改变样式；而 `@import` 不支持。
+
+### <a name="chapter-three-twelve" id="chapter-three-twelve"></a>3.12 CSS 设置隐藏元素
+
+> [返回目录](#chapter-one)
+  
+关键的区别是他们所侧重的内容，以及这种不同造成的工作流程的差异。
+
+* **优雅降级**：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。
+* **渐进增强**：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。
+
+区别：
+
+* 优雅降级是从复杂的现状开始，并试图减少用户体验的供给
+* 渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要
+* 降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带
+
+undefined
+* `display: none`：彻底消失，会导致浏览器回流和重绘，不能再触发点击事件。
+* `visibility: hidden`：元素隐藏，空间仍保留，会导致重绘，但是不能再触发点击事件。
+* `opacity: 0`：设置为透明，相当于它还在那里，但是你看不到，可以触发点击事件。
 
 ---
 
