@@ -2,7 +2,7 @@ HTML 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-03 15:43:40**  
-> Recently revised in **2020-09-03 15:43:40**
+> Recently revised in **2020-09-28 14:47:43**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,8 +17,8 @@ HTML 资料整理
 
 > [返回目录](#chapter-one)
 
-* [ ] [html5语义化标签](https://rainylog.com/post/ife-note-1)
-* [ ] [12个HTML和CSS必须知道的重点难点问题](https://juejin.im/post/6844903567707357197)
+* [x] [MDN - HTML5 标签列表](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5/HTML5_element_list)【阅读建议：5min】
+* [x] [html5语义化标签](https://rainylog.com/post/ife-note-1)【阅读建议：5min】
 
 ---
 
