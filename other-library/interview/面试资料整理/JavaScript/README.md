@@ -2,7 +2,7 @@ JavaScript 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:29**  
-> Recently revised in **2020-09-21 17:52:54**
+> Recently revised in **2020-09-28 18:26:13**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -19,17 +19,54 @@ JavaScript 资料整理
 
 复习知识点：
 
-* [ ] 从输入 URL 到页面展示
+* [x] 基础：常见数组 API
+* [x] 基础：常见 DOM API
+* [x] 基础：数组去重的方法
+* [x] 基础：变量
+  * [x] `var`/`let`/`const`
+  * [x] 变量提升和函数提升
+  * [x] 暂时性死区
+  * [x] 函数作用域和全局作用域（ES5）
+  * [x] 块级作用域（ES6）
+  * [x] 判断变量类型
+* [x] 基础：数字化金额：`1234567890` -> `1,234,567,890`
+* [x] 基础：JS 数据类型：`Boolean`/`Null`/`Undefined`/`Number`/`String`/`Symbol`/`BigInt`/`Object`
+* [x] 异步系列
+  * [x] Event Loop
+  * [x] Promise
+  * [x] async 和 await
+* [ ] 手写系列
+  * [x] Promise
+  * [x] Promise 实现 Ajax
+  * [x] 迭代器
+  * [x] 防抖和节流
+
+待复习：
+
 * [ ] 执行上下文/作用域链/闭包
 * [ ] this/call/apply/bind
 * [ ] 原型/继承
-* [ ] Promise
 * [ ] 深浅拷贝
-* [ ] 事件机制/Event Loop
 * [ ] 函数式编程
 * [ ] service worker/web worker
 * [ ] 垃圾回收机制
 * [ ] ...
+
+## 参考文献
+
+### jsliang 整理
+
+* [x] [异步系列](https://github.com/LiangJunrong/document-library/tree/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97)
+  * [x] [Event Loop](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Event%20Loop.md)
+  * [x] [Promise](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Promise.md)
+  * [x] [async 和 await](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/async%20%E5%92%8C%20await.md)
+* [ ] [手写系列](https://github.com/LiangJunrong/document-library/tree/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97)
+  * [x] [Promise](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise.md)
+  * [x] [Promise 实现 Ajax](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise%20%E5%AE%9E%E7%8E%B0%20Ajax.md)
+  * [x] [迭代器](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E8%BF%AD%E4%BB%A3%E5%99%A8.md)
+  * [x] [防抖和节流](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81.md)
+* [x] [柯里化](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%9F%AF%E9%87%8C%E5%8C%96.md)
+* [x] [变量](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%8F%98%E9%87%8F.md)
 
 ### 精选
 
@@ -46,7 +83,15 @@ JavaScript 资料整理
 
 ### 基础
 
-* [ ] [JavaScript 数据类型和数据结构](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures)
+* [x] [MDN - Array](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)【阅读建议：10min】
+* [x] [JavaScript 数据类型和数据结构](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures)【阅读建议：5min】
+* [x] [JavaScript: 变量提升和函数提升](https://www.cnblogs.com/liuhe688/p/5891273.html)【阅读建议：10min】
+* [x] [变量提升必须注意的问题](https://blog.csdn.net/wu_xianqiang/article/details/78966755)【阅读建议：5min】
+* [x] [笔试题-Js前端变量提升的问题](https://blog.csdn.net/silence_xiang/article/details/106784692)【阅读建议：5min】
+* [x] [关于JS变量提升的一些坑](https://www.cnblogs.com/luqin/p/5164132.html)【阅读建议：5min】
+* [x] [JavaScript数组去重（12种方法，史上最全）](https://segmentfault.com/a/1190000016418021)【阅读建议：10min】
+* [x] [JS 中对变量类型的判断](https://www.cnblogs.com/zhangruiqi/p/8027338.html)【阅读建议：10min】
+* [x] [js中块级作用域以及函数作用域之间有什么区别？（代码解析）](https://www.php.cn/js-tutorial-408430.html)【阅读建议：5min】
 
 ### 执行上下文/作用域链/闭包
 
