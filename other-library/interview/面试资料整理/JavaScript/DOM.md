@@ -2,7 +2,7 @@ DOM
 ===
 
 > Create by **jsliang** on **2020-09-16 22:08:06**  
-> Recently revised in **2020-09-28 01:15:26**
+> Recently revised in **2020-09-28 16:10:18**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -24,7 +24,7 @@ DOM
 
 ## DOM 常用 API
 
-可以使用 document或 window 元素的API来操作文档本身或获取文档的子类（web页面中的各种元素）。
+可以使用 `document` 或 `window` 元素的 API 来操作文档本身或获取文档的子类（Web 页面中的各种元素）。
 
 ```js
 // 获取元素
