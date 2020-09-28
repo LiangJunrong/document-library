@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-21 15:06:41**  
-> Recently revised in **2020-09-21 17:53:15**
+> Recently revised in **2020-09-28 18:26:00**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -25,123 +25,14 @@
 * [x] [CORS 原理及实现](https://www.jianshu.com/p/b2bdf55e1bf5)【阅读建议：30min】
 * [x] [JSONP 原理及实现](https://www.jianshu.com/p/88bb82718517)【阅读建议：30min】
 
-## 题 1：手写原生自定义事件
+## jsliang 整理
 
-### 1.1 创建自定义事件
-
-创建自定义事件的 3 种方法：
-
-* 使用 `Event`
-
-```js
-let myEvent = new Event('event_name');
-```
-
-* 使用 `customEvent`（可以传参数）
-
-```js
-let myEvent = new CustomEvent('event_name', {
-  detail: {
-    // 将需要传递的参数放到这里
-    // 可以在监听的回调函数中获取到：event.detail
-  }
-});
-```
-
-* 使用 `document.createEvent('CustomEvent')` 和 `initEvent()`
-
-```js
-// createEvent：创建一个事件
-let myEvent = document.createEvent('CustomEvent'); // 注意这里是 CustomEvent
-
-// initEvent：初始化一个事件
-myEvent.initEvent(
-  // 1. event_name：事件名称
-  // 2. canBubble：是否冒泡
-  // 3. cancelable：是否可以取消默认行为
-)
-```
-
-### 1.2 事件的监听
-
-自定义事件的监听其实和普通事件一样，通过 `addEventListener` 来监听：
-
-```js
-button.addEventListener('event_name', function(e) {})
-```
-
-### 1.3 事件的触发
-
-触发自定义事件使用 `dispatchEvent(myEvent)`。
-
-注意，这里的参数是要自定义事件的对象（也就是 `myEvent`），而不是自定义事件的名称（`myEvent`）
-
-### 1.4 案例
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>自定义事件</title>
-</head>
-<body>
-  <button class="btn">点我</button>
-  
-  <script>
-    window.onload = function() {
-      // 方法 1
-      // const myEvent = new Event('myEvent');
-
-      // 方法 2
-      // const myEvent = new CustomEvent('myEvent', {
-      //   detail: {
-      //     name: 'jsliang',
-      //   },
-      // });
-
-      // 方法 3
-      const myEvent = document.createEvent('CustomEvent');
-      myEvent.initEvent('myEvent', true, true);
-
-      const btn = document.querySelector('.btn');
-      btn.addEventListener('myEvent', function(e) {
-        console.log(e);
-      })
-      setTimeout(() => {
-        btn.dispatchEvent(myEvent);
-      }, 2000);
-    };
-  </script>
-</body>
-</html>
-```
-
-上面 `console.log(e)` 输出：
-
-```js
-/*
-  CustomEvent {
-    bubbles: true
-    cancelBubble: false
-    cancelable: true
-    composed: false
-    currentTarget: null
-    defaultPrevented: false
-    detail: null
-    eventPhase: 0
-    isTrusted: false
-    path: (5) [button.btn, body, html, document, Window]
-    returnValue: true
-    srcElement: button.btn
-    target: button.btn
-    timeStamp: 16.354999970644712
-    type: "myEvent"
-  }
-*/
-```
+* [ ] [手写系列](https://github.com/LiangJunrong/document-library/tree/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97)
+  * [x] [Promise](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise.md)
+  * [x] [Promise 实现 Ajax](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise%20%E5%AE%9E%E7%8E%B0%20Ajax.md)
+  * [x] [迭代器](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E8%BF%AD%E4%BB%A3%E5%99%A8.md)
+  * [x] [防抖和节流](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81.md)
+  * [x] [自定义原生事件](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6.md)
 
 ## 题 2：手写 new
 
