@@ -2,7 +2,7 @@ Object.defineProperty 和 Proxy
 ===
 
 > Create by **jsliang** on **2020-04-24 11:19:51**  
-> Recently revised in **2020-04-24 14:45:05**
+> Recently revised in **2020-09-29 08:52:51**
 
 **欢迎关注 jsliang 的文档库 —— 一个穷尽一生更新的仓库，查看更多技术、理财、健身文章：https://github.com/LiangJunrong/document-library**
 
@@ -142,10 +142,7 @@ class Watcher {
 
 > [返回目录](#chapter-one)
 
-下面章节的献丑，均来自大佬们的文献供我参考：
-
-* [【平台】作者《文章名》](地址)
-* [【掘金】晨曦时梦见兮《Vue3 的响应式和以前有什么区别，Proxy 无敌？》]([地址](https://juejin.im/post/5e92d863f265da47e57fe065))
+* [【掘金】晨曦时梦见兮《Vue3 的响应式和以前有什么区别，Proxy 无敌？》](https://juejin.im/post/5e92d863f265da47e57fe065)
 
 ## <a name="chapter-five" id="chapter-five"></a>五 个人整理
 
