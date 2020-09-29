@@ -2,7 +2,7 @@ JavaScript 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:29**  
-> Recently revised in **2020-09-28 18:26:13**
+> Recently revised in **2020-09-29 08:43:15**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -36,10 +36,16 @@ JavaScript 资料整理
   * [x] Promise
   * [x] async 和 await
 * [ ] 手写系列
+  * [x] 自定义原生事件
   * [x] Promise
   * [x] Promise 实现 Ajax
   * [x] 迭代器
   * [x] 防抖和节流
+  * [ ] call+bind+apply
+  * [x] JSONP
+* [ ] DOM
+  * [x] DOM 常用 API
+  * [x] 虚拟 DOM：浏览器渲染过程 -> 真实 DOM 和虚拟 DOM -> Diff 算法
 
 待复习：
 
