@@ -2,7 +2,7 @@ HTML + CSS
 ===
 
 > Create by **jsliang** on **2020-09-07 16:14:51**  
-> Recently revised in **2020-09-28 15:53:14**
+> Recently revised in **2020-09-30 21:27:22**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -20,6 +20,7 @@ HTML + CSS
 | &emsp;[2.5 position 属性列举](#chapter-two-five) |
 | &emsp;[2.6 脱离文档流](#chapter-two-six) |
 | &emsp;[2.7 块级格式化上下文（BFC）](#chapter-two-seven) |
+| &emsp;&emsp;[2.7.1 题目一](#chapter-two-seven-one) |
 | &emsp;[2.8 盒子模型](#chapter-two-eight) |
 | &emsp;[2.9 px、em 和 rem 的区别](#chapter-two-night) |
 | &emsp;[2.10 link 和 @import 区别](#chapter-two-ten) |
@@ -207,6 +208,21 @@ div {
 * `position: absolute/fixed`
 * `display: inline-block/flex/grid`
 * `overflow: hidden`
+
+#### <a name="chapter-two-seven-one" id="chapter-two-seven-one"></a>2.7.1 题目一
+
+> [返回目录](#chapter-one)
+
+如果父元素都为浮动，不能解决父类高度塌陷问题的是：
+
+* A：给父元素添加 `clear: both`
+* B：给父元素添加 `overflow: hidden`
+* C：在浮动元素下方添加空 `div`，并添加样式 `clear: both`
+* D：设置父元素 `:after { content: "", clear: both; display: block; overflow: hidden }`
+
+---
+
+答案：B
 
 ### <a name="chapter-two-eight" id="chapter-two-eight"></a>2.8 盒子模型
 
