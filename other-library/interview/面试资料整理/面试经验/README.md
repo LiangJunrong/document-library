@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-02 16:59:16**  
-> Recently revised in **2020-09-22 00:40:41**
+> Recently revised in **2020-09-30 22:40:03**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -80,6 +80,10 @@
 * **难点**：让⾯试官知道你在项⽬开发过程中碰到的难点
 * **解决⽅案**：针对上⾯的难点你有哪⼀些解决⽅案，是如何结合业务进⾏取舍的
 * **总结沉淀**：在攻克上述的难点后有没有沉淀出⼀套通⽤的解决⽅案，有没有将⾃⼰的⽅案在⼤部⻔进⾏推⼴等等
+
+**jsliang** 面试过 **360 数科** 等厂，下面是题库列表附带题解：
+
+* [x] [面试题库 01](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93/01.md)
 
 ### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 向面试官提问
 
