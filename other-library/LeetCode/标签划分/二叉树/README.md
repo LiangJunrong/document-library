@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-27 17:05:44**  
-> Recently revised in **2020-09-28 10:19:25**
+> Recently revised in **2020-09-30 20:02:25**
 
 ## 入门
 
@@ -33,6 +33,7 @@
 * 【简单】[剑指 Offer 28-对称的二叉树](https://leetcode-cn.com/problems/dui-cheng-de-er-cha-shu-lcof/)
 * 【中等】[109-有序链表转换二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/)
 * 【中等】[113-路径总和 II](https://leetcode-cn.com/problems/path-sum-ii/)
+* 【中等】[701-二叉搜索树中的插入操作](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
 
 ## 精通
 
