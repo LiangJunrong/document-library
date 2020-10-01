@@ -2,7 +2,7 @@ HTML + CSS
 ===
 
 > Create by **jsliang** on **2020-09-07 16:14:51**  
-> Recently revised in **2020-09-30 21:27:22**
+> Recently revised in **2020-10-01 10:58:25**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -26,6 +26,7 @@ HTML + CSS
 | &emsp;[2.10 link 和 @import 区别](#chapter-two-ten) |
 | &emsp;[2.11 渐进增减和优雅降级](#chapter-two-eleven) |
 | &emsp;[2.12 CSS 设置隐藏元素](#chapter-two-twelve) |
+| &emsp;[2.13 CSS 选择器](#chapter-two-thirteen) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 题目
@@ -283,6 +284,20 @@ CSS 引入方式有：
 * `display: none`：彻底消失，会导致浏览器回流和重绘，不能再触发点击事件。
 * `visibility: hidden`：元素隐藏，空间仍保留，会导致重绘，但是不能再触发点击事件。
 * `opacity: 0`：设置为透明，相当于它还在那里，但是你看不到，可以触发点击事件。
+
+### <a name="chapter-two-thirteen" id="chapter-two-thirteen"></a>2.13 CSS 选择器
+
+> [返回目录](#chapter-one)
+
+CSS 选择器及样式优先级：
+
+* 在属性后面使用 `!important` 会覆盖页面任意位置定义的元素样式
+* 作为 `style` 属性写在元素内的样式（行内样式）
+* `id` 选择器
+* 类选择器 | 伪类选择器 | 属性选择器（后面样式覆盖前面样式）
+* 标签选择器
+* 通配符选择器
+* 浏览器自定义样式
 
 ---
 
