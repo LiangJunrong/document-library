@@ -21,6 +21,8 @@ JavaScript 题集
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 题目 - 看题解释](#chapter-four) |
 | &emsp;[4.1 暂时性死区](#chapter-four-one) |
 | &emsp;[4.2 遍历问题](#chapter-four-two) |
+| &emsp;[4.3 setTimeout](#chapter-four-three) |
+| &emsp;[4.4 requestAnimationFrame](#chapter-four-four) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -216,6 +218,62 @@ array = array.map((i) => ++i)
 1. `forEach()`、`filter()`、`reduce()`、`every()` 和 `some()` 都会跳过空位。
 2. `map()` 会跳过空位，但会保留这个值
 3. `join()` 和 `toString()` 会将空位视为 `undefined`，而 `undefined` 和 `null` 会被处理成空字符串。
+
+### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 setTimeout
+
+> [返回目录](#chapter-one)
+
+```js
+for (var i = 0; i < 5; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 1000);
+}
+```
+
+以上代码执行结果？
+
+* A：5 5 5 5 5
+* B：0 0 0 0 0
+* C：0 1 2 3 4
+* D：1 2 3 4 5
+
+---
+
+答案：A
+
+解析：
+
+1. `var i` 在 `for` 中使用，会造成变量污染，从而导致全局有一个遍历 `i`，这个 `i` 运行到最后，就是 `5`
+2. `setTimeout` 是宏任务，在 `script` 这个宏任务执行完毕后才执行，所以搜集到的 `i` 是 `5`
+3. 最终输出 5 个 `5`
+
+### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 requestAnimationFrame
+
+> [返回目录](#chapter-one)
+
+```js
+for (let i = 0; i < 5; i++) {
+  requestAnimationFrame(() => {
+    console.log(i);
+  });
+}
+```
+
+以上代码执行结果：
+
+* A：1 2 3 4 5
+* B：0 1 2 3 4
+* C：4 4 4 4 4
+* D：5 5 5 5 5
+
+---
+
+答：B
+
+1. `let i` 使 `for` 形成块级作用域。
+2. `requestAnimationFrame` 类似于 `setTimeout`，但是它可以当成一个微任务来看，是在微任务队列执行完毕后，执行 UI 渲染前，调用的一个方法。
+3. 因此，这道题并不是指 `requestAnimationFrame` 会收集 `i`，而是 `let` 形成了块级作用域的问题，如果改成 `var i`，照样输出 5 个 `5`。
 
 ---
 
