@@ -4,15 +4,6 @@
 > Create by **jsliang** on **2020-09-01 21:02:18**  
 > Recently revised in **2020-09-19 17:28:55**
 
-## <a name="chapter-one" id="chapter-one"></a>一 目录
-
-**不折腾的前端，和咸鱼有什么区别**
-
-| 目录 |
-| --- |
-| [一 目录](#chapter-one) |
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
@@ -23,6 +14,8 @@
 * [ ] 网络优化
 * [ ] 代码优化
 * [ ] ...
+
+## 参考文献
 
 ### 打包阶段
 
