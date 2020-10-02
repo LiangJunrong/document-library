@@ -89,6 +89,7 @@
 * [x] [JSONP 原理及实现](https://www.jianshu.com/p/88bb82718517)【阅读建议：30min】
 * [x] [面试题：nginx 有配置过吗?反向代理知道吗?](https://juejin.im/post/6844904148022870023)【阅读建议：10min】
 * [x] [10 种跨域解决方案（附终极大招）](https://juejin.im/post/6844904126246027278)【阅读建议：1h】
+* [x] [CORS跨域请求[简单请求与复杂请求]](https://www.cnblogs.com/qunxiadexiaoxiangjiao/p/9446956.html)【阅读建议：20min】
 
 ### <a name="chapter-three-six" id="chapter-three-six"></a>3.6 其他
 
