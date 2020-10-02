@@ -202,6 +202,15 @@ div {
 1. 清除元素内部浮动。`overflow: hidden`
 2. 解决外边距合并问题。创建 2 个不同 BFC，就不会发生 `margin` 重叠
 
+> 外边距问题
+
+```html
+<div style="width:100px; height:100px; margin-bottom:100px;"></div>
+<div style="width:100px; height:100px; margin-top:200px;"></div>
+```
+
+这段代码产生的页面中，它们的边距是 `200px`，需要通过 BFC 解决边距问题。
+
 产生 BFC 的方式：
 
 * 根元素 `html`
