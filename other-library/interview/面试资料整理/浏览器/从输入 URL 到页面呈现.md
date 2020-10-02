@@ -115,15 +115,13 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 
 ![图](https://segmentfault.com/img/remote/1460000017329983?w=624&h=289)
 
-**首先**，浏览器会解析 3 个东西：
+如上图，浏览器的渲染过程为：
 
-1. HTML。产生 `DOM Tree`。
-2. CSS。产生 `CSS Rule Tree`（CSS 规则树）。
-3. JS。通过 `DOM API` 和 `CSSOM API` 来操作 `DOM Tree` 和 `CSS Rule Tree`。
-
-**然后**，通过 `DOM Tree` 和 `CSS Rule Tree` 来构造 `Rendering Tree`。
-
-**最后**，通过调用操作系统的 `Native GUI` 的 API 进行绘制。
+1. 解析 HTML，生成 `DOM` 树
+2. 解析 CSS，生成 `CSS 规则树（CSS Rule Tree）`
+3. 将 `DOM Tree` 和 `CSS Rule Tree` 相结合，生成 **渲染树**（`Render Tree`）
+4. 从根节点开始，计算每一个元素的大小、位置，给出每个节点所应该出现的屏幕精确坐标，从而得到基于渲染树的 **布局渲染树**（`Layout of the render tree`）。
+5. 遍历渲染树，将每个节点用 UI 渲染引擎来绘制，从而将整棵树绘制到页面上，这个步骤叫 **绘制渲染树**（`Painting the render tree`）
 
 在解析渲染过程中，可能会产生 **回流** 和 **重绘**：
 
