@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-21 23:29:10**  
-> Recently revised in **2020-09-22 00:11:41**
+> Recently revised in **2020-10-03 17:09:28**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -115,7 +115,7 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 
 > [返回目录](#chapter-one)
 
-![图](https://segmentfault.com/img/remote/1460000017329983?w=624&h=289)
+![图](https://github.com/LiangJunrong/document-library/blob/master/public-repertory/img/other-page-parse.png?raw=true)
 
 如上图，浏览器的渲染过程为：
 
