@@ -148,7 +148,11 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 * 减少回流和重绘
 * ……
 
-所以过程大于这里的结果。
+如果你过程都了解了，那么优化基本不是问题。
+
+当然，为了加深印象，可以看 **jsliang** 整理的文章：
+
+* [浏览器 - 性能优化](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.md)
 
 ### <a name="chapter-night-one" id="chapter-night-one"></a>9.1 渲染过程碰到 JS 文件怎么处理？
 
