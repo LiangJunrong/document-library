@@ -2,7 +2,7 @@ Webpack
 ===
 
 > Create by **jsliang** on **2020-09-17 15:33:55**  
-> Recently revised in **2020-09-27 17:36:18**
+> Recently revised in **2020-10-05 15:39:35**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -13,6 +13,32 @@ Webpack
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Webpack 运行机制](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 AST](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 懒加载](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Webpack 优化](#chapter-six) |
+| &emsp;[6.1 针对 Webpack 本身构建优化](#chapter-six-one) |
+| &emsp;&emsp;[6.1.1 优化 resolve.modules 配置](#chapter-six-one-one) |
+| &emsp;&emsp;[6.1.2 优化 resolve.extensions 配置](#chapter-six-one-two) |
+| &emsp;[6.2 通过 Loader 和 Plugin 优化](#chapter-six-two) |
+| &emsp;&emsp;[6.2.1 babel-loader](#chapter-six-two-one) |
+| &emsp;&emsp;[6.2.2 tree shaking](#chapter-six-two-two) |
+| &emsp;&emsp;[6.2.3 可视化分析](#chapter-six-two-three) |
+| &emsp;&emsp;[6.2.4 缓存](#chapter-six-two-four) |
+| &emsp;&emsp;[6.2.5 多进程](#chapter-six-two-five) |
+| &emsp;&emsp;[6.2.6 抽离](#chapter-six-two-six) |
+| &emsp;&emsp;[6.2.7 多进程代码压缩](#chapter-six-two-seven) |
+| &emsp;&emsp;[6.2.8 拆包](#chapter-six-two-eight) |
+| &emsp;&emsp;[6.2.9 打包资源压缩](#chapter-six-two-night) |
+| &emsp;&emsp;[6.2.10 按需加载](#chapter-six-two-ten) |
+| &emsp;[6.3 优化体验](#chapter-six-three) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 知识点 1：Webpack 几种 hash 的实现原理](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 参考文献](#chapter-eight) |
+| &emsp;[8.1 官方文档](#chapter-eight-one) |
+| &emsp;[8.2 Webpack 系列文章](#chapter-eight-two) |
+| &emsp;[8.3 Webpack 性能优化](#chapter-eight-three) |
+| &emsp;[8.4 tree shaking](#chapter-eight-four) |
+| &emsp;[8.5 懒加载](#chapter-eight-five) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -136,7 +162,9 @@ body {
 
 这些原理 都经常问到
 
-## Webpack 运行机制
+## <a name="chapter-three" id="chapter-three"></a>三 Webpack 运行机制
+
+> [返回目录](#chapter-one)
 
 Webpack 就像一条生产线，要经过一系列处理流程后才能将源文件转换成输出结果。
 
@@ -150,7 +178,9 @@ Webpack 的运行过程简述如下：
 * 使用 `loader` 编译文件
 * 输出文件
 
-## AST
+## <a name="chapter-four" id="chapter-four"></a>四 AST
+
+> [返回目录](#chapter-one)
 
 抽象语法树（Abstract Syntax Tree，AST），或简称语法树（Syntax tree），是源代码语法结构的一种抽象表示。
 
@@ -170,13 +200,9 @@ babel 编译 es6 成 es5 原理就是 a+c=c 编译成 c 我可以删除 +b 这�
 
 * [AST Explorer](https://astexplorer.net/)
 
-## webpack 优化
+## <a name="chapter-five" id="chapter-five"></a>五 懒加载
 
-* 升级 webpack 啊
-* happypack
-* 优化一些 chunk 的配置，配置一些插件
-
-## 懒加载
+> [返回目录](#chapter-one)
 
 懒加载或者按需加载，是一种很好的优化网页或应用的方式。
 
@@ -229,19 +255,168 @@ const routes = [{
 }];
 ```
 
-## 知识点 1：Webpack 几种 hash 的实现原理
+
+## <a name="chapter-six" id="chapter-six"></a>六 Webpack 优化
+
+> [返回目录](#chapter-one)
+
+Webpack 的优化瓶颈，主要是 2 个方面：
+
+* Webpack 的构建过程太花时间
+* Webpack 打包的结果体积太大
+
+### <a name="chapter-six-one" id="chapter-six-one"></a>6.1 针对 Webpack 本身构建优化
+
+> [返回目录](#chapter-one)
+
+#### <a name="chapter-six-one-one" id="chapter-six-one-one"></a>6.1.1 优化 resolve.modules 配置
+
+> [返回目录](#chapter-one)
+
+`resolve.modules` 用于配置 `Webpack` 去哪些目录下寻找第三方模块，默认是 `['node_modules']`，但是，它会先去当前目录的 `./node_modules` 查找，没有的话再去 `../node_modules`，最后到根目录。
+
+所以可以直接指定项目根目录，就不需要一层一层查找。
+
+```js
+resolve: {
+  modules: [path.resolve(__dirname, 'node_modules')],
+}
+```
+
+#### <a name="chapter-six-one-two" id="chapter-six-one-two"></a>6.1.2 优化 resolve.extensions 配置
+
+> [返回目录](#chapter-one)
+
+在导入没带文件后缀的路径时，`Webpack` 会自动带上后缀去尝试询问文件是否存在，而 `resolve.extensions` 用于配置尝试后缀列表；默认为 `extensions:['js', 'json']`。
+
+当遇到 `require('./data')` 时 `Webpack` 会先尝试寻找 `data.js`，没有再去找 `data.json`；如果列表越长，或者正确的后缀越往后，尝试的次数就会越多。
+
+所以在配置时为提升构建优化需遵守：
+
+1. 频率出现高的文件后缀优先放在前面。
+2. 列表尽可能的少，例如只有 3 个：`js`、`jsx`、`json`。
+3. 书写导入语句时，尽量写上后缀名。
+
+### <a name="chapter-six-two" id="chapter-six-two"></a>6.2 通过 Loader 和 Plugin 优化
+
+> [返回目录](#chapter-one)
+
+#### <a name="chapter-six-two-one" id="chapter-six-two-one"></a>6.2.1 babel-loader
+
+> [返回目录](#chapter-one)
+
+以 `babel-loader` 为例，可以通过 `include` 和 `exclude` 帮助我们避免 `node_modules` 这类庞大文件夹。
+
+#### <a name="chapter-six-two-two" id="chapter-six-two-two"></a>6.2.2 tree shaking
+
+> [返回目录](#chapter-one)
+
+通过 ES6 的 `import/export` 来检查未引用代码，以及 `sideEffects` 来标记无副作用代码，最后用 `UglifyJSPlugin` 来做 `tree shaking`，从而删除冗余代码。
+
+#### <a name="chapter-six-two-three" id="chapter-six-two-three"></a>6.2.3 可视化分析
+
+> [返回目录](#chapter-one)
+
+* `speed-measure-webpack-plugin`：测量出在构建过程中，每一个 Loader 和 Plugin 的执行时长。
+* `webpack-bundle-analyzer`：通过矩阵树图的方式将包内各个模块的大小和依赖关系呈现出来。
+* `webpack-chart`
+* `webpack-analyse`
+
+#### <a name="chapter-six-two-four" id="chapter-six-two-four"></a>6.2.4 缓存
+
+> [返回目录](#chapter-one)
+
+* `cache-loader`
+
+参考链接：[cache-loader](https://www.npmjs.com/package/cache-loader)
+
+在 `babel-loader` 开启 `cache` 后，将 `loader` 的编译结果写进硬盘缓存，再次构建如果文件没有发生变化则会直接拉取缓存。
+
+* `uglifyjs-webpack-plugin`
+
+也可以解决缓存问题。
+
+#### <a name="chapter-six-two-five" id="chapter-six-two-five"></a>6.2.5 多进程
+
+> [返回目录](#chapter-one)
+
+`Happypack` 可以将任务分解成多个子进程去并发执行，大大提升打包效率。
+
+#### <a name="chapter-six-two-six" id="chapter-six-two-six"></a>6.2.6 抽离
+
+> [返回目录](#chapter-one)
+
+通过 `DllPlugin` 或者 `Externals` 进行静态依赖包的分离。
+
+由于 `CommonsChunkPlugin` 每次构建会重新构建一次 `vendor`，所以出于效率考虑，使用 `DllPlugin` 将第三方库单独打包到一个文件中，只有依赖自身发生版本变化时才会重新打包。
+
+#### <a name="chapter-six-two-seven" id="chapter-six-two-seven"></a>6.2.7 多进程代码压缩
+
+> [返回目录](#chapter-one)
+
+因为自带的 `UglifyJsPlugin` 压缩插件是单线程运行的，而 `ParallelUglifyPlugin` 可以并行执行。
+
+所以通过 `ParallelUglifyPlugin` 代替自带的 `UglifyJsPlugin` 插件。
+
+#### <a name="chapter-six-two-eight" id="chapter-six-two-eight"></a>6.2.8 拆包
+
+> [返回目录](#chapter-one)
+
+在 `Webpack` 中，到底什么是代码分离？代码分离允许你把代码拆分到多个文件中。如果使用得当，你的应用性能会提高很多。因为浏览器能缓存你的代码。
+
+每当你做出一次修改，包含修改的文件需要被所有访问你网站的人重新下载。但你并不会经常修改应用的依赖库。
+
+如果你能把那些依赖库拆分到完全分离的文件中，即使业务逻辑发生了更改，访问者也不需要再次下载依赖库，直接使用之前的缓存就可以了。
+
+由于有了 `SplitChunksPlugin`，你可以把应用中的特定部分移至不同文件。如果一个模块在不止一个 `chunk` 中被使用，那么利用代码分离，该模块就可以在它们之间很好地被共享。
+
+#### <a name="chapter-six-two-night" id="chapter-six-two-night"></a>6.2.9 打包资源压缩
+
+> [返回目录](#chapter-one)
+
+* JS 压缩：`UglifyJSPlugin`
+* HTML 压缩：`HtmlWebpackPlugin`
+* 提取公共资源：`splitChunks.cacheGroups`
+* CSS 压缩：`MiniCssExtractPlugin`
+* Gzip 压缩：不包括图片
+
+#### <a name="chapter-six-two-ten" id="chapter-six-two-ten"></a>6.2.10 按需加载
+
+> [返回目录](#chapter-one)
+
+通过 Code-Splitting 来做 React 的按需加载.
+
+`Code_Splitting` 核心是 `require-ensure`。
+
+### <a name="chapter-six-three" id="chapter-six-three"></a>6.3 优化体验
+
+> [返回目录](#chapter-one)
+
+* [progress-bar-webpack-plugin](https://www.npmjs.com/package/progress-bar-webpack-plugin)：在终端底部，将会有一个构建的进度条，可以让你清晰的看见构建的执行进度。
+* [webpack-build-notifier](https://www.npmjs.com/package/webpack-build-notifier)：在构建完成时，能够像微信、Lark 这样的 APP 弹出消息的方式，提示构建已经完成。
+* [webpack-dashboard](https://juejin.im/post/6844903924806189070)：对 Webpack 原始的构建输出不满意的话，也可以使用这样一款 Plugin 来优化你的输出界面。
+
+## <a name="chapter-seven" id="chapter-seven"></a>七 知识点 1：Webpack 几种 hash 的实现原理
+
+> [返回目录](#chapter-one)
 
 * `hash` 是跟整个项目的构建相关，只要项目里有文件更改，整个项目构建的 `hash` 值都会更改，并且全部文件都共用相同的 `hash` 值。（粒度整个项目）
 * `chunkhash` 是根据不同的入口进行依赖文件解析，构建对应的 `chunk`（模块），生成对应的 `hash` 值。只有被修改的 `chunk`（模块）在重新构建之后才会生成新的 `hash` 值，不会影响其它的 `chunk`。（粒度 `entry` 的每个入口文件）
 * `contenthash` 是跟每个生成的文件有关，每个文件都有一个唯一的 `hash` 值。当要构建的文件内容发生改变时，就会生成新的 `hash` 值，且该文件的改变并不会影响和它同一个模块下的其它文件。（粒度每个文件的内容）
 
-## 参考文献
+## <a name="chapter-eight" id="chapter-eight"></a>八 参考文献
 
-### 官方文档
+> [返回目录](#chapter-one)
+
+### <a name="chapter-eight-one" id="chapter-eight-one"></a>8.1 官方文档
+
+> [返回目录](#chapter-one)
 
 * [ ] [Webpack 中文文档](https://webpack.docschina.org/concepts/)
 
-### Webpack 系列文章
+### <a name="chapter-eight-two" id="chapter-eight-two"></a>8.2 Webpack 系列文章
+
+> [返回目录](#chapter-one)
 
 **2019 年文章**：
 
@@ -286,7 +461,9 @@ const routes = [{
 * [ ] [webpack 中那些最易混淆的 5 个知识点](https://juejin.im/post/6844904007362674701)
 * [ ] [关于webpack4的14个知识点,童叟无欺](https://juejin.im/post/6844903853905674248)
 
-### Webpack 性能优化
+### <a name="chapter-eight-three" id="chapter-eight-three"></a>8.3 Webpack 性能优化
+
+> [返回目录](#chapter-one)
 
 **2019 年文章**：
 
@@ -314,14 +491,18 @@ const routes = [{
 * [x] [通过Scope Hoisting优化Webpack输出](https://imweb.io/topic/5a43064fa192c3b460fce360)【阅读建议：5min】
 * [x] [Webpack 大法之 Code Splitting](https://zhuanlan.zhihu.com/p/26710831)【阅读建议：5min】
 
-### tree shaking
+### <a name="chapter-eight-four" id="chapter-eight-four"></a>8.4 tree shaking
+
+> [返回目录](#chapter-one)
 
 * [x] [tree shaking - Webpack 5.0.0-rc.0](https://webpack.docschina.org/guides/tree-shaking/)【阅读建议：仅供参考】
 * [x] [Webpack 4 Tree Shaking 终极优化指南](https://www.cnblogs.com/lzkwin/p/11878509.html)【阅读建议：30min】
 * [x] [Tree-Shaking性能优化实践 - 原理篇 - 2018](https://juejin.im/post/6844903544756109319)【阅读建议：仅供参考】
 * [x] [Webpack4: Tree-shaking 深度解析 - 2019](https://juejin.im/post/6844903777229635598)【阅读建议：仅供参考】
 
-### 懒加载
+### <a name="chapter-eight-five" id="chapter-eight-five"></a>8.5 懒加载
+
+> [返回目录](#chapter-one)
 
 * [x] [Vue Webpack 打包优化——路由懒加载（按需加载）原理讲解及使用方法说明](https://blog.csdn.net/weixin_44869002/article/details/106288371)【阅读建议：20min】
 * [ ] [懒加载 - Webpack v5.0.0-rc.0](https://webpack.docschina.org/guides/lazy-loading/)
