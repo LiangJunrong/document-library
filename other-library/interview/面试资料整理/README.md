@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 17:00:05**  
-> Recently revised in **2020-10-05 15:37:16**
+> Recently revised in **2020-10-05 22:51:11**
 
 你是你人生的导师！
 
@@ -124,21 +124,20 @@
 ## 模块划分与阅读统计
 
 * [ ] [本页面综合系列](./README.md)【进度： 9/46 】
-* [ ] [计算机网络](./计算机网络/README.md)【进度： 0/58 】
+* [ ] [计算机网络](./计算机网络/README.md)【进度： 0/64 】
 * [x] [浏览器](./浏览器/README.md)【进度： 57/57 】
-* [x] [面试经验](./面试经验/README.md)【进度： 4/1 】
+* [x] [面试经验](./面试经验/README.md)【进度： 4/4 】
 * [ ] [其他](./其他/README.md)【进度： 0/36 】
 * [ ] [前端工程化](./前端工程化/README.md)【进度： 0/87 】
 * [ ] [设计模式](./设计模式/README.md)【进度： 0/6 】
 * [ ] [算法与数据结构](./算法与数据结构/README.md)【进度： 0/13 】
-* [ ] [网络安全](./网络安全/README.md)【进度： 0/12 】
 * [ ] [CSS](./CSS/README.md)【进度： 0/51 】
 * [ ] [HTML](./HTML/README.md)【进度： 0/2 】
 * [ ] [JavaScript](./JavaScript/README.md)【进度： 0/186 】
   * [x] 异步系列【进度： 34/34】
 * [ ] [React](./React/README.md)【进度： 0/78 】
-* [ ] [TypeScript](./TypeScript/README.md)【进度： 0/18 】
-* [ ] [Vue](./Vue/README.md)【进度： 0/28 】
+* [x] [TypeScript](./TypeScript/README.md)【进度： 已放弃 】
+* [x] [Vue](./Vue/README.md)【进度： 已放弃 】
 
 ## 完成文章
 
