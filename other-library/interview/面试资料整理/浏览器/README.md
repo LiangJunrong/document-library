@@ -2,8 +2,9 @@
 ===
 
 > Create by **jsliang** on **2020-09-02 14:48:58**  
-> Recently revised in **2020-09-23 23:11:15**
+> Recently revised in **2020-10-05 15:36:06**
 
+<!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -12,6 +13,17 @@
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 参考文献](#chapter-three) |
+| &emsp;[3.1 浏览器](#chapter-three-one) |
+| &emsp;[3.2 浏览器缓存](#chapter-three-two) |
+| &emsp;[3.3 浏览器垃圾回收](#chapter-three-three) |
+| &emsp;[3.4 回流与重绘](#chapter-three-four) |
+| &emsp;[3.5 跨域](#chapter-three-five) |
+| &emsp;[3.6 其他](#chapter-three-six) |
+| &emsp;[3.7 性能优化](#chapter-three-seven) |
+| &emsp;&emsp;[3.7.1 Webpack 优化](#chapter-three-seven-one) |
+| &emsp;&emsp;[3.7.2 其他优化](#chapter-three-seven-two) |
+<!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -26,6 +38,7 @@
 * [跨域](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E8%B7%A8%E5%9F%9F.md)
 * [垃圾回收](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md)
 * [LRU 缓存淘汰策略](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/LRU%20%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5.md)
+* [性能优化](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.md)
 
 当然，还延伸到了 **计算机网络** 部分，例如：
 
@@ -38,7 +51,7 @@
 
 > [返回目录](#chapter-one)
 
-参考文献共 28 篇文章，感谢前辈们的贡献。
+参考文献共 57 篇文章，感谢前辈们的贡献。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 浏览器
 
@@ -98,6 +111,56 @@
 * [x] [抛弃console.log()，拥抱浏览器Debugger](https://zhuanlan.zhihu.com/p/52077620)【阅读建议：10min】
 * [x] [浏览器IMG图片原生懒加载loading=”lazy”实践指南](https://www.zhangxinxu.com/wordpress/2019/09/native-img-loading-lazy/)【阅读建议：10min】
 * [x] [浏览器页面资源加载过程与优化](https://juejin.im/post/5a4ed917f265da3e317df515)【阅读建议：无】
+
+### <a name="chapter-three-seven" id="chapter-three-seven"></a>3.7 性能优化
+
+> [返回目录](#chapter-one)
+
+#### <a name="chapter-three-seven-one" id="chapter-three-seven-one"></a>3.7.1 Webpack 优化
+
+> [返回目录](#chapter-one)
+
+**2019 年文章**：
+
+* [x] [Webpack优化——将你的构建效率提速翻倍](https://juejin.im/post/5d614dc96fb9a06ae3726b3e)【阅读建议：10min】
+* [x] [性能优化篇---Webpack构建速度优化](https://segmentfault.com/a/1190000018493260)【阅读建议：10min】
+* [x] [使用webpack4提升180%编译速度](http://louiszhai.github.io/2019/01/04/webpack4/)【阅读建议：10min】
+* [x] [多进程并行压缩代码](https://jkfhto.github.io/2019-10-17/webpack/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%B9%B6%E8%A1%8C%E5%8E%8B%E7%BC%A9%E4%BB%A3%E7%A0%81/)【阅读建议：5min】
+* [x] [webpack 的 scope hoisting 是什么？](https://ssshooter.com/2019-02-20-webpack-scope-hoisting/)【阅读建议：5min】
+* [x] [webpack 4: Code Splitting和chunks切分优化](https://juejin.im/post/5d53f49bf265da03dc0766e2)【阅读建议：5min】
+
+**2018 年文章**：
+
+* [x] [Tree-Shaking性能优化实践 - 原理篇](https://juejin.im/post/5a4dc842518825698e7279a9)【阅读建议：10min】
+* [x] [体积减少80%！释放webpack tree-shaking的真正潜力](https://juejin.im/post/5b8ce49df265da438151b468)【阅读建议：10min】
+* [x] [你的Tree-Shaking并没什么卵用](https://zhuanlan.zhihu.com/p/32831172)【阅读建议：5min】
+* [x] [webpack 如何通过作用域分析消除无用代码](https://diverse.space/2018/05/better-tree-shaking-with-scope-analysis)【阅读建议：5min】
+* [x] [让你的Webpack起飞—考拉会员后台Webpack优化实战](https://zhuanlan.zhihu.com/p/42465502)【阅读建议：5min】
+* [x] [webpack dllPlugin打包体积和速度优化](https://zhuanlan.zhihu.com/p/39727247)【阅读建议：5min】
+* [x] [webpack优化之code splitting](https://segmentfault.com/a/1190000013000463)【阅读建议：5min】
+
+**2017 年文章**：
+
+* [x] [Webpack 打包优化之速度篇](https://www.jeffjade.com/2017/08/12/125-webpack-package-optimization-for-speed/)【阅读建议：5min】
+* [x] [加速Webpack-缩小文件搜索范围](https://imweb.io/topic/5a40551ea192c3b460fce335)【阅读建议：5min】
+* [x] [通过Scope Hoisting优化Webpack输出](https://imweb.io/topic/5a43064fa192c3b460fce360)【阅读建议：5min】
+* [x] [Webpack 大法之 Code Splitting](https://zhuanlan.zhihu.com/p/26710831)【阅读建议：5min】
+
+#### <a name="chapter-three-seven-two" id="chapter-three-seven-two"></a>3.7.2 其他优化
+
+> [返回目录](#chapter-one)
+
+* [x] [掘金小册 - 前端性能优化原理与实践](https://juejin.im/book/6844733750048210957/section/6844733750031417352)【阅读建议：4h】
+* [x] [网站性能优化实战——从12.67s到1.06s的故事](https://juejin.im/post/5b6fa8c86fb9a0099910ac91)【阅读建议：30min】
+* [x] [聊聊前端开发中的长列表](https://zhuanlan.zhihu.com/p/26022258)【阅读建议：30min】
+* [x] [再谈前端虚拟列表的实现](https://zhuanlan.zhihu.com/p/34585166)【阅读建议：30min】
+* [x] [浅说虚拟列表的实现原理](https://github.com/dwqs/blog/issues/70)【阅读建议：30min】
+* [x] [用 preload 预加载页面资源](https://juejin.im/post/5a7fb09bf265da4e8e785c38)【阅读建议：20min】
+* [x] [（译）2019年前端性能优化清单 — 上篇](https://juejin.im/post/5c46cbaee51d453f45612a2c)【阅读建议：20min】
+* [x] [（译）2019年前端性能优化清单 — 中篇](https://juejin.im/post/6844903765741404168)【阅读建议：20min】
+* [x] [（译）2019年前端性能优化清单 — 下篇](https://juejin.im/post/6844903765749792782)【阅读建议：20min】
+* [x] [App内网页启动加速实践：静态资源预加载视角](https://mp.weixin.qq.com/s/tXABGOV4Lp2YiGnzq3gxbA)【阅读建议：20min】
+* [x] [腾讯HTTPS性能优化实践](https://mp.weixin.qq.com/s/V62VYS8KFNKxJxfzMYefrw)【阅读建议：30min】
 
 ---
 
