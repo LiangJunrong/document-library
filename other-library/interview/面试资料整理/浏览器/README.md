@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-02 14:48:58**  
-> Recently revised in **2020-10-05 15:36:06**
+> Recently revised in **2020-10-05 15:48:04**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -14,15 +14,16 @@
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 参考文献](#chapter-three) |
-| &emsp;[3.1 浏览器](#chapter-three-one) |
-| &emsp;[3.2 浏览器缓存](#chapter-three-two) |
-| &emsp;[3.3 浏览器垃圾回收](#chapter-three-three) |
-| &emsp;[3.4 回流与重绘](#chapter-three-four) |
-| &emsp;[3.5 跨域](#chapter-three-five) |
-| &emsp;[3.6 其他](#chapter-three-six) |
+| &emsp;[3.1 付费网络书籍](#chapter-three-one) |
+| &emsp;[3.2 浏览器](#chapter-three-two) |
+| &emsp;[3.3 浏览器缓存](#chapter-three-three) |
+| &emsp;[3.4 浏览器垃圾回收](#chapter-three-four) |
+| &emsp;[3.5 回流与重绘](#chapter-three-five) |
+| &emsp;[3.6 跨域](#chapter-three-six) |
 | &emsp;[3.7 性能优化](#chapter-three-seven) |
 | &emsp;&emsp;[3.7.1 Webpack 优化](#chapter-three-seven-one) |
 | &emsp;&emsp;[3.7.2 其他优化](#chapter-three-seven-two) |
+| &emsp;[3.8 其他](#chapter-three-eight) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -53,7 +54,14 @@
 
 参考文献共 57 篇文章，感谢前辈们的贡献。
 
-### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 浏览器
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 付费网络书籍
+
+> [返回目录](#chapter-one)
+
+* [ ] [极客时间 - 浏览器工作原理与实践](https://time.geekbang.org/column/intro/100033601)
+* [x] [掘金小册 - 前端性能优化原理与实践](https://juejin.im/book/6844733750048210957/section/6844733750031417352)【阅读建议：4h】
+
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 浏览器
 
 > [返回目录](#chapter-one)
 
@@ -65,7 +73,7 @@
 * [x] [浏览器的渲染原理简介](https://coolshell.cn/articles/9666.html)【阅读建议：10min】
 * [x] [浏览器的渲染：过程与原理](https://juejin.im/entry/6844903503609987080)【阅读建议：10min】
 
-### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 浏览器缓存
+### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 浏览器缓存
 
 > [返回目录](#chapter-one)
 
@@ -75,13 +83,13 @@
 * [x] [关于浏览器缓存你知道多少](https://mp.weixin.qq.com/s/Wvc0lkLpgyEW_u7bbMdvpQ)【阅读建议：10min】
 * [x] [设计一个无懈可击的浏览器缓存方案：关于思路，细节，ServiceWorker，以及HTTP/2](https://zhuanlan.zhihu.com/p/28113197)【阅读建议：20min】
 
-### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 浏览器垃圾回收
+### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 浏览器垃圾回收
 
 > [返回目录](#chapter-one)
 
 * [x] [JavaScript进阶-内存机制(表情包初探)](https://juejin.im/post/6844904033317027854)【阅读建议：20min】
 
-### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 回流与重绘
+### <a name="chapter-three-five" id="chapter-three-five"></a>3.5 回流与重绘
 
 > [返回目录](#chapter-one)
 
@@ -91,7 +99,7 @@
 * [x] [浏览器重绘(repaint)重排(reflow)与优化[浏览器机制]](https://juejin.im/post/6844903745914929165)【阅读建议：10min】
 * [x] [回流与重绘：CSS性能让JavaScript变慢？](https://www.zhangxinxu.com/wordpress/2010/01/%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98%EF%BC%9Acss%E6%80%A7%E8%83%BD%E8%AE%A9javascript%E5%8F%98%E6%85%A2%EF%BC%9F/)【阅读建议：10min】
 
-### <a name="chapter-three-five" id="chapter-three-five"></a>3.5 跨域
+### <a name="chapter-three-six" id="chapter-three-six"></a>3.6 跨域
 
 > [返回目录](#chapter-one)
 
@@ -103,14 +111,6 @@
 * [x] [面试题：nginx 有配置过吗?反向代理知道吗?](https://juejin.im/post/6844904148022870023)【阅读建议：10min】
 * [x] [10 种跨域解决方案（附终极大招）](https://juejin.im/post/6844904126246027278)【阅读建议：1h】
 * [x] [CORS跨域请求[简单请求与复杂请求]](https://www.cnblogs.com/qunxiadexiaoxiangjiao/p/9446956.html)【阅读建议：20min】
-
-### <a name="chapter-three-six" id="chapter-three-six"></a>3.6 其他
-
-> [返回目录](#chapter-one)
-
-* [x] [抛弃console.log()，拥抱浏览器Debugger](https://zhuanlan.zhihu.com/p/52077620)【阅读建议：10min】
-* [x] [浏览器IMG图片原生懒加载loading=”lazy”实践指南](https://www.zhangxinxu.com/wordpress/2019/09/native-img-loading-lazy/)【阅读建议：10min】
-* [x] [浏览器页面资源加载过程与优化](https://juejin.im/post/5a4ed917f265da3e317df515)【阅读建议：无】
 
 ### <a name="chapter-three-seven" id="chapter-three-seven"></a>3.7 性能优化
 
@@ -150,7 +150,6 @@
 
 > [返回目录](#chapter-one)
 
-* [x] [掘金小册 - 前端性能优化原理与实践](https://juejin.im/book/6844733750048210957/section/6844733750031417352)【阅读建议：4h】
 * [x] [网站性能优化实战——从12.67s到1.06s的故事](https://juejin.im/post/5b6fa8c86fb9a0099910ac91)【阅读建议：30min】
 * [x] [聊聊前端开发中的长列表](https://zhuanlan.zhihu.com/p/26022258)【阅读建议：30min】
 * [x] [再谈前端虚拟列表的实现](https://zhuanlan.zhihu.com/p/34585166)【阅读建议：30min】
@@ -161,6 +160,14 @@
 * [x] [（译）2019年前端性能优化清单 — 下篇](https://juejin.im/post/6844903765749792782)【阅读建议：20min】
 * [x] [App内网页启动加速实践：静态资源预加载视角](https://mp.weixin.qq.com/s/tXABGOV4Lp2YiGnzq3gxbA)【阅读建议：20min】
 * [x] [腾讯HTTPS性能优化实践](https://mp.weixin.qq.com/s/V62VYS8KFNKxJxfzMYefrw)【阅读建议：30min】
+
+### <a name="chapter-three-eight" id="chapter-three-eight"></a>3.8 其他
+
+> [返回目录](#chapter-one)
+
+* [x] [抛弃console.log()，拥抱浏览器Debugger](https://zhuanlan.zhihu.com/p/52077620)【阅读建议：10min】
+* [x] [浏览器IMG图片原生懒加载loading=”lazy”实践指南](https://www.zhangxinxu.com/wordpress/2019/09/native-img-loading-lazy/)【阅读建议：10min】
+* [x] [浏览器页面资源加载过程与优化](https://juejin.im/post/5a4ed917f265da3e317df515)【阅读建议：无】
 
 ---
 
