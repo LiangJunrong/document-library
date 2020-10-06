@@ -2,7 +2,7 @@ this
 ===
 
 > Create by **jsliang** on **2020-09-30 21:20:15**  
-> Recently revised in **2020-10-06 19:09:19**
+> Recently revised in **2020-10-06 20:03:20**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -26,7 +26,8 @@ this
 | &emsp;[6.2 解决方案二：调用时 bind 绑定 this](#chapter-six-two) |
 | &emsp;[6.3 解决方案三：返回一个箭头函数](#chapter-six-three) |
 | &emsp;[6.4 ~~解决方案四：将调用方法变成箭头函数（失败）~~](#chapter-six-four) |
-| &emsp;[6.5 React 解决方案](#chapter-six-five) |
+| &emsp;[6.5 另一种解释](#chapter-six-five) |
+| &emsp;[6.6 React 解决方案](#chapter-six-six) |
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 小结](#chapter-seven) |
 | <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 题目](#chapter-eight) |
 | &emsp;[8.1 指向问题](#chapter-eight-one) |
@@ -36,6 +37,11 @@ this
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
+
+牢记 2 句话：
+
+* 普通函数中 `this` 的指向，是 `this` 执行时的上下文
+* 箭头函数中 `this` 的指向，是 `this` 定义时的上下文
 
 作用域链和 `this` 是两套不同的系统，它们之间基本没太多联系。
 
@@ -525,7 +531,104 @@ handleClick2 = () => {
 
 **但是，这种方法失败了，返回 `undefined`，是什么缘故呢？**
 
-### <a name="chapter-six-five" id="chapter-six-five"></a>6.5 React 解决方案
+网友指出：
+
+* 这 4 种方法的比对其实是有误的，普通对象没法跟类做对比
+
+### <a name="chapter-six-five" id="chapter-six-five"></a>6.5 另一种解释
+
+> [返回目录](#chapter-one)
+
+```js
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // 为了在回调中使用 `this`，这个绑定是必不可少的
+    // this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    console.log(this);
+  }
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Toggle />,
+  document.getElementById('root')
+);
+```
+
+已知上面方法，编译后变成：
+
+```js
+"use strict";
+
+// ...代码省略
+
+var Toggle = /*#__PURE__*/function (_React$Component) {
+  _inherits(Toggle, _React$Component);
+
+  var _super = _createSuper(Toggle);
+
+  function Toggle(props) {
+    var _this;
+
+    _classCallCheck(this, Toggle);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      isToggleOn: true
+    }; // 为了在回调中使用 `this`，这个绑定是必不可少的
+    // this.handleClick = this.handleClick.bind(this);
+
+    return _this;
+  }
+
+  _createClass(Toggle, [{
+    key: "handleClick",
+    value: function handleClick() {
+      console.log(this); // 输出是 undefined
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement("button", {
+        onClick: this.handleClick
+      }, this.state.isToggleOn ? 'ON' : 'OFF');
+    }
+  }]);
+
+  return Toggle;
+}(React.Component);
+```
+
+主要看 `_createClass` 方法，第一个参数是被创建的类，第二个参数是一个数组，数组里面是这个被创建类中的方法。
+
+很显然，代码中 `handleClick` 输出的 `this`，肯定是 `undefined`。
+
+而 `render` 方法返回的是 `React.createElement`，在这个方法中，`this` 被指向了 `_createClass` 方法的第一个参数，也就是 `Toggle` 。
+
+这时候，如果这个方法变成箭头函数：
+
+```js
+handleClick = () => {
+  console.log(this);
+}
+```
+
+此时箭头函数是 `this` 定义时的上下文。
+
+当我们点击按钮的时候，会调用 `handleClick` 方法来处理事件，而 `handleClick` 是在 `Toggle` 方法中定义的，所以 `this` 指代 `Toggle` 这个类。
+
+### <a name="chapter-six-six" id="chapter-six-six"></a>6.6 React 解决方案
 
 > [返回目录](#chapter-one)
 
@@ -648,6 +751,8 @@ Foo();
 * [x] [浅谈react 中的 this 指向](https://www.jianshu.com/p/159eabf152d0)【阅读建议：10min】
 * [x] [react的性能优化](https://note.youdao.com/ynoteshare1/index.html?id=3d64b603405bcbb2c3cad3f750e5341d&type=note)【阅读建议：5min】
 * [x] [React事件处理函数必须使用bind(this)的原因](https://blog.csdn.net/qq_34829447/article/details/81705977)【阅读建议：10min】
+* [x] [由React构造函数中bind引起的this指向理解（React组件的方法为什么要用bind绑定this）](https://blog.csdn.net/AiHuanhuan110/article/details/106424812)【阅读建议：20min】
+* [x] [React中this.handleClick = this.handleClick.bind(this)中的this指向问题](https://blog.csdn.net/yiersan__/article/details/108004911)【阅读建议：10min】
 
 ---
 
