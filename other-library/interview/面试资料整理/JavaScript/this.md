@@ -517,6 +517,9 @@ func();
 对应 React 中的：
 
 ```js
+handleClick2 = () => {
+  console.log('jsliang 2021');
+}
 <button onClick={this.handleClick2}>btn 4</button>
 ```
 
