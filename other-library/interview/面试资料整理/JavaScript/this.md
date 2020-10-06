@@ -2,7 +2,7 @@ this
 ===
 
 > Create by **jsliang** on **2020-09-30 21:20:15**  
-> Recently revised in **2020-10-06 19:05:42**
+> Recently revised in **2020-10-06 19:09:19**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -448,6 +448,15 @@ const func = test.getName;
 func();
 ```
 
+对应 React 中的：
+
+```js
+constructor (props) {
+  this.handleClick = this.handleClick.bind(this);
+}
+<button onClick={this.handleClick}>btn 1</button>
+```
+
 ### <a name="chapter-six-two" id="chapter-six-two"></a>6.2 解决方案二：调用时 bind 绑定 this
 
 > [返回目录](#chapter-one)
@@ -461,6 +470,12 @@ const test = {
 };
 const func = test.getName.bind(test);
 func();
+```
+
+对应 React 中的：
+
+```js
+<button onClick={this.handleClick.bind(this)}>btn 2</button>
 ```
 
 ### <a name="chapter-six-three" id="chapter-six-three"></a>6.3 解决方案三：返回一个箭头函数
@@ -478,6 +493,12 @@ const func = () => test.getName();
 func();
 ```
 
+对应 React 中的：
+
+```js
+<button onClick={() => this.handleClick()}>btn 3</button>
+```
+
 ### <a name="chapter-six-four" id="chapter-six-four"></a>6.4 ~~解决方案四：将调用方法变成箭头函数（失败）~~
 
 > [返回目录](#chapter-one)
@@ -491,8 +512,15 @@ const test = {
 };
 const func = test.getName;
 func();
-// 这样子学 React，但是返回的是 undefined
 ```
+
+对应 React 中的：
+
+```js
+<button onClick={this.handleClick2}>btn 4</button>
+```
+
+**但是，这种方法失败了，返回 `undefined`，是什么缘故呢？**
 
 ### <a name="chapter-six-five" id="chapter-six-five"></a>6.5 React 解决方案
 
@@ -520,10 +548,10 @@ class App extends Component {
         <button onClick={this.handleClick}>btn 1</button>
 
         {/* 方法二：在里边绑定 this */}
-        <button onClick={this.handleClick.bind(this)}>btn 3</button>
+        <button onClick={this.handleClick.bind(this)}>btn 2</button>
 
         {/* 方法三：通过箭头函数返回事件 */}
-        <button onClick={() => this.handleClick()}>btn 2</button>
+        <button onClick={() => this.handleClick()}>btn 3</button>
         
         {/* 方法四：让方法变成箭头函数 */}
         <button onClick={this.handleClick2}>btn 4</button>
