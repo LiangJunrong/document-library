@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-02 14:48:58**  
-> Recently revised in **2020-10-05 15:48:04**
+> Recently revised in **2020-10-07 21:44:21**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -58,7 +58,7 @@
 
 > [返回目录](#chapter-one)
 
-* [ ] [极客时间 - 浏览器工作原理与实践](https://time.geekbang.org/column/intro/100033601)
+* [x] [极客时间 - 浏览器工作原理与实践](https://time.geekbang.org/column/intro/100033601)【阅读建议：11.5h】
 * [x] [掘金小册 - 前端性能优化原理与实践](https://juejin.im/book/6844733750048210957/section/6844733750031417352)【阅读建议：4h】
 
 ### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 浏览器
