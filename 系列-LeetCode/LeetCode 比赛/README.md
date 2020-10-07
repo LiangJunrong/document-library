@@ -1,23 +1,10 @@
-LeetCode 竞赛
+LeetCode 比赛
 ===
 
 > Create by **jsliang** on **2020-08-23 20:31:40**  
-> Recently revised in **2020-08-23 20:31:40**
+> Recently revised in **2020-10-07 22:15:50**
 
-## <a name="chapter-one" id="chapter-one"></a>一 目录
-
-**不折腾的前端，和咸鱼有什么区别**
-
-| 目录 |
-| --- |
-| [一 目录](#chapter-one) |
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-
-## <a name="chapter-two" id="chapter-two"></a>二 前言
-
-> [返回目录](#chapter-one)
-
-
+记录参与的 LeetCode 比赛。
 
 ---
 
