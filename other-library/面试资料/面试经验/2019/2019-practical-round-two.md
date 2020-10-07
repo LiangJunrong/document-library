@@ -177,7 +177,7 @@ b();
 
 3. 下面有个页面，左边块宽 100px，高 120px，中间 10px 缝隙，右边宽度占剩余页面的 100%，高度占整个页面高度的 100%，请写出相关代码（HTML + CSS）。
 
-![图](../../../public-repertory/img/other-interview-roundTwo-1.png)
+![图](../../../../public-repertory/img/other-interview-roundTwo-1.png)
 
 > 很经典的一个布局，注意右边高度 100% 要设置好喔~
 
@@ -277,7 +277,7 @@ var tree = [
 
 2. 题目：假设我有一个页面，页面上有一张图，大致就是：
 
-![图](../../../public-repertory/img/other-interview-roundTwo-2.png)
+![图](../../../../public-repertory/img/other-interview-roundTwo-2.png)
 
 > 代码结构如下：
 
@@ -568,7 +568,7 @@ var tree = [
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../../../public-repertory/img/z-small-wechat-public-address.jpg)
 
 **jsliang** 会每天在公众号发表一篇文章，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构等等。
 
