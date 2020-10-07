@@ -147,7 +147,7 @@ const dict_overflow = [2];
 
 ## 练习题分布
 
-![图](../../../../public-repertory/img/other-algorithms-and-data-structures-linked-hash-1.png)
+![图](https://github.com/LiangJunrong/document-library/blob/master/public-repertory/img/other-algorithms-and-data-structures-linked-hash-1.png?raw=true)
 
 ## 入门
 
