@@ -119,7 +119,7 @@
 
 很好，相信小伙伴们已经看完了代码，下面我们看看它的演示：
 
-![图](../../../public-repertory/img/other-interview-debounce&throttle-1.gif)
+![图](../../../../public-repertory/img/other-interview-debounce&throttle-1.gif)
 
 这时候，我们可以抛出防抖的概念了：
 
@@ -200,7 +200,7 @@
 
 很好，看完代码的小伙伴应该大致清楚是怎么回事了，下面我们看 GIF 实现：
 
-![图](../../../public-repertory/img/other-interview-debounce&throttle-2.gif)
+![图](../../../../public-repertory/img/other-interview-debounce&throttle-2.gif)
 
 看完代码和 GIF 实现，我们可以明白，节流即是：
 
@@ -255,7 +255,7 @@ OK，卖个关子，先看下面场景：
 
 形象地用图来说明：
 
-![图](../../../public-repertory/img/other-interview-debounce&throttle-3.png)
+![图](../../../../public-repertory/img/other-interview-debounce&throttle-3.png)
 
 这样，我们就可以形象的将 **防抖与节流** 与 **重绘与回流** 结合起来记忆起来。
 
@@ -298,7 +298,7 @@ OK，兴致来了，我们就先从 **浏览器解析 URL** 看起，先来看�
 
 enm...老师会不会被打我不知道，但是 **jsliang** 这样写会被怼我就清楚，所以，咱还是结合上面的图，进一步勾勒我们的结构：
 
-![图](../../../public-repertory/img/other-interview-debounce&throttle-4.png)
+![图](../../../../public-repertory/img/other-interview-debounce&throttle-4.png)
 
 很好，**jsliang** 感觉自己的画图技术又进了一步~
 
@@ -352,7 +352,7 @@ DNS（Domain Name System）是 **域名系统** 的英文缩写，提供的服�
 
 看文字总是难以理解的，跟着 **jsliang** 画张图过一遍，就感觉清晰了：
 
-![图](../../../public-repertory/img/other-interview-debounce&throttle-5.png)
+![图](../../../../public-repertory/img/other-interview-debounce&throttle-5.png)
 
 ## <a name="chapter-seven" id="chapter-seven">七 TCP 三次握手与四次挥手</a>
 
@@ -376,7 +376,7 @@ DNS（Domain Name System）是 **域名系统** 的英文缩写，提供的服�
 
 文字太乱，show you picture：
 
-![图](../../../public-repertory/img/other-interview-debounce&throttle-6.png)
+![图](../../../../public-repertory/img/other-interview-debounce&throttle-6.png)
 
 * **四次挥手**：
 
@@ -391,7 +391,7 @@ DNS（Domain Name System）是 **域名系统** 的英文缩写，提供的服�
 
 文字太乱，show you picture：
 
-![图](../../../public-repertory/img/other-interview-debounce&throttle-7.png)
+![图](../../../../public-repertory/img/other-interview-debounce&throttle-7.png)
 
 OK，至此我们就理解了 **TCP 及其三次握手和四次挥手过程**，为了方便小伙伴们形象记忆，**jsliang** 搞了个小故事，希望小伙伴们能加深印象：
 
@@ -439,7 +439,7 @@ OK，成功出糗，相信小伙伴们有了个很好的了解了。
 
 文字讲解肯定还是不够清晰的，但是 **jsliang** 画了几张图也累了，所以咱们 **盗** 来了一张图：
 
-![图](../../../public-repertory/img/other-InterviewPreparation-01.png)
+![图](../../../../public-repertory/img/other-InterviewPreparation-01.png)
 
 这样，我们就对 **浏览器渲染页面过程** 一清二楚啦~
 
@@ -481,7 +481,7 @@ OK，成功出糗，相信小伙伴们有了个很好的了解了。
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../../../public-repertory/img/z-small-wechat-public-address.jpg)
 
 **jsliang** 会每天在公众号发表一篇文章，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构等等。
 
