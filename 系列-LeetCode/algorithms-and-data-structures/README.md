@@ -87,7 +87,7 @@ Hello 小伙伴们上午好、中午好、下午好、晚上好，我是 **jslia
 
 很好，讲到这里，我们应该清楚，这系列文章可以给你带来什么：打打算法怪，怼怼数据结构 Boss，提升自身脑力，解决逻辑问题，让代码世界畅通无阻。（讲真一些培训课是不是这么吹的，好奇）
 
-![图](../../../public-repertory/img/other-algorithms-and-data-structures-readme.png)
+![图](../../public-repertory/img/other-algorithms-and-data-structures-readme.png)
 
 下面是推荐学习顺序表：
 
@@ -147,7 +147,7 @@ Hello 小伙伴们上午好、中午好、下午好、晚上好，我是 **jslia
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../public-repertory/img/z-small-wechat-public-address.jpg)
 
 **jsliang** 会每天更新一道 LeetCode 题解，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构。
 
