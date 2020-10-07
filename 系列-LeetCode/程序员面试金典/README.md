@@ -55,7 +55,7 @@ LeetCode 的程序员面试金典
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-![图](../../../public-repertory/img/z-index-small.png)
+![图](https://github.com/LiangJunrong/document-library/blob/master/public-repertory/img/z-index-small.png?raw=true)
 
 **jsliang** 会每天更新一道 LeetCode 题解，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构。
 
