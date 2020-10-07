@@ -8,11 +8,11 @@
 
 顾名思义，滑动窗口就是将数组或字符串中的一个分段，形象地看作一个“窗口”，通过更改“窗口”的左右边界，实现窗口的移动、缩放等操作
 
-![](../../../public-repertory/img/other-algorithms-and-data-structures-linked-sliding-window-1.png)
+![图](https://github.com/LiangJunrong/document-library/blob/master/public-repertory/img/other-algorithms-and-data-structures-linked-sliding-window-1.png?raw=true)
 
 滑动窗口题目归类：
 
-![](../../../public-repertory/img/other-algorithms-and-data-structures-linked-sliding-window-2.png)
+![图](https://github.com/LiangJunrong/document-library/blob/master/public-repertory/img/other-algorithms-and-data-structures-linked-sliding-window-2.png?raw=true)
 
 ```
 作者：力扣 (LeetCode)
