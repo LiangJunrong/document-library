@@ -384,7 +384,7 @@ box-sizing: content-box
 1. `border-box` 中，整个 `div` 的宽、高，包括 `margin`、`padding`、`border`。  
 2. `content-box` 中，整个 `div` 的宽、高，则不包括上面元素。 
 
-![图](../../../public-repertory/img/other-WechatApplet-bug-8.jpg)
+![图](../../../../public-repertory/img/other-WechatApplet-bug-8.jpg)
 
 如上图，如果一个 `div` ，你的代码如下：
 ```
@@ -843,9 +843,9 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 下面放出相关知识点：
 
-![图](../../../public-repertory/img/other-interview-1-prototype.png)
+![图](../../../../public-repertory/img/other-interview-1-prototype.png)
 
-![图](../../../public-repertory/img/other-interview-2-prototype.png)
+![图](../../../../public-repertory/img/other-interview-2-prototype.png)
 
 * 实例的 `__proto__` 属性（原型）等于其构造函数的 `prototype` 属性。
 * Object.__proto__ === Function.prototype
@@ -1479,7 +1479,7 @@ export default bus;
 * `onHide()`：页面隐藏/切入后台时触发。
 * `onUnload()`：页面卸载时触发。
 
-![图](../../../public-repertory/img/other-interview-2019-InterviewPreparation-1.png)
+![图](../../../../public-repertory/img/other-interview-2019-InterviewPreparation-1.png)
 
 ### <a name="chapter-seven-three" id="chapter-seven-three">7.3 如何封装数据请求</a>
 
@@ -2106,7 +2106,7 @@ Side Project 对应的中文就是副业、业余项目或者小项目。
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../../../public-repertory/img/z-small-wechat-public-address.jpg)
 
 **jsliang** 会每天在公众号发表一篇文章，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构等等。
 
