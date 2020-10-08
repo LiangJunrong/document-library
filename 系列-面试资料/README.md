@@ -2,7 +2,9 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 17:00:05**  
-> Recently revised in **2020-10-08 09:53:58**
+> Recently revised in **2020-10-08 23:27:22**
+
+## 前言
 
 你是你人生的导师！
 
@@ -10,7 +12,7 @@
 2. 去年的、以前的你，写了一些现在你已经模糊的知识点，你就要虚心向过去的自己学习。
 3. 你狠焦虑？我也是！但是我相信自己能熬过去！
 
-个人方向？
+前端如何确定个人方向？
 
 1. 分析（当前问题）
 2. 建库（建立自己文档库，存储知识点）
@@ -22,10 +24,19 @@
 + 2020
 ```
 
+## 广州某厂
+
+* 【加分项】React
+* 原理可以补充一点
+* JS 基础
+* 工程化
+* 解决能力的问题
+* 算法没太大要求（顶多一两道编程题）
+
 ## 模块划分与阅读统计
 
 * [ ] [本页面综合系列](./README.md)【进度： 9/46 】
-* [ ] [计算机网络](./计算机网络/README.md)【进度： 0/64 】
+* [x] [计算机网络](./计算机网络/README.md)【进度： 52/52 】
 * [x] [浏览器](./浏览器/README.md)【进度： 57/57 】
 * [x] [面试经验](./面试经验/README.md)【进度： 4/4 】
 * [ ] [其他](./其他/README.md)【进度： 0/36 】
@@ -37,8 +48,14 @@
 * [ ] [JavaScript](./JavaScript/README.md)【进度： 0/186 】
   * [x] 异步系列【进度： 34/34】
 * [ ] [React](./React/README.md)【进度： 0/78 】
-* [x] [TypeScript](./TypeScript/README.md)【进度： 已放弃 】
-* [x] [Vue](./Vue/README.md)【进度： 已放弃 】
+* [x] [TypeScript](./TypeScript/README.md)【进度： 2020 不复习 】
+* [x] [Vue](./Vue/README.md)【进度： 2020 不复习 】
+
+## 完成系列
+
+* [计算机网络](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C)
+* [浏览器](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E6%B5%8F%E8%A7%88%E5%99%A8)
+* [面试经验](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C)
 
 ## 综合整理
 
@@ -126,26 +143,7 @@
 * [ ] [26个精选的JavaScript面试问题](https://zhuanlan.zhihu.com/p/46958191)
 * [ ] [前端高频面试题及答案汇总](https://juejin.im/post/6844903778387247117)
 
-## 构建知识体系
-
-* 已经熟练掌握的知识
-* 之前已经掌握的知识但并不熟练
-* 自身没有掌握的知识，但是知道是必须要掌握的知识
-
-## 完成文章
-
-* [jsliang 2020 系列：简历](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E7%AE%80%E5%8E%86/2020%20%E7%AE%80%E5%8E%86.md)
-
-## 广州某厂
-
-* 【加分项】React
-* 原理可以补充一点
-* JS 基础
-* 工程化
-* 解决能力的问题
-* 算法没太大要求（顶多一两道编程题）
-
-## HISTORY
+## 求职历史
 
 * 2020.09.01 整理人生第三次求职
 * 2019.02.01 整理人生第二次求职
