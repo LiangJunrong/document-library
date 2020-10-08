@@ -1,4 +1,4 @@
-HTTP
+HTTP + HTTPS
 ===
 
 > Create by **jsliang** on **2020-10-07 20:24:11**  
