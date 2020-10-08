@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 17:00:05**  
-> Recently revised in **2020-10-05 22:51:11**
+> Recently revised in **2020-10-08 09:53:58**
 
 你是你人生的导师！
 
@@ -21,6 +21,24 @@
 - 2019
 + 2020
 ```
+
+## 模块划分与阅读统计
+
+* [ ] [本页面综合系列](./README.md)【进度： 9/46 】
+* [ ] [计算机网络](./计算机网络/README.md)【进度： 0/64 】
+* [x] [浏览器](./浏览器/README.md)【进度： 57/57 】
+* [x] [面试经验](./面试经验/README.md)【进度： 4/4 】
+* [ ] [其他](./其他/README.md)【进度： 0/36 】
+* [ ] [前端工程化](./前端工程化/README.md)【进度： 0/87 】
+* [ ] [设计模式](./设计模式/README.md)【进度： 0/6 】
+* [ ] [算法与数据结构](./算法与数据结构/README.md)【进度： 0/13 】
+* [ ] [CSS](./CSS/README.md)【进度： 0/51 】
+* [ ] [HTML](./HTML/README.md)【进度： 0/2 】
+* [ ] [JavaScript](./JavaScript/README.md)【进度： 0/186 】
+  * [x] 异步系列【进度： 34/34】
+* [ ] [React](./React/README.md)【进度： 0/78 】
+* [x] [TypeScript](./TypeScript/README.md)【进度： 已放弃 】
+* [x] [Vue](./Vue/README.md)【进度： 已放弃 】
 
 ## 综合整理
 
@@ -106,38 +124,11 @@
 * [ ] [26个精选的JavaScript面试问题](https://zhuanlan.zhihu.com/p/46958191)
 * [ ] [前端高频面试题及答案汇总](https://juejin.im/post/6844903778387247117)
 
-## SHOW
-
-1. VS Code 插件开发
-2. TS 构建 Axios
-
-## AIM
-
-1. 前端团队规模、团队建设、团队代码规范等
-
 ## 构建知识体系
 
 * 已经熟练掌握的知识
 * 之前已经掌握的知识但并不熟练
 * 自身没有掌握的知识，但是知道是必须要掌握的知识
-
-## 模块划分与阅读统计
-
-* [ ] [本页面综合系列](./README.md)【进度： 9/46 】
-* [ ] [计算机网络](./计算机网络/README.md)【进度： 0/64 】
-* [x] [浏览器](./浏览器/README.md)【进度： 57/57 】
-* [x] [面试经验](./面试经验/README.md)【进度： 4/4 】
-* [ ] [其他](./其他/README.md)【进度： 0/36 】
-* [ ] [前端工程化](./前端工程化/README.md)【进度： 0/87 】
-* [ ] [设计模式](./设计模式/README.md)【进度： 0/6 】
-* [ ] [算法与数据结构](./算法与数据结构/README.md)【进度： 0/13 】
-* [ ] [CSS](./CSS/README.md)【进度： 0/51 】
-* [ ] [HTML](./HTML/README.md)【进度： 0/2 】
-* [ ] [JavaScript](./JavaScript/README.md)【进度： 0/186 】
-  * [x] 异步系列【进度： 34/34】
-* [ ] [React](./React/README.md)【进度： 0/78 】
-* [x] [TypeScript](./TypeScript/README.md)【进度： 已放弃 】
-* [x] [Vue](./Vue/README.md)【进度： 已放弃 】
 
 ## 完成文章
 
