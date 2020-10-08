@@ -2,8 +2,9 @@ LRU 缓存淘汰策略
 ===
 
 > Create by **jsliang** on **2020-09-23 17:45:30**  
-> Recently revised in **2020-09-23 23:08:02**
+> Recently revised in **2020-09-23 23:08:03**
 
+<!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -14,6 +15,7 @@ LRU 缓存淘汰策略
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 正文](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 刷题](#chapter-four) |
+<!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
