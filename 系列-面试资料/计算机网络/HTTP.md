@@ -45,6 +45,7 @@ HTTP
 | <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 HTTP/2](#chapter-eight) |
 | &emsp;[8.1 头部压缩](#chapter-eight-one) |
 | &emsp;[8.2 多路复用](#chapter-eight-two) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 参考文献](#chapter-night) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -407,6 +408,36 @@ HTTP 状态码为 3 位数，被归为 5 类：
 `HTTP` 队头阻塞的问题，其根本原因在于 `HTTP` 基于请求-响应的模型，在同一个 `TCP` 长连接中，前面的请求没有得到响应，后面的请求就会被阻塞。
 
 `HTTP/2` 便从 `HTTP` 协议本身解决了队头阻塞问题。
+
+## <a name="chapter-night" id="chapter-night"></a>九 参考文献
+
+> [返回目录](#chapter-one)
+
+* [x] [面试带你飞：这是一份全面的 计算机网络基础 总结攻略](https://juejin.im/post/6844903592965439501)【阅读建议：1h】
+* [x] [看图学HTTPS](https://juejin.im/post/6844903608421449742)【阅读建议：30min】
+* [x] [你知道，HTTPS用的是对称加密还是非对称加密？](https://zhuanlan.zhihu.com/p/96494976)【阅读建议：30min】
+* [x] [HTTP 响应代码 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status)【阅读建议：20min】
+* [x] [http的基础结构](http://47.98.159.95/my_blog/http/001.html#%E8%B5%B7%E5%A7%8B%E8%A1%8C)【阅读建议：5min】
+* [x] [http状态码](http://47.98.159.95/my_blog/http/004.html#_1xx)【阅读建议：5min】
+* [x] [前端基础篇之HTTP协议](https://juejin.im/post/5cd0438c6fb9a031ec6d3ab2)【阅读建议：30min】
+* [x] [都9102年了，还问GET和POST的区别](https://segmentfault.com/a/1190000018129846)【阅读建议：20min】
+* [x] [如何理解HTTP响应的状态码？](https://harttle.land/2015/08/15/http-status-code.html)【阅读建议：20min】
+* [x] [你所知道的3xx状态码](https://aotu.io/notes/2016/01/28/3xx-of-http-status/index.html)【阅读建议：10min】
+* [x] [HTTP协议头部与Keep-Alive模式详解](https://www.byvoid.com/zhs/blog/http-keep-alive-header)【阅读建议：10min】
+* [x] [HTTP keep-alive 二三事](https://lotabout.me/2019/Things-about-keepalive/)【阅读建议：10min】
+* [x] [你应该知道的前端——缓存](https://juejin.im/post/6844903598556446733)【阅读建议：10min】
+* [x] [HTTP 缓存机制一二三](https://zhuanlan.zhihu.com/p/29750583)【阅读建议：10min】
+* [x] [通过HTTP的HEADER完成各种骚操作](https://juejin.im/post/6844903661596835854)【阅读建议：10min】
+* [x] [九个问题从入门到熟悉HTTPS](https://juejin.im/post/6844903521272201223)【阅读建议：20min】
+* [x] [谈谈 HTTPS](https://juejin.im/post/6844903504046211079)【阅读建议：20min】
+* [x] [小哥哥,小姐姐,我有一份tcp、http面试指南你要吗？](https://juejin.im/post/6844903592164343821)【阅读建议：20min】
+* [x] [分分钟让你理解HTTPS](https://juejin.im/post/6844903599303032845)【阅读建议：10min】
+* [x] [HTTP2基本概念学习笔记](https://juejin.im/post/6844903589635162120)【阅读建议：10min】
+* [x] [深入理解HTTPS工作原理](https://juejin.im/post/5ca6a109e51d4544e27e3048)【阅读建议：20min】
+* [x] [解密HTTP/2与HTTP/3 的新特性](https://segmentfault.com/a/1190000020714686)【阅读建议：10min】
+* [x] [浅谈 HTTP/2 Server Push](https://zhuanlan.zhihu.com/p/26757514)【阅读建议：10min】
+* [x] [听说『99% 的人都理解错了 HTTP 中 GET 与 POST 的区别』？？](https://zhuanlan.zhihu.com/p/25028045)【阅读建议：争议文】
+* [x] [你敢在post和get上刁难我，就别怪我装逼了](https://juejin.im/post/6844903508370538503)【阅读建议：争议文】
 
 ---
 
