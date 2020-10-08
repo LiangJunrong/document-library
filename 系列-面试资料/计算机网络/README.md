@@ -30,13 +30,12 @@
 
 ### 系统
 
-* [ ] [总结了17年初到18年初百场前端面试的面试经验(含答案)](https://juejin.im/post/6844903636271644680)
-* [ ] [(建议收藏)TCP协议灵魂之问，巩固你的网路底层基础](https://juejin.im/post/6844904021308735502)
-* [ ] [(建议精读)HTTP灵魂之问，巩固你的 HTTP 知识体系](https://juejin.im/post/6844904100035821575)
+* [x] [(建议收藏)TCP协议灵魂之问，巩固你的网路底层基础](https://juejin.im/post/6844904021308735502)【阅读建议：4h】
+* [x] [(建议精读)HTTP灵魂之问，巩固你的 HTTP 知识体系](https://juejin.im/post/6844904100035821575)【阅读建议：1h】
 
 ### 网络安全
 
-* [ ] [前端安全系列（一）：如何防止XSS攻击？](https://tech.meituan.com/2018/09/27/fe-security.html)
+* [x] [前端安全系列（一）：如何防止XSS攻击？](https://tech.meituan.com/2018/09/27/fe-security.html)【阅读建议：20min】
 * [ ] [前端安全系列（二）：如何防止CSRF攻击？](https://tech.meituan.com/2018/10/11/fe-security-csrf.html)
 * [ ] [Security](https://almanac.httparchive.org/en/2019/security)
 * [ ] [前端也需要了解的 JSONP 安全](https://juejin.im/post/5b75b497e51d45666276251d)
