@@ -2,7 +2,7 @@ call + bind + apply
 ===
 
 > Create by **jsliang** on **2020-09-08 13:37:27**  
-> Recently revised in **2020-09-28 22:58:47**
+> Recently revised in **2020-10-08 10:23:42**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -28,7 +28,13 @@ call + bind + apply
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
-        
+
+`call`、`bind`、`apply` 区别：
+
+* `call` 可以改变函数指向，第一个参数是要改变指向的对象，之后的参数形式是 `arg1, arg2...` 的形式
+* `apply` 同 `call`，不同点在于第二个参数是一个数组
+* `bind` 改变 `this` 作用域会返回一个新的函数，这个函数不会马上执行
+
 参考：
 
 * [x] [MDN - Arguments](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments)【阅读建议：5min】
