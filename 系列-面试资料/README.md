@@ -54,6 +54,8 @@
   * [2018年终总结——越过山丘](https://www.cnblogs.com/lvdabao/p/10211898.html)
   * [2019年终总结——三十而立](https://www.cnblogs.com/lvdabao/p/12142637.html)
 * [冴羽的博客](https://github.com/mqyqingfeng/Blog)
+* [神三元的博客](http://47.98.159.95/my_blog/nav/)
+* [神三元的 Github](https://github.com/sanyuan0704/my_blog)
 
 ### 面试点 + 题解
 
