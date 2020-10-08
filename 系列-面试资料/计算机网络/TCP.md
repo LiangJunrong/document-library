@@ -16,11 +16,13 @@ TCP
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 UDP 连接](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 TCP 连接](#chapter-four) |
 | &emsp;[4.1 建立连接阶段](#chapter-four-one) |
-| &emsp;&emsp;[4.1.1 问题：两次握手不行吗？](#chapter-four-one-one) |
-| &emsp;&emsp;[4.1.2 问题：三次握手过程中可以携带数据吗？](#chapter-four-one-two) |
+| &emsp;&emsp;[4.1.1 三次握手过程](#chapter-four-one-one) |
+| &emsp;&emsp;[4.1.2 问题：两次握手不行吗？](#chapter-four-one-two) |
+| &emsp;&emsp;[4.1.3 问题：三次握手过程中可以携带数据吗？](#chapter-four-one-three) |
 | &emsp;[4.2 传输数据阶段](#chapter-four-two) |
 | &emsp;[4.3 断开连接阶段](#chapter-four-three) |
-| &emsp;&emsp;[4.3.1 问题：为什么需要四次挥手](#chapter-four-three-one) |
+| &emsp;&emsp;[4.3.1 四次挥手过程](#chapter-four-three-one) |
+| &emsp;&emsp;[4.3.2 问题：为什么需要四次挥手](#chapter-four-three-two) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 TCP 和 UDP 的区别](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 参考文献](#chapter-six) |
 <!-- 目录结束 -->
@@ -76,7 +78,9 @@ TCP
 * 确认双方的接收能力和发送能力
 * 指定自己的初始化序列号，为后面的可靠性做准备
 
-三次握手过程：
+#### <a name="chapter-four-one-one" id="chapter-four-one-one"></a>4.1.1 三次握手过程
+
+> [返回目录](#chapter-one)
 
 刚开始客户端处于 Closed 的状态，服务器处于 Listen 状态。
 
@@ -86,7 +90,7 @@ TCP
 
 ![图](https://pic3.zhimg.com/80/v2-2a54823bd63e16674874aa46a67c6c72_720w.jpg)
 
-#### <a name="chapter-four-one-one" id="chapter-four-one-one"></a>4.1.1 问题：两次握手不行吗？
+#### <a name="chapter-four-one-two" id="chapter-four-one-two"></a>4.1.2 问题：两次握手不行吗？
 
 > [返回目录](#chapter-one)
 
@@ -106,7 +110,7 @@ TCP
 
 所以才需要三次握手而不是两次握手。
 
-#### <a name="chapter-four-one-two" id="chapter-four-one-two"></a>4.1.2 问题：三次握手过程中可以携带数据吗？
+#### <a name="chapter-four-one-three" id="chapter-four-one-three"></a>4.1.3 问题：三次握手过程中可以携带数据吗？
 
 > [返回目录](#chapter-one)
 
@@ -134,7 +138,9 @@ TCP
 
 数据传输完毕之后，需要终止连接，通过 **四次挥手** 来保证双方都能断开连接。
 
-什么是四次挥手：
+#### <a name="chapter-four-three-one" id="chapter-four-three-one"></a>4.3.1 四次挥手过程
+
+> [返回目录](#chapter-one)
 
 * **客户端** 发送一个 `FIN`，表示需要关闭客户端和服务器的数据传输。此时客户端处于 `FIN_WAIT` 状态。
 * **服务器** 收到 `FIN`，返回 `ACK` 报文，且把客户端的序列号值 + 1 作为 ACK 报文的序列号值，表示已经收到客户端的报文了。此时服务器处于 `CLOST_WAIT` 状态。
@@ -143,7 +149,7 @@ TCP
 
 ![图](https://pic2.zhimg.com/80/v2-c7d4b5aca66560365593f57385ce9fa9_720w.jpg)
 
-#### <a name="chapter-four-three-one" id="chapter-four-three-one"></a>4.3.1 问题：为什么需要四次挥手
+#### <a name="chapter-four-three-two" id="chapter-four-three-two"></a>4.3.2 问题：为什么需要四次挥手
 
 > [返回目录](#chapter-one)
 
