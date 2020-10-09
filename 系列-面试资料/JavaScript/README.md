@@ -43,7 +43,7 @@ JavaScript 资料整理
   * [x] 防抖和节流
   * [ ] call+bind+apply
   * [x] JSONP
-* [ ] DOM
+* [x] DOM
   * [x] DOM 常用 API
   * [x] 虚拟 DOM：浏览器渲染过程 -> 真实 DOM 和虚拟 DOM -> Diff 算法
 
@@ -76,7 +76,6 @@ JavaScript 资料整理
 
 ### 精选
 
-* [ ] [JavaScript 工具函数大全（新）](https://juejin.im/post/6844903966526930951)
 * [x] [总结了17年初到18年初百场前端面试的面试经验(含答案)](https://juejin.im/post/6844903636271644680)【阅读建议：1h30min】
 
 ### 系统
@@ -102,24 +101,35 @@ JavaScript 资料整理
 
 ### 执行上下文/作用域链/闭包
 
-* [ ] [理解 JavaScript 中的执行上下文和执行栈](https://juejin.im/post/5ba32171f265da0ab719a6d7)
-* [ ] [JavaScript深入之执行上下文栈](https://github.com/mqyqingfeng/Blog/issues/4)
-* [ ] [一道js面试题引发的思考](https://github.com/kuitos/kuitos.github.io/issues/18)
-* [ ] [JavaScript深入之词法作用域和动态作用域](https://github.com/mqyqingfeng/Blog/issues/3)
-* [ ] [JavaScript深入之作用域链](https://github.com/mqyqingfeng/Blog/issues/6)
-* [ ] [发现 JavaScript 中闭包的强大威力](https://juejin.im/post/5c4e6a90e51d4552266576d2)
-* [ ] [JavaScript闭包的底层运行机制](http://blog.leapoahead.com/2015/09/15/js-closure/)
-* [ ] [我从来不理解JavaScript闭包，直到有人这样向我解释它...](https://zhuanlan.zhihu.com/p/56490498)
-* [ ] [破解前端面试（80% 应聘者不及格系列）：从闭包说起](https://juejin.im/post/58f1fa6a44d904006cf25d22#heading-0)
-* [ ] [破解前端面试（80% 应聘者不及格系列）：从闭包说起](https://juejin.im/post/6844903474212143117)
+* [x] [理解 JavaScript 中的执行上下文和执行栈](https://juejin.im/post/5ba32171f265da0ab719a6d7)【阅读建议：20min】
+* [x] [JavaScript深入之执行上下文栈](https://github.com/mqyqingfeng/Blog/issues/4)【阅读建议：10min】
+* [x] [一道js面试题引发的思考](https://github.com/kuitos/kuitos.github.io/issues/18)【阅读建议：10min】
+* [x] [JavaScript深入之词法作用域和动态作用域](https://github.com/mqyqingfeng/Blog/issues/3)【阅读建议：10min】
+* [x] [JavaScript深入之作用域链](https://github.com/mqyqingfeng/Blog/issues/6)【阅读建议：10min】
+* [x] [发现 JavaScript 中闭包的强大威力](https://juejin.im/post/5c4e6a90e51d4552266576d2)【阅读建议：10min】
+* [x] [JavaScript闭包的底层运行机制](http://blog.leapoahead.com/2015/09/15/js-closure/)【阅读建议：20min】
+* [x] [我从来不理解JavaScript闭包，直到有人这样向我解释它...](https://zhuanlan.zhihu.com/p/56490498)【阅读建议：10min】
+* [x] [破解前端面试（80% 应聘者不及格系列）：从闭包说起](https://juejin.im/post/6844903474212143117)【阅读建议：10min】
+* [x] [详解JS函数柯里化](https://www.jianshu.com/p/2975c25e4d71)【阅读建议：20min】
+* [x] [编写add函数 然后 add(1)(2)(3)(4) 输出10 再考虑拓展性](https://beta.segmentfault.com/q/1010000004342477/a-1020000004344356)【阅读建议：10min】
 
-### this/call/apply/bind
+### this
+
+* [x] [11 | this：从JavaScript执行上下文的视角讲清楚this](https://time.geekbang.org/column/article/128427)【阅读建议：2hour】
+* [x] [浅谈react 中的 this 指向](https://www.jianshu.com/p/159eabf152d0)【阅读建议：10min】
+* [x] [react的性能优化](https://note.youdao.com/ynoteshare1/index.html?id=3d64b603405bcbb2c3cad3f750e5341d&type=note)【阅读建议：5min】
+* [x] [React事件处理函数必须使用bind(this)的原因](https://blog.csdn.net/qq_34829447/article/details/81705977)【阅读建议：10min】
+* [x] [由React构造函数中bind引起的this指向理解（React组件的方法为什么要用bind绑定this）](https://blog.csdn.net/AiHuanhuan110/article/details/106424812)【阅读建议：20min】
+* [x] [React中this.handleClick = this.handleClick.bind(this)中的this指向问题](https://blog.csdn.net/yiersan__/article/details/108004911)【阅读建议：10min】
+
+### call/apply/bind
 
 已抽取分离
 
 ### 原型/继承
 
-* [ ] [深入理解 JavaScript 原型](https://mp.weixin.qq.com/s/1UDILezroK5wrcK-Z5bHOg)
+* [x] [深入理解 JavaScript 原型](https://mp.weixin.qq.com/s/1UDILezroK5wrcK-Z5bHOg)【阅读建议：1h】
+* [ ] [【何不三连】比继承家业还要简单的JS继承题-封装篇(牛刀小试)](https://juejin.im/post/6844904094948130824)
 * [ ] [【THE LAST TIME】一文吃透所有JS原型相关知识点](https://juejin.im/post/5dba456d518825721048bce9)
 * [ ] [重新认识构造函数、原型和原型链](https://juejin.im/post/5c6a9c10f265da2db87b98f3)
 * [ ] [JavaScript深入之从原型到原型链](https://github.com/mqyqingfeng/blog/issues/2)
@@ -242,6 +252,7 @@ JavaScript 资料整理
 * [ ] [前端将数据转化为弹幕效果的实现方式](https://juejin.im/post/6844903600636821518)
 * [ ] [浅谈 instanceof 和 typeof 的实现原理](https://juejin.im/post/6844903613584654344)
 * [ ] [前端性能相关：防抖、节流](https://juejin.im/entry/6844903592898330638)
+* [ ] [7分钟理解JS的节流、防抖及使用场景](https://juejin.im/post/5b8de829f265da43623c4261)
 * [ ] [7种方法实现数组去重](https://juejin.im/post/6844903602197102605)
 * [ ] [如何实现一个HTTP请求库——axios源码阅读与分析](https://juejin.im/post/6844903602280988686)
 * [ ] [面试官:既然React/Vue可以用Event Bus进行组件通信,你可以实现下吗?](https://juejin.im/post/6844903587043082247)
@@ -262,7 +273,6 @@ JavaScript 资料整理
 * [ ] [前端路由原理解析和实现](https://juejin.im/post/6844903842643968014)
 * [ ] [正则表达式不要背](https://juejin.im/post/6844903845227659271)
 * [ ] [前端必知必会--操作URL的黑科技](https://juejin.im/post/6844903865767165959)
-* [ ] [送你43道JavaScript面试题](https://juejin.im/post/6844903869378461710)
 * [ ] [一篇不是标题党的CommonJS和ES6模块规范讲解](https://juejin.im/post/6844904145443356680)
 
 ---
