@@ -158,41 +158,6 @@ String(1234567890).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 暂时性死区
-
-> [返回目录](#chapter-one)
-
-下面代码输出什么？
-
-```js
-let a = 1;
-let test = function() {
-  console.log(a);
-  a++;
-}
-test();
-```
-
-下面代码输出什么？
-
-```js
-let a = 1;
-let test = function() {
-  console.log(a);
-  let a = 2;
-  a++;
-}
-test();
-```
-
----
-
-第一道题输出：`1`
-
-第二道题输出：`Uncaught ReferenceError: Cannot access 'a' before initialization`
-
-其原因是在同一个 `block` 中，`let` 在后面重新定义的，那么就不能在之前引用该变量。同时，也不能取嵌套外层的值。
-
 ### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 遍历问题
 
 > [返回目录](#chapter-one)
@@ -274,6 +239,118 @@ for (let i = 0; i < 5; i++) {
 1. `let i` 使 `for` 形成块级作用域。
 2. `requestAnimationFrame` 类似于 `setTimeout`，但是它可以当成一个微任务来看，是在微任务队列执行完毕后，执行 UI 渲染前，调用的一个方法。
 3. 因此，这道题并不是指 `requestAnimationFrame` 会收集 `i`，而是 `let` 形成了块级作用域的问题，如果改成 `var i`，照样输出 5 个 `5`。
+
+## 题目 - 变量提升
+
+### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 暂时性死区
+
+> [返回目录](#chapter-one)
+
+1、下面代码输出什么？
+
+```js
+let a = 1;
+let test = function() {
+  console.log(a);
+  a++;
+}
+test();
+```
+
+2、下面代码输出什么？
+
+```js
+let a = 1;
+let test = function() {
+  console.log(a);
+  let a = 2;
+  a++;
+}
+test();
+```
+
+---
+
+第一道题输出：`1`
+
+第二道题输出：`Uncaught ReferenceError: Cannot access 'a' before initialization`
+
+其原因是在同一个 `block` 中，`let` 在后面重新定义的，那么就不能在之前引用该变量。同时，也不能取嵌套外层的值。
+
+### 输出打印结果
+
+```js
+function sayHi() {
+  console.log(name);
+  console.log(age);
+  var name = "Lydia";
+  let age = 21;
+}
+
+sayHi();
+```
+
+上面代码输出结果？
+
+---
+
+答案：undefined、报错
+
+这道题转变一下就看明白了：
+
+```js
+function sayHi() {
+  var name; // 变量提升 - 变量声明
+  console.log(name); // undefined
+  console.log(age); // let 存在暂时性死区，不会变量提升
+  name = "Lydia"; // 变量提升 - 变量赋值
+  let age = 21;
+}
+
+sayHi();
+```
+
+### Event Loop
+
+```js
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
+}
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
+}
+```
+
+上面代码输出结果？
+
+---
+
+第一道题目：`var` 在 `for` 中存在变量污染，同步代码 `for` 执行完毕之后，再执行宏任务 `setTimeout`，发现当前 `i` 都成为 `3` 了，所以输出 `3、3、3`
+
+第二道题目：`let` 在 `for` 中会形成块级作用域，每次迭代的时候 `i` 都是一个新值，并且每个值都存在于循环内的块级作用域，所以输出 `0、1、2`
+
+### 输出打印结果
+
+```js
+function myFunc() {
+  console.log(a);
+  console.log(func());
+
+  var a = 1;
+  function func() {
+    return 2;
+  }
+}
+
+myFunc();
+```
+
+请问输出啥？
+
+---
+
+答案：`undefined` `2`
 
 ---
 
