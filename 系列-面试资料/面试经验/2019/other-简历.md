@@ -6,7 +6,7 @@
 
 **Hello 小伙伴们，如果觉得本文还不错，记得给个 **star**，或者关注一波公众号，每天进行折腾，保持自己的最高价值！[GitHub 地址](https://github.com/LiangJunrong/document-library)**
 
-![图](../../../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
 
 六月飞霜，对于现在毕业等于失业的广大应届生，或者各种原因出来了想找份 “好” 工作的大佬来说，这无疑是个尴尬的季节，大部分公司的坑位已经被占满，奈何身有丈八法威而跨不过小小门槛……
 
@@ -90,7 +90,7 @@ OK，话不多说，本篇文章内容主题为：
 
 那么，我们还是参考下一个小伙伴的基本资料：
 
-![图](../../../../public-repertory/img/other-interview-resume-1.png)
+![图](../../../public-repertory/img/other-interview-resume-1.png)
 
 ### <a name="chapter-three-two" id="chapter-three-two">3.2 专业技能</a>
 
@@ -143,7 +143,7 @@ OK，话不多说，本篇文章内容主题为：
 
 直接看相关例子：
 
-![图](../../../../public-repertory/img/other-interview-resume-2.png)
+![图](../../../public-repertory/img/other-interview-resume-2.png)
 
 当然，需要强调的是：
 
@@ -168,7 +168,7 @@ OK，话不多说，本篇文章内容主题为：
 
 **然后**，小伙伴们可以再看看具体的：
 
-![图](../../../../public-repertory/img/other-interview-resume-3.png)
+![图](../../../public-repertory/img/other-interview-resume-3.png)
 
 当然，这里是小伙伴在 **jsliang** 的建议下，先放了个 **难点** 填坑，还没有具体写 **难点** 在哪。
 
@@ -196,7 +196,7 @@ OK，话不多说，本篇文章内容主题为：
 
 **jsliang** 自认为是比较渣的一个人，连四级都没过，所以只要有证书的，都填写上去，尽管不显眼，但是看起来多：
 
-![图](../../../../public-repertory/img/other-interview-resume-4.png)
+![图](../../../public-repertory/img/other-interview-resume-4.png)
 
 另外，只能写 **国家级** 证书，什么 **校三好学生** 之类的就算了。
 
@@ -210,9 +210,9 @@ OK，话不多说，本篇文章内容主题为：
 
 关于自我评价，那就是见仁见智了，如果小伙伴还是比价喜欢折腾的，那么，把你折腾的东西 show 出来吧！
 
-![图](../../../../public-repertory/img/other-interview-resume-5.png)
+![图](../../../public-repertory/img/other-interview-resume-5.png)
 
-![图](../../../../public-repertory/img/other-interview-resume-6.png)
+![图](../../../public-repertory/img/other-interview-resume-6.png)
 
 当然，这是 2019 年 3 月份的简历了，掘金 和 GitHub 的增长，好像不止这个了……
 
@@ -268,7 +268,7 @@ OK，话不多说，本篇文章内容主题为：
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-![图](../../../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
 
 **jsliang** 会每天在公众号发表一篇文章，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构等等。
 
