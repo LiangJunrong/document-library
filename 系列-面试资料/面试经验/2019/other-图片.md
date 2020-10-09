@@ -296,7 +296,7 @@ WebP 像 JPEG 一样对图片细节丰富，像 PNG 一样支持透明，像 GIF
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-![图](../../../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
 
 **jsliang** 会每天在公众号发表一篇文章，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构等等。
 
