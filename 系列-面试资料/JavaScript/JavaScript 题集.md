@@ -240,7 +240,7 @@ for (let i = 0; i < 5; i++) {
 2. `requestAnimationFrame` 类似于 `setTimeout`，但是它可以当成一个微任务来看，是在微任务队列执行完毕后，执行 UI 渲染前，调用的一个方法。
 3. 因此，这道题并不是指 `requestAnimationFrame` 会收集 `i`，而是 `let` 形成了块级作用域的问题，如果改成 `var i`，照样输出 5 个 `5`。
 
-## 题目 - 变量提升
+## 题目 - 变量问题
 
 ### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 暂时性死区
 
@@ -310,6 +310,28 @@ function sayHi() {
 sayHi();
 ```
 
+### 输出打印结果
+
+```js
+function myFunc() {
+  console.log(a);
+  console.log(func());
+
+  var a = 1;
+  function func() {
+    return 2;
+  }
+}
+
+myFunc();
+```
+
+请问输出啥？
+
+---
+
+答案：`undefined` `2`
+
 ### Event Loop
 
 ```js
@@ -333,24 +355,35 @@ for (let i = 0; i < 3; i++) {
 ### 输出打印结果
 
 ```js
-function myFunc() {
-  console.log(a);
-  console.log(func());
+let date = new Date();
 
-  var a = 1;
-  function func() {
-    return 2;
-  }
+for (var i = 0; i < 5; i++) {
+  setTimeout(function() {
+    console.log(new Date - date, i); // 1
+  }, 1000);
 }
 
-myFunc();
+console.log(new Date - date, i); // 2
 ```
 
 请问输出啥？
 
 ---
 
-答案：`undefined` `2`
+答案：
+
+```
+0 5
+1001 5
+1004 5
+1005 5
+1006 5
+1007 5
+```
+
+解析：题目先走宏任务 `script`，所以定义了 `date` 之后，执行注释为 2 这行的 `console`。
+
+然后 5 个宏任务，都是定时器 `setTimeout`，所以会在之后执行，输出：`1000 5`，但是定时器也不一定准时的，所以有可能是 `1001`、`1002` 或者其他的。
 
 ---
 
