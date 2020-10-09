@@ -185,7 +185,7 @@ F.b => value b
 
 原型和原型链估计是老生常谈的话题了，但是还是有很多小白（例如 **jsliang** 自己）就时常懵逼在这里。
 
-![图](../../../../public-repertory/img/other-interview-1-prototype.png)
+![图](../../../public-repertory/img/other-interview-1-prototype.png)
 
 > 首图祭祖，让暴风雨来得更猛烈些吧！
 
@@ -256,7 +256,7 @@ console.log(p1.eat === p2.eat); // true
 
 孩子没娘，说来话长。首先我们要从 JavaScript 这玩意的诞生说起，但是放这里的话，故事主线就太长了，所以这里有个本文的剧场版[《JavaScript 世界万物诞生记》](https://zhuanlan.zhihu.com/p/22989691)，感兴趣的小伙伴可以去了解一下。这里我们还是看图，并回归本话题：
 
-![图](../../../../public-repertory/img/other-interview-2-prototype.png)
+![图](../../../public-repertory/img/other-interview-2-prototype.png)
 
 * JS 说，我好寂寞。因为 JS 的本源是空的，即：null。
 * JS 说，要有神。所以它通过万能术 `__proto__` 产生了 No1 这号神，即：`No1.__proto__ == null`。
@@ -767,7 +767,7 @@ thingOne.action();
 
 **不折腾的前端，和咸鱼有什么区别！**
 
-![图](../../../../public-repertory/img/z-small-wechat-public-address.jpg)
+![图](../../../public-repertory/img/z-small-wechat-public-address.jpg)
 
 **jsliang** 会每天在公众号发表一篇文章，从而帮助小伙伴们夯实原生 JS 基础，了解与学习算法与数据结构等等。
 
