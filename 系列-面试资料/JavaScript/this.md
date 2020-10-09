@@ -2,7 +2,7 @@ this
 ===
 
 > Create by **jsliang** on **2020-09-30 21:20:15**  
-> Recently revised in **2020-10-06 20:03:20**
+> Recently revised in **2020-10-09 16:43:03**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -31,6 +31,7 @@ this
 | <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 小结](#chapter-seven) |
 | <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 题目](#chapter-eight) |
 | &emsp;[8.1 指向问题](#chapter-eight-one) |
+| &emsp;[8.2 阐述题](#chapter-eight-two) |
 | <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 参考文献](#chapter-night) |
 <!-- 目录结束 -->
 
@@ -535,6 +536,8 @@ handleClick2 = () => {
 
 * 这 4 种方法的比对其实是有误的，普通对象没法跟类做对比
 
+当然，**jsliang** 还是想列举出来，具体结论，相信后面有机会会逐步解答内心疑惑。
+
 ### <a name="chapter-six-five" id="chapter-six-five"></a>6.5 另一种解释
 
 > [返回目录](#chapter-one)
@@ -680,7 +683,39 @@ export default App;
 * 当函数被正常调用时，在严格模式下，`this` 值是 `undefined`，非严格模式下 `this` 指向的是全局对象 `window`；
 * 嵌套函数中的 `this` 不会继承外层函数的 `this` 值。
 
-思考：
+## <a name="chapter-eight" id="chapter-eight"></a>八 题目
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-eight-one" id="chapter-eight-one"></a>8.1 指向问题
+
+> [返回目录](#chapter-one)
+
+```js
+function Foo() {
+  'use strict'
+  console.log(this.location);
+}
+
+Foo();
+```
+
+请选择：
+
+* A：当前窗口的 `Location` 对象
+* B：`undefined`
+* C：`null`
+* D：`TypeError`
+
+---
+
+答案：D
+
+解析：如果没有 `use strict`，那么选 A；如果是严格模式，那就是 D，严格模式下禁止 `this` 关键字指向全局对象。
+
+### <a name="chapter-eight-two" id="chapter-eight-two"></a>8.2 阐述题
+
+> [返回目录](#chapter-one)
 
 ```js
 let userInfo = {
@@ -711,37 +746,9 @@ userInfo.updateInfo();
 }
 ```
 
-答案：`setTimeout(() => {})` 即可。
-
-## <a name="chapter-eight" id="chapter-eight"></a>八 题目
-
-> [返回目录](#chapter-one)
-
-### <a name="chapter-eight-one" id="chapter-eight-one"></a>8.1 指向问题
-
-> [返回目录](#chapter-one)
-
-```js
-function Foo() {
-  'use strict'
-  console.log(this.location);
-}
-
-Foo();
-```
-
-请选择：
-
-* A：当前窗口的 `Location` 对象
-* B：`undefined`
-* C：`null`
-* D：`TypeError`
-
 ---
 
-答案：D
-
-解析：如果没有 `use strict`，那么选 A；如果是严格模式，那就是 D，严格模式下禁止 `this` 关键字指向全局对象。
+答案：`setTimeout(() => {})` 即可。
 
 ## <a name="chapter-night" id="chapter-night"></a>九 参考文献
 
