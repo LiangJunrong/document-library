@@ -31,8 +31,8 @@
 
 关于简历这块，**jsliang** 2019 年做过整理，然后今年（2020）再度进行了整理，欢迎对比参照：
 
-* [2019 简历](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/2019%20%E7%AE%80%E5%8E%86.md)
-* [2020 简历](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/2020%20%E7%AE%80%E5%8E%86.md)
+* [2019 简历](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/2019%20%E7%AE%80%E5%8E%86.md)
+* [2020 简历](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/2020%20%E7%AE%80%E5%8E%86.md)
 
 ## <a name="chapter-four" id="chapter-four"></a>四 面试过程
 
