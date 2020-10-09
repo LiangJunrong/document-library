@@ -17,22 +17,21 @@
 
 > [返回目录](#chapter-one)
 
-### 系列
+### 精读系列
 
-* [ ] [面试官系列(1): 如何实现深克隆](https://juejin.im/post/6844903584023183368)
-* [ ] [面试官系列(2): Event Bus的实现](https://juejin.im/post/6844903587043082247)
-* [ ] [面试官系列(3): 前端路由的实现](https://juejin.im/post/6844903589123457031)
-* [ ] [面试官系列(4): 基于Proxy 数据劫持的双向绑定优势所在](https://juejin.im/post/6844903601416978439)
-* [ ] [面试官系列(5): 你为什么使用前端框架](https://juejin.im/post/6844903617342734344)
-* [ ] [面试官系列(6): 写过『通用前端组件』吗?](https://juejin.im/post/6844903847874265101)
+* [x] [面试官系列(1): 如何实现深克隆](https://juejin.im/post/6844903584023183368)【阅读建议：30min】
+* [x] [面试官系列(2): Event Bus的实现](https://juejin.im/post/6844903587043082247)【阅读建议：30min】
+* [x] [面试官系列(3): 前端路由的实现](https://juejin.im/post/6844903589123457031)【阅读建议：30min】
+* [x] [面试官系列(4): 基于Proxy 数据劫持的双向绑定优势所在](https://juejin.im/post/6844903601416978439)【阅读建议：1h】
+* [x] [面试官系列(5): 你为什么使用前端框架](https://juejin.im/post/6844903617342734344)【阅读建议：30min】
+* [x] [面试官系列(6): 写过『通用前端组件』吗?](https://juejin.im/post/6844903847874265101)【阅读建议：1h】
 
-### 杂
+### 其他资料
 
-* [ ] [预测最近面试会考 Cookie 的 SameSite 属性](https://juejin.im/post/5e718ecc6fb9a07cda098c2d)
-* [ ] [探索 Serverless 中的前端开发模式](https://juejin.im/post/5cdc3dc2e51d453b6c1d9d3a)
+* [x] [预测最近面试会考 Cookie 的 SameSite 属性](https://juejin.im/post/5e718ecc6fb9a07cda098c2d)【阅读建议：30min】
+* [x] [探索 Serverless 中的前端开发模式](https://juejin.im/post/5cdc3dc2e51d453b6c1d9d3a)【阅读建议：1h】
 * [ ] [「NGW」前端新技术赛场：Serverless SSR 技术内幕](https://juejin.im/post/5dce7140f265da0bf80b5246?utm_source=gold_browser_extension)
 * [ ] [JavaScript与Unicode](https://cjting.me/web2.0/js-and-unicode/)
-* [ ] [7分钟理解JS的节流、防抖及使用场景](https://juejin.im/post/5b8de829f265da43623c4261)
 * [ ] [Different Types Of Observers Supported By Modern Browsers](https://www.zeolearn.com/magazine/different-types-of-observers-supported-by-modern-browsers)
 * [ ] [四月前端知识集锦](https://juejin.im/post/6844903600926228493)
 * [ ] [web 项目如何进行 git 多人协作开发](https://segmentfault.com/a/1190000018165757)
