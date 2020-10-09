@@ -68,8 +68,8 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 
 这个过程可以看看，详细的就不一一讲解了，不懂的去看 **jsliang** 的文章：
 
-* [浏览器 - 浏览器缓存](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.md)
-* [计算机网络 - DNS](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/DNS.md)
+* [浏览器 - 浏览器缓存](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.md)
+* [计算机网络 - DNS](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/DNS.md)
 
 ## <a name="chapter-five" id="chapter-five"></a>五 TCP 连接
 
@@ -81,7 +81,7 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 
 如果 3 次握手和 4 次挥手你不懂过程，详细可以看 **jsliang** 的文章：
 
-* [计算机网络 - TCP](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/TCP.md)
+* [计算机网络 - TCP](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/TCP.md)
 
 ## <a name="chapter-six" id="chapter-six"></a>六 发送 HTTP 请求
 
@@ -137,7 +137,7 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 
 如果不知道，详细可看：
 
-* [浏览器 - 回流和重绘](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98.md)
+* [浏览器 - 回流和重绘](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E6%B5%8F%E8%A7%88%E5%99%A8/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98.md)
 
 ## <a name="chapter-night" id="chapter-night"></a>九 其他问题及优化
 
@@ -154,7 +154,7 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 
 当然，为了加深印象，可以看 **jsliang** 整理的文章：
 
-* [浏览器 - 性能优化](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.md)
+* [浏览器 - 性能优化](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.md)
 
 ### <a name="chapter-night-one" id="chapter-night-one"></a>9.1 渲染过程碰到 JS 文件怎么处理？
 
