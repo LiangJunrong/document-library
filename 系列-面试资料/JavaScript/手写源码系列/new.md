@@ -54,6 +54,32 @@ console.log(window.name); // 输出啥？
 
 ```js
 function myNew(func, ...args) {
+  if (typeof func !== 'function') {
+    throw '第一个参数必须是方法体';
+  }
+
+  const obj = {};
+  obj.__proto__ = Object.create(func.prototype);
+
+  let result = func.apply(obj, args);
+
+  const isObject = typeof result === 'object' && typeof result !== null;
+  const isFunction = typeof result === 'function';
+
+  return isObject || isFunction ? result : obj;
+}
+```
+
+1. **第一个参数必须是个函数**。`const person = new Person()`，但是我们搞不了原汁原味的，那就变成 `const person = myNew(Person)`。
+2. **原型链继承**。我们新建一个对象 `obj`，这个 `obj` 的 `__proto__` 指向 `func` 的原型 `prototype`，即 `obj.__proto__ === func.prototype`。
+3. **修正 `this` 指向**。通过 `apply` 绑定 `obj` 和 `func` 的关系，并且将参数作为一个数组传递进去（方法体定义已经将剩余参数解构为数组）
+4. **判断构造函数是否返回 `Object` 或者 `Function`**。`typeof` 判断 `object` 需要排除 `null`，因为 `typeof null === object`。
+5. **非函数和对象返回新创建的对象，否则返回构造函数的 `return` 值**。
+
+下面贴一下详尽注释：
+
+```js
+function myNew(func, ...args) {
   // 1. 判断方法体
   if (typeof func !== 'function') {
     throw '第一个参数必须是方法体';
