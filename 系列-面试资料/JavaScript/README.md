@@ -2,7 +2,7 @@ JavaScript 资料整理
 ===
 
 > Create by **jsliang** on **2020-09-01 20:50:29**  
-> Recently revised in **2020-09-29 08:43:15**
+> Recently revised in **2020-10-12 00:12:19**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -46,6 +46,30 @@ JavaScript 资料整理
 * [x] DOM
   * [x] DOM 常用 API
   * [x] 虚拟 DOM：浏览器渲染过程 -> 真实 DOM 和虚拟 DOM -> Diff 算法
+
+### 原型和原型链
+
+* [x] [原型和原型链](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
+* [x] 构造函数 `funciton Person() {}`
+* [x] 实例 `const person = new Person()`
+* [x] 原型 `Person.prototype`
+* [x] 隐藏属性 `constructor`
+  * [x] 等式 1：`person.constructor === Person`
+  * [x] 等式 2：`Person.prototype.constructor === Person`
+* [x] `new`
+  * [x] `new` 的原生例子
+  * [x] 手写 `new`：判断首参为函数；通过 `Object.create()` 创建新对象并且绑定原型链；通过 `call` 或者 `apply` 修正 `this` 指向和传参；通过 `typeof` 判断函数对象和普通对象；函数对象和普通对象返回构造函数的 `return` 值，否则返回新对象
+  * [x] 通过对手写 `new` 过程的了解来做题
+* [x] 查找实例对应的对象的原型 `person.__proto__ === Person.prototype`
+* [x] 函数对象指向
+  * [x] `person.__proto__ === Person.prototype`
+  * [x] `Person.__proto__ === Function.prototype`
+* [x] 普通对象指向
+  * [x] `obj.__proto__ === Object.prototype`
+* [x] 原型链
+  * [x] `foo.__proto__ === Object.prototype`
+  * [x] `F.__proto__ === Function.prototype`
+  * [x] `F.__proto__.__proto__ === Object.prototype`
 
 待复习：
 
@@ -128,19 +152,17 @@ JavaScript 资料整理
 
 ### 原型/继承
 
+* [x] [jsliang 2019 面试 - JavaScript-原型与原型链](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/2019/JavaScript-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)【阅读建议：1h】
+* [x] [【何不三连】比继承家业还要简单的JS继承题-封装篇(牛刀小试)](https://juejin.im/post/6844904094948130824)【阅读建议：2h】
 * [x] [深入理解 JavaScript 原型](https://mp.weixin.qq.com/s/1UDILezroK5wrcK-Z5bHOg)【阅读建议：1h】
-* [ ] [【何不三连】比继承家业还要简单的JS继承题-封装篇(牛刀小试)](https://juejin.im/post/6844904094948130824)
-* [ ] [【THE LAST TIME】一文吃透所有JS原型相关知识点](https://juejin.im/post/5dba456d518825721048bce9)
-* [ ] [JavaScript深入之从原型到原型链](https://github.com/mqyqingfeng/blog/issues/2)
-* [ ] [JavaScript 引擎基础：原型优化](https://hijiangtao.github.io/2018/08/21/Prototypes/)
-* [ ] [Prototypes in JavaScript](https://medium.com/better-programming/prototypes-in-javascript-5bba2990e04b)
-* [ ] [JavaScript深入之创建对象的多种方式以及优缺点](https://github.com/mqyqingfeng/Blog/issues/15)
-* [ ] [详解JS原型链与继承](http://louiszhai.github.io/2015/12/15/prototypeChain/)
-* [ ] [从proto和prototype来深入理解JS对象和原型链](https://github.com/creeperyang/blog/issues/9)
-* [ ] [代码复用模式](https://github.com/jayli/javascript-patterns/blob/master/chapter6.markdown)
-* [ ] [JavaScript 中的继承：ES3、ES5 和 ES6](http://tianfangye.com/2017/12/31/inheritance-in-javascript-es3-es5-and-es6/)
-* [ ] [JavaScript深入之从原型到原型链](https://github.com/mqyqingfeng/Blog/issues/2)
-* [ ] [深度解析原型中的各个难点](https://juejin.im/post/6844903575974313992)
+* [x] [【THE LAST TIME】一文吃透所有JS原型相关知识点](https://juejin.im/post/5dba456d518825721048bce9)【阅读建议：30min】
+* [x] [JavaScript深入之从原型到原型链](https://github.com/mqyqingfeng/blog/issues/2)【阅读建议：30min】
+* [x] [JavaScript深入之创建对象的多种方式以及优缺点](https://github.com/mqyqingfeng/Blog/issues/15)【阅读建议：10min】
+* [x] [JavaScript 引擎基础：原型优化](https://hijiangtao.github.io/2018/08/21/Prototypes/)【阅读建议：10min】
+* [x] [详解JS原型链与继承](http://louiszhai.github.io/2015/12/15/prototypeChain/)【阅读建议：30min】
+* [x] [从proto和prototype来深入理解JS对象和原型链](https://github.com/creeperyang/blog/issues/9)【阅读建议：10min】
+* [x] [代码复用模式](https://github.com/jayli/javascript-patterns/blob/master/chapter6.markdown)【阅读建议：10min】
+* [x] [深度解析原型中的各个难点](https://juejin.im/post/6844903575974313992)【阅读建议：10min】
 * [x] [最详尽的 JS 原型与原型链终极详解，没有「可能是」。（一）](https://www.jianshu.com/p/dee9f8b14771)【阅读建议：内容有些误导】
 * [x] [最详尽的 JS 原型与原型链终极详解，没有「可能是」。（二）](https://www.jianshu.com/p/652991a67186)【阅读建议：高程书摘取，经第一篇后不继续往后看】
 * [x] [最详尽的 JS 原型与原型链终极详解，没有「可能是」。（三）](https://www.jianshu.com/p/a4e1e7b6f4f8)【阅读建议：高程书摘取，经第一篇后不继续往后看】
