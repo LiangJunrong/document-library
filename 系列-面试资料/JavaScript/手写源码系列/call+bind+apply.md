@@ -78,19 +78,19 @@ console.log(food.name); // 'cheese'
 ```js
 Function.prototype.myCall = function(context = globalThis) {
   // 设置 fn 为调用 myCall 的方法
-  const fn = this;
+  context.fn = this;
 
   // 获取剩余参数
   const otherArg = Array.from(arguments).slice(1);
 
   // 调用这个方法，将剩余参数传递进去
-  fn(otherArg);
+  context.fn(otherArg);
 
   // 将这个方法的执行结果传给 result
-  let result = fn();
+  let result = context.fn();
 
   // 删除这个变量
-  delete fn;
+  delete context.fn;
 
   // 返回 result 结果
   return result;
@@ -113,20 +113,20 @@ fn.myCall(fn);
 ```js
 Function.prototype.myApply = function(context = globalThis, arr) {
   // 设置 fn 为调用 myCall 的方法
-  const fn = this;
+  context.fn = this;
 
   let result;
 
   // 如果存在参数，则传递进去
   // 将结果返回给 result
   if (arr) {
-    result = fn(arr);
+    result = context.fn(arr);
   } else { // 否则不传
-    result = fn();
+    result = context.fn();
   }
 
   // 删除这个变量
-  delete fn;
+  delete context.fn;
 
   // 返回 result 结果
   return result;
@@ -271,19 +271,19 @@ console.log(food.name); // 'cheese'
 ```js
 Function.prototype.myCall = function(context = globalThis) {
   // 设置 fn 为调用 myCall 的方法
-  const fn = this;
+  context.fn = this;
 
   // 获取剩余参数
   const otherArg = Array.from(arguments).slice(1);
 
   // 调用这个方法，将剩余参数传递进去
-  fn(otherArg);
+  context.fn(otherArg);
 
   // 将这个方法的执行结果传给 result
-  let result = fn();
+  let result = context.fn();
 
   // 删除这个变量
-  delete fn;
+  delete context.fn;
 
   // 返回 result 结果
   return result;
@@ -381,20 +381,20 @@ console.log(min); // 2
 ```js
 Function.prototype.myApply = function(context = globalThis, arr) {
   // 设置 fn 为调用 myCall 的方法
-  const fn = this;
+  context.fn = this;
 
   let result;
 
   // 如果存在参数，则传递进去
   // 将结果返回给 result
   if (arr) {
-    result = fn(arr);
+    result = context.fn(arr);
   } else { // 否则不传
-    result = fn();
+    result = context.fn();
   }
 
   // 删除这个变量
-  delete fn;
+  delete fcontext.fnn;
 
   // 返回 result 结果
   return result;
