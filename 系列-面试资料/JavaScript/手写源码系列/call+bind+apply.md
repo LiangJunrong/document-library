@@ -2,7 +2,7 @@ call + bind + apply
 ===
 
 > Create by **jsliang** on **2020-09-08 13:37:27**  
-> Recently revised in **2020-10-08 10:23:42**
+> Recently revised in **2020-10-12 15:37:52**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -15,48 +15,117 @@ call + bind + apply
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Arguments 对象](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 call](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 手写 call](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 apply](#chapter-six) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 手写 apply](#chapter-seven) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 bind](#chapter-eight) |
-| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 手写 bind](#chapter-night) |
-| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 题目](#chapter-ten) |
-| &emsp;[10.1 this 指向问题 1](#chapter-ten-one) |
-| &emsp;[10.2 this 指向问题 2](#chapter-ten-two) |
+| &emsp;[4.1 原生 call](#chapter-four-one) |
+| &emsp;[4.2 手写 call](#chapter-four-two) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 apply](#chapter-five) |
+| &emsp;[5.1 原生 apply](#chapter-five-one) |
+| &emsp;[5.2 手写 apply](#chapter-five-two) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 bind](#chapter-six) |
+| &emsp;[6.1 原生 bind](#chapter-six-one) |
+| &emsp;[6.2 手写 bind](#chapter-six-two) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 题目](#chapter-seven) |
+| &emsp;[7.1 this 指向问题 1](#chapter-seven-one) |
+| &emsp;[7.2 this 指向问题 2](#chapter-seven-two) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 参考文献](#chapter-eight) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
-`call`、`bind`、`apply` 区别：
+面试官：手写一个 `call/apply/bind`。
 
-* `call` 可以改变函数指向，第一个参数是要改变指向的对象，之后的参数形式是 `arg1, arg2...` 的形式
-* `apply` 同 `call`，不同点在于第二个参数是一个数组
-* `bind` 改变 `this` 作用域会返回一个新的函数，这个函数不会马上执行
+工欲善其事，必先利其器，我们先了解一下这 3 者有什么区别：
 
-参考：
+```js
+function Product (name, price) {
+  this.name = name;
+  this.price = price;
+}
 
-* [x] [MDN - Arguments](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments)【阅读建议：5min】
-* [x] [MDN - call](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)【阅读建议：5min】
-* [x] [MDN - apply](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)【阅读建议：5min】
-* [x] [MDN - bind](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)【阅读建议：5min】
-* [x] [JavaScript深入之call和apply的模拟实现](https://github.com/mqyqingfeng/Blog/issues/11)【阅读建议：10min】
-* [ ] [再来40道this面试题酸爽继续](https://juejin.im/post/6844904083707396109)
-* [ ] [this、apply、call、bind](https://juejin.im/post/6844903496253177863)
-* [ ] [面试官问：JS的this指向](https://juejin.im/post/5c0c87b35188252e8966c78a)
-* [ ] [面试官问：能否模拟实现JS的call和apply方法](https://juejin.im/post/5bf6c79bf265da6142738b29)
-* [ ] [面试官问：能否模拟实现JS的bind方法](https://juejin.im/post/5bec4183f265da616b1044d7)
-* [ ] [JavaScript基础心法——this](https://github.com/axuebin/articles/issues/6)
-* [ ] [JavaScript深入之从ECMAScript规范解读this](https://github.com/mqyqingfeng/Blog/issues/7)
-* [ ] [前端基础进阶（七）：全方位解读this](https://www.jianshu.com/p/d647aa6d1ae6)
-* [ ] [JavaScript深入之call和apply的模拟实现](https://juejin.im/post/5907eb99570c3500582ca23c)
-* [ ] [JavaScript基础心法—— call apply bind](https://github.com/axuebin/articles/issues/7)
-* [ ] [回味JS基础:call apply 与 bind](https://juejin.im/post/57dc97f35bbb50005e5b39bd)
-* [ ] [不用call和apply方法模拟实现ES5的bind方法](https://github.com/jawil/blog/issues/16)
-* [ ] [JavaScript中的this](https://juejin.im/post/59748cbb6fb9a06bb21ae36d)
-* [ ] [this,this,再次讨论javascript中的this,超全面](https://www.cnblogs.com/painsOnline/p/5102359.html)
-* [ ] [JS中函数名后面的括号加与不加的区别和作用？](https://www.zhihu.com/question/31044040)
+function Food (name, price) {
+  Product.call(this, name, price);
+  this.category = 'food';
+}
+
+const food = new Food('cheese', 5);
+console.log(food.name); // 'cheese'
+```
+
+* `call`：可以改变函数指向，第一个参数是要改变指向的对象，之后的参数形式是 `arg1, arg2...` 的形式
+* `apply`：基本同 `call`，不同点在于第二个参数是一个数组 `[arg1, arg2...]`
+* `bind`：改变 `this` 作用域会返回一个新的函数，这个函数不会马上执行
+
+下面我们列一下今天的实现目标：
+
+* **手写 `call`**
+
+```js
+Function.prototype.myCall = function(context) {
+  // 设置 this 指向
+  const newContext = context || window;
+  newContext.fn = this;
+  
+  // 获取剩余参数
+  const otherArg = Array.from(arguments).slice(1); // 也可以 [...arguments].slice(1)
+  
+  // 调用这个函数
+  newContext.fn(otherArg);
+
+  // 设置我们即将返回的结果
+  const result = newContext.fn(otherArg);
+
+  // 删除 newContext
+  delete newContext;
+
+  // 返回结果值
+  return result;
+};
+```
+
+* **手写 `apply`**
+
+```js
+Function.prototype.myApply = function(context, arr) {
+  // 绑定 this
+  const newContext = context || window;
+  newContext.fn = this;
+
+  // 判断是否有参数
+  if (!arr) {
+    result = newContext.fn();
+  } else {
+    result = newContext.fn(arr);
+  }
+
+  // 删除这个元素
+  delete newContext;
+
+  // 返回结果
+  return result;
+};
+```
+
+* **手写 bind**
+
+```js
+Function.prototype.myBind = function (context = globalThis) {
+  const fn = this;
+  const args = Array.from(arguments).slice(1);
+  const newFunc = function () {
+    const newArgs = args.concat(...arguments);
+    if (this instanceof newFunc) {
+      fn.apply(this, newArgs);
+    } else {
+      fn.apply(context, newArgs);
+    }
+  };
+  newFunc.prototype = Object.create(fn.prototype);
+  return newFunc;
+};
+```
+
+OK，懂了么，我们发车继续深造~
 
 ## <a name="chapter-three" id="chapter-three"></a>三 Arguments 对象
 
@@ -94,6 +163,10 @@ var arg4 = [...arguments];
 
 > [返回目录](#chapter-one)
 
+### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 原生 call
+
+> [返回目录](#chapter-one)
+
 * [MDN - call](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
 
 `call()` 方法使用一个指定的 `this` 值和单独给出的一个或多个参数来调用一个函数。
@@ -119,7 +192,7 @@ const food = new Food('cheese', 5);
 console.log(food.name); // 'cheese'
 ```
 
-## <a name="chapter-five" id="chapter-five"></a>五 手写 call
+### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 手写 call
 
 > [返回目录](#chapter-one)
 
@@ -127,7 +200,7 @@ console.log(food.name); // 'cheese'
 
 1. 如果 `obj.call(null)`，那么 `this` 应该指向 `window`
 2. 如果 `obj1.call(obj2)`，那么谁调用它，`this` 指向谁
-3. `call` 可以传入多个参数，所以可以利用 `arguments` 这个字段来获取所有参数，然后转换数组后，去除第 1 个参数，获取其他的就行
+3. `call` 可以传入多个参数，所以可以利用 `arguments` 这个字段来获取所有参数。将 `arguments` 转换数组后，获取除第一个参数外的其他参数
 4. 设置一个变量，用完可以删掉它
 
 综上：
@@ -141,8 +214,12 @@ Function.prototype.myCall = function(context) {
   newContext.fn = this;
   
   // 获取剩余参数
-  const otherArg = Array.from(arguments).slice(1); // 也可以 [...arguments]
+  const otherArg = Array.from(arguments).slice(1); // 也可以 [...arguments].slice(1)
+  
+  // 调用这个函数
   newContext.fn(otherArg);
+
+  // 设置我们即将返回的结果
   const result = newContext.fn(otherArg);
 
   // 删除 newContext
@@ -202,7 +279,11 @@ Function.prototype.myCall = function(context) {
 </html>
 ```
 
-## <a name="chapter-six" id="chapter-six"></a>六 apply
+## <a name="chapter-five" id="chapter-five"></a>五 apply
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-five-one" id="chapter-five-one"></a>5.1 原生 apply
 
 > [返回目录](#chapter-one)
 
@@ -224,7 +305,7 @@ const min = Math.min.apply(null, numbers);
 console.log(min); // 2
 ```
 
-## <a name="chapter-seven" id="chapter-seven"></a>七 手写 apply
+### <a name="chapter-five-two" id="chapter-five-two"></a>5.2 手写 apply
 
 > [返回目录](#chapter-one)
 
@@ -302,7 +383,11 @@ Function.prototype.myApply = function(context, arr) {
 </html>
 ```
 
-## <a name="chapter-eight" id="chapter-eight"></a>八 bind
+## <a name="chapter-six" id="chapter-six"></a>六 bind
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-six-one" id="chapter-six-one"></a>6.1 原生 bind
 
 > [返回目录](#chapter-one)
 
@@ -335,53 +420,67 @@ console.log(boundGetX()); // 42
 // 通过 bind，将 this 指向 module
 ```
 
-## <a name="chapter-night" id="chapter-night"></a>九 手写 bind
+### <a name="chapter-six-two" id="chapter-six-two"></a>6.2 手写 bind
 
 > [返回目录](#chapter-one)
 
+简单版：
+
 ```js
-// MDN 的实现
-if (!Function.prototype.bind) {
-  Function.prototype.bind = function(oThis) {
-
-    // 如果这不是一个函数对象，报错
-    if (typeof this !== 'function') {
-      throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
+Function.prototype.myBind = function (context = globalThis) {
+  const fn = this;
+  const args = Array.from(arguments).slice(1);
+  const newFunc = function () {
+    const newArgs = args.concat(...arguments);
+    if (this instanceof newFunc) {
+      fn.apply(this, newArgs);
+    } else {
+      fn.apply(context, newArgs);
     }
-
-    // 设置变量
-    var aArgs   = Array.prototype.slice.call(arguments, 1), // 获取第一个参数之后的所有元素
-        fToBind = this, // 设置 this
-        fNOP    = function() {}, // 设置空函数
-        fBound  = function() {
-          // this instanceof fBound === true 时,说明返回的 fBound 被当做 new 的构造函数调用
-          return fToBind.apply(this instanceof fBound
-            ? this
-            : oThis,
-            // 获取调用时（fBound）的传参.bind 返回的函数入参往往是这么传递的
-            aArgs.concat(Array.prototype.slice.call(arguments)));
-        };
-
-    // 维护原型关系
-    if (this.prototype) {
-      // Function.prototype doesn't have a prototype property
-      fNOP.prototype = this.prototype; 
-    }
-    // 下行的代码使 fBound.prototype 是fNOP 的实例,因此
-    // 返回的 fBound 若作为 new 的构造函数
-    // new 生成的新对象作为 this 传入 fBound，新对象的 __proto__ 就是 fNOP 的实例
-    fBound.prototype = new fNOP();
-
-    return fBound;
   };
-}
+  newFunc.prototype = Object.create(fn.prototype);
+  return newFunc;
+};
 ```
 
-## <a name="chapter-ten" id="chapter-ten"></a>十 题目
+完整测试版：
+
+```js
+Function.prototype.myBind = function (context = globalThis) {
+  const fn = this;
+  const args = Array.from(arguments).slice(1);
+  const newFunc = function () {
+    const newArgs = args.concat(...arguments);
+    if (this instanceof newFunc) {
+      // 通过 new 调用，绑定 this 为实例对象
+      fn.apply(this, newArgs);
+    } else {
+      // 通过普通函数形式调用，绑定 context
+      fn.apply(context, newArgs);
+    }
+  };
+  // 支持 new 调用方式
+  newFunc.prototype = Object.create(fn.prototype);
+  return newFunc;
+};
+
+// 测试
+const me = { name: "jsliang" };
+const other = { name: "zhazhaliang" };
+function say() {
+  console.log(`My name is ${this.name || "default"}`);
+}
+const meSay = say.myBind(me);
+meSay(); // My name is jsliang
+const otherSay = say.myBind(other);
+otherSay(); // My name is zhazhaliang
+```
+
+## <a name="chapter-seven" id="chapter-seven"></a>七 题目
 
 > [返回目录](#chapter-one)
         
-### <a name="chapter-ten-one" id="chapter-ten-one"></a>10.1 this 指向问题 1
+### <a name="chapter-seven-one" id="chapter-seven-one"></a>7.1 this 指向问题 1
 
 > [返回目录](#chapter-one)
       
@@ -405,7 +504,7 @@ test4399.getColor(); // 输出什么？
 
 答案：`green`、`blue`。
 
-### <a name="chapter-ten-two" id="chapter-ten-two"></a>10.2 this 指向问题 2
+### <a name="chapter-seven-two" id="chapter-seven-two"></a>7.2 this 指向问题 2
 
 > [返回目录](#chapter-one)
 
@@ -440,6 +539,21 @@ myObject.func();
 2. 第二个 `self.foo` 输出 `bar`，因为 `self` 是 `this` 的副本，同指向 `myObject` 对象。
 3. 第三个 `this.foo` 输出 `undefined`，因为这个 IIFE（立即执行函数表达式）中的 `this` 指向 `window`。
 4.第四个 `self.foo` 输出 `bar`，因为这个匿名函数所处的上下文中没有 `self`，所以通过作用域链向上查找，从包含它的父函数中找到了指向 `myObject` 对象的 `self`。
+
+## <a name="chapter-eight" id="chapter-eight"></a>八 参考文献
+
+> [返回目录](#chapter-one)
+
+* [x] [MDN - Arguments](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments)【阅读建议：5min】
+* [x] [MDN - call](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)【阅读建议：5min】
+* [x] [MDN - apply](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)【阅读建议：5min】
+* [x] [MDN - bind](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)【阅读建议：5min】
+* [x] [不用call和apply方法模拟实现ES5的bind方法](https://github.com/jawil/blog/issues/16)【阅读建议：1h】
+* [x] [JavaScript深入之call和apply的模拟实现](https://github.com/mqyqingfeng/Blog/issues/11)【阅读建议：20min】
+* [x] [this、apply、call、bind](https://juejin.im/post/6844903496253177863)【阅读建议：30min】
+* [x] [面试官问：能否模拟实现JS的call和apply方法](https://juejin.im/post/5bf6c79bf265da6142738b29)【阅读建议：10min】
+* [x] [JavaScript基础心法—— call apply bind](https://github.com/axuebin/articles/issues/7)【阅读建议：20min】
+* [x] [回味JS基础:call apply 与 bind](https://juejin.im/post/57dc97f35bbb50005e5b39bd)【阅读建议：10min】
 
 ---
 
