@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-17 18:14:12**  
-> Recently revised in **2020-10-12 20:05:37**
+> Recently revised in **2020-10-12 23:02:25**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -46,6 +46,56 @@ JavaScript 里的异步方案的演进时，是用下面这种顺序：
 那么，能手写 `Promise` 实现，对精通 `Promise` 帮助不大。
 
 > 这话来源于微信公众号：工业聚
+
+## 简版手写 Promise
+
+```js
+function myPromise(fn) {
+  let self = this;
+  self.status = 'pending'; // 定义状态改变前的初始状态
+  self.value = undefined; // 定义状态为 resolved 的时候的状态
+  self.reason = undefined; // 定义状态为 rejected 的时候的状态
+  function resolve(value) {
+    // 两个 ==='pending'，保证了状态的改变是不可逆的
+    if (self.status === 'pending') {
+      self.value = value;
+      self.status = 'resolved';
+    }
+  }
+  function reject(reason) {
+    // 两个 ==='pending'，保证了状态的改变是不可逆的
+    if (self.status === 'pending') {
+      self.reason = reason;
+      self.status = 'rejected';
+    }
+  }
+  // 捕获构造异常
+  try {
+    fn(resolve, reject);
+  } catch (e) {
+    reject(e);
+  }
+}
+myPromise.prototype.then = function (onFullfilled, onRejected) {
+  let self = this;
+  switch (self.status) {
+    case 'resolved':
+      onFullfilled(self.value);
+      break;
+    case 'rejected':
+      onRejected(self.reason);
+      break;
+    default:
+  }
+};
+
+const p = new myPromise((resolve, reject) => {
+  resolve(1);
+})
+p.then((res) => {
+  console.log(res); // 1
+})
+```
 
 ## <a name="chapter-four" id="chapter-four"></a>四 手写 Promise
 
