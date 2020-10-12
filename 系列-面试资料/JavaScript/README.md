@@ -14,30 +14,30 @@ JavaScript 资料整理
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 整理内容](#chapter-two) |
 | &emsp;[2.1 基础知识点](#chapter-two-one) |
-| &emsp;[2.2 原型和原型链](#chapter-two-two) |
-| &emsp;[2.3 this](#chapter-two-three) |
-| &emsp;[2.4 手写源码系列](#chapter-two-four) |
-| &emsp;[2.5 异步系列](#chapter-two-five) |
-| &emsp;[2.6 待复习](#chapter-two-six) |
+| &emsp;[2.2 变量](#chapter-two-two) |
+| &emsp;[2.3 DOM](#chapter-two-three) |
+| &emsp;[2.4 原型和原型链](#chapter-two-four) |
+| &emsp;[2.5 this](#chapter-two-five) |
+| &emsp;[2.6 手写源码系列](#chapter-two-six) |
+| &emsp;[2.7 异步系列](#chapter-two-seven) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 参考文献](#chapter-three) |
-| &emsp;[3.1 精选](#chapter-three-one) |
-| &emsp;[3.2 系统](#chapter-three-two) |
-| &emsp;[3.3 基础](#chapter-three-three) |
-| &emsp;[3.4 执行上下文/作用域链/闭包](#chapter-three-four) |
-| &emsp;[3.5 this](#chapter-three-five) |
-| &emsp;[3.6 原型/继承](#chapter-three-six) |
-| &emsp;[3.7 函数式编程](#chapter-three-seven) |
-| &emsp;[3.8 Service Worker / PWA](#chapter-three-eight) |
-| &emsp;[3.9 Web Worker](#chapter-three-night) |
-| &emsp;[3.10 DOM](#chapter-three-ten) |
-| &emsp;[3.11 其他](#chapter-three-eleven) |
-| &emsp;[3.12 手写系列文章](#chapter-three-twelve) |
-| &emsp;[3.13 手写 call/bind/apply](#chapter-three-thirteen) |
-| &emsp;[3.14 手写深拷贝和浅拷贝](#chapter-three-fourteen) |
-| &emsp;[3.15 手写 Promise](#chapter-three-fifteen) |
-| &emsp;[3.16 异步系列](#chapter-three-sixteen) |
-| &emsp;[3.17 异步：Event Loop](#chapter-three-seventeen) |
-| &emsp;[3.18 异步：Promise](#chapter-three-eighteen) |
+| &emsp;[3.1 系统](#chapter-three-one) |
+| &emsp;[3.2 基础](#chapter-three-two) |
+| &emsp;[3.3 执行上下文/作用域链/闭包](#chapter-three-three) |
+| &emsp;[3.4 this](#chapter-three-four) |
+| &emsp;[3.5 原型/继承](#chapter-three-five) |
+| &emsp;[3.6 函数式编程](#chapter-three-six) |
+| &emsp;[3.7 Service Worker / PWA](#chapter-three-seven) |
+| &emsp;[3.8 Web Worker](#chapter-three-eight) |
+| &emsp;[3.9 DOM](#chapter-three-night) |
+| &emsp;[3.10 其他](#chapter-three-ten) |
+| &emsp;[3.11 手写系列文章](#chapter-three-eleven) |
+| &emsp;[3.12 手写 call/bind/apply](#chapter-three-twelve) |
+| &emsp;[3.13 手写深拷贝和浅拷贝](#chapter-three-thirteen) |
+| &emsp;[3.14 手写 Promise](#chapter-three-fourteen) |
+| &emsp;[3.15 异步系列](#chapter-three-fifteen) |
+| &emsp;[3.16 异步：Event Loop](#chapter-three-sixteen) |
+| &emsp;[3.17 异步：Promise](#chapter-three-seventeen) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 整理内容
@@ -50,28 +50,50 @@ JavaScript 资料整理
 
 > [返回目录](#chapter-one)
 
-* [x] [基础]()
-* [x] 基础：常见数组 API
-* [x] 基础：常见 DOM API
-* [x] 基础：数组去重的方法
-* [x] 基础：变量
-  * [x] `var`/`let`/`const`
-  * [x] 变量提升和函数提升
-  * [x] 暂时性死区
-  * [x] 函数作用域和全局作用域（ES5）
-  * [x] 块级作用域（ES6）
-  * [x] 判断变量类型
-* [x] 基础：数字化金额：`1234567890` -> `1,234,567,890`
-* [x] 基础：JS 数据类型：`Boolean`/`Null`/`Undefined`/`Number`/`String`/`Symbol`/`BigInt`/`Object`
-* [x] DOM
-  * [x] DOM 常用 API
-  * [x] 虚拟 DOM：浏览器渲染过程 -> 真实 DOM 和虚拟 DOM -> Diff 算法
+文章地址：[基础](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%9F%BA%E7%A1%80.md)
 
-### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 原型和原型链
+知识点：
+
+* [x] 常见数组 API
+* [x] 常见 DOM API
+* [x] 数组去重的方法
+* [x] 数字化金额：`1234567890` -> `1,234,567,890`
+* [x] JS 数据类型：`Boolean`/`Null`/`Undefined`/`Number`/`String`/`Symbol`/`BigInt`/`Object`
+
+### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 变量
 
 > [返回目录](#chapter-one)
 
-* [x] [原型和原型链](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
+文章地址：[变量](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%8F%98%E9%87%8F.md)
+
+知识点：
+
+* [x] `var`/`let`/`const`
+* [x] 变量提升和函数提升
+* [x] 暂时性死区
+* [x] 函数作用域和全局作用域（ES5）
+* [x] 块级作用域（ES6）
+* [x] 判断变量类型
+
+### <a name="chapter-two-three" id="chapter-two-three"></a>2.3 DOM
+
+> [返回目录](#chapter-one)
+
+文章地址：[DOM](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/DOM.md)
+
+知识点：
+
+* [x] DOM 常用 API
+* [x] 虚拟 DOM：浏览器渲染过程 -> 真实 DOM 和虚拟 DOM -> Diff 算法
+
+### <a name="chapter-two-four" id="chapter-two-four"></a>2.4 原型和原型链
+
+> [返回目录](#chapter-one)
+
+文章地址：[原型和原型链](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
+
+知识点：
+
 * [x] 构造函数 `funciton Person() {}`
 * [x] 实例 `const person = new Person()`
 * [x] 原型 `Person.prototype`
@@ -93,9 +115,13 @@ JavaScript 资料整理
   * [x] `F.__proto__ === Function.prototype`
   * [x] `F.__proto__.__proto__ === Object.prototype`
 
-### <a name="chapter-two-three" id="chapter-two-three"></a>2.3 this
+### <a name="chapter-two-five" id="chapter-two-five"></a>2.5 this
 
 > [返回目录](#chapter-one)
+
+文章地址：[this](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/this.md)
+
+知识点：
 
 * [x] `this` 永远指向最后调用它的那个对象
   * [x] 普通函数中 `this` 的指向，是 `this` 执行时的上下文
@@ -108,7 +134,7 @@ JavaScript 资料整理
 * [x] React 中 `this` 问题
 * [x] 题目
 
-### <a name="chapter-two-four" id="chapter-two-four"></a>2.4 手写源码系列
+### <a name="chapter-two-six" id="chapter-two-six"></a>2.6 手写源码系列
 
 > [返回目录](#chapter-one)
 
@@ -155,7 +181,7 @@ JavaScript 资料整理
   * [x] **完整版手写 `new`**
 * [x] [其他](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E5%85%B6%E4%BB%96.md)
   * [x] **`Object.create()`**
-  * [ ] **ES5 实现类继承**
+  * [x] **ES5 实现类继承**
   * [x] **`instanceof`**
   * [x] **柯里化**：求 `add(1)(2)(3)`
   * [x] **迭代器**
@@ -164,15 +190,20 @@ JavaScript 资料整理
   * [x] **数组去重**：手撕、`Set`、`filter()`
   * [x] **其他**
 
-### <a name="chapter-two-five" id="chapter-two-five"></a>2.5 异步系列
+### <a name="chapter-two-seven" id="chapter-two-seven"></a>2.7 异步系列
 
 > [返回目录](#chapter-one)
+
+异步系列存放地址：
 
 * [x] [JavaScript 异步](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97)
   * [x] JavaScript 是单线程的
   * [x] 为什么不设计成多线程
   * [x] 为什么需要异步
   * [x] 如何实现异步
+
+各种异步知识点：
+
 * [x] [Event Loop](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Event%20Loop.md)
   * [x] 单线程和多线程
   * [x] 浏览器 Event Loop
@@ -196,26 +227,13 @@ JavaScript 资料整理
   * [x] 大厂题
   * [x] 总结
 
-### <a name="chapter-two-six" id="chapter-two-six"></a>2.6 待复习
-
-> [返回目录](#chapter-one)
-
-* [ ] 函数式编程
-* [ ] service worker/web worker
-* [ ] 垃圾回收机制
-* [ ] ...
-
 ## <a name="chapter-three" id="chapter-three"></a>三 参考文献
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 精选
+进度：已完成：116；待完成：105
 
-> [返回目录](#chapter-one)
-
-* [x] [总结了17年初到18年初百场前端面试的面试经验(含答案)](https://juejin.im/post/6844903636271644680)【阅读建议：1h30min】
-
-### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 系统
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 系统
 
 > [返回目录](#chapter-one)
 
@@ -226,7 +244,7 @@ JavaScript 资料整理
 * [ ] [(建议精读)原生JS灵魂之问(中)，检验自己是否真的熟悉JavaScript？](https://juejin.im/post/6844903986479251464)
 * [ ] [(2.4w字)原生JS灵魂之问(下), 冲刺🚀进阶最后一公里(附个人成长经验分享)](https://juejin.im/post/6844904004007247880)
 
-### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 基础
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 基础
 
 > [返回目录](#chapter-one)
 
@@ -240,7 +258,7 @@ JavaScript 资料整理
 * [x] [JS 中对变量类型的判断](https://www.cnblogs.com/zhangruiqi/p/8027338.html)【阅读建议：10min】
 * [x] [js中块级作用域以及函数作用域之间有什么区别？（代码解析）](https://www.php.cn/js-tutorial-408430.html)【阅读建议：5min】
 
-### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 执行上下文/作用域链/闭包
+### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 执行上下文/作用域链/闭包
 
 > [返回目录](#chapter-one)
 
@@ -256,7 +274,7 @@ JavaScript 资料整理
 * [x] [详解JS函数柯里化](https://www.jianshu.com/p/2975c25e4d71)【阅读建议：20min】
 * [x] [编写add函数 然后 add(1)(2)(3)(4) 输出10 再考虑拓展性](https://beta.segmentfault.com/q/1010000004342477/a-1020000004344356)【阅读建议：10min】
 
-### <a name="chapter-three-five" id="chapter-three-five"></a>3.5 this
+### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 this
 
 > [返回目录](#chapter-one)
 
@@ -273,7 +291,7 @@ JavaScript 资料整理
 * [x] [由React构造函数中bind引起的this指向理解（React组件的方法为什么要用bind绑定this）](https://blog.csdn.net/AiHuanhuan110/article/details/106424812)【阅读建议：20min】
 * [x] [React中this.handleClick = this.handleClick.bind(this)中的this指向问题](https://blog.csdn.net/yiersan__/article/details/108004911)【阅读建议：10min】
 
-### <a name="chapter-three-six" id="chapter-three-six"></a>3.6 原型/继承
+### <a name="chapter-three-five" id="chapter-three-five"></a>3.5 原型/继承
 
 > [返回目录](#chapter-one)
 
@@ -292,7 +310,7 @@ JavaScript 资料整理
 * [x] [最详尽的 JS 原型与原型链终极详解，没有「可能是」。（二）](https://www.jianshu.com/p/652991a67186)【阅读建议：高程书摘取，经第一篇后不继续往后看】
 * [x] [最详尽的 JS 原型与原型链终极详解，没有「可能是」。（三）](https://www.jianshu.com/p/a4e1e7b6f4f8)【阅读建议：高程书摘取，经第一篇后不继续往后看】
 
-### <a name="chapter-three-seven" id="chapter-three-seven"></a>3.7 函数式编程
+### <a name="chapter-three-six" id="chapter-three-six"></a>3.6 函数式编程
 
 > [返回目录](#chapter-one)
 
@@ -305,7 +323,7 @@ JavaScript 资料整理
 * [ ] [JavaScript 函数式编程到底是个啥](https://segmentfault.com/a/1190000009864459)
 * [ ] [JavaScript-函数式编程](https://github.com/ecmadao/Coding-Guide/blob/master/Notes/JavaScript/JavaScript%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.md)
 
-### <a name="chapter-three-eight" id="chapter-three-eight"></a>3.8 Service Worker / PWA
+### <a name="chapter-three-seven" id="chapter-three-seven"></a>3.7 Service Worker / PWA
 
 > [返回目录](#chapter-one)
 
@@ -316,7 +334,7 @@ JavaScript 资料整理
 * [ ] [PWA 学习手册](https://pwa.alienzhou.com/)
 * [ ] [面试官：请你实现一个PWA](https://juejin.im/post/5e26aa785188254c257c462d#heading-24)
 
-### <a name="chapter-three-night" id="chapter-three-night"></a>3.9 Web Worker
+### <a name="chapter-three-eight" id="chapter-three-eight"></a>3.8 Web Worker
 
 > [返回目录](#chapter-one)
 
@@ -326,7 +344,7 @@ JavaScript 资料整理
 * [ ] [A Simple Introduction to Web Workers in JavaScript](https://medium.com/young-coder/a-simple-introduction-to-web-workers-in-javascript-b3504f9d9d1c)
 * [ ] [Speedy Introduction to Web Workers](https://auth0.com/blog/speedy-introduction-to-web-workers/)
 
-### <a name="chapter-three-ten" id="chapter-three-ten"></a>3.10 DOM
+### <a name="chapter-three-night" id="chapter-three-night"></a>3.9 DOM
 
 > [返回目录](#chapter-one)
 
@@ -334,7 +352,7 @@ JavaScript 资料整理
 * [ ] [原生JS中DOM节点相关API合集](https://microzz.com/2017/04/06/jsdom/)
 * [ ] [dom里各种尺寸区别（offsetWidth，scrollWidth，clientWidth，innerWidth....）](https://github.com/pramper/Blog/issues/10)
 
-### <a name="chapter-three-eleven" id="chapter-three-eleven"></a>3.11 其他
+### <a name="chapter-three-ten" id="chapter-three-ten"></a>3.10 其他
 
 > [返回目录](#chapter-one)
 
@@ -416,7 +434,7 @@ JavaScript 资料整理
 * [ ] [前端必知必会--操作URL的黑科技](https://juejin.im/post/6844903865767165959)
 * [ ] [一篇不是标题党的CommonJS和ES6模块规范讲解](https://juejin.im/post/6844904145443356680)
 
-### <a name="chapter-three-twelve" id="chapter-three-twelve"></a>3.12 手写系列文章
+### <a name="chapter-three-eleven" id="chapter-three-eleven"></a>3.11 手写系列文章
 
 > [返回目录](#chapter-one)
 
@@ -429,7 +447,7 @@ JavaScript 资料整理
 * [x] [CORS 原理及实现](https://www.jianshu.com/p/b2bdf55e1bf5)【阅读建议：30min】
 * [x] [JSONP 原理及实现](https://www.jianshu.com/p/88bb82718517)【阅读建议：30min】
 
-### <a name="chapter-three-thirteen" id="chapter-three-thirteen"></a>3.13 手写 call/bind/apply
+### <a name="chapter-three-twelve" id="chapter-three-twelve"></a>3.12 手写 call/bind/apply
 
 > [返回目录](#chapter-one)
 
@@ -444,7 +462,7 @@ JavaScript 资料整理
 * [x] [JavaScript基础心法—— call apply bind](https://github.com/axuebin/articles/issues/7)【阅读建议：20min】
 * [x] [回味JS基础:call apply 与 bind](https://juejin.im/post/57dc97f35bbb50005e5b39bd)【阅读建议：10min】
 
-### <a name="chapter-three-fourteen" id="chapter-three-fourteen"></a>3.14 手写深拷贝和浅拷贝
+### <a name="chapter-three-thirteen" id="chapter-three-thirteen"></a>3.13 手写深拷贝和浅拷贝
 
 > [返回目录](#chapter-one)
 
@@ -457,7 +475,7 @@ JavaScript 资料整理
 * [x] [「JavaScript」带你彻底搞清楚深拷贝、浅拷贝和循环引用](https://segmentfault.com/a/1190000015042902)【阅读建议：20min】
 * [x] [面试题之如何实现一个深拷贝](https://github.com/yygmind/blog/issues/29)【阅读建议：30min】
 
-### <a name="chapter-three-fifteen" id="chapter-three-fifteen"></a>3.15 手写 Promise
+### <a name="chapter-three-fourteen" id="chapter-three-fourteen"></a>3.14 手写 Promise
 
 > [返回目录](#chapter-one)
 
@@ -470,7 +488,7 @@ JavaScript 资料整理
 * [x] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)【建议阅读：写得比较细，没前面剖析的清晰】
 * [x] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)【建议阅读：写得比较细，没前面剖析的清晰】
 
-### <a name="chapter-three-sixteen" id="chapter-three-sixteen"></a>3.16 异步系列
+### <a name="chapter-three-fifteen" id="chapter-three-fifteen"></a>3.15 异步系列
 
 > [返回目录](#chapter-one)
 
@@ -480,7 +498,7 @@ JavaScript 资料整理
 * [x] [理解异步之美：Promise 与 async await（二）](https://juejin.im/post/6844903661789773831)【20min】
 * [x] [[完结篇] - 理解异步之美 --- promise与async await （三）](https://juejin.im/post/6844903664209887246)【20min】
 
-### <a name="chapter-three-seventeen" id="chapter-three-seventeen"></a>3.17 异步：Event Loop
+### <a name="chapter-three-sixteen" id="chapter-three-sixteen"></a>3.16 异步：Event Loop
 
 > [返回目录](#chapter-one)
 
@@ -497,7 +515,7 @@ JavaScript 资料整理
 * [x] [The Node.js Event Loop, Timers, and process.nextTick()](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)【阅读建议：无】
 * [x] [浏览器进程？线程？傻傻分不清楚！](https://imweb.io/topic/58e3bfa845e5c13468f567d5)【阅读建议：5min】
 
-### <a name="chapter-three-eighteen" id="chapter-three-eighteen"></a>3.18 异步：Promise
+### <a name="chapter-three-seventeen" id="chapter-three-seventeen"></a>3.17 异步：Promise
 
 > [返回目录](#chapter-one)
 
