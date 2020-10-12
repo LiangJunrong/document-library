@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-07 22:28:53**  
-> Recently revised in **2020-09-21 14:17:57**
+> Recently revised in **2020-09-21 14:17:58**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -102,12 +102,6 @@
 * [Event Loop](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Event%20Loop.md)
 
 如不太了解这些知识点，请先点击前往观看，避免走火入魔。
-
-本文观看建议：
-
-* 了解 `Promise` 及其内置 API。
-* 了解 `Event Loop` 机制及 `Promise` 题型破解方式。
-* 了解 `Promise` 源码实现。
 
 ### <a name="chapter-two-one" id="chapter-two-one"></a>2.1 浅思
 
