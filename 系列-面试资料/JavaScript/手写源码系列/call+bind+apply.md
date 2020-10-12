@@ -2,7 +2,7 @@ call + bind + apply
 ===
 
 > Create by **jsliang** on **2020-09-08 13:37:27**  
-> Recently revised in **2020-10-12 15:37:52**
+> Recently revised in **2020-10-12 16:01:54**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -13,6 +13,11 @@ call + bind + apply
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| &emsp;[2.1 写在前面](#chapter-two-one) |
+| &emsp;[2.2 最终实现](#chapter-two-two) |
+| &emsp;&emsp;[2.2.1 手写 call](#chapter-two-two-one) |
+| &emsp;&emsp;[2.2.2 手写 apply](#chapter-two-two-two) |
+| &emsp;&emsp;[2.2.3 手写 bind](#chapter-two-two-three) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Arguments 对象](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 call](#chapter-four) |
 | &emsp;[4.1 原生 call](#chapter-four-one) |
@@ -30,6 +35,10 @@ call + bind + apply
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-two-one" id="chapter-two-one"></a>2.1 写在前面
 
 > [返回目录](#chapter-one)
 
@@ -56,73 +65,125 @@ console.log(food.name); // 'cheese'
 * `apply`：基本同 `call`，不同点在于第二个参数是一个数组 `[arg1, arg2...]`
 * `bind`：改变 `this` 作用域会返回一个新的函数，这个函数不会马上执行
 
+### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 最终实现
+
+> [返回目录](#chapter-one)
+
 下面我们列一下今天的实现目标：
 
-* **手写 `call`**
+#### <a name="chapter-two-two-one" id="chapter-two-two-one"></a>2.2.1 手写 call
+
+> [返回目录](#chapter-one)
 
 ```js
-Function.prototype.myCall = function(context) {
-  // 设置 this 指向
-  const newContext = context || window;
-  newContext.fn = this;
-  
+Function.prototype.myCall = function(context = globalThis) {
+  // 设置 fn 为调用 myCall 的方法
+  const fn = this;
+
   // 获取剩余参数
-  const otherArg = Array.from(arguments).slice(1); // 也可以 [...arguments].slice(1)
-  
-  // 调用这个函数
-  newContext.fn(otherArg);
+  const otherArg = Array.from(arguments).slice(1);
 
-  // 设置我们即将返回的结果
-  const result = newContext.fn(otherArg);
+  // 调用这个方法，将剩余参数传递进去
+  fn(otherArg);
 
-  // 删除 newContext
-  delete newContext;
+  // 将这个方法的执行结果传给 result
+  let result = fn();
 
-  // 返回结果值
+  // 删除这个变量
+  delete fn;
+
+  // 返回 result 结果
   return result;
 };
+
+this.a = 1;
+
+const fn = function() {
+  this.a = 2;
+  console.log(this.a);
+}
+
+fn.myCall(fn);
 ```
 
-* **手写 `apply`**
+#### <a name="chapter-two-two-two" id="chapter-two-two-two"></a>2.2.2 手写 apply
+
+> [返回目录](#chapter-one)
 
 ```js
-Function.prototype.myApply = function(context, arr) {
-  // 绑定 this
-  const newContext = context || window;
-  newContext.fn = this;
+Function.prototype.myApply = function(context = globalThis, arr) {
+  // 设置 fn 为调用 myCall 的方法
+  const fn = this;
 
-  // 判断是否有参数
-  if (!arr) {
-    result = newContext.fn();
-  } else {
-    result = newContext.fn(arr);
+  let result;
+
+  // 如果存在参数，则传递进去
+  // 将结果返回给 result
+  if (arr) {
+    result = fn(arr);
+  } else { // 否则不传
+    result = fn();
   }
 
-  // 删除这个元素
-  delete newContext;
+  // 删除这个变量
+  delete fn;
+
+  // 返回 result 结果
+  return result;
+};
+
+this.a = 1;
+
+const fn = function() {
+  this.a = 2;
+  console.log(this.a);
+}
+
+fn.myApply(fn);
+```
+
+#### <a name="chapter-two-two-three" id="chapter-two-two-three"></a>2.2.3 手写 bind
+
+> [返回目录](#chapter-one)
+
+```js
+Function.prototype.myBind = function(context = globalThis) {
+  // 设置 fn 为调用 myCall 的方法
+  const fn = this;
+
+  // 获取该方法剩余参数
+  const otherArg = [...arguments].slice(1);
+
+  // 设置返回的一个新方法
+  const result = function() {
+
+    // 获取返回方法体的参数
+    const resultArg = [...arguments];
+
+    // 如果是通过 new 调用的，绑定 this 为实例对象
+    if (this instanceof result) {
+      fn.apply(this, otherArg.concat(resultArg));
+    } else { // 否则普通函数形式绑定 context
+      fn.apply(context, otherArg.concat(resultArg));
+    }
+  }
+
+  // 绑定原型链
+  result.prototype = Object.create(fn.prototype);
 
   // 返回结果
   return result;
 };
-```
 
-* **手写 bind**
+this.a = 1;
 
-```js
-Function.prototype.myBind = function (context = globalThis) {
-  const fn = this;
-  const args = Array.from(arguments).slice(1);
-  const newFunc = function () {
-    const newArgs = args.concat(...arguments);
-    if (this instanceof newFunc) {
-      fn.apply(this, newArgs);
-    } else {
-      fn.apply(context, newArgs);
-    }
-  };
-  newFunc.prototype = Object.create(fn.prototype);
-  return newFunc;
-};
+const fn = function() {
+  this.a = 2;
+  console.log(this.a);
+}
+
+fn.myBind(fn);
+fn();
 ```
 
 OK，懂了么，我们发车继续深造~
@@ -208,26 +269,34 @@ console.log(food.name); // 'cheese'
 > 手写 call 的 JS 代码：
 
 ```js
-Function.prototype.myCall = function(context) {
-  // 设置 this 指向
-  const newContext = context || window;
-  newContext.fn = this;
-  
+Function.prototype.myCall = function(context = globalThis) {
+  // 设置 fn 为调用 myCall 的方法
+  const fn = this;
+
   // 获取剩余参数
-  const otherArg = Array.from(arguments).slice(1); // 也可以 [...arguments].slice(1)
-  
-  // 调用这个函数
-  newContext.fn(otherArg);
+  const otherArg = Array.from(arguments).slice(1);
 
-  // 设置我们即将返回的结果
-  const result = newContext.fn(otherArg);
+  // 调用这个方法，将剩余参数传递进去
+  fn(otherArg);
 
-  // 删除 newContext
-  delete newContext;
+  // 将这个方法的执行结果传给 result
+  let result = fn();
 
-  // 返回结果值
+  // 删除这个变量
+  delete fn;
+
+  // 返回 result 结果
   return result;
 };
+
+this.a = 1;
+
+const fn = function() {
+  this.a = 2;
+  console.log(this.a);
+}
+
+fn.myCall(fn);
 ```
 
 > 防抖函数绑定手写 call
@@ -310,24 +379,35 @@ console.log(min); // 2
 > [返回目录](#chapter-one)
 
 ```js
-Function.prototype.myApply = function(context, arr) {
-  // 绑定 this
-  const newContext = context || window;
-  newContext.fn = this;
+Function.prototype.myApply = function(context = globalThis, arr) {
+  // 设置 fn 为调用 myCall 的方法
+  const fn = this;
 
-  // 判断是否有参数
-  if (!arr) {
-    result = newContext.fn();
-  } else {
-    result = newContext.fn(arr);
+  let result;
+
+  // 如果存在参数，则传递进去
+  // 将结果返回给 result
+  if (arr) {
+    result = fn(arr);
+  } else { // 否则不传
+    result = fn();
   }
 
-  // 删除这个元素
-  delete newContext;
+  // 删除这个变量
+  delete fn;
 
-  // 返回结果
+  // 返回 result 结果
   return result;
 };
+
+this.a = 1;
+
+const fn = function() {
+  this.a = 2;
+  console.log(this.a);
+}
+
+fn.myApply(fn);
 ```
 
 用自定义 `apply` + 防抖：
@@ -424,56 +504,44 @@ console.log(boundGetX()); // 42
 
 > [返回目录](#chapter-one)
 
-简单版：
-
 ```js
-Function.prototype.myBind = function (context = globalThis) {
+Function.prototype.myBind = function(context = globalThis) {
+  // 设置 fn 为调用 myCall 的方法
   const fn = this;
-  const args = Array.from(arguments).slice(1);
-  const newFunc = function () {
-    const newArgs = args.concat(...arguments);
-    if (this instanceof newFunc) {
-      fn.apply(this, newArgs);
-    } else {
-      fn.apply(context, newArgs);
-    }
-  };
-  newFunc.prototype = Object.create(fn.prototype);
-  return newFunc;
-};
-```
 
-完整测试版：
+  // 获取该方法剩余参数
+  const otherArg = [...arguments].slice(1);
 
-```js
-Function.prototype.myBind = function (context = globalThis) {
-  const fn = this;
-  const args = Array.from(arguments).slice(1);
-  const newFunc = function () {
-    const newArgs = args.concat(...arguments);
-    if (this instanceof newFunc) {
-      // 通过 new 调用，绑定 this 为实例对象
-      fn.apply(this, newArgs);
-    } else {
-      // 通过普通函数形式调用，绑定 context
-      fn.apply(context, newArgs);
+  // 设置返回的一个新方法
+  const result = function() {
+
+    // 获取返回方法体的参数
+    const resultArg = [...arguments];
+
+    // 如果是通过 new 调用的，绑定 this 为实例对象
+    if (this instanceof result) {
+      fn.apply(this, otherArg.concat(resultArg));
+    } else { // 否则普通函数形式绑定 context
+      fn.apply(context, otherArg.concat(resultArg));
     }
-  };
-  // 支持 new 调用方式
-  newFunc.prototype = Object.create(fn.prototype);
-  return newFunc;
+  }
+
+  // 绑定原型链
+  result.prototype = Object.create(fn.prototype);
+
+  // 返回结果
+  return result;
 };
 
-// 测试
-const me = { name: "jsliang" };
-const other = { name: "zhazhaliang" };
-function say() {
-  console.log(`My name is ${this.name || "default"}`);
+this.a = 1;
+
+const fn = function() {
+  this.a = 2;
+  console.log(this.a);
 }
-const meSay = say.myBind(me);
-meSay(); // My name is jsliang
-const otherSay = say.myBind(other);
-otherSay(); // My name is zhazhaliang
+
+fn.myBind(fn);
+fn();
 ```
 
 ## <a name="chapter-seven" id="chapter-seven"></a>七 题目
