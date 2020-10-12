@@ -4,6 +4,7 @@ JavaScript 资料整理
 > Create by **jsliang** on **2020-09-01 20:50:29**  
 > Recently revised in **2020-10-12 00:12:19**
 
+<!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -11,14 +12,45 @@ JavaScript 资料整理
 | 目录 |
 | --- |
 | [一 目录](#chapter-one) |
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 整理内容](#chapter-two) |
+| &emsp;[2.1 基础知识点](#chapter-two-one) |
+| &emsp;[2.2 原型和原型链](#chapter-two-two) |
+| &emsp;[2.3 this](#chapter-two-three) |
+| &emsp;[2.4 手写源码系列](#chapter-two-four) |
+| &emsp;[2.5 异步系列](#chapter-two-five) |
+| &emsp;[2.6 待复习](#chapter-two-six) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 参考文献](#chapter-three) |
+| &emsp;[3.1 精选](#chapter-three-one) |
+| &emsp;[3.2 系统](#chapter-three-two) |
+| &emsp;[3.3 基础](#chapter-three-three) |
+| &emsp;[3.4 执行上下文/作用域链/闭包](#chapter-three-four) |
+| &emsp;[3.5 this](#chapter-three-five) |
+| &emsp;[3.6 原型/继承](#chapter-three-six) |
+| &emsp;[3.7 函数式编程](#chapter-three-seven) |
+| &emsp;[3.8 Service Worker / PWA](#chapter-three-eight) |
+| &emsp;[3.9 Web Worker](#chapter-three-night) |
+| &emsp;[3.10 DOM](#chapter-three-ten) |
+| &emsp;[3.11 其他](#chapter-three-eleven) |
+| &emsp;[3.12 手写系列文章](#chapter-three-twelve) |
+| &emsp;[3.13 手写 call/bind/apply](#chapter-three-thirteen) |
+| &emsp;[3.14 手写深拷贝和浅拷贝](#chapter-three-fourteen) |
+| &emsp;[3.15 手写 Promise](#chapter-three-fifteen) |
+| &emsp;[3.16 异步系列](#chapter-three-sixteen) |
+| &emsp;[3.17 异步：Event Loop](#chapter-three-seventeen) |
+| &emsp;[3.18 异步：Promise](#chapter-three-eighteen) |
+<!-- 目录结束 -->
 
-## <a name="chapter-two" id="chapter-two"></a>二 前言
+## <a name="chapter-two" id="chapter-two"></a>二 整理内容
 
 > [返回目录](#chapter-one)
 
-复习知识点：
+这里是 JavaScript 系列文章的大纲（含链接），点击可以查看具体内容。
 
+### <a name="chapter-two-one" id="chapter-two-one"></a>2.1 基础知识点
+
+> [返回目录](#chapter-one)
+
+* [x] [基础]()
 * [x] 基础：常见数组 API
 * [x] 基础：常见 DOM API
 * [x] 基础：数组去重的方法
@@ -31,23 +63,13 @@ JavaScript 资料整理
   * [x] 判断变量类型
 * [x] 基础：数字化金额：`1234567890` -> `1,234,567,890`
 * [x] 基础：JS 数据类型：`Boolean`/`Null`/`Undefined`/`Number`/`String`/`Symbol`/`BigInt`/`Object`
-* [x] 异步系列
-  * [x] Event Loop
-  * [x] Promise
-  * [x] async 和 await
-* [ ] 手写系列
-  * [x] 自定义原生事件
-  * [x] Promise
-  * [x] Promise 实现 Ajax
-  * [x] 迭代器
-  * [x] 防抖和节流
-  * [ ] call+bind+apply
-  * [x] JSONP
 * [x] DOM
   * [x] DOM 常用 API
   * [x] 虚拟 DOM：浏览器渲染过程 -> 真实 DOM 和虚拟 DOM -> Diff 算法
 
-### 原型和原型链
+### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 原型和原型链
+
+> [返回目录](#chapter-one)
 
 * [x] [原型和原型链](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
 * [x] 构造函数 `funciton Person() {}`
@@ -71,38 +93,131 @@ JavaScript 资料整理
   * [x] `F.__proto__ === Function.prototype`
   * [x] `F.__proto__.__proto__ === Object.prototype`
 
-待复习：
+### <a name="chapter-two-three" id="chapter-two-three"></a>2.3 this
 
-* [ ] 执行上下文/作用域链/闭包
-* [ ] this/call/apply/bind
-* [ ] 原型/继承
-* [ ] 深浅拷贝
+> [返回目录](#chapter-one)
+
+* [x] `this` 永远指向最后调用它的那个对象
+  * [x] 普通函数中 `this` 的指向，是 `this` 执行时的上下文
+  * [x] 箭头函数中 this 的指向，是 this 定义时的上下文
+* [x] 全局执行上下文中的 `this`
+* [x] 函数执行上下文中的 `this`
+  * [x] 通过 `call/bind/apply` 改变 `this` 指向
+  * [x] 通过对象调用方法设置
+  * [x] 通过构造函数设置
+* [x] React 中 `this` 问题
+* [x] 题目
+
+### <a name="chapter-two-four" id="chapter-two-four"></a>2.4 手写源码系列
+
+> [返回目录](#chapter-one)
+
+手写系列存放位置：
+
+* [x] [手写系列](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97)
+
+各个手写具体实现：
+
+* [x] [自定义原生事件](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6.md)
+  * [x] **创建自定义事件**：`const myEvent = new Event()`、`new CustomEvent()`、`document.createEvent('CustomEvent')`
+  * [x] **监听自定义事件**：`document.addEventListener('myEvent', callback)`
+  * [x] **触发自定义事件**：`document.dispatchEvent(myEvent)`
+* [x] [Promise](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise.md)
+  * [x] 简写版 `Promise`（不支持异步）
+  * [x] 手写 `Promise`（`resolve`、`reject`、`then`）
+  * [x] 实现 `Promise.all()`
+  * [x] 实现 `Promise.race()`
+  * [x] 实现 `Promise` 异步调度器
+* [x] [防抖和节流](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81.md)
+  * [x] **防抖**
+  * [x] **节流**
+  * [x] **防抖 + 节流（必定能触发的防抖）**
+* [x] [浅拷贝和深拷贝](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D.md)
+  * [x] **手写浅拷贝**
+  * [x] **`Object.assign`**
+  * [x] **浅拷贝其他方法**：`concat()`、`slice()`、`[...arr]`
+  * [x] **手写深拷贝**
+  * [x] **`JSON.parse(JSON.stringify())`**
+  * [x] **Lodash 的 `_.cloneDeep()`**
+  * [x] **JQuery 的 `$.extend()`**
+* [x] [call+bind+apply](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/call%2Bbind%2Bapply.md)
+  * [x] **原生 `call` 和手写 `call`**
+  * [x] **原生 `bind` 和手写 `bind`**
+  * [x] **原生 `apply` 和手写 `apply`**
+* [x] [JSONP](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/JSONP.md)
+  * [x] **基本原理**：利用 `script` 标签的 `src` 没有跨域限制来完成实现
+  * [x] **优缺点**：只能 `GET`；兼容性好
+  * [x] **简单实现**：通过 `url, params, callbackKey, callback` 来定义 `JSONP()` 方法的参数
+  * [x] **考虑多次调用**：基于简单实现，添加数组保存 `callback` 的返回
+* [x] [new](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/new.md)
+  * [x] **3 行代码手写 `new`**
+  * [x] **手写 `new` 的 5 个特点**
+  * [x] **完整版手写 `new`**
+* [x] [其他](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E5%85%B6%E4%BB%96.md)
+  * [x] **`Object.create()`**
+  * [ ] **ES5 实现类继承**
+  * [x] **`instanceof`**
+  * [x] **柯里化**：求 `add(1)(2)(3)`
+  * [x] **迭代器**
+  * [x] **Ajax**
+  * [x] **数组扁平化**：手撕、`flat()`、`reduce()`
+  * [x] **数组去重**：手撕、`Set`、`filter()`
+  * [x] **其他**
+
+### <a name="chapter-two-five" id="chapter-two-five"></a>2.5 异步系列
+
+> [返回目录](#chapter-one)
+
+* [x] [JavaScript 异步](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97)
+  * [x] JavaScript 是单线程的
+  * [x] 为什么不设计成多线程
+  * [x] 为什么需要异步
+  * [x] 如何实现异步
+* [x] [Event Loop](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Event%20Loop.md)
+  * [x] 单线程和多线程
+  * [x] 浏览器 Event Loop
+  * [x] Node 和浏览器 Event Loop 区别
+  * [x] 训练题目
+* [x] [Promise](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Promise.md)
+  * [x] Promise 初探：是什么、为什么、怎么用
+  * [x] Promise 基础：`new Promise` 和 `Promise` 状态
+  * [x] 题库：基础题
+  * [x] 题库：结合 `setTimeout`
+  * [x] `.then()` 链式操作：两个参数、链式调用
+  * [x] `.catch()` 捕获问题
+  * [x] `.finally()` 强制执行
+  * [x] 题库：`.then()、.catch()、.finally()`
+  * [x] `.all()` 接力赛
+  * [x] `.race()` 个人赛
+  * [x] 题库：`.all()、.race()`
+  * [x] Promise 源码
+  * [x] 题库：结合 `async/await`
+  * [x] 综合题
+  * [x] 大厂题
+  * [x] 总结
+
+### <a name="chapter-two-six" id="chapter-two-six"></a>2.6 待复习
+
+> [返回目录](#chapter-one)
+
 * [ ] 函数式编程
 * [ ] service worker/web worker
 * [ ] 垃圾回收机制
 * [ ] ...
 
-## 参考文献
+## <a name="chapter-three" id="chapter-three"></a>三 参考文献
 
-### jsliang 整理
+> [返回目录](#chapter-one)
 
-* [x] [异步系列](https://github.com/LiangJunrong/document-library/tree/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97)
-  * [x] [Event Loop](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Event%20Loop.md)
-  * [x] [Promise](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Promise.md)
-  * [x] [async 和 await](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/async%20%E5%92%8C%20await.md)
-* [ ] [手写系列](https://github.com/LiangJunrong/document-library/tree/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97)
-  * [x] [Promise](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise.md)
-  * [x] [Promise 实现 Ajax](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise%20%E5%AE%9E%E7%8E%B0%20Ajax.md)
-  * [x] [迭代器](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E8%BF%AD%E4%BB%A3%E5%99%A8.md)
-  * [x] [防抖和节流](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81.md)
-* [x] [柯里化](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%9F%AF%E9%87%8C%E5%8C%96.md)
-* [x] [变量](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%8F%98%E9%87%8F.md)
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 精选
 
-### 精选
+> [返回目录](#chapter-one)
 
 * [x] [总结了17年初到18年初百场前端面试的面试经验(含答案)](https://juejin.im/post/6844903636271644680)【阅读建议：1h30min】
 
-### 系统
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 系统
+
+> [返回目录](#chapter-one)
 
 * [ ] [[译] 送你 43 道 JavaScript 面试题](https://juejin.im/post/6844903869378461710)
 * [ ] [20道JS原理题助你面试一臂之力！](https://juejin.im/post/6844903891591495693)
@@ -111,7 +226,9 @@ JavaScript 资料整理
 * [ ] [(建议精读)原生JS灵魂之问(中)，检验自己是否真的熟悉JavaScript？](https://juejin.im/post/6844903986479251464)
 * [ ] [(2.4w字)原生JS灵魂之问(下), 冲刺🚀进阶最后一公里(附个人成长经验分享)](https://juejin.im/post/6844904004007247880)
 
-### 基础
+### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 基础
+
+> [返回目录](#chapter-one)
 
 * [x] [MDN - Array](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)【阅读建议：10min】
 * [x] [JavaScript 数据类型和数据结构](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures)【阅读建议：5min】
@@ -123,7 +240,9 @@ JavaScript 资料整理
 * [x] [JS 中对变量类型的判断](https://www.cnblogs.com/zhangruiqi/p/8027338.html)【阅读建议：10min】
 * [x] [js中块级作用域以及函数作用域之间有什么区别？（代码解析）](https://www.php.cn/js-tutorial-408430.html)【阅读建议：5min】
 
-### 执行上下文/作用域链/闭包
+### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 执行上下文/作用域链/闭包
+
+> [返回目录](#chapter-one)
 
 * [x] [理解 JavaScript 中的执行上下文和执行栈](https://juejin.im/post/5ba32171f265da0ab719a6d7)【阅读建议：20min】
 * [x] [JavaScript深入之执行上下文栈](https://github.com/mqyqingfeng/Blog/issues/4)【阅读建议：10min】
@@ -137,8 +256,16 @@ JavaScript 资料整理
 * [x] [详解JS函数柯里化](https://www.jianshu.com/p/2975c25e4d71)【阅读建议：20min】
 * [x] [编写add函数 然后 add(1)(2)(3)(4) 输出10 再考虑拓展性](https://beta.segmentfault.com/q/1010000004342477/a-1020000004344356)【阅读建议：10min】
 
-### this
+### <a name="chapter-three-five" id="chapter-three-five"></a>3.5 this
 
+> [返回目录](#chapter-one)
+
+* [x] [再来40道this面试题酸爽继续](https://juejin.im/post/6844904083707396109)【阅读建议：1h】
+* [x] [this,this,再次讨论javascript中的this,超全面](https://www.cnblogs.com/painsOnline/p/5102359.html)【阅读建议：10min】
+* [x] [JavaScript中的this](https://juejin.im/post/59748cbb6fb9a06bb21ae36d)【阅读建议：10min】
+* [x] [JavaScript深入之从ECMAScript规范解读this](https://github.com/mqyqingfeng/Blog/issues/7)【阅读建议：20min】
+* [x] [前端基础进阶（七）：全方位解读this](https://www.jianshu.com/p/d647aa6d1ae6)【阅读建议：20min】
+* [x] [JavaScript基础心法——this](https://github.com/axuebin/articles/issues/6)【阅读建议：20min】
 * [x] [11 | this：从JavaScript执行上下文的视角讲清楚this](https://time.geekbang.org/column/article/128427)【阅读建议：2hour】
 * [x] [浅谈react 中的 this 指向](https://www.jianshu.com/p/159eabf152d0)【阅读建议：10min】
 * [x] [react的性能优化](https://note.youdao.com/ynoteshare1/index.html?id=3d64b603405bcbb2c3cad3f750e5341d&type=note)【阅读建议：5min】
@@ -146,11 +273,9 @@ JavaScript 资料整理
 * [x] [由React构造函数中bind引起的this指向理解（React组件的方法为什么要用bind绑定this）](https://blog.csdn.net/AiHuanhuan110/article/details/106424812)【阅读建议：20min】
 * [x] [React中this.handleClick = this.handleClick.bind(this)中的this指向问题](https://blog.csdn.net/yiersan__/article/details/108004911)【阅读建议：10min】
 
-### call/apply/bind
+### <a name="chapter-three-six" id="chapter-three-six"></a>3.6 原型/继承
 
-已抽取分离
-
-### 原型/继承
+> [返回目录](#chapter-one)
 
 * [x] [jsliang 2019 面试 - JavaScript-原型与原型链](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/2019/JavaScript-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)【阅读建议：1h】
 * [x] [【何不三连】比继承家业还要简单的JS继承题-封装篇(牛刀小试)](https://juejin.im/post/6844904094948130824)【阅读建议：2h】
@@ -167,19 +292,9 @@ JavaScript 资料整理
 * [x] [最详尽的 JS 原型与原型链终极详解，没有「可能是」。（二）](https://www.jianshu.com/p/652991a67186)【阅读建议：高程书摘取，经第一篇后不继续往后看】
 * [x] [最详尽的 JS 原型与原型链终极详解，没有「可能是」。（三）](https://www.jianshu.com/p/a4e1e7b6f4f8)【阅读建议：高程书摘取，经第一篇后不继续往后看】
 
-### Promise
+### <a name="chapter-three-seven" id="chapter-three-seven"></a>3.7 函数式编程
 
-已抽取分离
-
-### 深浅拷贝
-
-已抽取分离
-
-### 事件机制/Event Loop
-
-已抽取分离出去
-
-### 函数式编程
+> [返回目录](#chapter-one)
 
 * [ ] [函数式编程指北](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/)
 * [ ] [JavaScript专题之函数柯里化](https://github.com/mqyqingfeng/Blog/issues/42)
@@ -190,7 +305,9 @@ JavaScript 资料整理
 * [ ] [JavaScript 函数式编程到底是个啥](https://segmentfault.com/a/1190000009864459)
 * [ ] [JavaScript-函数式编程](https://github.com/ecmadao/Coding-Guide/blob/master/Notes/JavaScript/JavaScript%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.md)
 
-### Service Worker / PWA
+### <a name="chapter-three-eight" id="chapter-three-eight"></a>3.8 Service Worker / PWA
+
+> [返回目录](#chapter-one)
 
 * [ ] [Service Worker：简介](https://developers.google.com/web/fundamentals/primers/service-workers)
 * [ ] [JavaScript 是如何工作的：Service Worker 的生命周期及使用场景](https://github.com/qq449245884/xiaozhi/issues/8)
@@ -199,7 +316,9 @@ JavaScript 资料整理
 * [ ] [PWA 学习手册](https://pwa.alienzhou.com/)
 * [ ] [面试官：请你实现一个PWA](https://juejin.im/post/5e26aa785188254c257c462d#heading-24)
 
-### Web Worker
+### <a name="chapter-three-night" id="chapter-three-night"></a>3.9 Web Worker
+
+> [返回目录](#chapter-one)
 
 * [ ] [浅谈HTML5 Web Worker](https://juejin.im/post/59c1b3645188250ea1502e46)
 * [ ] [JavaScript 中的多线程 -- Web Worker](https://zhuanlan.zhihu.com/p/25184390)
@@ -207,13 +326,17 @@ JavaScript 资料整理
 * [ ] [A Simple Introduction to Web Workers in JavaScript](https://medium.com/young-coder/a-simple-introduction-to-web-workers-in-javascript-b3504f9d9d1c)
 * [ ] [Speedy Introduction to Web Workers](https://auth0.com/blog/speedy-introduction-to-web-workers/)
 
-### DOM
+### <a name="chapter-three-ten" id="chapter-three-ten"></a>3.10 DOM
+
+> [返回目录](#chapter-one)
 
 * [ ] [破解前端面试（80% 应聘者不及格系列）：从 DOM 说起](https://juejin.im/post/6844903474547671047)
 * [ ] [原生JS中DOM节点相关API合集](https://microzz.com/2017/04/06/jsdom/)
 * [ ] [dom里各种尺寸区别（offsetWidth，scrollWidth，clientWidth，innerWidth....）](https://github.com/pramper/Blog/issues/10)
 
-### 常用方法
+### <a name="chapter-three-eleven" id="chapter-three-eleven"></a>3.11 其他
+
+> [返回目录](#chapter-one)
 
 * [ ] [近一万字的ES6语法知识点补充](https://juejin.im/post/5c6234f16fb9a049a81fcca5)
 * [ ] [ES6、ES7、ES8特性一锅炖(ES6、ES7、ES8学习指南)](https://juejin.im/post/5b9cb3336fb9a05d290ee47e)
@@ -221,9 +344,6 @@ JavaScript 资料整理
 * [ ] [Here’s how you can make better use of JavaScript arrays](https://www.freecodecamp.org/news/heres-how-you-can-make-better-use-of-javascript-arrays-3efd6395af3c/)
 * [ ] [一个合格的中级前端工程师需要掌握的 28 个 JavaScript 技巧](https://juejin.im/post/5cef46226fb9a07eaf2b7516)
 * [ ] [1.5万字概括ES6全部特性(已更新ES2020)](https://juejin.im/post/5d9bf530518825427b27639d)
-
-### 杂
-
 * [ ] [JavaScript深入系列15篇正式完结！](https://juejin.im/post/6844903479429824526)
 * [ ] [你真的理解 事件冒泡 和 事件捕获 吗？](https://juejin.im/post/5cc941436fb9a03236394027)
 * [ ] [发布订阅模式，在工作中它的能量超乎你的想象](https://juejin.im/post/6844903616172539917)
@@ -295,6 +415,111 @@ JavaScript 资料整理
 * [ ] [正则表达式不要背](https://juejin.im/post/6844903845227659271)
 * [ ] [前端必知必会--操作URL的黑科技](https://juejin.im/post/6844903865767165959)
 * [ ] [一篇不是标题党的CommonJS和ES6模块规范讲解](https://juejin.im/post/6844904145443356680)
+
+### <a name="chapter-three-twelve" id="chapter-three-twelve"></a>3.12 手写系列文章
+
+> [返回目录](#chapter-one)
+
+* [x] [前端面试常见的手写功能](https://juejin.im/post/6873513007037546510)【阅读建议：30min】
+* [x] [32个手写JS，巩固你的JS基础（面试高频）](https://juejin.im/post/6875152247714480136)【阅读建议：30min】
+* [x] [22 道高频 JavaScript 手写面试题及答案](https://juejin.im/post/6844903911686406158)【阅读建议：30min】
+* [x] [「中高级前端面试」JavaScript手写代码无敌秘籍](https://juejin.im/post/6844903809206976520)【阅读建议：30min】
+* [x] [几道JS代码手写题以及一些代码实现](https://juejin.im/post/6844903575559077895)【阅读建议：30min】
+* [x] [三元-手写代码系列](http://47.98.159.95/my_blog/js-api/001.html)【阅读建议：30min】
+* [x] [CORS 原理及实现](https://www.jianshu.com/p/b2bdf55e1bf5)【阅读建议：30min】
+* [x] [JSONP 原理及实现](https://www.jianshu.com/p/88bb82718517)【阅读建议：30min】
+
+### <a name="chapter-three-thirteen" id="chapter-three-thirteen"></a>3.13 手写 call/bind/apply
+
+> [返回目录](#chapter-one)
+
+* [x] [MDN - Arguments](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments)【阅读建议：5min】
+* [x] [MDN - call](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)【阅读建议：5min】
+* [x] [MDN - apply](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)【阅读建议：5min】
+* [x] [MDN - bind](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)【阅读建议：5min】
+* [x] [不用call和apply方法模拟实现ES5的bind方法](https://github.com/jawil/blog/issues/16)【阅读建议：1h】
+* [x] [JavaScript深入之call和apply的模拟实现](https://github.com/mqyqingfeng/Blog/issues/11)【阅读建议：20min】
+* [x] [this、apply、call、bind](https://juejin.im/post/6844903496253177863)【阅读建议：30min】
+* [x] [面试官问：能否模拟实现JS的call和apply方法](https://juejin.im/post/5bf6c79bf265da6142738b29)【阅读建议：10min】
+* [x] [JavaScript基础心法—— call apply bind](https://github.com/axuebin/articles/issues/7)【阅读建议：20min】
+* [x] [回味JS基础:call apply 与 bind](https://juejin.im/post/57dc97f35bbb50005e5b39bd)【阅读建议：10min】
+
+### <a name="chapter-three-fourteen" id="chapter-three-fourteen"></a>3.14 手写深拷贝和浅拷贝
+
+> [返回目录](#chapter-one)
+
+* [x] [如何写出一个惊艳面试官的深拷贝?](https://juejin.im/post/6844903929705136141)【阅读建议：2h】
+* [x] [深拷贝的终极探索（90%的人都不知道）](https://juejin.im/post/5bc1ae9be51d450e8b140b0c)【阅读建议：1h】
+* [x] [JavaScript基础心法——深浅拷贝](https://github.com/axuebin/articles/issues/20)【阅读建议：30min】
+* [x] [JavaScript专题之深浅拷贝](https://github.com/mqyqingfeng/Blog/issues/32)【阅读建议：20min】
+* [x] [javaScript中浅拷贝和深拷贝的实现](https://github.com/wengjq/Blog/issues/3)【阅读建议：20min】
+* [x] [深入剖析 JavaScript 的深复制](https://jerryzou.com/posts/dive-into-deep-clone-in-javascript/)【阅读建议：20min】
+* [x] [「JavaScript」带你彻底搞清楚深拷贝、浅拷贝和循环引用](https://segmentfault.com/a/1190000015042902)【阅读建议：20min】
+* [x] [面试题之如何实现一个深拷贝](https://github.com/yygmind/blog/issues/29)【阅读建议：30min】
+
+### <a name="chapter-three-fifteen" id="chapter-three-fifteen"></a>3.15 手写 Promise
+
+> [返回目录](#chapter-one)
+
+* [x] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)【阅读建议：30min】
+* [x] [最简实现 Promise，支持异步链式调用（20行）](https://juejin.im/post/5e6f4579f265da576429a907)【建议阅读：20min】
+* [x] [BAT 前端经典面试问题：史上最最最详细的手写 Promise 教程](https://juejin.im/post/6844903625769091079)【阅读建议：30min】
+* [x] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/6844903617619558408)【阅读建议：大概看了遍，没前面剖析的清晰】
+* [x] [Promise实现原理（附源码）](https://juejin.im/post/5b83cb5ae51d4538cc3ec354)【阅读建议：大概看了遍，没前面剖析的清晰】
+* [x] [剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类](https://github.com/xieranmaya/blog/issues/3)【建议阅读：写得比较细，没前面剖析的清晰】
+* [x] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)【建议阅读：写得比较细，没前面剖析的清晰】
+* [x] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)【建议阅读：写得比较细，没前面剖析的清晰】
+
+### <a name="chapter-three-sixteen" id="chapter-three-sixteen"></a>3.16 异步系列
+
+> [返回目录](#chapter-one)
+
+* [x] [Javascript异步编程的 4 种方法](http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html)【阅读建议：5min】
+* [x] [你好，JavaScript异步编程---- 理解JavaScript异步的美妙](https://juejin.im/post/5b56c3586fb9a04faa79a8e0)【阅读建议：5min】
+* [x] [理解异步之美：Promise 与 async await（一）](https://juejin.im/post/6844903655565426696)【5min】
+* [x] [理解异步之美：Promise 与 async await（二）](https://juejin.im/post/6844903661789773831)【20min】
+* [x] [[完结篇] - 理解异步之美 --- promise与async await （三）](https://juejin.im/post/6844903664209887246)【20min】
+
+### <a name="chapter-three-seventeen" id="chapter-three-seventeen"></a>3.17 异步：Event Loop
+
+> [返回目录](#chapter-one)
+
+* [x] [浏览器与Node的事件循环(Event Loop)有何区别?](https://zhuanlan.zhihu.com/p/54882306)【阅读建议：20min】
+* [x] [一次弄懂Event Loop（彻底解决此类面试问题）](https://juejin.im/post/5c3d8956e51d4511dc72c200)【阅读建议：20min】
+* [x] [事件循环机制的那些事](https://mp.weixin.qq.com/s/PBX_YHw0-f3bbSDH5ZbbJQ?)【阅读建议：10min】
+* [x] [深入理解js事件循环机制（Node.js篇）](http://lynnelv.github.io/js-event-loop-nodejs)【阅读建议：无】
+* [x] [详解 JavaScript 中的 Event Loop（事件循环）机制](https://zhuanlan.zhihu.com/p/33058983)【阅读建议：5min】
+* [x] [深入理解 JavaScript Event Loop](https://zhuanlan.zhihu.com/p/34229323)【阅读建议：20min】
+* [x] [【THE LAST TIME】彻底吃透 JavaScript 执行机制](https://juejin.im/post/5d901418518825539312f587)【阅读建议：20min】
+* [x] [JavaScript：彻底理解同步、异步和事件循环(Event Loop)](https://segmentfault.com/a/1190000004322358)【阅读建议：10min】
+* [x] [从event loop规范探究javaScript异步及浏览器更新渲染时机](https://github.com/aooy/blog/issues/5)【阅读建议：20min】
+* [x] [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)【阅读建议：无】
+* [x] [The Node.js Event Loop, Timers, and process.nextTick()](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)【阅读建议：无】
+* [x] [浏览器进程？线程？傻傻分不清楚！](https://imweb.io/topic/58e3bfa845e5c13468f567d5)【阅读建议：5min】
+
+### <a name="chapter-three-eighteen" id="chapter-three-eighteen"></a>3.18 异步：Promise
+
+> [返回目录](#chapter-one)
+
+* [x] [ES6 入门 - Promise 对象](https://es6.ruanyifeng.com/#docs/promise)【阅读建议：2h】
+* [x] [要就来 45 道 Promise 面试题一次爽到底](https://juejin.im/post/6844904077537574919)【阅读建议：8h】
+* [x] [面试精选之 Promise](https://juejin.im/post/6844903625609707534)【阅读建议：20min】
+* [x] [最简实现 Promise，支持异步链式调用（20行）](https://juejin.im/post/5e6f4579f265da576429a907)【建议阅读：20min】
+* [x] [BAT 前端经典面试问题：史上最最最详细的手写 Promise 教程](https://juejin.im/post/6844903625769091079)【阅读建议：30min】
+* [x] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)【阅读建议：30min】
+* [x] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/6844903617619558408)【阅读建议：略读】
+* [x] [Promise实现原理（附源码）](https://juejin.im/post/5b83cb5ae51d4538cc3ec354)【阅读建议：略读】
+* [x] [剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类](https://github.com/xieranmaya/blog/issues/3)【建议阅读：略读】
+* [x] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)【建议阅读：略读】
+* [x] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)【建议阅读：略读】
+* [x] [Promises/A+ 规范（中文版](https://segmentfault.com/a/1190000002452115)【阅读建议：无】
+* [x] [Promises/A+ 规范（英文版）](https://promisesaplus.com/)【阅读建议：无】
+* [x] [Promises/A+ 测试仓库](https://github.com/promises-aplus/promises-tests/tree/master/lib/tests)【阅读建议：无】
+* [x] [ES6 之 Promise 常见面试题](https://blog.csdn.net/weixin_37719279/article/details/80950713)【阅读建议：10min】
+* [x] [Promise 必知必会（十道题）](https://juejin.im/post/6844903509934997511)【阅读建议：10min】
+* [x] [大白话讲解 Promise（一）](https://www.cnblogs.com/lvdabao/p/es6-promise-1.html)【阅读建议：30min】
+* [x] [再谈谈 Promise, setTimeout, rAF, rIC](https://segmentfault.com/a/1190000019154514)【阅读建议：10min】
+* [x] [window.requestAnimationFrame](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame)【阅读建议：10min】
 
 ---
 
