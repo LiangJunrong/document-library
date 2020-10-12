@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-17 18:14:12**  
-> Recently revised in **2020-09-19 17:18:50**
+> Recently revised in **2020-10-12 20:05:37**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -13,9 +13,18 @@
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 迷思](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 手写 Promise](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 参考文献](#chapter-five) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
+
+> [返回目录](#chapter-one)
+
+* 面试官：手写一个 `Promise`，要求实现 `resolve()/reject()/then()`
+
+## <a name="chapter-three" id="chapter-three"></a>三 迷思
 
 > [返回目录](#chapter-one)
 
@@ -33,18 +42,13 @@ JavaScript 里的异步方案的演进时，是用下面这种顺序：
 
 那么，能手写 `Promise` 实现，对精通 `Promise` 帮助不大。
 
-> 来源于微信公众号：工业聚
+> 这话来源于微信公众号：工业聚
 
-* [x] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)【阅读建议：30min】
-* [x] [最简实现 Promise，支持异步链式调用（20行）](https://juejin.im/post/5e6f4579f265da576429a907)【建议阅读：20min】
-* [x] [BAT 前端经典面试问题：史上最最最详细的手写 Promise 教程](https://juejin.im/post/6844903625769091079)【阅读建议：30min】
-* [x] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/6844903617619558408)【阅读建议：大概看了遍，没前面剖析的清晰】
-* [x] [Promise实现原理（附源码）](https://juejin.im/post/5b83cb5ae51d4538cc3ec354)【阅读建议：大概看了遍，没前面剖析的清晰】
-* [x] [剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类](https://github.com/xieranmaya/blog/issues/3)【建议阅读：写得比较细，没前面剖析的清晰】
-* [x] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)【建议阅读：写得比较细，没前面剖析的清晰】
-* [x] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)【建议阅读：写得比较细，没前面剖析的清晰】
+## <a name="chapter-four" id="chapter-four"></a>四 手写 Promise
 
-> 代码来源工业聚那篇文章
+> [返回目录](#chapter-one)
+
+代码来源工业聚那篇文章
 
 ```js
 /**
@@ -256,6 +260,19 @@ promise.then((res) => {
   console.log('res 2：', res);
 });
 ```
+
+## <a name="chapter-five" id="chapter-five"></a>五 参考文献
+
+> [返回目录](#chapter-one)
+
+* [x] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)【阅读建议：30min】
+* [x] [最简实现 Promise，支持异步链式调用（20行）](https://juejin.im/post/5e6f4579f265da576429a907)【建议阅读：20min】
+* [x] [BAT 前端经典面试问题：史上最最最详细的手写 Promise 教程](https://juejin.im/post/6844903625769091079)【阅读建议：30min】
+* [x] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/6844903617619558408)【阅读建议：大概看了遍，没前面剖析的清晰】
+* [x] [Promise实现原理（附源码）](https://juejin.im/post/5b83cb5ae51d4538cc3ec354)【阅读建议：大概看了遍，没前面剖析的清晰】
+* [x] [剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类](https://github.com/xieranmaya/blog/issues/3)【建议阅读：写得比较细，没前面剖析的清晰】
+* [x] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)【建议阅读：写得比较细，没前面剖析的清晰】
+* [x] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)【建议阅读：写得比较细，没前面剖析的清晰】
 
 ---
 
