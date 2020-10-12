@@ -15,7 +15,9 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 迷思](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 手写 Promise](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 参考文献](#chapter-five) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 Promise.all()](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Promise.race()](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 参考文献](#chapter-seven) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -261,7 +263,122 @@ promise.then((res) => {
 });
 ```
 
-## <a name="chapter-five" id="chapter-five"></a>五 参考文献
+## <a name="chapter-five" id="chapter-five"></a>五 Promise.all()
+
+> [返回目录](#chapter-one)
+
+给定内容：
+
+```js
+const a = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(500);
+  }, 500);
+});
+const b = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(1000);
+  }, 1000);
+});
+
+Promise.myAll([a, b]).then((res) => {
+  console.log('结果：', res);
+});
+```
+
+要求输出 `结果：[ 500, 1000 ]`。
+
+```js
+Promise.myAll = function(arr) {
+  // 1. 返回一个 Promise
+  return new Promise((resolve, reject) => {
+
+    // 2. 设置最终返回结果
+    const result = [];
+
+    // 3. 获取数组的长度以及当前进展索引 index
+    const length = arr.length;
+    let index = 0;
+
+    // 4. 遍历数组，将里面所有内容走一遍
+    for (let i = 0; i < arr.length; i++) {
+
+      // 5 在 .then 里面给 result 设置内容
+      // 如果 index 到了最尾，那么就 resolve(result)
+      // 否则 reject(err)
+      arr[i].then((res) => {
+        result[i] = res;
+        
+        index++;
+
+        if (index === length) {
+          resolve(result);
+        }
+      }).catch((err) => {
+        throw new Error(err);
+      })
+    }
+  })
+};
+```
+
+## <a name="chapter-six" id="chapter-six"></a>六 Promise.race()
+
+> [返回目录](#chapter-one)
+
+给定内容：
+
+```js
+const a = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(500);
+  }, 500);
+});
+const b = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(1000);
+  }, 1000);
+});
+
+Promise.myRace([a, b]).then((res) => {
+  console.log('结果：', res);
+});
+```
+
+要求输出 `结果：500`。
+
+`race` 方法和前面的 `all` 方法类似，不同的是它在第一次执行 `.then` 的时候直接返回结果就可以了，而不需要每个结果都返回。
+
+```js
+Promise.myRace = function(arr) {
+  return new Promise((resolve, reject) => {
+    for (let i = 0; i < arr.length; i++) {
+      arr[i].then((res) => {
+        return resolve(res);
+      }).catch((err) => {
+        throw new Error(err);
+      })
+    }
+  })
+};
+
+const a = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(500);
+  }, 500);
+});
+const b = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(1000);
+  }, 1000);
+});
+
+Promise.myRace([a, b]).then((res) => {
+  console.log('结果：', res);
+})
+```
+
+## <a name="chapter-seven" id="chapter-seven"></a>七 参考文献
 
 > [返回目录](#chapter-one)
 
