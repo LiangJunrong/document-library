@@ -2,7 +2,7 @@ JSONP
 ===
 
 > Create by **jsliang** on **2020-09-29 00:43:41**  
-> Recently revised in **2020-09-29 01:12:58**
+> Recently revised in **2020-10-12 22:03:35**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -15,7 +15,13 @@ JSONP
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 基本原理、执行过程和优缺点](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 基本实现](#chapter-four) |
+| &emsp;[4.1 步骤一：前端部分](#chapter-four-one) |
+| &emsp;[4.2 步骤二：后端部分](#chapter-four-two) |
+| &emsp;[4.3 步骤三：前端部分](#chapter-four-three) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 手写 JSONP](#chapter-five) |
+| &emsp;[5.1 封装 JSONP](#chapter-five-one) |
+| &emsp;[5.2 简单实现](#chapter-five-two) |
+| &emsp;[5.3 完善版本](#chapter-five-three) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -27,7 +33,6 @@ JSONP
 > [返回目录](#chapter-one)
 
 * **基本原理**：利用 `script` 标签的 `src` 没有跨域限制来完成实现。
-
 
 * **执行过程**：
 
@@ -45,7 +50,9 @@ JSONP
 
 > [返回目录](#chapter-one)
 
-* **步骤一：前端部分**
+### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 步骤一：前端部分
+
+> [返回目录](#chapter-one)
 
 前端代码：
 
@@ -63,7 +70,9 @@ JSONP
 1. 创建一个 `jsonpCallBack` 函数，但是还没有被调用。
 2. 加载 `src` 中的资源，调用 `localhost:8080` 端口的 API：`api/jsonp`，传递的参数是 `id = 1` 以及 `cb = jsonpCallBack`
 
-* **步骤二：后端部分**
+### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 步骤二：后端部分
+
+> [返回目录](#chapter-one)
 
 后端代码：
 
@@ -88,7 +97,9 @@ app.listen(8080);
 2. 查找 `title`
 3. 返回一个字符串，该字符串调用 `cb` 方法，并将 `title` 转成字符串，返回到内容 `ctx.body` 中。
 
-* **步骤三：前端部分**
+### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 步骤三：前端部分
+
+> [返回目录](#chapter-one)
 
 这时候前端接收到 Node.js 的返回，直接调用了 `cb(title)`，方法，最终执行了它的回调，从而执行：
 
@@ -104,12 +115,67 @@ window.jsonpCallBack = function(res) {
 
 > [返回目录](#chapter-one)
 
-**首先**，定义一个 `JSONP` 方法，接收 4 个参数：
+### <a name="chapter-five-one" id="chapter-five-one"></a>5.1 封装 JSONP
+
+> [返回目录](#chapter-one)
+
+定义一个 `JSONP` 方法，接收 4 个参数：
 
 * `url`：`api` 接口
 * `params`：`api` 接口参数
 * `callbackKey`：与后端约定回调函数用哪个字段
 * `callback`：拿到数据之后前端执行的回调函数
+
+```js
+JSONP({
+  url: 'https://www.baidu.com/s',
+  params: { wd: 'jsliang' },
+  callBackkey: 'cb',
+  callback(res) {
+    console.log(res);
+  }
+})
+```
+
+### <a name="chapter-five-two" id="chapter-five-two"></a>5.2 简单实现
+
+> [返回目录](#chapter-one)
+
+我们看看简单实现：
+
+```js
+const JSONP = ({
+  url,
+  params = {},
+  callBackkey = 'cb',
+  callback,
+}) => {
+  params[callBackkey] = callBackkey;
+
+  window[callBackkey] = callback;
+
+  const newParam = Object.keys(params).map((key) => `${key}=${params[key]}`).join('&');
+
+  const script = document.createElement('script');
+  script.setAttribute('src', `${url}?${newParam}`);
+  document.body.appendChild(script);
+}
+
+JSONP({
+  url: 'https://www.baidu.com/s',
+  params: { wd: 'jsliang' },
+  callBackkey: 'cb',
+  callback(res) {
+    console.log(res);
+  }
+})
+```
+
+### <a name="chapter-five-three" id="chapter-five-three"></a>5.3 完善版本
+
+> [返回目录](#chapter-one)
+
+优化多次调用时候的一个问题：
 
 ```js
 function JSONP({
