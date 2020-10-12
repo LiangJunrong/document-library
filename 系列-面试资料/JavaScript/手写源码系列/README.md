@@ -4,6 +4,7 @@
 > Create by **jsliang** on **2020-09-21 15:06:41**  
 > Recently revised in **2020-10-06 17:49:48**
 
+<!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -11,73 +12,131 @@
 | 目录 |
 | --- |
 | [一 目录](#chapter-one) |
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 jsliang 整理](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 参考文献](#chapter-three) |
+| &emsp;[3.1 手写系列文章](#chapter-three-one) |
+| &emsp;[3.2 手写 call/bind/apply](#chapter-three-two) |
+| &emsp;[3.3 手写深拷贝和浅拷贝](#chapter-three-three) |
+| &emsp;[3.4 手写 Promise](#chapter-three-four) |
+<!-- 目录结束 -->
 
-## <a name="chapter-two" id="chapter-two"></a>二 前言
+## <a name="chapter-two" id="chapter-two"></a>二 jsliang 整理
 
 > [返回目录](#chapter-one)
 
-## jsliang 整理
+本系列有 8 篇文章，大纲 32 个知识点。
 
-* [ ] [手写系列](https://github.com/LiangJunrong/document-library/tree/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97)
-  * [x] [自定义原生事件](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6.md)
-  * [x] [Promise](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise.md)
-  * [x] [Promise 实现 Ajax](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise%20%E5%AE%9E%E7%8E%B0%20Ajax.md)
-  * [x] [迭代器](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E8%BF%AD%E4%BB%A3%E5%99%A8.md)
-  * [x] [防抖和节流](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81.md)
-  * [x] [浅拷贝和深拷贝](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D.md)
-  * [ ] [call+bind+apply](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/call%2Bbind%2Bapply.md)
-  * [x] [JSONP](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/JSONP.md)
-  * [x] [new](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/new.md)
+手写系列存放位置：
 
-## 手写系列文章
+* [x] [手写系列](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97)
 
-* [ ] [22 道高频 JavaScript 手写面试题及答案](https://juejin.im/post/6844903911686406158)
-* [ ] [前端面试常见的手写功能](https://juejin.im/post/6873513007037546510)
-* [ ] [「中高级前端面试」JavaScript手写代码无敌秘籍](https://juejin.im/post/6844903809206976520)
-* [ ] [几道JS代码手写题以及一些代码实现](https://juejin.im/post/6844903575559077895)
-* [ ] [三元-手写代码系列](http://47.98.159.95/my_blog/js-api/001.html)
+各个手写具体实现：
+
+* [x] [自定义原生事件](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6.md)
+  * [x] **创建自定义事件**：`const myEvent = new Event()`、`new CustomEvent()`、`document.createEvent('CustomEvent')`
+  * [x] **监听自定义事件**：`document.addEventListener('myEvent', callback)`
+  * [x] **触发自定义事件**：`document.dispatchEvent(myEvent)`
+* [x] [Promise](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise.md)
+  * [x] **简写版 `Promise`（不支持异步）**
+  * [x] **手写 `Promise`（`resolve`、`reject`、`then`）**
+  * [x] **实现 `Promise.all()`**
+  * [x] **实现 `Promise.race()`**
+  * [x] **实现 `Promise` 异步调度器**
+* [x] [防抖和节流](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81.md)
+  * [x] **防抖**
+  * [x] **节流**
+  * [x] **防抖 + 节流（必定能触发的防抖）**
+* [x] [浅拷贝和深拷贝](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D.md)
+  * [x] **手写浅拷贝**
+  * [x] **`Object.assign`**
+  * [x] **浅拷贝其他方法**：`concat()`、`slice()`、`[...arr]`
+  * [x] **手写深拷贝**
+  * [x] **`JSON.parse(JSON.stringify())`**
+  * [x] **Lodash 的 `_.cloneDeep()`**
+  * [x] **JQuery 的 `$.extend()`**
+* [x] [call+bind+apply](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/call%2Bbind%2Bapply.md)
+  * [x] **原生 `call` 和手写 `call`**
+  * [x] **原生 `bind` 和手写 `bind`**
+  * [x] **原生 `apply` 和手写 `apply`**
+* [x] [JSONP](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/JSONP.md)
+  * [x] **基本原理**：利用 `script` 标签的 `src` 没有跨域限制来完成实现
+  * [x] **优缺点**：只能 `GET`；兼容性好
+  * [x] **简单实现**：通过 `url, params, callbackKey, callback` 来定义 `JSONP()` 方法的参数
+  * [x] **考虑多次调用**：基于简单实现，添加数组保存 `callback` 的返回
+* [x] [new](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/new.md)
+  * [x] **3 行代码手写 `new`**
+  * [x] **手写 `new` 的 5 个特点**
+  * [x] **完整版手写 `new`**
+* [x] [其他](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E5%85%B6%E4%BB%96.md)
+  * [x] **`Object.create()`**
+  * [x] **ES5 实现类继承**
+  * [x] **`instanceof`**
+  * [x] **柯里化**：求 `add(1)(2)(3)`
+  * [x] **迭代器**
+  * [x] **Ajax**
+  * [x] **数组扁平化**：手撕、`flat()`、`reduce()`
+  * [x] **数组去重**：手撕、`Set`、`filter()`
+  * [x] **其他**
+
+## <a name="chapter-three" id="chapter-three"></a>三 参考文献
+
+> [返回目录](#chapter-one)
+
+本系列有 34 篇参考文献。
+
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 手写系列文章
+
+> [返回目录](#chapter-one)
+
+* [x] [前端面试常见的手写功能](https://juejin.im/post/6873513007037546510)【阅读建议：30min】
+* [x] [32个手写JS，巩固你的JS基础（面试高频）](https://juejin.im/post/6875152247714480136)【阅读建议：30min】
+* [x] [22 道高频 JavaScript 手写面试题及答案](https://juejin.im/post/6844903911686406158)【阅读建议：30min】
+* [x] [「中高级前端面试」JavaScript手写代码无敌秘籍](https://juejin.im/post/6844903809206976520)【阅读建议：30min】
+* [x] [几道JS代码手写题以及一些代码实现](https://juejin.im/post/6844903575559077895)【阅读建议：30min】
+* [x] [三元-手写代码系列](http://47.98.159.95/my_blog/js-api/001.html)【阅读建议：30min】
 * [x] [CORS 原理及实现](https://www.jianshu.com/p/b2bdf55e1bf5)【阅读建议：30min】
 * [x] [JSONP 原理及实现](https://www.jianshu.com/p/88bb82718517)【阅读建议：30min】
 
-## 深拷贝和浅拷贝
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 手写 call/bind/apply
 
-* [ ] [JavaScript基础心法——深浅拷贝](https://github.com/axuebin/articles/issues/20)
-* [ ] [深拷贝的终极探索（90%的人都不知道）](https://juejin.im/post/5bc1ae9be51d450e8b140b0c)
-* [ ] [JavaScript专题之深浅拷贝](https://github.com/mqyqingfeng/Blog/issues/32)
-* [ ] [javaScript中浅拷贝和深拷贝的实现](https://github.com/wengjq/Blog/issues/3)
-* [ ] [深入剖析 JavaScript 的深复制](https://jerryzou.com/posts/dive-into-deep-clone-in-javascript/)
-* [ ] [「JavaScript」带你彻底搞清楚深拷贝、浅拷贝和循环引用](https://segmentfault.com/a/1190000015042902)
-* [ ] [面试题之如何实现一个深拷贝](https://github.com/yygmind/blog/issues/29)
-* [ ] [如何写出一个惊艳面试官的深拷贝?](https://juejin.im/post/6844903929705136141)
+> [返回目录](#chapter-one)
 
-## 题 2：手写 new
+* [x] [MDN - Arguments](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments)【阅读建议：5min】
+* [x] [MDN - call](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)【阅读建议：5min】
+* [x] [MDN - apply](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)【阅读建议：5min】
+* [x] [MDN - bind](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)【阅读建议：5min】
+* [x] [不用call和apply方法模拟实现ES5的bind方法](https://github.com/jawil/blog/issues/16)【阅读建议：1h】
+* [x] [JavaScript深入之call和apply的模拟实现](https://github.com/mqyqingfeng/Blog/issues/11)【阅读建议：20min】
+* [x] [this、apply、call、bind](https://juejin.im/post/6844903496253177863)【阅读建议：30min】
+* [x] [面试官问：能否模拟实现JS的call和apply方法](https://juejin.im/post/5bf6c79bf265da6142738b29)【阅读建议：10min】
+* [x] [JavaScript基础心法—— call apply bind](https://github.com/axuebin/articles/issues/7)【阅读建议：20min】
+* [x] [回味JS基础:call apply 与 bind](https://juejin.im/post/57dc97f35bbb50005e5b39bd)【阅读建议：10min】
 
-```js
-function myNew (fn, ...args) {
-  const instance = Object.create(fn.prototype);
-  const result = fn.call(instance, ...args);
-  return typeof reuslt === 'object' ? result : instance;
-}
-```
+### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 手写深拷贝和浅拷贝
 
-### 题 3：手写 instanceof
+> [返回目录](#chapter-one)
 
-```js
-function myInstanceof (left, right) {
-  const proto = Object.getPrototypeOf(left);
+* [x] [如何写出一个惊艳面试官的深拷贝?](https://juejin.im/post/6844903929705136141)【阅读建议：2h】
+* [x] [深拷贝的终极探索（90%的人都不知道）](https://juejin.im/post/5bc1ae9be51d450e8b140b0c)【阅读建议：1h】
+* [x] [JavaScript基础心法——深浅拷贝](https://github.com/axuebin/articles/issues/20)【阅读建议：30min】
+* [x] [JavaScript专题之深浅拷贝](https://github.com/mqyqingfeng/Blog/issues/32)【阅读建议：20min】
+* [x] [javaScript中浅拷贝和深拷贝的实现](https://github.com/wengjq/Blog/issues/3)【阅读建议：20min】
+* [x] [深入剖析 JavaScript 的深复制](https://jerryzou.com/posts/dive-into-deep-clone-in-javascript/)【阅读建议：20min】
+* [x] [「JavaScript」带你彻底搞清楚深拷贝、浅拷贝和循环引用](https://segmentfault.com/a/1190000015042902)【阅读建议：20min】
+* [x] [面试题之如何实现一个深拷贝](https://github.com/yygmind/blog/issues/29)【阅读建议：30min】
 
-  while (true) {
-    if (proto === null) {
-      return false;
-    }
-    if (proto === right.prototype) {
-      return true;
-    }
-    proto = Object.getPrototypeOf(proto);
-  }
-}
-```
+### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 手写 Promise
+
+> [返回目录](#chapter-one)
+
+* [x] [100 行代码实现 Promises/A+ 规范](https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g)【阅读建议：30min】
+* [x] [最简实现 Promise，支持异步链式调用（20行）](https://juejin.im/post/5e6f4579f265da576429a907)【建议阅读：20min】
+* [x] [BAT 前端经典面试问题：史上最最最详细的手写 Promise 教程](https://juejin.im/post/6844903625769091079)【阅读建议：30min】
+* [x] [一起学习造轮子（一）：从零开始写一个符合Promises/A+规范的promise](https://juejin.im/post/6844903617619558408)【阅读建议：大概看了遍，没前面剖析的清晰】
+* [x] [Promise实现原理（附源码）](https://juejin.im/post/5b83cb5ae51d4538cc3ec354)【阅读建议：大概看了遍，没前面剖析的清晰】
+* [x] [剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类](https://github.com/xieranmaya/blog/issues/3)【建议阅读：写得比较细，没前面剖析的清晰】
+* [x] [小邵教你玩转promise源码](https://juejin.im/post/6844903655418626061)【建议阅读：写得比较细，没前面剖析的清晰】
+* [x] [Promise不会？？看这里！！！史上最通俗易懂的Promise！！！](https://juejin.im/post/6844903607968481287)【建议阅读：写得比较细，没前面剖析的清晰】
 
 ---
 
