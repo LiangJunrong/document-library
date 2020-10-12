@@ -2,8 +2,9 @@
 ===
 
 > Create by **jsliang** on **2020-09-17 18:32:23**  
-> Recently revised in **2020-09-29 00:31:00**
+> Recently revised in **2020-10-12 10:42:16**
 
+<!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -17,7 +18,7 @@
 | &emsp;[4.1 异步参考文献](#chapter-four-one) |
 | &emsp;[4.2 Event Loop 参考文献](#chapter-four-two) |
 | &emsp;[4.3 Promise 参考文献](#chapter-four-three) |
-| &emsp;[4.4 async/await 参考文献](#chapter-four-four) |
+<!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -25,10 +26,33 @@
 
 本系列将整理：
 
-* [异步](#chapter-three)
-* [Event Loop](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Event%20Loop.md)
-* [Promise](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Promise.md)
-* [async 和 await](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/async%20%E5%92%8C%20await.md)
+* [x] [JavaScript 异步](#chapter-three)
+  * [x] JavaScript 是单线程的
+  * [x] 为什么不设计成多线程
+  * [x] 为什么需要异步
+  * [x] 如何实现异步
+* [x] [Event Loop](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Event%20Loop.md)
+  * [x] 单线程和多线程
+  * [x] 浏览器 Event Loop
+  * [x] Node 和浏览器 Event Loop 区别
+  * [x] 训练题目
+* [x] [Promise](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E5%BC%82%E6%AD%A5%E7%B3%BB%E5%88%97/Promise.md)
+  * [x] Promise 初探：是什么、为什么、怎么用
+  * [x] Promise 基础：`new Promise` 和 `Promise` 状态
+  * [x] 题库：基础题
+  * [x] 题库：结合 `setTimeout`
+  * [x] `.then()` 链式操作：两个参数、链式调用
+  * [x] `.catch()` 捕获问题
+  * [x] `.finally()` 强制执行
+  * [x] 题库：`.then()、.catch()、.finally()`
+  * [x] `.all()` 接力赛
+  * [x] `.race()` 个人赛
+  * [x] 题库：`.all()、.race()`
+  * [x] Promise 源码
+  * [x] 题库：结合 `async/await`
+  * [x] 综合题
+  * [x] 大厂题
+  * [x] 总结
 
 ## <a name="chapter-three" id="chapter-three"></a>三 异步
 
@@ -50,7 +74,7 @@
 
 假设有个 DOM 节点，现在有线程 A 操作它，删除了这个 DOM；然后线程 B 又操作它，修改了某部分。那么现在问题来了，咱听谁的？
 
-所以干脆设计成一个单线程，哪怕后期 HTML5 出了个 web worker 也是不允许操作 DOM 结构的，可以完成一些分布式的计算。
+所以干脆设计成一个单线程，哪怕后期 HTML5 出了个 Web Worker 也是不允许操作 DOM 结构的，可以完成一些分布式的计算。
 
 * **为什么需要异步？**
 
@@ -128,12 +152,6 @@
 * [x] [大白话讲解 Promise（一）](https://www.cnblogs.com/lvdabao/p/es6-promise-1.html)【阅读建议：30min】
 * [x] [再谈谈 Promise, setTimeout, rAF, rIC](https://segmentfault.com/a/1190000019154514)【阅读建议：10min】
 * [x] [window.requestAnimationFrame](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame)【阅读建议：10min】
-
-### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 async/await 参考文献
-
-> [返回目录](#chapter-one)
-
-无
 
 ---
 
