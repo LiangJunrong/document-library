@@ -127,6 +127,11 @@
 * [x] [从event loop规范探究javaScript异步及浏览器更新渲染时机](https://github.com/aooy/blog/issues/5)【阅读建议：20min】
 * [x] [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)【阅读建议：无】
 * [x] [The Node.js Event Loop, Timers, and process.nextTick()](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)【阅读建议：无】
+* [x] [再谈谈 Promise, setTimeout, rAF, rIC](https://segmentfault.com/a/1190000019154514)【阅读建议：10min】
+* [x] [window.requestAnimationFrame](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame)【阅读建议：10min】
+* [x] [JavaScript 中的多线程 -- Web Worker](https://zhuanlan.zhihu.com/p/25184390)【阅读建议：30min】
+* [x] [浅谈HTML5 Web Worker](https://juejin.im/post/6844903496550989837)【阅读建议：10min】
+* [x] [JavaScript 性能利器 —— Web Worker](https://juejin.im/post/5c10e5a9f265da611c26d634)【阅读建议：10min】
 * [x] [浏览器进程？线程？傻傻分不清楚！](https://imweb.io/topic/58e3bfa845e5c13468f567d5)【阅读建议：5min】
 
 ### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 Promise 参考文献
