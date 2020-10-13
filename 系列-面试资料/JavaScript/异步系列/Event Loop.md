@@ -58,6 +58,12 @@
 * [x] [再谈谈 Promise, setTimeout, rAF, rIC](https://segmentfault.com/a/1190000019154514)【阅读建议：10min】
 * [x] [window.requestAnimationFrame](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame)【阅读建议：10min】
 
+**Web Worker 参考文献**：
+
+* [x] [JavaScript 中的多线程 -- Web Worker](https://zhuanlan.zhihu.com/p/25184390)【阅读建议：30min】
+* [x] [浅谈HTML5 Web Worker](https://juejin.im/post/6844903496550989837)【阅读建议：10min】
+* [x] [JavaScript 性能利器 —— Web Worker](https://juejin.im/post/5c10e5a9f265da611c26d634)【阅读建议：10min】
+
 **其他参考文献**：
 
 * [x] [浏览器进程？线程？傻傻分不清楚！](https://imweb.io/topic/58e3bfa845e5c13468f567d5)【阅读建议：5min】
