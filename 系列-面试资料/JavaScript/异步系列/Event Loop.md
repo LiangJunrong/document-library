@@ -16,8 +16,15 @@
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 单线程和多线程](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Event Loop](#chapter-four) |
 | &emsp;[4.1 Event Loop 执行过程](#chapter-four-one) |
-| &emsp;[4.2 requestAnimationFrane](#chapter-four-two) |
-| &emsp;[4.3 Node 和 浏览器](#chapter-four-three) |
+| &emsp;[4.2 requestAnimationFrame](#chapter-four-two) |
+| &emsp;&emsp;[4.2.1 requestAnimationFrame 介绍](#chapter-four-two-one) |
+| &emsp;&emsp;[4.2.2 requestAnimationFrame 使用缘由](#chapter-four-two-two) |
+| &emsp;[4.3 Web Worker](#chapter-four-three) |
+| &emsp;&emsp;[4.3.1 Web Worker 使用](#chapter-four-three-one) |
+| &emsp;&emsp;[4.3.2 Web Worker 数据通讯](#chapter-four-three-two) |
+| &emsp;&emsp;[4.3.3 Web Worker 可操作 API](#chapter-four-three-three) |
+| &emsp;&emsp;[4.3.4 Web Worker 兼容性](#chapter-four-three-four) |
+| &emsp;[4.4 Node 和 浏览器](#chapter-four-four) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 两个环境 Event Loop 对比](#chapter-five) |
 | <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 题目训练](#chapter-six) |
 | &emsp;[6.1 同步任务](#chapter-six-one) |
@@ -151,32 +158,240 @@ JavaScript 从 `script` 开始读取，然后不断循环，从 “任务队列�
 * V8 的垃圾回收过程
 * Node 独有的 `process.nextTick`
 
-### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 requestAnimationFrane
+### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 requestAnimationFrame
 
 > [返回目录](#chapter-one)
 
-**概念**：`window.requestAnimationFrame()` 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。
+#### <a name="chapter-four-two-one" id="chapter-four-two-one"></a>4.2.1 requestAnimationFrame 介绍
+
+> [返回目录](#chapter-one)
+
+`window.requestAnimationFrame()` 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。
 
 该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
 
-`requestAnimationFrane` 简称 rAF。
+`requestAnimationFrame` 简称 rAF。
 
-**事故**：
+我们看一下它使用情况：
+
+```html
+<body>
+  <div class="animation">动画元素</div>
+
+  <script>
+    window.onload = function() {
+      const element = document.querySelector('.animation'); 
+      let start;
+
+      function step(timestamp) {
+        if (start === undefined) {
+          start = timestamp;
+        }
+        const elapsed = timestamp - start;
+
+        //这里使用`Math.min()`确保元素刚好停在200px的位置。
+        element.style.transform = 'translateX(' + Math.min(0.1 * elapsed, 200) + 'px)';
+
+        if (elapsed < 2000) { // 在两秒后停止动画
+          window.requestAnimationFrame(step);
+        }
+      }
+
+      window.requestAnimationFrame(step);
+    };
+  </script>
+</body>
+```
+
+#### <a name="chapter-four-two-two" id="chapter-four-two-two"></a>4.2.2 requestAnimationFrame 使用缘由
+
+> [返回目录](#chapter-one)
 
 如果我们使用 `setTimeout` 来实现动画效果，那么我们会发现在某些低端机上出现卡顿、抖动的现象，它产生的原因是：
 
 * `setTimeout` 的执行事件并不是确定的。它属于宏任务队列，只有当主线程上的任务执行完毕后，才会调用队列中的任务判断是否开始执行。
 * 刷新频率受屏幕分辨率和屏幕尺寸影响，因此不同设备的刷新频率不同，而 `setTimeout` 只能固定一个时间间隔刷新。
 
-**缘由**：
-
 在上面 Event Loop 的过程中，我们知道执行完微任务队列会有一步操作：
 
 * 执行浏览器 `UI` 线程的渲染工作。
 
-而 `requestAnimationFrane` 就在这里边执行，就不会等宏任务队列的排队，从而导致卡顿等问题了。
+而 `requestAnimationFrame` 就在这里边执行，就不会等宏任务队列的排队，从而导致卡顿等问题了。
 
-### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 Node 和 浏览器
+### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 Web Worker
+
+> [返回目录](#chapter-one)
+
+Web Worker 为 Web 内容在后台线程中运行脚本提供了一种简单的方法。
+
+如我们所知，JavaScript 一直是属于单线程环境，我们无法同时运行两个 JavaScript 脚本。
+
+但是试想一下，如果我们可以同时运行两个（或者多个）JavaScript 脚本，一个来处理 UI 界面（一直以来的用法），一个来处理一些复杂计算，那么性能就会更好。
+
+在 HTML5 的新规范中，实现了 Web Worker 来引入 JavaScript 的 “多线程” 技术，他的能力让我们可以在页面主运行的 JavaScript 线程中加载运行另外单独的一个或者多个 JavaScript 线程。
+
+> 注意：JavaScript 本质上还是单线程的，Web Worker 只是浏览器（宿主环境）提供的一个能力／API。
+
+#### <a name="chapter-four-three-one" id="chapter-four-three-one"></a>4.3.1 Web Worker 使用
+
+> [返回目录](#chapter-one)
+
+调用 Web Worker：
+
+> index.js
+
+```js
+console.log('index-同步任务');
+Promise.resolve().then((res) => {
+  console.log('index-Promise');
+});
+setTimeout(() => {
+  console.log('index-setTimeout');
+}, 1000);
+```
+
+> index.html
+
+```html
+<script>
+  window.onload = function() {
+    console.log('本地-同步任务');
+    // 微任务之间
+    Promise.resolve().then((res) => {
+      console.log('本地-微任务 1');
+    })
+    const worker1 = new Worker('./index.js');
+    Promise.resolve().then((res) => {
+      console.log('本地-微任务 2');
+    })
+
+    // 宏任务之间
+    setTimeout(() => {
+      console.log('本地-宏任务 1');
+    }, 1000);
+    const worker2 = new Worker('./index.js');
+    setTimeout(() => {
+      console.log('本地-宏任务 2');
+    }, 1000);
+  };
+</script>
+```
+
+执行的时候打印结果：
+
+```
+本地-同步任务
+本地-微任务 1
+本地-微任务 2
+index-同步任务
+index-Promise
+index-同步任务
+index-Promise
+本地-宏任务 1
+本地-宏任务 2
+index-setTimeout
+index-setTimeout
+```
+
+可以看到：
+
+1. 先执行 `script` 中同步任务
+2. 再执行 `script` 中微任务
+3. 然后执行 UI 线程的渲染工作（这里代码没有）
+4. 接着才执行 `Web Worker` 里面内容
+5. 再来是 `index.html` 中的宏任务
+6. 最后才是 `Web Worker` 文件中的宏任务
+
+符合 Event Loop 流程。
+
+#### <a name="chapter-four-three-two" id="chapter-four-three-two"></a>4.3.2 Web Worker 数据通讯
+
+> [返回目录](#chapter-one)
+
+> index.js
+
+```js
+onmessage = (res) => {
+  // Worker 接收数据
+  console.log('Worker 收到数据：', res);
+  // Worker 收到数据：
+  // MessageEvent {isTrusted: true, data: "查房，这里是 index.html！", origin: "", lastEventId: "", source: null, …}
+
+  // Worker 发送数据
+  postMessage('开门！这里是 index.js');
+}
+```
+
+> index.html
+
+```html
+<script>
+window.onload = function() {
+  // 实例化 Worker
+  const worker = new Worker('./index.js');
+
+  // index.html 接收数据
+  worker.addEventListener('message', (res) => {
+  console.log('index.html 收到数据：', res);
+  // index.html 收到数据：
+  // MessageEvent {isTrusted: true, data: "开门！这里是 index.js", origin: "", lastEventId: "", source: null, …}
+  });
+
+  // index.html 发送数据
+  worker.postMessage('查房，这里是 index.html！');
+
+  //  终止 Worker
+  worker.terminate();
+};
+</script>
+```
+
+在 `index.html` 中，通过：
+
+* `worker.addEventListener('message', callback)`。接收 Web Worker 传递的数据。
+* `worker.postMessage('xxx')`。发送数据给 Web Worker。
+* `worker.terminate()`。终止通讯
+
+在 `index.js` 中，通过：
+
+```js
+onmessage = (res) => {
+  console.log(res); // 在 onmessage 方法接受数据
+  postMessage('xxx'); // 通过 postMessage 发送数据
+}
+```
+
+#### <a name="chapter-four-three-three" id="chapter-four-three-three"></a>4.3.3 Web Worker 可操作 API
+
+> [返回目录](#chapter-one)
+
+* `setTimeout()， clearTimeout()， setInterval()， clearInterval()`：有了设计个函数，就可以在 Web Worker 线程中执行定时操作了；
+* `XMLHttpRequest` 对象：意味着我们可以在 Web Worker 线程中执行 **ajax** 请求；
+* `navigator` 对象：可以获取到 `ppName`，`appVersion`，`platform`，`userAgent` 等信息；
+* `location` 对象（只读）：可以获取到有关当前 URL 的信息；
+
+如果需要加载其他 JS 脚本：
+
+```js
+importScripts('./index2.js', './index3.js');
+
+// 或者
+
+// importScripts('./index2.js');
+// importScripts('./index3.js');
+```
+
+#### <a name="chapter-four-three-four" id="chapter-four-three-four"></a>4.3.4 Web Worker 兼容性
+
+> [返回目录](#chapter-one)
+
+* IE：11 版本
+* Edge：14+ 版本
+* Firefox：51+ 版本
+* Chrome：56+ 版本
+* 其他：看 [caniuse 链接](https://caniuse.com/webworkers)
+
+### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 Node 和 浏览器
 
 > [返回目录](#chapter-one)
 
