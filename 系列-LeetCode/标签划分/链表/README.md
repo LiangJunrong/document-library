@@ -17,7 +17,7 @@
 * 【简单】剑指 Offer 24-反转链表
 * 【简单】[21-合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
 * 【简单】[剑指 Offer 25-合并两个排序的链表](https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/)
-* 【中等】24-两两交换链表中的节点
+* 【中等】[24-两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
 * 【简单】[141-环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
 * 【简单】[142-环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 
