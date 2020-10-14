@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:06:48**  
-> Recently revised in **2020-09-03 17:09:45**
+> Recently revised in **2020-10-14 22:01:45**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -23,6 +23,8 @@
 * [ ] [JavaScript 常见设计模式解析](https://juejin.im/post/58f4c702a0bb9f006aa80f25)
 * [ ] [深入 JavaScript 设计模式，从此有了优化代码的理论依据](https://juejin.im/post/5d58ca046fb9a06ad0056cc7)
 * [ ] [设计模式之美-前端](https://zhuanlan.zhihu.com/p/111553641)
+* [ ] [发布订阅模式，在工作中它的能量超乎你的想象](https://juejin.im/post/6844903616172539917)
+* [ ] [使用原生 JavaScript 构建状态管理系统](https://juejin.im/post/6844903660804112391)
 
 ---
 
