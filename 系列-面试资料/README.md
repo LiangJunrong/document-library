@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 17:00:05**  
-> Recently revised in **2020-10-08 23:27:22**
+> Recently revised in **2020-10-14 22:46:54**
 
 ## 前言
 
@@ -41,7 +41,7 @@
 ## 模块划分与阅读统计
 
 * [ ] [本页面综合系列](./README.md)【进度： 9/46 】
-* [x] [计算机网络](./计算机网络/README.md)【进度： 52/52 】
+* [x] [计算机网络](./计算机网络/README.md)【进度： 53/53 】
 * [x] [浏览器](./浏览器/README.md)【进度： 57/57 】
 * [x] [面试经验](./面试经验/README.md)【进度： 4/4 】
 * [ ] [其他](./其他/README.md)【进度： 0/36 】
@@ -49,9 +49,8 @@
 * [ ] [设计模式](./设计模式/README.md)【进度： 0/6 】
 * [ ] [算法与数据结构](./算法与数据结构/README.md)【进度： 0/13 】
 * [ ] [CSS](./CSS/README.md)【进度： 0/51 】
-* [ ] [HTML](./HTML/README.md)【进度： 0/2 】
-* [ ] [JavaScript](./JavaScript/README.md)【进度： 0/186 】
-  * [x] 异步系列【进度： 34/34】
+* [x] [HTML](./HTML/README.md)【进度： 4/4 】
+* [x] [JavaScript](./JavaScript/README.md)【进度： 196/196 】
 * [ ] [React](./React/README.md)【进度： 0/78 】
 * [x] [TypeScript](./TypeScript/README.md)【进度： 2020 不复习 】
 * [x] [Vue](./Vue/README.md)【进度： 2020 不复习 】
