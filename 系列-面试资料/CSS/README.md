@@ -70,7 +70,7 @@ CSS 资料整理
 
 ### 杂
 
-* [ ] [总结了17年初到18年初百场前端面试的面试经验(含答案)](https://juejin.im/post/6844903636271644680)
+* [ ] [CSS世界中那些说起来很冷的知识](https://juejin.im/post/6844903635248218126)
 * [ ] [剖析一些经典的CSS布局问题，为前端开发+面试保驾护航](https://juejin.im/post/6844903962529759239)
 * [ ] [趣味CSS3效果挑战小汇总]([https://link](https://juejin.im/post/6844903896473665550))
 * [ ] [position - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
