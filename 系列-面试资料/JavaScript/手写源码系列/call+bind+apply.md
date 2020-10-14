@@ -1,4 +1,4 @@
-call + bind + apply
+手写源码系列 - call + bind + apply
 ===
 
 > Create by **jsliang** on **2020-09-08 13:37:27**  
