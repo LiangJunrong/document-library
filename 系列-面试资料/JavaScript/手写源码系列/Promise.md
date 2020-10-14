@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-17 18:14:12**  
-> Recently revised in **2020-10-12 23:02:25**
+> Recently revised in **2020-10-14 19:55:26**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -14,11 +14,12 @@
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 迷思](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 手写 Promise](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 Promise.all()](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Promise.race()](#chapter-six) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 Promise 异步调度器](#chapter-seven) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 参考文献](#chapter-eight) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 简版手写 Promise](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 手写 Promise](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Promise.all()](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 Promise.race()](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 Promise 异步调度器](#chapter-eight) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 参考文献](#chapter-night) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -47,57 +48,78 @@ JavaScript 里的异步方案的演进时，是用下面这种顺序：
 
 > 这话来源于微信公众号：工业聚
 
-## 简版手写 Promise
+## <a name="chapter-four" id="chapter-four"></a>四 简版手写 Promise
+
+> [返回目录](#chapter-one)
 
 ```js
+const PENDING = 'pending';
+const RESOLVED = 'resolved';
+const REJECTED = 'rejected';
+
 function myPromise(fn) {
-  let self = this;
-  self.status = 'pending'; // 定义状态改变前的初始状态
-  self.value = undefined; // 定义状态为 resolved 的时候的状态
-  self.reason = undefined; // 定义状态为 rejected 的时候的状态
+  const that = this;
+  that.status = PENDING;
+  that.value = null;
+  that.reason = null;
+
+  that.resolvedCallbacks = [];
+  that.rejectedCallbacks = [];
+
   function resolve(value) {
-    // 两个 ==='pending'，保证了状态的改变是不可逆的
-    if (self.status === 'pending') {
-      self.value = value;
-      self.status = 'resolved';
+    if (that.status === PENDING) {
+      that.status = RESOLVED;
+      that.value = value;
+      that.resolvedCallbacks.map(cb => cb(value));
     }
   }
+
   function reject(reason) {
-    // 两个 ==='pending'，保证了状态的改变是不可逆的
-    if (self.status === 'pending') {
-      self.reason = reason;
-      self.status = 'rejected';
+    if (that.status === PENDING) {
+      that.status = REJECTED;
+      that.reason = reason;
+      that.rejectedCallbacks.map(cb => cb(reason));
     }
   }
-  // 捕获构造异常
+
   try {
     fn(resolve, reject);
-  } catch (e) {
+  } catch(e) {
     reject(e);
   }
 }
-myPromise.prototype.then = function (onFullfilled, onRejected) {
-  let self = this;
-  switch (self.status) {
-    case 'resolved':
-      onFullfilled(self.value);
-      break;
-    case 'rejected':
-      onRejected(self.reason);
-      break;
-    default:
+
+myPromise.prototype.then = function(onFullfilled, onRejected) {
+  const that = this;
+  
+  if (that.status === PENDING) {
+    that.resolvedCallbacks.push(onFullfilled);
+    that.rejectedCallbacks.push(onRejected);
   }
-};
+
+  if (that.status === RESOLVED) {
+    onFullfilled(that.value);
+  }
+
+  if (that.status === RESOLVED) {
+    onFullfilled(that.reason);
+  }
+
+  return that;
+}
 
 const p = new myPromise((resolve, reject) => {
-  resolve(1);
-})
+  setTimeout(() => {
+    resolve(1000);
+  }, 1000);
+});
+
 p.then((res) => {
-  console.log(res); // 1
+  console.log('结果：', res); // 结果：1000
 })
 ```
 
-## <a name="chapter-four" id="chapter-four"></a>四 手写 Promise
+## <a name="chapter-five" id="chapter-five"></a>五 手写 Promise
 
 > [返回目录](#chapter-one)
 
@@ -314,7 +336,7 @@ promise.then((res) => {
 });
 ```
 
-## <a name="chapter-five" id="chapter-five"></a>五 Promise.all()
+## <a name="chapter-six" id="chapter-six"></a>六 Promise.all()
 
 > [返回目录](#chapter-one)
 
@@ -373,7 +395,7 @@ Promise.myAll = function(arr) {
 };
 ```
 
-## <a name="chapter-six" id="chapter-six"></a>六 Promise.race()
+## <a name="chapter-seven" id="chapter-seven"></a>七 Promise.race()
 
 > [返回目录](#chapter-one)
 
@@ -429,7 +451,7 @@ Promise.myRace([a, b]).then((res) => {
 })
 ```
 
-## <a name="chapter-seven" id="chapter-seven"></a>七 Promise 异步调度器
+## <a name="chapter-eight" id="chapter-eight"></a>八 Promise 异步调度器
 
 > [返回目录](#chapter-one)
 
@@ -548,7 +570,7 @@ addTack(400, '4');
 // 进队完成，输出 2 3 1 4
 ```
 
-## <a name="chapter-eight" id="chapter-eight"></a>八 参考文献
+## <a name="chapter-night" id="chapter-night"></a>九 参考文献
 
 > [返回目录](#chapter-one)
 
