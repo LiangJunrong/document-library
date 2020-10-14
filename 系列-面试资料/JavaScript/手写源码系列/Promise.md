@@ -116,6 +116,8 @@ const p = new myPromise((resolve, reject) => {
 
 p.then((res) => {
   console.log('结果：', res); // 结果：1000
+}).then(() => {
+  console.log('jsliang'); // jsliang
 })
 ```
 
