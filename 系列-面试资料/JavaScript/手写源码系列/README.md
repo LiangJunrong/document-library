@@ -82,7 +82,7 @@
 
 > [返回目录](#chapter-one)
 
-本系列有 34 篇参考文献。
+本系列有 45 篇参考文献。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 手写系列文章
 
@@ -96,6 +96,16 @@
 * [x] [三元-手写代码系列](http://47.98.159.95/my_blog/js-api/001.html)【阅读建议：30min】
 * [x] [CORS 原理及实现](https://www.jianshu.com/p/b2bdf55e1bf5)【阅读建议：30min】
 * [x] [JSONP 原理及实现](https://www.jianshu.com/p/88bb82718517)【阅读建议：30min】
+* [x] [20道JS原理题助你面试一臂之力！](https://juejin.im/post/6844903891591495693)【阅读建议：30min】
+* [x] [7分钟理解JS的节流、防抖及使用场景](https://juejin.im/post/6844903669389885453)【阅读建议：10min】
+* [x] [防抖和节流原理分析](https://juejin.im/post/6844903662519599111?utm_medium=fe&utm_source=weixinqun)【阅读建议：10min】
+* [x] [前端性能相关：防抖、节流](https://juejin.im/entry/6844903592898330638)【阅读建议：5min】
+* [x] [面试官(6): 写过『通用前端组件』吗?](https://juejin.im/post/6844903847874265101)【阅读建议：20min】
+* [x] [面试官:既然React/Vue可以用Event Bus进行组件通信,你可以实现下吗?](https://juejin.im/post/6844903587043082247)【阅读建议：20min】
+* [x] [浅谈 instanceof 和 typeof 的实现原理](https://juejin.im/post/6844903613584654344)【阅读建议：10min】
+* [x] [解锁多种JavaScript数组去重姿势](https://juejin.im/post/6844903608467587085)【阅读建议：20min】
+* [x] [如何在 JavaScript 中更好地使用数组](https://juejin.im/post/6844903671646715911)【阅读建议：10min】
+* [x] [7种方法实现数组去重](https://juejin.im/post/6844903602197102605)【阅读建议：20min】
 
 ### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 手写 call/bind/apply
 
@@ -124,6 +134,7 @@
 * [x] [深入剖析 JavaScript 的深复制](https://jerryzou.com/posts/dive-into-deep-clone-in-javascript/)【阅读建议：20min】
 * [x] [「JavaScript」带你彻底搞清楚深拷贝、浅拷贝和循环引用](https://segmentfault.com/a/1190000015042902)【阅读建议：20min】
 * [x] [面试题之如何实现一个深拷贝](https://github.com/yygmind/blog/issues/29)【阅读建议：30min】
+* [x] [面试官:请你实现一个深克隆](https://juejin.im/post/6844903584023183368)【阅读建议：10min】
 
 ### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 手写 Promise
 
