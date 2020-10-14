@@ -68,7 +68,7 @@
 
 > [返回目录](#chapter-one)
 
-本系列有 52 篇参考文献。
+本系列有 53 篇参考文献。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 系统
 
@@ -120,6 +120,7 @@
 * [x] [浅谈 HTTP/2 Server Push](https://zhuanlan.zhihu.com/p/26757514)【阅读建议：10min】
 * [x] [听说『99% 的人都理解错了 HTTP 中 GET 与 POST 的区别』？？](https://zhuanlan.zhihu.com/p/25028045)【阅读建议：争议文】
 * [x] [你敢在post和get上刁难我，就别怪我装逼了](https://juejin.im/post/6844903508370538503)【阅读建议：争议文】
+* [x] [浅谈 HTTP/2 Server Push](https://zhuanlan.zhihu.com/p/26757514)【阅读建议：10min】
 
 ### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 DNS
 
