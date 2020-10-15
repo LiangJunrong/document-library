@@ -48,6 +48,7 @@ React 资料整理
 
 ### 系统
 
+* [ ] [React技术揭秘](https://react.iamkasong.com/)
 * [ ] [2019年17道高频React面试题及详解](https://juejin.im/post/5d5f44dae51d4561df7805b4)
 * [ ] [React 16 加载性能优化指南](https://mp.weixin.qq.com/s/XSvhOF_N0VbuOKStwi0IYw)
 * [ ] [React 常用面试题目与分析](https://zhuanlan.zhihu.com/p/24856035#tipjar)
