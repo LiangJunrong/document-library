@@ -60,6 +60,7 @@
 * [计算机网络](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C)
 * [浏览器](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E6%B5%8F%E8%A7%88%E5%99%A8)
 * [面试经验](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C)
+* [JavaScript](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript)
 
 ## 综合整理
 
@@ -75,14 +76,13 @@
   * [2018年终总结——越过山丘](https://www.cnblogs.com/lvdabao/p/10211898.html)
   * [2019年终总结——三十而立](https://www.cnblogs.com/lvdabao/p/12142637.html)
 * [冴羽的博客](https://github.com/mqyqingfeng/Blog)
-* [神三元的博客](http://47.98.159.95/my_blog/nav/)
-* [神三元的 Github](https://github.com/sanyuan0704/my_blog)
+* [神三元的博客](http://47.98.159.95/my_blog/nav/) || [神三元的 Github](https://github.com/sanyuan0704/my_blog)
 
 ### 面试点 + 题解
 
 如果一开始不知道看啥，可以先看这些文章（带答案的），对一些内容有个大致印象。
 
-* [x] [霖呆呆的近期面试128题汇总(含超详细答案) | 掘金技术征文](https://juejin.im/post/6844904151369908232)【略读：2h，精读：5h】
+* [x] [霖呆呆的近期面试128题汇总(含超详细答案) | 掘金技术征文](https://juejin.im/post/6844904151369908232)【阅读建议：2h】
 * [ ] [2万字 | 前端基础拾遗90问](https://juejin.im/post/6844904116552990727)
 * [ ] [一位前端小姐姐的五万字面试宝典](https://juejin.im/post/6844904121380667399)
 * [ ] [面试完50个人后我写下这篇总结](https://juejin.im/post/6844904019165446158)
