@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:06:48**  
-> Recently revised in **2020-10-14 22:01:45**
+> Recently revised in **2020-10-18 21:28:42**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -17,6 +17,23 @@
 
 > [返回目录](#chapter-one)
 
+| 设计模式 | 描述 | 例子 |
+| --- | --- | --- |
+| 单例模式 | 一个类只能构造出一个唯一实例 | Redux/Vuex 的 Store |
+| 工厂模式 | 对创建对象逻辑的封装 | jQuery 的 `$(selector)` |
+| 观察者模式 | 当一个对象被修改时，会自动通知它的依赖对象 | Redux 的 `subsrcibe`、Vue 的双向绑定 |
+| 装饰器模式 | 对类的包装，动态地扩展类的功能 | React 的高阶组件、ES7 装饰器 |
+| 适配器模式 | 兼容新旧接口，对类的包装 | 封装旧 API |
+| 代理模式 | 控制对象的访问 | 事件代理、ES6 的 `Proxy` |
+
+## 单一职责原则和开放封闭原则
+
+* **单一职责原则**：一个类只负责一个功能领域中的相应职责。或者：就一个类而言，只有一个引起它变化的原因。
+* **开放封闭原则**：核心的思想是软件实体（类、模块、函数等）是可扩展的、但不可修改的。也就是说，对拓展是开放的，对修改是封闭的。
+
+## 参考文献
+
+* [x] [设计模式](https://juejin.im/post/6844904116552990727#heading-59)【阅读建议：1h】
 * [ ] [Javascript常用的设计模式详解](https://www.cnblogs.com/tugenhua0707/p/5198407.html)
 * [ ] [JavaScript设计模式](https://juejin.im/post/59df4f74f265da430f311909)
 * [ ] [JavaScript 中常见设计模式整理](https://juejin.im/post/5afe6430518825428630bc4d)
