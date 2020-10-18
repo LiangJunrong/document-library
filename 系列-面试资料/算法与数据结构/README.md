@@ -49,7 +49,7 @@
 * [ ] [模板不重要](https://mp.weixin.qq.com/s/d5Af7YwwrtdV_OqYzcWGSw)
 * [ ] [更新！万字长文带你拿下九大排序的原理、Java 实现以及算法分析](https://mp.weixin.qq.com/s/vwzTA0UroV5nt_EWqhEspg)
 * [ ] [动态规划](https://www.bilibili.com/video/BV1a4411y7uh?from=search&seid=9796558727922243523)
-
+* [ ] [6k字 | 红黑树上红黑果，红黑树下你和我 —— 红黑树入门](https://juejin.im/post/6844904006175686669)
 * [ ] [(1.8w字)负重前行，前端工程师如何系统练习数据结构和算法？](https://juejin.im/post/6844904061947346957)
 * [ ] [Linked Lists in JavaScript (ES6 code)](https://codeburst.io/linked-lists-in-javascript-es6-code-part-1-6dd349c3dcc3)
 * [ ] [DS with JS — Linked Lists — II](https://medium.com/dev-blogs/ds-with-js-linked-lists-ii-3b387596e27e)
