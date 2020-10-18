@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-10 15:53:40**  
-> Recently revised in **2020-10-09 10:32:20**
+> Recently revised in **2020-10-18 15:58:49**
 
 * [链表 - LeetBook](https://leetcode-cn.com/leetbook/detail/linked-list/)
 * [力扣刷题总结之链表 - algsCG](https://leetcode-cn.com/circle/article/YGr54o/)
@@ -20,6 +20,7 @@
 * 【中等】[24-两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
 * 【简单】[141-环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
 * 【简单】[142-环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
+* 【中等】[19-删除链表的倒数第N个节点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list)
 
 ## 熟练
 
