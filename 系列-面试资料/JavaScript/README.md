@@ -237,7 +237,7 @@ JavaScript
 
 > [返回目录](#chapter-one)
 
-本系列参考文章有 196 篇。
+本系列参考文章有 197 篇。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 系统
 
@@ -428,6 +428,7 @@ JavaScript
 * [x] [前端将数据转化为弹幕效果的实现方式](https://juejin.im/post/6844903600636821518)【阅读建议：20min】
 * [x] [用 Proxy 追踪 JavaScript 类](https://juejin.im/post/6844903793885184013)【阅读建议：20min】
 * [x] [抱歉，学会 Proxy 真的可以为所欲为](https://zhuanlan.zhihu.com/p/35080324)【阅读建议：20min】
+* [x] [Javascript 面试中经常被问到的三个问题！](https://segmentfault.com/a/1190000018257074)【阅读建议：10min】
 
 ### <a name="chapter-three-seventeen" id="chapter-three-seventeen"></a>3.17 手写系列文章
 
