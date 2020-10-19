@@ -4,18 +4,84 @@
 > Create by **jsliang** on **2020-09-01 21:07:27**  
 > Recently revised in **2020-09-23 16:46:34**
 
-## <a name="chapter-one" id="chapter-one"></a>一 目录
-
-**不折腾的前端，和咸鱼有什么区别**
-
-| 目录 |
-| --- |
-| [一 目录](#chapter-one) |
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
+
+1. 快速排序
+2. 实现一个算法，来完成字符串相加，比如 `'111' + '2222' = '2333'`。(高精度算法)
+3. 有一个 `'123456789101112131415....n+1'` 类似这样的序列，求出第 `m` 位的数字，例如 `m = 11 -> 输出 0`，`m = 12 -> 输出 1`
+4. 有一个有序递增序列，求有多少个不同的数字。比如 `[1, 5, 7, 7, 8, 9, 9]`。里面总共有 5 个不同的数字：`[1, 5, 7, 8, 9]`
+5. 红黑树和哈希表的对比
+6. 哈希表如何解决冲突
+7. 非递归实现树的后序遍历
+8. [350-两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/)
+9. [611-有效三角形的个数](https://leetcode-cn.com/problems/valid-triangle-number/)
+10. [659-分割数组为连续子序列](https://leetcode-cn.com/problems/split-array-into-consecutive-subsequences/)
+11. 接雨水。给定数组 `[1, 8, 6, 2, 5, 4, 8, 3, 7]`，表示容器能容纳水的最大值。
+12. 写一个数组去重。`O(n^2)` 及 `O(n)` 时间复杂度实现
+13. 我现在有一个数组 `[1,2,3,4]`，请实现算法，得到这个数组的全排列的数组，如 `[2,1,3,4]`，`[2,1,4,3]`，你这个算法的时间复杂度是多少？
+14. 我现在有一个背包，容量为 `m`，然后有 `n` 个货物，重量分别为 `w1,w2,w3...wn`，每个货物的价值是 `v1,v2,v3...vn`，`w` 和 `v` 没有任何关系，请求背包能装下的最大价值。
+15. 二叉树的遍历方式和特点
+16. 排序算法及其原理（手写）
+17. [104-二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+18. [572-另一个树的子树](https://leetcode-cn.com/problems/subtree-of-another-tree/)
+19. [100-相同的树](https://leetcode-cn.com/problems/same-tree/)
+20. [226-翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
+21. [509-斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/)
+22. [88-合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
+23. [384-打乱数组](https://leetcode-cn.com/problems/shuffle-an-array/)
+24. [56-合并区间](https://leetcode-cn.com/problems/merge-intervals/)
+
+## 下划线转驼峰
+
+实现一个方法，将传入对象的下划线命名方式全部换为驼峰式（考虑递归的场景）
+
+```js
+const obj = {
+  my_name: 'jsliang',
+  wo_de_jia: {
+    zu_fang: '广州',
+    jia: '河源',
+    zu_ji: '茂名',
+  },
+};
+
+/*
+转换为：
+{
+  myName: 'jsliang',
+  woDeJia: { jia: '河源', zuFang: '广州', zuJi: '茂名' },
+}
+*/
+
+const getType = arg => Object.prototype.toString.call(arg).slice(8, -1);
+
+const changeCamel = str => str.split('_').map((item, index) => index === 0 ? item : item.slice(0, 1).toUpperCase() + item.slice(1)).join('');
+
+const change = (obj) => {
+  for (let i in obj) {
+    if (obj.hasOwnProperty(i)) {
+      if (getType(obj[i]) === 'Object' && i.includes('_')) {
+        const now = changeCamel(i);
+        obj[now] = obj[i];
+        delete obj[i];
+        change(obj[now]);
+      } else if (getType(obj[i]) === 'Object') {
+        change(obj[i]);
+      } else if (i.includes('_')) {
+        const now = changeCamel(i);
+        obj[now] = obj[i];
+        delete obj[i];
+      }
+    }
+  }
+
+  return obj;
+};
+
+console.log(change(obj));
+```
 
 ## 时间复杂度
 
@@ -64,8 +130,9 @@
 * [ ] [前端笔试&面试爬坑系列---算法](https://juejin.im/post/6844903656865677326)
 * [ ] [漫画：什么是红黑树](https://juejin.im/post/6844903519632228365)
 
-1. 接雨水。给定数组 `[1, 8, 6, 2, 5, 4, 8, 3, 7]`，表示容器能容纳水的最大值。
-2. 写一个数组去重。`O(n^2)` 及 `O(n)` 时间复杂度实现
+## 题目
+
+* [ ] [一年半前端跳槽面试经验（头条、微信、shopee）](https://zhuanlan.zhihu.com/p/114028796)
 
 ---
 
