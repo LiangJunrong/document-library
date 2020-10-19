@@ -54,6 +54,7 @@ React 资料整理
 * [ ] [React 常用面试题目与分析](https://zhuanlan.zhihu.com/p/24856035#tipjar)
 * [ ] [关于React面试题汇总](https://juejin.im/post/6844903620664623111)
 * [ ] [常见react面试题汇总（适合中级前端）](https://segmentfault.com/a/1190000016885832)
+* [ ] [(中篇)中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂](https://juejin.im/post/6844903801153945608)
 
 ### 源码
 
