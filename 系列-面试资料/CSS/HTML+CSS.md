@@ -2,7 +2,7 @@ HTML + CSS
 ===
 
 > Create by **jsliang** on **2020-09-07 16:14:51**  
-> Recently revised in **2020-10-01 10:58:25**
+> Recently revised in **2020-10-19 19:07:38**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -12,24 +12,24 @@ HTML + CSS
 | 目录 |
 | --- |
 | [一 目录](#chapter-one) |
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 题目](#chapter-two) |
-| &emsp;[2.1 DIV + CSS 布局的优缺点](#chapter-two-one) |
-| &emsp;[2.2 如何解决 a 标点击后 hover 事件失效的问题？](#chapter-two-two) |
-| &emsp;[2.3 响应式的好处](#chapter-two-three) |
-| &emsp;[2.4 实现垂直居中](#chapter-two-four) |
-| &emsp;[2.5 position 属性列举](#chapter-two-five) |
-| &emsp;[2.6 脱离文档流](#chapter-two-six) |
-| &emsp;[2.7 块级格式化上下文（BFC）](#chapter-two-seven) |
-| &emsp;&emsp;[2.7.1 题目一](#chapter-two-seven-one) |
-| &emsp;[2.8 盒子模型](#chapter-two-eight) |
-| &emsp;[2.9 px、em 和 rem 的区别](#chapter-two-night) |
-| &emsp;[2.10 link 和 @import 区别](#chapter-two-ten) |
-| &emsp;[2.11 渐进增减和优雅降级](#chapter-two-eleven) |
-| &emsp;[2.12 CSS 设置隐藏元素](#chapter-two-twelve) |
-| &emsp;[2.13 CSS 选择器](#chapter-two-thirteen) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 DIV + CSS 布局的优缺点](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 如何解决 a 标点击后 hover 事件失效的问题？](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 响应式的好处](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 实现垂直居中](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 position 属性列举](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 脱离文档流](#chapter-eight) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 块级格式化上下文（BFC）](#chapter-night) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 题目一](#chapter-ten) |
+| <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 盒子模型](#chapter-eleven) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 px、em 和 rem 的区别](#chapter-twelve) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 link 和 @import 区别](#chapter-thirteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 渐进增减和优雅降级](#chapter-fourteen) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 CSS 设置隐藏元素](#chapter-fifteen) |
+| <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 CSS 选择器](#chapter-sixteen) |
 <!-- 目录结束 -->
 
-## <a name="chapter-two" id="chapter-two"></a>二 题目
+## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
   
@@ -41,7 +41,7 @@ HTML + CSS
 * [x] [BFC(块级格式化上下文)](https://www.jianshu.com/p/498145565e4f)【阅读建议：5min】
 * [x] [MDN - CSS（层叠样式表）@import](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%40import)【阅读建议：5min】
 
-### <a name="chapter-two-one" id="chapter-two-one"></a>2.1 DIV + CSS 布局的优缺点
+## <a name="chapter-three" id="chapter-three"></a>三 DIV + CSS 布局的优缺点
 
 > [返回目录](#chapter-one)
   
@@ -57,7 +57,7 @@ HTML + CSS
 
 1. 不同浏览器对 web 标准默认值不同，所以更容易出现对浏览器的兼容性问题。
 
-### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 如何解决 a 标点击后 hover 事件失效的问题？
+## <a name="chapter-four" id="chapter-four"></a>四 如何解决 a 标点击后 hover 事件失效的问题？
 
 > [返回目录](#chapter-one)
   
@@ -78,13 +78,13 @@ link -> visited -> hover -> active
 
 这样，浏览器显示元素的时候，才会从特殊到一半、逐级向上验证条件。
 
-### <a name="chapter-two-three" id="chapter-two-three"></a>2.3 响应式的好处
+## <a name="chapter-five" id="chapter-five"></a>五 响应式的好处
 
 > [返回目录](#chapter-one)
   
 对某些数据的修改就能自动更新视图，让开发者不需要操作 DOM，有更多的时间去思考完成业务逻辑。
 
-### <a name="chapter-two-four" id="chapter-two-four"></a>2.4 实现垂直居中
+## <a name="chapter-six" id="chapter-six"></a>六 实现垂直居中
 
 > [返回目录](#chapter-one)
 
@@ -159,7 +159,7 @@ div {
 }
 ```
 
-### <a name="chapter-two-five" id="chapter-two-five"></a>2.5 position 属性列举
+## <a name="chapter-seven" id="chapter-seven"></a>七 position 属性列举
 
 > [返回目录](#chapter-one)
   
@@ -175,7 +175,7 @@ div {
 * `fixed`：固定定位。相对于整个浏览器窗口进行定位，无论页面怎么滚动。
 * `sticky`：黏性定位。屏幕范围内该元素位置不受影响，超出范围后，会变成 `fixed`，根据设置的 `left/top` 等属性成固定的效果。
 
-### <a name="chapter-two-six" id="chapter-two-six"></a>2.6 脱离文档流
+## <a name="chapter-eight" id="chapter-eight"></a>八 脱离文档流
 
 > [返回目录](#chapter-one)
   
@@ -186,7 +186,7 @@ div {
 * `float: left/right`：使用之后会脱离，但是其他盒子会环绕该元素的周围。
 * `position: absolute/fixed`：`absolute` 为绝对定位，脱离文档流之后还是会相对于该元素的父类（做了 `relative/absolute` 定位的父类）进行偏移。而 `fixed` 就是完全脱离文档流，相对于 HTML （整个浏览器窗口）的形式展示。
 
-### <a name="chapter-two-seven" id="chapter-two-seven"></a>2.7 块级格式化上下文（BFC）
+## <a name="chapter-night" id="chapter-night"></a>九 块级格式化上下文（BFC）
 
 > [返回目录](#chapter-one)
   
@@ -211,7 +211,7 @@ div {
 
 这段代码产生的页面中，它们的边距是 `200px`，需要通过 BFC 解决边距问题。
 
-**产生 BFC 的方式：**
+**产生 BFC 的条件：**
 
 * 根元素 `html`
 * `float: left/right`
@@ -219,7 +219,7 @@ div {
 * `display: inline-block/flex/grid`
 * `overflow: hidden`
 
-#### <a name="chapter-two-seven-one" id="chapter-two-seven-one"></a>2.7.1 题目一
+## <a name="chapter-ten" id="chapter-ten"></a>十 题目一
 
 > [返回目录](#chapter-one)
 
@@ -234,7 +234,7 @@ div {
 
 答案：B
 
-### <a name="chapter-two-eight" id="chapter-two-eight"></a>2.8 盒子模型
+## <a name="chapter-eleven" id="chapter-eleven"></a>十一 盒子模型
 
 > [返回目录](#chapter-one)
   
@@ -243,7 +243,7 @@ div {
 
 详细看：[jsliang - 盒子模型](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/CSS/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.md)
 
-### <a name="chapter-two-night" id="chapter-two-night"></a>2.9 px、em 和 rem 的区别
+## <a name="chapter-twelve" id="chapter-twelve"></a>十二 px、em 和 rem 的区别
 
 > [返回目录](#chapter-one)
   
@@ -253,7 +253,7 @@ div {
 
 `rem` 是 `CSS3` 新增的一个相对单位（`root em`，`根 em`），使用 `rem` 为元素设定字体大小时，仍然是相对大小，但相对的只是 HTML 根元素。
 
-### <a name="chapter-two-ten" id="chapter-two-ten"></a>2.10 link 和 @import 区别
+## <a name="chapter-thirteen" id="chapter-thirteen"></a>十三 link 和 @import 区别
 
 > [返回目录](#chapter-one)
   
@@ -271,7 +271,7 @@ CSS 引入方式有：
 * `link` 是 `XHTML` 标签，无兼容问题；`@import` 是在 `CSS2.1` 提出的，低版本的浏览器不支持。
 * `link` 支持使用 `Javascript` 控制 `DOM` 去改变样式；而 `@import` 不支持。
 
-### <a name="chapter-two-eleven" id="chapter-two-eleven"></a>2.11 渐进增减和优雅降级
+## <a name="chapter-fourteen" id="chapter-fourteen"></a>十四 渐进增减和优雅降级
 
 > [返回目录](#chapter-one)
   
@@ -286,7 +286,7 @@ CSS 引入方式有：
 * 渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要
 * 降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带
 
-### <a name="chapter-two-twelve" id="chapter-two-twelve"></a>2.12 CSS 设置隐藏元素
+## <a name="chapter-fifteen" id="chapter-fifteen"></a>十五 CSS 设置隐藏元素
 
 > [返回目录](#chapter-one)
 
@@ -294,7 +294,7 @@ CSS 引入方式有：
 * `visibility: hidden`：元素隐藏，空间仍保留，会导致重绘，但是不能再触发点击事件。
 * `opacity: 0`：设置为透明，相当于它还在那里，但是你看不到，可以触发点击事件。
 
-### <a name="chapter-two-thirteen" id="chapter-two-thirteen"></a>2.13 CSS 选择器
+## <a name="chapter-sixteen" id="chapter-sixteen"></a>十六 CSS 选择器
 
 > [返回目录](#chapter-one)
 
@@ -307,6 +307,29 @@ CSS 选择器及样式优先级：
 * 标签选择器
 * 通配符选择器
 * 浏览器自定义样式
+
+## 层叠上下文
+
+元素提升为一个比较特殊的图层，在三维空间中 (z 轴) 高出普通元素一等。
+
+**触发条件**：
+
+* 根层叠上下文（`HTML`）
+* `position`
+* CSS3 属性
+  * `flex`
+  * `transform`
+  * `opacity`
+  * `filter`
+  * `will-change`
+  * `-webkit-overflow-scrolling`
+
+层叠等级：层叠上下文在 z 轴上的排序
+
+* 在同一层叠上下文中，层叠等级才有意义
+* `z-index` 的优先级最高
+
+![图](https://user-gold-cdn.xitu.io/2019/2/14/168e9d9f3a1d368b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 ---
 
