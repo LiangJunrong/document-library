@@ -2,8 +2,9 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 20:53:19**  
-> Recently revised in **2020-09-19 17:29:49**
+> Recently revised in **2020-10-20 22:48:31**
 
+<!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -12,6 +13,14 @@
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| &emsp;[2.1 杂](#chapter-two-one) |
+| &emsp;[2.2 Webpack](#chapter-two-two) |
+| &emsp;[2.3 Babel](#chapter-two-three) |
+| &emsp;[2.4 模板引擎](#chapter-two-four) |
+| &emsp;[2.5 前端发布](#chapter-two-five) |
+| &emsp;[2.6 weex](#chapter-two-six) |
+| &emsp;[2.7 前端监控](#chapter-two-seven) |
+<!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -26,9 +35,10 @@
 * [ ] weex
 * [ ] ...
 
-### 杂
+### <a name="chapter-two-one" id="chapter-two-one"></a>2.1 杂
 
-* [ ] [实现一个简单的webpack](https://juejin.im/post/6844903858179670030)
+> [返回目录](#chapter-one)
+
 * [ ] [styled-components:前端组件拆分新思路](https://juejin.im/post/6844903878580764686)
 * [ ] [从头开始，彻底理解服务端渲染原理(8千字汇总长文)](https://juejin.im/post/6844903881390964744)
 * [ ] [前端缓存最佳实践](https://juejin.im/post/6844903737538920462)
@@ -55,43 +65,16 @@
 * [ ] [前端构建秘籍](https://juejin.im/post/6844903799736254477)
 * [ ] [大型项目前端架构浅谈（8000字原创）](https://juejin.im/post/6844903853859536903)
 * [ ] [一名【合格】前端工程师的自检清单](https://juejin.im/post/6844903830887366670)
-* [ ] []()
 
-### Webpack
+### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 Webpack
 
-* [ ] [掘金刘小夕的webpack系列](https://juejin.im/post/5e5c65fc6fb9a07cd00d8838)
-* [ ] [webpack的代码分割（路由懒加载同理）](https://juejin.im/post/5e796ec1e51d45271e2a9af9)
-* [ ] [「吐血整理」再来一打Webpack面试题](https://juejin.im/post/6844904094281236487)
-* [ ] [前端工程师都得掌握的 webpack Loader](https://github.com/axuebin/articles/issues/38)
-* [ ] [webpack loader 从上手到理解系列：vue-loader](https://mp.weixin.qq.com/s/NO5jZfoHZbjOwR8qiWnXmw)
-* [ ] [webpack loader 从上手到理解系列：style-loader](https://mp.weixin.qq.com/s/alIKsKkGRU_yyjpeV8i0og)
-* [ ] [一文掌握Webpack编译流程](https://mp.weixin.qq.com/s?__biz=MzI0MTUxOTE5NQ==&mid=2247484030&idx=1&sn=d630d4b3995bbfd50f99e781074acfeb)
-* [ ] [手把手教你撸一个简易的 webpack](https://juejin.im/post/5b192afde51d45069c2efe5a)
-* [ ] [带你走进webpack世界，成为webpack头号玩家。](https://juejin.im/post/5ac9dc9af265da23884d5543)
-* [ ] [关于webpack4的14个知识点,童叟无欺](https://juejin.im/post/5cea1e1ae51d4510664d1652)
-* [ ] [手把手教你撸一个 Webpack Loader](https://juejin.im/post/5a698a316fb9a01c9f5b9ca0)
-* [ ] [webpack 如何通过作用域分析消除无用代码](https://diverse.space/2018/05/better-tree-shaking-with-scope-analysis)
-* [ ] [【webpack进阶】你真的掌握了loader么？- loader十问](https://juejin.im/post/5bc1a73df265da0a8d36b74f)
-* [ ] [Webpack小书](https://www.timsrc.com/article/2/webpack-book)
-* [ ] [聊一聊webpack-dev-server和其中socket，HMR的实现](https://github.com/879479119/879479119.github.io/issues/5)
-* [ ] [使用webpack4提升180%编译速度](http://louiszhai.github.io/2019/01/04/webpack4)
-* [ ] [Webpack 大法之 Code Splitting](https://zhuanlan.zhihu.com/p/26710831)
-* [ ] [轻松理解webpack热更新原理](https://mp.weixin.qq.com/s/2L9Y0pdwTTmd8U2kXHFlPA)
-* [ ] [轻松理解webpack热更新原理](https://juejin.im/post/5de0cfe46fb9a071665d3df0)
-* [ ] [揭秘webpack plugin](https://champyin.com/2020/01/12/%E6%8F%AD%E7%A7%98webpack-plugin/)
-* [ ] [Webpack 源码（一）—— Tapable 和 事件流](https://segmentfault.com/a/1190000008060440)
-* [ ] [手把手教你撸一个 Webpack Loader](https://juejin.im/post/6844903555673882632)
-* [ ] [Write Better JavaScript With Webpack](https://forestry.io/blog/write-better-javascript-with-webpack/)
-* [ ] [手把手教你撸一个简易的 webpack](https://juejin.im/post/6844903555673882632)
-* [ ] [带你走进webpack世界，成为webpack头号玩家](https://juejin.im/post/6844903588607557639)
-* [ ] [webpack打包之后的文件过大的解决方法](https://juejin.im/post/6844903569917739021)
-* [ ] [webpack详解](https://juejin.im/post/6844903573675835400)
-* [ ] [webpack4-用之初体验，一起敲它十一遍](https://juejin.im/post/6844903599080734728)
-* [ ] [基于Webpack搭建React开发环境](https://juejin.im/post/6844903606743744526)
-* [ ] [webpack 中那些最易混淆的 5 个知识点](https://juejin.im/post/6844904007362674701)
-* [ ] [关于webpack4的14个知识点,童叟无欺](https://juejin.im/post/6844903853905674248)
+> [返回目录](#chapter-one)
 
-### Babel
+已搬迁
+
+### <a name="chapter-two-three" id="chapter-two-three"></a>2.3 Babel
+
+> [返回目录](#chapter-one)
 
 * [ ] [一篇文章了解前端开发必须懂的 Babel](https://mp.weixin.qq.com/s/C-WmM5tjfc3r4sB52C4R0Q)
 * [ ] [不容错过的 Babel7 知识](https://juejin.im/post/5ddff3abe51d4502d56bd143)
@@ -103,7 +86,9 @@
 * [ ] [面试官: 你了解过Babel吗？写过Babel插件吗? 答: 没有。卒](https://juejin.im/post/6844903566809759758)
 * [ ] [入门babel--实现一个es6的class转换器](https://juejin.im/post/6844903586950807560)
 
-### 模板引擎
+### <a name="chapter-two-four" id="chapter-two-four"></a>2.4 模板引擎
+
+> [返回目录](#chapter-one)
 
 * [ ] [编写一个简单的JavaScript模板引擎](https://www.liaoxuefeng.com/article/1006272230979008)
 * [ ] [JavaScript模板引擎原理，几行代码的事儿](https://www.cnblogs.com/hustskyking/p/principle-of-javascript-template.html)
@@ -111,12 +96,16 @@
 * [ ] [JavaScript template engine in just 20 lines](https://krasimirtsonev.com/blog/article/Javascript-template-engine-in-just-20-line)
 * [ ] [Understanding JavaScript Micro-Templating](https://medium.com/wdstack/understanding-javascript-micro-templating-f37a37b3b40e)
 
-### 前端发布
+### <a name="chapter-two-five" id="chapter-two-five"></a>2.5 前端发布
+
+> [返回目录](#chapter-one)
 
 * [ ] [大公司里怎样开发和部署前端代码？](https://www.zhihu.com/question/20790576)
 * [ ] [前端高级进阶：前端部署的发展历程](https://juejin.im/post/5e6836cc51882549052f56f5)
 
-### weex
+### <a name="chapter-two-six" id="chapter-two-six"></a>2.6 weex
+
+> [返回目录](#chapter-one)
 
 * [ ] [深入了解 Weex](https://juejin.im/post/5b18a03ce51d45069d2263e3)
 * [ ] [Weex原理概述](https://github.com/weexteam/article/issues/32)
@@ -125,7 +114,9 @@
 * [ ] [JSBridge 介绍及实现原理](http://coolnuanfeng.github.io/jsbridge)
 * [ ] [移动混合开发中的 JSBridge](https://mp.weixin.qq.com/s/I812Cr1_tLGrvIRb9jsg-A)
 
-### 前端监控
+### <a name="chapter-two-seven" id="chapter-two-seven"></a>2.7 前端监控
+
+> [返回目录](#chapter-one)
 
 * [ ] [5 分钟撸一个前端性能监控工具](https://juejin.im/post/5b7a50c0e51d4538af60d995)
 * [ ] [把前端监控做到极致](https://zhuanlan.zhihu.com/p/32262716)
