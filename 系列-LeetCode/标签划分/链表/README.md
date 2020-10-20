@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-10 15:53:40**  
-> Recently revised in **2020-10-18 15:58:49**
+> Recently revised in **2020-10-20 10:51:01**
 
 * [链表 - LeetBook](https://leetcode-cn.com/leetbook/detail/linked-list/)
 * [力扣刷题总结之链表 - algsCG](https://leetcode-cn.com/circle/article/YGr54o/)
@@ -25,6 +25,7 @@
 ## 熟练
 
 * 【中等】[2-两数相加](https://leetcode-cn.com/problems/add-two-numbers/)
+* 【中等】[143-重排链表](https://leetcode-cn.com/problems/reorder-list/)
 
 ## 精通
 
