@@ -2,7 +2,7 @@ Webpack 简单实现
 ===
 
 > Create by **jsliang** on **2020-10-20 15:24:02**  
-> Recently revised in **2020-10-20 17:44:33**
+> Recently revised in **2020-10-20 19:33:36**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -462,7 +462,88 @@ require('./index.js')
 
 `eval` 是指 JavaScript 可以运行里面的字符串代码，`eval('2 + 2')` 会出来结果 `4`，所以 `eval(code)` 就跟我们第一步的时候，`node bundle.js` 一样，执行 `code` 里面的代码。
 
-至于其中细节我们就不一一赘述了，小伙伴们可以自行断点调试，这里面的代码口头描述的话讲不清楚。
+所以我们执行 `require(module)` 里面的代码，先走：
+
+```js
+(function(require, exports, code) {
+  eval(code);
+})(localRequire, exports, graph[module].code);
+```
+
+此刻这个代码中，传递的参数有 3 个：
+
+* `require`：如果在 `eval(code)` 执行代码期间，碰到 `require` 就调用 `localRequire` 方法
+* `exports`：如果在 `eval(code)` 执行代码期间，碰到 `exports` 就将里面内容设置到对象 `exports` 中
+* `graph[module].code`：一开始 `module` 是 `'./index.js'`，所以查找 `graph` 中 `'./index.js'` 对应的 `code`，将其传递进 `eval(code)` 里面
+
+有的小伙伴会好奇这代码怎么走的，我们可以先看下面一段代码：
+
+```js
+const localRequire = (abc) => {
+  console.log(abc);
+};
+
+const code = `
+  console.log(456);
+  doRequire(123)
+`;
+
+(function(doRequire, code) {
+  eval(code);
+})(localRequire, code);
+```
+
+这段代码中，执行的 `doRequire` 其实就是传入进来的 `localRequire` 方法，最终输出 `456` 和 `123`。
+
+现在，再回头来看：
+
+> 区块一：`bundle.js`
+
+```js
+function require(module) {
+  // localRequire 的本质是拿到依赖包的 exports 变量
+  function localRequire(relativePath) {
+    return require(graph[module].dependencies[relativePath]);
+  }
+  var exports = {};
+  (function (require, exports, code) {
+    eval(code);
+  })(localRequire, exports, graph[module].code);
+  return exports; // 函数返回指向局部变量，形成闭包，exports 变量在函数执行后不会被摧毁
+}
+require("./index.js");
+```
+
+它先执行 **立即执行函数** `(function (require, exports, code) {})()`，再到 `eval(code)`，从而执行下面代码：
+
+> 区块二：`graph['./index.js'].code`
+
+```js
+"use strict";
+
+var _message = _interopRequireDefault(require("./message.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+// index.js
+console.log(_message["default"]);
+```
+
+在碰到 `require("./message.js")` 的时候，继续进去上面【区块一】的代码，因为此刻的 `require` 是：
+
+```js
+function localRequire(relativePath) {
+  return require(graph[module].dependencies[relativePath]);
+}
+```
+
+所以我们再调用自己的 `require()` 方法，将内容传递进去，变成：`require('./message.js')`。
+
+……以此类推，直到 `'./word.js'` 里面没有 `require()` 方法体了，我们再执行下面内容，将 `exports` 导出去。
+
+这就是这段内容的运行流程。
+
+至于其中细节我们就不一一赘述了，小伙伴们如果还没看懂可以自行断点调试，这里面的代码口头描述的话 **jsliang** 讲得不是清楚。
 
 最后我们看看输出整理后的 `bundle.js`：
 
@@ -486,18 +567,56 @@ require('./index.js')
 })({
   "./index.js": {
     dependencies: { "./message.js": "./message.js" },
-    code:
-      '"use strict";\n\nvar _message = _interopRequireDefault(require("./message.js"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }\n\n// index.js\nconsole.log(_message["default"]);',
+    code: `
+      "use strict";
+      
+      var _message = _interopRequireDefault(require("./message.js"));
+      
+      function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+      
+      // index.js
+      
+      console.log(_message["default"]);
+    `,
   },
   "./message.js": {
     dependencies: { "./word.js": "./word.js" },
-    code:
-      '"use strict";\n\nObject.defineProperty(exports, "__esModule", {\n  value: true\n});\nexports["default"] = void 0;\n\nvar _word = require("./word.js");\n\n// message.js\nvar message = "say ".concat(_word.word);\nvar _default = message;\nexports["default"] = _default;',
+    code: `
+      "use strict";
+      
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      
+      exports["default"] = void 0;
+      
+      var _word = require("./word.js");
+      
+      // message.js
+      
+      var message = "say ".concat(_word.word);
+      
+      var _default = message;
+      
+      exports["default"] = _default;
+    `,
   },
   "./word.js": {
     dependencies: {},
-    code:
-      '"use strict";\n\nObject.defineProperty(exports, "__esModule", {\n  value: true\n});\nexports.word = void 0;\n// word.js\nvar word = "hello";\nexports.word = word;',
+    code: `
+      "use strict";
+      
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      
+      exports.word = void 0;
+      
+      // word.js
+      
+      var word = "hello";
+
+      exports.word = word;',
   },
 });
 ```
