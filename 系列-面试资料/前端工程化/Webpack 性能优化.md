@@ -19,14 +19,13 @@ Webpack 性能优化
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 通过 Loader 和 Plugin 优化](#chapter-four) |
 | &emsp;[4.1 babel-loader](#chapter-four-one) |
 | &emsp;[4.2 tree shaking](#chapter-four-two) |
-| &emsp;[4.3 可视化分析](#chapter-four-three) |
-| &emsp;[4.4 缓存](#chapter-four-four) |
-| &emsp;[4.5 多进程](#chapter-four-five) |
+| &emsp;[4.3 缓存](#chapter-four-three) |
+| &emsp;[4.4 多进程](#chapter-four-four) |
+| &emsp;[4.5 多进程压缩](#chapter-four-five) |
 | &emsp;[4.6 抽离](#chapter-four-six) |
-| &emsp;[4.7 多进程代码压缩](#chapter-four-seven) |
-| &emsp;[4.8 拆包](#chapter-four-eight) |
-| &emsp;[4.9 打包资源压缩](#chapter-four-night) |
-| &emsp;[4.10 按需加载](#chapter-four-ten) |
+| &emsp;[4.7 拆包](#chapter-four-seven) |
+| &emsp;[4.8 打包资源压缩](#chapter-four-eight) |
+| &emsp;[4.9 按需加载](#chapter-four-night) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 优化体验](#chapter-five) |
 <!-- 目录结束 -->
 
@@ -87,16 +86,7 @@ resolve: {
 
 通过 ES6 的 `import/export` 来检查未引用代码，以及 `sideEffects` 来标记无副作用代码，最后用 `UglifyJSPlugin` 来做 `tree shaking`，从而删除冗余代码。
 
-### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 可视化分析
-
-> [返回目录](#chapter-one)
-
-* `speed-measure-webpack-plugin`：测量出在构建过程中，每一个 Loader 和 Plugin 的执行时长。
-* `webpack-bundle-analyzer`：通过矩阵树图的方式将包内各个模块的大小和依赖关系呈现出来。
-* `webpack-chart`
-* `webpack-analyse`
-
-### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 缓存
+### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 缓存
 
 > [返回目录](#chapter-one)
 
@@ -110,11 +100,27 @@ resolve: {
 
 也可以解决缓存问题。
 
-### <a name="chapter-four-five" id="chapter-four-five"></a>4.5 多进程
+### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 多进程
 
 > [返回目录](#chapter-one)
 
+由于有大量文件需要解析和处理，构建是文件读写和计算密集型的操作，特别是当文件数量变多后，`Webpack` 构建慢的问题会显得严重。
+
+文件读写和计算操作是无法避免的，那能不能让 `Webpack` 同一时刻处理多个任务，发挥多核 CPU 电脑的威力，以提升构建速度呢？
+
 `Happypack` 可以将任务分解成多个子进程去并发执行，大大提升打包效率。
+
+除此之外 `thread-loader` 和 `Happypack` 一样，但是配置比较简单。
+
+### <a name="chapter-four-five" id="chapter-four-five"></a>4.5 多进程压缩
+
+> [返回目录](#chapter-one)
+
+因为自带的 `UglifyJsPlugin` 压缩插件是单线程运行的，而 `ParallelUglifyPlugin` 可以并行执行。
+
+所以通过 `ParallelUglifyPlugin` 代替自带的 `UglifyJsPlugin` 插件。
+
+现在 Webpack 有 `TerserWebpackPlugin`，也是处理多进程和缓存。
 
 ### <a name="chapter-four-six" id="chapter-four-six"></a>4.6 抽离
 
@@ -124,15 +130,7 @@ resolve: {
 
 由于 `CommonsChunkPlugin` 每次构建会重新构建一次 `vendor`，所以出于效率考虑，使用 `DllPlugin` 将第三方库单独打包到一个文件中，只有依赖自身发生版本变化时才会重新打包。
 
-### <a name="chapter-four-seven" id="chapter-four-seven"></a>4.7 多进程代码压缩
-
-> [返回目录](#chapter-one)
-
-因为自带的 `UglifyJsPlugin` 压缩插件是单线程运行的，而 `ParallelUglifyPlugin` 可以并行执行。
-
-所以通过 `ParallelUglifyPlugin` 代替自带的 `UglifyJsPlugin` 插件。
-
-### <a name="chapter-four-eight" id="chapter-four-eight"></a>4.8 拆包
+### <a name="chapter-four-seven" id="chapter-four-seven"></a>4.7 拆包
 
 > [返回目录](#chapter-one)
 
@@ -144,7 +142,7 @@ resolve: {
 
 由于有了 `SplitChunksPlugin`，你可以把应用中的特定部分移至不同文件。如果一个模块在不止一个 `chunk` 中被使用，那么利用代码分离，该模块就可以在它们之间很好地被共享。
 
-### <a name="chapter-four-night" id="chapter-four-night"></a>4.9 打包资源压缩
+### <a name="chapter-four-eight" id="chapter-four-eight"></a>4.8 打包资源压缩
 
 > [返回目录](#chapter-one)
 
@@ -154,7 +152,7 @@ resolve: {
 * CSS 压缩：`MiniCssExtractPlugin`
 * Gzip 压缩：不包括图片
 
-### <a name="chapter-four-ten" id="chapter-four-ten"></a>4.10 按需加载
+### <a name="chapter-four-night" id="chapter-four-night"></a>4.9 按需加载
 
 > [返回目录](#chapter-one)
 
@@ -169,6 +167,11 @@ resolve: {
 * [progress-bar-webpack-plugin](https://www.npmjs.com/package/progress-bar-webpack-plugin)：在终端底部，将会有一个构建的进度条，可以让你清晰的看见构建的执行进度。
 * [webpack-build-notifier](https://www.npmjs.com/package/webpack-build-notifier)：在构建完成时，能够像微信、Lark 这样的 APP 弹出消息的方式，提示构建已经完成。
 * [webpack-dashboard](https://juejin.im/post/6844903924806189070)：对 Webpack 原始的构建输出不满意的话，也可以使用这样一款 Plugin 来优化你的输出界面。
+* [speed-measure-webpack-plugin](https://www.npmjs.com/package/speed-measure-webpack-plugin)：该插件可以测量各个插件和 `loader` 所花费的时间。
+* `speed-measure-webpack-plugin`：测量出在构建过程中，每一个 Loader 和 Plugin 的执行时长。
+* `webpack-bundle-analyzer`：可视化分析。通过矩阵树图的方式将包内各个模块的大小和依赖关系呈现出来。
+* `webpack-chart`
+* `webpack-analyse`
 
 ---
 
