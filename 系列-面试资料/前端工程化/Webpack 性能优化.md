@@ -2,7 +2,7 @@ Webpack 性能优化
 ===
 
 > Create by **jsliang** on **2020-10-20 15:00:19**  
-> Recently revised in **2020-10-20 15:01:39**
+> Recently revised in **2020-10-21 23:54:07**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -18,16 +18,18 @@ Webpack 性能优化
 | &emsp;[3.2 优化 resolve.extensions 配置](#chapter-three-two) |
 | &emsp;[3.3 优化 resolve.include/exclude 配置](#chapter-three-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 通过 Loader 和 Plugin 优化](#chapter-four) |
-| &emsp;[4.1 Tree Shaking](#chapter-four-one) |
-| &emsp;[4.2 Scope Hoisting](#chapter-four-two) |
-| &emsp;[4.3 缓存](#chapter-four-three) |
-| &emsp;[4.4 多进程](#chapter-four-four) |
-| &emsp;[4.5 多进程压缩](#chapter-four-five) |
-| &emsp;[4.6 抽离](#chapter-four-six) |
-| &emsp;[4.7 拆包](#chapter-four-seven) |
-| &emsp;[4.8 打包资源压缩](#chapter-four-eight) |
-| &emsp;[4.9 按需加载](#chapter-four-night) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 优化体验](#chapter-five) |
+| &emsp;[4.1 缓存](#chapter-four-one) |
+| &emsp;[4.2 多进程](#chapter-four-two) |
+| &emsp;[4.3 多进程压缩](#chapter-four-three) |
+| &emsp;[4.4 抽离](#chapter-four-four) |
+| &emsp;[4.5 拆包](#chapter-four-five) |
+| &emsp;[4.6 打包资源压缩](#chapter-four-six) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 其他优化点](#chapter-five) |
+| &emsp;[5.1 Tree Shaking](#chapter-five-one) |
+| &emsp;[5.2 Scope Hoisting](#chapter-five-two) |
+| &emsp;[5.3 按需加载](#chapter-five-three) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 优化体验](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 参考文献](#chapter-seven) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -81,27 +83,7 @@ resolve: {
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 Tree Shaking
-
-> [返回目录](#chapter-one)
-
-通过 ES6 的 `import/export` 来检查未引用代码，以及 `sideEffects` 来标记无副作用代码，最后用 `UglifyJSPlugin` 来做 `Tree Shaking`，从而删除冗余代码。
-
-### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 Scope Hoisting
-
-> [返回目录](#chapter-one)
-
-`Scope Hoisting` 是 Webpack3 的新功能，直译为 **「作用域提升」**，它可以让 Webpack 打包出来的 **「代码文件更小」**，**「运行速度更快」**。
-
-熟悉 JavaScript 都应该知道 **「函数提升」** 和 **「变量提升」** ，JavaScript 会把函数和变量声明提升到当前作用域的顶部。
-
-**「作用域提升」** 也类似于此，Webpack 会把引入的 js 文件 “提升到” 它的引入者顶部。
-
-`Scope Hoisting` 的实现原理其实很简单：分析出模块之间的依赖关系，尽可能将打散的模块合并到一个函数中，前提是不能造成代码冗余。因此「只有那些被引用了一次的模块才能被合并」。
-
-由于 `Scope Hoisting` 需要分析出模块之间的依赖关系，因此源码「必须采用 `ES6` 模块化语句」，不然它将无法生效。原因和 `Tree Shaking` 中介绍的类似。
-
-### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 缓存
+### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 缓存
 
 > [返回目录](#chapter-one)
 
@@ -113,7 +95,7 @@ resolve: {
 
 通过这个插件也可以解决缓存问题。
 
-### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 多进程
+### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 多进程
 
 > [返回目录](#chapter-one)
 
@@ -127,7 +109,7 @@ resolve: {
 
 > `Happypack` 已经不维护了。[Github - Happypack](https://github.com/amireh/happypack)
 
-### <a name="chapter-four-five" id="chapter-four-five"></a>4.5 多进程压缩
+### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 多进程压缩
 
 > [返回目录](#chapter-one)
 
@@ -135,7 +117,7 @@ resolve: {
 
 所以通过 `TerserWebpackPlugin` 代替自带的 `UglifyjsWebpackPlugin` 插件。
 
-### <a name="chapter-four-six" id="chapter-four-six"></a>4.6 抽离
+### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 抽离
 
 > [返回目录](#chapter-one)
 
@@ -143,7 +125,7 @@ resolve: {
 
 由于 `CommonsChunkPlugin` 每次构建会重新构建一次 `vendor`，所以出于效率考虑，使用 `DllPlugin` 将第三方库单独打包到一个文件中，只有依赖自身发生版本变化时才会重新打包。
 
-### <a name="chapter-four-seven" id="chapter-four-seven"></a>4.7 拆包
+### <a name="chapter-four-five" id="chapter-four-five"></a>4.5 拆包
 
 > [返回目录](#chapter-one)
 
@@ -155,7 +137,7 @@ resolve: {
 
 由于有了 `SplitChunksPlugin`，你可以把应用中的特定部分移至不同文件。如果一个模块在不止一个 `chunk` 中被使用，那么利用代码分离，该模块就可以在它们之间很好地被共享。
 
-### <a name="chapter-four-eight" id="chapter-four-eight"></a>4.8 打包资源压缩
+### <a name="chapter-four-six" id="chapter-four-six"></a>4.6 打包资源压缩
 
 > [返回目录](#chapter-one)
 
@@ -165,7 +147,31 @@ resolve: {
 * 图片压缩：`image-webpack-loader`
 * Gzip 压缩：不包括图片
 
-### <a name="chapter-four-night" id="chapter-four-night"></a>4.9 按需加载
+## <a name="chapter-five" id="chapter-five"></a>五 其他优化点
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-five-one" id="chapter-five-one"></a>5.1 Tree Shaking
+
+> [返回目录](#chapter-one)
+
+通过 ES6 的 `import/export` 来检查未引用代码，以及 `sideEffects` 来标记无副作用代码，最后用 `UglifyJSPlugin` 来做 `Tree Shaking`，从而删除冗余代码。
+
+### <a name="chapter-five-two" id="chapter-five-two"></a>5.2 Scope Hoisting
+
+> [返回目录](#chapter-one)
+
+`Scope Hoisting` 是 Webpack3 的新功能，直译为 **「作用域提升」**，它可以让 Webpack 打包出来的 **「代码文件更小」**，**「运行速度更快」**。
+
+熟悉 JavaScript 都应该知道 **「函数提升」** 和 **「变量提升」** ，JavaScript 会把函数和变量声明提升到当前作用域的顶部。
+
+**「作用域提升」** 也类似于此，Webpack 会把引入的 js 文件 “提升到” 它的引入者顶部。
+
+`Scope Hoisting` 的实现原理其实很简单：分析出模块之间的依赖关系，尽可能将打散的模块合并到一个函数中，前提是不能造成代码冗余。因此「只有那些被引用了一次的模块才能被合并」。
+
+由于 `Scope Hoisting` 需要分析出模块之间的依赖关系，因此源码「必须采用 `ES6` 模块化语句」，不然它将无法生效。原因和 `Tree Shaking` 中介绍的类似。
+
+### <a name="chapter-five-three" id="chapter-five-three"></a>5.3 按需加载
 
 > [返回目录](#chapter-one)
 
@@ -181,7 +187,7 @@ resolve: {
 
 在 Vue 中，可以直接使用 `import()` 关键字做到这一点，而在 React 中，你需要使用 `react-loadable` 去完成同样的事。
 
-## <a name="chapter-five" id="chapter-five"></a>五 优化体验
+## <a name="chapter-six" id="chapter-six"></a>六 优化体验
 
 > [返回目录](#chapter-one)
 
@@ -193,6 +199,35 @@ resolve: {
 * `webpack-bundle-analyzer`：可视化分析。通过矩阵树图的方式将包内各个模块的大小和依赖关系呈现出来。
 * `webpack-chart`
 * `webpack-analyse`
+
+## <a name="chapter-seven" id="chapter-seven"></a>七 参考文献
+
+> [返回目录](#chapter-one)
+
+**2019 年文章**：
+
+* [x] [Webpack优化——将你的构建效率提速翻倍](https://juejin.im/post/5d614dc96fb9a06ae3726b3e)【阅读建议：10min】
+* [x] [性能优化篇---Webpack构建速度优化](https://segmentfault.com/a/1190000018493260)【阅读建议：10min】
+* [x] [使用webpack4提升180%编译速度](http://louiszhai.github.io/2019/01/04/webpack4/)【阅读建议：10min】
+* [x] [多进程并行压缩代码](https://jkfhto.github.io/2019-10-17/webpack/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%B9%B6%E8%A1%8C%E5%8E%8B%E7%BC%A9%E4%BB%A3%E7%A0%81/)【阅读建议：5min】
+* [x] [webpack 4: Code Splitting和chunks切分优化](https://juejin.im/post/5d53f49bf265da03dc0766e2)【阅读建议：5min】
+
+**2018 年文章**：
+
+* [x] [Tree-Shaking性能优化实践 - 原理篇](https://juejin.im/post/5a4dc842518825698e7279a9)【阅读建议：10min】
+* [x] [体积减少80%！释放webpack tree-shaking的真正潜力](https://juejin.im/post/5b8ce49df265da438151b468)【阅读建议：10min】
+* [x] [你的Tree-Shaking并没什么卵用](https://zhuanlan.zhihu.com/p/32831172)【阅读建议：5min】
+* [x] [webpack 如何通过作用域分析消除无用代码](https://diverse.space/2018/05/better-tree-shaking-with-scope-analysis)【阅读建议：5min】
+* [x] [让你的Webpack起飞—考拉会员后台Webpack优化实战](https://zhuanlan.zhihu.com/p/42465502)【阅读建议：5min】
+* [x] [webpack dllPlugin打包体积和速度优化](https://zhuanlan.zhihu.com/p/39727247)【阅读建议：5min】
+* [x] [webpack优化之code splitting](https://segmentfault.com/a/1190000013000463)【阅读建议：5min】
+
+**2017 年文章**：
+
+* [x] [Webpack 打包优化之速度篇](https://www.jeffjade.com/2017/08/12/125-webpack-package-optimization-for-speed/)【阅读建议：5min】
+* [x] [加速Webpack-缩小文件搜索范围](https://imweb.io/topic/5a40551ea192c3b460fce335)【阅读建议：5min】
+* [x] [Webpack 大法之 Code Splitting](https://zhuanlan.zhihu.com/p/26710831)【阅读建议：5min】
+
 
 ---
 
