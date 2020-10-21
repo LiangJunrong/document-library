@@ -2,7 +2,7 @@ Webpack
 ===
 
 > Create by **jsliang** on **2020-09-17 15:33:55**  
-> Recently revised in **2020-10-05 15:39:35**
+> Recently revised in **2020-10-21 23:47:55**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -29,39 +29,54 @@ Webpack
 | &emsp;[9.2 提高效率的 plugin](#chapter-night-two) |
 | <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 loader 和 plugin 的区别](#chapter-ten) |
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 resolve](#chapter-eleven) |
-| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 其他](#chapter-twelve) |
-| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 从 0 开始](#chapter-thirteen) |
-| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 Webpack 运行机制](#chapter-fourteen) |
-| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 AST](#chapter-fifteen) |
-| <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 scope hosting 作用域提升](#chapter-sixteen) |
-| <a name="catalog-chapter-seventeen" id="catalog-chapter-seventeen"></a>[十七 懒加载](#chapter-seventeen) |
-| &emsp;[17.1 代码分割](#chapter-seventeen-one) |
-| &emsp;[17.2 实现原理](#chapter-seventeen-two) |
-| &emsp;[17.3 Vue 按需加载](#chapter-seventeen-three) |
-| <a name="catalog-chapter-eighteen" id="catalog-chapter-eighteen"></a>[十八 热更新](#chapter-eighteen) |
-| &emsp;[18.1 开启热更新](#chapter-eighteen-one) |
-| &emsp;[18.2 热更新原理](#chapter-eighteen-two) |
-| <a name="catalog-chapter-nighteen" id="catalog-chapter-nighteen"></a>[十九 Webpack 几种 hash 的实现原理](#chapter-nighteen) |
-| <a name="catalog-chapter-twenty" id="catalog-chapter-twenty"></a>[二十 source map](#chapter-twenty) |
-| <a name="catalog-chapter-twenty-one" id="catalog-chapter-twenty-one"></a>[二十一 Webpack 打包原理](#chapter-twenty-one) |
-| <a name="catalog-chapter-twenty-two" id="catalog-chapter-twenty-two"></a>[二十二 参考文献](#chapter-twenty-two) |
-| &emsp;[22.1 官方文档](#chapter-twenty-two-one) |
-| &emsp;[22.2 Webpack 系列文章](#chapter-twenty-two-two) |
-| &emsp;[22.3 Webpack 性能优化](#chapter-twenty-two-three) |
-| &emsp;[22.4 Scope Hoisting](#chapter-twenty-two-four) |
-| &emsp;[22.5 Tree Shaking](#chapter-twenty-two-five) |
-| &emsp;[22.6 懒加载](#chapter-twenty-two-six) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 从 0 开始配置 Webpack](#chapter-twelve) |
+| &emsp;[12.1 技术选型](#chapter-twelve-one) |
+| &emsp;[12.2 Loader 配置 - 处理 CSS、Less](#chapter-twelve-two) |
+| &emsp;[12.3 Loader 配置 - 处理图片](#chapter-twelve-three) |
+| &emsp;[12.4 Loader 配置 - 处理字体](#chapter-twelve-four) |
+| &emsp;[12.5 Loader 配置 - MPA 多页面打包通用方案](#chapter-twelve-five) |
+| &emsp;[12.6 SourceMap](#chapter-twelve-six) |
+| &emsp;[12.7 WebpackDevServer](#chapter-twelve-seven) |
+| &emsp;[12.8 babel 解析](#chapter-twelve-eight) |
+| &emsp;[12.9 React](#chapter-twelve-night) |
+| &emsp;[12.10 性能优化](#chapter-twelve-ten) |
+| &emsp;[12.11 其他](#chapter-twelve-eleven) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 知识补充：AST](#chapter-thirteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 知识补充：懒加载](#chapter-fourteen) |
+| &emsp;[14.1 代码分割](#chapter-fourteen-one) |
+| &emsp;[14.2 实现原理](#chapter-fourteen-two) |
+| &emsp;[14.3 Vue 按需加载](#chapter-fourteen-three) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 知识补充：热更新](#chapter-fifteen) |
+| &emsp;[15.1 开启热更新](#chapter-fifteen-one) |
+| &emsp;[15.2 热更新原理](#chapter-fifteen-two) |
+| <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 知识补充：3 种 hash](#chapter-sixteen) |
+| <a name="catalog-chapter-seventeen" id="catalog-chapter-seventeen"></a>[十七 知识补充：source map](#chapter-seventeen) |
+| <a name="catalog-chapter-eighteen" id="catalog-chapter-eighteen"></a>[十八 知识补充：Webpack 打包原理](#chapter-eighteen) |
+| <a name="catalog-chapter-nighteen" id="catalog-chapter-nighteen"></a>[十九 参考文献](#chapter-nighteen) |
+| &emsp;[19.1 Webpack 系列文章](#chapter-nighteen-one) |
+| &emsp;[19.2 Webpack 性能优化](#chapter-nighteen-two) |
+| &emsp;[19.3 Scope Hoisting](#chapter-nighteen-three) |
+| &emsp;[19.4 Tree Shaking](#chapter-nighteen-four) |
+| &emsp;[19.5 懒加载](#chapter-nighteen-five) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
+都 2020 了，不会点 Webpack 好像有点说不过去。
+
+但是事实上如果不是分配到【架构组】之类的团体中，感觉接触 Webpack 的概率会少点吧。
+
+就好比 **jsliang** 在上家公司，就没机会接触 Webpack，都是用这别人已经配置好的方案，纯粹做一个业务仔~
+
 ## <a name="chapter-three" id="chapter-three"></a>三 Webpack 是什么
 
 > [返回目录](#chapter-one)
 
-Webpack 是一个现代 JavaScript 应用程序的静态模块打包器（`module bundler`）。当 Webpack 处理应用程序时，它会递归地构建一个依赖关系图（`dependency graph`），其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 `bundle`。
+Webpack 是一个现代 JavaScript 应用程序的静态模块打包器（`module bundler`）。
+
+当 Webpack 处理应用程序时，它会递归地构建一个依赖关系图（`dependency graph`），其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 `bundle`。
 
 所以，它的本质是一个模块打包器，其工作是将每个模块打包成相应的 `bundle`。
 
@@ -78,6 +93,10 @@ Webpack 是一个现代 JavaScript 应用程序的静态模块打包器（`modul
 ## <a name="chapter-five" id="chapter-five"></a>五 Webpack 构建流程
 
 > [返回目录](#chapter-one)
+
+Webpack 就像一条生产线，要经过一系列处理流程后才能将源文件转换成输出结果。
+
+这条生产线上的每个处理流程的职责都是单一的，多个流程之间有存在依赖关系，只有完成当前处理后才能交给下一个流程去处理。 
 
 `Webpack` 的运行流程是一个串行的过程，从启动到结束会依次执行以下流程：
 
@@ -101,32 +120,57 @@ Webpack 是一个现代 JavaScript 应用程序的静态模块打包器（`modul
 
 > [返回目录](#chapter-one)
 
-正常情况下，Webpack 是单入口设置的，如果需要多入口，那就：
+指定打包⼊口⽂文件，有三种不同的形式：`string | object | array`。
 
-> 单入口
+一对一：一个入口、一个打包文件
 
 ```js
-// webpack.config.js
 module.exports = {
-  entry: './src/index.js' // webpack 的默认配置
+  entry: './src/index.js'
 }
 ```
 
-> 多入口
+多对一：多个入口、一个打包文件
 
 ```js
-// webpack.config.js
 module.exports = {
   entry: [
-    './src/polyfills.js',
-    './src/index.js'
-  ],
-};
+    './src/index1.js',
+    './src/index2.js',
+  ]
+}
+```
+
+多对多：多个入口、多打包文件
+
+```js
+module.exports = {
+  entry: {
+    'index1': "./src/index1.js",
+    'index2': "./src/index2.js"
+  }
+}
 ```
 
 ## <a name="chapter-seven" id="chapter-seven"></a>七 output
 
 > [返回目录](#chapter-one)
+
+打包后的文件位置。
+
+```js
+module.exports = {
+  ...,
+  output: {
+  	path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+		filename: "[name].js"
+	}
+}
+```
+
+* 可以指定一个固定的文件名称，如果是多入口多出口（`entry` 为对象），则不能使用单文件出口，需要使用下面的方式
+* 通过 `Webpack` 内置的变量占位符：`[name]`
 
 ## <a name="chapter-eight" id="chapter-eight"></a>八 loader
 
@@ -172,7 +216,7 @@ module.exports = {
 
 > [返回目录](#chapter-one)
 
-* `html-withimg-loader`：处理 HTML 中的本题图片
+* `html-withimg-loader`：处理 HTML 中的图片
 
 ### <a name="chapter-eight-four" id="chapter-eight-four"></a>8.4 关于 CSS 代码处理常见的 loader
 
@@ -261,133 +305,121 @@ module.exports = {
 * `resolve.alias`：配置项通过别名把原导入路径映射成一个新的导入路径。
 * `resolve.extensions`：适配多端的项目中，可能会出现 `.web.js`, `.wx.js`，例如在转 Web 的项目中，我们希望首先找 `.web.js`，如果没有，再找 `.js`。`extensions: ['web.js', '.js']`。
 
-## <a name="chapter-twelve" id="chapter-twelve"></a>十二 其他
+## <a name="chapter-twelve" id="chapter-twelve"></a>十二 从 0 开始配置 Webpack
 
 > [返回目录](#chapter-one)
 
-* 区分不同的环境（生成环境、打包环境）
-* 解决跨域问题
-* 模拟数据
+如何从 0 开始配置一个属于自己的 Webpack 脚手架呢？
 
-## <a name="chapter-thirteen" id="chapter-thirteen"></a>十三 从 0 开始
+### <a name="chapter-twelve-one" id="chapter-twelve-one"></a>12.1 技术选型
 
 > [返回目录](#chapter-one)
 
-* 从 0 开始：技术选型：
-  * 移动端 || PC
-  * MPA || SPA
-  * HTML || 模板引擎
-  * CSS || 预处理器
-  * JavaScript ES6
-  * 本地发布服务（数据模拟）
-  * React || Vue
-  * 多人项目 || 单人项目
-  * 语法规范 Eslint
-  * 单元测试
-  * 提交规范
-* 从 0 开始：`loaders` 配置 - 处理 CSS、Less
-  * ues: `['style-loader', 'css-loader', 'postcss-loader', 'less-loader']`
-  * `less less-loader`：解析 `.less` 文件
-  * `postcss-loader autoprefixer`：对 `flex` 布局等进行前缀补充
-* 从 0 开始：`loaders` 配置 - 处理图片
-  * `file-loader`：解析 `.txt`、`.png`、`.md` 等格式文件
-  * `url-loader`：`limit: 1024`，判断大小是否处理成 `base64` 格式
-* 从 0 开始：`loaders` 配置 - 处理字体
-  * `url-loader`
-* 从 0 开始：`loaders` 配置 - MPA 多页面打包通用方案
-  * 安装 `glob`
-  * 将 `entry` 和 `htmlwebpackplugin` 动态生成
-* 从 0 开始：`SourceMap`
-  * 开发环境配置：`devtool: "cheap-module-eval-source-map`
-  * 线上生成配置（不推荐）：`devtool: "cheap-module-source-map"`
-* 从 0 开始：`WebpackDevServer`
-  * 安装
-  * 配置：`devServer`
-  * `HMR`（热模块替换，Hot Module Replacement）
-  * 开启 JS 模块的 `HMR`，需要 `Webpack` 配合
-* 从 0 开始：`babel` 解析
-  * 安装：`npm i babel-loader @babel/core @babel-preset-env -D`
-    * `@babel/core`：`babel` 核心
-    * `babel-loader`：`babel` 和 `Webpack` 的连接桥梁
-    * `babel-preset-env`：输出什么样的代码，用它来解决
-  * `babel-loader`：解析 ES6+
-  * `@babel/polyfill`：垫片。包含所有 ES6+ 新特性代码
-  * `.babelrc`
-* 从 0 开始：`React`
-  * 安装：`react react-dom`
-  * 使用：`@babel/preset-react`
-* 从 0 开始：优化
-  * 缩小 `loader` 的文件范围：`loader` 的 `include` 配置，可以指定 `src` 目录，减少检查范围。
-  * 优化 `resolve.modules` 配置：配置 `Webpack` 去哪些目录下寻找第三方模块，默认 `node_modules`。
-  * 分离 CSS：`MiniCssExtractPlugin`
-  * `hash`、`chunkhash`、`contenthash` 区别
-    * `hash` 作用域 JS、CSS，图片的 `hash` 有区别，每次打包构建都会变化一次。
-    * `chunkhash` 以 `chunk` 为单位，修改了那部分就改动哪部分的 `hash`。（同时依赖的模块也会改变 `hash`）
-    * `contenthash` 只有自己内容发生改变，才发生改变（区别于 `chunkhash`。
-    * 所以 JS 适用于 `chunkhash`；CSS 适用于 `contenthash`；Image 适用于 `hash`
-  * 压缩 CSS：`optimize-css-assets-webpack-plugin` 和 `cssnano`
-  * 压缩 HTML：`html-webpack-plugin`
-  * 压缩图片：`img-webpack-loader`
-  * 分离 `Webpack` 配置：分离 `base.config`、`dev.config`、`mpa.config` 和 `pro.config` 4 个，通过 `merge` 进行 `config` 配置的合并
-* 从 0 开始：简单编写一个 `Webpack` 解析器
-* 从 0 开始：编写一个 `Webpack loader`
-* 从 0 开始：编写一个 `Webpack plugin`
+* 移动端 || PC
+* MPA || SPA
+* HTML || 模板引擎
+* CSS || 预处理器
+* JavaScript ES5 || ES6
+* 本地发布服务（数据模拟）
+* React || Vue
+* 多人项目 || 单人项目
+* 语法规范 Eslint
+* 单元测试
+* 提交规范
 
----
-
-**优化 `resolve.modules` 配置**：
-
-> webpack.config.js
-
-```js
-resolve: {
-  // 定位第三方依赖的位置
-  modules: [ path.resolve(__dirname, './node_modules') ],
-  alias: {
-    // 给图片起个别名，注意 HTML + CSS 的使用
-    "@assets": path.resolve(__dirname, "./src/images"),
-  },
-  // 自动补全后缀列表：【缺点】这个列表越长，匹配越久，查找需要时间，3 个以内最好
-  extensions: [".js", ".json", ".jsx"],
-}
-```
-
-> index.less
-
-```css
-body {
-  background: url(~@assets/icon.png);
-}
-```
-
----
-
-最好自己搭建一个 然后效果是最好的
-
-* tree-shaking
-* 热更新
-* webpack 工作流
-* scope-hoisting
-
-这些原理 都经常问到
-
-## <a name="chapter-fourteen" id="chapter-fourteen"></a>十四 Webpack 运行机制
+### <a name="chapter-twelve-two" id="chapter-twelve-two"></a>12.2 Loader 配置 - 处理 CSS、Less
 
 > [返回目录](#chapter-one)
 
-Webpack 就像一条生产线，要经过一系列处理流程后才能将源文件转换成输出结果。
+* use: `['style-loader', 'css-loader', 'postcss-loader', 'less-loader']`
+* `less less-loader`：解析 `.less` 文件
+* `postcss-loader autoprefixer`：对 `flex` 布局等进行前缀补充
 
-这条生产线上的每个处理流程的职责都是单一的，多个流程之间有存在依赖关系，只有完成当前处理后才能交给下一个流程去处理。 
+### <a name="chapter-twelve-three" id="chapter-twelve-three"></a>12.3 Loader 配置 - 处理图片
 
-Webpack 的运行过程简述如下：
+> [返回目录](#chapter-one)
 
-* 初始化配置参数
-* 绑定事件钩子回调
-* 确定 `entry` 逐一遍历
-* 使用 `loader` 编译文件
-* 输出文件
+* `file-loader`：解析 `.txt`、`.png`、`.md` 等格式文件
+* `url-loader`：`limit: 1024`，判断大小是否处理成 `base64` 格式
 
-## <a name="chapter-fifteen" id="chapter-fifteen"></a>十五 AST
+### <a name="chapter-twelve-four" id="chapter-twelve-four"></a>12.4 Loader 配置 - 处理字体
+
+> [返回目录](#chapter-one)
+
+* `url-loader`
+
+### <a name="chapter-twelve-five" id="chapter-twelve-five"></a>12.5 Loader 配置 - MPA 多页面打包通用方案
+
+> [返回目录](#chapter-one)
+
+* 安装 `glob`
+* 将 `entry` 和 `htmlwebpackplugin` 动态生成
+
+### <a name="chapter-twelve-six" id="chapter-twelve-six"></a>12.6 SourceMap
+
+> [返回目录](#chapter-one)
+
+* 开发环境配置：`devtool: "cheap-module-eval-source-map`
+* 线上生成配置（不推荐）：`devtool: "cheap-module-source-map"`
+
+### <a name="chapter-twelve-seven" id="chapter-twelve-seven"></a>12.7 WebpackDevServer
+
+> [返回目录](#chapter-one)
+
+* 安装
+* 配置：`devServer`
+* `HMR`（热模块替换，Hot Module Replacement）
+* 开启 JS 模块的 `HMR`，需要 `Webpack` 配合
+
+### <a name="chapter-twelve-eight" id="chapter-twelve-eight"></a>12.8 babel 解析
+
+> [返回目录](#chapter-one)
+
+* 安装：`npm i babel-loader @babel/core @babel-preset-env -D`
+  * `@babel/core`：`babel` 核心
+  * `babel-loader`：`babel` 和 `Webpack` 的连接桥梁
+  * `babel-preset-env`：输出什么样的代码，用它来解决
+* `babel-loader`：解析 ES6+
+* `@babel/polyfill`：垫片。包含所有 ES6+ 新特性代码
+* `.babelrc`
+
+### <a name="chapter-twelve-night" id="chapter-twelve-night"></a>12.9 React
+
+> [返回目录](#chapter-one)
+
+* 安装：`react react-dom`
+* 使用：`@babel/preset-react`
+
+### <a name="chapter-twelve-ten" id="chapter-twelve-ten"></a>12.10 性能优化
+
+> [返回目录](#chapter-one)
+
+* 缩小 `loader` 的文件范围：`loader` 的 `include` 配置，可以指定 `src` 目录，减少检查范围。
+* 优化 `resolve.modules` 配置：配置 `Webpack` 去哪些目录下寻找第三方模块，默认 `node_modules`。
+* 分离 CSS：`MiniCssExtractPlugin`
+* `hash`、`chunkhash`、`contenthash` 区别
+  * `hash` 作用域 JS、CSS，图片的 `hash` 有区别，每次打包构建都会变化一次。
+  * `chunkhash` 以 `chunk` 为单位，修改了那部分就改动哪部分的 `hash`。（同时依赖的模块也会改变 `hash`）
+  * `contenthash` 只有自己内容发生改变，才发生改变（区别于 `chunkhash`。
+  * 所以 JS 适用于 `chunkhash`；CSS 适用于 `contenthash`；Image 适用于 `hash`
+* 压缩 CSS：`optimize-css-assets-webpack-plugin` 和 `cssnano`
+* 压缩 HTML：`html-webpack-plugin`
+* 压缩图片：`img-webpack-loader`
+* 分离 `Webpack` 配置：分离 `base.config`、`dev.config`、`mpa.config` 和 `pro.config` 4 个，通过 `merge` 进行 `config` 配置的合并
+
+更多看这里：
+
+![Webpack 性能优化](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/Webpack%20%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.md)
+
+### <a name="chapter-twelve-eleven" id="chapter-twelve-eleven"></a>12.11 其他
+
+> [返回目录](#chapter-one)
+
+* 如何简单编写一个 `Webpack` 解析器
+* 如何编写一个 `Webpack loader`
+* 如何编写一个 `Webpack plugin`
+
+## <a name="chapter-thirteen" id="chapter-thirteen"></a>十三 知识补充：AST
 
 > [返回目录](#chapter-one)
 
@@ -409,15 +441,7 @@ babel 编译 es6 成 es5 原理就是 a+c=c 编译成 c 我可以删除 +b 这�
 
 * [AST Explorer](https://astexplorer.net/)
 
-## <a name="chapter-sixteen" id="chapter-sixteen"></a>十六 scope hosting 作用域提升
-
-> [返回目录](#chapter-one)
-
-变量提升，可以减少一些变量声明。在生产环境下，默认开启。
-
-另外，大家测试的时候注意一下，`speed-measure-webpack-plugin` 和 `HotModuleReplacementPlugin `不能同时使用，否则会报错。
-
-## <a name="chapter-seventeen" id="chapter-seventeen"></a>十七 懒加载
+## <a name="chapter-fourteen" id="chapter-fourteen"></a>十四 知识补充：懒加载
 
 > [返回目录](#chapter-one)
 
@@ -427,7 +451,7 @@ babel 编译 es6 成 es5 原理就是 a+c=c 编译成 c 我可以删除 +b 这�
 
 这样加快了应用的初始加载速度，减轻了它的总体体积，因为某些代码块可能永远不会被加载。
 
-### <a name="chapter-seventeen-one" id="chapter-seventeen-one"></a>17.1 代码分割
+### <a name="chapter-fourteen-one" id="chapter-fourteen-one"></a>14.1 代码分割
 
 > [返回目录](#chapter-one)
 
@@ -441,7 +465,7 @@ babel 编译 es6 成 es5 原理就是 a+c=c 编译成 c 我可以删除 +b 这�
 
 在 Vue 中，可以直接使用 `import()` 关键字做到这一点，而在 React 中，你需要使用 `react-loadable` 去完成同样的事。
 
-### <a name="chapter-seventeen-two" id="chapter-seventeen-two"></a>17.2 实现原理
+### <a name="chapter-fourteen-two" id="chapter-fourteen-two"></a>14.2 实现原理
 
 > [返回目录](#chapter-one)
 
@@ -468,7 +492,7 @@ btn.onclick = import('./print.js').then((module) => {
 });
 ```
 
-### <a name="chapter-seventeen-three" id="chapter-seventeen-three"></a>17.3 Vue 按需加载
+### <a name="chapter-fourteen-three" id="chapter-fourteen-three"></a>14.3 Vue 按需加载
 
 > [返回目录](#chapter-one)
 
@@ -490,7 +514,7 @@ const routes = [{
 }];
 ```
 
-## <a name="chapter-eighteen" id="chapter-eighteen"></a>十八 热更新
+## <a name="chapter-fifteen" id="chapter-fifteen"></a>十五 知识补充：热更新
 
 > [返回目录](#chapter-one)
 
@@ -503,7 +527,7 @@ const routes = [{
 
 这个机制可以做到不用刷新浏览器而将新变更的模块替换掉旧的模块。
 
-### <a name="chapter-eighteen-one" id="chapter-eighteen-one"></a>18.1 开启热更新
+### <a name="chapter-fifteen-one" id="chapter-fifteen-one"></a>15.1 开启热更新
 
 > [返回目录](#chapter-one)
 
@@ -536,7 +560,7 @@ if(module && module.hot) {
 
 此时修改代码的时候，只有对应部分的内容才会相应更新。
 
-### <a name="chapter-eighteen-two" id="chapter-eighteen-two"></a>18.2 热更新原理
+### <a name="chapter-fifteen-two" id="chapter-fifteen-two"></a>15.2 热更新原理
 
 > [返回目录](#chapter-one)
 
@@ -548,17 +572,17 @@ if(module && module.hot) {
 
 后续的部分（拿到增量更新之后如何处理？哪些状态该保留？哪些又需要更新？）由 `HotModulePlugin` 来完成，提供了相关 `API` 以供开发者针对自身场景进行处理，像 `react-hot-loader` 和 `vue-loader` 都是借助这些 `API` 实现 `HMR`。
 
-## <a name="chapter-nighteen" id="chapter-nighteen"></a>十九 Webpack 几种 hash 的实现原理
+## <a name="chapter-sixteen" id="chapter-sixteen"></a>十六 知识补充：3 种 hash
 
 > [返回目录](#chapter-one)
 
-文件指纹是打包后输出的文件名的后缀。
+文件指纹是打包后输出的文件名的后缀，对应着 3 种 `hash`。
 
 * `hash` 是跟整个项目的构建相关，只要项目里有文件更改，整个项目构建的 `hash` 值都会更改，并且全部文件都共用相同的 `hash` 值。（粒度整个项目）
 * `chunkhash` 是根据不同的入口进行依赖文件解析，构建对应的 `chunk`（模块），生成对应的 `hash` 值。只有被修改的 `chunk`（模块）在重新构建之后才会生成新的 `hash` 值，不会影响其它的 `chunk`。（粒度 `entry` 的每个入口文件）
 * `contenthash` 是跟每个生成的文件有关，每个文件都有一个唯一的 `hash` 值。当要构建的文件内容发生改变时，就会生成新的 `hash` 值，且该文件的改变并不会影响和它同一个模块下的其它文件。（粒度每个文件的内容）
 
-## <a name="chapter-twenty" id="chapter-twenty"></a>二十 source map
+## <a name="chapter-seventeen" id="chapter-seventeen"></a>十七 知识补充：source map
 
 > [返回目录](#chapter-one)
 
@@ -574,7 +598,7 @@ if(module && module.hot) {
 
 注意：避免在生产中使用 `inline-` 和 `eval-`，因为它们会增加 `bundle` 体积大小，并降低整体性能。
 
-## <a name="chapter-twenty-one" id="chapter-twenty-one"></a>二十一 Webpack 打包原理
+## <a name="chapter-eighteen" id="chapter-eighteen"></a>十八 知识补充：Webpack 打包原理
 
 > [返回目录](#chapter-one)
 
@@ -586,22 +610,19 @@ if(module && module.hot) {
 2. 生成依赖图谱
 3. 生成最后打包代码
 
-## <a name="chapter-twenty-two" id="chapter-twenty-two"></a>二十二 参考文献
+## <a name="chapter-nighteen" id="chapter-nighteen"></a>十九 参考文献
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-twenty-two-one" id="chapter-twenty-two-one"></a>22.1 官方文档
+本系列参考文献有 51 篇文章。
 
-> [返回目录](#chapter-one)
-
-* [ ] [Webpack 中文文档](https://webpack.docschina.org/concepts/)
-
-### <a name="chapter-twenty-two-two" id="chapter-twenty-two-two"></a>22.2 Webpack 系列文章
+### <a name="chapter-nighteen-one" id="chapter-nighteen-one"></a>19.1 Webpack 系列文章
 
 > [返回目录](#chapter-one)
 
 **其他**：
 
+* [x] [Webpack 中文文档](https://webpack.docschina.org/concepts/)【阅读建议：无】
 * [x] [Webpack小书](https://www.timsrc.com/article/2/webpack-book)【阅读建议：无】
 
 **2020 年文章**：
@@ -640,7 +661,7 @@ if(module && module.hot) {
 
 * [x] [Webpack 源码（一）—— Tapable 和 事件流](https://segmentfault.com/a/1190000008060440)【阅读建议：10min】
 
-### <a name="chapter-twenty-two-three" id="chapter-twenty-two-three"></a>22.3 Webpack 性能优化
+### <a name="chapter-nighteen-two" id="chapter-nighteen-two"></a>19.2 Webpack 性能优化
 
 > [返回目录](#chapter-one)
 
@@ -668,7 +689,7 @@ if(module && module.hot) {
 * [x] [加速Webpack-缩小文件搜索范围](https://imweb.io/topic/5a40551ea192c3b460fce335)【阅读建议：5min】
 * [x] [Webpack 大法之 Code Splitting](https://zhuanlan.zhihu.com/p/26710831)【阅读建议：5min】
 
-### <a name="chapter-twenty-two-four" id="chapter-twenty-two-four"></a>22.4 Scope Hoisting
+### <a name="chapter-nighteen-three" id="chapter-nighteen-three"></a>19.3 Scope Hoisting
 
 > [返回目录](#chapter-one)
 
@@ -676,7 +697,7 @@ if(module && module.hot) {
 * [x] [通过Scope Hoisting优化Webpack输出](https://imweb.io/topic/5a43064fa192c3b460fce360)【阅读建议：5min】
 * [x] [【Webpack】654- 了不起的 Webpack Scope Hoisting 学习指南](https://cloud.tencent.com/developer/article/1663231)【阅读建议：5min】
 
-### <a name="chapter-twenty-two-five" id="chapter-twenty-two-five"></a>22.5 Tree Shaking
+### <a name="chapter-nighteen-four" id="chapter-nighteen-four"></a>19.4 Tree Shaking
 
 > [返回目录](#chapter-one)
 
@@ -685,7 +706,7 @@ if(module && module.hot) {
 * [x] [Tree-Shaking性能优化实践 - 原理篇 - 2018](https://juejin.im/post/6844903544756109319)【阅读建议：仅供参考】
 * [x] [Webpack4: Tree-shaking 深度解析 - 2019](https://juejin.im/post/6844903777229635598)【阅读建议：仅供参考】
 
-### <a name="chapter-twenty-two-six" id="chapter-twenty-two-six"></a>22.6 懒加载
+### <a name="chapter-nighteen-five" id="chapter-nighteen-five"></a>19.5 懒加载
 
 > [返回目录](#chapter-one)
 
