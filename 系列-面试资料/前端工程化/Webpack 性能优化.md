@@ -105,15 +105,13 @@ resolve: {
 
 > [返回目录](#chapter-one)
 
-* `cache-loader`
-
-参考链接：[cache-loader](https://www.npmjs.com/package/cache-loader)
+* [cache-loader](https://www.npmjs.com/package/cache-loader)
 
 在 `babel-loader` 开启 `cache` 后，将 `loader` 的编译结果写进硬盘缓存，再次构建如果文件没有发生变化则会直接拉取缓存。
 
 * `uglifyjs-webpack-plugin`
 
-也可以解决缓存问题。
+通过这个插件也可以解决缓存问题。
 
 ### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 多进程
 
@@ -171,9 +169,17 @@ resolve: {
 
 > [返回目录](#chapter-one)
 
-通过 Code-Splitting 来做 React 的按需加载.
+* 什么是 **代码分割**（code splitting）？
 
-`Code_Splitting` 核心是 `require-ensure`。
+代码分割是指：将脚本中无需立即调用的代码在代码构建时转变为异步加载的过程。
+
+在 Webpack 构建时，会避免加载已声明要异步加载的代码，异步代码会被单独分离出一个文件，当代码实际调用时被加载至页面。
+
+代码分割技术的核心是 **异步加载资源**。
+
+可喜的是，浏览器允许我们这么做，W3C `stage 3` 规范： [whatwg/loader](https://whatwg.github.io/loader/) 对其进行了定义：你可以通过 `import()` 关键字让浏览器在程序执行时异步加载相关资源。
+
+在 Vue 中，可以直接使用 `import()` 关键字做到这一点，而在 React 中，你需要使用 `react-loadable` 去完成同样的事。
 
 ## <a name="chapter-five" id="chapter-five"></a>五 优化体验
 
