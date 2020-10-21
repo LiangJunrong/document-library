@@ -16,9 +16,10 @@ Webpack 性能优化
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 针对 Webpack 本身构建优化](#chapter-three) |
 | &emsp;[3.1 优化 resolve.modules 配置](#chapter-three-one) |
 | &emsp;[3.2 优化 resolve.extensions 配置](#chapter-three-two) |
+| &emsp;[3.3 优化 resolve.include/exclude 配置](#chapter-three-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 通过 Loader 和 Plugin 优化](#chapter-four) |
-| &emsp;[4.1 babel-loader](#chapter-four-one) |
-| &emsp;[4.2 tree shaking](#chapter-four-two) |
+| &emsp;[4.1 Tree Shaking](#chapter-four-one) |
+| &emsp;[4.2 Scope Hoisting](#chapter-four-two) |
 | &emsp;[4.3 缓存](#chapter-four-three) |
 | &emsp;[4.4 多进程](#chapter-four-four) |
 | &emsp;[4.5 多进程压缩](#chapter-four-five) |
@@ -70,21 +71,35 @@ resolve: {
 2. 列表尽可能的少，例如只有 3 个：`js`、`jsx`、`json`。
 3. 书写导入语句时，尽量写上后缀名。
 
-## <a name="chapter-four" id="chapter-four"></a>四 通过 Loader 和 Plugin 优化
-
-> [返回目录](#chapter-one)
-
-### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 babel-loader
+### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 优化 resolve.include/exclude 配置
 
 > [返回目录](#chapter-one)
 
 以 `babel-loader` 为例，可以通过 `include` 和 `exclude` 帮助我们避免 `node_modules` 这类庞大文件夹。
 
-### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 tree shaking
+## <a name="chapter-four" id="chapter-four"></a>四 通过 Loader 和 Plugin 优化
 
 > [返回目录](#chapter-one)
 
-通过 ES6 的 `import/export` 来检查未引用代码，以及 `sideEffects` 来标记无副作用代码，最后用 `UglifyJSPlugin` 来做 `tree shaking`，从而删除冗余代码。
+### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 Tree Shaking
+
+> [返回目录](#chapter-one)
+
+通过 ES6 的 `import/export` 来检查未引用代码，以及 `sideEffects` 来标记无副作用代码，最后用 `UglifyJSPlugin` 来做 `Tree Shaking`，从而删除冗余代码。
+
+### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 Scope Hoisting
+
+> [返回目录](#chapter-one)
+
+`Scope Hoisting` 是 Webpack3 的新功能，直译为 **「作用域提升」**，它可以让 Webpack 打包出来的 **「代码文件更小」**，**「运行速度更快」**。
+
+熟悉 JavaScript 都应该知道 **「函数提升」** 和 **「变量提升」** ，JavaScript 会把函数和变量声明提升到当前作用域的顶部。
+
+**「作用域提升」** 也类似于此，Webpack 会把引入的 js 文件 “提升到” 它的引入者顶部。
+
+`Scope Hoisting` 的实现原理其实很简单：分析出模块之间的依赖关系，尽可能将打散的模块合并到一个函数中，前提是不能造成代码冗余。因此「只有那些被引用了一次的模块才能被合并」。
+
+由于 `Scope Hoisting` 需要分析出模块之间的依赖关系，因此源码「必须采用 `ES6` 模块化语句」，不然它将无法生效。原因和 `Tree Shaking` 中介绍的类似。
 
 ### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 缓存
 
@@ -112,15 +127,15 @@ resolve: {
 
 除此之外 `thread-loader` 和 `Happypack` 一样，但是配置比较简单。
 
+> `Happypack` 已经不维护了。[Github - Happypack](https://github.com/amireh/happypack)
+
 ### <a name="chapter-four-five" id="chapter-four-five"></a>4.5 多进程压缩
 
 > [返回目录](#chapter-one)
 
-因为自带的 `UglifyJsPlugin` 压缩插件是单线程运行的，而 `ParallelUglifyPlugin` 可以并行执行。
+因为自带的 `UglifyjsWebpackPlugin` 压缩插件是单线程运行的，而 `TerserWebpackPlugin` 可以并行执行（多进程）。
 
-所以通过 `ParallelUglifyPlugin` 代替自带的 `UglifyJsPlugin` 插件。
-
-现在 Webpack 有 `TerserWebpackPlugin`，也是处理多进程和缓存。
+所以通过 `TerserWebpackPlugin` 代替自带的 `UglifyjsWebpackPlugin` 插件。
 
 ### <a name="chapter-four-six" id="chapter-four-six"></a>4.6 抽离
 
@@ -146,10 +161,10 @@ resolve: {
 
 > [返回目录](#chapter-one)
 
-* JS 压缩：`UglifyJSPlugin`
+* JS 压缩：`UglifyjsWebpackPlugin`
 * HTML 压缩：`HtmlWebpackPlugin`
-* 提取公共资源：`splitChunks.cacheGroups`
 * CSS 压缩：`MiniCssExtractPlugin`
+* 图片压缩：`image-webpack-loader`
 * Gzip 压缩：不包括图片
 
 ### <a name="chapter-four-night" id="chapter-four-night"></a>4.9 按需加载
