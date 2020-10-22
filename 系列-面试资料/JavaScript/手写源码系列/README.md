@@ -82,7 +82,7 @@
 
 > [返回目录](#chapter-one)
 
-本系列有 45 篇参考文献。
+本系列有 46 篇参考文献。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 手写系列文章
 
@@ -96,6 +96,7 @@
 * [x] [三元-手写代码系列](http://47.98.159.95/my_blog/js-api/001.html)【阅读建议：30min】
 * [x] [CORS 原理及实现](https://www.jianshu.com/p/b2bdf55e1bf5)【阅读建议：30min】
 * [x] [JSONP 原理及实现](https://www.jianshu.com/p/88bb82718517)【阅读建议：30min】
+* [x] [jsonp的原理与实现](https://segmentfault.com/a/1190000007665361)【阅读建议：10min】
 * [x] [20道JS原理题助你面试一臂之力！](https://juejin.im/post/6844903891591495693)【阅读建议：30min】
 * [x] [7分钟理解JS的节流、防抖及使用场景](https://juejin.im/post/6844903669389885453)【阅读建议：10min】
 * [x] [防抖和节流原理分析](https://juejin.im/post/6844903662519599111?utm_medium=fe&utm_source=weixinqun)【阅读建议：10min】
