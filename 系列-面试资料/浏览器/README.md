@@ -86,7 +86,7 @@
 
 > [返回目录](#chapter-one)
 
-参考文献共 60 篇文章，感谢前辈们的贡献。
+参考文献共 62 篇文章，感谢前辈们的贡献。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 付费网络书籍
 
@@ -106,6 +106,7 @@
 * [x] [深入浅出浏览器渲染原理](https://zhuanlan.zhihu.com/p/53913989)【阅读建议：30min】
 * [x] [浏览器的渲染原理简介](https://coolshell.cn/articles/9666.html)【阅读建议：10min】
 * [x] [浏览器的渲染：过程与原理](https://juejin.im/entry/6844903503609987080)【阅读建议：10min】
+* [x] [经典面试题：从 URL 输入到页面展现到底发生什么](https://zhuanlan.zhihu.com/p/57895541)【阅读建议：30min】
 
 ### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 浏览器缓存
 
@@ -116,6 +117,7 @@
 * [x] [前端必须要懂的浏览器缓存机制](https://juejin.im/entry/6844903599537930253)【阅读建议：10min】
 * [x] [关于浏览器缓存你知道多少](https://mp.weixin.qq.com/s/Wvc0lkLpgyEW_u7bbMdvpQ)【阅读建议：10min】
 * [x] [设计一个无懈可击的浏览器缓存方案：关于思路，细节，ServiceWorker，以及HTTP/2](https://zhuanlan.zhihu.com/p/28113197)【阅读建议：20min】
+* [x] [前端缓存最佳实践](https://juejin.im/post/6844903737538920462)【阅读建议：20min】
 
 ### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 浏览器垃圾回收
 
