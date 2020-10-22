@@ -65,11 +65,11 @@
 
 2020 年跳槽计划阅读 600+ 篇文章，已阅读 300+ 篇文章。
 
-阅读总进度: 399/617 篇。
+阅读总进度: 405/617 篇。
 
 * [x] [综合系列](./README.md)【进度： 32/32 】
 * [x] [计算机网络](./计算机网络/README.md)【进度： 53/53 】
-* [x] [浏览器](./浏览器/README.md)【进度： 57/57 】
+* [x] [浏览器](./浏览器/README.md)【进度： 62/62 】
 * [x] [面试经验](./面试经验/README.md)【进度： 4/4 】
 * [ ] [其他](./其他/README.md)【进度： 0/36 】
 * [ ] [前端工程化](./前端工程化/README.md)【进度： 52/87 】
@@ -77,7 +77,7 @@
 * [ ] [算法与数据结构](./算法与数据结构/README.md)【进度： 0/13 】
 * [ ] [CSS](./CSS/README.md)【进度： 0/51 】
 * [x] [HTML](./HTML/README.md)【进度： 4/4 】
-* [x] [JavaScript](./JavaScript/README.md)【进度： 197/197 】
+* [x] [JavaScript](./JavaScript/README.md)【进度： 198/198 】
 * [ ] [React](./React/README.md)【进度： 0/78 】
 * [x] [TypeScript](./TypeScript/README.md)【进度： 2020 不复习 】
 * [x] [Vue](./Vue/README.md)【进度： 2020 不复习 】
