@@ -38,10 +38,12 @@ CSS
 
 > [返回目录](#chapter-one)
 
+文章地址：[基础](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/CSS/%E5%9F%BA%E7%A1%80.md)
+
 * [x] DIV + CSS 布局优缺点
 * [x] **LoVe HAte 原则**：`a` 标签 `hover` 事件失效问题，`link -> visited -> hover -> active`
 * [x] **响应式**：一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本，通过 `@media` 检测不同设备屏幕尺寸做处理
-* [ ] **垂直居中**
+* [x] **垂直居中**
   * [x] `Flex` 布局：`align-items` 和 `justify-content`
   * [x] 绝对定位布局：`absolute` + `left/right/bottom/top: 0` + `margin: auto`
   * [x] `transform` 布局：`absolute` + `transform: translate(-50%, -50%)`
@@ -77,6 +79,8 @@ CSS
 
 > [返回目录](#chapter-one)
 
+文章地址：[盒子模型](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/CSS/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.md)
+
 * [x] **标准盒子**：标准盒子的 `contentWidth` 等于设置的 `width`，它的`实际总宽度 = width + padding + border + margin`。（高度也一样）
 * [x] **怪异盒子**：怪异盒子的 `contentWidth` 等于设置的 `width + padding + border`，它的`实际总宽度 = contentWidth + margin`。（高度也一样）
 * [x] **设置盒子模式**：`inherit` 继承、`content-box` 标准盒子、`border-box` 怪异盒子
@@ -84,6 +88,8 @@ CSS
 ### <a name="chapter-two-three" id="chapter-two-three"></a>2.3 移动端
 
 > [返回目录](#chapter-one)
+
+文章地址：[移动端](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/CSS/%E7%A7%BB%E5%8A%A8%E7%AB%AF.md)
 
 * [x] **使用单位**：`em`、`rem`、`%` 以及 `vw/vh`
 * [x] **布局**：使用 `rem` 单位、通过 `position: relative/absolute` 布局、`Flex` 布局
