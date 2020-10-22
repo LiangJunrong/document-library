@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-17 15:12:54**  
-> Recently revised in **2020-08-17 17:22:58**
+> Recently revised in **2020-10-22 16:08:18**
 
 ## 一 理论知识
 
@@ -22,6 +22,8 @@
 ```
 
 ## 入门
+
+* 【中等】[763-划分字母区间](https://leetcode-cn.com/problems/partition-labels/)
 
 ## 熟练
 
