@@ -13,9 +13,10 @@
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| &emsp;[2.1 面试官系列](#chapter-two-one) |
-| &emsp;[2.2 其他资料](#chapter-two-two) |
-| &emsp;[2.3 Flutter](#chapter-two-three) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 参考文献](#chapter-three) |
+| &emsp;[3.1 面试官系列](#chapter-three-one) |
+| &emsp;[3.2 其他资料](#chapter-three-two) |
+| &emsp;[3.3 Flutter](#chapter-three-three) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -24,11 +25,13 @@
 
 杂七杂八的都塞这里。
 
-## 参考文献
+## <a name="chapter-three" id="chapter-three"></a>三 参考文献
+
+> [返回目录](#chapter-one)
 
 本系列有 23 篇参考文献
 
-### <a name="chapter-two-one" id="chapter-two-one"></a>2.1 面试官系列
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 面试官系列
 
 > [返回目录](#chapter-one)
 
@@ -39,7 +42,7 @@
 * [x] [面试官系列(5): 你为什么使用前端框架](https://juejin.im/post/6844903617342734344)【阅读建议：30min】
 * [x] [面试官系列(6): 写过『通用前端组件』吗?](https://juejin.im/post/6844903847874265101)【阅读建议：1h】
 
-### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 其他资料
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 其他资料
 
 > [返回目录](#chapter-one)
 
@@ -71,7 +74,7 @@
 * [x] [教你从零开始搭建一款前端脚手架工具](https://segmentfault.com/a/1190000006190814)【阅读建议：30min】
 * [x] [基于node.js的脚手架工具开发经历](https://juejin.im/post/6844903526947110919)【阅读建议：30min】
 
-### <a name="chapter-two-three" id="chapter-two-three"></a>2.3 Flutter
+### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 Flutter
 
 > [返回目录](#chapter-one)
 
