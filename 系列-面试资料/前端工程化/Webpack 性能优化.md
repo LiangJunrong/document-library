@@ -21,8 +21,8 @@ Webpack 性能优化
 | &emsp;[4.1 缓存](#chapter-four-one) |
 | &emsp;[4.2 多进程](#chapter-four-two) |
 | &emsp;[4.3 多进程压缩](#chapter-four-three) |
-| &emsp;[4.4 抽离](#chapter-four-four) |
-| &emsp;[4.5 拆包](#chapter-four-five) |
+| &emsp;[4.4 静态资源分离](#chapter-four-four) |
+| &emsp;[4.5 代码分离](#chapter-four-five) |
 | &emsp;[4.6 打包资源压缩](#chapter-four-six) |
 | <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 其他优化点](#chapter-five) |
 | &emsp;[5.1 Tree Shaking](#chapter-five-one) |
@@ -117,7 +117,7 @@ resolve: {
 
 所以通过 `TerserWebpackPlugin` 代替自带的 `UglifyjsWebpackPlugin` 插件。
 
-### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 抽离
+### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 静态资源分离
 
 > [返回目录](#chapter-one)
 
@@ -125,7 +125,7 @@ resolve: {
 
 由于 `CommonsChunkPlugin` 每次构建会重新构建一次 `vendor`，所以出于效率考虑，使用 `DllPlugin` 将第三方库单独打包到一个文件中，只有依赖自身发生版本变化时才会重新打包。
 
-### <a name="chapter-four-five" id="chapter-four-five"></a>4.5 拆包
+### <a name="chapter-four-five" id="chapter-four-five"></a>4.5 代码分离
 
 > [返回目录](#chapter-one)
 
@@ -195,7 +195,6 @@ resolve: {
 * [webpack-build-notifier](https://www.npmjs.com/package/webpack-build-notifier)：在构建完成时，能够像微信、Lark 这样的 APP 弹出消息的方式，提示构建已经完成。
 * [webpack-dashboard](https://juejin.im/post/6844903924806189070)：对 Webpack 原始的构建输出不满意的话，也可以使用这样一款 Plugin 来优化你的输出界面。
 * [speed-measure-webpack-plugin](https://www.npmjs.com/package/speed-measure-webpack-plugin)：该插件可以测量各个插件和 `loader` 所花费的时间。
-* `speed-measure-webpack-plugin`：测量出在构建过程中，每一个 Loader 和 Plugin 的执行时长。
 * `webpack-bundle-analyzer`：可视化分析。通过矩阵树图的方式将包内各个模块的大小和依赖关系呈现出来。
 * `webpack-chart`
 * `webpack-analyse`
