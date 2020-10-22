@@ -86,7 +86,7 @@
 
 > [返回目录](#chapter-one)
 
-参考文献共 57 篇文章，感谢前辈们的贡献。
+参考文献共 60 篇文章，感谢前辈们的贡献。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 付费网络书籍
 
@@ -194,6 +194,9 @@
 * [x] [（译）2019年前端性能优化清单 — 下篇](https://juejin.im/post/6844903765749792782)【阅读建议：20min】
 * [x] [App内网页启动加速实践：静态资源预加载视角](https://mp.weixin.qq.com/s/tXABGOV4Lp2YiGnzq3gxbA)【阅读建议：20min】
 * [x] [腾讯HTTPS性能优化实践](https://mp.weixin.qq.com/s/V62VYS8KFNKxJxfzMYefrw)【阅读建议：30min】
+* [x] [5 分钟撸一个前端性能监控工具](https://juejin.im/post/6844903662020460552)【阅读建议：20min】
+* [x] [现代化懒加载的方式](https://juejin.im/post/6844903559599751175)【阅读建议：5min】
+* [x] [懒加载和预加载](https://juejin.im/post/6844903614138286094)【阅读建议：10min】
 
 ### <a name="chapter-three-eight" id="chapter-three-eight"></a>3.8 其他
 
