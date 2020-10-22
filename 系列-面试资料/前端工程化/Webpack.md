@@ -41,23 +41,22 @@ Webpack
 | &emsp;[12.9 React](#chapter-twelve-night) |
 | &emsp;[12.10 性能优化](#chapter-twelve-ten) |
 | &emsp;[12.11 其他](#chapter-twelve-eleven) |
-| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 知识补充：AST](#chapter-thirteen) |
-| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 知识补充：懒加载](#chapter-fourteen) |
-| &emsp;[14.1 代码分割](#chapter-fourteen-one) |
-| &emsp;[14.2 实现原理](#chapter-fourteen-two) |
-| &emsp;[14.3 Vue 按需加载](#chapter-fourteen-three) |
-| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 知识补充：热更新](#chapter-fifteen) |
-| &emsp;[15.1 开启热更新](#chapter-fifteen-one) |
-| &emsp;[15.2 热更新原理](#chapter-fifteen-two) |
-| <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 知识补充：3 种 hash](#chapter-sixteen) |
-| <a name="catalog-chapter-seventeen" id="catalog-chapter-seventeen"></a>[十七 知识补充：source map](#chapter-seventeen) |
-| <a name="catalog-chapter-eighteen" id="catalog-chapter-eighteen"></a>[十八 知识补充：Webpack 打包原理](#chapter-eighteen) |
-| <a name="catalog-chapter-nighteen" id="catalog-chapter-nighteen"></a>[十九 参考文献](#chapter-nighteen) |
-| &emsp;[19.1 Webpack 系列文章](#chapter-nighteen-one) |
-| &emsp;[19.2 Webpack 性能优化](#chapter-nighteen-two) |
-| &emsp;[19.3 Scope Hoisting](#chapter-nighteen-three) |
-| &emsp;[19.4 Tree Shaking](#chapter-nighteen-four) |
-| &emsp;[19.5 懒加载](#chapter-nighteen-five) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 知识补充：懒加载](#chapter-thirteen) |
+| &emsp;[13.1 代码分割](#chapter-thirteen-one) |
+| &emsp;[13.2 实现原理](#chapter-thirteen-two) |
+| &emsp;[13.3 Vue 按需加载](#chapter-thirteen-three) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 知识补充：热更新](#chapter-fourteen) |
+| &emsp;[14.1 开启热更新](#chapter-fourteen-one) |
+| &emsp;[14.2 热更新原理](#chapter-fourteen-two) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 知识补充：3 种 hash](#chapter-fifteen) |
+| <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 知识补充：source map](#chapter-sixteen) |
+| <a name="catalog-chapter-seventeen" id="catalog-chapter-seventeen"></a>[十七 知识补充：Webpack 打包原理](#chapter-seventeen) |
+| <a name="catalog-chapter-eighteen" id="catalog-chapter-eighteen"></a>[十八 参考文献](#chapter-eighteen) |
+| &emsp;[18.1 Webpack 系列文章](#chapter-eighteen-one) |
+| &emsp;[18.2 Webpack 性能优化](#chapter-eighteen-two) |
+| &emsp;[18.3 Scope Hoisting](#chapter-eighteen-three) |
+| &emsp;[18.4 Tree Shaking](#chapter-eighteen-four) |
+| &emsp;[18.5 懒加载](#chapter-eighteen-five) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -419,29 +418,7 @@ module.exports = {
 * 如何编写一个 `Webpack loader`
 * 如何编写一个 `Webpack plugin`
 
-## <a name="chapter-thirteen" id="chapter-thirteen"></a>十三 知识补充：AST
-
-> [返回目录](#chapter-one)
-
-抽象语法树（Abstract Syntax Tree，AST），或简称语法树（Syntax tree），是源代码语法结构的一种抽象表示。
-
-它以树状的形式表现编程语言的语法结构，树上的每个节点都表示源代码中的一种结构。
-
-之所以说语法是 “抽象”的，是因为这里的语法并不会表示出真实语法中出现的每个细节。
-
-![图](https://user-gold-cdn.xitu.io/2018/9/28/1661ef768d8da46a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-转换成 AST 的目的就是将我们书写的字符串文件转换成计算机更容易识别的数据结构，这样更容易提取其中的关键信息，而这棵树在计算机上的表现形式，其实就是一个单纯的 `Object`。
-
-![图](https://user-gold-cdn.xitu.io/2018/9/28/1661ef768da14f58?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-比如 `if(false){}` 编译成 AST 代码，我们是知道这段不执行的，就删除这个语法
-
-babel 编译 es6 成 es5 原理就是 a+c=c 编译成 c 我可以删除 +b 这段代码，就是利用AST
-
-* [AST Explorer](https://astexplorer.net/)
-
-## <a name="chapter-fourteen" id="chapter-fourteen"></a>十四 知识补充：懒加载
+## <a name="chapter-thirteen" id="chapter-thirteen"></a>十三 知识补充：懒加载
 
 > [返回目录](#chapter-one)
 
@@ -451,7 +428,7 @@ babel 编译 es6 成 es5 原理就是 a+c=c 编译成 c 我可以删除 +b 这�
 
 这样加快了应用的初始加载速度，减轻了它的总体体积，因为某些代码块可能永远不会被加载。
 
-### <a name="chapter-fourteen-one" id="chapter-fourteen-one"></a>14.1 代码分割
+### <a name="chapter-thirteen-one" id="chapter-thirteen-one"></a>13.1 代码分割
 
 > [返回目录](#chapter-one)
 
@@ -465,7 +442,7 @@ babel 编译 es6 成 es5 原理就是 a+c=c 编译成 c 我可以删除 +b 这�
 
 在 Vue 中，可以直接使用 `import()` 关键字做到这一点，而在 React 中，你需要使用 `react-loadable` 去完成同样的事。
 
-### <a name="chapter-fourteen-two" id="chapter-fourteen-two"></a>14.2 实现原理
+### <a name="chapter-thirteen-two" id="chapter-thirteen-two"></a>13.2 实现原理
 
 > [返回目录](#chapter-one)
 
@@ -492,7 +469,7 @@ btn.onclick = import('./print.js').then((module) => {
 });
 ```
 
-### <a name="chapter-fourteen-three" id="chapter-fourteen-three"></a>14.3 Vue 按需加载
+### <a name="chapter-thirteen-three" id="chapter-thirteen-three"></a>13.3 Vue 按需加载
 
 > [返回目录](#chapter-one)
 
@@ -514,7 +491,7 @@ const routes = [{
 }];
 ```
 
-## <a name="chapter-fifteen" id="chapter-fifteen"></a>十五 知识补充：热更新
+## <a name="chapter-fourteen" id="chapter-fourteen"></a>十四 知识补充：热更新
 
 > [返回目录](#chapter-one)
 
@@ -527,7 +504,7 @@ const routes = [{
 
 这个机制可以做到不用刷新浏览器而将新变更的模块替换掉旧的模块。
 
-### <a name="chapter-fifteen-one" id="chapter-fifteen-one"></a>15.1 开启热更新
+### <a name="chapter-fourteen-one" id="chapter-fourteen-one"></a>14.1 开启热更新
 
 > [返回目录](#chapter-one)
 
@@ -560,7 +537,7 @@ if(module && module.hot) {
 
 此时修改代码的时候，只有对应部分的内容才会相应更新。
 
-### <a name="chapter-fifteen-two" id="chapter-fifteen-two"></a>15.2 热更新原理
+### <a name="chapter-fourteen-two" id="chapter-fourteen-two"></a>14.2 热更新原理
 
 > [返回目录](#chapter-one)
 
@@ -572,7 +549,7 @@ if(module && module.hot) {
 
 后续的部分（拿到增量更新之后如何处理？哪些状态该保留？哪些又需要更新？）由 `HotModulePlugin` 来完成，提供了相关 `API` 以供开发者针对自身场景进行处理，像 `react-hot-loader` 和 `vue-loader` 都是借助这些 `API` 实现 `HMR`。
 
-## <a name="chapter-sixteen" id="chapter-sixteen"></a>十六 知识补充：3 种 hash
+## <a name="chapter-fifteen" id="chapter-fifteen"></a>十五 知识补充：3 种 hash
 
 > [返回目录](#chapter-one)
 
@@ -582,7 +559,7 @@ if(module && module.hot) {
 * `chunkhash` 是根据不同的入口进行依赖文件解析，构建对应的 `chunk`（模块），生成对应的 `hash` 值。只有被修改的 `chunk`（模块）在重新构建之后才会生成新的 `hash` 值，不会影响其它的 `chunk`。（粒度 `entry` 的每个入口文件）
 * `contenthash` 是跟每个生成的文件有关，每个文件都有一个唯一的 `hash` 值。当要构建的文件内容发生改变时，就会生成新的 `hash` 值，且该文件的改变并不会影响和它同一个模块下的其它文件。（粒度每个文件的内容）
 
-## <a name="chapter-seventeen" id="chapter-seventeen"></a>十七 知识补充：source map
+## <a name="chapter-sixteen" id="chapter-sixteen"></a>十六 知识补充：source map
 
 > [返回目录](#chapter-one)
 
@@ -598,7 +575,7 @@ if(module && module.hot) {
 
 注意：避免在生产中使用 `inline-` 和 `eval-`，因为它们会增加 `bundle` 体积大小，并降低整体性能。
 
-## <a name="chapter-eighteen" id="chapter-eighteen"></a>十八 知识补充：Webpack 打包原理
+## <a name="chapter-seventeen" id="chapter-seventeen"></a>十七 知识补充：Webpack 打包原理
 
 > [返回目录](#chapter-one)
 
@@ -610,13 +587,13 @@ if(module && module.hot) {
 2. 生成依赖图谱
 3. 生成最后打包代码
 
-## <a name="chapter-nighteen" id="chapter-nighteen"></a>十九 参考文献
+## <a name="chapter-eighteen" id="chapter-eighteen"></a>十八 参考文献
 
 > [返回目录](#chapter-one)
 
 本系列参考文献有 51 篇文章。
 
-### <a name="chapter-nighteen-one" id="chapter-nighteen-one"></a>19.1 Webpack 系列文章
+### <a name="chapter-eighteen-one" id="chapter-eighteen-one"></a>18.1 Webpack 系列文章
 
 > [返回目录](#chapter-one)
 
@@ -661,7 +638,7 @@ if(module && module.hot) {
 
 * [x] [Webpack 源码（一）—— Tapable 和 事件流](https://segmentfault.com/a/1190000008060440)【阅读建议：10min】
 
-### <a name="chapter-nighteen-two" id="chapter-nighteen-two"></a>19.2 Webpack 性能优化
+### <a name="chapter-eighteen-two" id="chapter-eighteen-two"></a>18.2 Webpack 性能优化
 
 > [返回目录](#chapter-one)
 
@@ -689,7 +666,7 @@ if(module && module.hot) {
 * [x] [加速Webpack-缩小文件搜索范围](https://imweb.io/topic/5a40551ea192c3b460fce335)【阅读建议：5min】
 * [x] [Webpack 大法之 Code Splitting](https://zhuanlan.zhihu.com/p/26710831)【阅读建议：5min】
 
-### <a name="chapter-nighteen-three" id="chapter-nighteen-three"></a>19.3 Scope Hoisting
+### <a name="chapter-eighteen-three" id="chapter-eighteen-three"></a>18.3 Scope Hoisting
 
 > [返回目录](#chapter-one)
 
@@ -697,7 +674,7 @@ if(module && module.hot) {
 * [x] [通过Scope Hoisting优化Webpack输出](https://imweb.io/topic/5a43064fa192c3b460fce360)【阅读建议：5min】
 * [x] [【Webpack】654- 了不起的 Webpack Scope Hoisting 学习指南](https://cloud.tencent.com/developer/article/1663231)【阅读建议：5min】
 
-### <a name="chapter-nighteen-four" id="chapter-nighteen-four"></a>19.4 Tree Shaking
+### <a name="chapter-eighteen-four" id="chapter-eighteen-four"></a>18.4 Tree Shaking
 
 > [返回目录](#chapter-one)
 
@@ -706,7 +683,7 @@ if(module && module.hot) {
 * [x] [Tree-Shaking性能优化实践 - 原理篇 - 2018](https://juejin.im/post/6844903544756109319)【阅读建议：仅供参考】
 * [x] [Webpack4: Tree-shaking 深度解析 - 2019](https://juejin.im/post/6844903777229635598)【阅读建议：仅供参考】
 
-### <a name="chapter-nighteen-five" id="chapter-nighteen-five"></a>19.5 懒加载
+### <a name="chapter-eighteen-five" id="chapter-eighteen-five"></a>18.5 懒加载
 
 > [返回目录](#chapter-one)
 
