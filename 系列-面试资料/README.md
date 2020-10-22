@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 17:00:05**  
-> Recently revised in **2020-10-19 23:35:51**
+> Recently revised in **2020-10-23 00:35:44**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -65,17 +65,17 @@
 
 2020 年跳槽计划阅读 600+ 篇文章，已阅读 300+ 篇文章。
 
-阅读总进度: 405/617 篇。
+阅读总进度: 501/617 篇。
 
 * [x] [综合系列](./README.md)【进度： 32/32 】
 * [x] [计算机网络](./计算机网络/README.md)【进度： 53/53 】
 * [x] [浏览器](./浏览器/README.md)【进度： 62/62 】
 * [x] [面试经验](./面试经验/README.md)【进度： 4/4 】
-* [ ] [其他](./其他/README.md)【进度： 0/36 】
-* [ ] [前端工程化](./前端工程化/README.md)【进度： 52/87 】
+* [x] [其他](./其他/README.md)【进度： 23/23 】
+* [x] [前端工程化](./前端工程化/README.md)【进度： 79/79 】
 * [ ] [设计模式](./设计模式/README.md)【进度： 0/6 】
 * [ ] [算法与数据结构](./算法与数据结构/README.md)【进度： 0/13 】
-* [ ] [CSS](./CSS/README.md)【进度： 0/51 】
+* [x] [CSS](./CSS/README.md)【进度： 46/46 】
 * [x] [HTML](./HTML/README.md)【进度： 4/4 】
 * [x] [JavaScript](./JavaScript/README.md)【进度： 198/198 】
 * [ ] [React](./React/README.md)【进度： 0/78 】
@@ -92,6 +92,8 @@
 * [计算机网络](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C)
 * [浏览器](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E6%B5%8F%E8%A7%88%E5%99%A8)
 * [面试经验](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C)
+* [其他](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%85%B6%E4%BB%96)
+* [前端工程化](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96)
 * [JavaScript](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript)
 
 ## <a name="chapter-four" id="chapter-four"></a>四 综合整理文章
