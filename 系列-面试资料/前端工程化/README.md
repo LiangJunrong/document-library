@@ -44,32 +44,18 @@
 
 > [返回目录](#chapter-one)
 
-* [ ] [styled-components:前端组件拆分新思路](https://juejin.im/post/6844903878580764686)
-* [ ] [从头开始，彻底理解服务端渲染原理(8千字汇总长文)](https://juejin.im/post/6844903881390964744)
-* [ ] [前端缓存最佳实践](https://juejin.im/post/6844903737538920462)
-* [ ] [写给前端看的架构文章(1)：MVC VS Flux](https://zhuanlan.zhihu.com/p/21324696)
-* [ ] [前端数据校验从建模开始](https://juejin.im/post/6844903667414335501)
-* [ ] [前端也需要了解的 JSONP 安全](https://juejin.im/post/6844903660678299661)
-* [ ] [网站性能优化实战——从12.67s到1.06s的故事](https://juejin.im/post/6844903655330562062)
-* [ ] [5 分钟撸一个前端性能监控工具](https://juejin.im/post/6844903662020460552)
-* [ ] [现代化懒加载的方式](https://juejin.im/post/6844903559599751175)
-* [ ] [用 preload 预加载页面资源](https://juejin.im/post/6844903562070196237)
-* [ ] [干货!各种常见布局实现+知名网站实例分析](https://juejin.im/post/6844903574929932301)
-* [ ] [前端数据结构与算法](https://fed.renren.com/2017/07/02/algorithm/)
-* [ ] [前端工程师为什么要学习编译原理？](https://zhuanlan.zhihu.com/p/31096468)
-* [ ] [jsonp的原理与实现](https://segmentfault.com/a/1190000007665361)
-* [ ] [懒加载和预加载](https://juejin.im/post/6844903614138286094)
-* [ ] [50行代码的MVVM，感受闭包的艺术](https://juejin.im/post/6844903619808985095)
-* [ ] [不好意思！耽误你的十分钟，让MVVM原理还给你](https://juejin.im/post/6844903586103558158)
-* [ ] [2018 前端性能优化清单](https://juejin.im/post/6844903568130965517)
-* [ ] [网页图片加载优化方案](https://zhuanlan.zhihu.com/p/33370207)
-* [ ] [把前端监控做到极致](https://zhuanlan.zhihu.com/p/32262716)
-* [ ] [如何优雅处理前端异常](https://zhuanlan.zhihu.com/p/51800345)
-* [ ] [经典面试题：从 URL 输入到页面展现到底发生什么](https://zhuanlan.zhihu.com/p/57895541)
-* [ ] [前端同构渲染的思考与实践](https://juejin.im/post/6844903792836608008)
-* [ ] [前端构建秘籍](https://juejin.im/post/6844903799736254477)
-* [ ] [大型项目前端架构浅谈（8000字原创）](https://juejin.im/post/6844903853859536903)
-* [ ] [一名【合格】前端工程师的自检清单](https://juejin.im/post/6844903830887366670)
+**2019**：
+
+* [x] [前端同构渲染的思考与实践](https://juejin.im/post/6844903792836608008)【阅读建议：20min】
+
+**2018**：
+
+* [x] [前端工程师为什么要学习编译原理？](https://zhuanlan.zhihu.com/p/31096468)【阅读建议：30min】
+* [x] [50行代码的MVVM，感受闭包的艺术](https://juejin.im/post/6844903619808985095)【阅读建议：10min】
+* [x] [不好意思！耽误你的十分钟，让MVVM原理还给你](https://juejin.im/post/6844903586103558158)【阅读建议：20min】
+* [x] [2018 前端性能优化清单](https://juejin.im/post/6844903568130965517)【阅读建议：30min】
+* [x] [网页图片加载优化方案](https://zhuanlan.zhihu.com/p/33370207)【阅读建议：20min】
+* [x] [如何优雅处理前端异常](https://zhuanlan.zhihu.com/p/51800345)【阅读建议：30min】
 
 ### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 Babel
 
@@ -122,12 +108,13 @@
 * [ ] [GMTC 大前端时代前端监控的最佳实践](https://juejin.im/post/5b35921af265da598f1563cf)
 * [ ] [前端监控和前端埋点方案设计](https://juejin.im/post/5b62d68df265da0f9d1a1cd6)
 * [ ] [腾讯CDC团队：前端异常监控解决方案](https://mp.weixin.qq.com/s/W0i-Iu6nqkWttsGZ-RmOqw)
+* [x] [把前端监控做到极致](https://zhuanlan.zhihu.com/p/32262716)【阅读建议：10min】
 
 ## <a name="chapter-three" id="chapter-three"></a>三 Webpack 参考文献
 
 > [返回目录](#chapter-one)
 
-Webpack 系列参考文献有 51 篇文章。
+Webpack 系列参考文献有 52 篇文章。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 Webpack 系列文章
 
@@ -157,6 +144,7 @@ Webpack 系列参考文献有 51 篇文章。
 * [x] [前端工程师都得掌握的 webpack Loader](https://github.com/axuebin/articles/issues/38)【阅读建议：30min】
 * [x] [轻松理解webpack热更新原理](https://juejin.im/post/5de0cfe46fb9a071665d3df0)【阅读建议：1h】
 * [x] [webpack 中那些最易混淆的 5 个知识点](https://juejin.im/post/6844904007362674701)【阅读建议：30min】
+* [x] [前端构建秘籍](https://juejin.im/post/6844903799736254477)【阅读建议：30min】
 
 **2018 年文章**：
 
