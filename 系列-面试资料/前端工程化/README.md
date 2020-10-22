@@ -12,7 +12,13 @@
 | 目录 |
 | --- |
 | [一 目录](#chapter-one) |
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 复习知识点](#chapter-two) |
+| &emsp;[2.1 Babel](#chapter-two-one) |
+| &emsp;[2.2 Webpack](#chapter-two-two) |
+| &emsp;[2.3 Webpack - Tree Shaking](#chapter-two-three) |
+| &emsp;[2.4 Webpack - Scope Hoisting](#chapter-two-four) |
+| &emsp;[2.5 Webpack 简单实现](#chapter-two-five) |
+| &emsp;[2.6 Webpack 性能优化](#chapter-two-six) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 参考文献](#chapter-three) |
 | &emsp;[3.1 杂](#chapter-three-one) |
 | &emsp;[3.2 Babel](#chapter-three-two) |
@@ -26,74 +32,111 @@
 | &emsp;[4.5 懒加载](#chapter-four-five) |
 <!-- 目录结束 -->
 
-## <a name="chapter-two" id="chapter-two"></a>二 前言
+## <a name="chapter-two" id="chapter-two"></a>二 复习知识点
 
 > [返回目录](#chapter-one)
 
-复习知识点：
+复习知识点有 6 个部分。
 
-* [x] **Babel**
-  * [x] **AST**：抽象语法树，是源代码语法结构的一种抽象表示
-  * [x] **原理**：将现有的 ES6+ 代码，先通过 **词法分析** 和 **语法分析** 之后 **解析** 为 `AST`，然后将这份 `AST` **转换** 为我们需要形式的 `AST`，最后将这个 `AST` 再转换成 ES5 或者期望格式的内容。
-* [x] **Webpack**
-  * [x] **是什么**：本质是一个模块打包器，其工作是将每个模块打包成相应的 `bundle`
-  * [x] **核心概念**：`mode`、`entry`、`output`、`loader`、`plugin`
-  * [x] **构建流程**：初始化、编译、输出，插件（`Plugin`）随时监听 `Webpack` 广播并在某些时候调用 `API` 改变运行结果。
-  * [x] **entry**：指定打包⼊口⽂文件。原本是 `string`，即一个入口对一个打包文件、`object` 多对一，`array` 多对多
-  * [x] **output**：打包后的文件位置
-  * [x] **loader**：翻译官，对不同资源进行处理，从右向左执行
-  * [x] **plugin**：插件，扩展 `Webpack` 的功能，监听 `Webpack` 的生命周期，调用 `API` 改变输出结果。
-  * [ ] **resolve**：配置 `Webpack` 如何寻找模块所对应的文件。`resolve.modules/extensions/include/exclude`
-  * [ ] **从 0 开始配置 Webpack**
-    * [x] 技术选型：移动端|PC、MPA|SPA、HTML|模板引擎、CSS|预处理器、ES5|ES6+、Mock、React|Vue、多人合作|单人项目、ESlint|TSlint、单元测试、提交规范
-    * [x] Loader 处理 CSS、Less、Sass
-    * [x] Loader 处理图片
-    * [x] Loader 处理字体
-    * [x] Loader 配置多页面打包（MPA）
-    * [x] source map
-    * [x] webpack dev server
-    * [x] babel
-    * [x] react
-    * [x] 性能优化
-    * [x] 其他：解析器、写 Loader、写 Plugin
-  * [x] **懒加载**
-    * [x] **代码分割**：`code splitting`
-    * [x] **实现原理**：子模块单独打包、借助函数延迟加载
-    * [x] **Vue 按需加载**
-  * [x] **热更新**
-    * [x] **开启方式**：配置 `devServer`，添加热更新插件 `HotModuleReplacementPlugin`
-    * [x] **热更新原理**
-  * [x] **3 种 hash**：
-    * [x] `hash`：整个项目只要有文件更改，那就变更
-    * [x] `chunkhash`：某个入口对应的 `chunk` 进行了变更，那就生成新的 `hash` 值，不会影响其他 `chunk`
-    * [x] `contenthash`：对应某个文件内容变更了，才会更换这个文件，生成新的 `hash`，而不会影响同一个模块下其他文件
-  * [x] **source map**：将编译、打包、压缩后的代码映射回源代码的过程
+### <a name="chapter-two-one" id="chapter-two-one"></a>2.1 Babel
+
+> [返回目录](#chapter-one)
+
+文章地址：[Babel](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/Babel.md)
+
+* [x] **AST**：抽象语法树，是源代码语法结构的一种抽象表示
+* [x] **原理**：将现有的 ES6+ 代码，先通过 **词法分析** 和 **语法分析** 之后 **解析** 为 `AST`，然后将这份 `AST` **转换** 为我们需要形式的 `AST`，最后将这个 `AST` 再转换成 ES5 或者期望格式的内容。
+
+### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 Webpack
+
+> [返回目录](#chapter-one)
+
+文章地址：[Webpack](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/Webpack.md)
+
+* [x] **是什么**：本质是一个模块打包器，其工作是将每个模块打包成相应的 `bundle`
+* [x] **核心概念**：`mode`、`entry`、`output`、`loader`、`plugin`
+* [x] **构建流程**：初始化、编译、输出，插件（`Plugin`）随时监听 `Webpack` 广播并在某些时候调用 `API` 改变运行结果。
+* [x] **entry**：指定打包⼊口⽂文件。原本是 `string`，即一个入口对一个打包文件、`object` 多对一，`array` 多对多
+* [x] **output**：打包后的文件位置
+* [x] **loader**：翻译官，对不同资源进行处理，从右向左执行
+* [x] **plugin**：插件，扩展 `Webpack` 的功能，监听 `Webpack` 的生命周期，调用 `API` 改变输出结果。
+* [x] **resolve**：配置 `Webpack` 如何寻找模块所对应的文件。`resolve.modules/extensions/include/exclude`
+* [x] **从 0 开始配置 Webpack**
+  * [x] 技术选型：移动端|PC、MPA|SPA、HTML|模板引擎、CSS|预处理器、ES5|ES6+、Mock、React|Vue、多人合作|单人项目、ESlint|TSlint、单元测试、提交规范
+  * [x] Loader 处理 CSS、Less、Sass
+  * [x] Loader 处理图片
+  * [x] Loader 处理字体
+  * [x] Loader 配置多页面打包（MPA）
+  * [x] source map
+  * [x] webpack dev server
+  * [x] babel
+  * [x] react
+  * [x] 性能优化
+  * [x] 其他：解析器、写 Loader、写 Plugin
+* [x] **懒加载**
+  * [x] **代码分割**：`code splitting`
+  * [x] **实现原理**：子模块单独打包、借助函数延迟加载
+  * [x] **Vue 按需加载**
+* [x] **热更新**
+  * [x] **开启方式**：配置 `devServer`，添加热更新插件 `HotModuleReplacementPlugin`
+  * [x] **热更新原理**
+* [x] **3 种 hash**：
+  * [x] `hash`：整个项目只要有文件更改，那就变更
+  * [x] `chunkhash`：某个入口对应的 `chunk` 进行了变更，那就生成新的 `hash` 值，不会影响其他 `chunk`
+  * [x] `contenthash`：对应某个文件内容变更了，才会更换这个文件，生成新的 `hash`，而不会影响同一个模块下其他文件
+* [x] **source map**：将编译、打包、压缩后的代码映射回源代码的过程
+
+### <a name="chapter-two-three" id="chapter-two-three"></a>2.3 Webpack - Tree Shaking
+
+> [返回目录](#chapter-one)
+
+文章地址：[Webpack - Tree Shaking](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/Webpack%20-%20Tree%20Shaking.md)
+
 * [x] **Tree Shaking**：通过在 `package.json` 中开启 `sideEffects`，将 ES6 模板语法的 `import` 行为导入的文件都标记为无副作用，然后开启 `-p` 的生产模式，让 `Webpack` 调用内部的 `UglifyJSWebpackPlugin` 来进行删除未引用代码。
-  * [x] **dead-code**：代码不会被执行，或者执行结果不会被用到，或者代码只会影响死变量的，叫做 `dead-code`
-  * [x] **副作用**：如果在 `import` 导入时就会做一些特殊行为的代码，称之为有副作用的代码，例如 `polyfill` 会影响全局作用域
-  * [x] **静态分析**：ES6 模板语法可以在不执行代码的情况下，从字面量上对代码进行分析。静态分析是 `Tree Shaking` 的基础。而 `require` 是需要执行了才知道引用内容的，就不能通过静态分析做优化
+* [x] **dead-code**：代码不会被执行，或者执行结果不会被用到，或者代码只会影响死变量的，叫做 `dead-code`
+* [x] **副作用**：如果在 `import` 导入时就会做一些特殊行为的代码，称之为有副作用的代码，例如 `polyfill` 会影响全局作用域
+* [x] **静态分析**：ES6 模板语法可以在不执行代码的情况下，从字面量上对代码进行分析。静态分析是 `Tree Shaking` 的基础。而 `require` 是需要执行了才知道引用内容的，就不能通过静态分析做优化
+
+### <a name="chapter-two-four" id="chapter-two-four"></a>2.4 Webpack - Scope Hoisting
+
+> [返回目录](#chapter-one)
+
+文章地址：[Webpack - Scope Hoisting](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/Webpack%20-%20Scope%20Hoisting.md)
+
 * [x] **Scope Hoisting**：Webpack3 添加的功能，作用域提升。原理是分析模块的引用关系，将打散的模块合并到同一个函数中，需要 ES6 模板语法进行静态分析
-* [x] **Webpack 打包原理**
-  * [x] 利用 `babel` 完成代码转换，并生成单个文件的依赖
-  * [x] 生成依赖图谱
-  * [x] 生成最后打包代码
-* [x] **Webpack 性能优化**
-  * [x] **resolve.modules**：用于配置 `Webpack` 去哪些目录下寻找第三方模块（`node_modules`）
-  * [x] **resolve.extensions**：在导入没带文件后缀的路径时，`Webpack` 会自动带上后缀去尝试询问文件是否存在，而 `resolve.extensions` 用于配置尝试后缀列表；默认为 `extensions:['js', 'json']`
-  * [x] **resolve.include/exclude**：以 `babel-loader` 为例，可以通过 `include` 和 `exclude` 帮助我们避免 `node_modules` 这类庞大文件夹]
-  * [x] **缓存**：`cache-loader` 和 `uglifyjs-webpack-plugin`，将编译结果写进硬盘缓存，下次文件如果没有变化则直接拉取缓存
-  * [x] **多进程**：`Happypack` 和 `thread-loader`，将任务分解成多个子进程去并发执行，提高打包效率
-  * [x] **多进程压缩**：`Webpack` 自带的 `UglifyJSWebpackPlugin` 压缩插件是单线程运行的，而 `TerserWebpackPlugin` 可以并行执行（多线程）
-  * [x] **静态资源分离**：`CommonsChunkPlugins` 每次构建都会重新构建 `vendor`，出于效率问题使用 `DllPlugin` 可以将第三方库单独打包到一个文件中，只有依赖自身发生版本变化才会重新打包
-  * [x] **打包资源压缩**：
-    * [x] JS 压缩：`UglifyJSWebpackPlugin` 和 `TerserWebpackPlugin`
-    * [x] HTML 压缩：`HtmlWebpackPlugin`
-    * [x] CSS 压缩：`MiniCssExtractPlugin`
-    * [x] 图片压缩：`ImageWebpackPlugin`
-    * [x] Gzip 压缩：不包括图片
-  * [x] **Tree Shaking**
-  * [x] **Scope Hoisiting**
-  * [x] **按需加载**
+
+### <a name="chapter-two-five" id="chapter-two-five"></a>2.5 Webpack 简单实现
+
+> [返回目录](#chapter-one)
+
+文章地址：[Webpack 简单实现](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/Webpack%20%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0.md)
+
+* [x] 利用 `babel` 完成代码转换，并生成单个文件的依赖
+* [x] 生成依赖图谱
+* [x] 生成最后打包代码
+
+### <a name="chapter-two-six" id="chapter-two-six"></a>2.6 Webpack 性能优化
+
+> [返回目录](#chapter-one)
+
+文章地址：[Webpack 性能优化](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/Webpack%20%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.md)
+
+* [x] **resolve.modules**：用于配置 `Webpack` 去哪些目录下寻找第三方模块（`node_modules`）
+* [x] **resolve.extensions**：在导入没带文件后缀的路径时，`Webpack` 会自动带上后缀去尝试询问文件是否存在，而 `resolve.extensions` 用于配置尝试后缀列表；默认为 `extensions:['js', 'json']`
+* [x] **resolve.include/exclude**：以 `babel-loader` 为例，可以通过 `include` 和 `exclude` 帮助我们避免 `node_modules` 这类庞大文件夹]
+* [x] **缓存**：`cache-loader` 和 `uglifyjs-webpack-plugin`，将编译结果写进硬盘缓存，下次文件如果没有变化则直接拉取缓存
+* [x] **多进程**：`Happypack` 和 `thread-loader`，将任务分解成多个子进程去并发执行，提高打包效率
+* [x] **多进程压缩**：`Webpack` 自带的 `UglifyJSWebpackPlugin` 压缩插件是单线程运行的，而 `TerserWebpackPlugin` 可以并行执行（多线程）
+* [x] **静态资源分离**：`CommonsChunkPlugins` 每次构建都会重新构建 `vendor`，出于效率问题使用 `DllPlugin` 可以将第三方库单独打包到一个文件中，只有依赖自身发生版本变化才会重新打包
+* [x] **打包资源压缩**：
+  * [x] JS 压缩：`UglifyJSWebpackPlugin` 和 `TerserWebpackPlugin`
+  * [x] HTML 压缩：`HtmlWebpackPlugin`
+  * [x] CSS 压缩：`MiniCssExtractPlugin`
+  * [x] 图片压缩：`ImageWebpackPlugin`
+  * [x] Gzip 压缩：不包括图片
+* [x] **Tree Shaking**
+* [x] **Scope Hoisiting**
+* [x] **按需加载**
 
 ## <a name="chapter-three" id="chapter-three"></a>三 参考文献
 
