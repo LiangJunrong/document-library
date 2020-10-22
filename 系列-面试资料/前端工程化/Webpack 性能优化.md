@@ -113,7 +113,7 @@ resolve: {
 
 > [返回目录](#chapter-one)
 
-因为自带的 `UglifyjsWebpackPlugin` 压缩插件是单线程运行的，而 `TerserWebpackPlugin` 可以并行执行（多进程）。
+因为自带的 `UglifyjsWebpackPlugin` 压缩插件是单线程运行的，而 `TerserWebpackPlugin` 可以并行执行（多线程）。
 
 所以通过 `TerserWebpackPlugin` 代替自带的 `UglifyjsWebpackPlugin` 插件。
 
