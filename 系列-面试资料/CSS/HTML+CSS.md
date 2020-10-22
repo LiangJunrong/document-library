@@ -28,24 +28,17 @@ HTML + CSS
 | <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 CSS 设置隐藏元素](#chapter-fourteen) |
 | <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 CSS 选择器](#chapter-fifteen) |
 | <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 层叠上下文](#chapter-sixteen) |
+| <a name="catalog-chapter-seventeen" id="catalog-chapter-seventeen"></a>[十七 参考文献](#chapter-seventeen) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
-  
-参考文献：
-
-* [x] [12个HTML和CSS必须知道的重点难点问题](https://juejin.im/post/6844903567707357197)【阅读建议：20min】
-* [x] [HTML脱离文档流的三种方法](https://blog.csdn.net/theLostLamb/article/details/79581984)【阅读建议：5min】
-* [x] [MDN - 块格式化上下文](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)【阅读建议：20min】
-* [x] [BFC(块级格式化上下文)](https://www.jianshu.com/p/498145565e4f)【阅读建议：5min】
-* [x] [MDN - CSS（层叠样式表）@import](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%40import)【阅读建议：5min】
 
 ## <a name="chapter-three" id="chapter-three"></a>三 DIV + CSS 布局的优缺点
 
 > [返回目录](#chapter-one)
-  
+
 优点：
 
 1. 代码精简，且结构与样式分离，易于维护
@@ -61,7 +54,7 @@ HTML + CSS
 ## <a name="chapter-four" id="chapter-four"></a>四 如何解决 a 标点击后 hover 事件失效的问题？
 
 > [返回目录](#chapter-one)
-  
+
 改变 `a` 标签 CSS 属性的排列顺序：
 
 > LoVe HAte 原则
@@ -82,7 +75,7 @@ link -> visited -> hover -> active
 ## <a name="chapter-five" id="chapter-five"></a>五 响应式的好处
 
 > [返回目录](#chapter-one)
-  
+
 对某些数据的修改就能自动更新视图，让开发者不需要操作 DOM，有更多的时间去思考完成业务逻辑。
 
 ## <a name="chapter-six" id="chapter-six"></a>六 实现垂直居中
@@ -163,7 +156,7 @@ div {
 ## <a name="chapter-seven" id="chapter-seven"></a>七 position 属性列举
 
 > [返回目录](#chapter-one)
-  
+
 ```css
 div {
   position: absolute;
@@ -179,7 +172,7 @@ div {
 ## <a name="chapter-eight" id="chapter-eight"></a>八 脱离文档流
 
 > [返回目录](#chapter-one)
-  
+
 **文档流**：将窗体自上而下分成一行一行，并在每行中按从左至右一次排放元素，成为文档流，也就普通流。
 
 **脱离文档流**：脱离文档流的元素，将不再在文档流占据空间，而是漂浮在文档流上方。
@@ -190,7 +183,7 @@ div {
 ## <a name="chapter-night" id="chapter-night"></a>九 块级格式化上下文（BFC）
 
 > [返回目录](#chapter-one)
-  
+
 **BFC 布局规则** 是指页面上一个隔离的独立容器，容器内部的子元素不会影响到外面的元素，反之外面的元素也不会影响容器里面的元素。
 
 **特性：**
@@ -238,7 +231,7 @@ div {
 ## <a name="chapter-ten" id="chapter-ten"></a>十 盒子模型
 
 > [返回目录](#chapter-one)
-  
+
 * `box-sizing: content-box`。标准盒子，总宽度等于：`width + padding + border + margin`。
 * `box-sizing: border-box`。IE 盒子，总宽度等于：`width + margin`。IE 盒子的 `width` 包含了 `width`、`padding` 和 `border` 属性。
 
@@ -247,7 +240,7 @@ div {
 ## <a name="chapter-eleven" id="chapter-eleven"></a>十一 px、em 和 rem 的区别
 
 > [返回目录](#chapter-one)
-  
+
 `px`：像素（Pixel）。绝对单位。像素 `px` 是相对于显示器屏幕分辨率而言的，是一个虚拟长度单位，是计算机系统的数字化图像长度单位，如果 `px` 要换算成物理长度，需要指定精度 `DPI`。
 
 `em` 是相对长度单位，相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。它会继承父级元素的字体大小，因此并不是一个固定的值。
@@ -257,7 +250,7 @@ div {
 ## <a name="chapter-twelve" id="chapter-twelve"></a>十二 link 和 @import 区别
 
 > [返回目录](#chapter-one)
-  
+
 CSS 引入方式有：
 
 * 内联：`style` 属性（`style="color: red"`）
@@ -275,7 +268,7 @@ CSS 引入方式有：
 ## <a name="chapter-thirteen" id="chapter-thirteen"></a>十三 渐进增减和优雅降级
 
 > [返回目录](#chapter-one)
-  
+
 关键的区别是他们所侧重的内容，以及这种不同造成的工作流程的差异。
 
 * **优雅降级**：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。
@@ -333,6 +326,16 @@ CSS 选择器及样式优先级：
 * `z-index` 的优先级最高
 
 ![图](https://user-gold-cdn.xitu.io/2019/2/14/168e9d9f3a1d368b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+## <a name="chapter-seventeen" id="chapter-seventeen"></a>十七 参考文献
+
+> [返回目录](#chapter-one)
+
+* [x] [12个HTML和CSS必须知道的重点难点问题](https://juejin.im/post/6844903567707357197)【阅读建议：20min】
+* [x] [HTML脱离文档流的三种方法](https://blog.csdn.net/theLostLamb/article/details/79581984)【阅读建议：5min】
+* [x] [MDN - 块格式化上下文](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)【阅读建议：20min】
+* [x] [BFC(块级格式化上下文)](https://www.jianshu.com/p/498145565e4f)【阅读建议：5min】
+* [x] [MDN - CSS（层叠样式表）@import](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%40import)【阅读建议：5min】
 
 ---
 
