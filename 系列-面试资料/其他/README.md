@@ -1,9 +1,10 @@
-其他资料整理
+其他
 ===
 
 > Create by **jsliang** on **2020-09-01 21:12:23**  
-> Recently revised in **2020-09-21 17:52:25**
+> Recently revised in **2020-10-22 22:21:37**
 
+<!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -12,12 +13,18 @@
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
+| &emsp;[2.1 面试官系列](#chapter-two-one) |
+| &emsp;[2.2 其他资料](#chapter-two-two) |
+| &emsp;[2.3 Flutter](#chapter-two-three) |
+<!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
-### 精读系列
+### <a name="chapter-two-one" id="chapter-two-one"></a>2.1 面试官系列
+
+> [返回目录](#chapter-one)
 
 * [x] [面试官系列(1): 如何实现深克隆](https://juejin.im/post/6844903584023183368)【阅读建议：30min】
 * [x] [面试官系列(2): Event Bus的实现](https://juejin.im/post/6844903587043082247)【阅读建议：30min】
@@ -26,31 +33,44 @@
 * [x] [面试官系列(5): 你为什么使用前端框架](https://juejin.im/post/6844903617342734344)【阅读建议：30min】
 * [x] [面试官系列(6): 写过『通用前端组件』吗?](https://juejin.im/post/6844903847874265101)【阅读建议：1h】
 
-### 其他资料
+### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 其他资料
+
+> [返回目录](#chapter-one)
+
+* [x] [Chrome插件编写](https://welearnmore.gitbook.io/chrome-extension-book/)【阅读建议：无】
+
+**2020**：
 
 * [x] [预测最近面试会考 Cookie 的 SameSite 属性](https://juejin.im/post/5e718ecc6fb9a07cda098c2d)【阅读建议：30min】
+
+**2019**：
+
 * [x] [探索 Serverless 中的前端开发模式](https://juejin.im/post/5cdc3dc2e51d453b6c1d9d3a)【阅读建议：1h】
-* [ ] [「NGW」前端新技术赛场：Serverless SSR 技术内幕](https://juejin.im/post/5dce7140f265da0bf80b5246?utm_source=gold_browser_extension)
-* [ ] [JavaScript与Unicode](https://cjting.me/web2.0/js-and-unicode/)
-* [ ] [Different Types Of Observers Supported By Modern Browsers](https://www.zeolearn.com/magazine/different-types-of-observers-supported-by-modern-browsers)
-* [ ] [四月前端知识集锦](https://juejin.im/post/6844903600926228493)
-* [ ] [web 项目如何进行 git 多人协作开发](https://segmentfault.com/a/1190000018165757)
-* [ ] [Chrome插件编写](https://welearnmore.gitbook.io/chrome-extension-book/)
-* [ ] [用 yeoman 打造自己的项目脚手架](https://juejin.im/post/6844903661844299790)
-* [ ] [Weex 入坑指南：手把手编译 Playground](https://zhuanlan.zhihu.com/p/25227030)
-* [ ] [什么是 PWA](https://juejin.im/post/6844903570530123790)
-* [ ] [打造属于自己的cnpm/npm安装，生成自定义项目架构](https://juejin.im/post/6844903519749685262)
-* [ ] [仿 vue-cli 搭建属于自己的脚手架](https://juejin.im/post/6844903807919325192#comment)
-* [ ] [教你从零开始搭建一款前端脚手架工具](https://segmentfault.com/a/1190000006190814)
-* [ ] [基于node.js的脚手架工具开发经历](https://juejin.im/post/6844903526947110919#heading-14)
-* [ ] [从零开始搭建脚手架](https://juejin.im/post/6844903605149892616)
-* [ ] [react组件从搭建脚手架到在npm发布的步骤实现](https://www.jb51.net/article/154345.htm)
+* [x] [「NGW」前端新技术赛场：Serverless SSR 技术内幕](https://juejin.im/post/6844903998009393160)【阅读建议：30min】
+* [x] [web 项目如何进行 git 多人协作开发](https://segmentfault.com/a/1190000018165757)【阅读建议：20min】
+* [x] [react组件从搭建脚手架到在npm发布的步骤实现](https://www.jb51.net/article/154345.htm)【阅读建议：20min】
 
-### Flutter
+**2018**：
 
-* [ ] [Flutter实战视频-移动电商](https://jspang.com/post/FlutterShop.html#toc-4c7)
-* [ ] [flutter中event_bus实现原理](https://cloud.tencent.com/developer/article/1338289)
-* [ ] [Flutter 面试知识点集锦](https://juejin.im/post/6844903843260530701)
+* [x] [四月前端知识集锦](https://juejin.im/post/6844903600926228493)【阅读建议：5min】
+* [x] [JavaScript与Unicode](https://cjting.me/web2.0/js-and-unicode/)【阅读建议：10min】
+* [x] [用 yeoman 打造自己的项目脚手架](https://juejin.im/post/6844903661844299790)【阅读建议：20min】
+* [x] [从零开始搭建脚手架](https://juejin.im/post/6844903605149892616)【阅读建议：30min】
+
+**2017**：
+
+* [x] [Weex 入坑指南：手把手编译 Playground](https://zhuanlan.zhihu.com/p/25227030)【阅读建议：20min】
+* [x] [打造属于自己的cnpm/npm安装，生成自定义项目架构](https://juejin.im/post/6844903519749685262)【阅读建议：20min】
+* [x] [仿 vue-cli 搭建属于自己的脚手架](https://juejin.im/post/6844903807919325192)【阅读建议：30min】
+* [x] [教你从零开始搭建一款前端脚手架工具](https://segmentfault.com/a/1190000006190814)【阅读建议：30min】
+* [x] [基于node.js的脚手架工具开发经历](https://juejin.im/post/6844903526947110919)【阅读建议：30min】
+
+### <a name="chapter-two-three" id="chapter-two-three"></a>2.3 Flutter
+
+> [返回目录](#chapter-one)
+
+* [x] [flutter中event_bus实现原理](https://cloud.tencent.com/developer/article/1338289)【阅读建议：10min】
+* [x] [Flutter 面试知识点集锦](https://juejin.im/post/6844903843260530701)【阅读建议：20min】
 
 ---
 
