@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-10 15:53:40**  
-> Recently revised in **2020-10-20 10:51:01**
+> Recently revised in **2020-10-23 10:21:31**
 
 * [链表 - LeetBook](https://leetcode-cn.com/leetbook/detail/linked-list/)
 * [力扣刷题总结之链表 - algsCG](https://leetcode-cn.com/circle/article/YGr54o/)
@@ -21,6 +21,7 @@
 * 【简单】[141-环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
 * 【简单】[142-环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 * 【中等】[19-删除链表的倒数第N个节点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list)
+* 【简单】[234-回文链表](https://leetcode-cn.com/problems/palindrome-linked-list)
 
 ## 熟练
 
