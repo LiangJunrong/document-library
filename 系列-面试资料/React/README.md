@@ -69,15 +69,24 @@ React 设计之初是主要负责 UI 层的渲染，虽然每个组件有自己�
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
 
-### 系统
+## React 相比原生的好处
 
-* [ ] [React技术揭秘](https://react.iamkasong.com/)
+
+
+## 参看文献
+
+### 面试
+
 * [ ] [2019年17道高频React面试题及详解](https://juejin.im/post/5d5f44dae51d4561df7805b4)
-* [ ] [React 16 加载性能优化指南](https://mp.weixin.qq.com/s/XSvhOF_N0VbuOKStwi0IYw)
 * [ ] [React 常用面试题目与分析](https://zhuanlan.zhihu.com/p/24856035#tipjar)
 * [ ] [关于React面试题汇总](https://juejin.im/post/6844903620664623111)
 * [ ] [常见react面试题汇总（适合中级前端）](https://segmentfault.com/a/1190000016885832)
 * [ ] [(中篇)中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂](https://juejin.im/post/6844903801153945608)
+
+### 系统
+
+* [ ] [React技术揭秘](https://react.iamkasong.com/)
+* [ ] [React 16 加载性能优化指南](https://mp.weixin.qq.com/s/XSvhOF_N0VbuOKStwi0IYw)
 
 ### 源码
 
