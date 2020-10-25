@@ -1,8 +1,8 @@
-React 资料整理
+React
 ===
 
 > Create by **jsliang** on **2020-09-02 15:28:53**  
-> Recently revised in **2020-10-19 23:36:29**
+> Recently revised in **2020-10-25 22:45:51**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -13,38 +13,46 @@ React 资料整理
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 介绍](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 React 相比原生的好处](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 生命周期](#chapter-five) |
-| &emsp;[5.1 版本 之前](#chapter-five-one) |
-| &emsp;[5.2 版本 之后](#chapter-five-two) |
-| &emsp;&emsp;[5.2.1 挂载阶段](#chapter-five-two-one) |
-| &emsp;&emsp;[5.2.2 更新阶段](#chapter-five-two-two) |
-| &emsp;&emsp;[5.2.3 卸载阶段](#chapter-five-two-three) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 setState](#chapter-six) |
-| &emsp;[6.1 调用 setState 之后发生了什么？](#chapter-six-one) |
-| &emsp;[6.2 setState 是同步还是异步？](#chapter-six-two) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 组件通讯](#chapter-seven) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 Redux](#chapter-eight) |
-| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 性能优化](#chapter-night) |
-| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 Mixin、HOC 和 Hook](#chapter-ten) |
-| &emsp;[10.1 Mixin](#chapter-ten-one) |
-| &emsp;[10.2 高阶组件（HOC）](#chapter-ten-two) |
-| &emsp;[10.3 Hook](#chapter-ten-three) |
-| <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 参看文献](#chapter-eleven) |
-| &emsp;[11.1 面试知识点](#chapter-eleven-one) |
-| &emsp;[11.2 系统](#chapter-eleven-two) |
-| &emsp;[11.3 生命周期](#chapter-eleven-three) |
-| &emsp;[11.4 性能优化](#chapter-eleven-four) |
-| &emsp;[11.5 Diff 和 虚拟 DOM](#chapter-eleven-five) |
-| &emsp;[11.6 源码](#chapter-eleven-six) |
-| &emsp;[11.7 React Mixin](#chapter-eleven-seven) |
-| &emsp;[11.8 React Hoc](#chapter-eleven-eight) |
-| &emsp;[11.9 React Hooks](#chapter-eleven-night) |
-| &emsp;[11.10 React Fiber](#chapter-eleven-ten) |
-| &emsp;[11.11 服务端渲染（SSR）](#chapter-eleven-eleven) |
-| &emsp;[11.12 组件化](#chapter-eleven-twelve) |
-| &emsp;[11.13 其他](#chapter-eleven-thirteen) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 知识点](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 前端历史演进](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 React 相比原生的好处](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 React 和 Vue 比对](#chapter-six) |
+| &emsp;[6.1 相同之处](#chapter-six-one) |
+| &emsp;[6.2 不同之处](#chapter-six-two) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 React Fiber](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 React 生命周期](#chapter-eight) |
+| &emsp;[8.1 版本 之前](#chapter-eight-one) |
+| &emsp;[8.2 版本 之后](#chapter-eight-two) |
+| &emsp;&emsp;[8.2.1 挂载阶段](#chapter-eight-two-one) |
+| &emsp;&emsp;[8.2.2 更新阶段](#chapter-eight-two-two) |
+| &emsp;&emsp;[8.2.3 卸载阶段](#chapter-eight-two-three) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 setState](#chapter-night) |
+| &emsp;[9.1 调用 setState 之后发生了什么？](#chapter-night-one) |
+| &emsp;[9.2 setState 是同步还是异步？](#chapter-night-two) |
+| <a name="catalog-chapter-ten" id="catalog-chapter-ten"></a>[十 React this 问题](#chapter-ten) |
+| <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 受控组件和非受控组件](#chapter-eleven) |
+| <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 组件通讯](#chapter-twelve) |
+| <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 Redux](#chapter-thirteen) |
+| <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 Mixin、HOC 和 Hook](#chapter-fourteen) |
+| &emsp;[14.1 Mixin](#chapter-fourteen-one) |
+| &emsp;[14.2 高阶组件（HOC）](#chapter-fourteen-two) |
+| &emsp;[14.3 Hook](#chapter-fourteen-three) |
+| <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 性能优化](#chapter-fifteen) |
+| <a name="catalog-chapter-sixteen" id="catalog-chapter-sixteen"></a>[十六 参看文献](#chapter-sixteen) |
+| &emsp;[16.1 面试知识点](#chapter-sixteen-one) |
+| &emsp;[16.2 系统](#chapter-sixteen-two) |
+| &emsp;[16.3 React 和 Vue 比对](#chapter-sixteen-three) |
+| &emsp;[16.4 生命周期](#chapter-sixteen-four) |
+| &emsp;[16.5 受控组件和非受控组件](#chapter-sixteen-five) |
+| &emsp;[16.6 Diff 和 虚拟 DOM](#chapter-sixteen-six) |
+| &emsp;[16.7 React 源码](#chapter-sixteen-seven) |
+| &emsp;[16.8 React Mixin](#chapter-sixteen-eight) |
+| &emsp;[16.9 React Hoc](#chapter-sixteen-night) |
+| &emsp;[16.10 React Hooks](#chapter-sixteen-ten) |
+| &emsp;[16.11 React Fiber](#chapter-sixteen-eleven) |
+| &emsp;[16.12 服务端渲染（SSR）](#chapter-sixteen-twelve) |
+| &emsp;[16.13 性能优化](#chapter-sixteen-thirteen) |
+| &emsp;[16.14 其他](#chapter-sixteen-fourteen) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -55,46 +63,105 @@ React 也是现如今最流行的前端框架，也是很多大厂面试必备�
 
 React 与 Vue 虽有不同，但同样作为一款 `MV*` 框架，虽然实现可能不一样，但在一些理念上还是有相似的，例如数据驱动、组件化、虚拟 DOM 等。
 
-问题：
+当然，还有一些问题，可能最近都没法搞清楚的了，毕竟罗马不是一天能建成的：
 
-* react 有哪些生命周期函数，分别讲下每个生命周期函数会在哪个时候被执行。(大致分为 mount 阶段、state 引起的 render、props 引起的 render 以及 unmount 阶段分别会执行什么生命周期函数)
-* react 哪些生命周期可以 setState
-* react 中写类组件的时候，如何解决方法 this 丢失问题
-   * 在 constructor 里使用 bind
-   * 箭头函数
-* 使用 bind 和箭头函数的区别
-* react 生命周期中，在新版本有些将被废弃，也新增了一些生命周期，讲一下？
-* setState 是异步还是同步
-* VDOM 渲染原理
-* react 和 vue 的区别
-* diff 算法
+* [ ] React 的实现原理？有什么优缺点？
 
-## <a name="chapter-three" id="chapter-three"></a>三 介绍
+## <a name="chapter-three" id="chapter-three"></a>三 知识点
 
 > [返回目录](#chapter-one)
 
-以前我们没有 jQuery 的时候，我们大概的流程是从后端通过 `ajax` 获取到数据然后使用 jQuery 生成 DOM 结果然后更新到页面当中，但是随着业务发展，我们的项目可能会越来越复杂，我们每次请求到数据，或则数据有更改的时候，我们又需要重新组装一次 DOM 结构，然后更新页面，这样我们手动同步 DOM 和数据的成本就越来越高，而且频繁的操作 DOM，也使我我们页面的性能慢慢的降低。
+* [x] 前端历史演进
+* [x] React 和原生对比
+  * [x] 组件化
+  * [x] 天然分层
+  * [x] 生态好
+  * [x] 开发效率
+* [x] React 和 Vue 对比
+  * [x] 相同之处：虚拟 DOM、组件化、构建工具、配套框架、Chrome 开发工具
+  * [x] 不同之处：模板 和 JSX、监听数据变化方式不同、Diff 不同
+* [x] React Fiber
+* [x] React 生命周期
+  * [x] 挂载阶段：`constructor`、`getDerivedStateFromProps`、`render`、`componentDidMount`
+  * [x] 更新阶段：`getDerivedStateFromProps`、`shouldComponentUpdate`、`render`、`getSnapshotBeforeUpdate`、`componentDidUpdate`
+  * [x] 卸载阶段：`componentWillUnmount`
+* [x] `setState`
+  * [x] 调用之后发生什么
+  * [x] 同步还是异步
+* [x] this 指向问题
+  * [x] 通过 `bind` 修正
+  * [x] 通过箭头函数修正
+  * [x] `bind` 和箭头函数的区别
+* [x] 受控组件和非受控组件：`value` 和 `defaultValue`
+* [x] 组件通讯
+  * [x] `props`
+  * [x] `Context`
+  * [x] `Redux`
+* [x] `Redux`：`Redux`、`React-Redux` 以及 `Redux-Saga` 工作流
+* [x] `Mixin`、`HOC` 和 `Hook`
+* [x] 性能优化
+  * [x] 首屏渲染优化 `prerender-spa-plugin`
+  * [x] 页面占位 `react-placeholder`
+  * [x] 页面切换优化 `html-webpack-plugin`
+  * [x] 减少业务体积代码 `Tree Shaking`
+  * [x] 提取公共代码 `SplitChunkPlugin`
+  * [x] 切分代码 `Code Splitting`
+  * [x] 懒加载 `react-lazyload`
 
-这个时候 MVVM 出现了，MVVM 的双向数据绑定可以让我们在数据修改的同时同步 DOM 的更新，DOM 的更新也可以直接同步我们数据的更改，这个特定可以大大降低我们手动去维护 DOM 更新的成本，MVVM 为 React 的特性之一，虽然 React 属于单项数据流，需要我们手动实现双向数据绑定。
+## <a name="chapter-four" id="chapter-four"></a>四 前端历史演进
 
-有了 MVVM 还不够，因为如果每次有数据做了更改，然后我们都全量更新 的更新，DOM 结构的话，也没办法解决我们频繁操作 的更新，DOM 结构(降低了页面性能)的问题，为了解决这个问题，React 内部实现了一套虚拟 的更新，DOM 结构，也就是用 JS 实现的一套 DOM 结构，他的作用是将真实 DOM 在 JS 中做一套缓存，每次有数据更改的时候，React 内部先使用算法，也就是鼎鼎有名的 diff 算法对 DOM 结构进行对比，找到那些我们需要新增、更新、删除的 DOM 节点，然后一次性对真实 DOM 进行更新，这样就大大降低了操作 DOM 的次数。
+> [返回目录](#chapter-one)
 
-那么 diff 算法是怎么运作的呢，首先，diff 针对类型不同的节点，会直接判定原来节点需要卸载并且用新的节点来装载卸载的节点的位置；针对于节点类型相同的节点，会对比这个节点的所有属性，如果节点的所有属性相同，那么判定这个节点不需要更新，如果节点属性不相同，那么会判定这个节点需要更新，React 会更新并重渲染这个节点。
+* **jQuery 时代**
 
-React 设计之初是主要负责 UI 层的渲染，虽然每个组件有自己的 `state`，`state` 表示组件的状态，当状态需要变化的时候，需要使用 `setState` 更新我们的组件，但是，我们想通过一个组件重渲染它的兄弟组件，我们就需要将组件的状态提升到父组件当中，让父组件的状态来控制这两个组件的重渲染，当我们组件的层次越来越深的时候，状态需要一直往下传，无疑加大了我们代码的复杂度，我们需要一个状态管理中心，来帮我们管理我们状态 `state`。
+通过 `Ajax` 从后端获取数据，然后通过 jQuery 生成 DOM 结果更新到页面中。
 
-这个时候，Redux 出现了，我们可以将所有的 `state` 交给 Redux 去管理，当我们的某一个 `state` 有变化的时候，依赖到这个 `state` 的组件就会进行一次重渲染，这样就解决了我们的我们需要一直把 `state` 往下传的问题。Redux 有 `action`、`reducer` 的概念，`action` 为唯一修改 `state` 的来源，`reducer` 为唯一确定 `state` 如何变化的入口，这使得 Redux 的数据流非常规范，同时也暴露出了 Redux 代码的复杂，本来那么简单的功能，却需要完成那么多的代码。
+但是随着业务发展，项目越来越复杂，交互性越来越强，往往用户在某个时刻可能操作好几块内容，从而 DOM 的操作越来越频繁，页面性能逐步降低，用户也不满意这样卡慢的现状了。
 
-后来，社区就出现了另外一套解决方案，也就是 MobX，它推崇代码简约易懂，只需要定义一个可观测的对象，然后哪个组价使用到这个可观测的对象，并且这个对象的数据有更改，那么这个组件就会重渲染，而且 MobX 内部也做好了是否重渲染组件的生命周期 `shouldUpdateComponent`，不建议开发者进行更改，这使得我们使用 MobX 开发项目的时候可以简单快速的完成很多功能，连 Redux 的作者也推荐使用 MobX 进行项目开发。但是，随着项目的不断变大，MobX 也不断暴露出了它的缺点，就是数据流太随意，出了 bug 之后不好追溯数据的流向，这个缺点正好体现出了 Redux 的优点所在，所以针对于小项目来说，社区推荐使用 MobX，对大项目推荐使用 Redux。
+* **MVVM**
 
-```
-作者：杨溜溜
-链接：https://juejin.im/post/6844903715669999629
-来源：掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-```
+这时候有了 MVVM，双向数据绑定让数据在修改的时候同步 DOM 的更新，反之亦可。
 
-## <a name="chapter-four" id="chapter-four"></a>四 React 相比原生的好处
+这个设定大大降低手动维护 DOM 的成本，而 MVVM 为 React 的特性之一，虽然 React 属于单项数据流，需要我们手动实现双向数据绑定。
+
+* **虚拟 DOM**
+
+光靠绑定是不够的，这样没法解决频繁操作 DOM 的问题。
+
+所以 React 内部实现了一套虚拟 DOM 的更新，它将真实 DOM 在 JS 中做一套缓存，每次有数据更新的时候，先内部通过 `Diff` 算法进行比对，然后收集一箩筐更新后，才对 DOM 进行更新，这样就大大降低了 DOM 的操作次数。
+
+* **Diff 运作**
+
+那么，`Diff` 怎么运作呢？
+
+`Diff` 获取虚拟 DOM 节点变更的 4 种情况比较：节点类型变了、节点类型一样，仅仅属性或者属性值变了、文本变了、增加、删除或者移动了子节点。
+
+* **setState**
+
+React 不同于 Vue，可以通过 `v-model` 的形式，让用户的操作和 JavaScript 存储的数据同步更新，它需要通过 `setState` 来更新组件内容。
+
+* **Redux**
+
+但是，如果想通过一个组件来渲染它兄弟组件，React 一开始在这块做得并不是那么好，所以就需要引入一个状态管理中心，来帮助我们管理状态（`state`），因而就有了 `Redux`。
+
+在 `Redux` 中，当 `state` 有变化的时候，依赖这个 `state` 的组件就会重新渲染，这样就解决了组件间数据传递的问题。
+
+* **Mobx**
+
+`Redux` 有个问题，就是修改某个 `state` 的时候，需要经过 `action.js`、`types.js`、`reducers.js` 这一系列文件，这样子 `Redux` 的数据流虽然非常正规，但是写起来复杂啊。
+
+所以，社区又出现了另一套解决方案，也就是 `Mobx`。
+
+`Mobx` 推崇代码简约移动，只需要定义一个可贯彻的对象，然后在哪个组件中使用到了这个可观察对象，并且这个对象的数据有更改，那就会重新渲染，这使得 `Mobx` 开发项目的时候可以简单快速地完成很多功能。
+
+但是 `Mobx` 也有缺点，就是数据流太过随意，出了 Bug 不好定位。
+
+* **End**
+
+所以，针对于小项目来说，社区推荐使用 MobX，对大项目推荐使用 Redux。
+
+
+## <a name="chapter-five" id="chapter-five"></a>五 React 相比原生的好处
 
 > [返回目录](#chapter-one)
 
@@ -103,7 +170,31 @@ React 设计之初是主要负责 UI 层的渲染，虽然每个组件有自己�
 * **生态**: 现在主流前端框架都自带生态，不管是数据流管理架构还是 UI 库都有成熟的解决方案。
 * **开发效率**: 现代前端框架都默认自动更新 DOM，而非我们手动操作，解放了开发者的手动 DOM 成本，提高开发效率，从根本上解决了 UI 与状态同步问题.
 
-## React Fiber
+## <a name="chapter-six" id="chapter-six"></a>六 React 和 Vue 比对
+
+> [返回目录](#chapter-one)
+
+### <a name="chapter-six-one" id="chapter-six-one"></a>6.1 相同之处
+
+> [返回目录](#chapter-one)
+
+1. **虚拟 DOM**。映射真实 DOM，通过新旧 DOM 的 diff 对比，更好的跟踪渲染页面。
+2. **组件化**。将应用拆分成一个个功能明确的模块，每个模块之间可以通过合适的方式互相联系。
+3. **构建工具**。都有自己的构建工具，通过 `Webpack` + `Babel` 去搭建脚手架。
+4. **Chrome 开发工具**。两者都有很好的 Chrome 扩展去帮助查找 Bug。
+5. **配套框架**。Vue 有 `Vue-router` 和 `Vuex`，而 React 有 `React-router` 和 `React-Redux`。
+
+### <a name="chapter-six-two" id="chapter-six-two"></a>6.2 不同之处
+
+> [返回目录](#chapter-one)
+
+1. **模板 VS JSX**。Vue 推荐编写近似常规 `HTML` 的模板进行渲染，而 React 推荐 JSX 的书写方式。
+2. **监听数据变化的不同**。Vue 使用的是可变数据，而 React 更强调数据的不可变。在 Vue 中通过 `v-model` 绑定的数据，用户改变输入值后对应的值也相应改变。而 React 需要通过 `setState` 进行设置变化。
+3. **Diff 不同**。Vue 通过双向链表实现边对比边更新 DOM，而 React 通过 `Diff` 队列保存需要更新的 DOM，得到 `patch` 树，再统一批量更新 DOM。
+
+## <a name="chapter-seven" id="chapter-seven"></a>七 React Fiber
+
+> [返回目录](#chapter-one)
 
 React 的核心流程可以分为两个部分:
 
@@ -141,7 +232,7 @@ React 的核心流程可以分为两个部分:
 * 分散执行
 * 优先级策略
 
-## <a name="chapter-five" id="chapter-five"></a>五 生命周期
+## <a name="chapter-eight" id="chapter-eight"></a>八 React 生命周期
 
 > [返回目录](#chapter-one)
 
@@ -151,19 +242,19 @@ React 逐渐废弃的生命周期方法：
 * `componentWillReceiveProps`
 * `componentWillUpdate`
 
-### <a name="chapter-five-one" id="chapter-five-one"></a>5.1 版本 之前
+### <a name="chapter-eight-one" id="chapter-eight-one"></a>8.1 版本 之前
 
 > [返回目录](#chapter-one)
 
 ![图](./img/react-version-16.3-before.jpg)
 
-### <a name="chapter-five-two" id="chapter-five-two"></a>5.2 版本 之后
+### <a name="chapter-eight-two" id="chapter-eight-two"></a>8.2 版本 之后
 
 > [返回目录](#chapter-one)
 
 ![图](img/react-version-16.3-after.jpg)
 
-#### <a name="chapter-five-two-one" id="chapter-five-two-one"></a>5.2.1 挂载阶段
+#### <a name="chapter-eight-two-one" id="chapter-eight-two-one"></a>8.2.1 挂载阶段
 
 > [返回目录](#chapter-one)
 
@@ -174,7 +265,17 @@ React 逐渐废弃的生命周期方法：
 
 React 的接口请求是放在 `componentDidMount` 里面比较合适，旧版本有人放在 `componentWillMount` 里面，从而导致多次请求，现在 `componentWillMount` 不推荐使用了，所以转 `componentDidMount` 就非常科学了。
 
-#### <a name="chapter-five-two-two" id="chapter-five-two-two"></a>5.2.2 更新阶段
+存在以下问题：
+
+* 为什么 `getDerivedStateFromProps` 是静态的？
+
+当它设置为静态函数，表明这个函数不能通过 `this` 访问到 `class` 的属性，也并不推荐直接访问属性。
+
+* 哪些生命周期可以 `setState`？
+
+可以在 `componentDidMount` 和 `componentDidUpdate` 中使用，此时 DOM 已经稳定下来了，可以进行数据的操作了。
+
+#### <a name="chapter-eight-two-two" id="chapter-eight-two-two"></a>8.2.2 更新阶段
 
 > [返回目录](#chapter-one)
 
@@ -185,19 +286,19 @@ React 的接口请求是放在 `componentDidMount` 里面比较合适，旧版�
 * `componentDidUpdate`：`componentDidUpdate(prevProps, prevState, snapshot)`，在 `getSnapshotBeforeUpdate`
  之后调用，有三个参数，表示之前的 `props`，之前的 `state`，以及 `snapshot`。参数 `snapshot` 是 `getSnapshotBeforeUpdate` 返回的，如果触发某些回调函数时需要用到 `DOM` 元素的状态，则将对比或者计算过程迁移到 `getSnapshotBeforeUpdate`，然后在 `componentDidUpdate` 中统一触发回调或者更新状态。
 
-#### <a name="chapter-five-two-three" id="chapter-five-two-three"></a>5.2.3 卸载阶段
+#### <a name="chapter-eight-two-three" id="chapter-eight-two-three"></a>8.2.3 卸载阶段
 
 > [返回目录](#chapter-one)
 
 * `componentWillUnmount`：当组件被卸载或者销毁时会被调用，在这里清除定时器，或者取消网络请求，用来清理无效的 DOM 元素等垃圾回收工作。
 
-## <a name="chapter-six" id="chapter-six"></a>六 setState
+## <a name="chapter-night" id="chapter-night"></a>九 setState
 
 > [返回目录](#chapter-one)
 
 `setState` 是 React 中用于修改状态，更新视图的方法。
 
-### <a name="chapter-six-one" id="chapter-six-one"></a>6.1 调用 setState 之后发生了什么？
+### <a name="chapter-night-one" id="chapter-night-one"></a>9.1 调用 setState 之后发生了什么？
 
 > [返回目录](#chapter-one)
 
@@ -215,7 +316,7 @@ React 的接口请求是放在 `componentDidMount` 里面比较合适，旧版�
 2. 计算新树和老树差异（`Diff`）
 3. 根据差异进行最小化重新渲染
 
-### <a name="chapter-six-two" id="chapter-six-two"></a>6.2 setState 是同步还是异步？
+### <a name="chapter-night-two" id="chapter-night-two"></a>9.2 setState 是同步还是异步？
 
 > [返回目录](#chapter-one)
 
@@ -225,7 +326,81 @@ React 的接口请求是放在 `componentDidMount` 里面比较合适，旧版�
 2. `setState` 的异步，并不是说内部由异步代码实现，它本身执行的过程和代码是同步的，只是合成事件和钩子函数的调用顺序在更新之前，导致在合成事件和钩子函数中没法立马拿到更新后的值，从而形成了所谓的异步。
 3. `setState` 可以通过第二个参数 `setState(partialState, callback)`，在回调方法中拿到更新后的结果。
 
-## <a name="chapter-seven" id="chapter-seven"></a>七 组件通讯
+## <a name="chapter-ten" id="chapter-ten"></a>十 React this 问题
+
+> [返回目录](#chapter-one)
+
+在 React 中有几种方法可以修正 `this` 的指向，这里例举 4 种方法：
+
+```js
+import React, { Component } from 'react'
+
+class App extends Component {
+  constructor (props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick () {
+    console.log('jsliang 2020');
+  }
+  handleClick2 = () => {
+    console.log('jsliang 2021');
+  }
+  render () {
+    // 四种绑定方法
+    return (
+      <div className='App'>
+        {/* 方法一：通过 constructor 中进行 bind 绑定 */}
+        <button onClick={this.handleClick}>btn 1</button>
+
+        {/* 方法二：在里边绑定 this */}
+        <button onClick={this.handleClick.bind(this)}>btn 2</button>
+
+        {/* 方法三：通过箭头函数返回事件 */}
+        <button onClick={() => this.handleClick()}>btn 3</button>
+        
+        {/* 方法四：让方法变成箭头函数 */}
+        <button onClick={this.handleClick2}>btn 4</button>
+        
+        {/* 额外：直接调用不需要绑定 this */}
+        {this.handleClick()}
+      </div>
+    )
+  }
+}
+
+export default App;
+```
+
+那么，使用 `bind` 和箭头函数有什么区别吗？
+
+箭头函数除了代码少，与普通函数最大的不同就是：`this` 是由声明该函数时候定义的，一般是隐性定义为声明该函数时的作用域 `this`。
+
+通过 `bind` 的话，相当于：`Foo.prototype.a = function() {}`，是通过原型链的一个指正绑定。
+
+而通过箭头函数的话，就相当于：
+
+```js
+class Foo {
+  constructor() {
+    this.a = () => {};
+  }
+}
+```
+
+## <a name="chapter-eleven" id="chapter-eleven"></a>十一 受控组件和非受控组件
+
+> [返回目录](#chapter-one)
+
+在 `Ant Design` 中，对 `Input` 输入框进行操作，如果是改变 `defaultValue` 会发现毫无作用。
+
+这是因为 React 的 `form` 表单组件中的 `defaultValue` 一经传递值后，后续改变 `defaultValue` 都将不起作用，被忽略了。
+
+具体来说这是一种 React 非受控组件，其状态是在 `input` 的 React 内部控制，不受调用者控制。
+
+所以受控组件就是可以被 React 状态控制的组件。双向数据绑定就是受控组件，你可以为 `form` 中某个输入框添加 `value` 属性，然后控制它的一个改变。而非受控组件就是没有添加 `value` 属性的组件，你并不能对它的固定值进行操作。
+
+## <a name="chapter-twelve" id="chapter-twelve"></a>十二 组件通讯
 
 > [返回目录](#chapter-one)
 
@@ -233,7 +408,7 @@ React 的接口请求是放在 `componentDidMount` 里面比较合适，旧版�
 * **子组件向父组件通讯**：父组件在 `props` 中传递方法，然后子组件调用这个方法，将自身需要传递的信息，传递到父组件的作用域中。
 * **复杂点的通讯**：借助 React 的 `Context`，或者 `Redux` 进行数据通讯。
 
-## <a name="chapter-eight" id="chapter-eight"></a>八 Redux
+## <a name="chapter-thirteen" id="chapter-thirteen"></a>十三 Redux
 
 > [返回目录](#chapter-one)
 
@@ -276,19 +451,7 @@ React 的接口请求是放在 `componentDidMount` 里面比较合适，旧版�
 
 ![图](img/react-redux.jpg)
 
-## <a name="chapter-night" id="chapter-night"></a>九 性能优化
-
-> [返回目录](#chapter-one)
-
-1. **首屏渲染优化**。`<div id="root"> SVG </div>`，也可以使用插件 `prerender-spa-plugin` 插件进行首屏渲染。
-2. **页面切换优化**。使用 `html-webpack-plugin` 插件自动插入 `loading`，这样切换的时候，就不需要在每个页面都写一套 `loading`。
-3. **减少业务代码体积**。通过 `Tree Shaking` 来减少一些代码。
-4. **提取公共代码**。通过 `SplitChunkPlugin` 自动拆分业务基础库，减少大文件的存在。
-5. **切分代码**。通过 `Code Splitting` 来懒加载代码，提高用户的加载体验。例如通过 `React Loadable` 来将组件改写成支持动态 `import` 的形式。
-6. **懒加载**。React 可以通过 `react-lazyload` 这种成熟组件来进行懒加载的支持。
-7. **页面占位**。有时候加载页面的文本、图片的时候，会出现 “闪屏” 的情况，比如图片或者文字没有加载完毕，对应位置空白，然后加载完毕，会突然撑开页面，导致闪屏。这时候使用第三方组件 `react-placeholder` 可以解决这种情况。
-
-## <a name="chapter-ten" id="chapter-ten"></a>十 Mixin、HOC 和 Hook
+## <a name="chapter-fourteen" id="chapter-fourteen"></a>十四 Mixin、HOC 和 Hook
 
 > [返回目录](#chapter-one)
 
@@ -296,7 +459,7 @@ React 的接口请求是放在 `componentDidMount` 里面比较合适，旧版�
 
 `Mixin`、`HOC` 和 `Hook` 是 React 采用的 3 种 **状态逻辑复用** 的技术，`Mixin` 已被抛弃，`HOC` 正当壮年，`Hook` 初露锋芒，掌握它迭代因素和规律非常重要。
 
-### <a name="chapter-ten-one" id="chapter-ten-one"></a>10.1 Mixin
+### <a name="chapter-fourteen-one" id="chapter-fourteen-one"></a>14.1 Mixin
 
 > [返回目录](#chapter-one)
 
@@ -314,7 +477,7 @@ React 的接口请求是放在 `componentDidMount` 里面比较合适，旧版�
 * 不同的 `Mixin` 中的方法可能会互相冲突
 * `Mixin` 非常多时，组件是可以感知到的，甚至还要为其做相关处理，这样给代码造成滚雪球式的复杂性。
 
-### <a name="chapter-ten-two" id="chapter-ten-two"></a>10.2 高阶组件（HOC）
+### <a name="chapter-fourteen-two" id="chapter-fourteen-two"></a>14.2 高阶组件（HOC）
 
 > [返回目录](#chapter-one)
 
@@ -340,16 +503,16 @@ function visible(WrappedComponent) {
 
 高阶组件解决了 `Mixin` 带来的问题：
 
-* 高阶组件就是一个没有副作用的纯函数，各个高阶组件不会互相依赖耦合
-* 高阶组件也有可能造成冲突，但我们可以在遵守约定的情况下避免这些行为
-* 高阶组件并不关心数据使用的方式和原因，而被包裹的组件也不关心数据来自何处。高阶组件的增加不会为原组件增加负担
+* 低耦合。高阶组件就是一个没有副作用的纯函数，各个高阶组件不会互相依赖耦合
+* 避免冲突。高阶组件也有可能造成冲突，但我们可以在遵守约定的情况下避免这些行为
+* 副作用小。高阶组件并不关心数据使用的方式和原因，而被包裹的组件也不关心数据来自何处。高阶组件的增加不会为原组件增加负担
 
 但是，有光的地方总有暗，高阶组件也存在一些缺陷：
 
 * `HOC` 需要在原组件上进行包裹或者嵌套，如果大量使用 `HOC`，将会产生非常多的嵌套，这让调试变得非常困难。
 * `HOC` 可以劫持 `props`，在不遵守约定的情况下也可能造成冲突。
 
-### <a name="chapter-ten-three" id="chapter-ten-three"></a>10.3 Hook
+### <a name="chapter-fourteen-three" id="chapter-fourteen-three"></a>14.3 Hook
 
 > [返回目录](#chapter-one)
 
@@ -368,11 +531,25 @@ function visible(WrappedComponent) {
 * **让组件更容易理解**：在使用 `class` 组件构建我们的程序时，他们各自拥有自己的状态，业务逻辑的复杂使这些组件变得越来越庞大，各个生命周期中会调用越来越多的逻辑，越来越难以维护。使用 `Hook`，可以让你更大限度的将公用逻辑抽离，将一个组件分割成更小的函数，而不是强制基于生命周期方法进行分割。
 * **使用函数代替 class**：相比函数，编写一个 `class` 可能需要掌握更多的知识，需要注意的点也越多，比如 `this` 指向、绑定事件等等。另外，计算机理解一个函数比理解一个 `class` 更快。`Hooks` 让你可以在 `class` 之外使用更多 React 的新特性。
 
-## <a name="chapter-eleven" id="chapter-eleven"></a>十一 参看文献
+## <a name="chapter-fifteen" id="chapter-fifteen"></a>十五 性能优化
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-eleven-one" id="chapter-eleven-one"></a>11.1 面试知识点
+1. **首屏渲染优化**。`<div id="root"> SVG </div>`，也可以使用插件 `prerender-spa-plugin` 插件进行首屏渲染。
+2. **页面切换优化**。使用 `html-webpack-plugin` 插件自动插入 `loading`，这样切换的时候，就不需要在每个页面都写一套 `loading`。
+3. **减少业务代码体积**。通过 `Tree Shaking` 来减少一些代码。
+4. **提取公共代码**。通过 `SplitChunkPlugin` 自动拆分业务基础库，减少大文件的存在。
+5. **切分代码**。通过 `Code Splitting` 来懒加载代码，提高用户的加载体验。例如通过 `React Loadable` 来将组件改写成支持动态 `import` 的形式。
+6. **懒加载**。React 可以通过 `react-lazyload` 这种成熟组件来进行懒加载的支持。
+7. **页面占位**。有时候加载页面的文本、图片的时候，会出现 “闪屏” 的情况，比如图片或者文字没有加载完毕，对应位置空白，然后加载完毕，会突然撑开页面，导致闪屏。这时候使用第三方组件 `react-placeholder` 可以解决这种情况。
+
+## <a name="chapter-sixteen" id="chapter-sixteen"></a>十六 参看文献
+
+> [返回目录](#chapter-one)
+
+本系列有 67 篇参考文献。
+
+### <a name="chapter-sixteen-one" id="chapter-sixteen-one"></a>16.1 面试知识点
 
 > [返回目录](#chapter-one)
 
@@ -389,18 +566,31 @@ function visible(WrappedComponent) {
 
 * [x] [React 常用面试题目与分析](https://zhuanlan.zhihu.com/p/24856035#tipjar)【阅读建议：5min】
 
-### <a name="chapter-eleven-two" id="chapter-eleven-two"></a>11.2 系统
+### <a name="chapter-sixteen-two" id="chapter-sixteen-two"></a>16.2 系统
 
 > [返回目录](#chapter-one)
 
 * [x] [React技术揭秘](https://react.iamkasong.com/)【阅读建议：无】
-* [ ] [(中篇)中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂](https://juejin.im/post/6844903801153945608)
+* [x] [(中篇)中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂](https://juejin.im/post/6844903801153945608)【阅读建议：30min】
 
 **2017**：
 
 * [x] [从零搭建React全家桶框架教程](https://github.com/brickspert/blog/issues/1)【阅读建议：无】
 
-### <a name="chapter-eleven-three" id="chapter-eleven-three"></a>11.3 生命周期
+### <a name="chapter-sixteen-three" id="chapter-sixteen-three"></a>16.3 React 和 Vue 比对
+
+> [返回目录](#chapter-one)
+
+**2020**：
+
+* [x] [Vue和React的区别，你在用哪个呢？](https://developer.51cto.com/art/202009/626000.htm)【阅读建议：10min】
+* [x] [你不知道的React 和 Vue 的20个区别【面试必备】](https://juejin.im/post/6847009771355127822)
+
+**2017**：
+
+* [x] [Vue与React两个框架的区别和优势对比](http://caibaojian.com/vue-vs-react.html)【阅读建议：10min】
+
+### <a name="chapter-sixteen-four" id="chapter-sixteen-four"></a>16.4 生命周期
 
 > [返回目录](#chapter-one)
 
@@ -422,25 +612,19 @@ function visible(WrappedComponent) {
 * [x] [深入React的生命周期(上)：出生阶段(Mount)](https://zhuanlan.zhihu.com/p/30757059)【阅读建议：无】
 * [x] [深入React的生命周期(下)：更新(Update)](https://zhuanlan.zhihu.com/p/30971608)【阅读建议：无】
 
-### <a name="chapter-eleven-four" id="chapter-eleven-four"></a>11.4 性能优化
+### <a name="chapter-sixteen-five" id="chapter-sixteen-five"></a>16.5 受控组件和非受控组件
 
 > [返回目录](#chapter-one)
 
 **2019**：
 
-* [x] [React 最佳实践](https://segmentfault.com/a/1190000018107137)【阅读建议：20min】
+* [x] [react的受控组件和非受控组件](https://www.jianshu.com/p/c4fb11f42252)
 
-**2018**：
+**2016**：
 
-* [x] [React 16 加载性能优化指南](https://mp.weixin.qq.com/s/XSvhOF_N0VbuOKStwi0IYw)【阅读建议：20min】
-* [x] [React中型项目的优化实践](https://juejin.im/post/6844903619913842696)【阅读建议：10min】
+* [x] [浅谈react受控组件与非受控组件](https://www.cnblogs.com/wonyun/p/6023363.html)
 
-**2017**：
-
-* [x] [如何提高你的 React 应用的性能](https://juejin.im/post/6844903518826938382)【阅读建议：10min】
-* [x] [将 React 应用优化到 60fps](https://zhuanlan.zhihu.com/p/24959748)【阅读建议：5min】
-
-### <a name="chapter-eleven-five" id="chapter-eleven-five"></a>11.5 Diff 和 虚拟 DOM
+### <a name="chapter-sixteen-six" id="chapter-sixteen-six"></a>16.6 Diff 和 虚拟 DOM
 
 > [返回目录](#chapter-one)
 
@@ -464,7 +648,7 @@ function visible(WrappedComponent) {
 
 * [x] [深度剖析：如何实现一个 Virtual DOM 算法](https://github.com/livoras/blog/issues/13)【阅读建议：无】
 
-### <a name="chapter-eleven-six" id="chapter-eleven-six"></a>11.6 源码
+### <a name="chapter-sixteen-seven" id="chapter-sixteen-seven"></a>16.7 React 源码
 
 > [返回目录](#chapter-one)
 
@@ -488,7 +672,7 @@ function visible(WrappedComponent) {
 * [x] [React 源码剖析系列 － 生命周期的管理艺术](https://zhuanlan.zhihu.com/p/20312691)【阅读建议：无】
 * [x] [React 源码剖析系列 － 玩转 React Transition](https://zhuanlan.zhihu.com/p/20419592)【阅读建议：无】
 
-### <a name="chapter-eleven-seven" id="chapter-eleven-seven"></a>11.7 React Mixin
+### <a name="chapter-sixteen-eight" id="chapter-sixteen-eight"></a>16.8 React Mixin
 
 > [返回目录](#chapter-one)
 
@@ -496,7 +680,7 @@ function visible(WrappedComponent) {
 
 * [x] [React Mixin 的前世今生](https://zhuanlan.zhihu.com/p/20361937)【阅读建议：无】
 
-### <a name="chapter-eleven-eight" id="chapter-eleven-eight"></a>11.8 React Hoc
+### <a name="chapter-sixteen-night" id="chapter-sixteen-night"></a>16.9 React Hoc
 
 > [返回目录](#chapter-one)
 
@@ -509,7 +693,7 @@ function visible(WrappedComponent) {
 * [x] [React 高阶组件(HOC)入门指南](https://juejin.im/post/5914fb4a0ce4630069d1f3f6)【阅读建议：10min】
 * [x] [深入理解 React 高阶组件](https://zhuanlan.zhihu.com/p/24776678)【阅读建议：10min】
 
-### <a name="chapter-eleven-night" id="chapter-eleven-night"></a>11.9 React Hooks
+### <a name="chapter-sixteen-ten" id="chapter-sixteen-ten"></a>16.10 React Hooks
 
 > [返回目录](#chapter-one)
 
@@ -524,7 +708,7 @@ function visible(WrappedComponent) {
 
 * [x] [30分钟精通React今年最劲爆的新特性——React Hooks](https://segmentfault.com/a/1190000016950339)【阅读建议：30min】
 
-### <a name="chapter-eleven-ten" id="chapter-eleven-ten"></a>11.10 React Fiber
+### <a name="chapter-sixteen-eleven" id="chapter-sixteen-eleven"></a>16.11 React Fiber
 
 > [返回目录](#chapter-one)
 
@@ -534,21 +718,37 @@ function visible(WrappedComponent) {
 * [x] [React Fiber架构](https://juejin.im/entry/6844903608308236296)【阅读建议：20min】
 * [x] [React Fiber 架构介绍资料汇总](https://segmentfault.com/a/1190000012834204)【阅读建议：20min】
 
-### <a name="chapter-eleven-eleven" id="chapter-eleven-eleven"></a>11.11 服务端渲染（SSR）
+### <a name="chapter-sixteen-twelve" id="chapter-sixteen-twelve"></a>16.12 服务端渲染（SSR）
 
 > [返回目录](#chapter-one)
 
 * [x] [从头开始，彻底理解服务端渲染原理(8千字汇总长文)](https://juejin.im/post/6844903881390964744)【阅读建议：2h】
 
-### <a name="chapter-eleven-twelve" id="chapter-eleven-twelve"></a>11.12 组件化
+### <a name="chapter-sixteen-thirteen" id="chapter-sixteen-thirteen"></a>16.13 性能优化
 
 > [返回目录](#chapter-one)
+
+**2019**：
+
+* [x] [React 最佳实践](https://segmentfault.com/a/1190000018107137)【阅读建议：20min】
+
+**2018**：
+
+* [x] [React 16 加载性能优化指南](https://mp.weixin.qq.com/s/XSvhOF_N0VbuOKStwi0IYw)【阅读建议：20min】
+* [x] [React中型项目的优化实践](https://juejin.im/post/6844903619913842696)【阅读建议：10min】
+
+**2017**：
+
+* [x] [如何提高你的 React 应用的性能](https://juejin.im/post/6844903518826938382)【阅读建议：10min】
+* [x] [将 React 应用优化到 60fps](https://zhuanlan.zhihu.com/p/24959748)【阅读建议：5min】
+
+### <a name="chapter-sixteen-fourteen" id="chapter-sixteen-fourteen"></a>16.14 其他
+
+> [返回目录](#chapter-one)
+
+**2019**：
 
 * [x] [styled-components:前端组件拆分新思路](https://juejin.im/post/6844903878580764686)【阅读建议：5min】
-
-### <a name="chapter-eleven-thirteen" id="chapter-eleven-thirteen"></a>11.13 其他
-
-> [返回目录](#chapter-one)
 
 **2018**：
 
