@@ -1,8 +1,8 @@
-虚拟 DOM 和 Diff 算法
+虚拟 DOM
 ===
 
 > Create by **jsliang** on **2020-10-25 17:18:26**  
-> Recently revised in **2020-10-25 17:58:49**
+> Recently revised in **2020-10-25 18:00:50**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
