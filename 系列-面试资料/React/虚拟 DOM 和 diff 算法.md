@@ -1,8 +1,8 @@
-DOM
+虚拟 DOM 和 Diff 算法
 ===
 
-> Create by **jsliang** on **2020-09-16 22:08:06**  
-> Recently revised in **2020-10-25 14:54:50**
+> Create by **jsliang** on **2020-10-25 17:18:26**  
+> Recently revised in **2020-10-25 17:18:26**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -13,108 +13,26 @@ DOM
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 DOM 常用 API](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 虚拟 DOM](#chapter-four) |
-| &emsp;[4.1 要点 1：浏览器渲染过程](#chapter-four-one) |
-| &emsp;[4.2 要点 2：DOM 操作昂贵](#chapter-four-two) |
-| &emsp;[4.3 要点 3：Diff 算法](#chapter-four-three) |
-| &emsp;[4.4 优劣比对](#chapter-four-four) |
-| &emsp;[4.5 实现原理](#chapter-four-five) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 虚拟 DOM](#chapter-three) |
+| &emsp;[3.1 要点 1：浏览器渲染过程](#chapter-three-one) |
+| &emsp;[3.2 要点 2：DOM 操作昂贵](#chapter-three-two) |
+| &emsp;[3.3 要点 3：Diff 算法](#chapter-three-three) |
+| &emsp;[3.4 Diff 原理](#chapter-three-four) |
+| &emsp;[3.5 优劣比对](#chapter-three-five) |
+| &emsp;[3.6 实现原理](#chapter-three-six) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
-参考文献：
-
-* [x] [MDN - DOM 概述](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction)【阅读建议：20min】
-* [x] [Javascript操作DOM常用API总结](https://www.jianshu.com/p/e8b05b9f72ad)【阅读建议：20min】
-* [x] [vue核心之虚拟DOM(vdom)](https://www.jianshu.com/p/af0b398602bc)【阅读建议：20min】
-
-## <a name="chapter-three" id="chapter-three"></a>三 DOM 常用 API
-
-> [返回目录](#chapter-one)
-
-可以使用 `document` 或 `window` 元素的 API 来操作文档本身或获取文档的子类（Web 页面中的各种元素）。
-
-```js
-// 获取元素
-const node = document.getElementById(id); // 或者 querySelector(".class|#id|name");
-
-// 创建元素
-const heading = document.createElement(name); // name: p、div、h1...
-heading.innerHTML = '';
-
-// 添加元素
-document.body.appendChild(heading);
-
-// 删除元素
-document.body.removeChild(node);
-```
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>DOM 操作</title>
-  <style>
-    div {
-      border: 1px solid #ccc;
-      padding: 50px;
-      width: 100px;
-    }
-  </style>
-</head>
-<body>
-  <div id="dom1">元素 1</div>
-  <div class="dom2">元素 2</div>
-  
-  <button class="btn">点我</button>
-
-  <script>
-    (function() {
-      const btn = document.querySelector('.btn');
-
-      // 注册点击事件
-      btn.onclick = function() {
-        const dom1 = document.getElementById('dom1');
-
-        // 第一种添加元素
-        const newDom1 = document.createElement('p');
-        newDom1.innerHTML = '<a href="https://github.com/LiangJunrong/document-library">jsliang 的文档库</a>';
-        dom1.appendChild(newDom1);
-
-        // 第二种添加元素
-        const newDom2 = document.createElement('ul');
-        newDom2.innerHTML = `
-          <li>aaa</li>
-          <li>bbb</li>
-        `;
-        document.body.appendChild(newDom2);
-
-        // 移除元素
-        const dom2 = document.querySelector('.dom2');
-        document.body.removeChild(dom2);
-      }
-    })()
-  </script>
-</body>
-</html>
-```
-
-## <a name="chapter-four" id="chapter-four"></a>四 虚拟 DOM
+## <a name="chapter-three" id="chapter-three"></a>三 虚拟 DOM
 
 > [返回目录](#chapter-one)
 
 **jsliang** 思路：通过 3 个要点讲解虚拟 DOM。
 
-### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 要点 1：浏览器渲染过程
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 要点 1：浏览器渲染过程
 
 > [返回目录](#chapter-one)
 
@@ -124,7 +42,7 @@ document.body.removeChild(node);
 * 布局 Layout。根据 Render 树，浏览器开始布局，为每个 Render 树上的节点确定一个在显示器上出现的精确坐标。
 * 绘制 Painting。在 Render 树和节点显示坐标的基础上，调用每个节点的 `paint` 方法，将它们绘制出来。
 
-### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 要点 2：DOM 操作昂贵
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 要点 2：DOM 操作昂贵
 
 > [返回目录](#chapter-one)
 
@@ -169,7 +87,7 @@ document.querySelector('#container').appendChild(root);
 * 标签元素的属性
 * 标签元素的子节点
 
-### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 要点 3：Diff 算法
+### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 要点 3：Diff 算法
 
 > [返回目录](#chapter-one)
 
@@ -233,7 +151,17 @@ Diff 获取虚拟 DOM 节点变更的 4 种情况比较：
 
 这样子通过 `Diff` 比较完毕之后，我们就可以获取需要变动的内容，最终去更新真实 DOM 节点。
 
-### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 优劣比对
+### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 Diff 原理
+
+> [返回目录](#chapter-one)
+
+* 把树形结构按照层级分解，只比较同级元素。
+* 给列表结构的每个单元添加唯一的 `key` 属性，方便比较。
+* React 只会匹配相同 `class` 的 `component`（这里面的 `class` 指的是组件的名字）
+* 合并操作，调用 `component` 的 `setState` 方法的时候, `React` 将其标记为 `dirty`。到每一个事件循环结束, React 检查所有标记 `dirty` 的 `component` 重新绘制.
+* 选择性子树渲染。开发人员可以重写 `shouldComponentUpdate` 提高 `diff` 的性能。
+
+### <a name="chapter-three-five" id="chapter-three-five"></a>3.5 优劣比对
 
 > [返回目录](#chapter-one)
 
@@ -247,7 +175,7 @@ Diff 获取虚拟 DOM 节点变更的 4 种情况比较：
 
 * **无法进行极致优化**：在一些性能要求极高的应用中虚拟 DOM 无法进行针对性的极致优化，例如 VS Code 采用直接手动操作 DOM 的方式进行极端的性能优化。
 
-### <a name="chapter-four-five" id="chapter-four-five"></a>4.5 实现原理
+### <a name="chapter-three-six" id="chapter-three-six"></a>3.6 实现原理
 
 > [返回目录](#chapter-one)
 
