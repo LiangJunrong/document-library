@@ -2,7 +2,7 @@ DOM
 ===
 
 > Create by **jsliang** on **2020-09-16 22:08:06**  
-> Recently revised in **2020-09-29 08:40:53**
+> Recently revised in **2020-10-25 14:54:50**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -18,6 +18,8 @@ DOM
 | &emsp;[4.1 要点 1：浏览器渲染过程](#chapter-four-one) |
 | &emsp;[4.2 要点 2：DOM 操作昂贵](#chapter-four-two) |
 | &emsp;[4.3 要点 3：Diff 算法](#chapter-four-three) |
+| &emsp;[4.4 优劣比对](#chapter-four-four) |
+| &emsp;[4.5 实现原理](#chapter-four-five) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -229,7 +231,29 @@ Diff 获取虚拟 DOM 节点变更的 4 种情况比较：
 
 所以一般来说，我们将 `key` 值定位成数组的 `id` 或者其他值，方便它变动的时候去监听。
 
-这样子通过 Diff 比较完毕之后，我们就可以获取需要变动的内容，最终去更新真实 DOM 节点。
+这样子通过 `Diff` 比较完毕之后，我们就可以获取需要变动的内容，最终去更新真实 DOM 节点。
+
+### <a name="chapter-four-four" id="chapter-four-four"></a>4.4 优劣比对
+
+> [返回目录](#chapter-one)
+
+优点：
+
+* **保证性能下限**：虚拟 DOM 可以经过 `Diff` 找出最小差异，然后批量进行 `patch`，这种操作虽然比不上手动优化，但是比起粗暴的 DOM 操作性能要好很多，因此虚拟 DOM 可以保证性能下限。
+* **无需手动操作 DOM**：虚拟 DOM 的 `Diff` 和 `patch` 都是在一次更新中自动进行的，我们无需手动操作 DOM，极大提高开发效率。
+* **跨平台**：虚拟 DOM 本质上是 JavaScript 对象，而 DOM 与平台强相关，相比之下虚拟 DOM 可以进行更方便地跨平台操作，例如服务器渲染、移动端开发等。
+
+缺点：
+
+* **无法进行极致优化**：在一些性能要求极高的应用中虚拟 DOM 无法进行针对性的极致优化，例如 VS Code 采用直接手动操作 DOM 的方式进行极端的性能优化。
+
+### <a name="chapter-four-five" id="chapter-four-five"></a>4.5 实现原理
+
+> [返回目录](#chapter-one)
+
+* 虚拟 DOM 本质上是 JavaScript 对象，是对真实 DOM 的抽象
+* 状态变更时，记录新树和旧树的差异
+* 最后把差异更新到真正的 DOM 中
 
 ---
 
