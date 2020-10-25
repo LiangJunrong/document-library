@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-10-25 17:18:26**  
-> Recently revised in **2020-10-25 18:01:09**
+> Recently revised in **2020-10-25 22:16:25**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -17,21 +17,30 @@
 | &emsp;[3.1 要点 1：浏览器渲染过程](#chapter-three-one) |
 | &emsp;[3.2 要点 2：DOM 操作昂贵](#chapter-three-two) |
 | &emsp;[3.3 要点 3：Diff 算法](#chapter-three-three) |
-| &emsp;[3.4 Diff 原理](#chapter-three-four) |
-| &emsp;[3.5 优劣比对](#chapter-three-five) |
-| &emsp;[3.6 实现原理](#chapter-three-six) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 diff 算法](#chapter-four) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 虚拟 DOM 实现原理](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 虚拟 DOM 和真实 DOM 比对](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Diff 算法](#chapter-six) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
+带着问题看文章：
+
+* 虚拟 DOM 是什么？
+* 虚拟 DOM 实现原理是什么？
+* Diff 是什么？
+
 ## <a name="chapter-three" id="chapter-three"></a>三 虚拟 DOM
 
 > [返回目录](#chapter-one)
 
 **jsliang** 思路：通过 3 个要点讲解虚拟 DOM。
+
+1. 描述浏览器的渲染过程
+2. 真实 DOM 操作昂贵，所以需要虚拟 DOM
+3. `Diff` 简要做了什么，`key` 在当中扮演什么角色
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 要点 1：浏览器渲染过程
 
@@ -92,11 +101,11 @@ document.querySelector('#container').appendChild(root);
 
 > [返回目录](#chapter-one)
 
-两棵树完全对比的时间复杂度是 O(n^3)，而 React 的 Diff 算法的时间复杂度是 O(n)。
+两棵树完全对比的时间复杂度是 `O(n^3)`，而 React 的 `Diff` 算法的时间复杂度是 `O(n)`。
 
 要实现这么低的时间复杂度，意味着在比较差异时只会对同一层级的节点进行比较，因为如果进行完全的比较，算法实际复杂度会过高，所以舍弃了这种完全的比较方式，而采用同层比较。
 
-Diff 算法的核心就是对虚拟 DOM 节点进行深度优先遍历，并对每一个虚拟节点进行编号，在遍历的过程中对同一个层级的节点进行比较，最终得到比较后的差异。
+`Diff` 算法的核心就是对虚拟 DOM 节点进行深度优先遍历，并对每一个虚拟节点进行编号，在遍历的过程中对同一个层级的节点进行比较，最终得到比较后的差异。
 
 假设现在的虚拟 DOM 的更新前后为：
 
@@ -131,14 +140,14 @@ const tree = Element('div', { id: 'container' }, [
 ]);
 ```
 
-Diff 获取虚拟 DOM 节点变更的 4 种情况比较：
+`Diff` 获取虚拟 DOM 节点变更的 4 种情况比较：
 
 * **节点类型变了**。`<p>` -> `<h3>`。直接 `Replace`，将旧节点卸载并装载新节点。
 * **节点类型一样，仅仅属性或者属性值变了**。直接 `Props`，更新节点。
 * **文本变了**。直接 `Text`，修改文字内容就行了。
-* **增加、删除或者移动了子节点**。直接 `Reorder`，这个方法比较复杂，我们具体来讲讲。
+* **增加、删除或者移动了子节点**。直接 `Reorder`，这个方法比较复杂，小伙伴们具体可以去了解下。
 
-最粗暴的方法就是遍历每个新虚拟 DOM 节点，和旧虚拟 DOM 节点比对。在旧 DOM 中是否存在，不同就卸载原来的上新的。
+`Diff` 的实现，最粗暴的方法就是遍历每个新虚拟 DOM 节点，和旧虚拟 DOM 节点比对。在旧 DOM 中是否存在，不同就卸载原来的上新的。
 
 这时候不得不提一下 React 或者 Vue 里面的 `key`，我们在写业务的时候，被告知 `key` 值不能是索引值 `index`。
 
@@ -152,17 +161,15 @@ Diff 获取虚拟 DOM 节点变更的 4 种情况比较：
 
 这样子通过 `Diff` 比较完毕之后，我们就可以获取需要变动的内容，最终去更新真实 DOM 节点。
 
-### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 Diff 原理
+## <a name="chapter-four" id="chapter-four"></a>四 虚拟 DOM 实现原理
 
 > [返回目录](#chapter-one)
 
-* 把树形结构按照层级分解，只比较同级元素。
-* 给列表结构的每个单元添加唯一的 `key` 属性，方便比较。
-* React 只会匹配相同 `class` 的 `component`（这里面的 `class` 指的是组件的名字）
-* 合并操作，调用 `component` 的 `setState` 方法的时候, `React` 将其标记为 `dirty`。到每一个事件循环结束, React 检查所有标记 `dirty` 的 `component` 重新绘制.
-* 选择性子树渲染。开发人员可以重写 `shouldComponentUpdate` 提高 `diff` 的性能。
+* 虚拟 DOM 本质上是 JavaScript 对象，是对真实 DOM 的抽象
+* 状态变更时，记录新树和旧树的差异
+* 最后把差异更新到真正的 DOM 中
 
-### <a name="chapter-three-five" id="chapter-three-five"></a>3.5 优劣比对
+## <a name="chapter-five" id="chapter-five"></a>五 虚拟 DOM 和真实 DOM 比对
 
 > [返回目录](#chapter-one)
 
@@ -176,21 +183,11 @@ Diff 获取虚拟 DOM 节点变更的 4 种情况比较：
 
 * **无法进行极致优化**：在一些性能要求极高的应用中虚拟 DOM 无法进行针对性的极致优化，例如 VS Code 采用直接手动操作 DOM 的方式进行极端的性能优化。
 
-### <a name="chapter-three-six" id="chapter-three-six"></a>3.6 实现原理
+## <a name="chapter-six" id="chapter-six"></a>六 Diff 算法
 
 > [返回目录](#chapter-one)
 
-* 虚拟 DOM 本质上是 JavaScript 对象，是对真实 DOM 的抽象
-* 状态变更时，记录新树和旧树的差异
-* 最后把差异更新到真正的 DOM 中
-
-## <a name="chapter-four" id="chapter-four"></a>四 diff 算法
-
-> [返回目录](#chapter-one)
-
-虚拟 DOM 中的 diff 算法
-
-比较原生虚拟 DOM 和新的虚拟 DOM 的区别，使用 Diff（different）算法
+比较原生虚拟 DOM 和新的虚拟 DOM 的区别，使用 Diff（Different）算法
 
 ![图](../../public-repertory/img/js-react-principle-1.png)
 
@@ -208,19 +205,13 @@ Diff 获取虚拟 DOM 节点变更的 4 种情况比较：
 
 ![图](../../public-repertory/img/js-react-principle-3.png)
 
----
+所以总结下来就是：
 
-关于 React 中的 key 值：
-
-1. 如果我们没有在 `for` 遍历中，给节点赋值上相应的 `key` 值，那么，React 的查找就像上图左侧一样，毫无目的，很难进行比较。
-2. 当我们使用了相应的 `key` 值时，我们就可以快速找到不同的地方，进行对比，从而方便进行渲染。
-
-现在可以解释，为啥不要使用 `index` 作为 `for` 循环的 `key` 值。
-
-1. 第一次我们添加了：`a - 0、b - 1、 c - 2`
-2. 当我们删除了 `a` 之后：`b - 0、c - 1`
-
-这时候，我们对应的 `key` 值就变了，我们就需要重新渲染整个 DOM 节点了。
+* 把树形结构按照层级分解，只比较同级元素。
+* 给列表结构的每个单元添加唯一的 `key` 属性，方便比较。
+* React 只会匹配相同 `class` 的 `component`（这里面的 `class` 指的是组件的名字）
+* 合并操作，调用 `component` 的 `setState` 方法的时候, `React` 将其标记为 `dirty`。到每一个事件循环结束, React 检查所有标记 `dirty` 的 `component` 重新绘制.
+* 选择性子树渲染。开发人员可以重写 `shouldComponentUpdate` 提高 `Diff` 的性能。
 
 ---
 
