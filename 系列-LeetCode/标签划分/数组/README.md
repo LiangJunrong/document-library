@@ -2,11 +2,12 @@
 ===
 
 > Create by **jsliang** on **2020-09-04 15:30:20**  
-> Recently revised in **2020-10-16 16:52:04**
+> Recently revised in **2020-10-25 11:33:55**
 
 ## 入门
 
 * 【简单】[977-有序数组的平方](https://leetcode-cn.com/problems/squares-of-a-sorted-array/)
+* 【中等】[845-数组中的最长山脉](https://leetcode-cn.com/problems/longest-mountain-in-array)
 
 ## 熟练
 
