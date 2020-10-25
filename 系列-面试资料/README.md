@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 17:00:05**  
-> Recently revised in **2020-10-23 00:35:44**
+> Recently revised in **2020-10-25 22:47:07**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -65,7 +65,7 @@
 
 2020 年跳槽计划阅读 600+ 篇文章，已阅读 300+ 篇文章。
 
-阅读总进度: 501/617 篇。
+阅读总进度: 568/617 篇。
 
 * [x] [综合系列](./README.md)【进度： 32/32 】
 * [x] [计算机网络](./计算机网络/README.md)【进度： 53/53 】
@@ -78,7 +78,7 @@
 * [x] [CSS](./CSS/README.md)【进度： 46/46 】
 * [x] [HTML](./HTML/README.md)【进度： 4/4 】
 * [x] [JavaScript](./JavaScript/README.md)【进度： 198/198 】
-* [ ] [React](./React/README.md)【进度： 0/78 】
+* [x] [React](./React/README.md)【进度： 67/67 】
 * [x] [TypeScript](./TypeScript/README.md)【进度： 2020 不复习 】
 * [x] [Vue](./Vue/README.md)【进度： 2020 不复习 】
 
