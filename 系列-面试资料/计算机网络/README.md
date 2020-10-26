@@ -17,10 +17,11 @@
 | &emsp;[3.1 系统](#chapter-three-one) |
 | &emsp;[3.2 网络安全](#chapter-three-two) |
 | &emsp;[3.3 HTTP](#chapter-three-three) |
-| &emsp;[3.4 DNS](#chapter-three-four) |
-| &emsp;[3.5 TCP](#chapter-three-five) |
-| &emsp;[3.6 CDN](#chapter-three-six) |
-| &emsp;[3.7 其他](#chapter-three-seven) |
+| &emsp;[3.4 MD5](#chapter-three-four) |
+| &emsp;[3.5 DNS](#chapter-three-five) |
+| &emsp;[3.6 TCP](#chapter-three-six) |
+| &emsp;[3.7 CDN](#chapter-three-seven) |
+| &emsp;[3.8 其他](#chapter-three-eight) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -68,7 +69,7 @@
 
 > [返回目录](#chapter-one)
 
-本系列有 53 篇参考文献。
+本系列有 56 篇参考文献。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 系统
 
@@ -122,7 +123,15 @@
 * [x] [你敢在post和get上刁难我，就别怪我装逼了](https://juejin.im/post/6844903508370538503)【阅读建议：争议文】
 * [x] [浅谈 HTTP/2 Server Push](https://zhuanlan.zhihu.com/p/26757514)【阅读建议：10min】
 
-### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 DNS
+### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 MD5
+
+> [返回目录](#chapter-one)
+
+* [x] [md5加密与解密](https://zhuanlan.zhihu.com/p/58888121)【阅读建议：30min】
+* [x] [C#：使用MD5对用户密码加密与解密](https://www.cnblogs.com/healer007/p/5062189.html)【阅读建议：10min】
+* [x] [md5会有重复的可能吗？](https://www.zhihu.com/question/23189202)
+
+### <a name="chapter-three-five" id="chapter-three-five"></a>3.5 DNS
 
 > [返回目录](#chapter-one)
 
@@ -131,7 +140,7 @@
 * [x] [前端优化: DNS预解析提升页面速度](https://www.jianshu.com/p/95a0c0636d28)【阅读建议：5min】
 * [x] [DNS解析](https://imweb.io/topic/55e3ba46771670e207a16bc8)【阅读建议：10min】
 
-### <a name="chapter-three-five" id="chapter-three-five"></a>3.5 TCP
+### <a name="chapter-three-six" id="chapter-three-six"></a>3.6 TCP
 
 > [返回目录](#chapter-one)
 
@@ -142,7 +151,7 @@
 * [x] [面试时，你被问到过 TCP/IP 协议吗?](https://juejin.im/post/58e36d35b123db15eb748856)【阅读建议：20min】
 * [x] [“三次握手，四次挥手”你真的懂吗？](https://zhuanlan.zhihu.com/p/53374516)【阅读建议：20min】
 
-### <a name="chapter-three-six" id="chapter-three-six"></a>3.6 CDN
+### <a name="chapter-three-seven" id="chapter-three-seven"></a>3.7 CDN
 
 > [返回目录](#chapter-one)
 
@@ -151,7 +160,7 @@
 * [x] [关于 cdn、回源等问题一网打尽](https://juejin.im/post/5af46498f265da0b8d41f6a3)【阅读建议：10min】
 * [x] [CDN是什么？使用CDN有什么优势？](https://www.zhihu.com/question/36514327?rf=37353035)【阅读建议：10min】
 
-### <a name="chapter-three-seven" id="chapter-three-seven"></a>3.7 其他
+### <a name="chapter-three-eight" id="chapter-three-eight"></a>3.8 其他
 
 > [返回目录](#chapter-one)
 
