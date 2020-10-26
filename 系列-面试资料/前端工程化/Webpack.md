@@ -541,7 +541,7 @@ if(module && module.hot) {
 
 > [返回目录](#chapter-one)
 
-`HMR` 的核心就是客户端从服务端拉去更新后的文件，准确的说是 `chunk diff`（chunk 需要更新的部分）。
+`HMR` 的核心就是客户端从服务端拉去更新后的文件，准确的说是 `chunk diff`（`chunk` 需要更新的部分）。
 
 实际上 `webpack-dev-server`（`WDS`）与浏览器之间维护了一个 `Websocket`，当本地资源发生变化时，`WDS` 会向浏览器推送更新，并带上构建时的 `hash`，让客户端与上一次资源进行对比。
 
