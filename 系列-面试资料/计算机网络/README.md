@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:06:05**  
-> Recently revised in **2020-10-08 23:02:47**
+> Recently revised in **2020-10-27 00:39:47**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -69,7 +69,7 @@
 
 > [返回目录](#chapter-one)
 
-本系列有 56 篇参考文献。
+本系列有 59 篇参考文献。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 系统
 
@@ -96,7 +96,7 @@
 
 > [返回目录](#chapter-one)
 
-* [x] [面试带你飞：这是一份全面的 计算机网络基础 总结攻略](https://juejin.im/post/6844903592965439501)【阅读建议：1hour】
+* [x] [面试带你飞：这是一份全面的 计算机网络基础 总结攻略](https://juejin.im/post/6844903592965439501)【阅读建议：1h】
 * [x] [看图学HTTPS](https://juejin.im/post/6844903608421449742)【阅读建议：30min】
 * [x] [你知道，HTTPS用的是对称加密还是非对称加密？](https://zhuanlan.zhihu.com/p/96494976)【阅读建议：30min】
 * [x] [HTTP 响应代码 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status)【阅读建议：20min】
@@ -119,9 +119,11 @@
 * [x] [深入理解HTTPS工作原理](https://juejin.im/post/5ca6a109e51d4544e27e3048)【阅读建议：20min】
 * [x] [解密HTTP/2与HTTP/3 的新特性](https://segmentfault.com/a/1190000020714686)【阅读建议：10min】
 * [x] [浅谈 HTTP/2 Server Push](https://zhuanlan.zhihu.com/p/26757514)【阅读建议：10min】
+* [x] [简述HTTPS（二）：混合加密机制](https://www.jianshu.com/p/add499400d95)【阅读建议：10min】
+* [x] [简述HTTPS（三）：数字证书](https://www.jianshu.com/p/448e8382c24c)【阅读建议：10min】
+* [x] [彻底搞懂HTTPS的加密机制](https://zhuanlan.zhihu.com/p/43789231)【阅读建议：20min】
 * [x] [听说『99% 的人都理解错了 HTTP 中 GET 与 POST 的区别』？？](https://zhuanlan.zhihu.com/p/25028045)【阅读建议：争议文】
 * [x] [你敢在post和get上刁难我，就别怪我装逼了](https://juejin.im/post/6844903508370538503)【阅读建议：争议文】
-* [x] [浅谈 HTTP/2 Server Push](https://zhuanlan.zhihu.com/p/26757514)【阅读建议：10min】
 
 ### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 MD5
 
