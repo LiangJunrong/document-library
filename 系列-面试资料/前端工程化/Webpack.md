@@ -2,7 +2,7 @@ Webpack
 ===
 
 > Create by **jsliang** on **2020-09-17 15:33:55**  
-> Recently revised in **2020-10-21 23:47:55**
+> Recently revised in **2020-10-26 19:46:49**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -511,7 +511,7 @@ const routes = [{
 在 Webpack 的 `webpack.config.js` 中：
 
 1. 配置 `devServer` 的 `hot` 为 `true`
-2. 在 `plugins` 中增加` new webpack.HotModuleReplacementPlugin()`
+2. 在 `plugins` 中增加 `new webpack.HotModuleReplacementPlugin()`
 
 ```js
 // webpack.config.js
