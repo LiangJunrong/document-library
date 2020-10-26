@@ -197,6 +197,14 @@ Connection: keep-alive
 Connection: close
 ```
 
+当然，除此之外我们也可以设置断开的时间等：
+
+```js
+Keep-Alive: timeout=5, max=100
+```
+
+这个就表示这个 `TCP` 通道可以保持 `5` 秒，`max=100` 表示这个长连接最多接收 `100` 次请求就断开。
+
 ## <a name="chapter-five" id="chapter-five"></a>五 HTTP 状态码
 
 > [返回目录](#chapter-one)
