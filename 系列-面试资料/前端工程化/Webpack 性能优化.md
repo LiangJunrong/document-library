@@ -2,7 +2,7 @@ Webpack 性能优化
 ===
 
 > Create by **jsliang** on **2020-10-20 15:00:19**  
-> Recently revised in **2020-10-21 23:54:07**
+> Recently revised in **2020-10-26 20:15:40**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -113,7 +113,7 @@ resolve: {
 
 > [返回目录](#chapter-one)
 
-因为自带的 `UglifyjsWebpackPlugin` 压缩插件是单线程运行的，而 `TerserWebpackPlugin` 可以并行执行（多线程）。
+因为自带的 `UglifyjsWebpackPlugin` 压缩插件是单线程运行的，而 `TerserWebpackPlugin` 可以并发运行压缩功能（多进程）。
 
 所以通过 `TerserWebpackPlugin` 代替自带的 `UglifyjsWebpackPlugin` 插件。
 
