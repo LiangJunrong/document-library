@@ -191,6 +191,7 @@ React 不同于 Vue，可以通过 `v-model` 的形式，让用户的操作和 J
 1. **模板 VS JSX**。Vue 推荐编写近似常规 `HTML` 的模板进行渲染，而 React 推荐 JSX 的书写方式。
 2. **监听数据变化的不同**。Vue 使用的是可变数据，而 React 更强调数据的不可变。在 Vue 中通过 `v-model` 绑定的数据，用户改变输入值后对应的值也相应改变。而 React 需要通过 `setState` 进行设置变化。
 3. **Diff 不同**。Vue 通过双向链表实现边对比边更新 DOM，而 React 通过 `Diff` 队列保存需要更新的 DOM，得到 `patch` 树，再统一批量更新 DOM。
+4. **开发团队**。Vue 一开始核心就是 Evan You，后面再招了其他人组成团队；React 的话是一开始就是 Facebook 团队搞的。所以网上的人比对源码情况的话，Vue 的比 React 的简单易懂点。
 
 ## <a name="chapter-seven" id="chapter-seven"></a>七 React Fiber
 
