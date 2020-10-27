@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 17:00:05**  
-> Recently revised in **2020-10-25 22:47:07**
+> Recently revised in **2020-10-27 21:16:44**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -63,9 +63,9 @@
 
 > [返回目录](#chapter-one)
 
-2020 年跳槽计划阅读 600+ 篇文章，已阅读 500+ 篇文章。
+2020 年跳槽计划阅读 600+ 篇文章，已阅读 600+ 篇文章。
 
-阅读总进度: 591/617 篇。
+阅读总进度: 605/605 篇。
 
 * [x] [综合系列](./README.md)【进度： 32/32 】
 * [x] [计算机网络](./计算机网络/README.md)【进度： 62/62 】
@@ -74,7 +74,7 @@
 * [x] [其他](./其他/README.md)【进度： 23/23 】
 * [x] [前端工程化](./前端工程化/README.md)【进度： 79/79 】
 * [x] [设计模式](./设计模式/README.md)【进度： 14/14 】
-* [ ] [算法与数据结构](./算法与数据结构/README.md)【进度： 0/13 】
+* [x] [算法与数据结构](./算法与数据结构/README.md)【进度： 14/14 】
 * [x] [CSS](./CSS/README.md)【进度： 46/46 】
 * [x] [HTML](./HTML/README.md)【进度： 4/4 】
 * [x] [JavaScript](./JavaScript/README.md)【进度： 198/198 】
@@ -94,6 +94,8 @@
 * [面试经验](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C)
 * [其他](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%85%B6%E4%BB%96)
 * [前端工程化](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96)
+* [设计模式](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F)
+* [算法与数据结构](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)
 * [CSS](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/CSS/README.md)
 * [HTML](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/HTML/README.md)
 * [JavaScript](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript)
