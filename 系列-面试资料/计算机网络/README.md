@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:06:05**  
-> Recently revised in **2020-10-27 16:18:00**
+> Recently revised in **2020-10-27 17:04:57**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -64,6 +64,9 @@
   * [x] 计算机网络体系结构
   * [x] 正向代理和反向代理
   * [x] CDN
+* [x] [计算机网络 - WebSocket](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/WebSocket.md)
+  * [x] HTTP 和 WebSocket
+  * [x] WebSocket 和 Socket.io
 
 ## <a name="chapter-three" id="chapter-three"></a>三 参考文献
 
