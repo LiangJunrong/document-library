@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:06:05**  
-> Recently revised in **2020-10-27 00:39:47**
+> Recently revised in **2020-10-27 16:18:00**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -69,7 +69,7 @@
 
 > [返回目录](#chapter-one)
 
-本系列有 59 篇参考文献。
+本系列有 62 篇参考文献。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 系统
 
@@ -161,6 +161,12 @@
 * [x] [漫话：如何给女朋友解释什么是CDN？](https://juejin.im/post/5d478c48e51d453c135c5a5c)【阅读建议：20min】
 * [x] [关于 cdn、回源等问题一网打尽](https://juejin.im/post/5af46498f265da0b8d41f6a3)【阅读建议：10min】
 * [x] [CDN是什么？使用CDN有什么优势？](https://www.zhihu.com/question/36514327?rf=37353035)【阅读建议：10min】
+
+### WebSocket
+
+* [x] [websocket 与Socket.IO介绍](https://www.cnblogs.com/mazg/p/5467960.html)【阅读建议：10min】
+* [x] [WebSocket 与 Socket.IO](https://zhuanlan.zhihu.com/p/23467317)【阅读建议：10min】
+* [x] [Websocket和Socket.io的区别及应用](https://www.jianshu.com/p/970dcfd174dc)【阅读建议：20min】
 
 ### <a name="chapter-three-eight" id="chapter-three-eight"></a>3.8 其他
 
