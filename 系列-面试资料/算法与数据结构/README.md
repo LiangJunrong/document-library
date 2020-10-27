@@ -673,9 +673,7 @@ console.log(binarySearch([0, 1, 2, 3, 4, 5], 0));
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-thirteen-one" id="chapter-thirteen-one"></a>13.1 算法
-
-> [返回目录](#chapter-one)
+本系列有 14 篇参考文献。
 
 * [x] [排序算法](https://juejin.im/post/6844904116552990727#heading-51)【阅读建议：1h】
 
