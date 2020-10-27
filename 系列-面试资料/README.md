@@ -61,7 +61,7 @@ Hello 小伙伴们好，我是 **jsliang**，一枚喜欢折腾、喜欢学习�
 
 * [LinDaiDai_霖呆呆](https://juejin.im/user/360295513463912) - 枯燥的复习，感谢你的技术帮助和心情开导
 * [lien](https://juejin.im/user/4019470242948711/posts) - 或许人生旅途慢慢，但是计划总在作伴
-* Kacoo - 再试试，差不多成了
+* [Kacoo](https://github.com/Kacoo) - 再试试，差不多成了
 * [落落落洛克](https://juejin.im/user/1099167359045501) - 一年的经验胜过我两年的白干，能向你们学习是件值得高兴的事
 * [巧巧爱学习](https://juejin.im/user/2119514148057303) - 放空心态，总能成功
 * [树酱](https://juejin.im/user/712139267910237) - 要内推不？帮你开路，给你能量
