@@ -1,8 +1,8 @@
-TypeScript 资料整理
+TypeScript
 ===
 
 > Create by **jsliang** on **2020-09-01 21:05:22**  
-> Recently revised in **2020-09-03 17:07:34**
+> Recently revised in **2020-10-27 22:05:05**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -16,6 +16,8 @@ TypeScript 资料整理
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
+
+TypeScript 在 2020 年并不会去复习，但是参考文献你可以观看，感谢理解。
 
 复习知识点：
 
