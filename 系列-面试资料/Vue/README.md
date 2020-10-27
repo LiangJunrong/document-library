@@ -1,8 +1,8 @@
-Vue 相关资料
+Vue
 ===
 
 > Create by **jsliang** on **2020-09-01 20:52:38**  
-> Recently revised in **2020-09-01 20:52:38**
+> Recently revised in **2020-10-27 22:04:24**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -16,6 +16,8 @@ Vue 相关资料
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
+
+Vue 2020 不复习，所以这个系列的文章可以参考，但是知识点并没有进行整理。
 
 复习知识点：
 
