@@ -1,8 +1,8 @@
-Node 资料整理
+Node
 ===
 
 > Create by **jsliang** on **2020-09-01 21:11:54**  
-> Recently revised in **2020-09-07 22:25:42**
+> Recently revised in **2020-10-28 17:44:34**
 
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
@@ -16,6 +16,8 @@ Node 资料整理
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
+
+Node 在 2020 年并不会去复习，但是参考文献你可以观看，感谢理解。
 
 * [ ] [一篇文章构建你的 NodeJS 知识体系](https://juejin.im/post/5c4c0ee8f265da61117aa527)
 * [ ] [真-Node多线程](https://juejin.im/post/5c63b5676fb9a049ac79a798)
