@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-08-14 10:45:58**  
-> Recently revised in **2020-09-04 15:19:52**
+> Recently revised in **2020-10-28 09:42:09**
 
 ## 一 理论知识
 
@@ -155,6 +155,7 @@ const dict_overflow = [2];
 * 【简单】[771-宝石与石头](https://leetcode-cn.com/problems/jewels-and-stones/)
 * 【简单】[3-无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
 * 【简单】[170-两数之和 III - 数据结构设计](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design/)
+* 【简单】[1207-独一无二的出现次数](https://leetcode-cn.com/problems/unique-number-of-occurrences/)
 
 ## 熟练
 
