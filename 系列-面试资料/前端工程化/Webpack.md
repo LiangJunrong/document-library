@@ -244,7 +244,6 @@ module.exports = {
 
 * `clean-webpack-plugin`：打包前自动清理 `dist` 目录，防止文件残留。
 * `copy-webpack-plugin`：将单个文件或者整个目录复制到构建目录
-* `ProvidePlugin`：内置。自动加载模块，而不必到处 `import` 或 `require`，例如 `jQuery`、`React` 的全局配置。
 * `mini-css-extract-plugin`：将 CSS 抽离出来单独打包并且通过配置可以设置是否压缩。
 * `html-webpack-plugin`：这个插件可以配置生成一个 HTML5 文件，其中 `script` 标签包含所有 Webpack 包。如果你设置多个入口点，你可以据此实现多页面应用打包。
 
