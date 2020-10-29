@@ -2,7 +2,7 @@ Webpack
 ===
 
 > Create by **jsliang** on **2020-09-17 15:33:55**  
-> Recently revised in **2020-10-26 19:46:49**
+> Recently revised in **2020-10-29 11:29:23**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -161,10 +161,10 @@ module.exports = {
 module.exports = {
   ...,
   output: {
-  	path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
-		filename: "[name].js"
-	}
+    filename: "[name].js"
+  }
 }
 ```
 
