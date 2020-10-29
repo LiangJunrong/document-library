@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-07-27 17:05:44**  
-> Recently revised in **2020-10-27 15:22:45**
+> Recently revised in **2020-10-29 08:45:34**
 
 ## 入门
 
@@ -36,6 +36,7 @@
 * 【中等】[109-有序链表转换二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/)
 * 【中等】[113-路径总和 II](https://leetcode-cn.com/problems/path-sum-ii/)
 * 【中等】[701-二叉搜索树中的插入操作](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
+* 【中等】[129-求根到叶子节点数字之和](https://leetcode-cn.com/problems/sum-root-to-leaf-numbers)
 
 ## 精通
 
