@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-02 14:48:58**  
-> Recently revised in **2020-10-09 13:30:19**
+> Recently revised in **2020-10-30 10:21:24**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -23,7 +23,8 @@
 | &emsp;[3.7 性能优化](#chapter-three-seven) |
 | &emsp;&emsp;[3.7.1 Webpack 优化](#chapter-three-seven-one) |
 | &emsp;&emsp;[3.7.2 其他优化](#chapter-three-seven-two) |
-| &emsp;[3.8 其他](#chapter-three-eight) |
+| &emsp;[3.8 本地存储](#chapter-three-eight) |
+| &emsp;[3.9 其他](#chapter-three-night) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -86,7 +87,7 @@
 
 > [返回目录](#chapter-one)
 
-参考文献共 62 篇文章，感谢前辈们的贡献。
+参考文献共 68 篇文章，感谢前辈们的贡献。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 付费网络书籍
 
@@ -200,7 +201,18 @@
 * [x] [现代化懒加载的方式](https://juejin.im/post/6844903559599751175)【阅读建议：5min】
 * [x] [懒加载和预加载](https://juejin.im/post/6844903614138286094)【阅读建议：10min】
 
-### <a name="chapter-three-eight" id="chapter-three-eight"></a>3.8 其他
+### <a name="chapter-three-eight" id="chapter-three-eight"></a>3.8 本地存储
+
+> [返回目录](#chapter-one)
+
+* [x] [cookie、Session、Token、sessionStorage、localStorage简介](https://blog.csdn.net/qq_36632174/article/details/102402203)【阅读建议：5min】
+* [x] [session,cookie,sessionStorage,localStorage,token的区别？](https://blog.csdn.net/yinge0508/article/details/95761173)【阅读建议：5min】
+* [x] [什么是Http无状态？Session、Cookie、Token三者之间的区别](https://www.cnblogs.com/lingyejun/p/9282169.html)【阅读建议：5min】
+* [x] [Session是怎么实现的？存储在哪里？](https://blog.csdn.net/qq_15096707/article/details/74012116)【阅读建议：5min】
+* [x] [用户登录，前后端如何交互判断是否登录超时！](https://blog.csdn.net/qq_27610601/article/details/81353027)【阅读建议：5min】
+* [x] [前后端分离模式下，如何跟踪用户状态？](https://blog.csdn.net/hwhsong/article/details/82020526)【阅读建议：5min】
+
+### <a name="chapter-three-night" id="chapter-three-night"></a>3.9 其他
 
 > [返回目录](#chapter-one)
 
