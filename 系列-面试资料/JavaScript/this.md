@@ -878,7 +878,7 @@ a.func2(); // 输出啥？
 答案：
 
 ```
-window name
+jsliang
 jsliang
 ```
 
