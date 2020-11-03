@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-04 15:30:20**  
-> Recently revised in **2020-11-02 14:48:18**
+> Recently revised in **2020-11-03 11:25:49**
 
 ## 入门
 
@@ -10,6 +10,7 @@
 * 【中等】[845-数组中的最长山脉](https://leetcode-cn.com/problems/longest-mountain-in-array)
 * 【简单】[1365-有多少小于当前数字的数字](https://leetcode-cn.com/problems/how-many-numbers-are-smaller-than-the-current-number/)
 * 【简单】[349-两个数组的交集](https://leetcode-cn.com/problems/intersection-of-two-arrays)
+* 【简单】[941-有效的山脉数组](https://leetcode-cn.com/problems/valid-mountain-array)
 
 ## 熟练
 
