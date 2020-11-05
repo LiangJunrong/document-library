@@ -2,7 +2,7 @@ this
 ===
 
 > Create by **jsliang** on **2020-09-30 21:20:15**  
-> Recently revised in **2020-10-12 15:33:45**
+> Recently revised in **2020-11-06 07:40:23**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -55,8 +55,8 @@ this
 
 再牢记 2 句话：
 
-* **普通函数中 `this` 的指向，是 `this` 执行时的上下文**
-* **箭头函数中 `this` 的指向，是 `this` 定义时的上下文**
+* 普通函数中 `this` 的指向，是 `this` **执行时**的上下文
+* 箭头函数中 `this` 的指向，是 `this` **定义时**的上下文
 
 作用域链和 `this` 是两套不同的系统，它们之间基本没太多联系。
 
@@ -67,8 +67,6 @@ this
 * 全局执行上下文
 * 函数执行上下文
 * `eval` 执行上下文
-
-所以 `this` 对应的也只有这 3 种。
 
 > 注意这里是浏览器中的 `this`，和 Node 中的 `this` 是不一样的。
 
@@ -453,9 +451,13 @@ func();
 
 那么如何修正这个问题呢？
 
-> 注：网友指出：下面这 4 种方法的比对其实是有误的，普通对象没法跟类做对比
+> 注：网友指出：**下面这 4 种方法的比对其实是有误的，普通对象没法跟类做对比**
 
-> 当然，**jsliang** 在这里还是想列举出来，具体结论，相信 202X 年我们再复习，有机会就去逐步解答内心疑惑。
+> 当然，**jsliang** 在这里还是想列举出来
+
+> 具体结论，相信 `202X` 年我们再次复习的时候，有机会就去逐步解答内心疑惑。
+
+> 所以，为了避免矛盾冲突，小伙伴们可以跳过本章
 
 ### <a name="chapter-six-one" id="chapter-six-one"></a>6.1 解决方案一：提前 bind 绑定 this
 
@@ -703,8 +705,8 @@ export default App;
 
 再牢记 2 句话：
 
-* **普通函数中 `this` 的指向，是 `this` 执行时的上下文**
-* **箭头函数中 `this` 的指向，是 `this` 定义时的上下文**
+* 普通函数中 `this` 的指向，是 `this` **执行时**的上下文
+* 箭头函数中 `this` 的指向，是 `this` **定义时**的上下文
 
 ## <a name="chapter-eight" id="chapter-eight"></a>八 题目
 
@@ -1154,4 +1156,4 @@ userInfo.updateInfo();
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
