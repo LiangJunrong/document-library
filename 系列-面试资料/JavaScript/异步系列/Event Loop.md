@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-07 22:19:48**  
-> Recently revised in **2020-09-29 00:30:40**
+> Recently revised in **2020-11-07 07:55:09**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -31,6 +31,10 @@
 | &emsp;[6.2 定时器](#chapter-six-two) |
 | &emsp;[6.3 定时器 + Promise](#chapter-six-three) |
 | &emsp;[6.4 综合](#chapter-six-four) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 参考文献](#chapter-seven) |
+| &emsp;[7.1 requestAnimationFrame 参考文献](#chapter-seven-one) |
+| &emsp;[7.2 Web Worker 参考文献](#chapter-seven-two) |
+| &emsp;[7.3 其他参考文献](#chapter-seven-three) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -38,35 +42,6 @@
 > [返回目录](#chapter-one)
 
 `Event Loop` 即事件循环，是指浏览器或 `Node` 的一种解决 JavaScript 单线程运行时不会阻塞的一种机制，也就是我们经常使用异步的原理。
-
-**参考文献**：
-
-* [x] [浏览器与Node的事件循环(Event Loop)有何区别?](https://zhuanlan.zhihu.com/p/54882306)【阅读建议：20min】
-* [x] [一次弄懂Event Loop（彻底解决此类面试问题）](https://juejin.im/post/5c3d8956e51d4511dc72c200)【阅读建议：20min】
-* [x] [事件循环机制的那些事](https://mp.weixin.qq.com/s/PBX_YHw0-f3bbSDH5ZbbJQ?)【阅读建议：10min】
-* [x] [深入理解js事件循环机制（Node.js篇）](http://lynnelv.github.io/js-event-loop-nodejs)【阅读建议：无】
-* [x] [详解 JavaScript 中的 Event Loop（事件循环）机制](https://zhuanlan.zhihu.com/p/33058983)【阅读建议：5min】
-* [x] [深入理解 JavaScript Event Loop](https://zhuanlan.zhihu.com/p/34229323)【阅读建议：20min】
-* [x] [【THE LAST TIME】彻底吃透 JavaScript 执行机制](https://juejin.im/post/5d901418518825539312f587)【阅读建议：20min】
-* [x] [JavaScript：彻底理解同步、异步和事件循环(Event Loop)](https://segmentfault.com/a/1190000004322358)【阅读建议：10min】
-* [x] [从event loop规范探究javaScript异步及浏览器更新渲染时机](https://github.com/aooy/blog/issues/5)【阅读建议：20min】
-* [x] [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)【阅读建议：无】
-* [x] [The Node.js Event Loop, Timers, and process.nextTick()](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)【阅读建议：无】
-
-**requestAnimationFrame 参考文献**：
-
-* [x] [再谈谈 Promise, setTimeout, rAF, rIC](https://segmentfault.com/a/1190000019154514)【阅读建议：10min】
-* [x] [window.requestAnimationFrame](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame)【阅读建议：10min】
-
-**Web Worker 参考文献**：
-
-* [x] [JavaScript 中的多线程 -- Web Worker](https://zhuanlan.zhihu.com/p/25184390)【阅读建议：30min】
-* [x] [浅谈HTML5 Web Worker](https://juejin.im/post/6844903496550989837)【阅读建议：10min】
-* [x] [JavaScript 性能利器 —— Web Worker](https://juejin.im/post/5c10e5a9f265da611c26d634)【阅读建议：10min】
-
-**其他参考文献**：
-
-* [x] [浏览器进程？线程？傻傻分不清楚！](https://imweb.io/topic/58e3bfa845e5c13468f567d5)【阅读建议：5min】
 
 ## <a name="chapter-three" id="chapter-three"></a>三 单线程和多线程
 
@@ -94,15 +69,21 @@ JavaScript 是一个单线程的语言。
 
 * **为什么不设计成多线程？**
 
-假设有个 DOM 节点，现在有线程 A 操作它，删除了这个 DOM；然后线程 B 又操作它，修改了某部分。那么现在问题来了，咱听谁的？
+假设有个 `DOM` 节点，现在有线程 `A` 操作它，删除了这个 `DOM`；
+
+然后线程 `B` 又操作它，修改了这个 `DOM` 某部分。
+
+那么现在问题来了，咱听谁的？
 
 所以干脆设计成一个单线程，安全稳妥不出事。
 
-哪怕后期 HTML5 出了个 `web worker` 也是不允许操作 DOM 结构的，可以完成一些分布式的计算。
+哪怕后期 HTML5 出了个 `Web Worker` 也是不允许操作 `DOM` 结构的，可以完成一些分布式的计算。
+
+> `Web Worker` 在本文中有讲解
 
 * **为什么需要异步？**
 
-这时候又有问题了，如果调用某个接口（Ajax），或者加载某张图片的时候，我们卡住了，这样页面是不是就一直不能渲染？
+这时候又有问题了，如果调用某个接口（`Ajax`），或者加载某张图片的时候，我们卡住了，这样页面是不是就一直不能渲染？
 
 然后因为单线程只能先让前面的程序走完，即便这个接口或者图片缓过来了，我下面还有其他任务没做呢，这不就卡死了么？
 
@@ -176,7 +157,7 @@ JavaScript 从 `script` 开始读取，然后不断循环，从 “任务队列�
 
 该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
 
-`requestAnimationFrame` 简称 rAF。
+`requestAnimationFrame` 简称 `rAF`。
 
 我们看一下它使用情况：
 
@@ -195,10 +176,11 @@ JavaScript 从 `script` 开始读取，然后不断循环，从 “任务队列�
         }
         const elapsed = timestamp - start;
 
-        //这里使用`Math.min()`确保元素刚好停在200px的位置。
+        // 这里使用 Math.min() 确保元素刚好停在 200px 的位置。
         element.style.transform = 'translateX(' + Math.min(0.1 * elapsed, 200) + 'px)';
 
-        if (elapsed < 2000) { // 在两秒后停止动画
+        // 在两秒后停止动画
+        if (elapsed < 2000) {
           window.requestAnimationFrame(step);
         }
       }
@@ -218,7 +200,7 @@ JavaScript 从 `script` 开始读取，然后不断循环，从 “任务队列�
 * `setTimeout` 的执行事件并不是确定的。它属于宏任务队列，只有当主线程上的任务执行完毕后，才会调用队列中的任务判断是否开始执行。
 * 刷新频率受屏幕分辨率和屏幕尺寸影响，因此不同设备的刷新频率不同，而 `setTimeout` 只能固定一个时间间隔刷新。
 
-在上面 Event Loop 的过程中，我们知道执行完微任务队列会有一步操作：
+在上面 `Event Loop` 的过程中，我们知道执行完微任务队列会有一步操作：
 
 * 执行浏览器 `UI` 线程的渲染工作。
 
@@ -228,15 +210,15 @@ JavaScript 从 `script` 开始读取，然后不断循环，从 “任务队列�
 
 > [返回目录](#chapter-one)
 
-Web Worker 为 Web 内容在后台线程中运行脚本提供了一种简单的方法。
+`Web Worker` 为 Web 内容在后台线程中运行脚本提供了一种简单的方法。
 
 如我们所知，JavaScript 一直是属于单线程环境，我们无法同时运行两个 JavaScript 脚本。
 
 但是试想一下，如果我们可以同时运行两个（或者多个）JavaScript 脚本，一个来处理 UI 界面（一直以来的用法），一个来处理一些复杂计算，那么性能就会更好。
 
-在 HTML5 的新规范中，实现了 Web Worker 来引入 JavaScript 的 “多线程” 技术，他的能力让我们可以在页面主运行的 JavaScript 线程中加载运行另外单独的一个或者多个 JavaScript 线程。
+在 HTML5 的新规范中，实现了 `Web Worker` 来引入 JavaScript 的 “多线程” 技术，他的能力让我们可以在页面主运行的 JavaScript 线程中加载运行另外单独的一个或者多个 JavaScript 线程。
 
-> 注意：JavaScript 本质上还是单线程的，Web Worker 只是浏览器（宿主环境）提供的一个能力／API。
+> 注意：JavaScript 本质上还是单线程的，`Web Worker` 只是浏览器（宿主环境）提供的一个得力 API。
 
 #### <a name="chapter-four-three-one" id="chapter-four-three-one"></a>4.3.1 Web Worker 使用
 
@@ -303,12 +285,12 @@ index-setTimeout
 
 1. 先执行 `script` 中同步任务
 2. 再执行 `script` 中微任务
-3. 然后执行 UI 线程的渲染工作（这里代码没有）
+3. 然后执行 UI 线程的渲染工作（这里在代码中没有体现，感兴趣的可以试试添加 `rAF`）
 4. 接着才执行 `Web Worker` 里面内容
 5. 再来是 `index.html` 中的宏任务
 6. 最后才是 `Web Worker` 文件中的宏任务
 
-符合 Event Loop 流程。
+可以看出它仍符合 `Event Loop` 流程。
 
 #### <a name="chapter-four-three-two" id="chapter-four-three-two"></a>4.3.2 Web Worker 数据通讯
 
@@ -371,8 +353,8 @@ onmessage = (res) => {
 
 > [返回目录](#chapter-one)
 
-* `setTimeout()， clearTimeout()， setInterval()， clearInterval()`：有了设计个函数，就可以在 Web Worker 线程中执行定时操作了；
-* `XMLHttpRequest` 对象：意味着我们可以在 Web Worker 线程中执行 **ajax** 请求；
+* `setTimeout()， clearTimeout()， setInterval()， clearInterval()`：有了这几个函数，就可以在 `Web Worker` 线程中执行定时操作了；
+* `XMLHttpRequest` 对象：意味着我们可以在 `Web Worker` 线程中执行 `Ajax` 请求；
 * `navigator` 对象：可以获取到 `ppName`，`appVersion`，`platform`，`userAgent` 等信息；
 * `location` 对象（只读）：可以获取到有关当前 URL 的信息；
 
@@ -410,11 +392,11 @@ importScripts('./index2.js', './index3.js');
 再仔细一点：
 
 * **Node.js**：Node.js 的 `Event Loop` 是基于 `libuv`。`libuv` 已经对 Node.js 的 `Event Loop` 作出了实现。
-* **浏览器**：浏览器的 `Event Loop` 是基于 [HTML5 规范](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops) 的。而 HTML5 规范中只是定义了浏览器中的 Event Loop 的模型，具体实现留给了浏览器厂商。
+* **浏览器**：浏览器的 `Event Loop` 是基于 [HTML5 规范](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops) 的。而 HTML5 规范中只是定义了浏览器中的 `Event Loop` 的模型，具体实现留给了浏览器厂商。
 
-> libuv 是一个多平台支持库，主要用于异步 I/O。它最初是为 Node.js 开发的，现在 Luvit、Julia、pyuv 和其他的框架也使用它。[Github - libuv 仓库](https://github.com/libuv/libuv)
+> `libuv` 是一个多平台支持库，主要用于异步 I/O。它最初是为 Node.js 开发的，现在 `Luvit`、`Julia`、`pyuv` 和其他的框架也使用它。[Github - libuv 仓库](https://github.com/libuv/libuv)
 
-所以，咱们得将这两个 Event Loop 区分开来，它们是不一样的东东哈~
+所以，咱们得将这两个 `Event Loop` 区分开来，它们是不一样的东东哈~
 
 ## <a name="chapter-five" id="chapter-five"></a>五 两个环境 Event Loop 对比
 
@@ -423,6 +405,8 @@ importScripts('./index2.js', './index3.js');
 浏览器环境下，`microtask` 的任务队列是每个 `macrotask` 执行完之后执行。
 
 而在 Node.js 中，`microtask` 会在事件循环的各个阶段之间执行，也就是一个阶段执行完毕，就会去执行 `microtask` 队列的任务。
+
+这里没有讲 Node.js 的时间循环机制，第一个是因为 **jsliang** 对 Node 不熟，怕瞎写误导；第二个是因为面试官问的时候，基本上回答的都是浏览器的事件循环机制，偶尔提一嘴 `Event Loop` 分为浏览器事件循环和 Node 事件循环算是加点小分了。
 
 ## <a name="chapter-six" id="chapter-six"></a>六 题目训练
 
@@ -795,6 +779,43 @@ console.log(13);
 3
 ```
 
+## <a name="chapter-seven" id="chapter-seven"></a>七 参考文献
+
+> [返回目录](#chapter-one)
+
+* [x] [浏览器与Node的事件循环(Event Loop)有何区别?](https://zhuanlan.zhihu.com/p/54882306)【阅读建议：20min】
+* [x] [一次弄懂Event Loop（彻底解决此类面试问题）](https://juejin.im/post/5c3d8956e51d4511dc72c200)【阅读建议：20min】
+* [x] [事件循环机制的那些事](https://mp.weixin.qq.com/s/PBX_YHw0-f3bbSDH5ZbbJQ?)【阅读建议：10min】
+* [x] [深入理解js事件循环机制（Node.js篇）](http://lynnelv.github.io/js-event-loop-nodejs)【阅读建议：无】
+* [x] [详解 JavaScript 中的 Event Loop（事件循环）机制](https://zhuanlan.zhihu.com/p/33058983)【阅读建议：5min】
+* [x] [深入理解 JavaScript Event Loop](https://zhuanlan.zhihu.com/p/34229323)【阅读建议：20min】
+* [x] [【THE LAST TIME】彻底吃透 JavaScript 执行机制](https://juejin.im/post/5d901418518825539312f587)【阅读建议：20min】
+* [x] [JavaScript：彻底理解同步、异步和事件循环(Event Loop)](https://segmentfault.com/a/1190000004322358)【阅读建议：10min】
+* [x] [从event loop规范探究javaScript异步及浏览器更新渲染时机](https://github.com/aooy/blog/issues/5)【阅读建议：20min】
+* [x] [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)【阅读建议：无】
+* [x] [The Node.js Event Loop, Timers, and process.nextTick()](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)【阅读建议：无】
+
+### <a name="chapter-seven-one" id="chapter-seven-one"></a>7.1 requestAnimationFrame 参考文献
+
+> [返回目录](#chapter-one)
+
+* [x] [再谈谈 Promise, setTimeout, rAF, rIC](https://segmentfault.com/a/1190000019154514)【阅读建议：10min】
+* [x] [window.requestAnimationFrame](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame)【阅读建议：10min】
+
+### <a name="chapter-seven-two" id="chapter-seven-two"></a>7.2 Web Worker 参考文献
+
+> [返回目录](#chapter-one)
+
+* [x] [JavaScript 中的多线程 -- Web Worker](https://zhuanlan.zhihu.com/p/25184390)【阅读建议：30min】
+* [x] [浅谈HTML5 Web Worker](https://juejin.im/post/6844903496550989837)【阅读建议：10min】
+* [x] [JavaScript 性能利器 —— Web Worker](https://juejin.im/post/5c10e5a9f265da611c26d634)【阅读建议：10min】
+
+### <a name="chapter-seven-three" id="chapter-seven-three"></a>7.3 其他参考文献
+
+> [返回目录](#chapter-one)
+
+* [x] [浏览器进程？线程？傻傻分不清楚！](https://imweb.io/topic/58e3bfa845e5c13468f567d5)【阅读建议：5min】
+
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
