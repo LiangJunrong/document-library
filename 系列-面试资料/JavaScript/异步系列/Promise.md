@@ -2,8 +2,9 @@
 ===
 
 > Create by **jsliang** on **2020-09-07 22:28:53**  
-> Recently revised in **2020-09-21 14:17:58**
+> Recently revised in **2020-11-08 09:18:03**
 
+<!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -59,10 +60,10 @@
 | <a name="catalog-chapter-eleven" id="catalog-chapter-eleven"></a>[十一 .all() 接力赛](#chapter-eleven) |
 | <a name="catalog-chapter-twelve" id="catalog-chapter-twelve"></a>[十二 .race() 个人赛](#chapter-twelve) |
 | <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 题库：.all()、.race()](#chapter-thirteen) |
-| &emsp;[10.1 题目一](#chapter-thirteen-one) |
-| &emsp;[10.2 题目二](#chapter-thirteen-two) |
-| &emsp;[10.3 题目三](#chapter-thirteen-three) |
-| &emsp;[10.4 题目四](#chapter-thirteen-four) |
+| &emsp;[13.1 题目一](#chapter-thirteen-one) |
+| &emsp;[13.2 题目二](#chapter-thirteen-two) |
+| &emsp;[13.3 题目三](#chapter-thirteen-three) |
+| &emsp;[13.4 题目四](#chapter-thirteen-four) |
 | <a name="catalog-chapter-fourteen" id="catalog-chapter-fourteen"></a>[十四 Promise 源码](#chapter-fourteen) |
 | <a name="catalog-chapter-fifteen" id="catalog-chapter-fifteen"></a>[十五 题库：结合 async/await](#chapter-fifteen) |
 | &emsp;[15.1 题目一](#chapter-fifteen-one) |
@@ -89,6 +90,7 @@
 | &emsp;[17.6 限制异步操作并发数并尽可能快地完成](#chapter-seventeen-six) |
 | &emsp;[17.7 JS 实现异步调度器](#chapter-seventeen-seven) |
 | <a name="catalog-chapter-eighteen" id="catalog-chapter-eighteen"></a>[十八 总结](#chapter-eighteen) |
+<!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -3342,4 +3344,4 @@ addTack(400, '4');
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
