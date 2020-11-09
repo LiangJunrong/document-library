@@ -2,7 +2,9 @@
 ===
 
 > Create by **jsliang** on **2020-09-17 18:14:12**  
-> Recently revised in **2020-10-14 19:55:26**
+> Recently revised in **2020-11-09 09:49:43**
+
+面试官：手写一个 `Promise`，要求实现 `resolve()/reject()/then()`……
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -12,43 +14,42 @@
 | 目录 |
 | --- |
 | [一 目录](#chapter-one) |
-| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 迷思](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 简版手写 Promise](#chapter-four) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 手写 Promise](#chapter-five) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Promise.all()](#chapter-six) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 Promise.race()](#chapter-seven) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 Promise 异步调度器](#chapter-eight) |
-| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 参考文献](#chapter-night) |
+| <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 迷思](#chapter-two) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 简版手写 Promise](#chapter-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 手写 Promise](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 Promise.all()](#chapter-five) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 Promise.race()](#chapter-six) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 Promise 异步调度器](#chapter-seven) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 参考文献](#chapter-eight) |
 <!-- 目录结束 -->
 
-## <a name="chapter-two" id="chapter-two"></a>二 前言
+## <a name="chapter-two" id="chapter-two"></a>二 迷思
 
 > [返回目录](#chapter-one)
 
-* 面试官：手写一个 `Promise`，要求实现 `resolve()/reject()/then()`
-
-## <a name="chapter-three" id="chapter-three"></a>三 迷思
-
-> [返回目录](#chapter-one)
-
-JavaScript 里的异步方案的演进时，是用下面这种顺序：
+JavaScript 里的异步方案的演进中：
 
 * `callback -> promise -> generator -> async/await`
 
-在计算机行业，盛行着一种朴素还原论的迷思。即认为越接近底层，技术含量越高。每个程序员都有读懂底层源代码的追求。
+在计算机行业，盛行着一种朴素还原论的迷思：即认为越接近底层，技术含量越高。
 
-这在一定程度上是正确的。不过，我们也应该看到，一旦底层和表层之间，形成了领域鸿沟。精通底层，并不能代表在表层的水平。
+每个程序员都有读懂底层源代码的追求。
 
-比如游戏的开发者，不一定是游戏中的佼佼者。这在 FPS 射击游戏或者格斗游戏里尤为明显，这些游戏里的绝大部分顶尖玩家，完全不会写代码。
+这在一定程度上是正确的。
+
+不过，我们也应该看到，一旦底层和表层之间，形成了领域鸿沟。
+
+精通底层，并不能代表在表层的水平。
+
+比如游戏的开发者，不一定是游戏中的佼佼者。这在 `FPS` 射击游戏或者格斗游戏里尤为明显，这些游戏里的绝大部分顶尖玩家，完全不会写代码。
 
 如果将精通 `Promise` 定义为，善于在各种异步场景中使用 `Promise` 解决问题。
 
 那么，能手写 `Promise` 实现，对精通 `Promise` 帮助不大。
 
-> 这话来源于微信公众号：工业聚
+> 这段文本来源于 工业聚
 
-## <a name="chapter-four" id="chapter-four"></a>四 简版手写 Promise
+## <a name="chapter-three" id="chapter-three"></a>三 简版手写 Promise
 
 > [返回目录](#chapter-one)
 
@@ -121,11 +122,22 @@ p.then((res) => {
 })
 ```
 
-## <a name="chapter-five" id="chapter-five"></a>五 手写 Promise
+这段代码在 **jsliang** 的个人理解上是这样解读的：
+
+1. 有 `pending`、`resolved` 以及 `rejected` 这 3 个状态。详见代码前 3 行。
+2. 状态一旦由 `pending` 向 `resolve` 或者 `rejected` 转变，那就不能再次变化。详见代码 `function resolve` 和 `function reject`。
+3. 代码执行到 `.then` 的时候，分为 2 种情况：其一是走了异步，状态成了 `PENDING`，走第一个逻辑；其二是 `RESOLVED` 或者 `RESOLVED`，走了第二个和第三个逻辑。
+4. 在走了第一个逻辑的情况中，因为我们是异步方案，所以会在 `n` 秒之后走 `function resolve` 或者 `function reject`，而在这两个方法体中，`that.resolvedCallbacks.map(cb => cb(value))` 或者 `that.rejectedCallbacks.map(cb => cb(reason))` 会将我们存入的回调方法进行执行，从而实现 `Promise.then()` 的功能。
+
+如果小伙伴还不清晰地可以敲多两遍代码，如果小伙伴对 **jsliang** 的理解不感兴趣的，可以看看参考文献的 `Promise A+` 规范，更有利于小伙伴理解。
+
+## <a name="chapter-four" id="chapter-four"></a>四 手写 Promise
 
 > [返回目录](#chapter-one)
 
-代码来源工业聚那篇文章
+代码来源工业聚那篇文章：
+
+> 一开始本来觉得这份代码非常健全，但是让 **jsliang** 默写真的太为难自己了，所以用了上一章的那份代码。
 
 ```js
 /**
@@ -338,9 +350,11 @@ promise.then((res) => {
 });
 ```
 
-## <a name="chapter-six" id="chapter-six"></a>六 Promise.all()
+## <a name="chapter-five" id="chapter-five"></a>五 Promise.all()
 
 > [返回目录](#chapter-one)
+
+下面我们练习一些题目。
 
 给定内容：
 
@@ -397,7 +411,7 @@ Promise.myAll = function(arr) {
 };
 ```
 
-## <a name="chapter-seven" id="chapter-seven"></a>七 Promise.race()
+## <a name="chapter-six" id="chapter-six"></a>六 Promise.race()
 
 > [返回目录](#chapter-one)
 
@@ -453,7 +467,7 @@ Promise.myRace([a, b]).then((res) => {
 })
 ```
 
-## <a name="chapter-eight" id="chapter-eight"></a>八 Promise 异步调度器
+## <a name="chapter-seven" id="chapter-seven"></a>七 Promise 异步调度器
 
 > [返回目录](#chapter-one)
 
@@ -572,7 +586,7 @@ addTack(400, '4');
 // 进队完成，输出 2 3 1 4
 ```
 
-## <a name="chapter-night" id="chapter-night"></a>九 参考文献
+## <a name="chapter-eight" id="chapter-eight"></a>八 参考文献
 
 > [返回目录](#chapter-one)
 
@@ -587,4 +601,4 @@ addTack(400, '4');
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
