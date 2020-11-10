@@ -102,7 +102,7 @@ myPromise.prototype.then = function(onFullfilled, onRejected) {
     onFullfilled(that.value);
   }
 
-  if (that.status === RESOLVED) {
+  if (that.status === REJECTED) {
     onFullfilled(that.reason);
   }
 
@@ -126,7 +126,7 @@ p.then((res) => {
 
 1. 有 `pending`、`resolved` 以及 `rejected` 这 3 个状态。详见代码前 3 行。
 2. 状态一旦由 `pending` 向 `resolve` 或者 `rejected` 转变，那就不能再次变化。详见代码 `function resolve` 和 `function reject`。
-3. 代码执行到 `.then` 的时候，分为 2 种情况：其一是走了异步，状态成了 `PENDING`，走第一个逻辑；其二是 `RESOLVED` 或者 `RESOLVED`，走了第二个和第三个逻辑。
+3. 代码执行到 `.then` 的时候，分为 2 种情况：其一是走了异步，状态成了 `PENDING`，走第一个逻辑；其二是 `RESOLVED` 或者 `REJECTED`，走了第二个和第三个逻辑。
 4. 在走了第一个逻辑的情况中，因为我们是异步方案，所以会在 `n` 秒之后走 `function resolve` 或者 `function reject`，而在这两个方法体中，`that.resolvedCallbacks.map(cb => cb(value))` 或者 `that.rejectedCallbacks.map(cb => cb(reason))` 会将我们存入的回调方法进行执行，从而实现 `Promise.then()` 的功能。
 
 如果小伙伴还不清晰地可以敲多两遍代码，如果小伙伴对 **jsliang** 的理解不感兴趣的，可以看看参考文献的 `Promise A+` 规范，更有利于小伙伴理解。
