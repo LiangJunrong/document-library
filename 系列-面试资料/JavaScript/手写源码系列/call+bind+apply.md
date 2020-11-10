@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-08 13:37:27**  
-> Recently revised in **2020-10-12 16:01:54**
+> Recently revised in **2020-11-11 07:40:45**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -13,38 +13,35 @@
 | --- |
 | [一 目录](#chapter-one) |
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
-| &emsp;[2.1 写在前面](#chapter-two-one) |
-| &emsp;[2.2 最终实现](#chapter-two-two) |
-| &emsp;&emsp;[2.2.1 手写 call](#chapter-two-two-one) |
-| &emsp;&emsp;[2.2.2 手写 apply](#chapter-two-two-two) |
-| &emsp;&emsp;[2.2.3 手写 bind](#chapter-two-two-three) |
-| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 Arguments 对象](#chapter-three) |
-| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 call](#chapter-four) |
-| &emsp;[4.1 原生 call](#chapter-four-one) |
-| &emsp;[4.2 手写 call](#chapter-four-two) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 apply](#chapter-five) |
-| &emsp;[5.1 原生 apply](#chapter-five-one) |
-| &emsp;[5.2 手写 apply](#chapter-five-two) |
-| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 bind](#chapter-six) |
-| &emsp;[6.1 原生 bind](#chapter-six-one) |
-| &emsp;[6.2 手写 bind](#chapter-six-two) |
-| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 题目](#chapter-seven) |
-| &emsp;[7.1 this 指向问题 1](#chapter-seven-one) |
-| &emsp;[7.2 this 指向问题 2](#chapter-seven-two) |
-| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 参考文献](#chapter-eight) |
+| <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 最终实现](#chapter-three) |
+| &emsp;[3.1 手写 call](#chapter-three-one) |
+| &emsp;[3.2 手写 apply](#chapter-three-two) |
+| &emsp;[3.3 手写 bind](#chapter-three-three) |
+| <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 Arguments 对象](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 call](#chapter-five) |
+| &emsp;[5.1 原生 call](#chapter-five-one) |
+| &emsp;[5.2 手写 call](#chapter-five-two) |
+| <a name="catalog-chapter-six" id="catalog-chapter-six"></a>[六 apply](#chapter-six) |
+| &emsp;[6.1 原生 apply](#chapter-six-one) |
+| &emsp;[6.2 手写 apply](#chapter-six-two) |
+| <a name="catalog-chapter-seven" id="catalog-chapter-seven"></a>[七 bind](#chapter-seven) |
+| &emsp;[7.1 原生 bind](#chapter-seven-one) |
+| &emsp;[7.2 手写 bind](#chapter-seven-two) |
+| <a name="catalog-chapter-eight" id="catalog-chapter-eight"></a>[八 题目](#chapter-eight) |
+| &emsp;[8.1 this 指向问题 1](#chapter-eight-one) |
+| &emsp;[8.2 this 指向问题 2](#chapter-eight-two) |
+| <a name="catalog-chapter-night" id="catalog-chapter-night"></a>[九 参考文献](#chapter-night) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-two-one" id="chapter-two-one"></a>2.1 写在前面
-
-> [返回目录](#chapter-one)
-
 面试官：手写一个 `call/apply/bind`。
 
 工欲善其事，必先利其器，我们先了解一下这 3 者有什么区别：
+
+> `call` 的使用
 
 ```js
 function Product (name, price) {
@@ -65,13 +62,17 @@ console.log(food.name); // 'cheese'
 * `apply`：基本同 `call`，不同点在于第二个参数是一个数组 `[arg1, arg2...]`
 * `bind`：改变 `this` 作用域会返回一个新的函数，这个函数不会马上执行
 
-### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 最终实现
+## <a name="chapter-three" id="chapter-three"></a>三 最终实现
 
 > [返回目录](#chapter-one)
 
 下面我们列一下今天的实现目标：
 
-#### <a name="chapter-two-two-one" id="chapter-two-two-one"></a>2.2.1 手写 call
+1. 手写 `call`
+2. 手写 `apply`
+3. 手写 `bind`
+
+### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 手写 call
 
 > [返回目录](#chapter-one)
 
@@ -106,7 +107,7 @@ const fn = function() {
 fn.myCall(fn);
 ```
 
-#### <a name="chapter-two-two-two" id="chapter-two-two-two"></a>2.2.2 手写 apply
+### <a name="chapter-three-two" id="chapter-three-two"></a>3.2 手写 apply
 
 > [返回目录](#chapter-one)
 
@@ -142,7 +143,7 @@ const fn = function() {
 fn.myApply(fn);
 ```
 
-#### <a name="chapter-two-two-three" id="chapter-two-two-three"></a>2.2.3 手写 bind
+### <a name="chapter-three-three" id="chapter-three-three"></a>3.3 手写 bind
 
 > [返回目录](#chapter-one)
 
@@ -188,7 +189,7 @@ fn();
 
 OK，懂了么，我们发车继续深造~
 
-## <a name="chapter-three" id="chapter-three"></a>三 Arguments 对象
+## <a name="chapter-four" id="chapter-four"></a>四 Arguments 对象
 
 > [返回目录](#chapter-one)
   
@@ -220,11 +221,13 @@ var arg3 = Array.from(arguments);
 var arg4 = [...arguments];
 ```
 
-## <a name="chapter-four" id="chapter-four"></a>四 call
+在手写 `call/bind/apply` 过程中，会用到 `arguments` 来获取方法体的传参，就好比手写 `call` 过程中，通常我们通过 `Array.from(arguments).slice(1)` 来获取第二个及后面的参数。
+
+## <a name="chapter-five" id="chapter-five"></a>五 call
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-four-one" id="chapter-four-one"></a>4.1 原生 call
+### <a name="chapter-five-one" id="chapter-five-one"></a>5.1 原生 call
 
 > [返回目录](#chapter-one)
 
@@ -253,14 +256,14 @@ const food = new Food('cheese', 5);
 console.log(food.name); // 'cheese'
 ```
 
-### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 手写 call
+### <a name="chapter-five-two" id="chapter-five-two"></a>5.2 手写 call
 
 > [返回目录](#chapter-one)
 
 首先我们得搞明白 `call` 的特性：
 
 1. 如果 `obj.call(null)`，那么 `this` 应该指向 `window`
-2. 如果 `obj1.call(obj2)`，那么谁调用它，`this` 指向谁
+2. 如果 `obj1.call(obj2)`，那么谁调用它，`this` 指向谁（这里就是 `obj2` 了）
 3. `call` 可以传入多个参数，所以可以利用 `arguments` 这个字段来获取所有参数。将 `arguments` 转换数组后，获取除第一个参数外的其他参数
 4. 设置一个变量，用完可以删掉它
 
@@ -298,6 +301,8 @@ const fn = function() {
 
 fn.myCall(fn);
 ```
+
+小伙伴稍稍理解下，搞清楚它内部的流程，然后咱们实践一下：
 
 > 防抖函数绑定手写 call
 
@@ -348,11 +353,13 @@ fn.myCall(fn);
 </html>
 ```
 
-## <a name="chapter-five" id="chapter-five"></a>五 apply
+这样我们就摸清了手写 `call`。
+
+## <a name="chapter-six" id="chapter-six"></a>六 apply
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-five-one" id="chapter-five-one"></a>5.1 原生 apply
+### <a name="chapter-six-one" id="chapter-six-one"></a>6.1 原生 apply
 
 > [返回目录](#chapter-one)
 
@@ -374,9 +381,11 @@ const min = Math.min.apply(null, numbers);
 console.log(min); // 2
 ```
 
-### <a name="chapter-five-two" id="chapter-five-two"></a>5.2 手写 apply
+### <a name="chapter-six-two" id="chapter-six-two"></a>6.2 手写 apply
 
 > [返回目录](#chapter-one)
+
+下面我们开始尝试手写 `apply`，记住这个方法和 `call` 类似，理解起来也不难：
 
 ```js
 Function.prototype.myApply = function(context = globalThis, arr) {
@@ -410,7 +419,7 @@ const fn = function() {
 fn.myApply(fn);
 ```
 
-用自定义 `apply` + 防抖：
+用自定义 `apply` + 防抖实践一下：
 
 ```html
 <!DOCTYPE html>
@@ -463,11 +472,13 @@ fn.myApply(fn);
 </html>
 ```
 
-## <a name="chapter-six" id="chapter-six"></a>六 bind
+这样我们就摸清了手写 `apply`。
+
+## <a name="chapter-seven" id="chapter-seven"></a>七 bind
 
 > [返回目录](#chapter-one)
 
-### <a name="chapter-six-one" id="chapter-six-one"></a>6.1 原生 bind
+### <a name="chapter-seven-one" id="chapter-seven-one"></a>7.1 原生 bind
 
 > [返回目录](#chapter-one)
 
@@ -500,9 +511,11 @@ console.log(boundGetX()); // 42
 // 通过 bind，将 this 指向 module
 ```
 
-### <a name="chapter-six-two" id="chapter-six-two"></a>6.2 手写 bind
+### <a name="chapter-seven-two" id="chapter-seven-two"></a>7.2 手写 bind
 
 > [返回目录](#chapter-one)
+
+手写 `bind` 稍微有点小复杂，但是小伙伴们别慌，多读几遍可以摸清套路：
 
 ```js
 Function.prototype.myBind = function(context = globalThis) {
@@ -544,11 +557,13 @@ fn.myBind(fn);
 fn();
 ```
 
-## <a name="chapter-seven" id="chapter-seven"></a>七 题目
+## <a name="chapter-eight" id="chapter-eight"></a>八 题目
 
 > [返回目录](#chapter-one)
-        
-### <a name="chapter-seven-one" id="chapter-seven-one"></a>7.1 this 指向问题 1
+
+通过上面的实践，小伙伴们应该对手写 `call`、`bind`、`apply` 有自己的理解了，下面看看这些题，试试挑战下。
+
+### <a name="chapter-eight-one" id="chapter-eight-one"></a>8.1 this 指向问题 1
 
 > [返回目录](#chapter-one)
       
@@ -572,7 +587,7 @@ test4399.getColor(); // 输出什么？
 
 答案：`green`、`blue`。
 
-### <a name="chapter-seven-two" id="chapter-seven-two"></a>7.2 this 指向问题 2
+### <a name="chapter-eight-two" id="chapter-eight-two"></a>8.2 this 指向问题 2
 
 > [返回目录](#chapter-one)
 
@@ -608,7 +623,7 @@ myObject.func();
 3. 第三个 `this.foo` 输出 `undefined`，因为这个 IIFE（立即执行函数表达式）中的 `this` 指向 `window`。
 4.第四个 `self.foo` 输出 `bar`，因为这个匿名函数所处的上下文中没有 `self`，所以通过作用域链向上查找，从包含它的父函数中找到了指向 `myObject` 对象的 `self`。
 
-## <a name="chapter-eight" id="chapter-eight"></a>八 参考文献
+## <a name="chapter-night" id="chapter-night"></a>九 参考文献
 
 > [返回目录](#chapter-one)
 
@@ -625,4 +640,4 @@ myObject.func();
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
