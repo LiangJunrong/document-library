@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-21 15:06:41**  
-> Recently revised in **2020-10-06 17:49:49**
+> Recently revised in **2020-11-14 17:49:11**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -32,10 +32,6 @@
 
 各个手写具体实现：
 
-* [x] [自定义原生事件](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6.md)
-  * [x] **创建自定义事件**：`const myEvent = new Event()`、`new CustomEvent()`、`document.createEvent('CustomEvent')`
-  * [x] **监听自定义事件**：`document.addEventListener('myEvent', callback)`
-  * [x] **触发自定义事件**：`document.dispatchEvent(myEvent)`
 * [x] [Promise](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/JavaScript/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97/Promise.md)
   * [x] **简写版 `Promise`（不支持异步）**
   * [x] **手写 `Promise`（`resolve`、`reject`、`then`）**
