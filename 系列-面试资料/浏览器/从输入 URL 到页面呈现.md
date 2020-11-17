@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-21 23:29:10**  
-> Recently revised in **2020-10-03 17:09:29**
+> Recently revised in **2020-11-17 21:09:15**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -30,7 +30,7 @@
 
 这是一道经典面试题：
 
-* 从输入 URL 到页面呈现发生了什么？
+* 从输入 `URL` 到页面呈现发生了什么？
 
 如果你还不懂，那么可以来看看。
 
@@ -40,21 +40,23 @@
 
 在用户输入 URL，按下回车之后，走过的步骤：
 
-1. DNS 解析
-2. TCP 连接
-3. 发送 HTTP 请求
+1. `DNS` 解析
+2. `TCP` 连接
+3. 发送 `HTTP` 请求
 4. 服务器响应
 5. 浏览器解析渲染页面
+
+当然，这是整体过程，实际面试过程中会进一步详细问，后面会逐步完善，让小伙伴们对这个系列的问题不在纠结。
 
 ## <a name="chapter-four" id="chapter-four"></a>四 DNS 解析
 
 > [返回目录](#chapter-one)
 
-DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过程。
+`DNS` 解析过程就是通过网络查找哪台机器有你需要的资源的过程。
 
-浏览器输入 `github.com` 并不是真正意义上的去查找这个，而是查找这个域名解析到的 IP 地址。
+浏览器输入 `github.com` 并不是真正意义上的去查找这个，而是查找这个域名解析到的 `IP` 地址。
 
-互联网上每一台计算机的唯一标识是它的 IP 地址，但是 IP 地址并不方便记忆，所以互联网设计者为了方便，才会搞出 `github.com` 这样的域名。
+互联网上每一台计算机的唯一标识是它的 `IP` 地址，但是 `IP` 地址并不方便记忆，所以互联网设计者为了方便，才会搞出 `github.com` 这样的域名。
 
 * **DNS 解析过程**：
 
@@ -71,23 +73,27 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 * [浏览器 - 浏览器缓存](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.md)
 * [计算机网络 - DNS](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/DNS.md)
 
+当然，这两篇文章后续也会发布，可以先忽略。
+
 ## <a name="chapter-five" id="chapter-five"></a>五 TCP 连接
 
 > [返回目录](#chapter-one)
 
-* 3 次握手。建立客户端和服务器之间的连接。
-* 数据传输。
-* 4 次挥手。断开客户端和服务器之间的连接。
+* 建立连接阶段：3 次握手。建立客户端和服务器之间的连接。
+* 传输数据阶段
+* 断开连接阶段：4 次挥手。断开客户端和服务器之间的连接。
 
 如果 3 次握手和 4 次挥手你不懂过程，详细可以看 **jsliang** 的文章：
 
 * [计算机网络 - TCP](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/TCP.md)
 
+这里也可以先忽略，后续进一步跟进理解。
+
 ## <a name="chapter-six" id="chapter-six"></a>六 发送 HTTP 请求
 
 > [返回目录](#chapter-one)
 
-发送 `HTTP` 请求的过程就是构建 HTTP 请求报文，并通过 TCP 协议发送到服务器指定端口（`HTTP` 协议默认端口 80/8080，`HTTPS` 协议默认端口 443）。
+发送 `HTTP` 请求的过程就是构建 `HTTP` 请求报文，并通过 `TCP` 协议发送到服务器指定端口（`HTTP` 协议默认端口 `80/8080`，`HTTPS` 协议默认端口 `443`）。
 
 `HTTP` 请求报文由 3 部分组成：**请求行**、**请求报文** 和 **请求正文**。
 
@@ -103,7 +109,7 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 
 > [返回目录](#chapter-one)
 
-服务器处理请求完毕后，会返回 HTTP 报文。
+服务器处理请求完毕后，会返回 `HTTP` 报文。
 
 `HTTP` 响应报文也是由 3 部分组成：**状态码**、**响应报头** 和 **响应报文**。
 
@@ -111,11 +117,13 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 * **响应报头**：常见的响应报头字段 `Server`、`Connection` 等。
 * **响应报文**：服务器返回给浏览器的文本信息，通常 HTML、CSS、JS、图片等文件就放在这一部分。
 
+综上，`URL` 解析过程的步骤 3 和步骤 4 是 `HTTP` 请求和服务器响应，所以这一块会问到 `HTTP` 状态码、`HTTPS` 等知识点，后续我们会进一步跟进学习，这里先做概念性理解。
+
 ## <a name="chapter-eight" id="chapter-eight"></a>八 浏览器解析渲染页面
 
 > [返回目录](#chapter-one)
 
-![图](https://github.com/LiangJunrong/document-library/blob/master/public-repertory/img/other-page-parse.png?raw=true)
+![图](./img/other-page-parse.png)
 
 如上图，浏览器的渲染过程为：
 
@@ -124,6 +132,8 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 3. 将 `DOM Tree` 和 `CSS Rule Tree` 相结合，生成 **渲染树**（`Render Tree`）
 4. 从根节点开始，计算每一个元素的大小、位置，给出每个节点所应该出现的屏幕精确坐标，从而得到基于渲染树的 **布局渲染树**（`Layout of the render tree`）。
 5. 遍历渲染树，将每个节点用 UI 渲染引擎来绘制，从而将整棵树绘制到页面上，这个步骤叫 **绘制渲染树**（`Painting the render tree`）
+
+> 这个渲染过程需要重点记忆，出场概率非常大
 
 在解析渲染过程中，可能会产生 **回流** 和 **重绘**：
 
@@ -135,9 +145,11 @@ DNS 解析过程就是通过网络查找哪台机器有你需要的资源的过�
 1. 什么操作会重绘和回流？
 2. 如何优化？
 
-如果不知道，详细可看：
+详细可看：
 
 * [浏览器 - 回流和重绘](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E6%B5%8F%E8%A7%88%E5%99%A8/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98.md)
+
+后续跟进文章学习也是可以的，这里先贴链接。
 
 ## <a name="chapter-night" id="chapter-night"></a>九 其他问题及优化
 
@@ -175,4 +187,4 @@ JavaScript 的加载、解析和执行会阻塞 DOM 的构建。
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
