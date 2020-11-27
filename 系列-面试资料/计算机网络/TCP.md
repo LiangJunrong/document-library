@@ -2,7 +2,7 @@ TCP
 ===
 
 > Create by **jsliang** on **2020-09-22 00:06:18**  
-> Recently revised in **2020-10-26 19:24:03**
+> Recently revised in **2020-11-28 07:45:39**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -90,6 +90,8 @@ TCP
 
 ![图](https://pic3.zhimg.com/80/v2-2a54823bd63e16674874aa46a67c6c72_720w.jpg)
 
+> 图片来源于知乎，懒得重画，水印保留，如侵即删
+
 #### <a name="chapter-four-one-two" id="chapter-four-one-two"></a>4.1.2 问题：两次握手不行吗？
 
 > [返回目录](#chapter-one)
@@ -163,6 +165,8 @@ gg
 
 ![图](https://pic2.zhimg.com/80/v2-c7d4b5aca66560365593f57385ce9fa9_720w.jpg)
 
+> 图片来源于知乎，懒得重画，水印保留，如侵即删
+
 #### <a name="chapter-four-three-two" id="chapter-four-three-two"></a>4.3.2 问题：为什么需要四次挥手
 
 > [返回目录](#chapter-one)
@@ -199,4 +203,4 @@ gg
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
