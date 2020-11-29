@@ -2,7 +2,7 @@ WebSocket
 ===
 
 > Create by **jsliang** on **2020-10-27 15:49:50**  
-> Recently revised in **2020-10-27 16:18:09**
+> Recently revised in **2020-11-29 14:43:42**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -47,7 +47,7 @@ WebSocket
 
 > [返回目录](#chapter-one)
 
-短轮询模式下，客户端每隔一段时间向服务器发送 HTTP 请求。
+短轮询模式下，客户端每隔一段时间向服务器发送 `HTTP` 请求。
 
 服务器收到请求后，将最新的数据发回给客户端。
 
@@ -75,9 +75,9 @@ WebSocket
 
 基于前面的情况，为了彻底解决服务器主动向客户端发送数据的问题。
 
-W3C 在 HTML5 中提供了一种让客户端与服务器之间进行全双工通讯的网络技术 `WebSocket`。
+`W3C` 在 `HTML5` 中提供了一种让客户端与服务器之间进行全双工通讯的网络技术 `WebSocket`。
 
-`WebSocket` 基于 `TCP` 协议，是一种全新的、独立的协议，与 `HTTP` 协议兼容却不会融入 `HTTP` 协议，仅仅作为 HTML5 的一部分。
+`WebSocket` 基于 `TCP` 协议，是一种全新的、独立的协议，与 `HTTP` 协议兼容却不会融入 `HTTP` 协议，仅仅作为 `HTML5` 的一部分。
 
 ### <a name="chapter-three-four" id="chapter-three-four"></a>3.4 两者比对
 
@@ -192,7 +192,7 @@ server.listen(3000, () => {
 当然，如果小伙伴们想手动装包，执行下面命令即可：
 
 ```shell
-npm i express socket.io -D
+npm i express socket.io express -D
 ```
 
 ### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 客户端代码
@@ -267,6 +267,8 @@ npm i express socket.io -D
 
 换句话说，当 `Socket.io` 检测到当前环境不支持 `WebSocket` 时，能够自动地选择最佳的方式来实现网络的实时通信。
 
+这样，我们就对 `WebSocket` 有一定的了解，面试的时候就不慌了。
+
 ## <a name="chapter-five" id="chapter-five"></a>五 参考文献
 
 > [返回目录](#chapter-one)
@@ -277,4 +279,4 @@ npm i express socket.io -D
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
