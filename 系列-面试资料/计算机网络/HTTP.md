@@ -2,7 +2,7 @@ HTTP
 ===
 
 > Create by **jsliang** on **2020-10-07 20:24:11**  
-> Recently revised in **2020-10-15 17:10:04**
+> Recently revised in **2020-12-01 07:50:28**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -21,7 +21,7 @@ HTTP
 | &emsp;[3.5 HTTP/3.0](#chapter-three-five) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 HTTP](#chapter-four) |
 | &emsp;[4.1 请求方法](#chapter-four-one) |
-| &emsp;[4.2  优缺点](#chapter-four-two) |
+| &emsp;[4.2 优缺点](#chapter-four-two) |
 | &emsp;[4.3 GET 和 POST 的区别](#chapter-four-three) |
 | &emsp;&emsp;[4.3.1 【误】GET 请求传参长度有限制](#chapter-four-three-one) |
 | &emsp;&emsp;[4.3.2 【误】POST 方法比 GET 方法安全](#chapter-four-three-two) |
@@ -56,9 +56,13 @@ HTTP
 
 > [返回目录](#chapter-one)
 
-HTTP 有时候面试官也会问到，简单的诸如 HTTP 状态码、GET 和 POST 区别。
+`HTTP` 有时候面试官也会问到，简单的诸如 `HTTP` 状态码、`GET` 和 `POST` 区别。
 
-这里会将 HTTP 相关知识点整理过来。
+这里会将 `HTTP` 相关知识点整理过来。
+
+同时，因为是网上查找的资料，未免会有疏漏、错误，欢迎指正。
+
+又因为 **jsliang** 比较懒，有些图是从一些优秀的参考文章中复制的，如果侵权，立马删除并重新绘制，感谢支持。
 
 ## <a name="chapter-three" id="chapter-three"></a>三 HTTP 发展史
 
@@ -129,7 +133,7 @@ HTTP 有时候面试官也会问到，简单的诸如 HTTP 状态码、GET 和 P
 
 > [返回目录](#chapter-one)
 
-Web 使用一种名为 `HTTP`（HyperText Transfer Protocol，超文本传输协议）的协议作为规范，完成从客户端到服务器等一系列运作流程。而协议是指规则的约定。可以说，Web 是建立在 `HTTP` 协议上通信的。
+Web 使用一种名为 `HTTP`（`HyperText Transfer Protocol`，超文本传输协议）的协议作为规范，完成从客户端到服务器等一系列运作流程。而协议是指规则的约定。可以说，Web 是建立在 `HTTP` 协议上通信的。
 
 `HTTP` 最初的目的是为了让研究者共享知识信息，所以它的主要作用就是文档传输，它是一种用于传输文档的协议。
 
@@ -154,7 +158,7 @@ Web 使用一种名为 `HTTP`（HyperText Transfer Protocol，超文本传输协
 
 1. **灵活可扩展，主要体现在两个方面**。一个是语义上的自由，只规定了基本格式，比如空格分隔单词，换行分隔字段，其他的各个部分都没有严格的语法限制。另一个是传输形式的多样性，不仅仅可以传输文本，还能传输图片、视频等任意数据，非常方便。
 2. **可靠传输**。`HTTP` 基于 `TCP/IP`，因此把这一特性继承了下来。这属于 `TCP` 的特性，不具体介绍了。
-3. **请求-应答**。也就是一发一收、有来有回， 当然这个请求方和应答方不单单指客户端和服务器之间，如果某台服务器作为代理来连接后端的服务端，那么这台服务器也会扮演请求方的角色。
+3. **请求-应答**。也就是一发一收、有来有回，当然这个请求方和应答方不单单指客户端和服务器之间，如果某台服务器作为代理来连接后端的服务端，那么这台服务器也会扮演请求方的角色。
 4. **无状态**。这里的状态是指通信过程的上下文信息，而每次 `HTTP` 请求都是独立、无关的，默认不需要保留状态信息。
 
 缺点：
@@ -587,4 +591,4 @@ HTTP 状态码为 3 位数，被归为 5 类：
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
