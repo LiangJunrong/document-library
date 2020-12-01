@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:06:05**  
-> Recently revised in **2020-10-27 17:04:57**
+> Recently revised in **2020-12-02 07:35:45**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -21,16 +21,17 @@
 | &emsp;[3.5 DNS](#chapter-three-five) |
 | &emsp;[3.6 TCP](#chapter-three-six) |
 | &emsp;[3.7 CDN](#chapter-three-seven) |
-| &emsp;[3.8 其他](#chapter-three-eight) |
+| &emsp;[3.8 WebSocket](#chapter-three-eight) |
+| &emsp;[3.9 其他](#chapter-three-night) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
 
-**jsliang** 自己整理，用来复习的文章和知识点。
+**jsliang** 自己整理，用来复习计算机网络系列的文章和知识点。
 
-本系列整理了 5 篇文章。
+本系列整理了 `5` 篇文章。
 
 * [x] [计算机网络 - 网络安全](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8.md)
   * [x] **同源策略**：什么是同源，为什么需要同源？
@@ -72,7 +73,7 @@
 
 > [返回目录](#chapter-one)
 
-本系列有 62 篇参考文献。
+本系列有 `62` 篇参考文献。
 
 ### <a name="chapter-three-one" id="chapter-three-one"></a>3.1 系统
 
@@ -165,13 +166,15 @@
 * [x] [关于 cdn、回源等问题一网打尽](https://juejin.im/post/5af46498f265da0b8d41f6a3)【阅读建议：10min】
 * [x] [CDN是什么？使用CDN有什么优势？](https://www.zhihu.com/question/36514327?rf=37353035)【阅读建议：10min】
 
-### WebSocket
+### <a name="chapter-three-eight" id="chapter-three-eight"></a>3.8 WebSocket
+
+> [返回目录](#chapter-one)
 
 * [x] [websocket 与Socket.IO介绍](https://www.cnblogs.com/mazg/p/5467960.html)【阅读建议：10min】
 * [x] [WebSocket 与 Socket.IO](https://zhuanlan.zhihu.com/p/23467317)【阅读建议：10min】
 * [x] [Websocket和Socket.io的区别及应用](https://www.jianshu.com/p/970dcfd174dc)【阅读建议：20min】
 
-### <a name="chapter-three-eight" id="chapter-three-eight"></a>3.8 其他
+### <a name="chapter-three-night" id="chapter-three-night"></a>3.9 其他
 
 > [返回目录](#chapter-one)
 
@@ -180,4 +183,4 @@
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
