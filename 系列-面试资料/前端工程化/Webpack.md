@@ -2,7 +2,7 @@ Webpack
 ===
 
 > Create by **jsliang** on **2020-09-17 15:33:55**  
-> Recently revised in **2020-10-29 11:29:23**
+> Recently revised in **2020-12-03 07:43:59**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -119,7 +119,7 @@ Webpack 就像一条生产线，要经过一系列处理流程后才能将源文
 
 > [返回目录](#chapter-one)
 
-指定打包⼊口⽂文件，有三种不同的形式：`string | object | array`。
+指定打包⼊口文件，有三种不同的形式：`string | object | array`。
 
 一对一：一个入口、一个打包文件
 
@@ -299,7 +299,7 @@ module.exports = {
 }
 ```
 
-* `resolve.modules`：配置 Webpack 去哪些目录下寻找第三方模块，默认情况下，只会去 `node_modules` 下寻找，如果你我们项目中某个文件夹下的模块经常被导入，不希望写很长的路径，那么就可以通过配置 `resolve.modules` 来简化。
+* `resolve.modules`：配置 Webpack 去哪些目录下寻找第三方模块，默认情况下，只会去 `node_modules` 下寻找，如果你在项目中某个文件夹下的模块经常被导入，不希望写很长的路径，那么就可以通过配置 `resolve.modules` 来简化。
 * `resolve.alias`：配置项通过别名把原导入路径映射成一个新的导入路径。
 * `resolve.extensions`：适配多端的项目中，可能会出现 `.web.js`, `.wx.js`，例如在转 Web 的项目中，我们希望首先找 `.web.js`，如果没有，再找 `.js`。`extensions: ['web.js', '.js']`。
 
@@ -307,7 +307,7 @@ module.exports = {
 
 > [返回目录](#chapter-one)
 
-如何从 0 开始配置一个属于自己的 Webpack 脚手架呢？
+如何从 0 开始配置一个属于自己的 Webpack 脚手架呢？那就涉及到选型问题。
 
 ### <a name="chapter-twelve-one" id="chapter-twelve-one"></a>12.1 技术选型
 
@@ -692,4 +692,4 @@ if(module && module.hot) {
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
