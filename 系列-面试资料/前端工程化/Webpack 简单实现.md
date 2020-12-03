@@ -2,7 +2,7 @@ Webpack 简单实现
 ===
 
 > Create by **jsliang** on **2020-10-20 15:24:02**  
-> Recently revised in **2020-10-20 19:33:36**
+> Recently revised in **2020-12-04 07:43:26**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -210,6 +210,8 @@ SyntaxError: Unexpected token {
 
 也就是说我们执行到 `message.js`，但是它里面的内容没法运行，因为 `import` 是 `ES6` 内容嘛。
 
+咋整，继续看下面内容。
+
 ## <a name="chapter-four" id="chapter-four"></a>四 第二步 生成依赖图谱
 
 > [返回目录](#chapter-one)
@@ -281,7 +283,7 @@ fs.writeFile('bundle.js', word, () => {
 });
 ```
 
-所以当我们 `node bundler.js` 的时候，会打印：
+所以当我们 `node bundler.js` 的时候，会打印内容出来：
 
 ```
 --- step two ---
@@ -631,4 +633,4 @@ say hello
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
