@@ -2,7 +2,7 @@ Webpack - Tree Shaking
 ===
 
 > Create by **jsliang** on **2020-09-27 11:20:24**  
-> Recently revised in **2020-09-27 11:23:27**
+> Recently revised in **2020-12-05 14:27:41**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -117,7 +117,9 @@ p.innerHTML = result;
 
 这里可以通过一个数组，数组支持 **相关文件的相对路径、绝对路径和 `glob` 模式**。
 
-这样，我们就找出了 未使用代码（`dead-code`），但是正如上面所说，只是告知，并没有删除。
+这样，我们就找出了 **未使用代码**（`dead-code`）。
+
+但是正如上面所说，只是告知，并没有删除。
 
 如果我们需要在 `bundle` 中删除它们，就需要使用 `-p`（`production`）这个 Webpack 编译标记，来启用 `uglifyjs` 压缩插件。
 
@@ -189,10 +191,10 @@ import { debounce } from 'lodash';
 import debounce from 'lodash/lib/debounce';
 ```
 
-上面导入中：**全部导入** 是不支持 `Tree Shaking` 的，其他都支持。
+上面导入中：第一种的 **全部导入** 是不支持 `Tree Shaking` 的，其他都支持。
 
 为什么呢？因为当你将整个库导入到单个 JavaScript 对象中时，就意味着你告诉 Webpack，你需要整个库，这样 Webpack 就不会摇它。
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
