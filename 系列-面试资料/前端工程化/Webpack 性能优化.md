@@ -2,7 +2,7 @@ Webpack 性能优化
 ===
 
 > Create by **jsliang** on **2020-10-20 15:00:19**  
-> Recently revised in **2020-10-26 20:15:40**
+> Recently revised in **2020-12-07 07:50:10**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -41,6 +41,8 @@ Webpack 的优化瓶颈，主要是 2 个方面：
 * Webpack 的构建过程太花时间
 * Webpack 打包的结果体积太大
 
+本文从这 2 个角度出发，收集一些相关优化资料。
+
 ## <a name="chapter-three" id="chapter-three"></a>三 针对 Webpack 本身构建优化
 
 > [返回目录](#chapter-one)
@@ -49,9 +51,11 @@ Webpack 的优化瓶颈，主要是 2 个方面：
 
 > [返回目录](#chapter-one)
 
-`resolve.modules` 用于配置 `Webpack` 去哪些目录下寻找第三方模块，默认是 `['node_modules']`，但是，它会先去当前目录的 `./node_modules` 查找，没有的话再去 `../node_modules`，最后到根目录。
+`resolve.modules` 用于配置 `Webpack` 去哪些目录下寻找第三方模块，默认是 `['node_modules']`。
 
-所以可以直接指定项目根目录，就不需要一层一层查找。
+但是，它会先去当前目录的 `./node_modules` 查找，没有的话再去 `../node_modules`，最后到根目录 —— 即 `npm` 查找包的规则。
+
+所以可以直接指定项目根目录，这样代码就不需要一层一层查找。
 
 ```js
 resolve: {
@@ -79,6 +83,8 @@ resolve: {
 
 以 `babel-loader` 为例，可以通过 `include` 和 `exclude` 帮助我们避免 `node_modules` 这类庞大文件夹。
 
+即通过 `include` 告诉 `Webpack` 哪些我们是需要检测的，通过 `exclude` 告诉 `Webpack` 哪些我们是不需要检测的（例如已经收拾过的静态资源）
+
 ## <a name="chapter-four" id="chapter-four"></a>四 通过 Loader 和 Plugin 优化
 
 > [返回目录](#chapter-one)
@@ -94,6 +100,8 @@ resolve: {
 * `uglifyjs-webpack-plugin`
 
 通过这个插件也可以解决缓存问题。
+
+> 注：具体的要根据当前的 `Webpack` 版本，`Loader` 和 `Plugin` 表示 `Webpack` 每次更新都会淘汰一批没有跟进维护的 `Loader` 和 `Plugin`。就跟大佬还在持续学习，你几年没学习之后，遇到金融危机被淘汰的风险就高了。
 
 ### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 多进程
 
@@ -230,4 +238,4 @@ resolve: {
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
