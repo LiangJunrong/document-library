@@ -36,7 +36,7 @@
 
 > [返回目录](#chapter-one)
 
-复习知识点有 6 个部分。
+本系列参考 79 篇文章，总结出 6 篇文章，感谢小伙伴们的支持。
 
 ### <a name="chapter-two-one" id="chapter-two-one"></a>2.1 Babel
 
