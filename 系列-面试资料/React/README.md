@@ -2,7 +2,7 @@ React
 ===
 
 > Create by **jsliang** on **2020-09-02 15:28:53**  
-> Recently revised in **2020-10-25 22:45:51**
+> Recently revised in **2020-12-10 07:58:41**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -59,13 +59,15 @@ React
 
 > [返回目录](#chapter-one)
 
-React 也是现如今最流行的前端框架，也是很多大厂面试必备。
+React 是现如今流行的前端框架，也是很多大厂面试必备。
 
 React 与 Vue 虽有不同，但同样作为一款 `MV*` 框架，虽然实现可能不一样，但在一些理念上还是有相似的，例如数据驱动、组件化、虚拟 DOM 等。
 
 当然，还有一些问题，可能最近都没法搞清楚的了，毕竟罗马不是一天能建成的：
 
 * [ ] React 的实现原理？有什么优缺点？
+
+这些往往要更深入挖掘方可得知自己的结论，任重道远，不停歇。
 
 ## <a name="chapter-three" id="chapter-three"></a>三 知识点
 
@@ -160,6 +162,7 @@ React 不同于 Vue，可以通过 `v-model` 的形式，让用户的操作和 J
 
 所以，针对于小项目来说，社区推荐使用 MobX，对大项目推荐使用 Redux。
 
+> 本段文本参考的内容已记录在参考文献中
 
 ## <a name="chapter-five" id="chapter-five"></a>五 React 相比原生的好处
 
@@ -192,6 +195,8 @@ React 不同于 Vue，可以通过 `v-model` 的形式，让用户的操作和 J
 2. **监听数据变化的不同**。Vue 使用的是可变数据，而 React 更强调数据的不可变。在 Vue 中通过 `v-model` 绑定的数据，用户改变输入值后对应的值也相应改变。而 React 需要通过 `setState` 进行设置变化。
 3. **Diff 不同**。Vue 通过双向链表实现边对比边更新 DOM，而 React 通过 `Diff` 队列保存需要更新的 DOM，得到 `patch` 树，再统一批量更新 DOM。
 4. **开发团队**。Vue 一开始核心就是 Evan You，后面再招了其他人组成团队；React 的话是一开始就是 Facebook 团队搞的。所以网上的人比对源码情况的话，Vue 的比 React 的简单易懂点。
+
+> 实话实说是看别人说的异同，担心有 “小伙伴” 有自己观点，然后在这里被喷，**jsliang** 不敢持有任何自己的观点，但是面试我总是要这么回答面试官的 /滑稽
 
 ## <a name="chapter-seven" id="chapter-seven"></a>七 React Fiber
 
@@ -773,4 +778,4 @@ function visible(WrappedComponent) {
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
