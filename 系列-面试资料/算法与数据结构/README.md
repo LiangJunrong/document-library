@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:07:27**  
-> Recently revised in **2020-10-27 21:13:08**
+> Recently revised in **2020-12-12 15:47:25**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -35,7 +35,6 @@
 | &emsp;[12.2 双指针](#chapter-twelve-two) |
 | &emsp;[12.3 二分查找](#chapter-twelve-three) |
 | <a name="catalog-chapter-thirteen" id="catalog-chapter-thirteen"></a>[十三 参考文献](#chapter-thirteen) |
-| &emsp;[13.1 算法](#chapter-thirteen-one) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -57,6 +56,8 @@
 ## <a name="chapter-three" id="chapter-three"></a>三 收集题库
 
 > [返回目录](#chapter-one)
+
+下面这些都是收集的，面市场上出现过的一些题目，感兴趣的可以看看，有些已经贴出 LeetCode 的地址：
 
 1. 快速排序
 2. 实现一个算法，来完成字符串相加，比如 `'111' + '2222' = '2333'`。(高精度算法)
@@ -93,9 +94,9 @@
 const obj = {
   my_name: 'jsliang',
   wo_de_jia: {
-    zu_fang: '广州',
-    jia: '河源',
-    zu_ji: '茂名',
+    zu_fang: 'guangzhou',
+    jia: 'heyuan',
+    zu_ji: 'maoming',
   },
 };
 
@@ -103,7 +104,7 @@ const obj = {
 转换为：
 {
   myName: 'jsliang',
-  woDeJia: { jia: '河源', zuFang: '广州', zuJi: '茂名' },
+  woDeJia: { jia: 'heyuan', zuFang: 'guangzhou', zuJi: 'maoming' },
 }
 */
 
@@ -701,4 +702,4 @@ console.log(binarySearch([0, 1, 2, 3, 4, 5], 0));
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
