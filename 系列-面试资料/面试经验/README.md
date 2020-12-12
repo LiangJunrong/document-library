@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-02 16:59:16**  
-> Recently revised in **2020-09-30 22:40:03**
+> Recently revised in **2020-12-12 16:01:35**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -111,7 +111,8 @@
 
 **jsliang** 面试过 **360 数科** 等厂，下面是题库列表附带题解：
 
-* [x] [面试题库 01](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93/01.md)
+* [x] [面试题库](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93)
+* [x] 后续断更啦！主要是 **jsliang** 觉得都在复习的知识点中了，你要是将 **jsliang** 复习的知识点都搞了，那么一面基本都没问题撒~
 
 ### <a name="chapter-four-three" id="chapter-four-three"></a>4.3 向面试官提问
 
