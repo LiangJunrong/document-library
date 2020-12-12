@@ -4,6 +4,7 @@
 > Create by **jsliang** on **2020-09-02 16:59:16**  
 > Recently revised in **2020-09-30 22:40:03**
 
+<!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
 
 **不折腾的前端，和咸鱼有什么区别**
@@ -17,7 +18,8 @@
 | &emsp;[4.1 自我介绍](#chapter-four-one) |
 | &emsp;[4.2 技术考查](#chapter-four-two) |
 | &emsp;[4.3 向面试官提问](#chapter-four-three) |
-| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 其他大佬分享](#chapter-five) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 其他分享](#chapter-five) |
+<!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
@@ -60,7 +62,33 @@
 * **技术能力**：简要地介绍⾃⼰的技术栈，切忌把⾃⼰只是简单使⽤过，写过⼏个 Demo 或者看了看⽂档的所谓「技术栈」也说出来，⼀旦后⾯问到算是⾃找尴尬。这个部分的重点在于 **【你会什么？】**。
 * **技能擅长**：重点介绍⾃⼰擅⻓的技术，⽐如性能优化、⾼并发、系统架构设计或者是沟通协调能⼒等等，切忌夸⼤其词，要实事求是，这是之后考察的重点。这个部分重点⾃在于 **【你擅⻓什么？】**。
 
-自我介绍的时间最好控制在 1-3 分钟左右
+---
+
+自我介绍的时间最好控制在 1-3 分钟左右，例如 **jsliang** 的自我介绍：
+
+你好，我叫梁峻荣，网名 **jsliang**。
+
+我从 `2018` 年 `5` 月开始就职前端工作，到现在 2 年多了。
+
+期间经历的技术栈有 `jQuery + H5`、`Vue + ECharts`、微信小程序、`React` 等。
+
+曾经使用过 `PHP`、`Node` 等后端语言，`MongoDB`、`MySQL` 等数据库，但是因为不常使用，所以也是用过就忘了。
+
+个人比较能折腾，从 `2018` 年开始在 **Github** 和 **掘金** 上写博客，丰富自己的前端知识体系，记录工作中碰到的问题，同时也希望给其他小伙伴提供学习借鉴。
+
+现在掘金有 `1.3w` 关注，`Github` 有 `2.3k star`。
+
+`2019` 年 `5` 月开始接触算法，每天刷 `LeetCode`。
+
+个人是从简单难度开始，刷到 `2020` 年 `2` 月后，刷完了当时的所有简单难度的 `LeetCode` 题。
+
+后面觉得不够系统，所以开始按照标签刷：字符串、数组、栈、队列、BFS、DFS、回溯等。
+
+现在已经积累了 `470+` 的 `LeetCode` 题目题解，不过个人还是有些缺点，例如动态规划、贪心算法等还不够熟练，所以后面会持续刷题，希望某天能同步 `LeetCode` 更新题目的速度。
+
+因为上一家公司的业务比较复杂，所以写了 `100+` 篇的 `WIKI`，用来帮助前端以及整个项目组进行业务梳理，希望如果入职 `XX` 厂，也能和小伙伴们一起将团队建设地更好。
+
+谢谢。
 
 ### <a name="chapter-four-two" id="chapter-four-two"></a>4.2 技术考查
 
@@ -114,4 +142,4 @@
 
 ---
 
-> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">jsliang 的文档库</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/LiangJunrong/document-library" property="cc:attributionName" rel="cc:attributionURL">梁峻荣</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br />基于<a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/LiangJunrong/document-library" rel="dct:source">https://github.com/LiangJunrong/document-library</a>上的作品创作。<br />本许可协议授权之外的使用权限可以从 <a xmlns:cc="http://creativecommons.org/ns#" href="https://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="cc:morePermissions">https://creativecommons.org/licenses/by-nc-sa/2.5/cn/</a> 处获得。
+> jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
