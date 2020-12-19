@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-11-05 16:17:19**  
-> Recently revised in **2020-11-05 16:24:04**
+> Recently revised in **2020-12-19 14:44:36**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -22,7 +22,7 @@
 
 > [返回目录](#chapter-one)
 
-牛客网面试方式
+`bilibili` 采用的是牛客网面试方式，毕竟是异地。
 
 ## <a name="chapter-three" id="chapter-three"></a>三 一面
 
@@ -54,7 +54,7 @@
 
 > [返回目录](#chapter-one)
 
-等通知……
+二面后凉了。
 
 分析：没回答好，个人比较懵逼。
 
