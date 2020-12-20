@@ -111,7 +111,7 @@
 
 **jsliang** 将自己面试中碰到的一些知识点给罗列了出来：
 
-* [x] [面试题库](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93)
+* [面试题库](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93)
 
 当然，后续断更啦！主要是 **jsliang** 觉得都在复习的知识点中了，你要是将 **jsliang** 复习的知识点都搞了，那么一面基本都没问题撒~
 
