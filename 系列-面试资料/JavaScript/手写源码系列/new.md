@@ -184,6 +184,8 @@ console.log(me); // Person {name: 'jsliang'}
 
 这样，我们就了解 `new` 是啥东东，碰到手写 `new` 的时候就不慌啦！
 
+> 如果你将代码直接复制执行，你会发现报错了，想想为什么？你可以将 `myNew(Person, 'jsliang')` 缓存 `new Person('jsliang')` 先试试，再仔细检查构造函数 `Person` 内部代码
+
 ---
 
 > jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
