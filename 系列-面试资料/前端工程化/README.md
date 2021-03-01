@@ -45,7 +45,7 @@
 文章地址：[Babel](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/Babel.md)
 
 * [x] **AST**：抽象语法树，是源代码语法结构的一种抽象表示
-* [x] **原理**：将现有的 ES6+ 代码，先通过 **词法分析** 和 **语法分析** 之后 **解析** 为 `AST`，然后将这份 `AST` **转换** 为我们需要形式的 `AST`，最后将这个 `AST` 再转换成 ES5 或者期望格式的内容。
+* [x] **原理**：将现有的 ES6+ 代码，先通过 **词法分析** 和 **语法分析** 之后 **解析** 为 `AST`，然后将这份 `AST` **转换** 为我们需要形式的 `AST`，最后将这个 `AST` 再转换成 ES5 或者期望格式的内容
 
 ### <a name="chapter-two-two" id="chapter-two-two"></a>2.2 Webpack
 
@@ -55,11 +55,11 @@
 
 * [x] **是什么**：本质是一个模块打包器，其工作是将每个模块打包成相应的 `bundle`
 * [x] **核心概念**：`mode`、`entry`、`output`、`loader`、`plugin`
-* [x] **构建流程**：初始化、编译、输出，插件（`Plugin`）随时监听 `Webpack` 广播并在某些时候调用 `API` 改变运行结果。
+* [x] **构建流程**：初始化、编译、输出，插件（`Plugin`）随时监听 `Webpack` 广播并在某些时候调用 `API` 改变运行结果
 * [x] **entry**：指定打包⼊口⽂文件。原本是 `string`，即一个入口对一个打包文件、`object` 多对一，`array` 多对多
 * [x] **output**：打包后的文件位置
 * [x] **loader**：翻译官，对不同资源进行处理，从右向左执行
-* [x] **plugin**：插件，扩展 `Webpack` 的功能，监听 `Webpack` 的生命周期，调用 `API` 改变输出结果。
+* [x] **plugin**：插件，扩展 `Webpack` 的功能，监听 `Webpack` 的生命周期，调用 `API` 改变输出结果
 * [x] **resolve**：配置 `Webpack` 如何寻找模块所对应的文件。`resolve.modules/extensions/include/exclude`
 * [x] **从 0 开始配置 Webpack**
   * [x] 技术选型：移动端|PC、MPA|SPA、HTML|模板引擎、CSS|预处理器、ES5|ES6+、Mock、React|Vue、多人合作|单人项目、ESlint|TSlint、单元测试、提交规范
@@ -92,7 +92,7 @@
 
 文章地址：[Webpack - Tree Shaking](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/Webpack%20-%20Tree%20Shaking.md)
 
-* [x] **Tree Shaking**：通过在 `package.json` 中开启 `sideEffects`，将 ES6 模板语法的 `import` 行为导入的文件都标记为无副作用，然后开启 `-p` 的生产模式，让 `Webpack` 调用内部的 `UglifyJSWebpackPlugin` 来进行删除未引用代码。
+* [x] **Tree Shaking**：通过在 `package.json` 中开启 `sideEffects`，将 ES6 模板语法的 `import` 行为导入的文件都标记为无副作用，然后开启 `-p` 的生产模式，让 `Webpack` 调用内部的 `UglifyJSWebpackPlugin` 来进行删除未引用代码
 * [x] **dead-code**：代码不会被执行，或者执行结果不会被用到，或者代码只会影响死变量的，叫做 `dead-code`
 * [x] **副作用**：如果在 `import` 导入时就会做一些特殊行为的代码，称之为有副作用的代码，例如 `polyfill` 会影响全局作用域
 * [x] **静态分析**：ES6 模板语法可以在不执行代码的情况下，从字面量上对代码进行分析。静态分析是 `Tree Shaking` 的基础。而 `require` 是需要执行了才知道引用内容的，就不能通过静态分析做优化
@@ -123,7 +123,7 @@
 
 * [x] **resolve.modules**：用于配置 `Webpack` 去哪些目录下寻找第三方模块（`node_modules`）
 * [x] **resolve.extensions**：在导入没带文件后缀的路径时，`Webpack` 会自动带上后缀去尝试询问文件是否存在，而 `resolve.extensions` 用于配置尝试后缀列表；默认为 `extensions:['js', 'json']`
-* [x] **resolve.include/exclude**：以 `babel-loader` 为例，可以通过 `include` 和 `exclude` 帮助我们避免 `node_modules` 这类庞大文件夹]
+* [x] **resolve.include/exclude**：以 `babel-loader` 为例，可以通过 `include` 和 `exclude` 帮助我们避免 `node_modules` 这类庞大文件夹
 * [x] **缓存**：`cache-loader` 和 `uglifyjs-webpack-plugin`，将编译结果写进硬盘缓存，下次文件如果没有变化则直接拉取缓存
 * [x] **多进程**：`Happypack` 和 `thread-loader`，将任务分解成多个子进程去并发执行，提高打包效率
 * [x] **多进程压缩**：`Webpack` 自带的 `UglifyJSWebpackPlugin` 压缩插件是单线程运行的，而 `TerserWebpackPlugin` 可以并行执行（多线程）
