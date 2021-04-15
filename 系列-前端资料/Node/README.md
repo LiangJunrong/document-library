@@ -10,7 +10,7 @@ Node 系列
 
 本系列会由易到难，和小伙伴们一起探索 Node.js。
 
-* Node 工具库（编写 ing）
+* Node 工具库（编写 ing、日更中）
   * commander
   * 翻译
   * 文件序号重排
