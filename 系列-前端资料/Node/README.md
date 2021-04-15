@@ -114,8 +114,6 @@ OK，废话那么多，小伙伴们应该将 Node.js 和 VS Code 安装完毕了
 
 > [返回目录](#chapter-one)
 
-* [IT 营](https://www.itying.com)
-* [IT 营：Node.js Koa2 视频教程 avi 版本（课件+源码+视频）](https://www.itying.com/goods-240.html)
 * [知乎：浅谈前后端分离与实践之 nodejs 中间层服务(二)](https://zhuanlan.zhihu.com/p/30384677)
 
 ---
