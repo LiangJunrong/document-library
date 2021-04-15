@@ -42,7 +42,7 @@ Node 系列
 
 > [返回目录](#chapter-one)
 
-Node.js 是一个 JavaScript 运行环境（`runtime）。它让 JavaScript 可以开发后端程序，实现几乎其他后端语言实现的所有功能。传说中 **能与 PHP、JSP、Python、Ruby 等后端语言平起平坐**。
+Node.js 是一个 JavaScript 运行环境（`runtime`）。它让 JavaScript 可以开发后端程序，实现几乎其他后端语言实现的所有功能。传说中 **能与 PHP、JSP、Python、Ruby 等后端语言平起平坐**。
 
 但是，实际上 Node.js 一般用作中间件。例如：在浏览器端和 Java 端使用 Node.js 作为中间件，Node.js 调用 Java 后端发布的接口，同时 Node.js 可以发布 HTTP 接口给浏览器端调用。 
 
