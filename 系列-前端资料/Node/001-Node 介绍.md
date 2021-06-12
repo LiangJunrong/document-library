@@ -4,6 +4,15 @@
 > Create by **jsliang** on **2018-11-22 08:21:23**  
 > Recently revised in **2021-06-12 16:48:11**
 
+——————————☆☆☆——————————
+
+Node 系列相应地址：
+
+* 代码仓库：https://github.com/LiangJunrong/all-for-one
+* 文章仓库：https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E5%89%8D%E7%AB%AF%E8%B5%84%E6%96%99/Node
+
+——————————☆☆☆——————————
+
 什么，作为一枚前端复制粘贴工程师，你居然还不会 Node.js？
 
 在日常工作中，**jsliang** 会用 Node.js 写写便捷小工具，优化工作流程和进行接口数据转发等。
