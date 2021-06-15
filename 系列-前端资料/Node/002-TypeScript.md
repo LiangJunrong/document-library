@@ -2,14 +2,14 @@
 ===
 
 > Create by **jsliang** on **2021-05-12 11:00:03**  
-> Recently revised in **2021-06-12 16:58:04**
+> Recently revised in **2021-06-15 13:01:02**
 
 ——————————☆☆☆——————————
 
 Node 系列相应地址：
 
 * 代码仓库：https://github.com/LiangJunrong/all-for-one
-* 文章仓库：https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E5%89%8D%E7%AB%AF%E8%B5%84%E6%96%99/Node
+* 文章仓库：https://github.com/LiangJunrong/document-library/tree/master/系列-前端资料/Node
 
 ——————————☆☆☆——————————
 
