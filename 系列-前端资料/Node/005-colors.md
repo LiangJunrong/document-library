@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2021-06-03 17:55:25**  
-> Recently revised in **2021-06-16 21:49:21**
+> Recently revised in **2021-06-16 21:54:56**
 
 接入 `commander.js` 和 `Inquirer.js` 之后，本应该直接接上 `colors.js`，毕竟我们现在是控制台输出，控制台不搞得飘飘亮亮（花里胡哨的）。
 
@@ -21,6 +21,7 @@
 | <a name="catalog-chapter-two" id="catalog-chapter-two"></a>[二 前言](#chapter-two) |
 | <a name="catalog-chapter-three" id="catalog-chapter-three"></a>[三 colors.js](#chapter-three) |
 | <a name="catalog-chapter-four" id="catalog-chapter-four"></a>[四 重写 console.log](#chapter-four) |
+| <a name="catalog-chapter-five" id="catalog-chapter-five"></a>[五 参考文献](#chapter-five) |
 <!-- 目录结束 -->
 
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
@@ -272,6 +273,14 @@ program.parse(process.argv);
 那么，花里花哨的接入就完毕了，虽然都是 API 复制粘贴工程师，但是做下装饰搞好看一点还是可以有的~
 
 下一篇见！
+
+## <a name="chapter-five" id="chapter-five"></a>五 参考文献
+
+> [返回目录](#chapter-one)
+
+* [GitHub：Marak/colors.js](https://github.com/Marak/colors.js)
+* [Kalvin 在线工具](https://tools.kalvinbg.cn/txt/ascii)
+* [ASCII 字形生成器](https://www.wncx.cn/ascii/)
 
 ---
 
