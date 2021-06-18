@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-21 23:29:10**  
-> Recently revised in **2020-11-17 21:09:15**
+> Recently revised in **2021-06-18 21:24:11**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -103,7 +103,7 @@
 
 当然，`HTTP` 请求需要注意是否跨域，如何解决跨域问题：
 
-* [浏览器 - 跨域](https://github.com/LiangJunrong/document-library/blob/master/other-library/interview/%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/%E6%B5%8F%E8%A7%88%E5%99%A8/%E8%B7%A8%E5%9F%9F.md)
+* [浏览器 - 跨域](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E6%B5%8F%E8%A7%88%E5%99%A8/%E8%B7%A8%E5%9F%9F.md)
 
 ## <a name="chapter-seven" id="chapter-seven"></a>七 服务器响应
 
