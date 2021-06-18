@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2020-09-01 21:06:48**  
-> Recently revised in **2020-12-12 15:49:33**
+> Recently revised in **2021-06-18 21:32:21**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -436,7 +436,7 @@ const Single = function (name, password) {
   this.password = password;
 };
 
-Single.prototype.login = (name, password) => {
+Single.prototype.login = function (name, password) {
   if (!this.only) {
     this.only = new Single(name, password);
   }
