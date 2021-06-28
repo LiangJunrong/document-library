@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2021-06-28 22:23:55**  
-> Recently revised in **2021-06-28 22:23:55**
+> Recently revised in **2021-06-28 22:43:49**
 
 <!-- 目录开始 -->
 ## <a name="chapter-one" id="chapter-one"></a>一 目录
@@ -18,6 +18,12 @@
 ## <a name="chapter-two" id="chapter-two"></a>二 前言
 
 > [返回目录](#chapter-one)
+
+* 你的目的：
+* 你的目标：
+* 你的思路：
+* 挫折：
+* 成长：
 
 ## 参考文献
 
