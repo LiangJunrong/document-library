@@ -27,6 +27,7 @@
 
 ## 参考文献
 
+* [掘金：使用Node开发一个多人对战的射击游戏](https://juejin.cn/post/6960096410305822751)
 * [CSDN：JavaScript之射击类小游戏的简单示例](https://blog.csdn.net/cighao/article/details/49429721)
 * [CSDN：[游戏]原生js实现“射击俄罗斯方块”](https://blog.csdn.net/u013642500/article/details/113827446)
 * [bbsmax：简单的射击游戏HTML+JS实现](https://www.bbsmax.com/A/RnJW2OPYzq/)
