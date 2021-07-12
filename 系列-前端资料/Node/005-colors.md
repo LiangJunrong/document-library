@@ -4,6 +4,15 @@
 > Create by **jsliang** on **2021-06-03 17:55:25**  
 > Recently revised in **2021-06-16 21:54:56**
 
+——————————☆☆☆——————————
+
+Node 系列相应地址：
+
+* 代码仓库：https://github.com/LiangJunrong/all-for-one
+* 文章仓库：https://github.com/LiangJunrong/document-library/tree/master/系列-前端资料/Node
+
+——————————☆☆☆——————————
+
 接入 `commander.js` 和 `Inquirer.js` 之后，本应该直接接上 `colors.js`，毕竟我们现在是控制台输出，控制台不搞得飘飘亮亮（花里胡哨的）。
 
 但是上篇 `Inquires.js` 太给力了，直接上了 1.7w 字，所以相对而言，这篇就简短点呗。
