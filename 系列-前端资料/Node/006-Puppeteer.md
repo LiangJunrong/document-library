@@ -4,6 +4,15 @@
 > Create by **jsliang** on **2021-06-16 22:15:56**  
 > Recently revised in **2021-06-18 22:56:00**
 
+——————————☆☆☆——————————
+
+Node 系列相应地址：
+
+* 代码仓库：https://github.com/LiangJunrong/all-for-one
+* 文章仓库：https://github.com/LiangJunrong/document-library/tree/master/系列-前端资料/Node
+
+——————————☆☆☆——————————
+
 在前面的 5 篇文章打底下，咱们应该接入点接地气的业务了。
 
 本篇开始将接触前端多语言功能。
