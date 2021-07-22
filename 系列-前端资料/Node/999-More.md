@@ -6,7 +6,7 @@
 
 TODO:
 
-1. 补充完善 shell.js 文章，资料在下面
+1. √ 补充完善 shell.js 文章，资料在下面
 2. 通过 canvas 开发小游戏
 3. 通过 Next 打造小游戏说明文档
    1. 引用 Next
