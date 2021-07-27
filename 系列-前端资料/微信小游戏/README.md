@@ -35,6 +35,12 @@
 * 挫折：
 * 成长：
 
+## 步骤
+
+1. 按教程走：https://developers.weixin.qq.com/miniprogram/dev/wxcloud/quick-start/miniprogram.html
+2. 未注册 appid 的小伙伴点击「注册」进行申请，已注册的小伙伴可能需要重新注册过
+3. 
+
 ## 参考文献
 
 * [掘金：使用Node开发一个多人对战的射击游戏](https://juejin.cn/post/6960096410305822751)
