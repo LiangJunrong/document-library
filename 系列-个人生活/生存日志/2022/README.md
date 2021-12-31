@@ -61,6 +61,10 @@
 
 * **文章输出**：「3h * 156」公众号输出 156 篇技术文章
   * 打卡次数：**2/150**
+
+1. [朝花夕拾 - 年度整理，2021？2022！](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E4%B8%AA%E4%BA%BA%E7%94%9F%E6%B4%BB/%E5%A4%A7%E4%BA%8B%E8%AE%B0%E5%BD%95/2021/2021-11-29.md)
+2. [朝花夕拾 - 关于在编写抽奖活动文章中突然举办个人年度活动](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E4%B8%AA%E4%BA%BA%E7%94%9F%E6%B4%BB/%E5%A4%A7%E4%BA%8B%E8%AE%B0%E5%BD%95/2021/2021-12-20.md)
+
 * **书籍编写**：「0.5h * 5 * 52」编写一本有 21 章的书籍
   * 打卡次数：**0/260**
 
