@@ -68,6 +68,12 @@
 * **书籍编写**：「0.5h * 5 * 52」编写一本有 21 章的书籍
   * 打卡次数：**0/260**
 
+## 你的偶像
+
+* [技术胖 - jspang](https://space.bilibili.com/165659472)
+
+> jspang === 技术胖，jsliang === JavaScriptLiang，避免混淆~我是没有技术的人
+
 ---
 
 > jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
