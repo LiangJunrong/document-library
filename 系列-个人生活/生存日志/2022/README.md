@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2021-12-13 22:49:52**  
-> Recently revised in **2021-12-31 16:26:22**
+> Recently revised in **2022-01-06 23:26:08**
 
 2022 年有 52 周
 
@@ -60,11 +60,12 @@
 ### 2.3 文章输出
 
 * **文章输出**：「3h * 156」公众号输出 156 篇技术文章
-  * 打卡次数：**3/150**
+  * 打卡次数：**4/150**
 
 1. [朝花夕拾 - 年度整理，2021？2022！](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E4%B8%AA%E4%BA%BA%E7%94%9F%E6%B4%BB/%E5%A4%A7%E4%BA%8B%E8%AE%B0%E5%BD%95/2021/2021-11-29.md)
 2. [朝花夕拾 - 关于在编写抽奖活动文章中突然举办个人年度活动](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E4%B8%AA%E4%BA%BA%E7%94%9F%E6%B4%BB/%E5%A4%A7%E4%BA%8B%E8%AE%B0%E5%BD%95/2021/2021-12-20.md)
 3. [广东 - 011 - 广州沙面|北京路|上下九](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E4%B8%AA%E4%BA%BA%E7%94%9F%E6%B4%BB/%E6%97%85%E6%B8%B8/%E5%B9%BF%E4%B8%9C-011-%E5%B9%BF%E5%B7%9E%E6%B2%99%E9%9D%A2.md)
+4. [【jsliang 小调查】相互宝关停背后和全民保小剖析](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E4%B8%AA%E4%BA%BA%E7%94%9F%E6%B4%BB/%E7%90%86%E8%B4%A2/2022/0104-%E7%9B%B8%E4%BA%92%E5%AE%9D%E5%85%B3%E5%81%9C%E8%83%8C%E5%90%8E%E5%92%8C%E5%85%A8%E6%B0%91%E4%BF%9D%E5%B0%8F%E5%89%96%E6%9E%90.md)
 
 * **书籍编写**：「0.5h * 5 * 52」编写一本有 21 章的书籍
   * 打卡次数：**0/260**
