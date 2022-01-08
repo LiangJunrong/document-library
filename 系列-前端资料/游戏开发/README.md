@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2022-01-08 17:23:01**  
-> Recently revised in **2022-01-08 17:23:01**
+> Recently revised in **2022-01-08 18:44:10**
 
 每个大老粗的男人背后，总有一颗稚嫩的玩游戏的童心~
 
@@ -35,6 +35,35 @@ https://wzf1997.github.io/learn-visualization/blog/person/chooseGrapic.html#%E5%
 > 当然，也有可能这时候你就判断到自己只是想耍耍，而不是特别想要做个人游戏开发
 
 至于后面的内容，还没悟出来，先走前 2 步！
+
+## 第一款游戏
+
+* 射击类型的，类似于「小小法师」「超强射手」
+* 
+
+## 参考资料
+
+服务端：
+
+* [TSPRC](https://tsrpc.cn/)
+* [NESTJS](https://docs.nestjs.cn/)
+* [Midway](https://midwayjs.org/)
+* [云开发 CloudBase](https://cloudbase.net/)
+
+游戏引擎：
+
+* [Cocos](https://www.cocos.com/)
+* [Cocos Creator](https://www.cocos.com/products#CocosCreator)
+
+资料补充：
+
+* [Fly - 从 0 到 1 入门数据可视化](https://wzf1997.github.io/learn-visualization/blog/person/chooseGrapic.html)
+* [Cocos - 疯狂打群架多人版 —— TSRPC + Cocos 多人实时对战示例项目](https://store.cocos.com/app/detail/3432)
+* [HelloWorld - Wesley13 - H5游戏开发：游戏引擎入门推荐](https://www.helloworld.net/p/7248991818)
+
+协议：
+
+* [MIT 协议](https://www.ruanyifeng.com/blogimg/asset/201105/bg2011050101.png)
 
 ---
 
