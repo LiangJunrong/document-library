@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2022-01-08 17:23:01**  
-> Recently revised in **2022-01-08 18:44:10**
+> Recently revised in **2022-01-10 09:22:40**
 
 每个大老粗的男人背后，总有一颗稚嫩的玩游戏的童心~
 
@@ -41,6 +41,19 @@ https://wzf1997.github.io/learn-visualization/blog/person/chooseGrapic.html#%E5%
 * 射击类型的，类似于「小小法师」「超强射手」
 * 
 
+* 设置编辑器为中文：Cocos Creator -> Preferences -> General -> Language
+* 设置编辑器的打开程序为 VS Code：Cocos Creator -> 偏好设置 -> 外部程序 -> 默认脚本编辑器
+
+### 如何设置打开的目录为 VS Code
+
+1. 打开 Cocos Creator，在 assets 上新建 foo.ts，此时双击打开的是系统自带的播放器，打不开的
+2. 需要在 `Cocos Creator -> 偏好设置 -> 外部程序 -> 默认脚本编辑器` 上设置
+3. 快速找到 VS Code 编辑器位置：
+   1. Windows 10 系统搜索：Visual Studio Code
+   2. 右键 -> 打开文件位置，从而找到快捷键
+   3. 右键 -> 打开文件所在的位置，从而找到快捷键所在的真实目录
+   4. 将路径复制到默认脚本编辑器上的弹窗中
+
 ## 参考资料
 
 服务端：
@@ -54,6 +67,7 @@ https://wzf1997.github.io/learn-visualization/blog/person/chooseGrapic.html#%E5%
 
 * [Cocos](https://www.cocos.com/)
 * [Cocos Creator](https://www.cocos.com/products#CocosCreator)
+* [Cocos 技术文档](https://www.cocos.com/docs#creator)
 
 资料补充：
 
