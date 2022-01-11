@@ -6,9 +6,15 @@
 
 每个大老粗的男人背后，总有一颗稚嫩的玩游戏的童心~
 
-30 岁前想开发至少一款游戏，想必这会是一个有趣的事情。
+30 岁前想从 0 到 1 开发至少一款游戏，想必这会是一个有趣的事情。
 
-## Temp
+## 关于游戏开发
+
+* 游戏开发难不？
+
+从一枚新手角度来说，看到 Cocos Creator 编辑器界面和网上视频教程，个人还是觉得挺难的：**我只想写代码，别让我整那么多~**
+
+所以还是乖乖从 Hello World 开始吧，真的就从 0 开始整。
 
 * 关于图形学的了解？
 
@@ -39,7 +45,12 @@ https://wzf1997.github.io/learn-visualization/blog/person/chooseGrapic.html#%E5%
 ## 第一款游戏
 
 * 射击类型的，类似于「小小法师」「超强射手」
-* 
+* 找到一款游戏资源：幽灵射手 3D 小游戏：https://www.bilibili.com/video/BV1nf4y1P7S8（就是听说有很多坑，下载下来无法运行等）
+* 基础设定：
+
+金木水火土、雷电、毒
+
+### 从 0 到 1
 
 * 设置编辑器为中文：Cocos Creator -> Preferences -> General -> Language
 * 设置编辑器的打开程序为 VS Code：Cocos Creator -> 偏好设置 -> 外部程序 -> 默认脚本编辑器
