@@ -55,6 +55,8 @@ https://wzf1997.github.io/learn-visualization/blog/person/chooseGrapic.html#%E5%
 * 设置编辑器为中文：Cocos Creator -> Preferences -> General -> Language
 * 设置编辑器的打开程序为 VS Code：Cocos Creator -> 偏好设置 -> 外部程序 -> 默认脚本编辑器
 
+这样，我们就可以使用中文编辑器，同时在使用脚本的时候，双击 TS 文件可以打开 VS Code。
+
 ### 如何设置打开的目录为 VS Code
 
 1. 打开 Cocos Creator，在 assets 上新建 foo.ts，此时双击打开的是系统自带的播放器，打不开的
