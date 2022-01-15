@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2022-01-08 17:23:01**  
-> Recently revised in **2022-01-10 09:22:40**
+> Recently revised in **2022-01-15 17:49:12**
 
 每个大老粗的男人背后，总有一颗稚嫩的玩游戏的童心~
 
@@ -59,6 +59,9 @@ https://wzf1997.github.io/learn-visualization/blog/person/chooseGrapic.html#%E5%
 
 * Hello World 教程：https://docs.cocos.com/creator/manual/zh/getting-started/helloworld/
 * 一步两步教程：https://docs.cocos.com/creator/manual/zh/getting-started/first-game/
+
+TODO: 每次学习新技术都是阵痛，如果你不去学，那么你将 out
+TODO: 可以开始构建游戏世界，尝试表述你这个游戏的内容（是否能整个小说？有点意思）
 
 ### 如何设置打开的目录为 VS Code
 
