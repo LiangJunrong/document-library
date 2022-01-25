@@ -1,10 +1,23 @@
-Node 系列
+Node 客服系统
 ===
 
-> Create by **jsliang** on **2021-05-12 11:00:03** 
-> Recently revised in **2022-01-25 22:05:05**
+> Create by **jsliang** on **2022-01-25 22:17:28**  
+> Recently revised in **2022-01-25 22:17:28**
 
-通过系列教程，让大家能从 0 到 1 了解 Node，和回顾 Node 知识及其操作。
+## 一、需求背景
+
+## 二、TODO 清单
+
+* [ ] 搭建 Node 工具库基础
+  * [ ] 配置基础：Node 环境、TypeScript、ESLint 等
+  * [ ] commander.js
+  * [ ] color.js
+* [ ] 搭建 Node 服务
+  * [ ] Express
+  * [ ] Socket.io
+  * [ ] 
+
+## 三、参考文献
 
 ---
 
