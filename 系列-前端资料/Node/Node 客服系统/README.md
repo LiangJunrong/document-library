@@ -26,6 +26,7 @@ Node 客服系统
   * [ ] node-xlsx 读取文件信息并设置自动回复关键字
   * [ ] Express + Socket.io 打造服务
   * [ ] Express 监听用户信息，如果客服在 5 分钟内未处理，通过 webhook 发送信息到企业微信
+  * [ ] 企业微信 webhook 信息通知
 
 ## 三、参考文献
 
