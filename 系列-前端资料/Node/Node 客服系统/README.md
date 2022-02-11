@@ -28,6 +28,30 @@ Node 客服系统
   * [ ] Express 监听用户信息，如果客服在 5 分钟内未处理，通过 webhook 发送信息到企业微信
   * [ ] 企业微信 webhook 信息通知
 
+## webhook 机器人
+
+对于 webhook 机器人，想必使用过「企业微信」「飞书」「钉钉」的小伙伴都不陌生，他们的对接文档：
+
+* 企业微信：https://developer.work.weixin.qq.com/document/path/91770
+* 飞书：https://www.feishu.cn/hc/zh-CN/articles/360024984973
+* 钉钉：https://open.dingtalk.com/document/group/custom-robot-access
+
+哪家先整出来的咱就不考察了，咱们来看下它的使用吧！
+
+因为 **jsliang** 就用过企微，那咱们就用这个吧，下载软件后，咱们创建一个个人团队：
+
+TODO: 此处应有手机端创建过程
+
+然后新增一个 webhook 机器人：
+
+TODO: 此处应有创建过程
+
+很奇怪的是，我在 PC 端没有找到 webhook 机器人的创建过程，不知道是不是只有移动端才能创建。
+
+不管了，开始整活！
+
+
+
 ## 三、参考文献
 
 ---
