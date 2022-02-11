@@ -63,7 +63,6 @@ TODO: 此处应有创建过程
 如果小伙伴需要联系 **jsliang**：
 
 * [Github](https://github.com/LiangJunrong/document-library)
-* [掘金](https://juejin.im/user/3403743728515246)
 
 个人联系方式存放在 Github 首页，欢迎一起折腾~
 
