@@ -33,7 +33,7 @@ Hello 小伙伴们早上、中午、下午、晚上、深夜好，我是 **jslia
 
 当然，除此之外，**jsliang** 会将这系列内容整理成视频，方便小伙伴们观看学习，感兴趣的可以在 GitHub 首页找到追更 **jsliang** 的方式~
 
-* [Github](https://github.com/LiangJunrong/document-library)
+* [Github - LiangJunrong/document-library/](https://github.com/LiangJunrong/document-library)
 
 ## 参考文献
 
