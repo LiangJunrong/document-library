@@ -715,7 +715,7 @@ npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm
 
 当然，因为国内网络环境的原因，有些时候通过 npm 下载包，可能会很慢或者直接卡断，这时候就要安装淘宝的 npm 镜像：cnpm
 
-* `npm install -g cnpm --registry=https://registry.npm.taobao.org`
+* `npm install -g cnpm --registry=https://registry.npmmirror.com`
 
 ### <a name="chapter-three-five" id="chapter-three-five">3.5 fs 文件管理</a>
 
