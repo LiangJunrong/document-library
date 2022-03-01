@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2022-03-01 23:47:42**  
-> Recently revised in **2022-03-01 23:47:42**
+> Recently revised in **2022-03-02 01:35:52**
 
 * 本篇文档对应的代码：https://github.com/LiangJunrong/all-for-one/tree/master/037-Docker%20for%20Puppeteer
 * Docker 系列文档：https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E5%89%8D%E7%AB%AF%E8%B5%84%E6%96%99/Node/Node%20%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2
@@ -158,11 +158,35 @@ CMD ["yarn", "run", "robot"]
 
 ## 四、启动服务
 
-**注意**：强烈建议先切换镜像，否则下载内容会非常慢，之前我在公司操作还行，回来自己挂科学上网也整了好久。
+**注意**：强烈建议先切换镜像，否则下载内容会非常慢，之前我在公司操作还行，回来自己挂科学上网也整了好久（3000s）。
 
-修改镜像方法：[03 - 入门 & 概念解疑]()
+修改镜像方法：[03 - 入门 & 概念解疑](https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E5%89%8D%E7%AB%AF%E8%B5%84%E6%96%99/Node/Node%20%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2/Docker/03-%E8%A7%A3%E7%96%91%20%26%20Docker%20%E6%A6%82%E5%BF%B5.md)
 
-* 创建镜像
+* 创建镜像（Image）：`docker image build ./ -t docker-node:1.0.0`
+
+![图](./img/Docker-demo-27.jpg)
+
+* 创建容器（Container）：`docker container create -p 3333:80 docker-node:1.0.0`
+* 启动容器（Container）：`docker restart dd420fc4267ad3bdb9eadfdbf37d89e2592dbc9d030a501b96fe10b07ac565ff`
+* 查看容器（Container）运行情况：`docker ps -a`
+* 查看容器（Container）的日志：`docker logs -f dd420fc4267a`
+* 进入容器（Container）：`docker exec -it dd420fc4267a bash`
+* 前往目录：`cd src/source`
+* 查看目录内容：`ls`
+
+可以看到，我们已经有几张截图了：
+
+![图](./img/Docker-demo-28.jpg)
+
+使用前面学习的方法，将容器的内容拷贝出来，并查看下：`docker cp f5000c4a530b:/home/docker/we_render/src/source E:\MyWeb\all-for-one `
+
+![图](./img/Docker-demo-29.png)
+
+虽然不懂 ？？？ 是什么鬼，但是好歹能正常运转了！
+
+那么，我们将 Puppeteer 塞到 Docker 上就成功啦，剩下的只需要将时区和 Hosts 设置下就可以了，这里就不一一赘述了。
+
+我是 **jsliang**，一个充满探索欲，喜欢折腾，乐于扩展自己知识面的终身学习横杠程序员，让我们一起来折腾探索吧！
 
 ---
 
