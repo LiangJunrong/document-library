@@ -33,6 +33,11 @@ Hello 小伙伴们早上、中午、下午、晚上、深夜好，我是 **jslia
 
 ## 参考文献
 
+* [Docker 官网](https://www.docker.com/get-started)
+* [菜鸟教程 - Docker 教程](https://www.runoob.com/docker/docker-tutorial.html)
+* [Docker - 从入门到实践](https://yeasy.gitbook.io/docker_practice/)
+* [掘金 - 花生Peadar - 写给前端的Docker实战教程](https://juejin.cn/post/6844903946234904583)
+
 ### Docker 概念
 
 * [华为云 - 什么是 Dockerfile](https://www.huaweicloud.com/zhishi/edu-arc-yys28.html)
@@ -44,7 +49,10 @@ Hello 小伙伴们早上、中午、下午、晚上、深夜好，我是 **jslia
 * [Andy_Lee - 可能是把 Docker 的概念讲的最清楚的一篇文章](http://dockone.io/article/6051)
 * [华为云 - 崔云龙 - 什么是 Docker 容器？](https://info.support.huawei.com/info-finder/encyclopedia/zh/Docker%E5%AE%B9%E5%99%A8.html)
 * [Docker — 从入门到实践](https://yeasy.gitbook.io/docker_practice/basic_concept/container)
-
+* [腾讯云 - xcbeyond - Docker是如何实现隔离的](https://cloud.tencent.com/developer/article/1647535)
+* [CSDN - 布吉_岛 - Dockerfile如何编写（指令详解）](https://blog.csdn.net/zx110503/article/details/103480514)
+* [SegmentFault - 时间被海绵吃了 - Docker: 编写 dockerfile 启动 node.js 应用](https://segmentfault.com/a/1190000017946741)
+* [CSDN - 杭州小哥哥 - 查看docker版本命令docker version](https://blog.csdn.net/W_317/article/details/104363979)
 
 ### 入门 & Node 服务
 
@@ -59,6 +67,17 @@ Hello 小伙伴们早上、中午、下午、晚上、深夜好，我是 **jslia
 * [Setting the timezone](https://wiki.alpinelinux.org/wiki/Setting_the_timezone)
 * [CSDN - 秋雨雁南飞 - Docker For Window 设置时区](https://blog.csdn.net/czjnoe/article/details/114273552)
 * [CSDN - self321 - Docker内时区查询和修改方法](https://blog.csdn.net/self321/article/details/110388000)
+* [Docker - 从入门到实践 - 删除本地镜像](https://yeasy.gitbook.io/docker_practice/image/rm)
+* [知乎 - 老土豆 - Docker 解决代码更新后同镜像（images）的同步问题](https://zhuanlan.zhihu.com/p/366271256)
+* [CSDN - 灬点点 - Docker删除容器与镜像](https://blog.csdn.net/qq_32447301/article/details/79387649)
+* [掘金 - 翛云 - puppeteer cluster 相关docker镜像构建](https://juejin.cn/post/6968335094842916901)
+* [菜鸟教程 - Docker cp 命令](https://www.runoob.com/docker/docker-cp-command.html)
+
+### 入门 & Puppeteer 服务
+
+* [How to Run Puppeteer and Headless Chrome in a Docker Container](https://www.cloudsavvyit.com/13461/how-to-run-puppeteer-and-headless-chrome-in-a-docker-container/)
+* [在 nodejs 中使用 puppeteer 并通过 docker 部署](https://blog.mapleque.com/posts/tool/puppeteer/js-puppeteer-docker/)
+* [GitHub - Puppeteer - Running Puppeteer in Docker](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker)
 
 ---
 
