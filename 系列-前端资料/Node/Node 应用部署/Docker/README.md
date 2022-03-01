@@ -4,6 +4,33 @@ Docker
 > Create by **jsliang** on **2022-02-28 08:40:59**  
 > Recently revised in **2022-02-28 19:55:30**
 
+* Docker 系列文档：https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E5%89%8D%E7%AB%AF%E8%B5%84%E6%96%99/Node/Node%20%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2
+
+Hello 小伙伴们早上、中午、下午、晚上、深夜好，我是 **jsliang**，一个充满探索欲，喜欢折腾，乐于扩展自己知识面的终身学习横杠程序员。
+
+本系列文章将以一个萌新的角度，从 0 入门，从安装 Docker，到将 Nginx、Node.js 以及 Puppeteer 服务部署到 Docker 中。
+
+当然，写这篇文章是因为有个工作场景：
+
+* 需要部署一个 Node.js + TypeScript + Puppeteer 的服务到 Docker 中，避免和工作机的开发环境 Hosts 相冲突
+
+所以，它的使用场景是比较局限的，**仅仅是为了在局域网开启一个服务而已**！
+
+如果小伙伴希望能出全自动化系列：**本地编写 Git 仓库代码，然后 push 到 GitHub 后，走 CI/CD 并更新到服务器……**
+
+欢迎催更，如果人多或者我有空会再进一步更新，否则我可能有点小小拖更~
+
+话归正题，本系列主要内容：
+
+* 01 - 下载 & 安装
+* 02 - 入门 & Nginx 服务
+* 03 - 解疑 & Docker 概念
+* 04 - 入门 & Node 服务
+* 05 - 解疑 & Docker 指令
+* 06 - 入门 & Puppeteer 服务
+
+> 全系列 Docker 文章可以前往 GitHub，微信用户可以点击文末【阅读原文】查看：https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E5%89%8D%E7%AB%AF%E8%B5%84%E6%96%99/Node/Node%20%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2
+
 ## 参考文献
 
 ### Docker 概念
@@ -22,6 +49,16 @@ Docker
 ### 入门 & Node 服务
 
 * [博客园 - 刘哇勇 - Docker 部署 Node 应用](https://www.cnblogs.com/Wayou/p/14901465.html)
+
+### 解疑 & Docker 指令
+
+* [掘金 - lcb8816 - alpine的Docker镜像使用避坑汇总](https://juejin.cn/post/6850418112237502472)
+* [CSDN - 童安格粉丝 - 如何解决Docker容器和宿主机时间同步问题](https://blog.csdn.net/a1010256340/article/details/80269508)
+* [腾讯云 - 雪梦科技 - Docker 时区调整方案](https://cloud.tencent.com/developer/article/1626811)
+* [博客园 - mosakashaka - Docker For Windows时间不对的问题](https://www.cnblogs.com/mosakashaka/p/12609228.html)
+* [Setting the timezone](https://wiki.alpinelinux.org/wiki/Setting_the_timezone)
+* [CSDN - 秋雨雁南飞 - Docker For Window 设置时区](https://blog.csdn.net/czjnoe/article/details/114273552)
+* [CSDN - self321 - Docker内时区查询和修改方法](https://blog.csdn.net/self321/article/details/110388000)
 
 ---
 
