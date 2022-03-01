@@ -188,6 +188,8 @@ RUN apk add --no-cache tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/local
 
 所以这些只能多敲多熟悉，我之前尝试过几天没敲，回头就忘了，所以整理成这篇文章方便自己和大家回顾。
 
+敬请期待下篇：06 - 入门 & Puppeteer 服务
+
 ---
 
 **不折腾的前端，和咸鱼有什么区别！**
