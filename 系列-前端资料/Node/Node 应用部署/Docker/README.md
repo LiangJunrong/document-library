@@ -2,7 +2,7 @@ Docker
 ===
 
 > Create by **jsliang** on **2022-02-28 08:40:59**  
-> Recently revised in **2022-03-02 01:54:15**
+> Recently revised in **2022-03-02 02:03:46**
 
 * Docker 系列文档：https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E5%89%8D%E7%AB%AF%E8%B5%84%E6%96%99/Node/Node%20%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2
 
@@ -30,6 +30,10 @@ Hello 小伙伴们早上、中午、下午、晚上、深夜好，我是 **jslia
 * 06 - 入门 & Puppeteer 服务
 
 > 全系列 Docker 文章可以前往 GitHub，微信用户可以点击文末【阅读原文】查看：https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E5%89%8D%E7%AB%AF%E8%B5%84%E6%96%99/Node/Node%20%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2
+
+当然，除此之外，**jsliang** 会将这系列内容整理成视频，方便小伙伴们观看学习，感兴趣的可以在 GitHub 首页找到追更 **jsliang** 的方式~
+
+* [Github](https://github.com/LiangJunrong/document-library)
 
 ## 参考文献
 
