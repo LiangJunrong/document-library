@@ -637,7 +637,7 @@ git worktree prune
 1. `git config --global --get http.proxy`
 1. `git config --global --get https.proxy`
 
-我拿现在用的科学上网代理软件，就设置了 `git config --global http.proxy http://127.0.0.1:10809`，Git 流畅度提升了挺多。
+我拿现在用的科学上网代理软件，就设置了 `git config --global http.proxy http://127.0.0.1:7890`，Git 流畅度提升了挺多。
 
 ### <a name="chapter-seven-two" id="chapter-seven-two"></a>7.2 切换分支
 
