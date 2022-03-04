@@ -49,7 +49,7 @@ Dockerfile 一般分为四部分：基础镜像信息、维护者信息、镜像
 | 中国科学技术大学 | https://docker.mirrors.ustc.edu.cn |
 | 阿里云 | https://<你的ID>.mirror.aliyuncs.com |
 
-**Mac 修改方式**：
+**Linux 修改方式**：
 
 1. 修改 Docker 镜像仓库配置：`sudo vim /etc/docker/daemon.json`
 2. 修改配置文件：
@@ -65,7 +65,7 @@ Dockerfile 一般分为四部分：基础镜像信息、维护者信息、镜像
 3. 使配置文件生效：`sudo systemctl daemon-reload` 
 4. 重启 Docker：`sudo service docker restart`
 
-**Windows 修改方式**：
+**Windows/Mac 修改方式**：
 
 ![图](./img/Docker-demo-05.png)
 
