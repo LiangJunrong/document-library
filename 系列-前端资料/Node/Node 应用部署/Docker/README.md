@@ -6,7 +6,7 @@ Docker
 
 * Docker 系列文档：https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E5%89%8D%E7%AB%AF%E8%B5%84%E6%96%99/Node/Node%20%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2
 
-Hello 小伙伴们早上、中午、下午、晚上、深夜好，我是 **jsliang**，一个充满探索欲，喜欢折腾，乐于扩展自己知识面的终身学习横杠程序员。
+Hello 小伙伴们早上、中午、下午、晚上、深夜好，我是 **jsliang**，一个充满探索欲，喜欢折腾，乐于扩展自己知识面的终身学习斜杠程序员。
 
 本系列文章将以一个萌新的角度，从 0 入门，从安装 Docker，到将 Nginx、Node.js 以及 Puppeteer 服务部署到 Docker 中。
 
@@ -95,6 +95,6 @@ Hello 小伙伴们早上、中午、下午、晚上、深夜好，我是 **jslia
 
 个人联系方式存放在 Github 首页，欢迎一起折腾~
 
-争取打造自己成为一个充满探索欲，喜欢折腾，乐于扩展自己知识面的终身学习横杠程序员。
+争取打造自己成为一个充满探索欲，喜欢折腾，乐于扩展自己知识面的终身学习斜杠程序员。
 
 > jsliang 的文档库由 [梁峻荣](https://github.com/LiangJunrong) 采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。<br/>基于 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library) 上的作品创作。<br/>本许可协议授权之外的使用权限可以从 [https://creativecommons.org/licenses/by-nc-sa/2.5/cn/](https://creativecommons.org/licenses/by-nc-sa/2.5/cn/) 处获得。
