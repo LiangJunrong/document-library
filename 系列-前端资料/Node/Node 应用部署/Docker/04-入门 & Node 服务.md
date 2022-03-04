@@ -59,7 +59,7 @@ schedule.scheduleJob('0 * * * * *', () => { // 设置定时任务
 // ……代码省略
 ```
 
-即打印一行文本，然后在每分钟的第 `0` 秒打印 **年月日时分秒**。
+即打印一行文本，然后在每分钟的第 `0` 秒打印 **年/月/日 时:分:秒**。
 
 感兴趣的小伙伴可以停下来先看下 Demo，不感兴趣的可以继续往下看。
 
@@ -163,7 +163,7 @@ CMD ["npm", "run", "robot"];
 
 * 进入容器（Container）：`docker exec -it dd420fc4267a bash`
   * `dd420fc4267a`：容器 ID，可通过 `docker ps -a` 查找到
-* 查看 README.md 文件：`cat -n README.md`
+* 查看 `README.md` 文件：`cat -n README.md`
   * `cat`：cat（英文全拼：concatenate）命令用于连接文件并打印到标准输出设备上
   * `-n`：由 1 开始对所有输出的行数编号
 
