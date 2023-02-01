@@ -372,10 +372,290 @@ shell.exec('pnpm run B');
 
 ## 实例项目：迁移 Vue v2.x 项目到 Vite 新项目
 
+### 前言
 
+在公司项目中，有个 Vue v2.x 版本的项目，希望从中迁移 2 个模块出来。
+
+然后因为旧项目的打包流程过于复杂，牵扯了一些没必要的元素。
+
+所以新项目希望整一个干净的流程，单独打 2 个 JS 包出来，项目结构大致如下：
+
+```
+- 新项目
+ - src
+  - A 包
+  - B 包
+```
+
+确认过眼神，是熟悉的人，即【简单项目：通过 Vite 打包 lib 仓库】中探索的内容。
+
+这里咱们将讲下折腾过程中，**jsliang** 的探索和思考，给后续小伙伴提供思路。
+
+### 迁移 - Vue CLI 方案
+
+通过 Vue CLI 的构建，可以查看：https://cli.vuejs.org/zh/guide/build-targets.html
+
+我们新旧的构建方案对比如下：
+
+> package.json
+
+```js
+"scripts": {
+  "build-new": "vue-cli-service build --target lib --inline-vue --name FullTextCommentPc src/main.js",
+  "build": "vue-cli-service build",
+},
+```
+
+自带的是 `npm run build`，打包的内容如下：
+
+![图](./img/10.png)
+
+这种打包方式不太符合我们的需求，因为这个插件，应该是单入口的，最终目录是这样的：
+
+```
+- 文件夹 A
+  - A.entry.js
+  - info.json
+- 文件夹 B
+  - B.entry.js
+  - info.json
+```
+
+所以参考链接，将打包改为：`vue-cli-service build --target lib --inline-vue --name FullTextCommentPc src/main.js`，这样就可以打包出来：
+
+![图](./img/11.png)
+
+### 迁移 - Vite 方案
+
+这种打包出来的结构，已经很像了，仍需要调整文件名包含 `entry` 和添加 `mainfest.json` 文件。
+
+这种情况下，感觉探索 Vue CLI + Webpack 方式，跟用 Vite 差不多了。
+
+而猎奇的我，肯定要去耍耍 Vite。
+
+### 报错 - import Vue from 'vue'
+
+迁移首个困难：
+
+![图](./img/12.png)
+
+```
+1: import Vue from 'vue'
+          ^
+2: import main from './main.vue'
+error during build:
+RollupError: "default" is not exported by "node_modules/.pnpm/vue@3.2.45/node_modules/vue/dist/vue.runtime.esm-bundler.js", imported by "src/components/FullTextCommentPc.js".
+```
+
+震惊！什么，`import Vue from 'vue'` 还能报错，你是不是跟我开玩笑？
+
+然后我就去傻傻地搜：`RollupError: "default" is not exported by ……`
+
+您猜怎么着，翻了 1 个多小时，一点头绪都没有。
+
+![图](./img/13.png)
+
+搞得我下班的时候还是檬茶茶的，带着困惑下班了。
+
+### 思考 - 究竟哪里犯错了
+
+回来后我就在纠结了，前面看到了很多冗余消息，例如：
+
+* Vite 上 yyx 说 `import Comp from 'comp.vue'` 才是真实写法，之前的 `import Comp from 'comp'` 其实并不支持……（Issue 上看到的，别纠结，纠结就是你赢）
+* Vue 并没有默认导出，我看了下 `vue.d.ts` 确实如此
+
+![图](./img/14.png)
+
+* Vite 上用 `import a from 'a.js'` 这种形式需要装一个 `commonjs` 的包，并配置 `vite.config.js`（其实搜到这里我已经迷糊了，连自己要什么都不清楚了）
+
+![图](./img/15.png)
+
+* ……
+
+回来后镇定思痛，感觉还是要从 “版本” 2 字找起，因为我想起之前玩 Webpack v4.x 的时候，也是这么被愚弄的。
+
+所以我搜了下 Vite + Vue 2.x 的说法，还真找到了：
+
+* [Vite 官方中文文档 - Vue](https://cn.vitejs.dev/guide/features.html#vue)
+* [GitHub - vitejs - vite-plugin-vue2](https://github.com/vitejs/vite-plugin-vue2)
+
+好家伙，原来尽在文档……（其实这里很困惑，上面报错的时候，是不是可以指引下降低版本的信息，而不是直接来个 `"default" is not exported by`？）
+
+### 释疑 - 总有一个版本适合你
+
+操作方法很简单：
+
+* **首先**，删包，把你的 `node_modules` 删掉。
+* **然后**，按照下面版本，修改 `package.json`：
+
+![图](./img/16.png)
+
+```json
+"dependencies": {
+  "@vitejs/plugin-vue2": "^2.2.0",
+  "vue": "^2.7.0"
+},
+"devDependencies": {
+  "vite": "^4.0.0"
+}
+```
+
+* 接着，重新装包 `pnpm i`
+
+这里需要注意一点：`@vitejs/plugin-vue2` 的包，只支持 `Vue` 的 `^2.7.0` 版本：
+
+> Note: this plugin only works with Vue@^2.7.0.
+
+详细可以看上面提到的 GitHub 仓库，里面有强调。
+
+* 最后，修改下 `vite.config.js`：
+
+![图](./img/17.png)
+
+我们需要用 `plugin-vue2` 替换掉 `plugin-vue` 插件。
+
+再运行 `pnpm run build`，打包成功，搞定收工！
+
+### 优化 - 我不需要 index.html
+
+OK，打包报错的问题解决了，下面开始操作，让它剩下单入口：
+
+```
+- 文件夹 A
+  - A.entry.js
+  - info.json
+- 文件夹 B
+  - B.entry.js
+  - info.json我们继续操作，权当先打通 文件夹 A
+```
+
+这里我们参考：
+
+* [掘金 - 孤独的根号3 - vite打包lib库](https://juejin.cn/post/7073646687968821256)
+
+这时候修改 `vue.config.js` 为：
+
+```js
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue2'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  // 使用的插件
+  plugins: [vue()],
+  build: {
+    lib: {
+      // 设置入口文件
+      entry: 'src/main.js',
+      // 打包后的包名称
+      name: 'A',
+      // 打包后的文件名
+      fileName: (format) => `A.entry.${format}.js`,
+    }
+  },
+})
+```
+
+打包 `pnpm run build`：
+
+![图](./img/18.png)
+
+似乎可行！添加一个 `index.html` 试试：
+
+> dist/index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>测试</title>
+  <script src="./A.entry.umd.js"></script>
+</head>
+<body>
+  Hello jsliang
+</body>
+</html>
+```
+
+运行：
+
+* 前往目录：`cd dist`
+* 运行项目：`live-server`
+* 打开 `127.0.0.1:8080`，控制台报错：
+
+![图](./img/19.png)
+
+![图](./img/20.png)
+
+OK，报错 `process is not defined`，并且导向 `process.env`。
+
+这个问题，在 [Vite 导向](https://cn.vitejs.dev/guide/migration-from-v2.html#advanced) 的时候，#8090 有所表示：
+
+![图](./img/21.png)
+
+查看对应的 ISSUE：
+
+![图](./img/22.png)
+
+所以，还需要再次修改 `vite.config.js`：
+
+![图](./img/23.png)
+
+它的最终代码：
+
+```js
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue2'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  // 使用的插件
+  plugins: [vue()],
+  build: {
+    lib: {
+      // 设置入口文件
+      entry: 'src/main.js',
+      // 打包后的包名称
+      name: 'A',
+      // 打包后的文件名
+      fileName: (format) => `A.entry.${format}.js`,
+    }
+  },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+  },
+})
+```
+
+搞定收工，又解决了一个难题~
+
+### 对比 - Vite 对比 Vue CLI
+
+我们拿前面的打包数据查看：
+
+![图](./img/24.png)
+
+![图](./img/25.png)
+
+发现经过 Vite 打包，确实减轻了构建大小？
+
+这里无法给出明确判断，本来想找个 Vue v2.x 的 GitHub 项目试试水，来验证下的。
+
+但是怕小伙伴们没兴趣，所以就浅尝而止吧，在我单项目上是 OK 的。
+
+如果小伙伴们在打包构建时碰到问题，可以私聊 **jsliang** 大家一起折腾下。
+
+> 个人联系方式 WX：Liang123Gogo
 
 ## 参考文献
 
+* [Vite 官方中文文档 - Vue](https://cn.vitejs.dev/guide/features.html#vue)
+* [GitHub - vitejs - vite-plugin-vue2](https://github.com/vitejs/vite-plugin-vue2)
+* [掘金 - 孤独的根号3 - vite打包lib库](https://juejin.cn/post/7073646687968821256)
+* [Vite 导向](https://cn.vitejs.dev/guide/migration-from-v2.html#advanced)
 * [Vite Issue - Multiple entry points/output in library mode? #1736](https://github.com/vitejs/vite/discussions/1736)
 * [Vite Discussions - vite lib multiple outputs](https://github.com/vitejs/vite/discussions/11843)
 
