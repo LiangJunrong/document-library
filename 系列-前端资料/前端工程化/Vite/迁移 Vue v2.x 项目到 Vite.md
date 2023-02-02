@@ -2,7 +2,7 @@
 ===
 
 > Create by **jsliang** on **2023-01-28 08:36:31**  
-> Recently revised in **2023-01-28 08:36:31**
+> Recently revised in **2023-02-02 08:41:23**
 
 人生无常，大肠包小肠~
 
@@ -12,31 +12,39 @@
 
 ![图](./img/01.png)
 
-## 前言
+**警告**：本文有 1.9w+ 字，35 张图片，10 个以上报错及其解决方式，1 个 Demo 和 1 个项目实例
+
+## 一 前言
 
 Hello 小伙伴们早上、中午、下午、晚上、深夜好，我是 **jsliang**。
 
 本次「迁移 Vue v2.x 项目到 Vite」将分为 2 个部分：
 
-1. 以一个简单项目，进行 Vite 快速入手
-2. 在实例项目迁移，对比 Vue CLI 和 Vite 以及碰到的问题。
+1. 以一个简单 Demo，进行 Vite 快速入手（同时也是补充完善实例项目未解决的问题）
+2. 对实例项目迁移，对比 Vue CLI 和 Vite，以及 Vite 构建中碰到的问题。
 
-## 简单项目：通过 Vite 打包 lib 仓库
+**本文更倾向于随手可查工具文**，就好比之前写过的 Webpack 4 文章一样，它很快会石沉大海，但是我们将碰到的问题都反馈出来后，会让后面的人少跑弯路，这是很棒的事情。
+
+小伙伴们如果碰到文章同样问题，想咨询当时细节，可 WX: Liang123Gogo。
+
+感谢你的点赞和关注支持~
+
+## 二 简单 Demo：通过 Vite 打包 lib 仓库
 
 下面开始保姆级教学，从 0 到 1 构建 Vite 项目，并处理打包问题。
 
-前面及步骤略简单，小伙伴可选择跳读
+前面及步骤略简单，小伙伴可选择跳读。
 
 本小节的代码仓库：[all-for-one/039-迁移 Vue v2.x 项目到 Vite/](https://github.com/LiangJunrong/all-for-one/tree/master/039-%E8%BF%81%E7%A7%BB%20Vue%20v2.x%20%E9%A1%B9%E7%9B%AE%E5%88%B0%20Vite)
 
-### 步骤一：创建项目
+### 2.1 步骤一：创建项目
 
 * 安装 PNPM：`npm i pnpm -g`
 * 通过 PNPM 创建 Vite + Vue 项目：`pnpm create vite jsliang-plugin --template vue`
   * 创建 Vite 项目：`pnpm create vite`
   * 创建 Vite + Vue TypeScript 项目：`pnpm create vite jsliang-vue-plugin --template vue-ts`
 
-### 步骤二：初始化并运行
+### 2.2 步骤二：初始化并运行
 
 * 安装 node_modules：`pnpm i`
 * 运行项目：`pnpm run dev`
@@ -62,7 +70,7 @@ Hello 小伙伴们早上、中午、下午、晚上、深夜好，我是 **jslia
 },
 ```
 
-### 步骤三：修改端口
+### 2.3 步骤三：修改端口
 
 一般 Vite + Vue 提供的端口是，像我这么靓的靓仔，肯定要 `8888`。
 
@@ -87,7 +95,7 @@ export default defineConfig({
 
 这时候再启动 `pnpm run dev`，就能看到相应的端口有变更了。
 
-### 步骤四：清场搞事
+### 2.4 步骤四：清场搞事
 
 该做的事我们都做了，下面我们把 `src` 目录下所有代码删除，留下一个干净的 Vue 仓库。
 
@@ -102,7 +110,7 @@ export default defineConfig({
 3. 接着走 `a/a.vue` 或者 `b/b.vue`
 4. 最后走 `utils/c.js` 这个公共模块
 
-### 步骤五：补充代码
+### 2.5 步骤五：补充代码
 
 下面我们补充代码，使其最终展示如下：
 
@@ -202,9 +210,7 @@ export const c = () => {
 
 > 这里就省略了，可以拷贝过去简单改改
 
-### 步骤六：库模式和单入口单出口打包
-
-我们需要完成的最终目标是：**多入口多出口打包**。
+### 2.6 步骤六：库模式和单入口单出口打包
 
 当前，我们执行 `pnpm run build`，产生的打包文件为：
 
@@ -222,7 +228,9 @@ export const c = () => {
     - c.xxx.js
 ```
 
-所以，就需要修改 `vite.config.js`：
+所以，我们需要逐步靠拢这个目标，这里我们要先行第一步。
+
+先修改 `vite.config.js`：
 
 > vite.config.js
 
@@ -253,7 +261,7 @@ export default defineConfig({
 
 从而实现了单入口单出口打包。
 
-### 步骤六：库模式和多仓库打包
+### 2.7 步骤六：库模式和多仓库打包
 
 其实上面步骤，我们发觉应该是同时走 2 个入口，然后打包出 2 个文件夹出来。
 
@@ -312,7 +320,7 @@ export default defineConfig({
 
 经小伙伴 `sapphi-red` 的提醒，我也是意识到这种还是需要依靠外挂。
 
-> 在对 Vite 和 Rollup 不想深入了解的情况下，我们应该把关注点放在解决问题上
+> 在自身对 Vite 和 Rollup 不想深入了解的情况下，我们应该把关注点放在解决问题上
 
 于是开始修改代码。
 
@@ -366,13 +374,11 @@ shell.exec('pnpm run A');
 shell.exec('pnpm run B');
 ```
 
-这样，我们就搞定了单独打包：
+这样，我们就搞定了多仓库分别单独打包：
 
 ![图](./img/09.png)
 
-## 实例项目：迁移 Vue v2.x 项目到 Vite 新项目
-
-### 前言
+## 三 实例项目：迁移 Vue v2.x 项目到 Vite 新项目
 
 在公司项目中，有个 Vue v2.x 版本的项目，希望从中迁移 2 个模块出来。
 
@@ -389,11 +395,11 @@ shell.exec('pnpm run B');
 
 确认过眼神，是熟悉的人，即【简单项目：通过 Vite 打包 lib 仓库】中探索的内容。
 
-这里咱们将讲下折腾过程中，**jsliang** 的探索和思考，给后续小伙伴提供思路。
+这里咱们将讲下折腾过程中，**jsliang** 的探索和思考，在过程中碰到的问题和解决方案，给后续小伙伴开发提供思路。
 
-### 迁移 - Vue CLI 方案
+### 3.1 迁移 - Vue CLI 方案
 
-通过 Vue CLI 的构建，可以查看：https://cli.vuejs.org/zh/guide/build-targets.html
+通过 Vue CLI 构建的方式，可以查看：https://cli.vuejs.org/zh/guide/build-targets.html
 
 我们新旧的构建方案对比如下：
 
@@ -425,15 +431,15 @@ shell.exec('pnpm run B');
 
 ![图](./img/11.png)
 
-### 迁移 - Vite 方案
+### 3.2 迁移 - Vite 方案
 
 这种打包出来的结构，已经很像了，仍需要调整文件名包含 `entry` 和添加 `mainfest.json` 文件。
 
-这种情况下，感觉探索 Vue CLI + Webpack 方式，跟用 Vite 差不多了。
+这种情况下，对于新手来说，感觉探索 Vue CLI + Webpack 方式，跟用 Vite 差不多了。
 
 而猎奇的我，肯定要去耍耍 Vite。
 
-### 报错 - import Vue from 'vue'
+### 3.3 报错 - import Vue from 'vue'
 
 迁移首个困难：
 
@@ -457,7 +463,7 @@ RollupError: "default" is not exported by "node_modules/.pnpm/vue@3.2.45/node_mo
 
 搞得我下班的时候还是檬茶茶的，带着困惑下班了。
 
-### 思考 - 究竟哪里犯错了
+### 3.4 思考 - 究竟哪里犯错了
 
 回来后我就在纠结了，前面看到了很多冗余消息，例如：
 
@@ -481,7 +487,7 @@ RollupError: "default" is not exported by "node_modules/.pnpm/vue@3.2.45/node_mo
 
 好家伙，原来尽在文档……（其实这里很困惑，上面报错的时候，是不是可以指引下降低版本的信息，而不是直接来个 `"default" is not exported by`？）
 
-### 释疑 - 总有一个版本适合你
+### 3.5 释疑 - 总有一个版本适合你
 
 操作方法很简单：
 
@@ -516,7 +522,7 @@ RollupError: "default" is not exported by "node_modules/.pnpm/vue@3.2.45/node_mo
 
 再运行 `pnpm run build`，打包成功，搞定收工！
 
-### 优化 - 我不需要 index.html
+### 3.6 优化 - 我不需要 index.html
 
 OK，打包报错的问题解决了，下面开始操作，让它剩下单入口：
 
@@ -632,7 +638,7 @@ export default defineConfig({
 
 搞定收工，又解决了一个难题~
 
-### 对比 - Vite 对比 Vue CLI
+### 3.7 对比 - Vite 对比 Vue CLI
 
 我们拿前面的打包数据查看：
 
@@ -648,9 +654,202 @@ export default defineConfig({
 
 如果小伙伴们在打包构建时碰到问题，可以私聊 **jsliang** 大家一起折腾下。
 
-> 个人联系方式 WX：Liang123Gogo
+## 四 问题及其处理方式
 
-## 参考文献
+### 4.1 PNPM 安装报错
+
+在执行 `pnpm i` 的时候，报错：`@xxx/xx is not in the npm registry, or you have no permission to fetch it`。
+
+这种情况下可能是因为你迁移的项目，有使用到私服 NPM，可以修改仓库源达成目的。
+
+> .npmrc
+
+```
+sass_binary_site="https://npm.taobao.org/mirrors/node-sass/"
+phantomjs_cdnurl="http://cnpmjs.org/downloads"
+electron_mirror="https://npm.taobao.org/mirrors/electron/"
+profiler_binary_host_mirror="https://npm.taobao.org/mirrors/node-inspector/"
+chromedriver_cdnurl="https://cdn.npm.taobao.org/dist/chromedriver"
+```
+
+### 4.2 TypeScript 引用报错：找不到模块
+
+报错提示：`找不到模块 xx 或其相应的类型声明`。
+
+![图](./img/26.png)
+
+这种情况之前构建 Node.js + TypeScript 项目中也解释过，要补充 `jsconfig.json`：
+
+> jsconfig.json
+
+```json
+{  
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@utils/*": ["utils/*"],
+    }
+  },
+  "exclude": ["node_modules", "dist"],
+  "include": ["src"]
+}
+```
+
+### 4.3 报错：Component name "main" should always be multi-word
+
+* 报错截图：
+
+![图](./img/27.png)
+
+* 修复方式：
+
+![图](./img/28.png)
+
+直接修改 `vue.config.js`，添加 `lintOnSave: false`
+
+### 4.4 WARN：Issue with peer dependencies founc
+
+![图](./img/29.png)
+
+简单来说，你可以暂时忽略这玩意，对当前项目不会有影响。
+
+这个提示是想告诉你：
+
+* NPM、PNPM 本身没有很好的办法去解决库当中版本依赖不一致的问题，所以会有警告提示你，让你去升级包或者插件
+
+当然，如果你不了解这些包的引用背景，那就不要管它，毕竟有时候不同版本解决不同问题，尤其是 Windows 用户会深有体会。
+
+### 4.5 TypeScript 类型报错：类型 Window 不存在属性
+
+![图](./img/30.png)
+
+可以在全局上，添加 `vite-env.d.ts`：
+
+```js
+// declare 的意思是告诉编辑器我知道 Windows 是啥类型
+declare interface Window {
+  APP: any,
+}
+```
+
+当然，也可以一开始创建项目的时候，直接生成 TypeScript 的：
+
+* 创建 Vite + Vue TypeScript 项目：`pnpm create vite airpage-vue-plugin --template vue-ts`
+
+### 4.6 TypeScript 类型声明报错：需要 Promise 构造函数
+
+![图](./img/31.png)
+
+设置方式，在 `jsconfig.json` 中添加 `lib` 声明：
+
+* 👉当 target 为 ES5 的时候，TS 会认为你的 TS 源码只使用 ES5 的 API，否则会如上报错。
+
+这里需要添加 `es2015.promise` 配置，同时需要添加其他配置，因为单单配置一个是不够的，例如 ES5 默认带 `dom`、`scripthost` 和 `es5` 三个 `lib`，如果改得剩下一个，TS 编译器还是会报错，不认识 ES5 和 DOM 的 API
+
+* 👉 `“--lib”` 选项的参数必须为 `'es5', 'es6', 'es2015', 'es7', 'es2016', 'es2017', 'es2018', 'es2019', 'es2020', 'esnext', 'dom', 'dom.iterable', 'webworker', 'webworker.importscripts', 'webworker.iterable', 'scripthost', 'es2015.core', 'es2015.collection', 'es2015.generator', 'es2015.iterable', 'es2015.promise', 'es2015.proxy', 'es2015.reflect', 'es2015.symbol', 'es2015.symbol.wellknown', 'es2016.array.include', 'es2017.object', 'es2017.sharedmemory', 'es2017.string', 'es2017.intl', 'es2017.typedarrays', 'es2018.asyncgenerator', 'es2018.asynciterable', 'es2018.intl', 'es2018.promise', 'es2018.regexp', 'es2019.array', 'es2019.object', 'es2019.string', 'es2019.symbol', 'es2020.bigint', 'es2020.promise', 'es2020.sharedmemory', 'es2020.string', 'es2020.symbol.wellknown', 'es2020.intl', 'esnext.array', 'esnext.symbol', 'esnext.asynciterable', 'esnext.intl', 'esnext.bigint', 'esnext.string', 'esnext.promise', 'esnext.weakref'`
+
+> jsconfig.json
+
+```json
+{  
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "scripthost",
+      "es5",
+      "es2015.promise",
+      "es2015.core",
+      "es2016",
+      "es2017",
+    ]
+  }
+}
+```
+
+### 4.7 JSDoc 注解声明
+
+* https://jsdoc.app/index.html
+
+看到个注解声明有点意思，声明一个函数废弃：
+
+![图](./img/32.png)
+
+![图](./img/33.png)
+
+### 4.8 报错：The following dependencies are imported but could not be resolved
+
+![图](./img/34.png)
+
+步骤一：修改 `vite.config.ts`：
+
+![图](./img/35.png)
+
+```js
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue2'
+import { resolve } from 'path';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  // 使用的插件
+  plugins: [vue()],
+  // 别名
+  resolve: {
+    alias: [{ find: '@', replacement: resolve(__dirname, 'src') }]
+  },
+})
+```
+
+步骤二：修改 `jsconfig.json`：
+
+```json
+{  
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@dialog/*": ["src/dialog/*"],
+    }
+  }
+}
+```
+
+### 4.9 报错：Preprocessor dependency "less" not found. Did you install it?
+
+安装 `less`（切记，因为 `less` 没有在代码中 `import`，所以将其放在 `devDependencies` 中）
+
+* `npm install less -D`
+
+### 4.10 报错："sanitize" is not exported by ... , imported by ...
+
+导出：
+
+```js
+function createDOMPurify() {
+  DOMPurify.sanitize = function (dirty) {
+  }
+  return DOMPurify;
+}
+
+var purify = createDOMPurify();
+
+export { purify as default };
+```
+
+引用：
+
+```js
+import { sanitize } from 'dompurify';
+sanitize('jsliang');
+```
+
+这种情况很坑，解决方案：
+
+1. 要么你换包
+2. 要么你提醒包作者修改导出方式
+3. 要么你直接修改包，并作为第三方包在项目中运行
+
+## 五 参考文献
 
 * [Vite 官方中文文档 - Vue](https://cn.vitejs.dev/guide/features.html#vue)
 * [GitHub - vitejs - vite-plugin-vue2](https://github.com/vitejs/vite-plugin-vue2)
@@ -658,6 +857,20 @@ export default defineConfig({
 * [Vite 导向](https://cn.vitejs.dev/guide/migration-from-v2.html#advanced)
 * [Vite Issue - Multiple entry points/output in library mode? #1736](https://github.com/vitejs/vite/discussions/1736)
 * [Vite Discussions - vite lib multiple outputs](https://github.com/vitejs/vite/discussions/11843)
+* [掘金 - 程序铺子 - npm中，你不了解的.npmrc文件](https://juejin.cn/post/6983522411647860766)
+* [SegmentFault - JS_Even_JS - tsconfig常用配置解析](https://segmentfault.com/a/1190000021421461)
+* [Vue CLI - 指南 - 构建目标](https://cli.vuejs.org/zh/guide/build-targets.html)
+* [Vite 官方中文文档 - 开始](https://cn.vitejs.dev/guide/)
+* [vite中解构导出或有bug?](https://49.235.250.38/question/ed21527509.html)
+* [bilibili - 飞叶_程序员 - vite项目不支持require语法怎么办？| 前端技术探索](https://www.bilibili.com/video/BV1eA4y1Q7zn)
+* [bilibili - 飞叶_程序员 - 你不需要三方plugin来支持require语法， vite对commonjs模块的处理](https://www.bilibili.com/video/BV1Ur4y1b7Um)
+* [GitHub - vitejs/awesome-vite](https://github.com/vitejs/awesome-vite#templates)
+* [掘金 - 熬夜的浪子 - PNPM 安装包时为什么会出现 missing peer xxx](https://juejin.cn/post/7146112383641976845)
+* [CSDN - 紫轩阁 - typeScript 上写window报any 类型“Window & typeof globalThis”上不存在属性“App”](https://blog.csdn.net/slice_93/article/details/127284669)
+* [掘金 - 为振挽伊琳 - ts中使用Promise中不识别问题](https://juejin.cn/post/6844903760280420359)
+* [JSDoc](https://jsdoc.app/index.html)
+* [bilibili - 【D1n910】项目迁移 Vue3.0 + Vite + typescript 踩31坑记录](https://www.bilibili.com/read/cv12129483?from=search)
+* [掘金 - anduinnwrynn - vite 尝鲜](https://juejin.cn/post/6919104746867556365)
 
 ---
 
