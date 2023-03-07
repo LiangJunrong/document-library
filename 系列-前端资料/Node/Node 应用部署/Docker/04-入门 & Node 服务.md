@@ -134,7 +134,7 @@ CMD ["npm", "run", "robot"];
 * 创建镜像（Image）：`docker image build ./ -t docker-node:1.0.0`
   * `docker image build`：创建镜像
   * `./`：基于当前目录
-  * `-t`：名称和可选的`Name:tag`格式的标记
+  * `-t`：通过 `Name:Tag` 形式，指定要创建的目标镜像名
   * `docker-node:1.0.0`：对应的镜像名称和 TAG
 
 ![图](./img/Docker-demo-08.png)
