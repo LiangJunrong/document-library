@@ -5,18 +5,17 @@ jsliang 的文档库
 
 ## 一、个人信息
 
-* **哔哩哔哩**：[jsliang95](https://space.bilibili.com/289377747)
+* **哔哩哔哩**：[「爱折腾的 jsliang95」](https://space.bilibili.com/289377747)
+* **个人微信**：**Liang123Gogo**
+
+![个人微信](./public-repertory/img/z-small-wechat.jpeg)
+
+* **微信前端群/理财群**：（已满 480 人，需要先加 **jsliang** 微信，审批后入群）
 * **微信公众号**：
 
 ![微信公众号](./public-repertory/img/z-index-small-small.png)
 
 > 【推荐】右侧公众号为 **浪子神剑** 公众号，对应 GitHub 存放：[前端面试每日3+1](https://github.com/haizlin/fe-interview)，以面试题来驱动学习，坚持每天学习与思考，每天进步一点！
-
-* **个人微信**：**Liang123Gogo**
-
-![个人微信](./public-repertory/img/z-small-wechat.jpeg)
-
-* **微信群**：（已满 100 人，需要先加 **jsliang** 微信，通知 **jsliang** 拉小伙伴你入群）
 
 ## 二、前言
 
