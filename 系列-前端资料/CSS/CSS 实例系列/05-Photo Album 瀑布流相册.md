@@ -354,7 +354,7 @@ window.onload = () => {
 
 其实就是照着「[Pexels](https://www.pexels.com/zh-cn/search/%E9%A3%8E%E6%99%AF/)」补充 CSS 细节：
 
-![图](./img/05-10.png)
+![图](./img/05-09.png)
 
 OK，这样我们本次的 CSS 之旅就完成啦！
 
