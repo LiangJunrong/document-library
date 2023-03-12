@@ -317,6 +317,31 @@ window.onload = () => {
 };
 ```
 
+接着我们稍微补充一点 CSS 即可：
+
+> index.css
+
+```css
+/* 相册主容器 */
+.photo-album {
+  display: flex;
+  width: 100%;
+}
+/* 相册列表 */
+.photo-list {
+  /* 防挤压 */
+  flex-shrink: 0;
+  width: calc(33% - 20px);
+  margin-left: 20px;
+}
+/* 自适应 */
+@media screen and (max-width: 1000px) {
+  .photo-list {
+    width: calc(50% - 30px);
+  }
+}
+```
+
 这样，我们就完成了瀑布流相册的雏形。
 
 ### 3.5 补充「亿」点点细节
