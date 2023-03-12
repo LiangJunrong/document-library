@@ -23,7 +23,7 @@ Hello 小伙伴们早上、中午、下午、晚上和深夜好，这里是 **js
 
 当然，**jsliang** 还贴心准备了视频教程，手把手带你逐步完成：
 
-* TODO: 视频链接
+* [同步视频](https://www.bilibili.com/video/BV1fY4y197UB)
 
 ## 一 前言
 
@@ -367,7 +367,7 @@ OK，这样我们本次的 CSS 之旅就完成啦！
 
 当然，**jsliang** 还贴心准备了视频教程，手把手带你逐步完成：
 
-* TODO: 视频链接
+* [同步视频](https://www.bilibili.com/video/BV1fY4y197UB)
 
 ## 四 参考文献
 
