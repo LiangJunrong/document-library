@@ -639,6 +639,8 @@ git worktree prune
 
 我拿现在用的科学上网代理软件，就设置了 `git config --global http.proxy http://127.0.0.1:7890`，Git 流畅度提升了挺多。
 
+> 注：Clash 如果不设置端口 `7890`，或者启动后设置失败，请重启尝试，只有 `7890` 才能访问
+
 ### <a name="chapter-seven-two" id="chapter-seven-two"></a>7.2 切换分支
 
 > [返回目录](#chapter-one)
